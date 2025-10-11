@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `hierarchy_group_id`
+        /// By `HierarchyGroupId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `hierarchy_group_id`
+        /// By `HierarchyGroupId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `hierarchy_group_id`
+        /// By `HierarchyGroupId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific hierarchy group by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `HierarchyGroupId` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific hierarchy group by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `HierarchyGroupId` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Connect
         public readonly string Arn;
         public readonly string HierarchyGroupId;
         /// <summary>
-        /// Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        /// Block that contains information about the levels in the hierarchy group. The `HierarchyPath` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserHierarchyGroupHierarchyPathResult> HierarchyPaths;
         /// <summary>

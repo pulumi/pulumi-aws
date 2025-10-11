@@ -66,14 +66,14 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
+     * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
+     * @return Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -156,14 +156,14 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -267,7 +267,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
+         * @param name Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
+         * @param name Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

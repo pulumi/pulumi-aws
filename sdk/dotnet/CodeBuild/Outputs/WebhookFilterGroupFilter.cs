@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class WebhookFilterGroupFilter
     {
         /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
+        /// If set to `True`, the specified filter does *not* trigger a build. Defaults to `False`.
         /// </summary>
         public readonly bool? ExcludeMatchedPattern;
         /// <summary>

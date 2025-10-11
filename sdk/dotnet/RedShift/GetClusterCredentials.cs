@@ -91,7 +91,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetClusterCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Create a database user with the name specified for the user named in `db_user` if one does not exist.
+        /// Create a database user with the name specified for the user named in `DbUser` if one does not exist.
         /// </summary>
         [Input("autoCreate")]
         public bool? AutoCreate { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.RedShift
         private List<string>? _dbGroups;
 
         /// <summary>
-        /// List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+        /// List of the names of existing database groups that the user named in `DbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
         /// </summary>
         public List<string> DbGroups
         {
@@ -115,13 +115,13 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
+        /// Name of a database that DbUser is authorized to log on to. If `DbName` is not specified, `DbUser` can log on to any existing database.
         /// </summary>
         [Input("dbName")]
         public string? DbName { get; set; }
 
         /// <summary>
-        /// Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn't exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
+        /// Name of a database user. If a user name matching `DbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `DbUser` doesn't exist in the database and `AutoCreate` is `True`, a new user is created using the value for `DbUser` with `PUBLIC` permissions.  If a database user matching the value for `DbUser` doesn't exist and `Not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
         /// </summary>
         [Input("dbUser", required: true)]
         public string DbUser { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetClusterCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Create a database user with the name specified for the user named in `db_user` if one does not exist.
+        /// Create a database user with the name specified for the user named in `DbUser` if one does not exist.
         /// </summary>
         [Input("autoCreate")]
         public Input<bool>? AutoCreate { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _dbGroups;
 
         /// <summary>
-        /// List of the names of existing database groups that the user named in `db_user` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
+        /// List of the names of existing database groups that the user named in `DbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
         /// </summary>
         public InputList<string> DbGroups
         {
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Name of a database that DbUser is authorized to log on to. If `db_name` is not specified, `db_user` can log on to any existing database.
+        /// Name of a database that DbUser is authorized to log on to. If `DbName` is not specified, `DbUser` can log on to any existing database.
         /// </summary>
         [Input("dbName")]
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn't exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
+        /// Name of a database user. If a user name matching `DbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `DbUser` doesn't exist in the database and `AutoCreate` is `True`, a new user is created using the value for `DbUser` with `PUBLIC` permissions.  If a database user matching the value for `DbUser` doesn't exist and `Not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
         /// </summary>
         [Input("dbUser", required: true)]
         public Input<string> DbUser { get; set; } = null!;
@@ -209,13 +209,13 @@ namespace Pulumi.Aws.RedShift
         public readonly ImmutableArray<string> DbGroups;
         public readonly string? DbName;
         /// <summary>
-        /// Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
+        /// Temporary password that authorizes the user name returned by `DbUser` to log on to the database `DbName`.
         /// </summary>
         public readonly string DbPassword;
         public readonly string DbUser;
         public readonly int? DurationSeconds;
         /// <summary>
-        /// Date and time the password in `db_password` expires.
+        /// Date and time the password in `DbPassword` expires.
         /// </summary>
         public readonly string Expiration;
         /// <summary>

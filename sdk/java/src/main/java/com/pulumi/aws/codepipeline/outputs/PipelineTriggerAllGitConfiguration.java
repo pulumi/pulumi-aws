@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipelineTriggerAllGitConfiguration {
     /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
      * 
      */
     private @Nullable List<PipelineTriggerAllGitConfigurationPullRequest> pullRequests;
@@ -32,7 +32,7 @@ public final class PipelineTriggerAllGitConfiguration {
 
     private PipelineTriggerAllGitConfiguration() {}
     /**
-     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+     * @return The field where the repository event that will start the pipeline is specified as pull requests. A `pullRequest` block is documented below.
      * 
      */
     public List<PipelineTriggerAllGitConfigurationPullRequest> pullRequests() {

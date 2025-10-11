@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration
     {
         /// <summary>
-        /// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        /// The token claim that you want Verified Permissions to interpret as group membership. For example, `Groups`.
         /// </summary>
         public readonly string GroupClaim;
         /// <summary>

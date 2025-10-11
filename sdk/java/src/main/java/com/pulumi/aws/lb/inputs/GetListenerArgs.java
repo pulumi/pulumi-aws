@@ -18,14 +18,14 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetListenerArgs Empty = new GetListenerArgs();
 
     /**
-     * ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+     * ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+     * @return ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -113,7 +113,7 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+         * @param arn ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
+         * @param arn ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
          * 
          * @return builder
          * 

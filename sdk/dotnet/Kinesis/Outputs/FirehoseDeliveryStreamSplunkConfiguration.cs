@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? HecEndpointType;
         /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? HecToken;
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly int? RetryDuration;
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
+        /// `SecretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration S3Configuration;
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;

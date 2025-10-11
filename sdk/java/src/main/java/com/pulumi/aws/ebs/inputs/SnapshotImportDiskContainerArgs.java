@@ -48,14 +48,14 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
     }
 
     /**
-     * The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+     * The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+     * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
      * 
      */
     public Optional<Output<String>> url() {
@@ -63,14 +63,14 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+     * The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
      * 
      */
     @Import(name="userBucket")
     private @Nullable Output<SnapshotImportDiskContainerUserBucketArgs> userBucket;
 
     /**
-     * @return The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+     * @return The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
      * 
      */
     public Optional<Output<SnapshotImportDiskContainerUserBucketArgs>> userBucket() {
@@ -147,7 +147,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param userBucket The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+         * @param userBucket The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param userBucket The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+         * @param userBucket The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
          * 
          * @return builder
          * 

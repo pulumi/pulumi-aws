@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     public sealed class GetResourcesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `IncludeComplianceDetails` argument is also set to `True`.
         /// </summary>
         [Input("excludeCompliantResources")]
         public bool? ExcludeCompliantResources { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private List<string>? _resourceArnLists;
 
         /// <summary>
-        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
+        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `Filter`.
         /// </summary>
         public List<string> ResourceArnLists
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private List<string>? _resourceTypeFilters;
 
         /// <summary>
-        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `Ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
         /// </summary>
         public List<string> ResourceTypeFilters
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private List<Inputs.GetResourcesTagFilterArgs>? _tagFilters;
 
         /// <summary>
-        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `ResourceArnList`.
         /// </summary>
         public List<Inputs.GetResourcesTagFilterArgs> TagFilters
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     public sealed class GetResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
+        /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `IncludeComplianceDetails` argument is also set to `True`.
         /// </summary>
         [Input("excludeCompliantResources")]
         public Input<bool>? ExcludeCompliantResources { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private InputList<string>? _resourceArnLists;
 
         /// <summary>
-        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
+        /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `Filter`.
         /// </summary>
         public InputList<string> ResourceArnLists
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private InputList<string>? _resourceTypeFilters;
 
         /// <summary>
-        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+        /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `Ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
         /// </summary>
         public InputList<string> ResourceTypeFilters
         {
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         private InputList<Inputs.GetResourcesTagFilterInputArgs>? _tagFilters;
 
         /// <summary>
-        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
+        /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `ResourceArnList`.
         /// </summary>
         public InputList<Inputs.GetResourcesTagFilterInputArgs> TagFilters
         {

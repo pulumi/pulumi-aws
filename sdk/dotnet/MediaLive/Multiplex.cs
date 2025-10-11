@@ -98,13 +98,13 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to start the Multiplex. Defaults to `false`.
+        /// Whether to start the Multiplex. Defaults to `False`.
         /// </summary>
         [Output("startMultiplex")]
         public Output<bool?> StartMultiplex { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to start the Multiplex. Defaults to `false`.
+        /// Whether to start the Multiplex. Defaults to `False`.
         /// </summary>
         [Input("startMultiplex")]
         public Input<bool>? StartMultiplex { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to start the Multiplex. Defaults to `false`.
+        /// Whether to start the Multiplex. Defaults to `False`.
         /// </summary>
         [Input("startMultiplex")]
         public Input<bool>? StartMultiplex { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS Security Lake Subscriber.
  * 
- * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `depends_on` statement.
+ * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `dependsOn` statement.
  * 
  * ## Example Usage
  * 
@@ -285,14 +285,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.subscriberEndpoint;
     }
     /**
-     * The AWS identity used to access your data. See `subscriber_identity` Block below.
+     * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      * 
      */
     @Export(name="subscriberIdentity", refs={SubscriberSubscriberIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SubscriberSubscriberIdentity> subscriberIdentity;
 
     /**
-     * @return The AWS identity used to access your data. See `subscriber_identity` Block below.
+     * @return The AWS identity used to access your data. See `subscriberIdentity` Block below.
      * 
      */
     public Output<Optional<SubscriberSubscriberIdentity>> subscriberIdentity() {
@@ -327,28 +327,28 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.subscriberStatus;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

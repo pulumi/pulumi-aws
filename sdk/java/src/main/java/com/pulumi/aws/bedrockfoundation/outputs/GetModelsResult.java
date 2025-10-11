@@ -24,7 +24,7 @@ public final class GetModelsResult {
      */
     private String id;
     /**
-     * @return List of model summary objects. See `model_summaries`.
+     * @return List of model summary objects. See `modelSummaries`.
      * 
      */
     private List<GetModelsModelSummary> modelSummaries;
@@ -51,7 +51,7 @@ public final class GetModelsResult {
         return this.id;
     }
     /**
-     * @return List of model summary objects. See `model_summaries`.
+     * @return List of model summary objects. See `modelSummaries`.
      * 
      */
     public List<GetModelsModelSummary> modelSummaries() {

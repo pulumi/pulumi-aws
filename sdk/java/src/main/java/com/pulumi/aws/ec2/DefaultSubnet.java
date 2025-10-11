@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * The `aws.ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead &#34;adopts&#34; it into management.
  * If no default subnet exists, this provider creates a new default subnet.
  * By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
- * Set the `force_destroy` argument to `true` to delete the default subnet.
+ * Set the `forceDestroy` argument to `true` to delete the default subnet.
  * 
  * ## Example Usage
  * 
@@ -86,8 +86,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
     }
     /**
      * is required
-     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-     * * The default value for `map_public_ip_on_launch` is `true`
+     * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+     * * The default value for `mapPublicIpOnLaunch` is `true`
      * 
      * This resource supports the following additional arguments:
      * 
@@ -97,8 +97,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
 
     /**
      * @return is required
-     * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-     * * The default value for `map_public_ip_on_launch` is `true`
+     * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
+     * * The default value for `mapPublicIpOnLaunch` is `true`
      * 
      * This resource supports the following additional arguments:
      * 

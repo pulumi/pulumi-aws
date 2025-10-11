@@ -22,11 +22,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly int? ConnectionTimeout;
         /// <summary>
-        /// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
+        /// One or more sub-resources with `Name` and `Value` parameters that specify header data that will be sent to the origin (multiples allowed).
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginCustomHeader> CustomHeaders;
         /// <summary>
-        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `OriginAccessControlId` or `S3OriginConfig` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginCustomOriginConfig? CustomOriginConfig;
         /// <summary>
@@ -47,11 +47,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOriginOriginShield? OriginShield;
         /// <summary>
-        /// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+        /// Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `OriginReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
         /// </summary>
         public readonly int? ResponseCompletionTimeout;
         /// <summary>
-        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        /// CloudFront S3 origin configuration information. If a custom origin is required, use `CustomOriginConfig` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
         /// <summary>

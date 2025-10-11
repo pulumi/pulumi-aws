@@ -222,14 +222,14 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configurationsJson);
     }
     /**
-     * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ebsConfigs", refs={List.class,InstanceGroupEbsConfig.class}, tree="[0,1]")
     private Output<List<InstanceGroupEbsConfig>> ebsConfigs;
 
     /**
-     * @return One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<InstanceGroupEbsConfig>> ebsConfigs() {

@@ -11,7 +11,7 @@ namespace Pulumi.Aws.AutoScaling
 {
     /// <summary>
     /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
-    /// the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
+    /// the `Notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
     /// Services, and are applied to each AutoScaling Group you supply.
     /// 
     /// ## Example Usage

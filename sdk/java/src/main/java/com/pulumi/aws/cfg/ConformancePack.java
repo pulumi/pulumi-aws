@@ -200,14 +200,14 @@ public class ConformancePack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deliveryS3KeyPrefix);
     }
     /**
-     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      * 
      */
     @Export(name="inputParameters", refs={List.class,ConformancePackInputParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConformancePackInputParameter>> inputParameters;
 
     /**
-     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      * 
      */
     public Output<Optional<List<ConformancePackInputParameter>>> inputParameters() {
@@ -258,7 +258,7 @@ public class ConformancePack extends com.pulumi.resources.CustomResource {
     /**
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
-     * &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
+     * &gt; **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
      * 
      */
     @Export(name="templateS3Uri", refs={String.class}, tree="[0]")
@@ -267,7 +267,7 @@ public class ConformancePack extends com.pulumi.resources.CustomResource {
     /**
      * @return Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
-     * &gt; **Note:** If both `template_body` and `template_s3_uri` are specified, AWS Config uses the `template_s3_uri` and ignores the `template_body`.
+     * &gt; **Note:** If both `templateBody` and `templateS3Uri` are specified, AWS Config uses the `templateS3Uri` and ignores the `templateBody`.
      * 
      */
     public Output<Optional<String>> templateS3Uri() {

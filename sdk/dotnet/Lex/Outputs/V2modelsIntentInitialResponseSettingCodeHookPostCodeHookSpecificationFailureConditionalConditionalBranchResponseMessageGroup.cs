@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup
     {
         /// <summary>
-        /// Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+        /// Configuration block for the primary message that Amazon Lex should send to the user. See `Message`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage Message;
         /// <summary>
-        /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+        /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `Variation`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation> Variations;
 

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceConfigurationResourceConfigurationDefinition {
     /**
-     * @return Resource DNS Configuration. See `arn_resource` Block for details.
+     * @return Resource DNS Configuration. See `arnResource` Block for details.
      * 
      */
     private @Nullable ResourceConfigurationResourceConfigurationDefinitionArnResource arnResource;
     /**
-     * @return Resource DNS Configuration. See `dns_resource` Block for details.
+     * @return Resource DNS Configuration. See `dnsResource` Block for details.
      * 
      */
     private @Nullable ResourceConfigurationResourceConfigurationDefinitionDnsResource dnsResource;
     /**
-     * @return Resource DNS Configuration. See `ip_resource` Block for details.
+     * @return Resource DNS Configuration. See `ipResource` Block for details.
      * 
      */
     private @Nullable ResourceConfigurationResourceConfigurationDefinitionIpResource ipResource;
 
     private ResourceConfigurationResourceConfigurationDefinition() {}
     /**
-     * @return Resource DNS Configuration. See `arn_resource` Block for details.
+     * @return Resource DNS Configuration. See `arnResource` Block for details.
      * 
      */
     public Optional<ResourceConfigurationResourceConfigurationDefinitionArnResource> arnResource() {
         return Optional.ofNullable(this.arnResource);
     }
     /**
-     * @return Resource DNS Configuration. See `dns_resource` Block for details.
+     * @return Resource DNS Configuration. See `dnsResource` Block for details.
      * 
      */
     public Optional<ResourceConfigurationResourceConfigurationDefinitionDnsResource> dnsResource() {
         return Optional.ofNullable(this.dnsResource);
     }
     /**
-     * @return Resource DNS Configuration. See `ip_resource` Block for details.
+     * @return Resource DNS Configuration. See `ipResource` Block for details.
      * 
      */
     public Optional<ResourceConfigurationResourceConfigurationDefinitionIpResource> ipResource() {

@@ -29,15 +29,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? CustomTimeZone;
         /// <summary>
-        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
+        /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `DataFormatConversionConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         /// <summary>
-        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `DynamicPartitioningConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         /// <summary>
-        /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        /// Prefix added to failed records before writing them to S3. Not currently supported for `Redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         /// </summary>
         public readonly string? ErrorOutputPrefix;
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration? ProcessingConfiguration;
         public readonly string RoleArn;
         /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        /// The configuration for backup in Amazon S3. Required if `S3BackupMode` is `Enabled`. Supports the same fields as `S3Configuration` object.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration? S3BackupConfiguration;
         /// <summary>

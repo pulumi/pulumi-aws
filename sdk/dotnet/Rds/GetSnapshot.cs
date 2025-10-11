@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set this value to true to include manual DB snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public bool? IncludePublic { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include shared manual DB snapshots from other
         /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `false`.
+        /// The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public bool? IncludeShared { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-        /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public string? SnapshotType { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Rds
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
         /// 
-        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
+        /// &gt; **NOTE:** One of either `DbInstanceIdentifier` or `DbSnapshotIdentifier` is required.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set this value to true to include manual DB snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public Input<bool>? IncludePublic { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include shared manual DB snapshots from other
         /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `false`.
+        /// The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public Input<bool>? IncludeShared { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-        /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Rds
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
         /// 
-        /// &gt; **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
+        /// &gt; **NOTE:** One of either `DbInstanceIdentifier` or `DbSnapshotIdentifier` is required.
         /// </summary>
         public InputMap<string> Tags
         {

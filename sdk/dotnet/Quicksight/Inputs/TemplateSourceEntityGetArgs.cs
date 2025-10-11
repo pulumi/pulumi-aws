@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class TemplateSourceEntityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        /// The source analysis, if it is based on an analysis.. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See source_analysis.
         /// </summary>
         [Input("sourceAnalysis")]
         public Input<Inputs.TemplateSourceEntitySourceAnalysisGetArgs>? SourceAnalysis { get; set; }
 
         /// <summary>
-        /// The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        /// The source template, if it is based on an template.. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See source_template.
         /// </summary>
         [Input("sourceTemplate")]
         public Input<Inputs.TemplateSourceEntitySourceTemplateGetArgs>? SourceTemplate { get; set; }

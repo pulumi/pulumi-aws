@@ -39,14 +39,14 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -116,7 +116,7 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tags A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

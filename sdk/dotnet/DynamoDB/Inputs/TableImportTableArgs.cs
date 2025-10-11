@@ -28,7 +28,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
         /// <summary>
         /// Describe the format options for the data that was imported into the target table.
-        /// There is one value, `csv`.
+        /// There is one value, `Csv`.
         /// See below.
         /// </summary>
         [Input("inputFormatOptions")]

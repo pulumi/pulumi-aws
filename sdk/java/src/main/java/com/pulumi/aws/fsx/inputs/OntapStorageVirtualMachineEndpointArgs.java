@@ -65,14 +65,14 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     }
 
     /**
-     * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
      * 
      */
     @Import(name="smbs")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointSmbArgs>> smbs;
 
     /**
-     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointSmbArgs>>> smbs() {
@@ -200,7 +200,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+         * @param smbs An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
          * 
          * @return builder
          * 

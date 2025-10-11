@@ -18,7 +18,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
         /// </summary>
         public readonly bool? AutoScalingEnabled;
         /// <summary>
-        /// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
+        /// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKpu` attribute values to be effective.
         /// </summary>
         public readonly string ConfigurationType;
         /// <summary>

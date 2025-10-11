@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<Inputs.DomainClusterConfigNodeOptionNodeConfigArgs>? NodeConfig { get; set; }
 
         /// <summary>
-        /// Type of node this configuration describes. Valid values: `coordinator`.
+        /// Type of node this configuration describes. Valid values: `Coordinator`.
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

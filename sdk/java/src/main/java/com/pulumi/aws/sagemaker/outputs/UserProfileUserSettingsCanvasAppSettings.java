@@ -25,7 +25,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings;
@@ -65,7 +65,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         return Optional.ofNullable(this.directDeploySettings);
     }
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings> emrServerlessSettings() {

@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string NetworkInsightsPathId;
         /// <summary>
-        /// Set to `true` if the destination was reachable.
+        /// Set to `True` if the destination was reachable.
         /// </summary>
         public readonly bool PathFound;
         public readonly string Region;
@@ -221,11 +221,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string StartDate;
         /// <summary>
-        /// Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// Status of the analysis. `Succeeded` means the analysis was completed, not that a path was found, for that see `PathFound`.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Message to provide more context when the `status` is `failed`.
+        /// Message to provide more context when the `Status` is `Failed`.
         /// </summary>
         public readonly string StatusMessage;
         public readonly ImmutableDictionary<string, string> Tags;

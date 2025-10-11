@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        /// The endpoint to use when communicating with the cluster. Conflicts with `DomainArn`.
         /// </summary>
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+        /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `ClusterEndpoint`.
         /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+        /// The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs>? VpcConfig { get; set; }

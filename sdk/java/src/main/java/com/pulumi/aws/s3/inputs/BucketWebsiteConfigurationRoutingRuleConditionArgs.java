@@ -16,14 +16,14 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
     public static final BucketWebsiteConfigurationRoutingRuleConditionArgs Empty = new BucketWebsiteConfigurationRoutingRuleConditionArgs();
 
     /**
-     * HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+     * HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
      * 
      */
     @Import(name="httpErrorCodeReturnedEquals")
     private @Nullable Output<String> httpErrorCodeReturnedEquals;
 
     /**
-     * @return HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+     * @return HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
      * 
      */
     public Optional<Output<String>> httpErrorCodeReturnedEquals() {
@@ -31,14 +31,14 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
     }
 
     /**
-     * Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+     * Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
      * 
      */
     @Import(name="keyPrefixEquals")
     private @Nullable Output<String> keyPrefixEquals;
 
     /**
-     * @return Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+     * @return Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
      * 
      */
     public Optional<Output<String>> keyPrefixEquals() {
@@ -71,7 +71,7 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
         }
 
         /**
-         * @param httpErrorCodeReturnedEquals HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+         * @param httpErrorCodeReturnedEquals HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
         }
 
         /**
-         * @param httpErrorCodeReturnedEquals HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+         * @param httpErrorCodeReturnedEquals HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
         }
 
         /**
-         * @param keyPrefixEquals Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+         * @param keyPrefixEquals Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BucketWebsiteConfigurationRoutingRuleConditionArgs extends co
         }
 
         /**
-         * @param keyPrefixEquals Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+         * @param keyPrefixEquals Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
          * 
          * @return builder
          * 

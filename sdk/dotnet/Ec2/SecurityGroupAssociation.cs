@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
     /// both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
-    /// and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
+    /// and a single `SecurityGroupId`) and a VPC Endpoint resource with a `SecurityGroupIds`
     /// attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
     /// Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `ReplaceDefaultAssociation = true`. `False` should be used when importing resources.
         /// </summary>
         [Output("replaceDefaultAssociation")]
         public Output<bool?> ReplaceDefaultAssociation { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `ReplaceDefaultAssociation = true`. `False` should be used when importing resources.
         /// </summary>
         [Input("replaceDefaultAssociation")]
         public Input<bool>? ReplaceDefaultAssociation { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `ReplaceDefaultAssociation = true`. `False` should be used when importing resources.
         /// </summary>
         [Input("replaceDefaultAssociation")]
         public Input<bool>? ReplaceDefaultAssociation { get; set; }

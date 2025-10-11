@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> OutpostArn { get; private set; } = null!;
 
         /// <summary>
-        /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+        /// Value from an Amazon-maintained list (`Amazon`, `aws-marketplace`, `Microsoft`) of snapshot owners.
         /// </summary>
         [Output("ownerAlias")]
         public Output<string> OwnerAlias { get; private set; } = null!;
@@ -116,13 +116,13 @@ namespace Pulumi.Aws.Ebs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `Vmimport`
         /// </summary>
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// The name of the storage tier. Valid values are `Archive` and `Standard`. Default value is `Standard`.
         /// </summary>
         [Output("storageTier")]
         public Output<string> StorageTier { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ebs
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -243,13 +243,13 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `Vmimport`
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
         /// <summary>
-        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// The name of the storage tier. Valid values are `Archive` and `Standard`. Default value is `Standard`.
         /// </summary>
         [Input("storageTier")]
         public Input<string>? StorageTier { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+        /// Value from an Amazon-maintained list (`Amazon`, `aws-marketplace`, `Microsoft`) of snapshot owners.
         /// </summary>
         [Input("ownerAlias")]
         public Input<string>? OwnerAlias { get; set; }
@@ -350,13 +350,13 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
+        /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `Vmimport`
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
         /// <summary>
-        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// The name of the storage tier. Valid values are `Archive` and `Standard`. Default value is `Standard`.
         /// </summary>
         [Input("storageTier")]
         public Input<string>? StorageTier { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Ebs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

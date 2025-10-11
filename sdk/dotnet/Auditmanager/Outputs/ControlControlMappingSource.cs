@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         public readonly string? SourceFrequency;
         public readonly string? SourceId;
         /// <summary>
-        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `SourceKeyword` below.
         /// </summary>
         public readonly Outputs.ControlControlMappingSourceSourceKeyword? SourceKeyword;
         /// <summary>
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         /// </summary>
         public readonly string SourceSetUpOption;
         /// <summary>
-        /// Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
+        /// Type of data source for evidence collection. If `SourceSetUpOption` is manual, the only valid value is `MANUAL`. If `SourceSetUpOption` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
         /// 
         /// The following arguments are optional:
         /// </summary>

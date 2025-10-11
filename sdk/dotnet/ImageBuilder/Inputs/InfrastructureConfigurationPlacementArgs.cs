@@ -19,19 +19,19 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+        /// ID of the Dedicated Host on which build and test instances run. Conflicts with `HostResourceGroupArn`.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+        /// ARN of the host resource group in which to launch build and test instances. Conflicts with `HostId`.
         /// </summary>
         [Input("hostResourceGroupArn")]
         public Input<string>? HostResourceGroupArn { get; set; }
 
         /// <summary>
-        /// Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+        /// Placement tenancy of the instance. Valid values: `Default`, `Dedicated` and `Host`.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }

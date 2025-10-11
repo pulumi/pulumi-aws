@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
     public sealed class DomainIndexField
     {
         /// <summary>
-        /// The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+        /// The analysis scheme you want to use for a `Text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
         /// </summary>
         public readonly string? AnalysisScheme;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
         /// </summary>
         public readonly bool? Highlight;
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `A`-`Z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `Score` is reserved and cannot be used as a field name.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
         /// </summary>
         public readonly string? SourceFields;
         /// <summary>
-        /// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+        /// The field type. Valid values: `Date`, `date-array`, `Double`, `double-array`, `Int`, `int-array`, `Literal`, `literal-array`, `Text`, `text-array`.
         /// </summary>
         public readonly string Type;
 

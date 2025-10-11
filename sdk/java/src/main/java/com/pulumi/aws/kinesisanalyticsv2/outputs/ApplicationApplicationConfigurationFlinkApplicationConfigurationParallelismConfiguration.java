@@ -20,7 +20,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      */
     private @Nullable Boolean autoScalingEnabled;
     /**
-     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
+     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
      * 
      */
     private String configurationType;
@@ -44,7 +44,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         return Optional.ofNullable(this.autoScalingEnabled);
     }
     /**
-     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
+     * @return Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
      * 
      */
     public String configurationType() {

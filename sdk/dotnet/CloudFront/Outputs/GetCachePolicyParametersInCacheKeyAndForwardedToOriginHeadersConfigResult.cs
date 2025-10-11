@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult
     {
         /// <summary>
-        /// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        /// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `None`, `Whitelist`.
         /// </summary>
         public readonly string HeaderBehavior;
         /// <summary>

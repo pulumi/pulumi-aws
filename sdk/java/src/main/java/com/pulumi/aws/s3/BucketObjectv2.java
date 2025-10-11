@@ -290,12 +290,12 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Ignoring Provider `default_tags`
+ * ### Ignoring Provider `defaultTags`
  * 
  * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
- * If the resource&#39;s own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+ * If the resource&#39;s own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
  * 
- * &gt; S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `default_tags` must be suppressed.
+ * &gt; S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `defaultTags` must be suppressed.
  * 
  * <pre>
  * {@code
@@ -448,14 +448,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return this.bucketKeyEnabled;
     }
     /**
-     * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     @Export(name="cacheControl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cacheControl;
 
     /**
-     * @return Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * @return Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     public Output<Optional<String>> cacheControl() {
@@ -574,14 +574,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentBase64);
     }
     /**
-     * Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     @Export(name="contentDisposition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentDisposition;
 
     /**
-     * @return Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * @return Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     public Output<Optional<String>> contentDisposition() {
@@ -630,14 +630,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return this.contentType;
     }
     /**
-     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
      * 
      */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
     /**
-     * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
+     * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `sourceHash` instead).
      * 
      */
     public Output<String> etag() {
@@ -676,14 +676,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -830,28 +830,28 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return this.storageClass;
     }
     /**
-     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -874,9 +874,9 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
-     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
      * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 
@@ -887,9 +887,9 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
-     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
      * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 

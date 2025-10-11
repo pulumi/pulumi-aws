@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Dms
         public string? Region { get; set; }
 
         /// <summary>
-        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `Default`.
         /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public string ReplicationSubnetGroupId { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `Default`.
         /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public Input<string> ReplicationSubnetGroupId { get; set; } = null!;

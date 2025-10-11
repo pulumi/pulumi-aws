@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DataQualityJobDefinitionNetworkConfigVpcConfig
     {
         /// <summary>
-        /// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
+        /// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `Subnets` field.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>

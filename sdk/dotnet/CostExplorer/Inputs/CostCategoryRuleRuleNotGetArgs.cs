@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         }
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleNotTagsGetArgs>? Tags { get; set; }

@@ -17,14 +17,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs();
 
     /**
-     * The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * The lower limit of the port range. This must be less than or equal to the `toPort`.
      * 
      */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
     /**
-     * @return The lower limit of the port range. This must be less than or equal to the `to_port`.
+     * @return The lower limit of the port range. This must be less than or equal to the `toPort`.
      * 
      */
     public Output<Integer> fromPort() {
@@ -32,14 +32,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     }
 
     /**
-     * The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
      * 
      */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
     /**
-     * @return The upper limit of the port range. This must be greater than or equal to the `from_port`.
+     * @return The upper limit of the port range. This must be greater than or equal to the `fromPort`.
      * 
      */
     public Optional<Output<Integer>> toPort() {
@@ -72,7 +72,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param fromPort The lower limit of the port range. This must be less than or equal to the `to_port`.
+         * @param fromPort The lower limit of the port range. This must be less than or equal to the `toPort`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param fromPort The lower limit of the port range. This must be less than or equal to the `to_port`.
+         * @param fromPort The lower limit of the port range. This must be less than or equal to the `toPort`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param toPort The upper limit of the port range. This must be greater than or equal to the `from_port`.
+         * @param toPort The upper limit of the port range. This must be greater than or equal to the `fromPort`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param toPort The upper limit of the port range. This must be greater than or equal to the `from_port`.
+         * @param toPort The upper limit of the port range. This must be greater than or equal to the `fromPort`.
          * 
          * @return builder
          * 

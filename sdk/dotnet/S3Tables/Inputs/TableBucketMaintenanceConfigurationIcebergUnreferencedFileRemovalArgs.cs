@@ -21,7 +21,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
         /// <summary>
         /// Whether the configuration is enabled.
-        /// Valid values are `enabled` and `disabled`.
+        /// Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

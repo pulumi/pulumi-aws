@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `queue_id`
+        /// By `QueueId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `queue_id`
+        /// By `QueueId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `queue_id`
+        /// By `QueueId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Queue by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QueueId` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Queue by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QueueId` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

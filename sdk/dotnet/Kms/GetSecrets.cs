@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Map containing each `secret` `name` as the key with its decrypted plaintext value
+        /// Map containing each `Secret` `Name` as the key with its decrypted plaintext value
         /// </summary>
         public readonly ImmutableDictionary<string, string> Plaintext;
         public readonly string Region;

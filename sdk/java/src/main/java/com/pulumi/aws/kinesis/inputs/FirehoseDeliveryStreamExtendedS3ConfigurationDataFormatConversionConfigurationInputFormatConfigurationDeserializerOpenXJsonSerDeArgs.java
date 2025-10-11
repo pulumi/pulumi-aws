@@ -48,14 +48,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;a_b&#34; when using this option. Defaults to `false`.
+     * When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;aB&#34; when using this option. Defaults to `false`.
      * 
      */
     @Import(name="convertDotsInJsonKeysToUnderscores")
     private @Nullable Output<Boolean> convertDotsInJsonKeysToUnderscores;
 
     /**
-     * @return When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;a_b&#34; when using this option. Defaults to `false`.
+     * @return When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;aB&#34; when using this option. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> convertDotsInJsonKeysToUnderscores() {
@@ -131,7 +131,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param convertDotsInJsonKeysToUnderscores When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;a_b&#34; when using this option. Defaults to `false`.
+         * @param convertDotsInJsonKeysToUnderscores When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;aB&#34; when using this option. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param convertDotsInJsonKeysToUnderscores When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;a_b&#34; when using this option. Defaults to `false`.
+         * @param convertDotsInJsonKeysToUnderscores When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;aB&#34; when using this option. Defaults to `false`.
          * 
          * @return builder
          * 

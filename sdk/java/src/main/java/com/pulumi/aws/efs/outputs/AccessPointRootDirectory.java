@@ -18,7 +18,7 @@ public final class AccessPointRootDirectory {
      */
     private @Nullable AccessPointRootDirectoryCreationInfo creationInfo;
     /**
-     * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
+     * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
      * 
      */
     private @Nullable String path;
@@ -32,7 +32,7 @@ public final class AccessPointRootDirectory {
         return Optional.ofNullable(this.creationInfo);
     }
     /**
-     * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
+     * @return Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
      * 
      */
     public Optional<String> path() {

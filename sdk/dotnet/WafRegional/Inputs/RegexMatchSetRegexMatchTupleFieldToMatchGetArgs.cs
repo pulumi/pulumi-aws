@@ -13,8 +13,8 @@ namespace Pulumi.Aws.WafRegional.Inputs
     public sealed class RegexMatchSetRegexMatchTupleFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
+        /// When `Type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+        /// If `Type` is any other value, omit this field.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }

@@ -95,14 +95,14 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      * 
      */
     @Import(name="multiAz")
     private @Nullable Output<Boolean> multiAz;
 
     /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      * 
      */
     public Optional<Output<Boolean>> multiAz() {
@@ -302,7 +302,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param multiAz Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+         * @param multiAz Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param multiAz Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+         * @param multiAz Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
          * 
          * @return builder
          * 

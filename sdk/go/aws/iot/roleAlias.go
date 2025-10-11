@@ -14,6 +14,8 @@ import (
 
 // Provides an IoT role alias.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Using `pulumi import`, import IOT Role Alias using the alias. For example:

@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
  * 
- * &gt; **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
+ * &gt; **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
  * 
  * ## Example Usage
  * 

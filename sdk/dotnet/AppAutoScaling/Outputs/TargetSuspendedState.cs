@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class TargetSuspendedState
     {
         /// <summary>
-        /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `False`.
         /// </summary>
         public readonly bool? DynamicScalingInSuspended;
         /// <summary>
-        /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `False`.
         /// </summary>
         public readonly bool? DynamicScalingOutSuspended;
         /// <summary>
-        /// Whether scheduled scaling is suspended. Default is `false`.
+        /// Whether scheduled scaling is suspended. Default is `False`.
         /// </summary>
         public readonly bool? ScheduledScalingSuspended;
 

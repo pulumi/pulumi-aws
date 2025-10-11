@@ -42,7 +42,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
 
     /**
      * Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `value_elicitation_setting` argument reference below.
+     * See the `valueElicitationSetting` argument reference below.
      * 
      */
     @Import(name="valueElicitationSettings")
@@ -50,7 +50,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
 
     /**
      * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `value_elicitation_setting` argument reference below.
+     * See the `valueElicitationSetting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>>> valueElicitationSettings() {
@@ -115,7 +115,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
 
         /**
          * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `value_elicitation_setting` argument reference below.
+         * See the `valueElicitationSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
 
         /**
          * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `value_elicitation_setting` argument reference below.
+         * See the `valueElicitationSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
 
         /**
          * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
-         * See the `value_elicitation_setting` argument reference below.
+         * See the `valueElicitationSetting` argument reference below.
          * 
          * @return builder
          * 

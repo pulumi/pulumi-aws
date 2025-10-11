@@ -23,7 +23,7 @@ public final class GetAmiIdsResult {
      */
     private String id;
     /**
-     * @return is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+     * @return is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
      * 
      */
     private List<String> ids;
@@ -48,7 +48,7 @@ public final class GetAmiIdsResult {
         return this.id;
     }
     /**
-     * @return is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+     * @return is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
      * 
      */
     public List<String> ids() {

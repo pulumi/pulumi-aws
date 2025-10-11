@@ -53,14 +53,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      * 
      */
     @Import(name="computeConfiguration")
     private @Nullable Output<FleetComputeConfigurationArgs> computeConfiguration;
 
     /**
-     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+     * @return The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      * 
      */
     public Optional<Output<FleetComputeConfigurationArgs>> computeConfiguration() {
@@ -207,14 +207,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      * 
      */
     @Import(name="scalingConfiguration")
     private @Nullable Output<FleetScalingConfigurationArgs> scalingConfiguration;
 
     /**
-     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      * 
      */
     public Optional<Output<FleetScalingConfigurationArgs>> scalingConfiguration() {
@@ -237,14 +237,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -259,14 +259,14 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. See `vpc_config` below.
+     * Configuration block. See `vpcConfig` below.
      * 
      */
     @Import(name="vpcConfigs")
     private @Nullable Output<List<FleetVpcConfigArgs>> vpcConfigs;
 
     /**
-     * @return Configuration block. See `vpc_config` below.
+     * @return Configuration block. See `vpcConfig` below.
      * 
      */
     public Optional<Output<List<FleetVpcConfigArgs>>> vpcConfigs() {
@@ -356,7 +356,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. See `vpc_config` below.
+         * @param vpcConfigs Configuration block. See `vpcConfig` below.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. See `vpc_config` below.
+         * @param vpcConfigs Configuration block. See `vpcConfig` below.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class FleetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. See `vpc_config` below.
+         * @param vpcConfigs Configuration block. See `vpcConfig` below.
          * 
          * @return builder
          * 

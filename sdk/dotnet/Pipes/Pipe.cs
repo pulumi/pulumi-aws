@@ -345,13 +345,13 @@ namespace Pulumi.Aws.Pipes
         public Output<Outputs.PipeLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -381,13 +381,13 @@ namespace Pulumi.Aws.Pipes
         public Output<Outputs.PipeSourceParameters> SourceParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -489,13 +489,13 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Pipes
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -601,13 +601,13 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Pipes
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -652,7 +652,7 @@ namespace Pulumi.Aws.Pipes
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+        /// Configuration block for the primary message that Amazon Lex should send to the user. See `Message`.
         /// </summary>
         [Input("message", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs> Message { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs>? _variations;
 
         /// <summary>
-        /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+        /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `Variation`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs> Variations
         {

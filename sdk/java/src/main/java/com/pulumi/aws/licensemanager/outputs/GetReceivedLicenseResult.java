@@ -69,7 +69,7 @@ public final class GetReceivedLicenseResult {
     private String licenseName;
     /**
      * @return Product name.
-     * * ` product_sku  ` - Product SKU.
+     * * ` productSku  ` - Product SKU.
      * 
      */
     private String productName;
@@ -169,7 +169,7 @@ public final class GetReceivedLicenseResult {
     }
     /**
      * @return Product name.
-     * * ` product_sku  ` - Product SKU.
+     * * ` productSku  ` - Product SKU.
      * 
      */
     public String productName() {

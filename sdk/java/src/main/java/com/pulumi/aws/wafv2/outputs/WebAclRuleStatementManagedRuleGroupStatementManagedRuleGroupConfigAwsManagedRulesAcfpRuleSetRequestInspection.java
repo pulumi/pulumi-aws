@@ -20,7 +20,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField;
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField passwordField;
@@ -31,7 +31,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private String payloadType;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields;
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField;
@@ -44,7 +44,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.emailField);
     }
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField> passwordField() {
@@ -61,7 +61,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.phoneNumberFields);
     }
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField> usernameField() {

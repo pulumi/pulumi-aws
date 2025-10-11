@@ -435,12 +435,16 @@ public final class GlueFunctions {
     /**
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args) {
         return getDataCatalogEncryptionSettings(args, InvokeOptions.Empty);
     }
     /**
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args) {
@@ -449,6 +453,8 @@ public final class GlueFunctions {
     /**
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
@@ -456,12 +462,16 @@ public final class GlueFunctions {
     /**
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args, InvokeOptions options) {

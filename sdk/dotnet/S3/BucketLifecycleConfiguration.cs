@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// An S3 Lifecycle configuration consists of one or more Lifecycle rules. Each rule consists of the following:
     /// 
-    /// * Rule metadata (`id` and `status`)
+    /// * Rule metadata (`Id` and `Status`)
     /// * Filter identifying objects to which the rule applies
     /// * One or more transition or expiration actions
     /// 
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### With neither a filter nor prefix specified
     /// 
-    /// When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `filter` element.
+    /// When you don't specify a filter or prefix, the lifecycle rule applies to all objects in the bucket. This has the same effect as setting an empty `Filter` element.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Specifying a filter based on multiple tags
     /// 
-    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
+    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `Tags` is wrapped in the `And` configuration block.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Specifying a filter based on both prefix and one or more tags
     /// 
-    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
+    /// The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `Prefix` and `Tags` are wrapped in the `And` configuration block.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Specifying a filter based on object size
     /// 
-    /// Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
+    /// Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`ObjectSizeGreaterThan`) or a maximum size (`ObjectSizeLessThan`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Specifying a filter based on object size range and prefix
     /// 
-    /// The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
+    /// The `ObjectSizeGreaterThan` must be less than the `ObjectSizeLessThan`. Notice both the object size range and prefix are wrapped in the `And` configuration block.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketLifecycleConfigurationTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `VariesByStorageClass`. To customize the minimum object size for any transition you can add a `Filter` that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
         [Output("transitionDefaultMinimumObjectSize")]
         public Output<string> TransitionDefaultMinimumObjectSize { get; private set; } = null!;
@@ -624,7 +624,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketLifecycleConfigurationTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `VariesByStorageClass`. To customize the minimum object size for any transition you can add a `Filter` that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
         [Input("transitionDefaultMinimumObjectSize")]
         public Input<string>? TransitionDefaultMinimumObjectSize { get; set; }
@@ -671,7 +671,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketLifecycleConfigurationTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `VariesByStorageClass`. To customize the minimum object size for any transition you can add a `Filter` that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
         [Input("transitionDefaultMinimumObjectSize")]
         public Input<string>? TransitionDefaultMinimumObjectSize { get; set; }

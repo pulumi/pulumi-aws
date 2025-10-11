@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class GetInstanceTypeOfferingFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        /// Name of the filter. The `Location` filter depends on the top-level `LocationType` argument and if not specified, defaults to the current region.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

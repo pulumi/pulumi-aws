@@ -17,7 +17,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
     /**
      * A single Iceberg compaction settings object.
-     * See `iceberg_compaction` below.
+     * See `icebergCompaction` below.
      * 
      */
     @Import(name="icebergCompaction", required=true)
@@ -25,7 +25,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
     /**
      * @return A single Iceberg compaction settings object.
-     * See `iceberg_compaction` below.
+     * See `icebergCompaction` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction() {
@@ -34,7 +34,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
     /**
      * A single Iceberg snapshot management settings object.
-     * See `iceberg_snapshot_management` below.
+     * See `icebergSnapshotManagement` below.
      * 
      */
     @Import(name="icebergSnapshotManagement", required=true)
@@ -42,7 +42,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
     /**
      * @return A single Iceberg snapshot management settings object.
-     * See `iceberg_snapshot_management` below.
+     * See `icebergSnapshotManagement` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement() {
@@ -76,7 +76,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
         /**
          * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `iceberg_compaction` below.
+         * See `icebergCompaction` below.
          * 
          * @return builder
          * 
@@ -88,7 +88,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
         /**
          * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `iceberg_compaction` below.
+         * See `icebergCompaction` below.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
         /**
          * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `iceberg_snapshot_management` below.
+         * See `icebergSnapshotManagement` below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
 
         /**
          * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `iceberg_snapshot_management` below.
+         * See `icebergSnapshotManagement` below.
          * 
          * @return builder
          * 

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `PreferredEngineVersions` and/or `PreferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `PreferredEngineVersions` and/or `PreferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// Valid parameter combinations can also be found with `PreferredEngineVersions` and/or `PreferredInstanceClasses`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.Rds
         public string? AvailabilityZoneGroup { get; set; }
 
         /// <summary>
-        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// DB engine. Engine values include `Aurora`, `aurora-mysql`, `aurora-postgresql`, `Docdb`, `Mariadb`, `Mysql`, `Neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `Postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
         /// </summary>
         [Input("engine", required: true)]
         public string Engine { get; set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// When set to `True`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `EngineLatestVersion` with `PreferredInstanceClasses` and/or `PreferredEngineVersions`. Using `EngineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `EngineLatestVersion` with `PreferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `EngineLatestVersion` may _not_ return the latest version in every situation.
         /// </summary>
         [Input("engineLatestVersion")]
         public bool? EngineLatestVersion { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+        /// Ordered list of preferred RDS DB instance engine versions. When `EngineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `EngineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `PreferredEngineVersions` without `PreferredInstanceClasses` since the data source returns an arbitrary `InstanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public List<string> PreferredEngineVersions
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `EngineLatestVersion`, it returns an error. If you use `PreferredInstanceClasses` without `PreferredEngineVersions` or `EngineLatestVersion`, the data source returns an arbitrary `EngineVersion` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public List<string> PreferredInstanceClasses
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Rds
         public string? Region { get; set; }
 
         /// <summary>
-        /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+        /// Storage types. Examples of storage types are `Standard`, `Io1`, `Gp2`, and `Aurora`.
         /// </summary>
         [Input("storageType")]
         public string? StorageType { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _supportedEngineModes;
 
         /// <summary>
-        /// Use to limit results to engine modes such as `provisioned`.
+        /// Use to limit results to engine modes such as `Provisioned`.
         /// </summary>
         public List<string> SupportedEngineModes
         {
@@ -390,13 +390,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? AvailabilityZoneGroup { get; set; }
 
         /// <summary>
-        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// DB engine. Engine values include `Aurora`, `aurora-mysql`, `aurora-postgresql`, `Docdb`, `Mariadb`, `Mysql`, `Neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `Postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+        /// When set to `True`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `EngineLatestVersion` with `PreferredInstanceClasses` and/or `PreferredEngineVersions`. Using `EngineLatestVersion` will avoid `multiple RDS DB Instance Classes` errors. If you use `EngineLatestVersion` with `PreferredInstanceClasses`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `EngineLatestVersion` may _not_ return the latest version in every situation.
         /// </summary>
         [Input("engineLatestVersion")]
         public Input<bool>? EngineLatestVersion { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredEngineVersions;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+        /// Ordered list of preferred RDS DB instance engine versions. When `EngineLatestVersion` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `EngineLatestVersion`, it returns an error. **CAUTION:** We don't recommend using `PreferredEngineVersions` without `PreferredInstanceClasses` since the data source returns an arbitrary `InstanceClass` based on the first one AWS returns that matches the engine version and any other criteria.
         /// </summary>
         public InputList<string> PreferredEngineVersions
         {
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredInstanceClasses;
 
         /// <summary>
-        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+        /// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `EngineLatestVersion`, it returns an error. If you use `PreferredInstanceClasses` without `PreferredEngineVersions` or `EngineLatestVersion`, the data source returns an arbitrary `EngineVersion` based on the first one AWS returns matching the instance class and any other criteria.
         /// </summary>
         public InputList<string> PreferredInstanceClasses
         {
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+        /// Storage types. Examples of storage types are `Standard`, `Io1`, `Gp2`, and `Aurora`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _supportedEngineModes;
 
         /// <summary>
-        /// Use to limit results to engine modes such as `provisioned`.
+        /// Use to limit results to engine modes such as `Provisioned`.
         /// </summary>
         public InputList<string> SupportedEngineModes
         {

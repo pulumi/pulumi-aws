@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// </summary>
         public readonly Outputs.ServiceSourceConfigurationAuthenticationConfiguration? AuthenticationConfiguration;
         /// <summary>
-        /// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
+        /// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `True`, each repository change (source code commit or new image version) starts a deployment. Defaults to `True`.
         /// </summary>
         public readonly bool? AutoDeploymentsEnabled;
         /// <summary>

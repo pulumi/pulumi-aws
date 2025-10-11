@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineTriggerGitConfigurationPullRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+        /// The field that specifies to filter on branches for the pull request trigger configuration. A `Branches` block is documented below.
         /// </summary>
         [Input("branches")]
         public Input<Inputs.PipelineTriggerGitConfigurationPullRequestBranchesGetArgs>? Branches { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         }
 
         /// <summary>
-        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+        /// The field that specifies to filter on file paths for the pull request trigger configuration. A `FilePaths` block is documented below.
         /// </summary>
         [Input("filePaths")]
         public Input<Inputs.PipelineTriggerGitConfigurationPullRequestFilePathsGetArgs>? FilePaths { get; set; }

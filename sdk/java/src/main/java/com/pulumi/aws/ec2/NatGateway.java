@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to create a VPC NAT Gateway.
  * 
- * !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+ * !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `secondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
  * 
  * ## Example Usage
  * 
@@ -179,28 +179,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/natGateway:NatGateway")
 public class NatGateway extends com.pulumi.resources.CustomResource {
     /**
-     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allocationId;
 
     /**
-     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      * 
      */
     public Output<Optional<String>> allocationId() {
         return Codegen.optional(this.allocationId);
     }
     /**
-     * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+     * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      * 
      */
     public Output<String> associationId() {
@@ -333,28 +333,28 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

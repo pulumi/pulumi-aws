@@ -278,13 +278,13 @@ namespace Pulumi.Aws.LightSail
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        /// IP address type of the distribution. Valid values: `Dualstack`, `Ipv4`. Default: `Dualstack`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the distribution is enabled. Default: `true`.
+        /// Whether the distribution is enabled. Default: `True`.
         /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
@@ -341,13 +341,13 @@ namespace Pulumi.Aws.LightSail
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -435,13 +435,13 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
 
         /// <summary>
-        /// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        /// IP address type of the distribution. Valid values: `Dualstack`, `Ipv4`. Default: `Dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Whether the distribution is enabled. Default: `true`.
+        /// Whether the distribution is enabled. Default: `True`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -553,13 +553,13 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
+        /// IP address type of the distribution. Valid values: `Dualstack`, `Ipv4`. Default: `Dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Whether the distribution is enabled. Default: `true`.
+        /// Whether the distribution is enabled. Default: `True`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -637,7 +637,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

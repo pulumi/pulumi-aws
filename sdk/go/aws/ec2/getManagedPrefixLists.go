@@ -12,6 +12,10 @@ import (
 )
 
 // This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
+//
+// ## Example Usage
+//
+// The following returns all managed prefix lists filtered by tags
 func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs, opts ...pulumi.InvokeOption) (*GetManagedPrefixListsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedPrefixListsResult

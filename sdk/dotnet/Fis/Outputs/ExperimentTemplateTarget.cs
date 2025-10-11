@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Fis.Outputs
         /// <summary>
         /// The resource type parameters.
         /// 
-        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        /// &gt; **NOTE:** The `Target` configuration block requires either `ResourceArns` or `ResourceTag`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
-        /// Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
+        /// Set of ARNs of the resources to target with an action. Conflicts with `ResourceTag`.
         /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
         /// <summary>
-        /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `ResourceArns`. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetResourceTag> ResourceTags;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
-        /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+        /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `N` of the identified resources), `PERCENT(n)` (randomly select `N` percent of the identified resources).
         /// </summary>
         public readonly string SelectionMode;
 

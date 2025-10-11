@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketObjectv2OverrideProvider {
     /**
-     * @return Override the provider `default_tags` configuration block.
+     * @return Override the provider `defaultTags` configuration block.
      * 
      */
     private @Nullable BucketObjectv2OverrideProviderDefaultTags defaultTags;
 
     private BucketObjectv2OverrideProvider() {}
     /**
-     * @return Override the provider `default_tags` configuration block.
+     * @return Override the provider `defaultTags` configuration block.
      * 
      */
     public Optional<BucketObjectv2OverrideProviderDefaultTags> defaultTags() {

@@ -24,14 +24,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     public static final PipelineState Empty = new PipelineState();
 
     /**
-     * Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+     * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      * 
      */
     @Import(name="bufferOptions")
     private @Nullable Output<PipelineBufferOptionsArgs> bufferOptions;
 
     /**
-     * @return Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+     * @return Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      * 
      */
     public Optional<Output<PipelineBufferOptionsArgs>> bufferOptions() {
@@ -39,14 +39,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+     * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      * 
      */
     @Import(name="encryptionAtRestOptions")
     private @Nullable Output<PipelineEncryptionAtRestOptionsArgs> encryptionAtRestOptions;
 
     /**
-     * @return Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+     * @return Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      * 
      */
     public Optional<Output<PipelineEncryptionAtRestOptionsArgs>> encryptionAtRestOptions() {
@@ -69,14 +69,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs to configure log publishing. See `log_publishing_options` below.
+     * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      * 
      */
     @Import(name="logPublishingOptions")
     private @Nullable Output<PipelineLogPublishingOptionsArgs> logPublishingOptions;
 
     /**
-     * @return Key-value pairs to configure log publishing. See `log_publishing_options` below.
+     * @return Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      * 
      */
     public Optional<Output<PipelineLogPublishingOptionsArgs>> logPublishingOptions() {
@@ -178,14 +178,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -207,14 +207,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+     * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      * 
      */
     @Import(name="vpcOptions")
     private @Nullable Output<PipelineVpcOptionsArgs> vpcOptions;
 
     /**
-     * @return Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+     * @return Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      * 
      */
     public Optional<Output<PipelineVpcOptionsArgs>> vpcOptions() {
@@ -259,7 +259,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bufferOptions Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+         * @param bufferOptions Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bufferOptions Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+         * @param bufferOptions Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionAtRestOptions Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+         * @param encryptionAtRestOptions Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionAtRestOptions Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+         * @param encryptionAtRestOptions Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logPublishingOptions Key-value pairs to configure log publishing. See `log_publishing_options` below.
+         * @param logPublishingOptions Key-value pairs to configure log publishing. See `logPublishingOptions` below.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logPublishingOptions Key-value pairs to configure log publishing. See `log_publishing_options` below.
+         * @param logPublishingOptions Key-value pairs to configure log publishing. See `logPublishingOptions` below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcOptions Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+         * @param vpcOptions Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcOptions Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+         * @param vpcOptions Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
          * 
          * @return builder
          * 

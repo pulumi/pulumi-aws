@@ -146,13 +146,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string?> ApplicationDomain { get; private set; } = null!;
 
         /// <summary>
-        /// The type of attachment. Currently, only `vpc` is supported.
+        /// The type of attachment. Currently, only `Vpc` is supported.
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
         /// <summary>
-        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// The CIDR block details. This parameter is required if the endpoint type is `Cidr`.
         /// </summary>
         [Output("cidrOptions")]
         public Output<Outputs.EndpointCidrOptions?> CidrOptions { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<Outputs.EndpointSseSpecification> SseSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -305,13 +305,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? ApplicationDomain { get; set; }
 
         /// <summary>
-        /// The type of attachment. Currently, only `vpc` is supported.
+        /// The type of attachment. Currently, only `Vpc` is supported.
         /// </summary>
         [Input("attachmentType", required: true)]
         public Input<string> AttachmentType { get; set; } = null!;
 
         /// <summary>
-        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// The CIDR block details. This parameter is required if the endpoint type is `Cidr`.
         /// </summary>
         [Input("cidrOptions")]
         public Input<Inputs.EndpointCidrOptionsArgs>? CidrOptions { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -420,13 +420,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? ApplicationDomain { get; set; }
 
         /// <summary>
-        /// The type of attachment. Currently, only `vpc` is supported.
+        /// The type of attachment. Currently, only `Vpc` is supported.
         /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
         /// <summary>
-        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// The CIDR block details. This parameter is required if the endpoint type is `Cidr`.
         /// </summary>
         [Input("cidrOptions")]
         public Input<Inputs.EndpointCidrOptionsGetArgs>? CidrOptions { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

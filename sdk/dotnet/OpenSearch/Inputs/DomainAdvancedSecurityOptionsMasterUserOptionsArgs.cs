@@ -13,13 +13,13 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainAdvancedSecurityOptionsMasterUserOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+        /// ARN for the main user. Only specify if `InternalUserDatabaseEnabled` is not set or set to `False`.
         /// </summary>
         [Input("masterUserArn")]
         public Input<string>? MasterUserArn { get; set; }
 
         /// <summary>
-        /// Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        /// Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `InternalUserDatabaseEnabled` is set to `True`.
         /// </summary>
         [Input("masterUserName")]
         public Input<string>? MasterUserName { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         private Input<string>? _masterUserPassword;
 
         /// <summary>
-        /// Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        /// Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `InternalUserDatabaseEnabled` is set to `True`.
         /// </summary>
         public Input<string>? MasterUserPassword
         {

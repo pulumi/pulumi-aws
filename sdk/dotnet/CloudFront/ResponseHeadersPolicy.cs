@@ -173,7 +173,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.ResponseHeadersPolicyCorsConfig?> CorsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        /// Object that contains an attribute `Items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Output("customHeadersConfig")]
         public Output<Outputs.ResponseHeadersPolicyCustomHeadersConfig?> CustomHeadersConfig { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `Items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
         [Output("removeHeadersConfig")]
         public Output<Outputs.ResponseHeadersPolicyRemoveHeadersConfig?> RemoveHeadersConfig { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.ResponseHeadersPolicyCorsConfigArgs>? CorsConfig { get; set; }
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        /// Object that contains an attribute `Items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Input("customHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs>? CustomHeadersConfig { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `Items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
         [Input("removeHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs>? RemoveHeadersConfig { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.ResponseHeadersPolicyCorsConfigGetArgs>? CorsConfig { get; set; }
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        /// Object that contains an attribute `Items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Input("customHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyCustomHeadersConfigGetArgs>? CustomHeadersConfig { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `Items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
         [Input("removeHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyRemoveHeadersConfigGetArgs>? RemoveHeadersConfig { get; set; }

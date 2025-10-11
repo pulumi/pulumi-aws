@@ -17,14 +17,14 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
     public static final StandardsControlArgs Empty = new StandardsControlArgs();
 
     /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      * 
      */
     @Import(name="controlStatus", required=true)
     private Output<String> controlStatus;
 
     /**
-     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+     * @return The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
      * 
      */
     public Output<String> controlStatus() {
@@ -32,14 +32,14 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      * 
      */
     @Import(name="disabledReason")
     private @Nullable Output<String> disabledReason;
 
     /**
-     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+     * @return A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      * 
      */
     public Optional<Output<String>> disabledReason() {
@@ -104,7 +104,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+         * @param controlStatus The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class StandardsControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+         * @param disabledReason A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
          * 
          * @return builder
          * 

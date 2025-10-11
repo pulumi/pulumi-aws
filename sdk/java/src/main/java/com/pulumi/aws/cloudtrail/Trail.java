@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * Enable CloudTrail to capture all compatible management events in region.
- * For capturing events from services like IAM, `include_global_service_events` must be enabled.
+ * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  * 
  * <pre>
  * {@code
@@ -496,14 +496,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudtrail/trail:Trail")
 public class Trail extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+     * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      * 
      */
     @Export(name="advancedEventSelectors", refs={List.class,TrailAdvancedEventSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrailAdvancedEventSelector>> advancedEventSelectors;
 
     /**
-     * @return Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+     * @return Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      * 
      */
     public Output<Optional<List<TrailAdvancedEventSelector>>> advancedEventSelectors() {
@@ -580,14 +580,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableLogging);
     }
     /**
-     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      * 
      */
     @Export(name="eventSelectors", refs={List.class,TrailEventSelector.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrailEventSelector>> eventSelectors;
 
     /**
-     * @return Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+     * @return Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      * 
      */
     public Output<Optional<List<TrailEventSelector>>> eventSelectors() {
@@ -766,28 +766,28 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snsTopicName);
     }
     /**
-     * Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

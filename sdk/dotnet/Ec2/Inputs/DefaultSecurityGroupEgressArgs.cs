@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Start port (or ICMP type number if protocol is `icmp`)
+        /// Start port (or ICMP type number if protocol is `Icmp`)
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        /// Protocol. If you select a protocol of "-1" (semantically equivalent to `All`, which is not a valid value here), you must specify a `FromPort` and `ToPort` equal to `0`. If not `Icmp`, `Tcp`, `Udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// End range port (or ICMP code if protocol is `icmp`).
+        /// End range port (or ICMP code if protocol is `Icmp`).
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

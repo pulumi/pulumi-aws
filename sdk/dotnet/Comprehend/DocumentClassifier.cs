@@ -79,14 +79,14 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the training and testing data.
-        /// See the `input_data_config` Configuration Block section below.
+        /// See the `InputDataConfig` Configuration Block section below.
         /// </summary>
         [Output("inputDataConfig")]
         public Output<Outputs.DocumentClassifierInputDataConfig> InputDataConfig { get; private set; } = null!;
 
         /// <summary>
         /// Two-letter language code for the language.
-        /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        /// One of `En`, `Es`, `Fr`, `It`, `De`, or `Pt`.
         /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the output results of training.
-        /// See the `output_data_config` Configuration Block section below.
+        /// See the `OutputDataConfig` Configuration Block section below.
         /// </summary>
         [Output("outputDataConfig")]
         public Output<Outputs.DocumentClassifierOutputDataConfig> OutputDataConfig { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Comprehend
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Comprehend
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name_prefix`.
+        /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Output("versionName")]
         public Output<string> VersionName { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Comprehend
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name`.
+        /// Conflicts with `VersionName`.
         /// </summary>
         [Output("versionNamePrefix")]
         public Output<string> VersionNamePrefix { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration parameters for VPC to contain Document Classifier resources.
-        /// See the `vpc_config` Configuration Block section below.
+        /// See the `VpcConfig` Configuration Block section below.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.DocumentClassifierVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -230,14 +230,14 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the training and testing data.
-        /// See the `input_data_config` Configuration Block section below.
+        /// See the `InputDataConfig` Configuration Block section below.
         /// </summary>
         [Input("inputDataConfig", required: true)]
         public Input<Inputs.DocumentClassifierInputDataConfigArgs> InputDataConfig { get; set; } = null!;
 
         /// <summary>
         /// Two-letter language code for the language.
-        /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        /// One of `En`, `Es`, `Fr`, `It`, `De`, or `Pt`.
         /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the output results of training.
-        /// See the `output_data_config` Configuration Block section below.
+        /// See the `OutputDataConfig` Configuration Block section below.
         /// </summary>
         [Input("outputDataConfig")]
         public Input<Inputs.DocumentClassifierOutputDataConfigArgs>? OutputDataConfig { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Comprehend
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name_prefix`.
+        /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Comprehend
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name`.
+        /// Conflicts with `VersionName`.
         /// </summary>
         [Input("versionNamePrefix")]
         public Input<string>? VersionNamePrefix { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration parameters for VPC to contain Document Classifier resources.
-        /// See the `vpc_config` Configuration Block section below.
+        /// See the `VpcConfig` Configuration Block section below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.DocumentClassifierVpcConfigArgs>? VpcConfig { get; set; }
@@ -349,14 +349,14 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the training and testing data.
-        /// See the `input_data_config` Configuration Block section below.
+        /// See the `InputDataConfig` Configuration Block section below.
         /// </summary>
         [Input("inputDataConfig")]
         public Input<Inputs.DocumentClassifierInputDataConfigGetArgs>? InputDataConfig { get; set; }
 
         /// <summary>
         /// Two-letter language code for the language.
-        /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        /// One of `En`, `Es`, `Fr`, `It`, `De`, or `Pt`.
         /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration for the output results of training.
-        /// See the `output_data_config` Configuration Block section below.
+        /// See the `OutputDataConfig` Configuration Block section below.
         /// </summary>
         [Input("outputDataConfig")]
         public Input<Inputs.DocumentClassifierOutputDataConfigGetArgs>? OutputDataConfig { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.Comprehend
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.Comprehend
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name_prefix`.
+        /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Comprehend
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-        /// Conflicts with `version_name`.
+        /// Conflicts with `VersionName`.
         /// </summary>
         [Input("versionNamePrefix")]
         public Input<string>? VersionNamePrefix { get; set; }
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Comprehend
 
         /// <summary>
         /// Configuration parameters for VPC to contain Document Classifier resources.
-        /// See the `vpc_config` Configuration Block section below.
+        /// See the `VpcConfig` Configuration Block section below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.DocumentClassifierVpcConfigGetArgs>? VpcConfig { get; set; }

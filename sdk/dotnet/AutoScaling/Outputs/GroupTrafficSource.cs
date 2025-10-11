@@ -20,9 +20,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// <summary>
         /// Provides additional context for the value of Identifier.
         /// The following lists the valid values:
-        /// `elb` if `identifier` is the name of a Classic Load Balancer.
-        /// `elbv2` if `identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
-        /// `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
+        /// `Elb` if `Identifier` is the name of a Classic Load Balancer.
+        /// `Elbv2` if `Identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+        /// `vpc-lattice` if `Identifier` is the ARN of a VPC Lattice target group.
         /// </summary>
         public readonly string? Type;
 

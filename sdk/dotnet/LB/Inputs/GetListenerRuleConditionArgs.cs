@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LB.Inputs
         private InputList<Inputs.GetListenerRuleConditionHostHeaderInputArgs>? _hostHeaders;
 
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of host names.
+        /// Contains a single attribute `Values`, which contains a set of host names.
         /// </summary>
         public InputList<Inputs.GetListenerRuleConditionHostHeaderInputArgs> HostHeaders
         {
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.LB.Inputs
         private InputList<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs>? _httpRequestMethods;
 
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of HTTP request methods.
+        /// Contains a single attribute `Values`, which contains a set of HTTP request methods.
         /// </summary>
         public InputList<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs> HttpRequestMethods
         {
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.LB.Inputs
         private InputList<Inputs.GetListenerRuleConditionPathPatternInputArgs>? _pathPatterns;
 
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+        /// Contains a single attribute `Values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
         public InputList<Inputs.GetListenerRuleConditionPathPatternInputArgs> PathPatterns
         {
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.LB.Inputs
         private InputList<Inputs.GetListenerRuleConditionSourceIpInputArgs>? _sourceIps;
 
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
         public InputList<Inputs.GetListenerRuleConditionSourceIpInputArgs> SourceIps
         {

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CodeArtifact
         public string? DomainOwner { get; set; }
 
         /// <summary>
-        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `Npm`, `Pypi`, `Maven`, and `Nuget`.
         /// </summary>
         [Input("format", required: true)]
         public string Format { get; set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string>? DomainOwner { get; set; }
 
         /// <summary>
-        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `Npm`, `Pypi`, `Maven`, and `Nuget`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;

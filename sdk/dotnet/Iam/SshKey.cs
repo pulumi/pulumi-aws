@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> SshPublicKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Iam
         public Input<string> PublicKey { get; set; } = null!;
 
         /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? SshPublicKeyId { get; set; }
 
         /// <summary>
-        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `Active`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

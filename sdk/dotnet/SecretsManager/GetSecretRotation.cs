@@ -149,7 +149,7 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string RotationLambdaArn;
         /// <summary>
-        /// Configuration block for rotation rules. See `rotation_rules` below.
+        /// Configuration block for rotation rules. See `RotationRules` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretRotationRotationRuleResult> RotationRules;
         public readonly string SecretId;

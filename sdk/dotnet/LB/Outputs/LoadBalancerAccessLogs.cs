@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
+        /// Boolean to enable / disable `AccessLogs`. Defaults to `False`, even when `Bucket` is specified.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

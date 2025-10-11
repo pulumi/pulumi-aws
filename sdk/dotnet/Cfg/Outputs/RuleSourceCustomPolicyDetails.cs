@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cfg.Outputs
     public sealed class RuleSourceCustomPolicyDetails
     {
         /// <summary>
-        /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+        /// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `False`.
         /// </summary>
         public readonly bool? EnableDebugLogDelivery;
         /// <summary>

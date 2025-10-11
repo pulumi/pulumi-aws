@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBrokerNodeGroupInfoStorageInfo {
     /**
-     * @return A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+     * @return A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo;
 
     private ClusterBrokerNodeGroupInfoStorageInfo() {}
     /**
-     * @return A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+     * @return A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo> ebsStorageInfo() {

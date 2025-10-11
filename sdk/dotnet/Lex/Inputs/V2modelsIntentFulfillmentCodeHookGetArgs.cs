@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillment_updates_specification`.
+        /// Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `FulfillmentUpdatesSpecification`.
         /// </summary>
         [Input("fulfillmentUpdatesSpecification")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationGetArgs>? FulfillmentUpdatesSpecification { get; set; }
 
         /// <summary>
-        /// Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `post_fulfillment_status_specification`.
+        /// Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `PostFulfillmentStatusSpecification`.
         /// </summary>
         [Input("postFulfillmentStatusSpecification")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationGetArgs>? PostFulfillmentStatusSpecification { get; set; }

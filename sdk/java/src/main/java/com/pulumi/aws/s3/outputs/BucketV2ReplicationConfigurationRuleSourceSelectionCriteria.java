@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
     /**
-     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
      * in `destination` must be specified as well.
      * 
      */
@@ -20,7 +20,7 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
 
     private BucketV2ReplicationConfigurationRuleSourceSelectionCriteria() {}
     /**
-     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
      * in `destination` must be specified as well.
      * 
      */

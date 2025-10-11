@@ -18,7 +18,7 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
         /// </summary>
         public readonly string ClaimAttributePath;
         /// <summary>
-        /// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+        /// Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `ClaimAttributePath` when a trusted token issuer token is exchanged for an IAM Identity Center token.
         /// </summary>
         public readonly string IdentityStoreAttributePath;
         /// <summary>

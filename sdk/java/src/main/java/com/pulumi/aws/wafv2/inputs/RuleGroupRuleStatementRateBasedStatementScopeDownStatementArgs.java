@@ -43,14 +43,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArg
     }
 
     /**
-     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     @Import(name="asnMatchStatement")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs> asnMatchStatement;
 
     /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs>> asnMatchStatement() {
@@ -280,7 +280,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArg
         }
 
         /**
-         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArg
         }
 
         /**
-         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
          * 
          * @return builder
          * 

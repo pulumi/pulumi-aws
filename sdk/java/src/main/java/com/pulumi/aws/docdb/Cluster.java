@@ -28,10 +28,10 @@ import javax.annotation.Nullable;
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change immediately
+ * `applyImmediately` flag to instruct the service to apply the change immediately
  * (see documentation below).
  * 
- * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
+ * &gt; **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
  * 
  * ## Example Usage
  * 
@@ -132,7 +132,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
      * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
@@ -141,7 +141,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of EC2 Availability Zones that instances in the DB cluster can be created in.
      * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      * 
      */
     public Output<List<String>> availabilityZones() {
@@ -176,14 +176,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      * 
      */
     @Export(name="clusterIdentifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifierPrefix;
 
     /**
-     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      * 
      */
     public Output<String> clusterIdentifierPrefix() {
@@ -364,28 +364,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.hostedZoneId;
     }
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
      * 
      */
     @Export(name="manageMasterUserPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageMasterUserPassword;
 
     /**
-     * @return Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * @return Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
      * 
      */
     public Output<Optional<Boolean>> manageMasterUserPassword() {
@@ -393,7 +393,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
@@ -401,7 +401,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     public Output<Optional<String>> masterPassword() {
@@ -528,14 +528,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverlessV2ScalingConfiguration);
     }
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
     /**
-     * @return Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * @return Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> skipFinalSnapshot() {
@@ -584,28 +584,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageType);
     }
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

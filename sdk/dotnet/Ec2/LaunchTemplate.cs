@@ -74,14 +74,14 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> DisableApiStop { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, enables [EC2 Instance
+        /// If `True`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Output("disableApiTermination")]
         public Output<bool?> DisableApiTermination { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, the launched EC2 instance will be EBS-optimized.
+        /// If `True`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Output("ebsOptimized")]
         public Output<string?> EbsOptimized { get; private set; } = null!;
@@ -112,8 +112,8 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> ImageId { get; private set; } = null!;
 
         /// <summary>
-        /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-        /// (Default: `stop`).
+        /// Shutdown behavior for the instance. Can be `Stop` or `Terminate`.
+        /// (Default: `Stop`).
         /// </summary>
         [Output("instanceInitiatedShutdownBehavior")]
         public Output<string?> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateInstanceMarketOptions?> InstanceMarketOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `InstanceType` cannot be present.
         /// </summary>
         [Output("instanceRequirements")]
         public Output<Outputs.LaunchTemplateInstanceRequirements?> InstanceRequirements { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `InstanceRequirements` cannot be present.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `VpcSecurityGroupIds` instead.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
@@ -236,19 +236,19 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `DefaultVersion`.
         /// </summary>
         [Output("updateDefaultVersion")]
         public Output<bool?> UpdateDefaultVersion { get; private set; } = null!;
@@ -362,14 +362,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
-        /// If `true`, enables [EC2 Instance
+        /// If `True`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
 
         /// <summary>
-        /// If `true`, the launched EC2 instance will be EBS-optimized.
+        /// If `True`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Input("ebsOptimized")]
         public Input<string>? EbsOptimized { get; set; }
@@ -400,8 +400,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-        /// (Default: `stop`).
+        /// Shutdown behavior for the instance. Can be `Stop` or `Terminate`.
+        /// (Default: `Stop`).
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
@@ -414,13 +414,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `InstanceType` cannot be present.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.LaunchTemplateInstanceRequirementsArgs>? InstanceRequirements { get; set; }
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `InstanceRequirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `VpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `DefaultVersion`.
         /// </summary>
         [Input("updateDefaultVersion")]
         public Input<bool>? UpdateDefaultVersion { get; set; }
@@ -642,14 +642,14 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
-        /// If `true`, enables [EC2 Instance
+        /// If `True`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
 
         /// <summary>
-        /// If `true`, the launched EC2 instance will be EBS-optimized.
+        /// If `True`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Input("ebsOptimized")]
         public Input<string>? EbsOptimized { get; set; }
@@ -680,8 +680,8 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
-        /// (Default: `stop`).
+        /// Shutdown behavior for the instance. Can be `Stop` or `Terminate`.
+        /// (Default: `Stop`).
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
@@ -694,13 +694,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsGetArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// The attribute requirements for the type of instance. If present then `InstanceType` cannot be present.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.LaunchTemplateInstanceRequirementsGetArgs>? InstanceRequirements { get; set; }
 
         /// <summary>
-        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// The type of the instance. If present then `InstanceRequirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -760,7 +760,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
-        /// `vpc_security_group_ids` instead.
+        /// `VpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the launch template. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -852,7 +852,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// Whether to update Default Version each update. Conflicts with `DefaultVersion`.
         /// </summary>
         [Input("updateDefaultVersion")]
         public Input<bool>? UpdateDefaultVersion { get; set; }

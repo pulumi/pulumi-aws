@@ -67,14 +67,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The permissions for the `content_config` object. (documented below)
+     * The permissions for the `contentConfig` object. (documented below)
      * 
      */
     @Import(name="contentConfigPermissions")
     private @Nullable Output<List<PipelineContentConfigPermissionArgs>> contentConfigPermissions;
 
     /**
-     * @return The permissions for the `content_config` object. (documented below)
+     * @return The permissions for the `contentConfig` object. (documented below)
      * 
      */
     public Optional<Output<List<PipelineContentConfigPermissionArgs>>> contentConfigPermissions() {
@@ -187,32 +187,32 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The permissions for the `thumbnail_config` object. (documented below)
+     * The permissions for the `thumbnailConfig` object. (documented below)
      * 
      * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      * 
-     * The `content_config` object specifies information about the Amazon S3 bucket in
+     * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
      * bucket to use, and the storage class that you want to assign to the files. If
-     * you specify values for `content_config`, you must also specify values for
-     * `thumbnail_config`. If you specify values for `content_config` and
-     * `thumbnail_config`, omit the `output_bucket` object.
+     * you specify values for `contentConfig`, you must also specify values for
+     * `thumbnailConfig`. If you specify values for `contentConfig` and
+     * `thumbnailConfig`, omit the `outputBucket` object.
      * 
      */
     @Import(name="thumbnailConfigPermissions")
     private @Nullable Output<List<PipelineThumbnailConfigPermissionArgs>> thumbnailConfigPermissions;
 
     /**
-     * @return The permissions for the `thumbnail_config` object. (documented below)
+     * @return The permissions for the `thumbnailConfig` object. (documented below)
      * 
      * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      * 
-     * The `content_config` object specifies information about the Amazon S3 bucket in
+     * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
      * bucket to use, and the storage class that you want to assign to the files. If
-     * you specify values for `content_config`, you must also specify values for
-     * `thumbnail_config`. If you specify values for `content_config` and
-     * `thumbnail_config`, omit the `output_bucket` object.
+     * you specify values for `contentConfig`, you must also specify values for
+     * `thumbnailConfig`. If you specify values for `contentConfig` and
+     * `thumbnailConfig`, omit the `outputBucket` object.
      * 
      */
     public Optional<Output<List<PipelineThumbnailConfigPermissionArgs>>> thumbnailConfigPermissions() {
@@ -318,7 +318,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentConfigPermissions The permissions for the `content_config` object. (documented below)
+         * @param contentConfigPermissions The permissions for the `contentConfig` object. (documented below)
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentConfigPermissions The permissions for the `content_config` object. (documented below)
+         * @param contentConfigPermissions The permissions for the `contentConfig` object. (documented below)
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentConfigPermissions The permissions for the `content_config` object. (documented below)
+         * @param contentConfigPermissions The permissions for the `contentConfig` object. (documented below)
          * 
          * @return builder
          * 
@@ -496,16 +496,16 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
+         * @param thumbnailConfigPermissions The permissions for the `thumbnailConfig` object. (documented below)
          * 
          * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
          * 
-         * The `content_config` object specifies information about the Amazon S3 bucket in
+         * The `contentConfig` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which
          * bucket to use, and the storage class that you want to assign to the files. If
-         * you specify values for `content_config`, you must also specify values for
-         * `thumbnail_config`. If you specify values for `content_config` and
-         * `thumbnail_config`, omit the `output_bucket` object.
+         * you specify values for `contentConfig`, you must also specify values for
+         * `thumbnailConfig`. If you specify values for `contentConfig` and
+         * `thumbnailConfig`, omit the `outputBucket` object.
          * 
          * @return builder
          * 
@@ -516,16 +516,16 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
+         * @param thumbnailConfigPermissions The permissions for the `thumbnailConfig` object. (documented below)
          * 
          * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
          * 
-         * The `content_config` object specifies information about the Amazon S3 bucket in
+         * The `contentConfig` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which
          * bucket to use, and the storage class that you want to assign to the files. If
-         * you specify values for `content_config`, you must also specify values for
-         * `thumbnail_config`. If you specify values for `content_config` and
-         * `thumbnail_config`, omit the `output_bucket` object.
+         * you specify values for `contentConfig`, you must also specify values for
+         * `thumbnailConfig`. If you specify values for `contentConfig` and
+         * `thumbnailConfig`, omit the `outputBucket` object.
          * 
          * @return builder
          * 
@@ -535,16 +535,16 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param thumbnailConfigPermissions The permissions for the `thumbnail_config` object. (documented below)
+         * @param thumbnailConfigPermissions The permissions for the `thumbnailConfig` object. (documented below)
          * 
          * See [&#34;Create Pipeline&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
          * 
-         * The `content_config` object specifies information about the Amazon S3 bucket in
+         * The `contentConfig` object specifies information about the Amazon S3 bucket in
          * which you want Elastic Transcoder to save transcoded files and playlists: which
          * bucket to use, and the storage class that you want to assign to the files. If
-         * you specify values for `content_config`, you must also specify values for
-         * `thumbnail_config`. If you specify values for `content_config` and
-         * `thumbnail_config`, omit the `output_bucket` object.
+         * you specify values for `contentConfig`, you must also specify values for
+         * `thumbnailConfig`. If you specify values for `contentConfig` and
+         * `thumbnailConfig`, omit the `outputBucket` object.
          * 
          * @return builder
          * 

@@ -15,13 +15,13 @@ namespace Pulumi.Aws.Lex.Outputs
     {
         /// <summary>
         /// Configuration block for the primary message that Amazon Lex should send to the user.
-        /// See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `Message` argument reference - they are identical.
         /// </summary>
         public readonly Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage Message;
         /// <summary>
         /// Configuration blocks for message variations to send to the user.
         /// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
-        /// See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `Variation` argument reference - they are identical.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation> Variations;
 

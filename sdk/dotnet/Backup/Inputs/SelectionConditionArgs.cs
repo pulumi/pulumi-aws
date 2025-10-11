@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<Inputs.SelectionConditionStringLikeArgs>? _stringLikes;
 
         /// <summary>
-        /// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        /// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `Production`. See below for details.
         /// </summary>
         public InputList<Inputs.SelectionConditionStringLikeArgs> StringLikes
         {

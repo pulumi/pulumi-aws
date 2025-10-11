@@ -46,14 +46,14 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+     * @return The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -129,7 +129,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          * 
          * @return builder
          * 

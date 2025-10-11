@@ -41,7 +41,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies;
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
@@ -51,17 +51,17 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
      */
     private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
-     * @return Inspect the request body as JSON. See `json_body` for details.
+     * @return Inspect the request body as JSON. See `jsonBody` for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
@@ -76,17 +76,17 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString;
     /**
-     * @return Inspect a single header. See `single_header` below for details.
+     * @return Inspect a single header. See `singleHeader` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
     /**
-     * @return Inspect a single query argument. See `single_query_argument` below for details.
+     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
@@ -119,7 +119,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         return Optional.ofNullable(this.cookies);
     }
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders() {
@@ -133,21 +133,21 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
         return Optional.ofNullable(this.ja4Fingerprint);
     }
     /**
-     * @return Inspect the request body as JSON. See `json_body` for details.
+     * @return Inspect the request body as JSON. See `jsonBody` for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody() {
@@ -168,21 +168,21 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Inspect a single header. See `single_header` below for details.
+     * @return Inspect a single header. See `singleHeader` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
-     * @return Inspect a single query argument. See `single_query_argument` below for details.
+     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment> uriFragment() {

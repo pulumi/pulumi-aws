@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With `routing_rule` configured
+ * ### With `routingRule` configured
  * 
  * <pre>
  * {@code
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With `routing_rules` configured
+ * ### With `routingRules` configured
  * 
  * <pre>
  * {@code
@@ -232,14 +232,14 @@ public class BucketWebsiteConfiguration extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.indexDocument);
     }
     /**
-     * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      * 
      */
     @Export(name="redirectAllRequestsTo", refs={BucketWebsiteConfigurationRedirectAllRequestsTo.class}, tree="[0]")
     private Output</* @Nullable */ BucketWebsiteConfigurationRedirectAllRequestsTo> redirectAllRequestsTo;
 
     /**
-     * @return Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * @return Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      * 
      */
     public Output<Optional<BucketWebsiteConfigurationRedirectAllRequestsTo>> redirectAllRequestsTo() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInput
     {
         /// <summary>
-        /// Configuration block for iceberg table config. See `iceberg_input` below.
+        /// Configuration block for iceberg table config. See `IcebergInput` below.
         /// </summary>
         public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInput IcebergInput;
 

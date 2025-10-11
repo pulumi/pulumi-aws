@@ -221,14 +221,14 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
         return this.deploymentConfigName;
     }
     /**
-     * A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
     @Export(name="minimumHealthyHosts", refs={DeploymentConfigMinimumHealthyHosts.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigMinimumHealthyHosts> minimumHealthyHosts;
 
     /**
-     * @return A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+     * @return A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
     public Output<Optional<DeploymentConfigMinimumHealthyHosts>> minimumHealthyHosts() {
@@ -249,28 +249,28 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A traffic_routing_config block. Traffic Routing Config is documented below.
+     * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      * 
      */
     @Export(name="trafficRoutingConfig", refs={DeploymentConfigTrafficRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigTrafficRoutingConfig> trafficRoutingConfig;
 
     /**
-     * @return A traffic_routing_config block. Traffic Routing Config is documented below.
+     * @return A trafficRoutingConfig block. Traffic Routing Config is documented below.
      * 
      */
     public Output<Optional<DeploymentConfigTrafficRoutingConfig>> trafficRoutingConfig() {
         return Codegen.optional(this.trafficRoutingConfig);
     }
     /**
-     * A zonal_config block. Zonal Config is documented below.
+     * A zonalConfig block. Zonal Config is documented below.
      * 
      */
     @Export(name="zonalConfig", refs={DeploymentConfigZonalConfig.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentConfigZonalConfig> zonalConfig;
 
     /**
-     * @return A zonal_config block. Zonal Config is documented below.
+     * @return A zonalConfig block. Zonal Config is documented below.
      * 
      */
     public Output<Optional<DeploymentConfigZonalConfig>> zonalConfig() {

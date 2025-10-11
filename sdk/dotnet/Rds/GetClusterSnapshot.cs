@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set this value to true to include manual DB Cluster Snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public bool? IncludePublic { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include shared manual DB Cluster Snapshots from other
         /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `false`.
+        /// The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public bool? IncludeShared { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-        /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public string? SnapshotType { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set this value to true to include manual DB Cluster Snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public Input<bool>? IncludePublic { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include shared manual DB Cluster Snapshots from other
         /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `false`.
+        /// The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public Input<bool>? IncludeShared { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-        /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Rds
         public readonly bool? IncludePublic;
         public readonly bool? IncludeShared;
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+        /// If StorageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

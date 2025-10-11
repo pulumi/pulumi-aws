@@ -34,14 +34,14 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     @Import(name="phrases")
     private @Nullable Output<List<String>> phrases;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     public Optional<Output<List<String>>> phrases() {
@@ -64,14 +64,14 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -163,7 +163,7 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param phrases A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

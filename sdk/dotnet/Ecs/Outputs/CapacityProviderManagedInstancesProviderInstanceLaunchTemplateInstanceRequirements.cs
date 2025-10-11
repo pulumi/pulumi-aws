@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount? AcceleratorCount;
         /// <summary>
-        /// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+        /// The accelerator manufacturers to include. You can specify `Nvidia`, `Amd`, `amazon-web-services`, `Xilinx`, or `Habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `Amd`, `Nvidia`, `Xilinx`, `Habana`.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
         /// <summary>
-        /// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+        /// The specific accelerator names to include. For example, you can specify `A100`, `V100`, `K80`, or other specific accelerator models. Valid values are `A100`, `Inferentia`, `K520`, `K80`, `M60`, `radeon-pro-v520`, `T4`, `Vu9p`, `V100`, `A10g`, `H100`, `T4g`.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorNames;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib? AcceleratorTotalMemoryMib;
         /// <summary>
-        /// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+        /// The accelerator types to include. You can specify `Gpu` for graphics processing units, `Fpga` for field programmable gate arrays, or `Inference` for machine learning inference accelerators. Valid values are `Gpu`, `Fpga`, `Inference`.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
-        /// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+        /// Indicates whether to include bare metal instance types. Set to `Included` to allow bare metal instances, `Excluded` to exclude them, or `Required` to use only bare metal instances. Valid values are `Included`, `Excluded`, `Required`.
         /// </summary>
         public readonly string? BareMetal;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps? BaselineEbsBandwidthMbps;
         /// <summary>
-        /// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+        /// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `Included` to allow burstable instances, `Excluded` to exclude them, or `Required` to use only burstable instances. Valid values are `Included`, `Excluded`, `Required`.
         /// </summary>
         public readonly string? BurstablePerformance;
         /// <summary>
-        /// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+        /// The CPU manufacturers to include or exclude. You can specify `Intel`, `Amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `Intel`, `Amd`, `amazon-web-services`.
         /// </summary>
         public readonly ImmutableArray<string> CpuManufacturers;
         /// <summary>
@@ -58,15 +58,15 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
         /// <summary>
-        /// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+        /// The instance generations to include. You can specify `Current` to use the latest generation instances, or `Previous` to include previous generation instances for cost optimization. Valid values are `Current`, `Previous`.
         /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
         /// <summary>
-        /// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+        /// Indicates whether to include instance types with local storage. Set to `Included` to allow local storage, `Excluded` to exclude it, or `Required` to use only instances with local storage. Valid values are `Included`, `Excluded`, `Required`.
         /// </summary>
         public readonly string? LocalStorage;
         /// <summary>
-        /// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+        /// The local storage types to include. You can specify `Hdd` for hard disk drives, `Ssd` for solid state drives, or both. Valid values are `Hdd`, `Ssd`.
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         /// <summary>
-        /// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+        /// Indicates whether the instance types must support hibernation. When set to `True`, only instance types that support hibernation are selected.
         /// </summary>
         public readonly bool? RequireHibernateSupport;
         /// <summary>

@@ -16,14 +16,14 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
     public static final UserPoolUICustomizationState Empty = new UserPoolUICustomizationState();
 
     /**
-     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+     * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+     * @return The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -46,14 +46,14 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+     * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      * 
      */
     @Import(name="css")
     private @Nullable Output<String> css;
 
     /**
-     * @return The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+     * @return The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      * 
      */
     public Optional<Output<String>> css() {
@@ -76,14 +76,14 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+     * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      * 
      */
     @Import(name="imageFile")
     private @Nullable Output<String> imageFile;
 
     /**
-     * @return The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+     * @return The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      * 
      */
     public Optional<Output<String>> imageFile() {
@@ -183,7 +183,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param clientId The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+         * @param clientId The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param clientId The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+         * @param clientId The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param css The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+         * @param css The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param css The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+         * @param css The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param imageFile The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+         * @param imageFile The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class UserPoolUICustomizationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param imageFile The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+         * @param imageFile The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
          * 
          * @return builder
          * 

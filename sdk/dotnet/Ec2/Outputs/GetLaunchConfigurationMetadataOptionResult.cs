@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetLaunchConfigurationMetadataOptionResult
     {
         /// <summary>
-        /// State of the metadata service: `enabled`, `disabled`.
+        /// State of the metadata service: `Enabled`, `Disabled`.
         /// </summary>
         public readonly string HttpEndpoint;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int HttpPutResponseHopLimit;
         /// <summary>
-        /// If session tokens are required: `optional`, `required`.
+        /// If session tokens are required: `Optional`, `Required`.
         /// </summary>
         public readonly string HttpTokens;
 

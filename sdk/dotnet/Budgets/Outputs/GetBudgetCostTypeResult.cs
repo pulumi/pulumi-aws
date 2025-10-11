@@ -14,47 +14,47 @@ namespace Pulumi.Aws.Budgets.Outputs
     public sealed class GetBudgetCostTypeResult
     {
         /// <summary>
-        /// A boolean value whether to include credits in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include credits in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeCredit;
         /// <summary>
-        /// Whether a budget includes discounts. Defaults to `true`.
+        /// Whether a budget includes discounts. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeDiscount;
         /// <summary>
-        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeOtherSubscription;
         /// <summary>
-        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeRecurring;
         /// <summary>
-        /// A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include refunds in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeRefund;
         /// <summary>
-        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeSubscription;
         /// <summary>
-        /// A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include support costs in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeSupport;
         /// <summary>
-        /// A boolean value whether to include tax in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include tax in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeTax;
         /// <summary>
-        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `True`.
         /// </summary>
         public readonly bool IncludeUpfront;
         /// <summary>
-        /// Whether a budget uses the amortized rate. Defaults to `false`.
+        /// Whether a budget uses the amortized rate. Defaults to `False`.
         /// </summary>
         public readonly bool UseAmortized;
         /// <summary>
-        /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
+        /// A boolean value whether to use blended costs in the cost budget. Defaults to `False`.
         /// </summary>
         public readonly bool UseBlended;
 

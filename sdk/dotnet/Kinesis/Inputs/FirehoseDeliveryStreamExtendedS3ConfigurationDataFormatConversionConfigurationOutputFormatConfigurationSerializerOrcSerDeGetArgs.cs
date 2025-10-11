@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<double>? DictionaryKeyThreshold { get; set; }
 
         /// <summary>
-        /// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
+        /// Set this to `True` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `False`.
         /// </summary>
         [Input("enablePadding")]
         public Input<bool>? EnablePadding { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? FormatVersion { get; set; }
 
         /// <summary>
-        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
+        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `EnablePadding` is `False`.
         /// </summary>
         [Input("paddingTolerance")]
         public Input<double>? PaddingTolerance { get; set; }

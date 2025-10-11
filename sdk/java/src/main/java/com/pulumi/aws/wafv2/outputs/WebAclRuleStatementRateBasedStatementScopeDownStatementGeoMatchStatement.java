@@ -20,7 +20,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
      */
     private List<String> countryCodes;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig;
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
         return this.countryCodes;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig> forwardedIpConfig() {

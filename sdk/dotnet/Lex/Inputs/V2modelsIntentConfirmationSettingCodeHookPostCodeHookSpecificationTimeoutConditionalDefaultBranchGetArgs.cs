@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `NextStep`.
         /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepGetArgs>? NextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
         /// </summary>
         [Input("response")]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseGetArgs>? Response { get; set; }

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
     public sealed class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+        /// Customized metric. You can specify either `CustomizedScalingMetricSpecification` or `PredefinedScalingMetricSpecification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs>? CustomizedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
+        /// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `False`.
         /// </summary>
         [Input("disableScaleIn")]
         public Input<bool>? DisableScaleIn { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<int>? EstimatedInstanceWarmup { get; set; }
 
         /// <summary>
-        /// Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+        /// Predefined metric. You can specify either `PredefinedScalingMetricSpecification` or `CustomizedScalingMetricSpecification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]

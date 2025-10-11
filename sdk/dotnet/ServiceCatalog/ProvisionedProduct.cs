@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources.
     /// 
-    /// Like this resource, the `aws_servicecatalog_record` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
+    /// Like this resource, the `AwsServicecatalogRecord` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
     /// 
     /// &gt; **Tip:** If you include conflicted keys as tags, AWS will report an error, "Parameter validation failed: Missing required parameter in Tags[N]:Value".
     /// 
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class ProvisionedProduct : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
+        /// _Only applies to deleting._ If set to `True`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `False`.
         /// </summary>
         [Output("ignoreErrors")]
         public Output<bool?> IgnoreErrors { get; private set; } = null!;
@@ -140,43 +140,43 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableArray<Outputs.ProvisionedProductOutput>> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Output("pathId")]
         public Output<string> PathId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Output("pathName")]
         public Output<string?> PathName { get; private set; } = null!;
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Output("productName")]
         public Output<string?> ProductName { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Output("provisioningArtifactId")]
         public Output<string> ProvisioningArtifactId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Output("provisioningArtifactName")]
         public Output<string?> ProvisioningArtifactName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `ProvisioningParameters` Block for details.
         /// </summary>
         [Output("provisioningParameters")]
         public Output<ImmutableArray<Outputs.ProvisionedProductProvisioningParameter>> ProvisioningParameters { get; private set; } = null!;
@@ -188,13 +188,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
+        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `False`.
         /// </summary>
         [Output("retainPhysicalResources")]
         public Output<bool?> RetainPhysicalResources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `StackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Output("stackSetProvisioningPreferences")]
         public Output<Outputs.ProvisionedProductStackSetProvisioningPreferences?> StackSetProvisioningPreferences { get; private set; } = null!;
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -276,13 +276,13 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProvisionedProductArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
+        /// _Only applies to deleting._ If set to `True`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `False`.
         /// </summary>
         [Input("ignoreErrors")]
         public Input<bool>? IgnoreErrors { get; set; }
@@ -308,37 +308,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Input("pathName")]
         public Input<string>? PathName { get; set; }
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Input("productName")]
         public Input<string>? ProductName { get; set; }
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactName")]
         public Input<string>? ProvisioningArtifactName { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `ProvisioningParameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterArgs> ProvisioningParameters
         {
@@ -362,13 +362,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
+        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `False`.
         /// </summary>
         [Input("retainPhysicalResources")]
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `StackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs>? StackSetProvisioningPreferences { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProvisionedProductState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
+        /// _Only applies to deleting._ If set to `True`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `False`.
         /// </summary>
         [Input("ignoreErrors")]
         public Input<bool>? IgnoreErrors { get; set; }
@@ -486,37 +486,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Input("pathId")]
         public Input<string>? PathId { get; set; }
 
         /// <summary>
-        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// Name of the path. You must provide `PathId` or `PathName`, but not both.
         /// </summary>
         [Input("pathName")]
         public Input<string>? PathName { get; set; }
 
         /// <summary>
-        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
         /// <summary>
-        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// Name of the product. You must provide `ProductId` or `ProductName`, but not both.
         /// </summary>
         [Input("productName")]
         public Input<string>? ProductName { get; set; }
 
         /// <summary>
-        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactId")]
         public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// Name of the provisioning artifact. You must provide the `ProvisioningArtifactId` or `ProvisioningArtifactName`, but not both.
         /// </summary>
         [Input("provisioningArtifactName")]
         public Input<string>? ProvisioningArtifactName { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `ProvisioningParameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs> ProvisioningParameters
         {
@@ -540,13 +540,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
+        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `False`.
         /// </summary>
         [Input("retainPhysicalResources")]
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `StackSetProvisioningPreferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesGetArgs>? StackSetProvisioningPreferences { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the provisioned product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -579,7 +579,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

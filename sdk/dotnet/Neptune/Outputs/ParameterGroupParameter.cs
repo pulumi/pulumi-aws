@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Neptune.Outputs
     public sealed class ParameterGroupParameter
     {
         /// <summary>
-        /// The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        /// The apply method of the Neptune parameter. Valid values are `Immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>

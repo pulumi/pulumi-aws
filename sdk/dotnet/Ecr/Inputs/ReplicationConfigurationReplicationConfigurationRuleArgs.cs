@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? _destinations;
 
         /// <summary>
-        /// the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        /// the details of a replication destination. A maximum of 25 are allowed per `Rule`. See Destination.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs> Destinations
         {

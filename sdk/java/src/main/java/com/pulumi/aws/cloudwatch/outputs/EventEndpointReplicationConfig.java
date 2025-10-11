@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventEndpointReplicationConfig {
     /**
-     * @return The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don&#39;t have a `role_arn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
+     * @return The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
      * 
      */
     private @Nullable String state;
 
     private EventEndpointReplicationConfig() {}
     /**
-     * @return The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don&#39;t have a `role_arn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
+     * @return The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don&#39;t have a `roleArn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
      * 
      */
     public Optional<String> state() {

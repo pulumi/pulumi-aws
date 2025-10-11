@@ -17,14 +17,14 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
     public static final StreamProcessorRegionsOfInterestArgs Empty = new StreamProcessorRegionsOfInterestArgs();
 
     /**
-     * Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+     * Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
     @Import(name="boundingBox", required=true)
     private Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
 
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
     public Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox() {
@@ -72,7 +72,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         /**
-         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+         * @param boundingBox Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
          * 
          * @return builder
          * 

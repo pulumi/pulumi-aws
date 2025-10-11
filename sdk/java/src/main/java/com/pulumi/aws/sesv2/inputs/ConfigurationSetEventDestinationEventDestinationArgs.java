@@ -24,14 +24,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     public static final ConfigurationSetEventDestinationEventDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationArgs();
 
     /**
-     * An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+     * An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
      * 
      */
     @Import(name="cloudWatchDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs> cloudWatchDestination;
 
     /**
-     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+     * @return An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs>> cloudWatchDestination() {
@@ -54,14 +54,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     }
 
     /**
-     * An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
      * 
      */
     @Import(name="eventBridgeDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs> eventBridgeDestination;
 
     /**
-     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+     * @return An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs>> eventBridgeDestination() {
@@ -69,14 +69,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     }
 
     /**
-     * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+     * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
      * 
      */
     @Import(name="kinesisFirehoseDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs> kinesisFirehoseDestination;
 
     /**
-     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+     * @return An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs>> kinesisFirehoseDestination() {
@@ -99,14 +99,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     }
 
     /**
-     * An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+     * An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     @Import(name="pinpointDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs> pinpointDestination;
 
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs>> pinpointDestination() {
@@ -114,14 +114,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     }
 
     /**
-     * An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+     * An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
      * 
      */
     @Import(name="snsDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs> snsDestination;
 
     /**
-     * @return An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+     * @return An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs>> snsDestination() {
@@ -159,7 +159,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param cloudWatchDestination An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+         * @param cloudWatchDestination An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param cloudWatchDestination An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+         * @param cloudWatchDestination An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+         * @param eventBridgeDestination An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param kinesisFirehoseDestination An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+         * @param kinesisFirehoseDestination An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param kinesisFirehoseDestination An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+         * @param kinesisFirehoseDestination An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param snsDestination An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+         * @param snsDestination An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param snsDestination An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+         * @param snsDestination An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
          * 
          * @return builder
          * 

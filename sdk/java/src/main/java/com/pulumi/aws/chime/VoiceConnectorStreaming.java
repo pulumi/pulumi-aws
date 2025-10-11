@@ -203,14 +203,14 @@ public class VoiceConnectorStreaming extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.disabled);
     }
     /**
-     * The media insights configuration. See `media_insights_configuration`.
+     * The media insights configuration. See `mediaInsightsConfiguration`.
      * 
      */
     @Export(name="mediaInsightsConfiguration", refs={VoiceConnectorStreamingMediaInsightsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VoiceConnectorStreamingMediaInsightsConfiguration> mediaInsightsConfiguration;
 
     /**
-     * @return The media insights configuration. See `media_insights_configuration`.
+     * @return The media insights configuration. See `mediaInsightsConfiguration`.
      * 
      */
     public Output<Optional<VoiceConnectorStreamingMediaInsightsConfiguration>> mediaInsightsConfiguration() {

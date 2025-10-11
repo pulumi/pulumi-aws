@@ -31,14 +31,14 @@ public final class RepositoryCreationTemplateEncryptionConfigurationArgs extends
     }
 
     /**
-     * The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+     * @return The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -92,7 +92,7 @@ public final class RepositoryCreationTemplateEncryptionConfigurationArgs extends
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RepositoryCreationTemplateEncryptionConfigurationArgs extends
         }
 
         /**
-         * @param kmsKey The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         * @param kmsKey The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
          * 
          * @return builder
          * 

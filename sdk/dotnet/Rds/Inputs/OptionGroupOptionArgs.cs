@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Rds.Inputs
         private InputList<Inputs.OptionGroupOptionOptionSettingArgs>? _optionSettings;
 
         /// <summary>
-        /// The option settings to apply. See `option_settings` Block below for more details.
+        /// The option settings to apply. See `OptionSettings` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionOptionSettingArgs> OptionSettings
         {
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Rds.Inputs
         }
 
         /// <summary>
-        /// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
+        /// Port number when connecting to the option (e.g., 11211). Leaving out or removing `Port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `Port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
+        /// Version of the option (e.g., 13.1.0.0). Leaving out or removing `Version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `Version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

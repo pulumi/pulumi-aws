@@ -328,7 +328,7 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      * 
-     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      * 
      */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
@@ -340,21 +340,21 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      * 
-     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+     * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      * 
      */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
     /**
-     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      * 
      */
     @Export(name="enableSni", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableSni;
 
     /**
-     * @return A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+     * @return A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      * 
      */
     public Output<Boolean> enableSni() {
@@ -375,14 +375,14 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
         return this.failureThreshold;
     }
     /**
-     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fqdn;
 
     /**
-     * @return The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+     * @return The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     public Output<Optional<String>> fqdn() {
@@ -460,7 +460,7 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
     }
     /**
      * This is a reference name used in Caller Reference
-     * (helpful for identifying single health_check set amongst others)
+     * (helpful for identifying single healthCheck set amongst others)
      * 
      */
     @Export(name="referenceName", refs={String.class}, tree="[0]")
@@ -468,7 +468,7 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
 
     /**
      * @return This is a reference name used in Caller Reference
-     * (helpful for identifying single health_check set amongst others)
+     * (helpful for identifying single healthCheck set amongst others)
      * 
      */
     public Output<Optional<String>> referenceName() {
@@ -545,28 +545,28 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.searchString);
     }
     /**
-     * A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

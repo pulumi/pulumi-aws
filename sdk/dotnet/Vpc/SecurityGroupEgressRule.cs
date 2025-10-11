@@ -14,9 +14,9 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// When specifying an outbound rule for your security group in a VPC, the configuration must include a destination for the traffic.
     /// 
-    /// &gt; **NOTE:** Using `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources is the current best practice. Avoid using the `aws.ec2.SecurityGroupRule` resource and the `ingress` and `egress` arguments of the `aws.ec2.SecurityGroup` resource for configuring in-line rules, as they struggle with managing multiple CIDR blocks, and tags and descriptions due to the historical lack of unique IDs.
+    /// &gt; **NOTE:** Using `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources is the current best practice. Avoid using the `aws.ec2.SecurityGroupRule` resource and the `Ingress` and `Egress` arguments of the `aws.ec2.SecurityGroup` resource for configuring in-line rules, as they struggle with managing multiple CIDR blocks, and tags and descriptions due to the historical lack of unique IDs.
     /// 
-    /// !&gt; **WARNING:** You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with the `aws.ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `aws.ec2.SecurityGroup`) or the `aws.ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
+    /// !&gt; **WARNING:** You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with the `aws.ec2.SecurityGroup` resource with _in-line rules_ (using the `Ingress` and `Egress` arguments of `aws.ec2.SecurityGroup`) or the `aws.ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
     /// 
     /// ## Example Usage
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Vpc
         public Output<int?> FromPort { get; private set; } = null!;
 
         /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
+        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
         /// </summary>
         [Output("ipProtocol")]
         public Output<string> IpProtocol { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.Vpc
         public Output<string> SecurityGroupRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// 
-        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
         /// </summary>
         [Output("toPort")]
         public Output<int?> ToPort { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Vpc
         public Input<int>? FromPort { get; set; }
 
         /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
+        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
         /// </summary>
         [Input("ipProtocol", required: true)]
         public Input<string> IpProtocol { get; set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// 
-        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Vpc
         public Input<int>? FromPort { get; set; }
 
         /// <summary>
-        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
+        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `IpProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `FromPort` and `ToPort` values should not be defined.
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// 
-        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
+        /// &gt; **Note** Although `CidrIpv4`, `CidrIpv6`, `PrefixListId`, and `ReferencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `FromPort` and `ToPort` arguments are required unless `IpProtocol` is set to `-1` or `Icmpv6`.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }

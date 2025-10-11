@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     public sealed class AnalyzerConfigurationUnusedAccessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+        /// Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `AnalysisRule` Block for Unused Access Analyzer for details.
         /// </summary>
         [Input("analysisRule")]
         public Input<Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleGetArgs>? AnalysisRule { get; set; }

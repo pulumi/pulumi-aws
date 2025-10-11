@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Start port (or ICMP type number if protocol is `icmp`)
+        /// Start port (or ICMP type number if protocol is `Icmp`)
         /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        /// Protocol. If you select a protocol of `-1` (semantically equivalent to `All`, which is not a valid value here), you must specify a `FromPort` and `ToPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -85,11 +85,11 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// End range port (or ICMP code if protocol is `icmp`).
+        /// End range port (or ICMP code if protocol is `Icmp`).
         /// 
         /// The following arguments are optional:
         /// 
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
+        /// &gt; **Note** Although `CidrBlocks`, `Ipv6CidrBlocks`, `PrefixListIds`, and `SecurityGroups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

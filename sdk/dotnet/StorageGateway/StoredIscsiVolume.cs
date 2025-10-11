@@ -97,13 +97,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> GatewayArn { get; private set; } = null!;
 
         /// <summary>
-        /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
+        /// `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Optional.
         /// </summary>
         [Output("kmsEncrypted")]
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<int> NetworkInterfacePort { get; private set; } = null!;
 
         /// <summary>
-        /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
+        /// Specify this field as `True` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         /// </summary>
         [Output("preserveExistingData")]
         public Output<bool> PreserveExistingData { get; private set; } = null!;
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> SnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -257,13 +257,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> GatewayArn { get; set; } = null!;
 
         /// <summary>
-        /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
+        /// `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Optional.
         /// </summary>
         [Input("kmsEncrypted")]
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
-        /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
+        /// Specify this field as `True` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         /// </summary>
         [Input("preserveExistingData", required: true)]
         public Input<bool> PreserveExistingData { get; set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -343,13 +343,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayArn { get; set; }
 
         /// <summary>
-        /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
+        /// `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Optional.
         /// </summary>
         [Input("kmsEncrypted")]
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<int>? NetworkInterfacePort { get; set; }
 
         /// <summary>
-        /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
+        /// Specify this field as `True` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         /// </summary>
         [Input("preserveExistingData")]
         public Input<bool>? PreserveExistingData { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

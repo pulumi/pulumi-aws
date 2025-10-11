@@ -100,7 +100,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// Language code. Valid values are `En` (English), `Jp` (Japanese), `Zh` (Chinese). The default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// Language code. Valid values are `En` (English), `Jp` (Japanese), `Zh` (Chinese). The default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }

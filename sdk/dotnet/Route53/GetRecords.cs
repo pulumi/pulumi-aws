@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Basic Usage with filter
         /// 
-        /// Return the records that starts with `www`.
+        /// Return the records that starts with `Www`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Basic Usage with filter
         /// 
-        /// Return the records that starts with `www`.
+        /// Return the records that starts with `Www`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Basic Usage with filter
         /// 
-        /// Return the records that starts with `www`.
+        /// Return the records that starts with `Www`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

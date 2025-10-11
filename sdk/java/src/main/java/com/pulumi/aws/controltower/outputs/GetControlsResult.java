@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetControlsResult {
     /**
-     * @return List of all the ARNs for the controls applied to the `target_identifier`.
+     * @return List of all the ARNs for the controls applied to the `targetIdentifier`.
      * 
      */
     private List<String> enabledControls;
@@ -26,7 +26,7 @@ public final class GetControlsResult {
 
     private GetControlsResult() {}
     /**
-     * @return List of all the ARNs for the controls applied to the `target_identifier`.
+     * @return List of all the ARNs for the controls applied to the `targetIdentifier`.
      * 
      */
     public List<String> enabledControls() {

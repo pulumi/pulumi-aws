@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Waf.Outputs
     public sealed class WebAclDefaultAction
     {
         /// <summary>
-        /// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+        /// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `Rules`.
         /// e.g., `ALLOW` or `BLOCK`
         /// </summary>
         public readonly string Type;

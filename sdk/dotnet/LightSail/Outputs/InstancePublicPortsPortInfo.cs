@@ -30,7 +30,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Cidrs;
         /// <summary>
-        /// IP protocol name. Valid values: `tcp`, `all`, `udp`, `icmp`, `icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
+        /// IP protocol name. Valid values: `Tcp`, `All`, `Udp`, `Icmp`, `Icmpv6`. See [PortInfo](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_PortInfo.html) for details.
         /// </summary>
         public readonly string Protocol;
         /// <summary>

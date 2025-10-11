@@ -140,7 +140,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+     * Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
@@ -149,7 +149,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> executionArn;
 
     /**
-     * @return Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+     * @return Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
@@ -279,14 +279,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -294,14 +294,14 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -529,7 +529,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
          * 
@@ -542,7 +542,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn Execution ARN part to be used in `lambda_permission`&#39;s `source_arn`
+         * @param executionArn Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
          * when allowing API Gateway to invoke a Lambda function,
          * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
          * 
@@ -722,7 +722,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class RestApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

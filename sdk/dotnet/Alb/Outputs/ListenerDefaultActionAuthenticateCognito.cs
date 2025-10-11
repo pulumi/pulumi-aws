@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
         /// <summary>
-        /// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        /// Behavior if the user is not authenticated. Valid values are `Deny`, `Allow` and `Authenticate`.
         /// </summary>
         public readonly string? OnUnauthenticatedRequest;
         /// <summary>

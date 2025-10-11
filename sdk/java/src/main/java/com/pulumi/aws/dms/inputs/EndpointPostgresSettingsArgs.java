@@ -243,14 +243,14 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+     * Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
      * 
      */
     @Import(name="pluginName")
     private @Nullable Output<String> pluginName;
 
     /**
-     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+     * @return Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
      * 
      */
     public Optional<Output<String>> pluginName() {
@@ -644,7 +644,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pluginName Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+         * @param pluginName Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pluginName Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+         * @param pluginName Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
          * 
          * @return builder
          * 

@@ -118,7 +118,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// If `True`, deletes any reports that belong to a report group before deleting the report group. If `False`, you must delete any reports in the report group before deleting it. Default value is `False`.
         /// </summary>
         [Output("deleteReports")]
         public Output<bool?> DeleteReports { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class ReportGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// If `True`, deletes any reports that belong to a report group before deleting the report group. If `False`, you must delete any reports in the report group before deleting it. Default value is `False`.
         /// </summary>
         [Input("deleteReports")]
         public Input<bool>? DeleteReports { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Created { get; set; }
 
         /// <summary>
-        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// If `True`, deletes any reports that belong to a report group before deleting the report group. If `False`, you must delete any reports in the report group before deleting it. Default value is `False`.
         /// </summary>
         [Input("deleteReports")]
         public Input<bool>? DeleteReports { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

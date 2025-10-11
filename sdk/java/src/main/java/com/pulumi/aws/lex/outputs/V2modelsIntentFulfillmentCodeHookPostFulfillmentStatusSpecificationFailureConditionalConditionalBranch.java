@@ -26,7 +26,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      */
     private String name;
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep nextStep;
@@ -52,7 +52,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         return this.name;
     }
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep nextStep() {

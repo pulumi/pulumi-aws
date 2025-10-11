@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class IndexDocumentMetadataConfigurationUpdateSearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether the field is returned in the query response. The default is `true`.
+        /// Determines whether the field is returned in the query response. The default is `True`.
         /// </summary>
         [Input("displayable")]
         public Input<bool>? Displayable { get; set; }
 
         /// <summary>
-        /// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+        /// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `False`.
         /// </summary>
         [Input("facetable")]
         public Input<bool>? Facetable { get; set; }
 
         /// <summary>
-        /// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+        /// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `True` for `String` fields and `False` for `Number` and `Date` fields.
         /// </summary>
         [Input("searchable")]
         public Input<bool>? Searchable { get; set; }
 
         /// <summary>
-        /// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+        /// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `False`.
         /// </summary>
         [Input("sortable")]
         public Input<bool>? Sortable { get; set; }

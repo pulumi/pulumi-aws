@@ -17,14 +17,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      * 
      */
     @Import(name="alternateIdentifier")
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
 
     /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      * 
      */
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
@@ -68,7 +68,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
      * 
      */
     @Import(name="userId")
@@ -77,7 +77,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
      * 
      */
     public Optional<String> userId() {
@@ -112,7 +112,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId The identifier for a user in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
          * 
          * @return builder
          * 

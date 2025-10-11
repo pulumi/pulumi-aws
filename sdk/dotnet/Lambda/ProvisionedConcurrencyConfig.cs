@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
     /// 
-    /// &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
+    /// &gt; **Note:** Setting `SkipDestroy` to `True` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
+        /// Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `False`. If set to `True`, the resource is simply removed from state instead.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }

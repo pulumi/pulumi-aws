@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string?> ComplianceType { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.FrameworkControlSetArgs>? _controlSets;
 
         /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.FrameworkControlSetGetArgs>? _controlSets;
 
         /// <summary>
-        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        /// Configuration block(s) for the control sets that are associated with the framework. See `ControlSets` Block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the framework. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

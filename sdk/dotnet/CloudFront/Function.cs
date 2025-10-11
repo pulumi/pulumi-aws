@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `True`.
         /// </summary>
         [Output("publish")]
         public Output<bool?> Publish { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `True`.
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `True`.
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }

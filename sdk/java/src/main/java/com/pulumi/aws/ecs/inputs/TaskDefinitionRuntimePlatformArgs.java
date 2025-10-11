@@ -31,14 +31,14 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
     }
 
     /**
-     * If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+     * If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
      * 
      */
     @Import(name="operatingSystemFamily")
     private @Nullable Output<String> operatingSystemFamily;
 
     /**
-     * @return If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+     * @return If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
      * 
      */
     public Optional<Output<String>> operatingSystemFamily() {
@@ -92,7 +92,7 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
         }
 
         /**
-         * @param operatingSystemFamily If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+         * @param operatingSystemFamily If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
         }
 
         /**
-         * @param operatingSystemFamily If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+         * @param operatingSystemFamily If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
          * 
          * @return builder
          * 

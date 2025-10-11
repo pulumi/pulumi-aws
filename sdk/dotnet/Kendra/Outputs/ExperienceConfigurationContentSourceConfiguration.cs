@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DataSourceIds;
         /// <summary>
-        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+        /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `False`.
         /// </summary>
         public readonly bool? DirectPutContent;
         /// <summary>

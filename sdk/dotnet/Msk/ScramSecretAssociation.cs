@@ -12,13 +12,13 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
     /// 
-    /// !&gt; This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `aws.msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `secret_arn_list` argument.
+    /// !&gt; This resource takes exclusive ownership over SCRAM secrets associated with a cluster. This includes removal of SCRAM secrets which are not explicitly configured. To prevent persistent drift, ensure any `aws.msk.SingleScramSecretAssociation` resources managed alongside this resource are included in the `SecretArnList` argument.
     /// 
     /// &gt; **Note:** The following assumes the MSK cluster has SASL/SCRAM authentication enabled. See below for example usage or refer to the [Username/Password Authentication](https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html) section of the MSK Developer Guide for more details.
     /// 
     /// To set up username and password authentication for a cluster, create an `aws.secretsmanager.Secret` resource and associate
     /// a username and password with the secret with an `aws.secretsmanager.SecretVersion` resource. When creating a secret for the cluster,
-    /// the `name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
+    /// the `Name` must have the prefix `AmazonMSK_` and you must either use an existing custom AWS KMS key or create a new
     /// custom AWS KMS key for your secret with the `aws.kms.Key` resource. It is important to note that a policy is required for the `aws.secretsmanager.Secret`
     /// resource in order for Kafka to be able to read it. This policy is attached automatically when the `aws.msk.ScramSecretAssociation` is used,
     /// however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `aws.secretsmanager.SecretPolicy`

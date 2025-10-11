@@ -32,14 +32,14 @@ public final class EnvironmentMonitorArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+     * ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
      * 
      */
     @Import(name="alarmRoleArn")
     private @Nullable Output<String> alarmRoleArn;
 
     /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+     * @return ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
      * 
      */
     public Optional<Output<String>> alarmRoleArn() {
@@ -93,7 +93,7 @@ public final class EnvironmentMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param alarmRoleArn ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+         * @param alarmRoleArn ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EnvironmentMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param alarmRoleArn ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+         * @param alarmRoleArn ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
          * 
          * @return builder
          * 

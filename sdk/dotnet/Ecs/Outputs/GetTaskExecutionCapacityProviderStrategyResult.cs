@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string CapacityProvider;
         /// <summary>
-        /// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+        /// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `Weight` value is taken into consideration after the `Base` count of tasks has been satisfied. Defaults to `0`.
         /// </summary>
         public readonly int? Weight;
 

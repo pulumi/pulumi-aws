@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

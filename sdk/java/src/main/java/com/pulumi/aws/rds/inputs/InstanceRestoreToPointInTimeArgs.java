@@ -17,14 +17,14 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
     public static final InstanceRestoreToPointInTimeArgs Empty = new InstanceRestoreToPointInTimeArgs();
 
     /**
-     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     @Import(name="restoreTime")
     private @Nullable Output<String> restoreTime;
 
     /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     public Optional<Output<String>> restoreTime() {
@@ -32,14 +32,14 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
     }
 
     /**
-     * The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+     * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
      * 
      */
     @Import(name="sourceDbInstanceAutomatedBackupsArn")
     private @Nullable Output<String> sourceDbInstanceAutomatedBackupsArn;
 
     /**
-     * @return The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+     * @return The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
      * 
      */
     public Optional<Output<String>> sourceDbInstanceAutomatedBackupsArn() {
@@ -47,14 +47,14 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
     }
 
     /**
-     * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+     * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
      * 
      */
     @Import(name="sourceDbInstanceIdentifier")
     private @Nullable Output<String> sourceDbInstanceIdentifier;
 
     /**
-     * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+     * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
      * 
      */
     public Optional<Output<String>> sourceDbInstanceIdentifier() {
@@ -62,14 +62,14 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
     }
 
     /**
-     * The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+     * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
      * 
      */
     @Import(name="sourceDbiResourceId")
     private @Nullable Output<String> sourceDbiResourceId;
 
     /**
-     * @return The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+     * @return The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
      * 
      */
     public Optional<Output<String>> sourceDbiResourceId() {
@@ -77,14 +77,14 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
     }
 
     /**
-     * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+     * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
      * 
      */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
     /**
-     * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+     * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
      * 
      */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
@@ -120,7 +120,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+         * @param restoreTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+         * @param sourceDbInstanceAutomatedBackupsArn The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+         * @param sourceDbInstanceIdentifier The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+         * @param sourceDbiResourceId The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class InstanceRestoreToPointInTimeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+         * @param useLatestRestorableTime A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
          * 
          * @return builder
          * 

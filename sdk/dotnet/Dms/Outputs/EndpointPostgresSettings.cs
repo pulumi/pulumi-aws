@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? AfterConnectScript;
         /// <summary>
-        /// Specifies the authentication method. Valid values: `password`, `iam`.
+        /// Specifies the authentication method. Valid values: `Password`, `Iam`.
         /// </summary>
         public readonly string? AuthenticationMethod;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? DatabaseMode;
         /// <summary>
-        /// Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+        /// Sets the schema in which the operational DDL database artifacts are created. Default is `Public`.
         /// </summary>
         public readonly string? DdlArtifactsSchema;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? ExecuteTimeout;
         /// <summary>
-        /// When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+        /// When set to `True`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `False`.
         /// </summary>
         public readonly bool? FailTasksOnLobTruncation;
         /// <summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? HeartbeatFrequency;
         /// <summary>
-        /// Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+        /// Sets the schema in which the heartbeat artifacts are created. Default value is `Public`.
         /// </summary>
         public readonly string? HeartbeatSchema;
         /// <summary>
-        /// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+        /// You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `False`.
         /// </summary>
         public readonly bool? MapBooleanAsBoolean;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? MaxFileSize;
         /// <summary>
-        /// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        /// Specifies the plugin to use to create a replication slot. Valid values: `Pglogical`, `TestDecoding`.
         /// </summary>
         public readonly string? PluginName;
         /// <summary>

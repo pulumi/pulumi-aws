@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? CustomCname;
         /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly int? ExpirationInDays;
         /// <summary>
-        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
+        /// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `CustomCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         /// </summary>
         public readonly string? S3BucketName;
         /// <summary>

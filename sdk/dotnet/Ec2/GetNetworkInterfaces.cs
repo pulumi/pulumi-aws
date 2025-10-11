@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `Test`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

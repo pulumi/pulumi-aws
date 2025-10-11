@@ -28,7 +28,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecification {
      */
     private Integer maxRetries;
     /**
-     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
      * 
      */
     private @Nullable List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup> messageGroups;
@@ -38,7 +38,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecification {
      */
     private @Nullable String messageSelectionStrategy;
     /**
-     * @return Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+     * @return Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
      * 
      */
     private @Nullable List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification> promptAttemptsSpecifications;
@@ -59,7 +59,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecification {
         return this.maxRetries;
     }
     /**
-     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+     * @return Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
      * 
      */
     public List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup> messageGroups() {
@@ -73,7 +73,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecification {
         return Optional.ofNullable(this.messageSelectionStrategy);
     }
     /**
-     * @return Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+     * @return Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
      * 
      */
     public List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification> promptAttemptsSpecifications() {

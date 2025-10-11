@@ -15,12 +15,12 @@ namespace Pulumi.Aws.Lex.Outputs
     {
         /// <summary>
         /// Value of the slot type entry.
-        /// See `sample_value` argument reference below.
+        /// See `SampleValue` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValueSampleValue> SampleValues;
         /// <summary>
         /// A list of additional values related to the slot type entry.
-        /// See `synonyms` argument reference below.
+        /// See `Synonyms` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeSlotTypeValueSynonym> Synonyms;
 

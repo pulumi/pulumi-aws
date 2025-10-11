@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+        /// An IAM value type that determines how the policy simulator will interpret the strings given in `Values`.
         /// 
         /// For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
         /// </summary>

@@ -309,14 +309,14 @@ public class ConfigurationSetEventDestination extends com.pulumi.resources.Custo
         return this.eventDestination;
     }
     /**
-     * An object that defines the event destination. See `event_destination` Block for details.
+     * An object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     @Export(name="eventDestinationName", refs={String.class}, tree="[0]")
     private Output<String> eventDestinationName;
 
     /**
-     * @return An object that defines the event destination. See `event_destination` Block for details.
+     * @return An object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     public Output<String> eventDestinationName() {

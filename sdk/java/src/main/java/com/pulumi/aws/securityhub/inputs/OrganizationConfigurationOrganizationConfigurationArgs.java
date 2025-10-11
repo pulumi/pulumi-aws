@@ -15,14 +15,14 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs extend
     public static final OrganizationConfigurationOrganizationConfigurationArgs Empty = new OrganizationConfigurationOrganizationConfigurationArgs();
 
     /**
-     * Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+     * Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
      * 
      */
     @Import(name="configurationType", required=true)
     private Output<String> configurationType;
 
     /**
-     * @return Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+     * @return Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
      * 
      */
     public Output<String> configurationType() {
@@ -54,7 +54,7 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs extend
         }
 
         /**
-         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs extend
         }
 
         /**
-         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+         * @param configurationType Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
          * 
          * @return builder
          * 

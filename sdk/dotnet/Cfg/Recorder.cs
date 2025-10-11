@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Cfg
     public partial class Recorder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class RecorderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class RecorderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        /// The name of the recorder. Defaults to `Default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

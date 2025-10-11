@@ -78,14 +78,14 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,14 +93,14 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
      * 
      */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
     /**
-     * @return EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+     * @return EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
      * 
      */
     public Output<String> transitGatewayId() {
@@ -221,7 +221,7 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
          * 
          * @return builder
          * 

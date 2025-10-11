@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserHierarchyStructureResult {
     /**
-     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     private List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures;
@@ -27,7 +27,7 @@ public final class GetUserHierarchyStructureResult {
 
     private GetUserHierarchyStructureResult() {}
     /**
-     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * @return Block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     public List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures() {

@@ -50,14 +50,14 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     @Import(name="redactedFields")
     private @Nullable Output<List<WebAclLoggingConfigurationRedactedFieldArgs>> redactedFields;
 
     /**
-     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     public Optional<Output<List<WebAclLoggingConfigurationRedactedFieldArgs>>> redactedFields() {
@@ -80,14 +80,14 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      * 
      */
     public Output<String> resourceArn() {
@@ -175,7 +175,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+         * @param redactedFields Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+         * @param resourceArn Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
          * 
          * @return builder
          * 

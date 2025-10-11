@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceSetResourceDnsTargetResourceTargetResource {
     /**
-     * @return NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+     * @return NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
      * 
      */
     private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource;
@@ -25,7 +25,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
 
     private ResourceSetResourceDnsTargetResourceTargetResource() {}
     /**
-     * @return NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+     * @return NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
      * 
      */
     public Optional<ResourceSetResourceDnsTargetResourceTargetResourceNlbResource> nlbResource() {

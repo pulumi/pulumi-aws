@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string Destination;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+        /// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `Destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>

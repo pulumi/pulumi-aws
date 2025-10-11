@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? CreateAuthChallenge;
         /// <summary>
-        /// A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        /// A custom email sender AWS Lambda trigger. See CustomEmailSender Below.
         /// </summary>
         public readonly Outputs.UserPoolLambdaConfigCustomEmailSender? CustomEmailSender;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? CustomMessage;
         /// <summary>
-        /// A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        /// A custom SMS sender AWS Lambda trigger. See CustomSmsSender Below.
         /// </summary>
         public readonly Outputs.UserPoolLambdaConfigCustomSmsSender? CustomSmsSender;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? PreSignUp;
         /// <summary>
-        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
+        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `PreTokenGenerationConfig`.
         /// </summary>
         public readonly string? PreTokenGeneration;
         /// <summary>

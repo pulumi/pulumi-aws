@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly int? Bias;
         /// <summary>
-        /// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        /// Specify `Latitude` and `Longitude` for routing traffic to non-AWS resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.RecordGeoproximityRoutingPolicyCoordinate> Coordinates;
         /// <summary>

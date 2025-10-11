@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Type of clusters to filter by.
-        /// Currently, the only valid value is `eks`.
+        /// Currently, the only valid value is `Eks`.
         /// </summary>
         [Input("clusterType")]
         public string? ClusterType { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Type of clusters to filter by.
-        /// Currently, the only valid value is `eks`.
+        /// Currently, the only valid value is `Eks`.
         /// </summary>
         [Input("clusterType")]
         public Input<string>? ClusterType { get; set; }

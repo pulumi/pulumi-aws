@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/licenseAssociation:LicenseAssociation")
 public class LicenseAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     * If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
     @Export(name="freeTrialExpiration", refs={String.class}, tree="[0]")
     private Output<String> freeTrialExpiration;
 
     /**
-     * @return If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
+     * @return If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
     public Output<String> freeTrialExpiration() {
@@ -121,14 +121,14 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.grafanaToken);
     }
     /**
-     * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     * If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
     @Export(name="licenseExpiration", refs={String.class}, tree="[0]")
     private Output<String> licenseExpiration;
 
     /**
-     * @return If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
+     * @return If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
     public Output<String> licenseExpiration() {

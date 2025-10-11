@@ -16,7 +16,7 @@ public final class RecordCidrRoutingPolicy {
      */
     private String collectionId;
     /**
-     * @return The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+     * @return The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collectionId` is still required for default record.
      * 
      */
     private String locationName;
@@ -30,7 +30,7 @@ public final class RecordCidrRoutingPolicy {
         return this.collectionId;
     }
     /**
-     * @return The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+     * @return The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `locationName` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collectionId` is still required for default record.
      * 
      */
     public String locationName() {

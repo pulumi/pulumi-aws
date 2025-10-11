@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> CopyTagsToVolumes { get; private set; } = null!;
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OpenZfsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// (Multi-AZ only) Required when `DeploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
         [Output("preferredSubnetId")]
         public Output<string?> PreferredSubnetId { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Output("rootVolumeConfiguration")]
         public Output<Outputs.OpenZfsFileSystemRootVolumeConfiguration> RootVolumeConfiguration { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Output("skipFinalBackup")]
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
@@ -206,19 +206,19 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `DeploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? CopyTagsToVolumes { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// (Multi-AZ only) Required when `DeploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Input("skipFinalBackup")]
         public Input<bool>? SkipFinalBackup { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `DeploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? CopyTagsToVolumes { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// (Multi-AZ only) Required when `DeploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
@@ -594,7 +594,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationGetArgs>? RootVolumeConfiguration { get; set; }
@@ -630,7 +630,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Input("skipFinalBackup")]
         public Input<bool>? SkipFinalBackup { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -684,7 +684,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// Throughput (MB/s) of the file system. Valid values depend on `DeploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// 
         /// The following arguments are optional:
         /// </summary>

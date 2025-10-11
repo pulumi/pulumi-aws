@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
     /**
-     * @return The Salesforce standard object configuration. See `filter_configuration` block for details.
+     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration filterConfiguration;
 
     private AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration() {}
     /**
-     * @return The Salesforce standard object configuration. See `filter_configuration` block for details.
+     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration> filterConfiguration() {

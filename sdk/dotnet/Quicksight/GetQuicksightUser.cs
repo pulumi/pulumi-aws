@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Quicksight
         public string? AwsAccountId { get; set; }
 
         /// <summary>
-        /// QuickSight namespace. Defaults to `default`.
+        /// QuickSight namespace. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public string? Namespace { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// QuickSight namespace. Defaults to `default`.
+        /// QuickSight namespace. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

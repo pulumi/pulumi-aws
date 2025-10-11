@@ -13,55 +13,55 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
+        /// Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `FailureConditional`.
         /// </summary>
         [Input("failureConditional")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalGetArgs>? FailureConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
+        /// Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `FailureNextStep`.
         /// </summary>
         [Input("failureNextStep")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepGetArgs>? FailureNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `FailureResponse`.
         /// </summary>
         [Input("failureResponse")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseGetArgs>? FailureResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+        /// Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `SuccessConditional`.
         /// </summary>
         [Input("successConditional")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalGetArgs>? SuccessConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+        /// Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `SuccessNextStep`.
         /// </summary>
         [Input("successNextStep")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepGetArgs>? SuccessNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `SuccessResponse`.
         /// </summary>
         [Input("successResponse")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseGetArgs>? SuccessResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+        /// Configuration block for conditional branches to evaluate if the code hook times out. See `TimeoutConditional`.
         /// </summary>
         [Input("timeoutConditional")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalGetArgs>? TimeoutConditional { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+        /// Configuration block for the next step that the bot runs when the code hook times out. See `TimeoutNextStep`.
         /// </summary>
         [Input("timeoutNextStep")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepGetArgs>? TimeoutNextStep { get; set; }
 
         /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+        /// Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `TimeoutResponse`.
         /// </summary>
         [Input("timeoutResponse")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseGetArgs>? TimeoutResponse { get; set; }

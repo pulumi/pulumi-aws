@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterLoggingInfo
     {
         /// <summary>
-        /// Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
+        /// Configuration block for Broker Logs settings for logging info. See LoggingInfo broker_logs Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterLoggingInfoBrokerLogs BrokerLogs;
 

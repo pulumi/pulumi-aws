@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class SpaceSpaceSettingsJupyterLabAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `AppLifecycleManagement` Block below.
         /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>? _codeRepositories;
 
         /// <summary>
-        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `CodeRepository` Block below.
         /// </summary>
         public InputList<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs> CodeRepositories
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
         /// </summary>
         [Input("defaultResourceSpec", required: true)]
         public Input<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> DefaultResourceSpec { get; set; } = null!;

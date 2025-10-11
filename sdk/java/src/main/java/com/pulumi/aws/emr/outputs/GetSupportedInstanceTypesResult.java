@@ -16,7 +16,7 @@ public final class GetSupportedInstanceTypesResult {
     private String region;
     private String releaseLabel;
     /**
-     * @return List of supported instance types. See `supported_instance_types` below.
+     * @return List of supported instance types. See `supportedInstanceTypes` below.
      * 
      */
     private List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
@@ -32,7 +32,7 @@ public final class GetSupportedInstanceTypesResult {
         return this.releaseLabel;
     }
     /**
-     * @return List of supported instance types. See `supported_instance_types` below.
+     * @return List of supported instance types. See `supportedInstanceTypes` below.
      * 
      */
     public List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes() {

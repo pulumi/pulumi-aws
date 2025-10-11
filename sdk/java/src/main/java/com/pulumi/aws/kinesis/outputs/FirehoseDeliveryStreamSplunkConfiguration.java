@@ -28,7 +28,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -48,12 +48,12 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable String hecEndpointType;
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     private @Nullable String hecToken;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
@@ -64,12 +64,12 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     private @Nullable Integer retryDuration;
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
      * 
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
@@ -91,7 +91,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -119,14 +119,14 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.hecEndpointType);
     }
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
      * 
      */
     public Optional<String> hecToken() {
         return Optional.ofNullable(this.hecToken);
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> processingConfiguration() {
@@ -141,14 +141,14 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     }
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
+     * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
      * 
      */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {

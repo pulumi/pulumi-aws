@@ -93,14 +93,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      * 
      */
     @Import(name="excludedMembers")
     private @Nullable Output<List<String>> excludedMembers;
 
     /**
-     * @return List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * @return List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      * 
      */
     public Optional<Output<List<String>>> excludedMembers() {
@@ -123,14 +123,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      * 
      */
     @Import(name="staticMembers")
     private @Nullable Output<List<String>> staticMembers;
 
     /**
-     * @return List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * @return List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      * 
      */
     public Optional<Output<List<String>>> staticMembers() {
@@ -138,7 +138,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -148,7 +148,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -159,14 +159,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -312,7 +312,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+         * @param excludedMembers List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+         * @param staticMembers List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * For more detailed documentation about each argument, refer to
          * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -409,7 +409,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * For more detailed documentation about each argument, refer to
          * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -422,7 +422,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

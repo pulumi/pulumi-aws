@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class ObjectCopyGrantGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
+        /// Email address of the grantee. Used only when `Type` is `AmazonCustomerByEmail`.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
+        /// Canonical user ID of the grantee. Used only when `Type` is `CanonicalUser`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// URI of the grantee group. Used only when `type` is `Group`.
+        /// URI of the grantee group. Used only when `Type` is `Group`.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

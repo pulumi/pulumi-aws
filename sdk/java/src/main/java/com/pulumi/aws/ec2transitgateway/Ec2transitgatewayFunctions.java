@@ -401,6 +401,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments() {
         return getAttachments(GetAttachmentsArgs.Empty, InvokeOptions.Empty);
@@ -409,6 +411,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain() {
@@ -419,6 +423,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments(GetAttachmentsArgs args) {
         return getAttachments(args, InvokeOptions.Empty);
@@ -427,6 +433,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain(GetAttachmentsPlainArgs args) {
@@ -437,6 +445,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments(GetAttachmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getAttachments:getAttachments", TypeShape.of(GetAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -446,6 +456,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments(GetAttachmentsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getAttachments:getAttachments", TypeShape.of(GetAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -454,6 +466,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain(GetAttachmentsPlainArgs args, InvokeOptions options) {
@@ -2981,6 +2995,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * </pre>
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetPeeringAttachmentsResult> getPeeringAttachments() {
         return getPeeringAttachments(GetPeeringAttachmentsArgs.Empty, InvokeOptions.Empty);
@@ -3021,6 +3037,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain() {
@@ -3063,6 +3081,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * </pre>
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetPeeringAttachmentsResult> getPeeringAttachments(GetPeeringAttachmentsArgs args) {
         return getPeeringAttachments(args, InvokeOptions.Empty);
@@ -3103,6 +3123,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain(GetPeeringAttachmentsPlainArgs args) {
@@ -3145,6 +3167,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * </pre>
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetPeeringAttachmentsResult> getPeeringAttachments(GetPeeringAttachmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", TypeShape.of(GetPeeringAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -3186,6 +3210,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * </pre>
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetPeeringAttachmentsResult> getPeeringAttachments(GetPeeringAttachmentsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", TypeShape.of(GetPeeringAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -3226,6 +3252,8 @@ public final class Ec2transitgatewayFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain(GetPeeringAttachmentsPlainArgs args, InvokeOptions options) {
@@ -5549,6 +5577,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments() {
         return getVpcAttachments(GetVpcAttachmentsArgs.Empty, InvokeOptions.Empty);
@@ -5557,6 +5587,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain() {
@@ -5567,6 +5599,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments(GetVpcAttachmentsArgs args) {
         return getVpcAttachments(args, InvokeOptions.Empty);
@@ -5575,6 +5609,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain(GetVpcAttachmentsPlainArgs args) {
@@ -5585,6 +5621,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments(GetVpcAttachmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", TypeShape.of(GetVpcAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -5593,6 +5631,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
      * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments(GetVpcAttachmentsArgs args, InvokeOutputOptions options) {
@@ -5603,6 +5643,8 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain(GetVpcAttachmentsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", TypeShape.of(GetVpcAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -5610,7 +5652,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -5691,7 +5733,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -5772,7 +5814,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -5853,7 +5895,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -5934,7 +5976,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -6015,7 +6057,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 
@@ -6096,7 +6138,7 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPN Attachment.
      * 
-     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+     * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
      * 

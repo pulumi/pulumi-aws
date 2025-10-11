@@ -327,13 +327,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `DataSharingPreference`.
         /// </summary>
         [Output("dataSharingPreference")]
         public Output<Outputs.StreamProcessorDataSharingPreference?> DataSharingPreference { get; private set; } = null!;
 
         /// <summary>
-        /// Input video stream. See `input`.
+        /// Input video stream. See `Input`.
         /// </summary>
         [Output("input")]
         public Output<Outputs.StreamProcessorInput?> Input { get; private set; } = null!;
@@ -351,13 +351,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Output("notificationChannel")]
         public Output<Outputs.StreamProcessorNotificationChannel?> NotificationChannel { get; private set; } = null!;
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
         /// </summary>
         [Output("output")]
         public Output<Outputs.StreamProcessorOutput?> Output { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         [Output("regionsOfInterests")]
         public Output<ImmutableArray<Outputs.StreamProcessorRegionsOfInterest>> RegionsOfInterests { get; private set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -390,19 +390,19 @@ namespace Pulumi.Aws.Rekognition
 
         /// <summary>
         /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `arn` instead.
+        /// Use `Arn` instead.
         /// </summary>
         [Output("streamProcessorArn")]
         public Output<string> StreamProcessorArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -457,13 +457,13 @@ namespace Pulumi.Aws.Rekognition
     public sealed class StreamProcessorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `DataSharingPreference`.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceArgs>? DataSharingPreference { get; set; }
 
         /// <summary>
-        /// Input video stream. See `input`.
+        /// Input video stream. See `Input`.
         /// </summary>
         [Input("input")]
         public Input<Inputs.StreamProcessorInputArgs>? Input { get; set; }
@@ -481,13 +481,13 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelArgs>? NotificationChannel { get; set; }
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
         /// </summary>
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputArgs>? Output { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestArgs> RegionsOfInterests
         {
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -554,13 +554,13 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// See `data_sharing_preference`.
+        /// See `DataSharingPreference`.
         /// </summary>
         [Input("dataSharingPreference")]
         public Input<Inputs.StreamProcessorDataSharingPreferenceGetArgs>? DataSharingPreference { get; set; }
 
         /// <summary>
-        /// Input video stream. See `input`.
+        /// Input video stream. See `Input`.
         /// </summary>
         [Input("input")]
         public Input<Inputs.StreamProcessorInputGetArgs>? Input { get; set; }
@@ -578,13 +578,13 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelGetArgs>? NotificationChannel { get; set; }
 
         /// <summary>
-        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
         /// </summary>
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputGetArgs>? Output { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs> RegionsOfInterests
         {
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        /// Input parameters used in a streaming video analyzed by a stream processor. See `Settings`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.Rekognition
 
         /// <summary>
         /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `arn` instead.
+        /// Use `Arn` instead.
         /// </summary>
         [Input("streamProcessorArn")]
         public Input<string>? StreamProcessorArn { get; set; }
@@ -632,7 +632,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

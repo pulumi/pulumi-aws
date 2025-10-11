@@ -140,14 +140,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+     * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
      * 
      */
     @Import(name="ipv4AddressCount")
     private @Nullable Output<Integer> ipv4AddressCount;
 
     /**
-     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
      * 
      */
     public Optional<Output<Integer>> ipv4AddressCount() {
@@ -155,14 +155,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+     * One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
      * 
      */
     @Import(name="ipv4Addresses")
     private @Nullable Output<List<String>> ipv4Addresses;
 
     /**
-     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
      * 
      */
     public Optional<Output<List<String>>> ipv4Addresses() {
@@ -170,14 +170,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+     * The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
      * 
      */
     @Import(name="ipv4PrefixCount")
     private @Nullable Output<Integer> ipv4PrefixCount;
 
     /**
-     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
      * 
      */
     public Optional<Output<Integer>> ipv4PrefixCount() {
@@ -185,14 +185,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+     * One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
      * 
      */
     @Import(name="ipv4Prefixes")
     private @Nullable Output<List<String>> ipv4Prefixes;
 
     /**
-     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
      * 
      */
     public Optional<Output<List<String>>> ipv4Prefixes() {
@@ -200,14 +200,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+     * The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
      * 
      */
     @Import(name="ipv6AddressCount")
     private @Nullable Output<Integer> ipv6AddressCount;
 
     /**
-     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
      * 
      */
     public Optional<Output<Integer>> ipv6AddressCount() {
@@ -215,14 +215,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
      * 
      */
     @Import(name="ipv6Addresses")
     private @Nullable Output<List<String>> ipv6Addresses;
 
     /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
      * 
      */
     public Optional<Output<List<String>>> ipv6Addresses() {
@@ -230,14 +230,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+     * The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
      * 
      */
     @Import(name="ipv6PrefixCount")
     private @Nullable Output<Integer> ipv6PrefixCount;
 
     /**
-     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
      * 
      */
     public Optional<Output<Integer>> ipv6PrefixCount() {
@@ -245,14 +245,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+     * One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
      * 
      */
     @Import(name="ipv6Prefixes")
     private @Nullable Output<List<String>> ipv6Prefixes;
 
     /**
-     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
      * 
      */
     public Optional<Output<List<String>>> ipv6Prefixes() {
@@ -563,7 +563,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4AddressCount The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+         * @param ipv4AddressCount The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4AddressCount The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+         * @param ipv4AddressCount The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+         * @param ipv4Addresses One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4PrefixCount The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+         * @param ipv4PrefixCount The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4PrefixCount The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+         * @param ipv4PrefixCount The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+         * @param ipv4Prefixes One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6AddressCount The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+         * @param ipv6AddressCount The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6AddressCount The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+         * @param ipv6AddressCount The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6PrefixCount The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+         * @param ipv6PrefixCount The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6PrefixCount The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+         * @param ipv6PrefixCount The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+         * @param ipv6Prefixes One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
          * 
          * @return builder
          * 

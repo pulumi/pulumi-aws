@@ -48,14 +48,14 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for a partition index. See `partition_index` below.
+     * Configuration block for a partition index. See `partitionIndex` below.
      * 
      */
     @Import(name="partitionIndex", required=true)
     private Output<PartitionIndexPartitionIndexArgs> partitionIndex;
 
     /**
-     * @return Configuration block for a partition index. See `partition_index` below.
+     * @return Configuration block for a partition index. See `partitionIndex` below.
      * 
      */
     public Output<PartitionIndexPartitionIndexArgs> partitionIndex() {
@@ -163,7 +163,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partitionIndex Configuration block for a partition index. See `partition_index` below.
+         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partitionIndex Configuration block for a partition index. See `partition_index` below.
+         * @param partitionIndex Configuration block for a partition index. See `partitionIndex` below.
          * 
          * @return builder
          * 

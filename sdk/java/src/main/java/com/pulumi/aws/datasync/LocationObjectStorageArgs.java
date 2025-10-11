@@ -20,14 +20,14 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
     public static final LocationObjectStorageArgs Empty = new LocationObjectStorageArgs();
 
     /**
-     * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+     * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      * 
      */
     @Import(name="accessKey")
     private @Nullable Output<String> accessKey;
 
     /**
-     * @return The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+     * @return The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      * 
      */
     public Optional<Output<String>> accessKey() {
@@ -80,14 +80,14 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+     * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      * 
      */
     @Import(name="secretKey")
     private @Nullable Output<String> secretKey;
 
     /**
-     * @return The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+     * @return The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      * 
      */
     public Optional<Output<String>> secretKey() {
@@ -170,14 +170,14 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -219,7 +219,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accessKey The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+         * @param accessKey The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accessKey The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+         * @param accessKey The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretKey The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+         * @param secretKey The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretKey The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+         * @param secretKey The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

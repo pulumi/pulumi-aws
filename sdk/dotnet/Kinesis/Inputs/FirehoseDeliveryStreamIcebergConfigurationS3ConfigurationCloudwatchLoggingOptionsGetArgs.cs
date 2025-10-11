@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
+        /// Enables or disables the logging. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
+        /// The CloudWatch group name for logging. This value is required if `Enabled` is true.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        /// The CloudWatch log stream name for logging. This value is required if `Enabled` is true.
         /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }

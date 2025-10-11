@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotGetArgs>? _slots;
 
         /// <summary>
-        /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+        /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `Slot`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotGetArgs> Slots
         {

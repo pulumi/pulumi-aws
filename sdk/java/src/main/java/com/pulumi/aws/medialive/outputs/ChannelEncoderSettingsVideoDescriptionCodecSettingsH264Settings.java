@@ -92,12 +92,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable Integer gopNumBFrames;
     /**
-     * @return GOP size in units of either frames of seconds per `gop_size_units`.
+     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
      * 
      */
     private @Nullable Double gopSize;
     /**
-     * @return Indicates if the `gop_size` is specified in frames or seconds.
+     * @return Indicates if the `gopSize` is specified in frames or seconds.
      * 
      */
     private @Nullable String gopSizeUnits;
@@ -320,14 +320,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.gopNumBFrames);
     }
     /**
-     * @return GOP size in units of either frames of seconds per `gop_size_units`.
+     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
      * 
      */
     public Optional<Double> gopSize() {
         return Optional.ofNullable(this.gopSize);
     }
     /**
-     * @return Indicates if the `gop_size` is specified in frames or seconds.
+     * @return Indicates if the `gopSize` is specified in frames or seconds.
      * 
      */
     public Optional<String> gopSizeUnits() {

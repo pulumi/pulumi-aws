@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class ClusterMasterUserSecretGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `KmsKeyId`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? SecretArn { get; set; }
 
         /// <summary>
-        /// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        /// Status of the secret. Valid Values: `Creating` | `Active` | `Rotating` | `Impaired`.
         /// </summary>
         [Input("secretStatus")]
         public Input<string>? SecretStatus { get; set; }

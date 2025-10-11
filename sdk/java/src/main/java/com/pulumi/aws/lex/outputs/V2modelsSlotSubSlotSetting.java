@@ -20,7 +20,7 @@ public final class V2modelsSlotSubSlotSetting {
     private @Nullable String expression;
     /**
      * @return Specifications for the constituent sub slots of a composite slot.
-     * See the `slot_specification` argument reference below.
+     * See the `slotSpecification` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecification> slotSpecifications;
@@ -35,7 +35,7 @@ public final class V2modelsSlotSubSlotSetting {
     }
     /**
      * @return Specifications for the constituent sub slots of a composite slot.
-     * See the `slot_specification` argument reference below.
+     * See the `slotSpecification` argument reference below.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecification> slotSpecifications() {

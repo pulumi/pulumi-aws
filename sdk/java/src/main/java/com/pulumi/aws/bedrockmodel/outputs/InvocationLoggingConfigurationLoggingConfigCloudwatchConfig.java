@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
     /**
-     * @return S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
+     * @return S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config;
@@ -30,7 +30,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfig() {}
     /**
-     * @return S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
+     * @return S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config> largeDataDeliveryS3Config() {

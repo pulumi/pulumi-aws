@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Kms
 
         /// <summary>
         /// Creates an unique alias beginning with the specified prefix.
-        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

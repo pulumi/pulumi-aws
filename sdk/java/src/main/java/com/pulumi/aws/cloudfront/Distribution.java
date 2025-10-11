@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * 
  * For information about CloudFront distributions, see the [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon CloudFront API Reference.
  * 
- * &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
+ * &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
  * 
  * ## Example Usage
  * 
@@ -664,14 +664,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customErrorResponses);
     }
     /**
-     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+     * Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      * 
      */
     @Export(name="defaultCacheBehavior", refs={DistributionDefaultCacheBehavior.class}, tree="[0]")
     private Output<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
     /**
-     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+     * @return Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      * 
      */
     public Output<DistributionDefaultCacheBehavior> defaultCacheBehavior() {
@@ -832,14 +832,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.orderedCacheBehaviors);
     }
     /**
-     * One or more origin_group for this distribution (multiples allowed).
+     * One or more originGroup for this distribution (multiples allowed).
      * 
      */
     @Export(name="originGroups", refs={List.class,DistributionOriginGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionOriginGroup>> originGroups;
 
     /**
-     * @return One or more origin_group for this distribution (multiples allowed).
+     * @return One or more originGroup for this distribution (multiples allowed).
      * 
      */
     public Output<Optional<List<DistributionOriginGroup>>> originGroups() {
@@ -930,28 +930,28 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

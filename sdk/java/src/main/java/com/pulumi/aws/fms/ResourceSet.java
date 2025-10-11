@@ -100,14 +100,14 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      * 
      */
     @Export(name="resourceSets", refs={List.class,ResourceSetResourceSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceSetResourceSet>> resourceSets;
 
     /**
-     * @return Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      * 
      */
     public Output<Optional<List<ResourceSetResourceSet>>> resourceSets() {

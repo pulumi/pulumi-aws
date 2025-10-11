@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string ResourceArn;
         /// <summary>
-        /// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
+        /// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `RuleState reference` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult> RuleStates;
         /// <summary>

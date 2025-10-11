@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
     /// 
-    /// &gt; **Tip:** To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
+    /// &gt; **Tip:** To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `Role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
     /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ### Function with Lambda Layers
     /// 
-    /// &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `arn` references.
+    /// &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `Arn` and `LayerArn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `Arn` references.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -303,8 +303,8 @@ namespace Pulumi.Aws.Lambda
     /// * An S3 bucket or Data Firehose delivery stream to store the logs.
     /// * A CloudWatch Log Group with:
     ///   
-    ///     * `log_group_class = "DELIVERY"`
-    ///     * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+    ///     * `LogGroupClass = "DELIVERY"`
+    ///     * A subscription filter whose `DestinationArn` points to the S3 bucket or the Data Firehose delivery stream.
     /// 
     /// * IAM roles:
     ///   
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// * A Lambda function:
     ///   
-    ///     * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+    ///     * In the `LoggingConfiguration`, specify the name of the Log Group created above using the `LogGroup` field
     ///     * No special configuration is required to use S3 or Firehose as the log destination
     /// 
     /// For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
@@ -588,9 +588,9 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Specifying the Deployment Package
     /// 
-    /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
+    /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `Runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `Runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
     /// 
-    /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+    /// Once you have created your deployment package you can specify it either directly as a local file (using the `Filename` argument) or indirectly via Amazon S3 (using the `S3Bucket`, `S3Key` and `S3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
     /// 
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
     /// 
@@ -618,7 +618,7 @@ namespace Pulumi.Aws.Lambda
     public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["X8664"]` and `["arm64"]`. Default is `["X8664"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         [Output("architectures")]
         public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
@@ -630,7 +630,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Output("code")]
         public Output<Archive?> Code { get; private set; } = null!;
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.FunctionFileSystemConfig?> FileSystemConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Function entry point in your code. Required if `package_type` is `Zip`.
+        /// Function entry point in your code. Required if `PackageType` is `Zip`.
         /// </summary>
         [Output("handler")]
         public Output<string?> Handler { get; private set; } = null!;
@@ -690,13 +690,13 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.FunctionImageConfig?> ImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `Filename` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Output("imageUri")]
         public Output<string?> ImageUri { get; private set; } = null!;
 
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
@@ -744,7 +744,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `False`.
         /// </summary>
         [Output("publish")]
         public Output<bool?> Publish { get; private set; } = null!;
@@ -756,7 +756,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedArn { get; private set; } = null!;
 
         /// <summary>
-        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Output("qualifiedInvokeArn")]
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
@@ -768,13 +768,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `False`.
         /// </summary>
         [Output("replaceSecurityGroupsOnDestroy")]
         public Output<bool?> ReplaceSecurityGroupsOnDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `ReplaceSecurityGroupsOnDestroy` is `True`.
         /// </summary>
         [Output("replacementSecurityGroupIds")]
         public Output<ImmutableArray<string>> ReplacementSecurityGroupIds { get; private set; } = null!;
@@ -794,25 +794,25 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `PackageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Output("runtime")]
         public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename` and `ImageUri`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
+        /// S3 key of an object containing the function's deployment package. Required if `S3Bucket` is set.
         /// </summary>
         [Output("s3Key")]
         public Output<string?> S3Key { get; private set; } = null!;
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename` and `ImageUri`.
         /// </summary>
         [Output("s3ObjectVersion")]
         public Output<string?> S3ObjectVersion { get; private set; } = null!;
@@ -830,7 +830,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -854,19 +854,19 @@ namespace Pulumi.Aws.Lambda
         public Output<int> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `ImageUri`.
         /// </summary>
         [Output("sourceKmsKeyArn")]
         public Output<string?> SourceKmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -945,7 +945,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["X8664"]` and `["arm64"]`. Default is `["X8664"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         public InputList<string> Architectures
         {
@@ -954,7 +954,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -996,7 +996,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionFileSystemConfigArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
-        /// Function entry point in your code. Required if `package_type` is `Zip`.
+        /// Function entry point in your code. Required if `PackageType` is `Zip`.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
@@ -1008,7 +1008,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionImageConfigArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `Filename` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
@@ -1056,7 +1056,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `False`.
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
@@ -1068,7 +1068,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `False`.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -1077,7 +1077,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `ReplaceSecurityGroupsOnDestroy` is `True`.
         /// </summary>
         public InputList<string> ReplacementSecurityGroupIds
         {
@@ -1100,31 +1100,31 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `PackageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
         public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename` and `ImageUri`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
+        /// S3 key of an object containing the function's deployment package. Required if `S3Bucket` is set.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename` and `ImageUri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -1142,7 +1142,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? SourceCodeHash { get; set; }
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `ImageUri`.
         /// </summary>
         [Input("sourceKmsKeyArn")]
         public Input<string>? SourceKmsKeyArn { get; set; }
@@ -1151,7 +1151,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1189,7 +1189,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["X8664"]` and `["arm64"]`. Default is `["X8664"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         public InputList<string> Architectures
         {
@@ -1204,7 +1204,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `ImageUri` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -1252,7 +1252,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
-        /// Function entry point in your code. Required if `package_type` is `Zip`.
+        /// Function entry point in your code. Required if `PackageType` is `Zip`.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
@@ -1264,13 +1264,13 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionImageConfigGetArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `Filename` and `S3Bucket`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
 
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }
@@ -1324,7 +1324,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `False`.
         /// </summary>
         [Input("publish")]
         public Input<bool>? Publish { get; set; }
@@ -1336,7 +1336,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedArn { get; set; }
 
         /// <summary>
-        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         [Input("qualifiedInvokeArn")]
         public Input<string>? QualifiedInvokeArn { get; set; }
@@ -1348,7 +1348,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `False`.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -1357,7 +1357,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `ReplaceSecurityGroupsOnDestroy` is `True`.
         /// </summary>
         public InputList<string> ReplacementSecurityGroupIds
         {
@@ -1380,25 +1380,25 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `PackageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
         public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `Filename` and `ImageUri`. One of `Filename`, `ImageUri`, or `S3Bucket` must be specified.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
+        /// S3 key of an object containing the function's deployment package. Required if `S3Bucket` is set.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
         /// <summary>
-        /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        /// Object version containing the function's deployment package. Conflicts with `Filename` and `ImageUri`.
         /// </summary>
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
@@ -1416,7 +1416,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? SigningProfileVersionArn { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -1440,7 +1440,7 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? SourceCodeSize { get; set; }
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `ImageUri`.
         /// </summary>
         [Input("sourceKmsKeyArn")]
         public Input<string>? SourceKmsKeyArn { get; set; }
@@ -1449,7 +1449,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1461,7 +1461,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

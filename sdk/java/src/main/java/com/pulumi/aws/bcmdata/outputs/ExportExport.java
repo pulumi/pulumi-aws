@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ExportExport {
     /**
-     * @return Data query for this specific data export. See the `data_query` argument reference below.
+     * @return Data query for this specific data export. See the `dataQuery` argument reference below.
      * 
      */
     private @Nullable List<ExportExportDataQuery> dataQueries;
@@ -27,7 +27,7 @@ public final class ExportExport {
      */
     private @Nullable String description;
     /**
-     * @return Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
+     * @return Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
      * 
      */
     private @Nullable List<ExportExportDestinationConfiguration> destinationConfigurations;
@@ -38,14 +38,14 @@ public final class ExportExport {
      */
     private String name;
     /**
-     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
+     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
      * 
      */
     private @Nullable List<ExportExportRefreshCadence> refreshCadences;
 
     private ExportExport() {}
     /**
-     * @return Data query for this specific data export. See the `data_query` argument reference below.
+     * @return Data query for this specific data export. See the `dataQuery` argument reference below.
      * 
      */
     public List<ExportExportDataQuery> dataQueries() {
@@ -59,7 +59,7 @@ public final class ExportExport {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
+     * @return Destination configuration for this specific data export. See the `destinationConfigurations` argument reference below.
      * 
      */
     public List<ExportExportDestinationConfiguration> destinationConfigurations() {
@@ -76,7 +76,7 @@ public final class ExportExport {
         return this.name;
     }
     /**
-     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
+     * @return Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refreshCadence` argument reference below.
      * 
      */
     public List<ExportExportRefreshCadence> refreshCadences() {

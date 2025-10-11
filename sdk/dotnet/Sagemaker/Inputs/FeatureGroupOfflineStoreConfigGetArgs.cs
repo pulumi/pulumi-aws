@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs>? DataCatalogConfig { get; set; }
 
         /// <summary>
-        /// Set to `true` to turn Online Store On.
+        /// Set to `True` to turn Online Store On.
         /// </summary>
         [Input("disableGlueTableCreation")]
         public Input<bool>? DisableGlueTableCreation { get; set; }

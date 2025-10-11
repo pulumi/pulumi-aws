@@ -223,14 +223,14 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return this.portRanges;
     }
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Output<String> protocol() {
@@ -251,7 +251,7 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+     * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -260,7 +260,7 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ResourceConfigurationResourceConfigurationDefinition> resourceConfigurationDefinition;
 
     /**
-     * @return Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+     * @return Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -283,42 +283,42 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceConfigurationGroupId);
     }
     /**
-     * ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+     * ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Export(name="resourceGatewayIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceGatewayIdentifier;
 
     /**
-     * @return ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+     * @return ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Output<String> resourceGatewayIdentifier() {
         return this.resourceGatewayIdentifier;
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

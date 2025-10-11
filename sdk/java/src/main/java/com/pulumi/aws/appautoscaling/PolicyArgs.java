@@ -50,14 +50,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
      * 
      */
     @Import(name="predictiveScalingPolicyConfiguration")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationArgs> predictiveScalingPolicyConfiguration;
 
     /**
-     * @return Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * @return Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationArgs>> predictiveScalingPolicyConfiguration() {
@@ -125,14 +125,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+     * Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
     @Import(name="stepScalingPolicyConfiguration")
     private @Nullable Output<PolicyStepScalingPolicyConfigurationArgs> stepScalingPolicyConfiguration;
 
     /**
-     * @return Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+     * @return Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
     public Optional<Output<PolicyStepScalingPolicyConfigurationArgs>> stepScalingPolicyConfiguration() {
@@ -140,14 +140,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     @Import(name="targetTrackingScalingPolicyConfiguration")
     private @Nullable Output<PolicyTargetTrackingScalingPolicyConfigurationArgs> targetTrackingScalingPolicyConfiguration;
 
     /**
-     * @return Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * @return Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     public Optional<Output<PolicyTargetTrackingScalingPolicyConfigurationArgs>> targetTrackingScalingPolicyConfiguration() {
@@ -229,7 +229,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+         * @param predictiveScalingPolicyConfiguration Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stepScalingPolicyConfiguration Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+         * @param stepScalingPolicyConfiguration Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stepScalingPolicyConfiguration Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+         * @param stepScalingPolicyConfiguration Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+         * @param targetTrackingScalingPolicyConfiguration Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
          * 
          * @return builder
          * 

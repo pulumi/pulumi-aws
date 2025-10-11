@@ -178,14 +178,14 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
         return this.statementId;
     }
     /**
-     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      * 
      */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
     private Output<String> statementIdPrefix;
 
     /**
-     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      * 
      */
     public Output<String> statementIdPrefix() {

@@ -261,6 +261,8 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
+    /// ### Outbound with encryption configuration
+    /// 
     /// ### Combined inbound and outbound
     /// 
     /// ```csharp

@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
+        /// Authentication strategy associated with the configuration. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for RabbitMQ engine type.
         /// </summary>
         [Output("authenticationStrategy")]
         public Output<string> AuthenticationStrategy { get; private set; } = null!;
@@ -136,13 +136,13 @@ namespace Pulumi.Aws.Mq
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Mq
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
+        /// Authentication strategy associated with the configuration. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for RabbitMQ engine type.
         /// </summary>
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for RabbitMQ engine type.
+        /// Authentication strategy associated with the configuration. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for RabbitMQ engine type.
         /// </summary>
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

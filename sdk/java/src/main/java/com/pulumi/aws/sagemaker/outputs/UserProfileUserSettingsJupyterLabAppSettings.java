@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsJupyterLabAppSettings {
     /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
@@ -39,7 +39,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsEmrSettings emrSettings;
@@ -51,7 +51,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
 
     private UserProfileUserSettingsJupyterLabAppSettings() {}
     /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement() {
@@ -82,7 +82,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsEmrSettings> emrSettings() {

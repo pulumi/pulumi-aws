@@ -110,11 +110,11 @@ namespace Pulumi.Aws.S3
     {
         public readonly string? AccountId;
         /// <summary>
-        /// Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
+        /// Whether or not Amazon S3 should block public ACLs for buckets in this account is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool BlockPublicAcls;
         /// <summary>
-        /// Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
+        /// Whether or not Amazon S3 should block public bucket policies for buckets in this account is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool BlockPublicPolicy;
         /// <summary>
@@ -122,11 +122,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `true` or `false`.
+        /// Whether or not Amazon S3 should ignore public ACLs for buckets in this account is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool IgnorePublicAcls;
         /// <summary>
-        /// Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `true` or `false`.
+        /// Whether or not Amazon S3 should restrict public bucket policies for buckets in this account is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool RestrictPublicBuckets;
 

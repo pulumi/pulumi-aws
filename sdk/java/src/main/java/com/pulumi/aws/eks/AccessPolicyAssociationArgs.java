@@ -18,14 +18,14 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Reso
     public static final AccessPolicyAssociationArgs Empty = new AccessPolicyAssociationArgs();
 
     /**
-     * The configuration block to determine the scope of the access. See `access_scope` Block below.
+     * The configuration block to determine the scope of the access. See `accessScope` Block below.
      * 
      */
     @Import(name="accessScope", required=true)
     private Output<AccessPolicyAssociationAccessScopeArgs> accessScope;
 
     /**
-     * @return The configuration block to determine the scope of the access. See `access_scope` Block below.
+     * @return The configuration block to determine the scope of the access. See `accessScope` Block below.
      * 
      */
     public Output<AccessPolicyAssociationAccessScopeArgs> accessScope() {
@@ -121,7 +121,7 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accessScope The configuration block to determine the scope of the access. See `access_scope` Block below.
+         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accessScope The configuration block to determine the scope of the access. See `access_scope` Block below.
+         * @param accessScope The configuration block to determine the scope of the access. See `accessScope` Block below.
          * 
          * @return builder
          * 

@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `False`. Applicable for HTTP APIs.
         /// </summary>
         [Output("failOnWarnings")]
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
@@ -170,13 +170,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> RouteSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -282,13 +282,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `False`. Applicable for HTTP APIs.
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
@@ -419,13 +419,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
+        /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `False`. Applicable for HTTP APIs.
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the API. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

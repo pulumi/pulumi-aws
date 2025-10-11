@@ -30,7 +30,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// </summary>
         public readonly string? PostalCode;
         /// <summary>
-        /// When `true`, this is the primary address associated with the user.
+        /// When `True`, this is the primary address associated with the user.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>

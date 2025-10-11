@@ -94,7 +94,7 @@ namespace Pulumi.Aws.S3Control
         public Output<Outputs.MultiRegionAccessPointDetails> Details { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`Alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.S3Control
         public Input<Inputs.MultiRegionAccessPointDetailsGetArgs>? Details { get; set; }
 
         /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`Alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

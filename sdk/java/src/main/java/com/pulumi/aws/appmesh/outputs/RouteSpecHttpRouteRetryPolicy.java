@@ -33,7 +33,7 @@ public final class RouteSpecHttpRouteRetryPolicy {
     /**
      * @return List of TCP retry events. The only valid value is `connection-error`.
      * 
-     * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+     * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
      * 
      */
     private @Nullable List<String> tcpRetryEvents;
@@ -64,7 +64,7 @@ public final class RouteSpecHttpRouteRetryPolicy {
     /**
      * @return List of TCP retry events. The only valid value is `connection-error`.
      * 
-     * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+     * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
      * 
      */
     public List<String> tcpRetryEvents() {

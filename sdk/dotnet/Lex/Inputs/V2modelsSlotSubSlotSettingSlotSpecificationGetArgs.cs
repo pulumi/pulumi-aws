@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
         /// <summary>
         /// Elicitation setting details for constituent sub slots of a composite slot.
-        /// See the `value_elicitation_setting` argument reference below.
+        /// See the `ValueElicitationSetting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingGetArgs> ValueElicitationSettings
         {

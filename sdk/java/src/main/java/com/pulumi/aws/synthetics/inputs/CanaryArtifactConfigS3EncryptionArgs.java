@@ -31,14 +31,14 @@ public final class CanaryArtifactConfigS3EncryptionArgs extends com.pulumi.resou
     }
 
     /**
-     * The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+     * The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -92,7 +92,7 @@ public final class CanaryArtifactConfigS3EncryptionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CanaryArtifactConfigS3EncryptionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+         * @param kmsKeyArn The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<string>? _capacityReservationIds;
 
         /// <summary>
-        /// List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+        /// List of On-Demand Capacity Reservation Ids. Conflicts with `CapacityReservationResourceGroupArns`.
         /// </summary>
         public InputList<string> CapacityReservationIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<string>? _capacityReservationResourceGroupArns;
 
         /// <summary>
-        /// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+        /// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `CapacityReservationIds`.
         /// </summary>
         public InputList<string> CapacityReservationResourceGroupArns
         {

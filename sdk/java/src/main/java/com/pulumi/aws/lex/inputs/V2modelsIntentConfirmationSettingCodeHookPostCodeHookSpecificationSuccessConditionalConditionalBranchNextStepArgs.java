@@ -19,14 +19,14 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     public static final V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs Empty = new V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs();
 
     /**
-     * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     @Import(name="dialogAction")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs> dialogAction;
 
     /**
-     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+     * @return Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs>> dialogAction() {
@@ -90,7 +90,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         /**
-         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+         * @param dialogAction Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
          * 
          * @return builder
          * 

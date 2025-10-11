@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string InferenceProfileName;
         /// <summary>
-        /// A list of information about each model in the inference profile. See `models`.
+        /// A list of information about each model in the inference profile. See `Models`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfileModelResult> Models;
         public readonly string Region;

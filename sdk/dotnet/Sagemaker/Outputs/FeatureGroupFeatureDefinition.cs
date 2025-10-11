@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         public readonly Outputs.FeatureGroupFeatureDefinitionCollectionConfig? CollectionConfig;
         public readonly string? CollectionType;
         /// <summary>
-        /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
+        /// The name of a feature. `FeatureName` cannot be any of the following: `IsDeleted`, `WriteTime`, `ApiInvocationTime`.
         /// </summary>
         public readonly string? FeatureName;
         /// <summary>

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// The `aws.ec2.DefaultSubnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, this provider does not _create_ this resource, but instead "adopts" it into management.
     /// If no default subnet exists, this provider creates a new default subnet.
     /// By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
-    /// Set the `force_destroy` argument to `true` to delete the default subnet.
+    /// Set the `ForceDestroy` argument to `True` to delete the default subnet.
     /// 
     /// ## Example Usage
     /// 
@@ -60,8 +60,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// is required
-        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        /// * The default value for `map_public_ip_on_launch` is `true`
+        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
+        /// * The default value for `MapPublicIpOnLaunch` is `True`
         /// 
         /// This resource supports the following additional arguments:
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> ExistingDefaultSubnet { get; private set; } = null!;
 
         /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `false`
+        /// Whether destroying the resource deletes the default subnet. Default: `False`
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -194,8 +194,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// is required
-        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        /// * The default value for `map_public_ip_on_launch` is `true`
+        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
+        /// * The default value for `MapPublicIpOnLaunch` is `True`
         /// 
         /// This resource supports the following additional arguments:
         /// </summary>
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
         /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `false`
+        /// Whether destroying the resource deletes the default subnet. Default: `False`
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -262,8 +262,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// is required
-        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
-        /// * The default value for `map_public_ip_on_launch` is `true`
+        /// * The `AvailabilityZoneId`, `CidrBlock` and `VpcId` arguments become computed attributes
+        /// * The default value for `MapPublicIpOnLaunch` is `True`
         /// 
         /// This resource supports the following additional arguments:
         /// </summary>
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ExistingDefaultSubnet { get; set; }
 
         /// <summary>
-        /// Whether destroying the resource deletes the default subnet. Default: `false`
+        /// Whether destroying the resource deletes the default subnet. Default: `False`
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }

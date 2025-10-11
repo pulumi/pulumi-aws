@@ -225,7 +225,7 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableExecuteApiEndpoint);
     }
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -234,7 +234,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     private Output<String> executionArn;
 
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `source_arn` attribute
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
      * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
@@ -343,28 +343,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.routeSelectionExpression);
     }
     /**
-     * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the API. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

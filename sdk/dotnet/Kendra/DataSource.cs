@@ -596,7 +596,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `Configuration` block when the `Type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.DataSourceConfiguration?> Configuration { get; private set; } = null!;
@@ -656,7 +656,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -668,19 +668,19 @@ namespace Pulumi.Aws.Kendra
         public Output<string?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `ErrorMessage` field contains the reason that the Data Source failed.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `Configuration` block when the `Type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.DataSourceConfigurationArgs>? Configuration { get; set; }
@@ -788,7 +788,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -803,7 +803,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -834,7 +834,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `Configuration` block when the `Type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.DataSourceConfigurationGetArgs>? Configuration { get; set; }
@@ -894,7 +894,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
+        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -906,7 +906,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
+        /// The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `ErrorMessage` field contains the reason that the Data Source failed.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -915,7 +915,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -927,7 +927,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

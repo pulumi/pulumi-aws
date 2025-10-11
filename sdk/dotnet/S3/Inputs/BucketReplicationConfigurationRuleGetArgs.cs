@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `Filter` is used).
         /// </summary>
         [Input("deleteMarkerReplicationStatus")]
         public Input<string>? DeleteMarkerReplicationStatus { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// Priority associated with the rule. Priority should only be set if `Filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

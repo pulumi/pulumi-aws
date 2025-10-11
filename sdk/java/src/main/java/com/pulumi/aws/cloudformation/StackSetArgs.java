@@ -156,14 +156,14 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+     * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+     * @return Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -201,14 +201,14 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -216,14 +216,14 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
+     * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
      * 
      */
     @Import(name="templateBody")
     private @Nullable Output<String> templateBody;
 
     /**
-     * @return String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
+     * @return String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
      * 
      */
     public Optional<Output<String>> templateBody() {
@@ -231,14 +231,14 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
+     * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
      * 
      */
     @Import(name="templateUrl")
     private @Nullable Output<String> templateUrl;
 
     /**
-     * @return String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
+     * @return String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
      * 
      */
     public Optional<Output<String>> templateUrl() {
@@ -483,7 +483,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+         * @param parameters Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+         * @param parameters Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateBody String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
+         * @param templateBody String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateBody String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
+         * @param templateBody String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateUrl String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
+         * @param templateUrl String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateUrl String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
+         * @param templateUrl String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `templateBody`.
          * 
          * @return builder
          * 

@@ -80,7 +80,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific User by User id
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      * 
      */
     @Import(name="userId")
@@ -89,7 +89,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Returns information on a specific User by User id
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -211,7 +211,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId Returns information on a specific User by User id
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId Returns information on a specific User by User id
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `user_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `userId` is required.
          * 
          * @return builder
          * 

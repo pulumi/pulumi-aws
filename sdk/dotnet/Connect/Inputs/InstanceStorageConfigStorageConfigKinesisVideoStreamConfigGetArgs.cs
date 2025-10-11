@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<Inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigGetArgs> EncryptionConfig { get; set; } = null!;
 
         /// <summary>
-        /// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
+        /// The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `Prefix`.
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;

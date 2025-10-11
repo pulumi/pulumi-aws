@@ -195,7 +195,7 @@ public final class GetCloudExadataInfrastructureResult {
      */
     private String storageServerVersion;
     /**
-     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private Map<String,String> tags;
@@ -461,7 +461,7 @@ public final class GetCloudExadataInfrastructureResult {
         return this.storageServerVersion;
     }
     /**
-     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

@@ -17,14 +17,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     public static final ClusterRestoreToPointInTimeArgs Empty = new ClusterRestoreToPointInTimeArgs();
 
     /**
-     * Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
      * 
      */
     @Import(name="restoreToTime")
     private @Nullable Output<String> restoreToTime;
 
     /**
-     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+     * @return Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
      * 
      */
     public Optional<Output<String>> restoreToTime() {
@@ -79,14 +79,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     }
 
     /**
-     * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
      * 
      */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
     /**
-     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+     * @return Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
      * 
      */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
@@ -122,7 +122,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+         * @param restoreToTime Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+         * @param useLatestRestorableTime Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
          * 
          * @return builder
          * 

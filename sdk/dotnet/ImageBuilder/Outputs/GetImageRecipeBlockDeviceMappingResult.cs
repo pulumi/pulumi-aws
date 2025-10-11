@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string NoDevice;
         /// <summary>
-        /// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        /// Virtual device name. For example, `Ephemeral0`. Instance store volumes are numbered starting from 0.
         /// </summary>
         public readonly string VirtualName;
 

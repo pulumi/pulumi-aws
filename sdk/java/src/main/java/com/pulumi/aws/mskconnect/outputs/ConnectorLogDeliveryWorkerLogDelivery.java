@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDelivery {
     /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
+     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
      * 
      */
     private @Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs;
@@ -31,7 +31,7 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
 
     private ConnectorLogDeliveryWorkerLogDelivery() {}
     /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
+     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
      * 
      */
     public Optional<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs> cloudwatchLogs() {

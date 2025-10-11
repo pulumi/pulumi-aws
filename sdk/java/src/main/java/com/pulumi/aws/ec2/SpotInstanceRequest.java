@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/spotInstanceRequest:SpotInstanceRequest")
 public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
-     * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
     @Export(name="ami", refs={String.class}, tree="[0]")
     private Output<String> ami;
 
     /**
-     * @return AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+     * @return AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
     public Output<String> ami() {
@@ -219,14 +219,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.ebsOptimized;
     }
     /**
-     * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+     * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enablePrimaryIpv6` after it has been enabled forces recreation of the instance.
      * 
      */
     @Export(name="enablePrimaryIpv6", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enablePrimaryIpv6;
 
     /**
-     * @return Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+     * @return Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enablePrimaryIpv6` after it has been enabled forces recreation of the instance.
      * 
      */
     public Output<Boolean> enablePrimaryIpv6() {
@@ -261,28 +261,28 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.ephemeralBlockDevices;
     }
     /**
-     * Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+     * Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+     * @return Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     @Export(name="getPasswordData", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> getPasswordData;
 
     /**
-     * @return If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * @return If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     public Output<Optional<Boolean>> getPasswordData() {
@@ -379,14 +379,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.instanceState;
     }
     /**
-     * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
-     * @return Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Output<String> instanceType() {
@@ -510,10 +510,10 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      * @deprecated
-     * network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
+     * network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      * 
      */
-    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
+    @Deprecated /* network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource. */
     @Export(name="networkInterfaces", refs={List.class,SpotInstanceRequestNetworkInterface.class}, tree="[0,1]")
     private Output<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
 
@@ -537,28 +537,28 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.passwordData;
     }
     /**
-     * Placement Group to start the instance in. Conflicts with `placement_group_id`.
+     * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      * 
      */
     @Export(name="placementGroup", refs={String.class}, tree="[0]")
     private Output<String> placementGroup;
 
     /**
-     * @return Placement Group to start the instance in. Conflicts with `placement_group_id`.
+     * @return Placement Group to start the instance in. Conflicts with `placementGroupId`.
      * 
      */
     public Output<String> placementGroup() {
         return this.placementGroup;
     }
     /**
-     * Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
      * 
      */
     @Export(name="placementGroupId", refs={String.class}, tree="[0]")
     private Output<String> placementGroupId;
 
     /**
-     * @return Placement Group ID to start the instance in. Conflicts with `placement_group`.
+     * @return Placement Group ID to start the instance in. Conflicts with `placementGroup`.
      * 
      */
     public Output<String> placementGroupId() {
@@ -703,14 +703,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.rootBlockDevice;
     }
     /**
-     * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     @Export(name="secondaryPrivateIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> secondaryPrivateIps;
 
     /**
-     * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     * @return List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
     public Output<List<String>> secondaryPrivateIps() {
@@ -719,7 +719,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * List of security group names to associate with.
      * 
-     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
@@ -728,7 +728,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return List of security group names to associate with.
      * 
-     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      * 
      */
     public Output<List<String>> securityGroups() {
@@ -845,28 +845,28 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -887,42 +887,42 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.tenancy;
     }
     /**
-     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
     @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
     /**
-     * @return User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+     * @return User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
     public Output<Optional<String>> userData() {
         return Codegen.optional(this.userData);
     }
     /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output<String> userDataBase64;
 
     /**
-     * @return Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+     * @return Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
     public Output<String> userDataBase64() {
         return this.userDataBase64;
     }
     /**
-     * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+     * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
     @Export(name="userDataReplaceOnChange", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> userDataReplaceOnChange;
 
     /**
-     * @return When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+     * @return When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
     public Output<Optional<Boolean>> userDataReplaceOnChange() {
@@ -959,7 +959,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
-     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * &gt; **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     @Export(name="volumeTags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -968,7 +968,7 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
-     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * &gt; **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Output<Optional<Map<String,String>>> volumeTags() {

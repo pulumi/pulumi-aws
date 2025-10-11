@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
     /// 
-    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
+    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `ManagedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
     /// 
     /// ## Example Usage
     /// 

@@ -35,7 +35,7 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
     /**
      * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
      * 
-     * _Only one `auto_rollback_configuration` is allowed_.
+     * _Only one `autoRollbackConfiguration` is allowed_.
      * 
      */
     @Import(name="events")
@@ -44,7 +44,7 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
     /**
      * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
      * 
-     * _Only one `auto_rollback_configuration` is allowed_.
+     * _Only one `autoRollbackConfiguration` is allowed_.
      * 
      */
     public Optional<Output<List<String>>> events() {
@@ -100,7 +100,7 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
          * 
-         * _Only one `auto_rollback_configuration` is allowed_.
+         * _Only one `autoRollbackConfiguration` is allowed_.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
          * 
-         * _Only one `auto_rollback_configuration` is allowed_.
+         * _Only one `autoRollbackConfiguration` is allowed_.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
          * 
-         * _Only one `auto_rollback_configuration` is allowed_.
+         * _Only one `autoRollbackConfiguration` is allowed_.
          * 
          * @return builder
          * 

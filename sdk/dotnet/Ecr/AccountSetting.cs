@@ -77,8 +77,8 @@ namespace Pulumi.Aws.Ecr
 
         /// <summary>
         /// Setting value that is specified. Valid values are:
-        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
+        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -143,8 +143,8 @@ namespace Pulumi.Aws.Ecr
 
         /// <summary>
         /// Setting value that is specified. Valid values are:
-        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
+        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -171,8 +171,8 @@ namespace Pulumi.Aws.Ecr
 
         /// <summary>
         /// Setting value that is specified. Valid values are:
-        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
-        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
+        /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

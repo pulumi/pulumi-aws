@@ -166,28 +166,28 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.groupsAssertion);
     }
     /**
-     * The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Export(name="idpMetadataUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataUrl;
 
     /**
-     * @return The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * @return The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Output<Optional<String>> idpMetadataUrl() {
         return Codegen.optional(this.idpMetadataUrl);
     }
     /**
-     * The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Export(name="idpMetadataXml", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataXml;
 
     /**
-     * @return The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * @return The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Output<Optional<String>> idpMetadataXml() {

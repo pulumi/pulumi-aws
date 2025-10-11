@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleGroupRuleVariablesPortSet {
     /**
-     * @return An unique alphanumeric string to identify the `port_set`.
+     * @return An unique alphanumeric string to identify the `portSet`.
      * 
      */
     private String key;
@@ -24,7 +24,7 @@ public final class RuleGroupRuleGroupRuleVariablesPortSet {
 
     private RuleGroupRuleGroupRuleVariablesPortSet() {}
     /**
-     * @return An unique alphanumeric string to identify the `port_set`.
+     * @return An unique alphanumeric string to identify the `portSet`.
      * 
      */
     public String key() {

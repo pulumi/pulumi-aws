@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `Action` configuration block.
         /// </summary>
         [Input("action")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionGetArgs>? Action { get; set; }
@@ -28,19 +28,19 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<int>? CreateInterval { get; set; }
 
         /// <summary>
-        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `EventSource` configuration block.
         /// </summary>
         [Input("eventSource")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceGetArgs>? EventSource { get; set; }
 
         /// <summary>
-        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
+        /// Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `Exclusions` configuration block.
         /// </summary>
         [Input("exclusions")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsExclusionsGetArgs>? Exclusions { get; set; }
 
         /// <summary>
-        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
+        /// snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `False`.
         /// </summary>
         [Input("extendDeletion")]
         public Input<bool>? ExtendDeletion { get; set; }
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleGetArgs>? _schedules;
 
         /// <summary>
-        /// See the `schedule` configuration block.
+        /// See the `Schedule` configuration block.
         /// </summary>
         public InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleGetArgs> Schedules
         {
@@ -106,9 +106,9 @@ namespace Pulumi.Aws.Dlm.Inputs
         private InputMap<string>? _targetTags;
 
         /// <summary>
-        /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted. Required when `policy_type` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `policy_type` is `EVENT_BASED_POLICY`.
+        /// A map of tag keys and their values. Any resources that match the `ResourceTypes` and are tagged with _any_ of these tags will be targeted. Required when `PolicyType` is `EBS_SNAPSHOT_MANAGEMENT` or `IMAGE_MANAGEMENT`. Must not be specified when `PolicyType` is `EVENT_BASED_POLICY`.
         /// 
-        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `TargetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
         /// </summary>
         public InputMap<string> TargetTags
         {

@@ -92,7 +92,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Name of the table to contain the item.
         /// 
-        /// &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+        /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Name of the table to contain the item.
         /// 
-        /// &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+        /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Name of the table to contain the item.
         /// 
-        /// &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+        /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

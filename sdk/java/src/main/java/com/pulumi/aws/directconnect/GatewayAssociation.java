@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * To create a cross-account association, create an `aws.directconnect.GatewayAssociationProposal` resource
  * in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
- * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
+ * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
  * 
  * ## Example Usage
  * 
@@ -194,9 +194,9 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
-     * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
      * 
-     * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      * 
      */
     @Export(name="allowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
@@ -205,9 +205,9 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
     /**
      * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
-     * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
      * 
-     * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      * 
      */
     public Output<List<String>> allowedPrefixes() {

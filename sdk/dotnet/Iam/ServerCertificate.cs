@@ -80,8 +80,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// Some properties of an IAM Server Certificates cannot be updated while they are
     /// in use. In order for the provider to effectively manage a Certificate in this situation, it is
-    /// recommended you utilize the `name_prefix` attribute and enable the
-    /// `create_before_destroy`. This will allow this provider
+    /// recommended you utilize the `NamePrefix` attribute and enable the
+    /// `CreateBeforeDestroy`. This will allow this provider
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
     /// 
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -152,15 +152,15 @@ namespace Pulumi.Aws.Iam
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
+        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `CertificateBody` contains only one certificate. All other certificates should go in `CertificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -278,9 +278,9 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
+        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `CertificateBody` contains only one certificate. All other certificates should go in `CertificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -365,9 +365,9 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the server certificate. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
+        /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `CertificateBody` contains only one certificate. All other certificates should go in `CertificateChain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

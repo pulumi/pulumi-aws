@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string> MapBlockKey { get; set; } = null!;
 
         /// <summary>
-        /// When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+        /// When the shape value is `List`, `Values` contains a list of slot values. When the value is `Scalar`, `Value` contains a single value.
         /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
         /// <summary>
-        /// Configuration block for the current value of the slot. See `value`.
+        /// Configuration block for the current value of the slot. See `Value`.
         /// </summary>
         [Input("value")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueGetArgs>? Value { get; set; }

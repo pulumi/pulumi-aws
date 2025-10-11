@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+        /// Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `VpcConfiguration` Block for details.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs>? VpcConfiguration { get; set; }

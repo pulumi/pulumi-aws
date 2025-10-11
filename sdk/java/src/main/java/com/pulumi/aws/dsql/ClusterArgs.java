@@ -37,7 +37,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -45,7 +45,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * @return Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -174,7 +174,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * @param forceDestroy Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
          * Default value is `false`.
          * 
          * @return builder
@@ -186,7 +186,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * @param forceDestroy Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
          * Default value is `false`.
          * 
          * @return builder

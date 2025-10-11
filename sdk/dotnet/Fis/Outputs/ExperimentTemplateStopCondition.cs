@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fis.Outputs
     public sealed class ExperimentTemplateStopCondition
     {
         /// <summary>
-        /// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
+        /// Source of the condition. One of `None`, `aws:cloudwatch:alarm`.
         /// </summary>
         public readonly string Source;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointOracleSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        /// Authentication mechanism to access the Oracle source endpoint. Default is `Password`. Valid values are `Password` and `Kerberos`.
         /// </summary>
         [Input("authenticationMethod")]
         public Input<string>? AuthenticationMethod { get; set; }

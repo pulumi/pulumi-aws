@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+        /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `True`, the delete marker will be expired; if set to `False` the policy takes no action.
         /// </summary>
         [Input("expiredObjectDeleteMarker")]
         public Input<bool>? ExpiredObjectDeleteMarker { get; set; }

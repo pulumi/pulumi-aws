@@ -99,7 +99,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether the slot returns multiple values in one response.
-     * See the `multiple_values_setting` argument reference below.
+     * See the `multipleValuesSetting` argument reference below.
      * 
      */
     @Import(name="multipleValuesSettings")
@@ -107,7 +107,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether the slot returns multiple values in one response.
-     * See the `multiple_values_setting` argument reference below.
+     * See the `multipleValuesSetting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotMultipleValuesSettingArgs>>> multipleValuesSettings() {
@@ -131,7 +131,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscation_setting` argument reference below.
+     * See the `obfuscationSetting` argument reference below.
      * 
      */
     @Import(name="obfuscationSettings")
@@ -139,7 +139,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Determines how slot values are used in Amazon CloudWatch logs.
-     * See the `obfuscation_setting` argument reference below.
+     * See the `obfuscationSetting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotObfuscationSettingArgs>>> obfuscationSettings() {
@@ -178,7 +178,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `sub_slot_setting` argument reference below.
+     * See the `subSlotSetting` argument reference below.
      * 
      */
     @Import(name="subSlotSettings")
@@ -186,7 +186,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifications for the constituent sub slots and the expression for the composite slot.
-     * See the `sub_slot_setting` argument reference below.
+     * See the `subSlotSetting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingArgs>>> subSlotSettings() {
@@ -350,7 +350,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multiple_values_setting` argument reference below.
+         * See the `multipleValuesSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multiple_values_setting` argument reference below.
+         * See the `multipleValuesSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param multipleValuesSettings Whether the slot returns multiple values in one response.
-         * See the `multiple_values_setting` argument reference below.
+         * See the `multipleValuesSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscation_setting` argument reference below.
+         * See the `obfuscationSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscation_setting` argument reference below.
+         * See the `obfuscationSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
-         * See the `obfuscation_setting` argument reference below.
+         * See the `obfuscationSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `sub_slot_setting` argument reference below.
+         * See the `subSlotSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `sub_slot_setting` argument reference below.
+         * See the `subSlotSetting` argument reference below.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
-         * See the `sub_slot_setting` argument reference below.
+         * See the `subSlotSetting` argument reference below.
          * 
          * @return builder
          * 

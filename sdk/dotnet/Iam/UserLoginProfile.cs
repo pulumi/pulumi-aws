@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// The plain text password, only available when `pgp_key` is not provided.
+        /// The plain text password, only available when `PgpKey` is not provided.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Iam
         private Input<string>? _password;
 
         /// <summary>
-        /// The plain text password, only available when `pgp_key` is not provided.
+        /// The plain text password, only available when `PgpKey` is not provided.
         /// </summary>
         public Input<string>? Password
         {

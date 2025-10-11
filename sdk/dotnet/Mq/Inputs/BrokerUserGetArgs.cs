@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Mq.Inputs
     public sealed class BrokerUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+        /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `EngineType` of `ActiveMQ` only.
         /// </summary>
         [Input("consoleAccess")]
         public Input<bool>? ConsoleAccess { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Mq.Inputs
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        /// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `EngineType` of `ActiveMQ` only.
         /// </summary>
         public InputList<string> Groups
         {
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Mq.Inputs
         }
 
         /// <summary>
-        /// Whether to set replication user. Defaults to `false`.
+        /// Whether to set replication user. Defaults to `False`.
         /// 
         /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>

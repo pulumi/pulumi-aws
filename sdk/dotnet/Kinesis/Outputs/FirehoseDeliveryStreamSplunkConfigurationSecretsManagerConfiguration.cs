@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        /// The ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? SecretArn;
 

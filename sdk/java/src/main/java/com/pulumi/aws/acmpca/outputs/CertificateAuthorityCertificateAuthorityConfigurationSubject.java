@@ -37,7 +37,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      */
     private @Nullable String givenName;
     /**
-     * @return Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+     * @return Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
      * 
      */
     private @Nullable String initials;
@@ -57,7 +57,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      */
     private @Nullable String organizationalUnit;
     /**
-     * @return Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+     * @return Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
      * 
      */
     private @Nullable String pseudonym;
@@ -114,7 +114,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         return Optional.ofNullable(this.givenName);
     }
     /**
-     * @return Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+     * @return Concatenation that typically contains the first letter of the `givenName`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
      * 
      */
     public Optional<String> initials() {
@@ -142,7 +142,7 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
         return Optional.ofNullable(this.organizationalUnit);
     }
     /**
-     * @return Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+     * @return Typically a shortened version of a longer `givenName`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
      * 
      */
     public Optional<String> pseudonym() {

@@ -215,7 +215,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
+        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
@@ -233,20 +233,20 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
         /// </summary>
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
+        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -331,14 +331,14 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
+        /// Listener port. You can specify a value from 1 to 65535. If `Port` is not specified and `Protocol` is HTTP, the value will default to 80. If `Port` is not specified and `Protocol` is HTTPS, the value will default to 443.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -415,14 +415,14 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
-        /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-        /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+        /// ID of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// &gt; **NOTE:** You must specify one of the following arguments: `ServiceArn` or `ServiceIdentifier`.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

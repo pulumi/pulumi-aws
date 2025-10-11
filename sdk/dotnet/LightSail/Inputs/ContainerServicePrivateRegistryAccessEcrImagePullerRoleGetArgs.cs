@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LightSail.Inputs
     public sealed class ContainerServicePrivateRegistryAccessEcrImagePullerRoleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to activate the role. Defaults to `false`.
+        /// Whether to activate the role. Defaults to `False`.
         /// </summary>
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }

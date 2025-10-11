@@ -28,17 +28,17 @@ import javax.annotation.Nullable;
  * For working with Redis (Cluster Mode Enabled) replication groups, see the
  * `aws.elasticache.ReplicationGroup` resource.
  * 
- * &gt; **Note:** When you change an attribute, such as `num_cache_nodes`, by default
+ * &gt; **Note:** When you change an attribute, such as `numCacheNodes`, by default
  * it is applied in the next maintenance window. Because of this, this provider may report
  * a difference in its planning phase because the actual modification has not yet taken
- * place. You can use the `apply_immediately` flag to instruct the service to apply the
- * change immediately. Using `apply_immediately` can result in a brief downtime as the server reboots.
+ * place. You can use the `applyImmediately` flag to instruct the service to apply the
+ * change immediately. Using `applyImmediately` can result in a brief downtime as the server reboots.
  * See the &#34;Changes take effect&#34; section of the &#34;Details&#34; column in the AWS Documentation on Engine specific parameters for
  * [ElastiCache for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.Engine.html#ParameterGroups.Memcached) or
  * [ElastiCache for Valkey and Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.Engine.html#ParameterGroups.Redis)
  * for more information.
  * 
- * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
+ * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
  * 
  * ## Example Usage
  * 
@@ -337,42 +337,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     /**
-     * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+     * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+     * @return Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
+     * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
      * 
      */
     @Export(name="azMode", refs={String.class}, tree="[0]")
     private Output<String> azMode;
 
     /**
-     * @return Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
+     * @return Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
      * 
      */
     public Output<String> azMode() {
         return this.azMode;
     }
     /**
-     * List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * 
      */
     @Export(name="cacheNodes", refs={List.class,ClusterCacheNode.class}, tree="[0,1]")
     private Output<List<ClusterCacheNode>> cacheNodes;
 
     /**
-     * @return List of node objects including `id`, `address`, `port` and `availability_zone`.
+     * @return List of node objects including `id`, `address`, `port` and `availabilityZone`.
      * 
      */
     public Output<List<ClusterCacheNode>> cacheNodes() {
@@ -442,7 +442,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -456,7 +456,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     public Output<String> engineVersion() {
@@ -537,14 +537,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
-     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
     /**
-     * @return The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * @return The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dualStack`.
      * 
      */
     public Output<String> networkType() {
@@ -627,28 +627,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.parameterGroupName;
     }
     /**
-     * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
+     * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
+     * @return The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+     * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      * 
      */
     @Export(name="preferredAvailabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> preferredAvailabilityZones;
 
     /**
-     * @return List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
+     * @return List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      * 
      */
     public Output<Optional<List<String>>> preferredAvailabilityZones() {
@@ -711,42 +711,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+     * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      * 
      */
     @Export(name="snapshotArns", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotArns;
 
     /**
-     * @return Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
+     * @return Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      * 
      */
     public Output<Optional<String>> snapshotArns() {
         return Codegen.optional(this.snapshotArns);
     }
     /**
-     * Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
+     * Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      * 
      */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotName;
 
     /**
-     * @return Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
+     * @return Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      * 
      */
     public Output<Optional<String>> snapshotName() {
         return Codegen.optional(this.snapshotName);
     }
     /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> snapshotRetentionLimit;
 
     /**
-     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
+     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      * 
      */
     public Output<Optional<Integer>> snapshotRetentionLimit() {
@@ -781,28 +781,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.subnetGroupName;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

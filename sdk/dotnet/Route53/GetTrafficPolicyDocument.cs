@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Complex Example
         /// 
-        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `Geoproximity` rule type.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Complex Example
         /// 
-        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `Geoproximity` rule type.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Complex Example
         /// 
-        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+        /// The following example showcases the use of nested rules within the traffic policy document and introduces the `Geoproximity` rule type.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string MapBlockKey;
         /// <summary>
-        /// When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+        /// When the shape value is `List`, `Values` contains a list of slot values. When the value is `Scalar`, `Value` contains a single value.
         /// </summary>
         public readonly string? Shape;
         /// <summary>
-        /// Configuration block for the current value of the slot. See `value`.
+        /// Configuration block for the current value of the slot. See `Value`.
         /// </summary>
         public readonly Outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValue? Value;
 

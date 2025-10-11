@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
     /// 
-    /// &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
+    /// &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `AllocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
     /// &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either pre-existing or distributed to customers or users and therefore cannot be changed.
     /// 
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
-        /// Defaults to `true`.
+        /// Defaults to `True`.
         /// </summary>
         [Output("allowReassociation")]
         public Output<bool?> AllowReassociation { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
-        /// Defaults to `true`.
+        /// Defaults to `True`.
         /// </summary>
         [Input("allowReassociation")]
         public Input<bool>? AllowReassociation { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
-        /// Defaults to `true`.
+        /// Defaults to `True`.
         /// </summary>
         [Input("allowReassociation")]
         public Input<bool>? AllowReassociation { get; set; }

@@ -284,12 +284,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PrefixListId;
         /// <summary>
-        /// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
+        /// Whether or not the VPC is associated with a private hosted zone - `True` or `False`. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly bool PrivateDnsEnabled;
         public readonly string Region;
         /// <summary>
-        /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+        /// Whether or not the VPC Endpoint is being managed by its service - `True` or `False`.
         /// </summary>
         public readonly bool RequesterManaged;
         /// <summary>

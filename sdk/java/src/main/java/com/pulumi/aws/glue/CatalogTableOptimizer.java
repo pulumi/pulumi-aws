@@ -242,14 +242,14 @@ public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
         return this.tableName;
     }
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     public Output<String> type() {

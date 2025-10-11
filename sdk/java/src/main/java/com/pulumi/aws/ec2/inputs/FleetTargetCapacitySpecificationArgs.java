@@ -64,7 +64,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
 
     /**
      * The unit for the target capacity.
-     * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+     * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
      * 
      */
     @Import(name="targetCapacityUnitType")
@@ -72,7 +72,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
 
     /**
      * @return The unit for the target capacity.
-     * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+     * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
      * 
      */
     public Optional<Output<String>> targetCapacityUnitType() {
@@ -80,14 +80,14 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
     }
 
     /**
-     * The number of units to request, filled using `default_target_capacity_type`.
+     * The number of units to request, filled using `defaultTargetCapacityType`.
      * 
      */
     @Import(name="totalTargetCapacity", required=true)
     private Output<Integer> totalTargetCapacity;
 
     /**
-     * @return The number of units to request, filled using `default_target_capacity_type`.
+     * @return The number of units to request, filled using `defaultTargetCapacityType`.
      * 
      */
     public Output<Integer> totalTargetCapacity() {
@@ -187,7 +187,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
 
         /**
          * @param targetCapacityUnitType The unit for the target capacity.
-         * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+         * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
 
         /**
          * @param targetCapacityUnitType The unit for the target capacity.
-         * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+         * If you specify `targetCapacityUnitType`, `instanceRequirements` must be specified.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param totalTargetCapacity The number of units to request, filled using `default_target_capacity_type`.
+         * @param totalTargetCapacity The number of units to request, filled using `defaultTargetCapacityType`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param totalTargetCapacity The number of units to request, filled using `default_target_capacity_type`.
+         * @param totalTargetCapacity The number of units to request, filled using `defaultTargetCapacityType`.
          * 
          * @return builder
          * 

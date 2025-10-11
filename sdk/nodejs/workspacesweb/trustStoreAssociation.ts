@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:

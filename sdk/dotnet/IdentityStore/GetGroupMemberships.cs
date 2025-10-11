@@ -200,7 +200,7 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// A list of group membership objects. See `group_memberships` below.
+        /// A list of group membership objects. See `GroupMemberships` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMembershipsGroupMembershipResult> GroupMemberships;
         /// <summary>

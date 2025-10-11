@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// </summary>
         public readonly ImmutableArray<string> HeadersAllowLists;
         /// <summary>
-        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `default`, `allow-list`, `all`.
+        /// Headers that you want your distribution to forward to your origin and base caching on. Valid values: `Default`, `allow-list`, `All`.
         /// </summary>
         public readonly string? Option;
 

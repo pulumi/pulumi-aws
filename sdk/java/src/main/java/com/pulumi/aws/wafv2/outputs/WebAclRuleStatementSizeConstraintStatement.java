@@ -22,7 +22,7 @@ public final class WebAclRuleStatementSizeConstraintStatement {
      */
     private String comparisonOperator;
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatch fieldToMatch;
@@ -32,7 +32,7 @@ public final class WebAclRuleStatementSizeConstraintStatement {
      */
     private Integer size;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     private List<WebAclRuleStatementSizeConstraintStatementTextTransformation> textTransformations;
@@ -46,7 +46,7 @@ public final class WebAclRuleStatementSizeConstraintStatement {
         return this.comparisonOperator;
     }
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     public Optional<WebAclRuleStatementSizeConstraintStatementFieldToMatch> fieldToMatch() {
@@ -60,7 +60,7 @@ public final class WebAclRuleStatementSizeConstraintStatement {
         return this.size;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     public List<WebAclRuleStatementSizeConstraintStatementTextTransformation> textTransformations() {

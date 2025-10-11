@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOption {
     /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy;
     /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
+     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy;
@@ -27,14 +27,14 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
 
     private PolicySecurityServicePolicyDataPolicyOption() {}
     /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy> networkAclCommonPolicy() {
         return Optional.ofNullable(this.networkAclCommonPolicy);
     }
     /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
+     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy> networkFirewallPolicy() {

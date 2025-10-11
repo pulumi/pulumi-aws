@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BrokerUser {
     /**
-     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
      * 
      */
     private @Nullable Boolean consoleAccess;
     /**
-     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
      * 
      */
     private @Nullable List<String> groups;
@@ -46,14 +46,14 @@ public final class BrokerUser {
 
     private BrokerUser() {}
     /**
-     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
      * 
      */
     public Optional<Boolean> consoleAccess() {
         return Optional.ofNullable(this.consoleAccess);
     }
     /**
-     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engineType` of `ActiveMQ` only.
      * 
      */
     public List<String> groups() {

@@ -22,14 +22,14 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     public static final SecurityGroupRuleArgs Empty = new SecurityGroupRuleArgs();
 
     /**
-     * List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+     * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      * 
      */
     @Import(name="cidrBlocks")
     private @Nullable Output<List<String>> cidrBlocks;
 
     /**
-     * @return List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+     * @return List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      * 
      */
     public Optional<Output<List<String>>> cidrBlocks() {
@@ -67,14 +67,14 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+     * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      * 
      */
     @Import(name="ipv6CidrBlocks")
     private @Nullable Output<List<String>> ipv6CidrBlocks;
 
     /**
-     * @return List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+     * @return List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      * 
      */
     public Optional<Output<List<String>>> ipv6CidrBlocks() {
@@ -113,7 +113,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     * &gt; **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     @Import(name="region")
@@ -121,7 +121,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     * &gt; **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     public Optional<Output<String>> region() {
@@ -144,14 +144,14 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      * 
      */
     @Import(name="self")
     private @Nullable Output<Boolean> self;
 
     /**
-     * @return Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+     * @return Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      * 
      */
     public Optional<Output<Boolean>> self() {
@@ -159,14 +159,14 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     @Import(name="sourceSecurityGroupId")
     private @Nullable Output<String> sourceSecurityGroupId;
 
     /**
-     * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+     * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      * 
      */
     public Optional<Output<String>> sourceSecurityGroupId() {
@@ -245,7 +245,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param cidrBlocks List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+         * @param ipv6CidrBlocks List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+         * &gt; **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+         * &gt; **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+         * @param self Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+         * @param self Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+         * @param sourceSecurityGroupId Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `Condition`.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchConditionGetArgs> Condition { get; set; } = null!;
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `NextStep`.
         /// </summary>
         [Input("nextStep", required: true)]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepGetArgs> NextStep { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+        /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `Response`.
         /// </summary>
         [Input("response")]
         public Input<Inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseGetArgs>? Response { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
     /// Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
     /// 
-    /// &gt; **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+    /// &gt; **Note:** The CIDR blocks in the arguments `Tunnel1InsideCidr` and `Tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
     /// 
     /// ## Example Usage
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OutsideIpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `PresharedKeyStorage` argument is set to `SecretsManager`.
         /// </summary>
         [Output("presharedKeyArn")]
         public Output<string> PresharedKeyArn { get; private set; } = null!;
@@ -262,19 +262,19 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> StaticRoutesOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        /// When associated with an EC2 Transit Gateway (`TransitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
@@ -412,13 +412,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel1PresharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `Tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Output("tunnel1RekeyFuzzPercentage")]
         public Output<int?> Tunnel1RekeyFuzzPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel1Phase2LifetimeSeconds`.
         /// </summary>
         [Output("tunnel1RekeyMarginTimeSeconds")]
         public Output<int?> Tunnel1RekeyMarginTimeSeconds { get; private set; } = null!;
@@ -562,13 +562,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2PresharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `Tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Output("tunnel2RekeyFuzzPercentage")]
         public Output<int?> Tunnel2RekeyFuzzPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel2Phase2LifetimeSeconds`.
         /// </summary>
         [Output("tunnel2RekeyMarginTimeSeconds")]
         public Output<int?> Tunnel2RekeyMarginTimeSeconds { get; private set; } = null!;
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2VgwInsideAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Output("tunnelInsideIpVersion")]
         public Output<string> TunnelInsideIpVersion { get; private set; } = null!;
@@ -731,7 +731,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -900,13 +900,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `Tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel1RekeyFuzzPercentage")]
         public Input<int>? Tunnel1RekeyFuzzPercentage { get; set; }
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel1Phase2LifetimeSeconds`.
         /// </summary>
         [Input("tunnel1RekeyMarginTimeSeconds")]
         public Input<int>? Tunnel1RekeyMarginTimeSeconds { get; set; }
@@ -1072,13 +1072,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `Tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel2RekeyFuzzPercentage")]
         public Input<int>? Tunnel2RekeyFuzzPercentage { get; set; }
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel2Phase2LifetimeSeconds`.
         /// </summary>
         [Input("tunnel2RekeyMarginTimeSeconds")]
         public Input<int>? Tunnel2RekeyMarginTimeSeconds { get; set; }
@@ -1096,7 +1096,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2StartupAction { get; set; }
 
         /// <summary>
-        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Input("tunnelInsideIpVersion")]
         public Input<string>? TunnelInsideIpVersion { get; set; }
@@ -1186,7 +1186,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OutsideIpAddressType { get; set; }
 
         /// <summary>
-        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+        /// ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `PresharedKeyStorage` argument is set to `SecretsManager`.
         /// </summary>
         [Input("presharedKeyArn")]
         public Input<string>? PresharedKeyArn { get; set; }
@@ -1237,7 +1237,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1249,7 +1249,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1258,7 +1258,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+        /// When associated with an EC2 Transit Gateway (`TransitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
@@ -1448,13 +1448,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `Tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel1RekeyFuzzPercentage")]
         public Input<int>? Tunnel1RekeyFuzzPercentage { get; set; }
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel1Phase2LifetimeSeconds`.
         /// </summary>
         [Input("tunnel1RekeyMarginTimeSeconds")]
         public Input<int>? Tunnel1RekeyMarginTimeSeconds { get; set; }
@@ -1650,13 +1650,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `Tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel2RekeyFuzzPercentage")]
         public Input<int>? Tunnel2RekeyFuzzPercentage { get; set; }
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `Tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `Tunnel2Phase2LifetimeSeconds`.
         /// </summary>
         [Input("tunnel2RekeyMarginTimeSeconds")]
         public Input<int>? Tunnel2RekeyMarginTimeSeconds { get; set; }
@@ -1680,7 +1680,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2VgwInsideAddress { get; set; }
 
         /// <summary>
-        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `Ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Input("tunnelInsideIpVersion")]
         public Input<string>? TunnelInsideIpVersion { get; set; }

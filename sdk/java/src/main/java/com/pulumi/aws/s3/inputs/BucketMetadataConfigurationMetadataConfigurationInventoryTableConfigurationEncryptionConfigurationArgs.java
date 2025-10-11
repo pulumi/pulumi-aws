@@ -17,14 +17,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
     public static final BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs();
 
     /**
-     * KMS key ARN when `sse_algorithm` is `aws:kms`.
+     * KMS key ARN when `sseAlgorithm` is `aws:kms`.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return KMS key ARN when `sse_algorithm` is `aws:kms`.
+     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -72,7 +72,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param kmsKeyArn KMS key ARN when `sse_algorithm` is `aws:kms`.
+         * @param kmsKeyArn KMS key ARN when `sseAlgorithm` is `aws:kms`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param kmsKeyArn KMS key ARN when `sse_algorithm` is `aws:kms`.
+         * @param kmsKeyArn KMS key ARN when `sseAlgorithm` is `aws:kms`.
          * 
          * @return builder
          * 

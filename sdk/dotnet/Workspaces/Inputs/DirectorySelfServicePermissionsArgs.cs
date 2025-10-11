@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class DirectorySelfServicePermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `False`.
         /// </summary>
         [Input("changeComputeType")]
         public Input<bool>? ChangeComputeType { get; set; }
 
         /// <summary>
-        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `False`.
         /// </summary>
         [Input("increaseVolumeSize")]
         public Input<bool>? IncreaseVolumeSize { get; set; }
 
         /// <summary>
-        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `False`.
         /// </summary>
         [Input("rebuildWorkspace")]
         public Input<bool>? RebuildWorkspace { get; set; }
 
         /// <summary>
-        /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
+        /// Whether WorkSpaces directory users can restart their workspace. Default `True`.
         /// </summary>
         [Input("restartWorkspace")]
         public Input<bool>? RestartWorkspace { get; set; }
 
         /// <summary>
-        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `False`.
         /// </summary>
         [Input("switchRunningMode")]
         public Input<bool>? SwitchRunningMode { get; set; }

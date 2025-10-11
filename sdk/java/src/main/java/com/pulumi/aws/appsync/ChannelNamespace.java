@@ -112,14 +112,14 @@ public class ChannelNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.codeHandlers);
     }
     /**
-     * Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      * 
      */
     @Export(name="handlerConfigs", refs={ChannelNamespaceHandlerConfigs.class}, tree="[0]")
     private Output</* @Nullable */ ChannelNamespaceHandlerConfigs> handlerConfigs;
 
     /**
-     * @return Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      * 
      */
     public Output<Optional<ChannelNamespaceHandlerConfigs>> handlerConfigs() {
@@ -186,28 +186,28 @@ public class ChannelNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subscribeAuthModes);
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

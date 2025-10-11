@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? MaxPrice;
         /// <summary>
-        /// Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
+        /// Priority for the launch template override. If `OnDemandOptions` `AllocationStrategy` is set to `Prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
         /// </summary>
         public readonly double? Priority;
         /// <summary>

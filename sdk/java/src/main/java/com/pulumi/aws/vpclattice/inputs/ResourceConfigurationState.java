@@ -81,14 +81,14 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+     * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+     * @return Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -111,7 +111,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+     * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -120,7 +120,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     private @Nullable Output<ResourceConfigurationResourceConfigurationDefinitionArgs> resourceConfigurationDefinition;
 
     /**
-     * @return Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+     * @return Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -145,14 +145,14 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+     * ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     @Import(name="resourceGatewayIdentifier")
     private @Nullable Output<String> resourceGatewayIdentifier;
 
     /**
-     * @return ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+     * @return ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
      * 
      */
     public Optional<Output<String>> resourceGatewayIdentifier() {
@@ -160,14 +160,14 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -175,14 +175,14 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -342,7 +342,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+         * @param protocol Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceConfigurationDefinition Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+         * @param resourceConfigurationDefinition Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -397,7 +397,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceConfigurationDefinition Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
+         * @param resourceConfigurationDefinition Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -430,7 +430,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGatewayIdentifier ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+         * @param resourceGatewayIdentifier ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGatewayIdentifier ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
+         * @param resourceGatewayIdentifier ID of the Resource Gateway used to access the resource. MUST be specified if `resourceConfigurationGroupId` is not.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class ResourceConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

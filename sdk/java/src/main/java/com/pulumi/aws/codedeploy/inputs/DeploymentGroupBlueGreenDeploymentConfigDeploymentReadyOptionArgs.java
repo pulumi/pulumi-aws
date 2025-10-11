@@ -36,14 +36,14 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
     }
 
     /**
-     * The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
      * 
      */
     @Import(name="waitTimeInMinutes")
     private @Nullable Output<Integer> waitTimeInMinutes;
 
     /**
-     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+     * @return The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
      * 
      */
     public Optional<Output<Integer>> waitTimeInMinutes() {
@@ -101,7 +101,7 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
         }
 
         /**
-         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
         }
 
         /**
-         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+         * @param waitTimeInMinutes The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
          * 
          * @return builder
          * 

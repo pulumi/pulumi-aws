@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration
     {
         /// <summary>
-        /// Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+        /// Encryption configuration for the journal table. See `EncryptionConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// Journal table record expiration settings. See `record_expiration` Block for details.
+        /// Journal table record expiration settings. See `RecordExpiration` Block for details.
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration? RecordExpiration;
         /// <summary>

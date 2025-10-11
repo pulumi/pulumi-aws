@@ -141,7 +141,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// </summary>
         public readonly string CreatedBy;
         /// <summary>
-        /// If `true`, the last remaining Region in a replication set can’t be deleted.
+        /// If `True`, the last remaining Region in a replication set can’t be deleted.
         /// </summary>
         public readonly bool DeletionProtected;
         /// <summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// </summary>
         public readonly string LastModifiedBy;
         /// <summary>
-        /// (**Deprecated**) The replication set's Regions. Use `regions` instead.
+        /// (**Deprecated**) The replication set's Regions. Use `Regions` instead.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReplicationSetRegionResult> Region;
         /// <summary>

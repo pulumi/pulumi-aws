@@ -16,14 +16,14 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
     public static final AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs();
 
     /**
-     * The Salesforce standard object configuration. See `filter_configuration` block for details.
+     * The Salesforce standard object configuration. See `filterConfiguration` block for details.
      * 
      */
     @Import(name="filterConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
 
     /**
-     * @return The Salesforce standard object configuration. See `filter_configuration` block for details.
+     * @return The Salesforce standard object configuration. See `filterConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs>> filterConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         }
 
         /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filter_configuration` block for details.
+         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
         }
 
         /**
-         * @param filterConfiguration The Salesforce standard object configuration. See `filter_configuration` block for details.
+         * @param filterConfiguration The Salesforce standard object configuration. See `filterConfiguration` block for details.
          * 
          * @return builder
          * 

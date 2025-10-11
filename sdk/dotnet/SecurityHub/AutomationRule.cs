@@ -115,7 +115,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
         /// </summary>
         [Output("isTerminal")]
         public Output<bool> IsTerminal { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
         /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `False`.
         /// </summary>
         [Input("isTerminal")]
         public Input<bool>? IsTerminal { get; set; }

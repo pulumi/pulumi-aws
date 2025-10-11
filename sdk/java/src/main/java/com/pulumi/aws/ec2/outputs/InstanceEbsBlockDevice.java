@@ -26,12 +26,12 @@ public final class InstanceEbsBlockDevice {
      */
     private String deviceName;
     /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
      * 
      */
     private @Nullable Boolean encrypted;
     /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
      * 
      */
     private @Nullable Integer iops;
@@ -51,12 +51,12 @@ public final class InstanceEbsBlockDevice {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     private @Nullable Map<String,String> tagsAll;
     /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
      * 
      */
     private @Nullable Integer throughput;
@@ -73,7 +73,7 @@ public final class InstanceEbsBlockDevice {
     /**
      * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
      * 
-     * &gt; **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
+     * &gt; **NOTE:** Currently, changes to the `ebsBlockDevice` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
      * 
      */
     private @Nullable String volumeType;
@@ -94,14 +94,14 @@ public final class InstanceEbsBlockDevice {
         return this.deviceName;
     }
     /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshotId`. Must be configured to perform drift detection.
      * 
      */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
     /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
      * 
      */
     public Optional<Integer> iops() {
@@ -129,14 +129,14 @@ public final class InstanceEbsBlockDevice {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Map<String,String> tagsAll() {
         return this.tagsAll == null ? Map.of() : this.tagsAll;
     }
     /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volumeType` of `gp3`.
      * 
      */
     public Optional<Integer> throughput() {
@@ -159,7 +159,7 @@ public final class InstanceEbsBlockDevice {
     /**
      * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
      * 
-     * &gt; **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
+     * &gt; **NOTE:** Currently, changes to the `ebsBlockDevice` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
      * 
      */
     public Optional<String> volumeType() {

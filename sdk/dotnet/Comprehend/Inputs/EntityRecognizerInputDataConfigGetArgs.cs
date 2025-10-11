@@ -14,8 +14,8 @@ namespace Pulumi.Aws.Comprehend.Inputs
     {
         /// <summary>
         /// Specifies location of the document annotation data.
-        /// See the `annotations` Configuration Block section below.
-        /// One of `annotations` or `entity_list` is required.
+        /// See the `Annotations` Configuration Block section below.
+        /// One of `Annotations` or `EntityList` is required.
         /// </summary>
         [Input("annotations")]
         public Input<Inputs.EntityRecognizerInputDataConfigAnnotationsGetArgs>? Annotations { get; set; }
@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
         /// <summary>
         /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
-        /// Used if `data_format` is `AUGMENTED_MANIFEST`.
-        /// See the `augmented_manifests` Configuration Block section below.
+        /// Used if `DataFormat` is `AUGMENTED_MANIFEST`.
+        /// See the `AugmentedManifests` Configuration Block section below.
         /// </summary>
         public InputList<Inputs.EntityRecognizerInputDataConfigAugmentedManifestGetArgs> AugmentedManifests
         {
@@ -43,16 +43,16 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
         /// <summary>
         /// Specifies a collection of training documents.
-        /// Used if `data_format` is `COMPREHEND_CSV`.
-        /// See the `documents` Configuration Block section below.
+        /// Used if `DataFormat` is `COMPREHEND_CSV`.
+        /// See the `Documents` Configuration Block section below.
         /// </summary>
         [Input("documents")]
         public Input<Inputs.EntityRecognizerInputDataConfigDocumentsGetArgs>? Documents { get; set; }
 
         /// <summary>
         /// Specifies location of the entity list data.
-        /// See the `entity_list` Configuration Block section below.
-        /// One of `entity_list` or `annotations` is required.
+        /// See the `EntityList` Configuration Block section below.
+        /// One of `EntityList` or `Annotations` is required.
         /// </summary>
         [Input("entityList")]
         public Input<Inputs.EntityRecognizerInputDataConfigEntityListGetArgs>? EntityList { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
         /// <summary>
         /// Set of entity types to be recognized.
         /// Has a maximum of 25 items.
-        /// See the `entity_types` Configuration Block section below.
+        /// See the `EntityTypes` Configuration Block section below.
         /// </summary>
         public InputList<Inputs.EntityRecognizerInputDataConfigEntityTypeGetArgs> EntityTypes
         {

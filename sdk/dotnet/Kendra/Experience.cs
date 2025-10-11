@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ExperienceConfiguration> Configuration { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationArgs>? Configuration { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationGetArgs>? Configuration { get; set; }

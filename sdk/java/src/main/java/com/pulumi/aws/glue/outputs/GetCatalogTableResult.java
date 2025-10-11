@@ -60,12 +60,12 @@ public final class GetCatalogTableResult {
      */
     private Map<String,String> parameters;
     /**
-     * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+     * @return Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      * 
      */
     private List<GetCatalogTablePartitionIndex> partitionIndices;
     /**
-     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      * 
      */
     private List<GetCatalogTablePartitionKey> partitionKeys;
@@ -81,7 +81,7 @@ public final class GetCatalogTableResult {
      */
     private Integer retention;
     /**
-     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      * 
      */
     private List<GetCatalogTableStorageDescriptor> storageDescriptors;
@@ -91,7 +91,7 @@ public final class GetCatalogTableResult {
      */
     private String tableType;
     /**
-     * @return Configuration block of a target table for resource linking. See `target_table` below.
+     * @return Configuration block of a target table for resource linking. See `targetTable` below.
      * 
      */
     private List<GetCatalogTableTargetTable> targetTables;
@@ -165,14 +165,14 @@ public final class GetCatalogTableResult {
         return this.parameters;
     }
     /**
-     * @return Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+     * @return Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      * 
      */
     public List<GetCatalogTablePartitionIndex> partitionIndices() {
         return this.partitionIndices;
     }
     /**
-     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+     * @return Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      * 
      */
     public List<GetCatalogTablePartitionKey> partitionKeys() {
@@ -196,7 +196,7 @@ public final class GetCatalogTableResult {
         return this.retention;
     }
     /**
-     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+     * @return Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      * 
      */
     public List<GetCatalogTableStorageDescriptor> storageDescriptors() {
@@ -210,7 +210,7 @@ public final class GetCatalogTableResult {
         return this.tableType;
     }
     /**
-     * @return Configuration block of a target table for resource linking. See `target_table` below.
+     * @return Configuration block of a target table for resource linking. See `targetTable` below.
      * 
      */
     public List<GetCatalogTableTargetTable> targetTables() {

@@ -159,13 +159,13 @@ namespace Pulumi.Aws.Chime
         public Output<int> DataRetention { get; private set; } = null!;
 
         /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+        /// When true, media streaming to Amazon Kinesis is turned off. Default: `False`
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `MediaInsightsConfiguration`.
         /// </summary>
         [Output("mediaInsightsConfiguration")]
         public Output<Outputs.VoiceConnectorStreamingMediaInsightsConfiguration?> MediaInsightsConfiguration { get; private set; } = null!;
@@ -241,13 +241,13 @@ namespace Pulumi.Aws.Chime
         public Input<int> DataRetention { get; set; } = null!;
 
         /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+        /// When true, media streaming to Amazon Kinesis is turned off. Default: `False`
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `MediaInsightsConfiguration`.
         /// </summary>
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs>? MediaInsightsConfiguration { get; set; }
@@ -291,13 +291,13 @@ namespace Pulumi.Aws.Chime
         public Input<int>? DataRetention { get; set; }
 
         /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
+        /// When true, media streaming to Amazon Kinesis is turned off. Default: `False`
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The media insights configuration. See `media_insights_configuration`.
+        /// The media insights configuration. See `MediaInsightsConfiguration`.
         /// </summary>
         [Input("mediaInsightsConfiguration")]
         public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationGetArgs>? MediaInsightsConfiguration { get; set; }

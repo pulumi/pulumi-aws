@@ -31,13 +31,13 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        /// The IP address types that can invoke the domain name. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your domain name, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `Ipv4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `CertificateArn` is issued via an ACM Private CA or `MutualTlsAuthentication` is configured with an ACM-imported certificate.)
         /// </summary>
         [Input("ownershipVerificationCertificateArn")]
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }

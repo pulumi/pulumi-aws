@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs>? _firstEntries;
 
         /// <summary>
-        /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+        /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `FirstEntry` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs> FirstEntries
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs>? _lastEntries;
 
         /// <summary>
-        /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+        /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `LastEntry` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs> LastEntries
         {

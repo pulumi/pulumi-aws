@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
         /// 
-        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+        /// &gt; **NOTE:** One of `VpcEndpointServiceId` or `VpcEndpointId` must be specified.
         /// </summary>
         [Output("connectionEvents")]
         public Output<ImmutableArray<string>> ConnectionEvents { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
         /// 
-        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+        /// &gt; **NOTE:** One of `VpcEndpointServiceId` or `VpcEndpointId` must be specified.
         /// </summary>
         public InputList<string> ConnectionEvents
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
         /// 
-        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+        /// &gt; **NOTE:** One of `VpcEndpointServiceId` or `VpcEndpointId` must be specified.
         /// </summary>
         public InputList<string> ConnectionEvents
         {

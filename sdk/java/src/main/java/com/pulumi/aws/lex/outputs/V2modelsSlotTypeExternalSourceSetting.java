@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public final class V2modelsSlotTypeExternalSourceSetting {
     /**
      * @return Settings required for a slot type based on a grammar that you provide.
-     * See `grammar_slot_type_setting` argument reference below.
+     * See `grammarSlotTypeSetting` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings;
@@ -21,7 +21,7 @@ public final class V2modelsSlotTypeExternalSourceSetting {
     private V2modelsSlotTypeExternalSourceSetting() {}
     /**
      * @return Settings required for a slot type based on a grammar that you provide.
-     * See `grammar_slot_type_setting` argument reference below.
+     * See `grammarSlotTypeSetting` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting> grammarSlotTypeSettings() {

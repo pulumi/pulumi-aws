@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Output<string?> GroupingType { get; private set; } = null!;
 
         /// <summary>
-        /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// When set to `True`, creates opsItems for any problems detected on an application.
         /// </summary>
         [Output("opsCenterEnabled")]
         public Output<bool?> OpsCenterEnabled { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.ApplicationInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<string>? GroupingType { get; set; }
 
         /// <summary>
-        /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// When set to `True`, creates opsItems for any problems detected on an application.
         /// </summary>
         [Input("opsCenterEnabled")]
         public Input<bool>? OpsCenterEnabled { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.ApplicationInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<string>? GroupingType { get; set; }
 
         /// <summary>
-        /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// When set to `True`, creates opsItems for any problems detected on an application.
         /// </summary>
         [Input("opsCenterEnabled")]
         public Input<bool>? OpsCenterEnabled { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.ApplicationInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.ApplicationInsights
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

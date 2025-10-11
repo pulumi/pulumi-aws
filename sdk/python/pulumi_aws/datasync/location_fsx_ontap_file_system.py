@@ -329,6 +329,8 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
@@ -360,6 +362,8 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         Resource for managing an AWS DataSync Location FSx Ontap File System.
 
         ## Example Usage
+
+        ### Basic Usage
 
         ## Import
 

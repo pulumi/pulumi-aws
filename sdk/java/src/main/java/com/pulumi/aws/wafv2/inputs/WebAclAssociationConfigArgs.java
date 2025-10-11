@@ -17,14 +17,14 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
     public static final WebAclAssociationConfigArgs Empty = new WebAclAssociationConfigArgs();
 
     /**
-     * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+     * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
      * 
      */
     @Import(name="requestBodies")
     private @Nullable Output<List<WebAclAssociationConfigRequestBodyArgs>> requestBodies;
 
     /**
-     * @return Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+     * @return Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
      * 
      */
     public Optional<Output<List<WebAclAssociationConfigRequestBodyArgs>>> requestBodies() {
@@ -56,7 +56,7 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class WebAclAssociationConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+         * @param requestBodies Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
          * 
          * @return builder
          * 

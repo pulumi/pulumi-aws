@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     public partial class AmiFromInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to `x86_64`.
+        /// Machine architecture for created instances. Defaults to `X8664`.
         /// </summary>
         [Output("architecture")]
         public Output<string> Architecture { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.AmiFromInstanceEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
         /// <summary>
-        /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        /// Whether enhanced networking with ENA is enabled. Defaults to `False`.
         /// </summary>
         [Output("enaSupport")]
         public Output<bool> EnaSupport { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SriovNetSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiFromInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to `x86_64`.
+        /// Machine architecture for created instances. Defaults to `X8664`.
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        /// Whether enhanced networking with ENA is enabled. Defaults to `False`.
         /// </summary>
         [Input("enaSupport")]
         public Input<bool>? EnaSupport { get; set; }
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

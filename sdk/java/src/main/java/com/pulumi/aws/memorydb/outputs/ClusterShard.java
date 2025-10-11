@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterShard {
     /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     private @Nullable String name;
@@ -37,7 +37,7 @@ public final class ClusterShard {
 
     private ClusterShard() {}
     /**
-     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<String> name() {

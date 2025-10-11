@@ -331,7 +331,7 @@ namespace Pulumi.Aws
     public sealed class GetAvailabilityZonesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// Set to `True` to include all Availability Zones and Local Zones regardless of your opt in status.
         /// </summary>
         [Input("allAvailabilityZones")]
         public bool? AllAvailabilityZones { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Aws
     public sealed class GetAvailabilityZonesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// Set to `True` to include all Availability Zones and Local Zones regardless of your opt in status.
         /// </summary>
         [Input("allAvailabilityZones")]
         public Input<bool>? AllAvailabilityZones { get; set; }

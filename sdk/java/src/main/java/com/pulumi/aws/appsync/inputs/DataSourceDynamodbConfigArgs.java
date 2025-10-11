@@ -19,14 +19,14 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
     public static final DataSourceDynamodbConfigArgs Empty = new DataSourceDynamodbConfigArgs();
 
     /**
-     * The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+     * The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
      * 
      */
     @Import(name="deltaSyncConfig")
     private @Nullable Output<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig;
 
     /**
-     * @return The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+     * @return The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
      * 
      */
     public Optional<Output<DataSourceDynamodbConfigDeltaSyncConfigArgs>> deltaSyncConfig() {
@@ -122,7 +122,7 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+         * @param deltaSyncConfig The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
          * 
          * @return builder
          * 

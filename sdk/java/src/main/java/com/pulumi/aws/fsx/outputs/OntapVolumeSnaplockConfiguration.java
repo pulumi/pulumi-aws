@@ -21,7 +21,7 @@ public final class OntapVolumeSnaplockConfiguration {
      */
     private @Nullable Boolean auditLogVolume;
     /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
      * 
      */
     private @Nullable OntapVolumeSnaplockConfigurationAutocommitPeriod autocommitPeriod;
@@ -31,7 +31,7 @@ public final class OntapVolumeSnaplockConfiguration {
      */
     private @Nullable String privilegedDelete;
     /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
      * 
      */
     private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriod retentionPeriod;
@@ -55,7 +55,7 @@ public final class OntapVolumeSnaplockConfiguration {
         return Optional.ofNullable(this.auditLogVolume);
     }
     /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
      * 
      */
     public Optional<OntapVolumeSnaplockConfigurationAutocommitPeriod> autocommitPeriod() {
@@ -69,7 +69,7 @@ public final class OntapVolumeSnaplockConfiguration {
         return Optional.ofNullable(this.privilegedDelete);
     }
     /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
      * 
      */
     public Optional<OntapVolumeSnaplockConfigurationRetentionPeriod> retentionPeriod() {

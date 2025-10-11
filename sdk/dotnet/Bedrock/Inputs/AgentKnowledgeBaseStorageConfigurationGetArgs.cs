@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `OpensearchServerlessConfiguration` block for details.
         /// </summary>
         [Input("opensearchServerlessConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationGetArgs>? OpensearchServerlessConfiguration { get; set; }
 
         /// <summary>
-        /// The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
+        /// The storage configuration of the knowledge base in Pinecone. See `PineconeConfiguration` block for details.
         /// </summary>
         [Input("pineconeConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationGetArgs>? PineconeConfiguration { get; set; }
 
         /// <summary>
-        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
+        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `RdsConfiguration` block for details.
         /// </summary>
         [Input("rdsConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationGetArgs>? RdsConfiguration { get; set; }
 
         /// <summary>
-        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
+        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `RedisEnterpriseCloudConfiguration` block for details.
         /// </summary>
         [Input("redisEnterpriseCloudConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationGetArgs>? RedisEnterpriseCloudConfiguration { get; set; }

@@ -19,7 +19,7 @@ public final class LogMetricFilterMetricTransformation {
      */
     private @Nullable String defaultValue;
     /**
-     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
      * 
      */
     private @Nullable Map<String,String> dimensions;
@@ -53,7 +53,7 @@ public final class LogMetricFilterMetricTransformation {
         return Optional.ofNullable(this.defaultValue);
     }
     /**
-     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
      * 
      */
     public Map<String,String> dimensions() {

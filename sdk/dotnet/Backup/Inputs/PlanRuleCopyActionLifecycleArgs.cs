@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<int>? ColdStorageAfter { get; set; }
 
         /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `ColdStorageAfter`.
         /// </summary>
         [Input("deleteAfter")]
         public Input<int>? DeleteAfter { get; set; }

@@ -76,10 +76,10 @@ namespace Pulumi.Aws.Ec2
     /// ## Remarks
     /// 
     /// * Notice that all arguments are optional but you have to specify at least one argument.
-    /// * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
+    /// * `DomainNameServers`, `NetbiosNameServers`, `NtpServers` are limited by AWS to maximum four servers only.
     /// * To actually use the DHCP Options Set you need to associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`.
-    /// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-    /// * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
+    /// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `Default` DHCP Option Set.
+    /// * In most cases unless you're configuring your own DNS you'll want to set `DomainNameServers` to `AmazonProvidedDNS`.
     /// 
     /// ## Import
     /// 
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `Search` value in the `/etc/resolv.conf` file.
         /// </summary>
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcDhcpOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `Search` value in the `/etc/resolv.conf` file.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
+        /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `Search` value in the `/etc/resolv.conf` file.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

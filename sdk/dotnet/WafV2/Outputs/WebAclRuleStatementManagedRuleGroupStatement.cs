@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
         /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `ManagedRuleGroupConfigs` for more details
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> ManagedRuleGroupConfigs;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `RuleActionOverride` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> RuleActionOverrides;
         /// <summary>
-        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `Statement` above for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? ScopeDownStatement;
         /// <summary>

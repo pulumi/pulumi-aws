@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor
     {
         /// <summary>
-        /// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+        /// Specifies the processor parameters as multiple blocks. See `Parameters` block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter> Parameters;
         /// <summary>

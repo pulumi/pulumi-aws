@@ -20,7 +20,7 @@ public final class RouteSpecGrpcRouteMatch {
      */
     private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
     /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * @return Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
      * 
      */
     private @Nullable String methodName;
@@ -45,7 +45,7 @@ public final class RouteSpecGrpcRouteMatch {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
     /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+     * @return Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
      * 
      */
     public Optional<String> methodName() {

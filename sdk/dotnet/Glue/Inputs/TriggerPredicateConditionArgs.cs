@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class TriggerPredicateConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
+        /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `CrawlerName` must also be specified. Conflicts with `State`.
         /// </summary>
         [Input("crawlState")]
         public Input<string>? CrawlState { get; set; }
 
         /// <summary>
-        /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        /// The name of the crawler to watch. If this is specified, `CrawlState` must also be specified. Conflicts with `JobName`.
         /// </summary>
         [Input("crawlerName")]
         public Input<string>? CrawlerName { get; set; }
 
         /// <summary>
-        /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        /// The name of the job to watch. If this is specified, `State` must also be specified. Conflicts with `CrawlerName`.
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? LogicalOperator { get; set; }
 
         /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `JobName` must also be specified. Conflicts with `CrawlerState`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

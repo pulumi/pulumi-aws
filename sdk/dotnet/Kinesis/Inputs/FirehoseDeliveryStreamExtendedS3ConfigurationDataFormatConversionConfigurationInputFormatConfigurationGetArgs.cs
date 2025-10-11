@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+        /// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `Deserializer` block below for details.
         /// </summary>
         [Input("deserializer", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerGetArgs> Deserializer { get; set; } = null!;

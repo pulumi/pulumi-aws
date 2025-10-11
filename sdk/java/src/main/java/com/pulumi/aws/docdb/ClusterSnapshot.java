@@ -149,14 +149,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.engineVersion;
     }
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
+     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     public Output<String> kmsKeyId() {

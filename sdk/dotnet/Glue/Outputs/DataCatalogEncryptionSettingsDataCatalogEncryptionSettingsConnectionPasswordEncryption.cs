@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? AwsKmsKeyId;
         /// <summary>
-        /// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        /// When set to `True`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         /// </summary>
         public readonly bool ReturnConnectionPasswordEncrypted;
 

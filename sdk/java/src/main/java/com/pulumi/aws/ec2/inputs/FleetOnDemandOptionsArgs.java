@@ -65,7 +65,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     /**
      * The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
      * 
      */
     @Import(name="minTargetCapacity")
@@ -73,7 +73,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-     * If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+     * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
      * 
      */
     public Optional<Output<Integer>> minTargetCapacity() {
@@ -204,7 +204,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param minTargetCapacity The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+         * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param minTargetCapacity The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
-         * If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+         * If you specify `minTargetCapacity`, at least one of the following must be specified: `singleAvailabilityZone` or `singleInstanceType`.
          * 
          * @return builder
          * 

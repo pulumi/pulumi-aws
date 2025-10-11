@@ -156,7 +156,7 @@ public final class GetInstanceResult {
      */
     private String outpostArn;
     /**
-     * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     private String passwordData;
@@ -196,7 +196,7 @@ public final class GetInstanceResult {
      */
     private String publicDns;
     /**
-     * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `publicIp`, as this field will change after the EIP is attached.
      * 
      */
     private String publicIp;
@@ -242,7 +242,7 @@ public final class GetInstanceResult {
      */
     private String userData;
     /**
-     * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
+     * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
      * 
      */
     private String userDataBase64;
@@ -444,7 +444,7 @@ public final class GetInstanceResult {
         return this.outpostArn;
     }
     /**
-     * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     * @return Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `getPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
     public String passwordData() {
@@ -500,7 +500,7 @@ public final class GetInstanceResult {
         return this.publicDns;
     }
     /**
-     * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip`, as this field will change after the EIP is attached.
+     * @return Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `publicIp`, as this field will change after the EIP is attached.
      * 
      */
     public String publicIp() {
@@ -566,7 +566,7 @@ public final class GetInstanceResult {
         return this.userData;
     }
     /**
-     * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
+     * @return Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `getUserData` is true.
      * 
      */
     public String userDataBase64() {

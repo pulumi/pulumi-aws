@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Amp
     public partial class QueryLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block for the logging destinations. See `destinations`.
+        /// Configuration block for the logging destinations. See `Destinations`.
         /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.QueryLoggingConfigurationDestination>> Destinations { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Amp
         private InputList<Inputs.QueryLoggingConfigurationDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Configuration block for the logging destinations. See `destinations`.
+        /// Configuration block for the logging destinations. See `Destinations`.
         /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationArgs> Destinations
         {
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Amp
         private InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// Configuration block for the logging destinations. See `destinations`.
+        /// Configuration block for the logging destinations. See `Destinations`.
         /// </summary>
         public InputList<Inputs.QueryLoggingConfigurationDestinationGetArgs> Destinations
         {

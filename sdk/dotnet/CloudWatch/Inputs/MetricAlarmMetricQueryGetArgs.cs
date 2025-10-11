@@ -51,9 +51,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<int>? Period { get; set; }
 
         /// <summary>
-        /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+        /// Specify exactly one `MetricQuery` to be `True` to use that `MetricQuery` result as the alarm.
         /// 
-        /// &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
+        /// &gt; **NOTE:**  You must specify either `Metric` or `Expression`. Not both.
         /// </summary>
         [Input("returnData")]
         public Input<bool>? ReturnData { get; set; }

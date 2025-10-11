@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleHttpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTPS URL used to verify ownership of `url`.
+        /// The HTTPS URL used to verify ownership of `Url`.
         /// </summary>
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }

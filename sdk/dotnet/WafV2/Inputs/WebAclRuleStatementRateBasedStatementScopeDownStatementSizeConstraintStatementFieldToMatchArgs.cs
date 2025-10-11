@@ -19,13 +19,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs>? AllQueryArguments { get; set; }
 
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        /// Inspect the request body, which immediately follows the request headers. See `Body` below for details.
         /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs>? Body { get; set; }
 
         /// <summary>
-        /// Inspect the cookies in the web request. See `cookies` below for details.
+        /// Inspect the cookies in the web request. See `Cookies` below for details.
         /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs>? Cookies { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>? _headerOrders;
 
         /// <summary>
-        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `HeaderOrder` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs> HeaderOrders
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs>? _headers;
 
         /// <summary>
-        /// Inspect the request headers. See `headers` below for details.
+        /// Inspect the request headers. See `Headers` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs> Headers
         {
@@ -55,19 +55,19 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `Ja3Fingerprint` below for details.
         /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// Inspect the JA3 fingerprint. See `Ja4Fingerprint` below for details.
         /// </summary>
         [Input("ja4Fingerprint")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
-        /// Inspect the request body as JSON. See `json_body` for details.
+        /// Inspect the request body as JSON. See `JsonBody` for details.
         /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs>? JsonBody { get; set; }
@@ -85,19 +85,19 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Inspect a single header. See `single_header` below for details.
+        /// Inspect a single header. See `SingleHeader` below for details.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Inspect a single query argument. See `single_query_argument` below for details.
+        /// Inspect a single query argument. See `SingleQueryArgument` below for details.
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs>? SingleQueryArgument { get; set; }
 
         /// <summary>
-        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `UriFragment` below for details.
         /// </summary>
         [Input("uriFragment")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs>? UriFragment { get; set; }

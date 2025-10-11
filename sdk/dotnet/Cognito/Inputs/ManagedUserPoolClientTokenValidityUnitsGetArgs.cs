@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class ManagedUserPoolClientTokenValidityUnitsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time unit for the value in `access_token_validity` and defaults to `hours`.
+        /// Time unit for the value in `AccessTokenValidity` and defaults to `Hours`.
         /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
         /// <summary>
-        /// Time unit for the value in `id_token_validity`, and it defaults to `hours`.
+        /// Time unit for the value in `IdTokenValidity`, and it defaults to `Hours`.
         /// </summary>
         [Input("idToken")]
         public Input<string>? IdToken { get; set; }
 
         /// <summary>
-        /// Time unit for the value in `refresh_token_validity` and defaults to `days`.
+        /// Time unit for the value in `RefreshTokenValidity` and defaults to `Days`.
         /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }

@@ -226,14 +226,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.createdTime;
     }
     /**
-     * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+     * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      * 
      */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> directoryId;
 
     /**
-     * @return The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+     * @return The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      * 
      */
     public Output<Optional<String>> directoryId() {
@@ -282,14 +282,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.inboundCallsEnabled;
     }
     /**
-     * Specifies the name of the instance. Required if `directory_id` not specified.
+     * Specifies the name of the instance. Required if `directoryId` not specified.
      * 
      */
     @Export(name="instanceAlias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceAlias;
 
     /**
-     * @return Specifies the name of the instance. Required if `directory_id` not specified.
+     * @return Specifies the name of the instance. Required if `directoryId` not specified.
      * 
      */
     public Output<Optional<String>> instanceAlias() {
@@ -366,30 +366,30 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * @return Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

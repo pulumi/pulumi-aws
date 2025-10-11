@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch;
@@ -26,14 +26,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
      */
     private @Nullable String sensitivityLevel;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement() {}
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
@@ -47,7 +47,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         return Optional.ofNullable(this.sensitivityLevel);
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations() {

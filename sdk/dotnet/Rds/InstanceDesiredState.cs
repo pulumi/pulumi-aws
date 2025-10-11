@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
+        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
+        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
+        /// Configured state of the DB Instance. Valid values are `Available` and `Stopped`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly string GeneratedRulesType;
         /// <summary>
-        /// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        /// Set of types of domain specifications that are provided in the `Targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
         /// </summary>
         public readonly ImmutableArray<string> TargetTypes;
         /// <summary>

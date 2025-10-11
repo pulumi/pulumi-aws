@@ -18,14 +18,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
     /**
-     * A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      * 
      */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier;
 
     /**
-     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      * 
      */
     public Optional<Output<GetGroupAlternateIdentifierArgs>> alternateIdentifier() {
@@ -35,7 +35,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a group in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
      * 
      */
     @Import(name="groupId")
@@ -44,7 +44,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The identifier for a group in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -113,7 +113,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
          * 
          * @return builder
          * 

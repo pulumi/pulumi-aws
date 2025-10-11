@@ -17,12 +17,12 @@ public final class UserProfileUserSettingsSharingSettings {
      */
     private @Nullable String notebookOutputOption;
     /**
-     * @return When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     private @Nullable String s3KmsKeyId;
     /**
-     * @return When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+     * @return When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
      * 
      */
     private @Nullable String s3OutputPath;
@@ -36,14 +36,14 @@ public final class UserProfileUserSettingsSharingSettings {
         return Optional.ofNullable(this.notebookOutputOption);
     }
     /**
-     * @return When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     public Optional<String> s3KmsKeyId() {
         return Optional.ofNullable(this.s3KmsKeyId);
     }
     /**
-     * @return When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+     * @return When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
      * 
      */
     public Optional<String> s3OutputPath() {

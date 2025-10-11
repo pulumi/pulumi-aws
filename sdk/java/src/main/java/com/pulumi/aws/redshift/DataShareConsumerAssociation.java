@@ -114,42 +114,42 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.allowWrites);
     }
     /**
-     * Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+     * Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
      * 
      */
     @Export(name="associateEntireAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> associateEntireAccount;
 
     /**
-     * @return Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+     * @return Whether the datashare is associated with the entire account. Conflicts with `consumerArn` and `consumerRegion`.
      * 
      */
     public Output<Optional<Boolean>> associateEntireAccount() {
         return Codegen.optional(this.associateEntireAccount);
     }
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consumerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     public Output<Optional<String>> consumerArn() {
         return Codegen.optional(this.consumerArn);
     }
     /**
-     * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+     * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
      * 
      */
     @Export(name="consumerRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consumerRegion;
 
     /**
-     * @return From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+     * @return From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associateEntireAccount` and `consumerArn`.
      * 
      */
     public Output<Optional<String>> consumerRegion() {

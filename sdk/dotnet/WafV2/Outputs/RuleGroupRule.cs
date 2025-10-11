@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
         public readonly int Priority;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleRuleLabel> RuleLabels;
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See Statement below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatement Statement;
         /// <summary>

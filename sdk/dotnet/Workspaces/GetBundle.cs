@@ -157,13 +157,13 @@ namespace Pulumi.Aws.Workspaces
         public string? BundleId { get; set; }
 
         /// <summary>
-        /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// Name of the bundle. You cannot combine this parameter with `BundleId`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `BundleId`.
         /// </summary>
         [Input("owner")]
         public string? Owner { get; set; }
@@ -189,13 +189,13 @@ namespace Pulumi.Aws.Workspaces
         public Input<string>? BundleId { get; set; }
 
         /// <summary>
-        /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// Name of the bundle. You cannot combine this parameter with `BundleId`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `BundleId`.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }

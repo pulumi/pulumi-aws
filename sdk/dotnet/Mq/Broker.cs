@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Mq
     public partial class Broker : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to apply broker modifications immediately. Default is `false`.
+        /// Whether to apply broker modifications immediately. Default is `False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// Authentication strategy used to secure the broker. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for `EngineType` `RabbitMQ`.
         /// </summary>
         [Output("authenticationStrategy")]
         public Output<string> AuthenticationStrategy { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> BrokerName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `EngineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.BrokerConfiguration> Configuration { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> DataReplicationMode { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
+        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `DataReplicationMode` is `CRDR`.
         /// </summary>
         [Output("dataReplicationPrimaryBrokerArn")]
         public Output<string?> DataReplicationPrimaryBrokerArn { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<Outputs.BrokerInstance>> Instances { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
+        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `EngineType` `RabbitMQ`. Detailed below.
         /// </summary>
         [Output("ldapServerMetadata")]
         public Output<Outputs.BrokerLdapServerMetadata?> LdapServerMetadata { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+        /// Storage type of the broker. For `EngineType` `ActiveMQ`, valid values are `Efs` and `Ebs` (AWS-default is `Efs`). For `EngineType` `RabbitMQ`, only `Ebs` is supported. When using `Ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -312,19 +312,19 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -378,13 +378,13 @@ namespace Pulumi.Aws.Mq
     public sealed class BrokerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to apply broker modifications immediately. Default is `false`.
+        /// Whether to apply broker modifications immediately. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// Authentication strategy used to secure the broker. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for `EngineType` `RabbitMQ`.
         /// </summary>
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? BrokerName { get; set; }
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `EngineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationArgs>? Configuration { get; set; }
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? DataReplicationMode { get; set; }
 
         /// <summary>
-        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
+        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `DataReplicationMode` is `CRDR`.
         /// </summary>
         [Input("dataReplicationPrimaryBrokerArn")]
         public Input<string>? DataReplicationPrimaryBrokerArn { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Mq
         public Input<string> HostInstanceType { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
+        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `EngineType` `RabbitMQ`. Detailed below.
         /// </summary>
         [Input("ldapServerMetadata")]
         public Input<Inputs.BrokerLdapServerMetadataArgs>? LdapServerMetadata { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.Mq
         }
 
         /// <summary>
-        /// Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+        /// Storage type of the broker. For `EngineType` `ActiveMQ`, valid values are `Efs` and `Ebs` (AWS-default is `Efs`). For `EngineType` `RabbitMQ`, only `Ebs` is supported. When using `Ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.Mq
         private InputList<Inputs.BrokerUserArgs>? _users;
 
         /// <summary>
-        /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.Mq
     public sealed class BrokerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to apply broker modifications immediately. Default is `false`.
+        /// Whether to apply broker modifications immediately. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// Authentication strategy used to secure the broker. Valid values are `Simple` and `Ldap`. `Ldap` is not supported for `EngineType` `RabbitMQ`.
         /// </summary>
         [Input("authenticationStrategy")]
         public Input<string>? AuthenticationStrategy { get; set; }
@@ -574,7 +574,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? BrokerName { get; set; }
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `EngineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationGetArgs>? Configuration { get; set; }
@@ -586,7 +586,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? DataReplicationMode { get; set; }
 
         /// <summary>
-        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
+        /// ARN of the primary broker used to replicate data in a data replication pair. Required when `DataReplicationMode` is `CRDR`.
         /// </summary>
         [Input("dataReplicationPrimaryBrokerArn")]
         public Input<string>? DataReplicationPrimaryBrokerArn { get; set; }
@@ -634,7 +634,7 @@ namespace Pulumi.Aws.Mq
         }
 
         /// <summary>
-        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
+        /// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `EngineType` `RabbitMQ`. Detailed below.
         /// </summary>
         [Input("ldapServerMetadata")]
         public Input<Inputs.BrokerLdapServerMetadataGetArgs>? LdapServerMetadata { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Mq
         }
 
         /// <summary>
-        /// Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+        /// Storage type of the broker. For `EngineType` `ActiveMQ`, valid values are `Efs` and `Ebs` (AWS-default is `Efs`). For `EngineType` `RabbitMQ`, only `Ebs` is supported. When using `Ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -703,7 +703,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the broker. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -715,7 +715,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -727,7 +727,7 @@ namespace Pulumi.Aws.Mq
         private InputList<Inputs.BrokerUserGetArgs>? _users;
 
         /// <summary>
-        /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// Configuration block for broker users. For `EngineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>

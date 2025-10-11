@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointOracleSettings
     {
         /// <summary>
-        /// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+        /// Authentication mechanism to access the Oracle source endpoint. Default is `Password`. Valid values are `Password` and `Kerberos`.
         /// </summary>
         public readonly string? AuthenticationMethod;
 

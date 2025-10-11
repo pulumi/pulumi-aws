@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DataQualityJobDefinitionNetworkConfig
     {
         /// <summary>
-        /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `True` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
         /// </summary>
         public readonly bool? EnableInterContainerTrafficEncryption;
         /// <summary>

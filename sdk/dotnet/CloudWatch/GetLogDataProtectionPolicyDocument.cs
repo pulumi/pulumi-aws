@@ -276,7 +276,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Configures the data protection policy.
         /// 
-        /// &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+        /// &gt; There must be exactly two statements: the first with an `Audit` operation, and the second with a `Deidentify` operation.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Configures the data protection policy.
         /// 
-        /// &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+        /// &gt; There must be exactly two statements: the first with an `Audit` operation, and the second with a `Deidentify` operation.
         /// 
         /// The following arguments are optional:
         /// </summary>

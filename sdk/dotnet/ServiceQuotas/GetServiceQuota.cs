@@ -115,15 +115,15 @@ namespace Pulumi.Aws.ServiceQuotas
     public sealed class GetServiceQuotaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
+        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaCode` or `QuotaName` must be specified.
         /// </summary>
         [Input("quotaCode")]
         public string? QuotaCode { get; set; }
 
         /// <summary>
-        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
+        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaName` or `QuotaCode` must be specified.
         /// 
-        /// &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+        /// &gt; *NOTE:* Either `QuotaCode` or `QuotaName` must be configured.
         /// </summary>
         [Input("quotaName")]
         public string? QuotaName { get; set; }
@@ -149,15 +149,15 @@ namespace Pulumi.Aws.ServiceQuotas
     public sealed class GetServiceQuotaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
+        /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaCode` or `QuotaName` must be specified.
         /// </summary>
         [Input("quotaCode")]
         public Input<string>? QuotaCode { get; set; }
 
         /// <summary>
-        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
+        /// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `QuotaName` or `QuotaCode` must be specified.
         /// 
-        /// &gt; *NOTE:* Either `quota_code` or `quota_name` must be configured.
+        /// &gt; *NOTE:* Either `QuotaCode` or `QuotaName` must be configured.
         /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }

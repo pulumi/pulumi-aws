@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Fis
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions> ExperimentOptions { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Fis
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Fis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -490,7 +490,7 @@ namespace Pulumi.Aws.Fis
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsGetArgs>? ExperimentOptions { get; set; }
@@ -537,7 +537,7 @@ namespace Pulumi.Aws.Fis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

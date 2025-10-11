@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectionPhysicalConnectionRequirements {
     /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
      * 
      */
     private @Nullable String availabilityZone;
@@ -30,7 +30,7 @@ public final class ConnectionPhysicalConnectionRequirements {
 
     private ConnectionPhysicalConnectionRequirements() {}
     /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
      * 
      */
     public Optional<String> availabilityZone() {

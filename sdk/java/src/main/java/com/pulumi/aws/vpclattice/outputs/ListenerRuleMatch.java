@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class ListenerRuleMatch {
     /**
      * @return The HTTP criteria that a rule must match.
-     * See `http_match` Block for details.
+     * See `httpMatch` Block for details.
      * 
      */
     private ListenerRuleMatchHttpMatch httpMatch;
@@ -20,7 +20,7 @@ public final class ListenerRuleMatch {
     private ListenerRuleMatch() {}
     /**
      * @return The HTTP criteria that a rule must match.
-     * See `http_match` Block for details.
+     * See `httpMatch` Block for details.
      * 
      */
     public ListenerRuleMatchHttpMatch httpMatch() {

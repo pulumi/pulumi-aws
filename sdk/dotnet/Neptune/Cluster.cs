@@ -14,10 +14,10 @@ namespace Pulumi.Aws.Neptune
     /// applied to the entire cluster of Neptune Cluster Instances.
     /// 
     /// Changes to a Neptune Cluster can occur when you manually change a
-    /// parameter, such as `backup_retention_period`, and are reflected in the next maintenance
+    /// parameter, such as `BackupRetentionPeriod`, and are reflected in the next maintenance
     /// window. Because of this, this provider may report a difference in its planning
     /// phase because a modification has not yet taken place. You can use the
-    /// `apply_immediately` flag to instruct the service to apply the change immediately
+    /// `ApplyImmediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
     /// 
     /// ## Example Usage
@@ -59,13 +59,13 @@ namespace Pulumi.Aws.Neptune
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `True` when providing an `EngineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `False`.
         /// </summary>
         [Output("allowMajorVersionUpgrade")]
         public Output<bool> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Output("clusterIdentifierPrefix")]
         public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         [Output("enableCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnableCloudwatchLogsExports { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `Neptune`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
 
         /// <summary>
-        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `KmsKeyArn`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> NeptuneClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `EngineVersion`.
         /// </summary>
         [Output("neptuneInstanceParameterGroupName")]
         public Output<string?> NeptuneInstanceParameterGroupName { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Neptune
         public Output<Outputs.ClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
@@ -254,25 +254,25 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `False` if not specified.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `Standard`.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -330,13 +330,13 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `True` when providing an `EngineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `False`.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `Neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `KmsKeyArn`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `EngineVersion`.
         /// </summary>
         [Input("neptuneInstanceParameterGroupName")]
         public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Neptune
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -507,13 +507,13 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `False` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `Standard`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -551,13 +551,13 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// Whether upgrades between different major versions are allowed. You must set it to `True` when providing an `EngineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `False`.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `ClusterIdentifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
         public Input<string>? ClusterIdentifierPrefix { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.Aws.Neptune
         private InputList<string>? _enableCloudwatchLogsExports;
 
         /// <summary>
-        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
+        /// List of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `Audit` and `Slowquery`.
         /// </summary>
         public InputList<string> EnableCloudwatchLogsExports
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
+        /// Name of the database engine to be used for this Neptune cluster. Defaults to `Neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
-        /// ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
+        /// ARN for the KMS encryption key. When specifying `KmsKeyArn`, `StorageEncrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -704,7 +704,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `engine_version`.
+        /// Name of DB parameter group to apply to all instances in the cluster. When upgrading, AWS does not return this value, so do not reference it in other arguments—either leave it unset, configure each instance directly, or ensure it matches the `EngineVersion`.
         /// </summary>
         [Input("neptuneInstanceParameterGroupName")]
         public Input<string>? NeptuneInstanceParameterGroupName { get; set; }
@@ -758,7 +758,7 @@ namespace Pulumi.Aws.Neptune
         public Input<Inputs.ClusterServerlessV2ScalingConfigurationGetArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
@@ -770,13 +770,13 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Whether the Neptune cluster is encrypted. The default is `false` if not specified.
+        /// Whether the Neptune cluster is encrypted. The default is `False` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `Standard`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -785,7 +785,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Neptune cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -797,7 +797,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

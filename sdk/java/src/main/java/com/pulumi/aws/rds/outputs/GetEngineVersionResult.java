@@ -98,7 +98,7 @@ public final class GetEngineVersionResult {
      */
     private Boolean supportsLocalWriteForwarding;
     /**
-     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      * 
      */
     private Boolean supportsLogExportsToCloudwatch;
@@ -275,7 +275,7 @@ public final class GetEngineVersionResult {
         return this.supportsLocalWriteForwarding;
     }
     /**
-     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      * 
      */
     public Boolean supportsLogExportsToCloudwatch() {

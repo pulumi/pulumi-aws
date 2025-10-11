@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sfn.Outputs
     public sealed class StateMachineLoggingConfiguration
     {
         /// <summary>
-        /// Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        /// Determines whether execution data is included in your log. When set to `False`, data is excluded.
         /// </summary>
         public readonly bool? IncludeExecutionData;
         /// <summary>

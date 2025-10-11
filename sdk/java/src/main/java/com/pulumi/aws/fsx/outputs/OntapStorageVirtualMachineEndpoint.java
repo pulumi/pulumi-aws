@@ -30,7 +30,7 @@ public final class OntapStorageVirtualMachineEndpoint {
      */
     private @Nullable List<OntapStorageVirtualMachineEndpointNf> nfs;
     /**
-     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
      * 
      */
     private @Nullable List<OntapStorageVirtualMachineEndpointSmb> smbs;
@@ -58,7 +58,7 @@ public final class OntapStorageVirtualMachineEndpoint {
         return this.nfs == null ? List.of() : this.nfs;
     }
     /**
-     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+     * @return An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
      * 
      */
     public List<OntapStorageVirtualMachineEndpointSmb> smbs() {

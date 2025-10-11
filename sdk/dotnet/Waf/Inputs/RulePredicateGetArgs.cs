@@ -19,10 +19,10 @@ namespace Pulumi.Aws.Waf.Inputs
         public Input<string> DataId { get; set; } = null!;
 
         /// <summary>
-        /// Set this to `false` if you want to allow, block, or count requests
+        /// Set this to `False` if you want to allow, block, or count requests
         /// based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
         /// For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
-        /// If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
+        /// If set to `True`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
         /// </summary>
         [Input("negated", required: true)]
         public Input<bool> Negated { get; set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class ImageImageTestsConfiguration
     {
         /// <summary>
-        /// Whether image tests are enabled. Defaults to `true`.
+        /// Whether image tests are enabled. Defaults to `True`.
         /// </summary>
         public readonly bool? ImageTestsEnabled;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly Outputs.ClusterEncryptionConfigProvider Provider;
         /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `secrets`.
+        /// List of strings with resources to be encrypted. Valid values: `Secrets`.
         /// </summary>
         public readonly ImmutableArray<string> Resources;
 

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class PrincipalPortfolioAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
         [Output("principalType")]
         public Output<string?> PrincipalType { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class PrincipalPortfolioAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> PrincipalArn { get; set; } = null!;
 
         /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class PrincipalPortfolioAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? PrincipalArn { get; set; }
 
         /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+        /// Principal type. Setting this argument empty (e.g., `PrincipalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }

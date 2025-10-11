@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetInstanceMetadataOptionResult
     {
         /// <summary>
-        /// State of the metadata service: `enabled`, `disabled`.
+        /// State of the metadata service: `Enabled`, `Disabled`.
         /// </summary>
         public readonly string HttpEndpoint;
         /// <summary>
-        /// Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+        /// Whether the IPv6 endpoint for the instance metadata service is `Enabled` or `Disabled`
         /// </summary>
         public readonly string HttpProtocolIpv6;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int HttpPutResponseHopLimit;
         /// <summary>
-        /// If session tokens are required: `optional`, `required`.
+        /// If session tokens are required: `Optional`, `Required`.
         /// </summary>
         public readonly string HttpTokens;
         /// <summary>
-        /// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
+        /// If access to instance tags is allowed from the metadata service: `Enabled`, `Disabled`.
         /// </summary>
         public readonly string InstanceMetadataTags;
 

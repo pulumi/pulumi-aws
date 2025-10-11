@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? SecretArn { get; set; }
 
         /// <summary>
-        /// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        /// The status of the secret. Valid Values: `Creating` | `Active` | `Rotating` | `Impaired`.
         /// </summary>
         [Input("secretStatus")]
         public Input<string>? SecretStatus { get; set; }

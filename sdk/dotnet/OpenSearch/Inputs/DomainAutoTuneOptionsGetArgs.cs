@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         /// <summary>
         /// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         /// 
-        /// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+        /// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `MaintenanceSchedule` configuration blocks cannot be specified when `UseOffPeakWindow` is set to `True`.
         /// </summary>
         public InputList<Inputs.DomainAutoTuneOptionsMaintenanceScheduleGetArgs> MaintenanceSchedules
         {
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<string>? RollbackOnDisable { get; set; }
 
         /// <summary>
-        /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+        /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `False`.
         /// </summary>
         [Input("useOffPeakWindow")]
         public Input<bool>? UseOffPeakWindow { get; set; }

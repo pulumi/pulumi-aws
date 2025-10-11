@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `DialogAction`.
         /// </summary>
         [Input("dialogAction")]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs>? DialogAction { get; set; }
 
         /// <summary>
-        /// Configuration block for override settings to configure the intent state. See `intent`.
+        /// Configuration block for override settings to configure the intent state. See `Intent`.
         /// </summary>
         [Input("intent")]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs>? Intent { get; set; }

@@ -73,14 +73,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
     @Import(name="knowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
@@ -133,7 +133,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
      * The following arguments are optional:
      * 
@@ -142,7 +142,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * @return Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
      * 
      * The following arguments are optional:
      * 
@@ -152,14 +152,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,14 +167,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -316,7 +316,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
          * 
          * The following arguments are optional:
          * 
@@ -413,7 +413,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
          * 
          * The following arguments are optional:
          * 
@@ -425,7 +425,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
     }
 
     /**
-     * Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+     * Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
      * 
      */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -126,7 +126,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+         * @param encryptionConfiguration Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
          * 
          * @return builder
          * 

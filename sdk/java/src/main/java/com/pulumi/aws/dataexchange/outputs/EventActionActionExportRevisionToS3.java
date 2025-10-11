@@ -20,7 +20,7 @@ public final class EventActionActionExportRevisionToS3 {
     private @Nullable EventActionActionExportRevisionToS3Encryption encryption;
     /**
      * @return Configures the S3 destination of the exported revision.
-     * Described in `revision_destination` Configuration Block below.
+     * Described in `revisionDestination` Configuration Block below.
      * 
      */
     private @Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
@@ -36,7 +36,7 @@ public final class EventActionActionExportRevisionToS3 {
     }
     /**
      * @return Configures the S3 destination of the exported revision.
-     * Described in `revision_destination` Configuration Block below.
+     * Described in `revisionDestination` Configuration Block below.
      * 
      */
     public Optional<EventActionActionExportRevisionToS3RevisionDestination> revisionDestination() {

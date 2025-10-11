@@ -17,14 +17,14 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetWorkspaceArgs Empty = new GetWorkspaceArgs();
 
     /**
-     * ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+     * ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
      * 
      */
     @Import(name="directoryId")
     private @Nullable Output<String> directoryId;
 
     /**
-     * @return ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+     * @return ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
      * 
      */
     public Optional<Output<String>> directoryId() {
@@ -62,14 +62,14 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+     * User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+     * @return User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -77,14 +77,14 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+     * ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+     * @return ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -120,7 +120,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param directoryId ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+         * @param directoryId ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param directoryId ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+         * @param directoryId ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userName User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+         * @param userName User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param userName User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+         * @param userName User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+         * @param workspaceId ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param workspaceId ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+         * @param workspaceId ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.BcmData.Inputs
         private InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs>? _s3OutputConfigurations;
 
         /// <summary>
-        /// Output configuration for the data export. See the `s3_output_configurations` argument reference below.
+        /// Output configuration for the data export. See the `S3OutputConfigurations` argument reference below.
         /// </summary>
         public InputList<Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs> S3OutputConfigurations
         {

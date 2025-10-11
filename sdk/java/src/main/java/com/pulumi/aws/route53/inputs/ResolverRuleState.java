@@ -34,14 +34,14 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+     * @return DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -94,7 +94,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -102,7 +102,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> resolverEndpointId;
 
     /**
-     * @return ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * @return ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -143,14 +143,14 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -158,14 +158,14 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -245,7 +245,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+         * @param domainName DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
          * This argument should only be specified for `FORWARD` type rules.
          * 
          * @return builder
@@ -341,7 +341,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
          * This argument should only be specified for `FORWARD` type rules.
          * 
          * @return builder
@@ -396,7 +396,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

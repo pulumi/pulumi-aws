@@ -144,28 +144,28 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
         return this.createDate;
     }
     /**
-     * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
      * 
      */
     @Export(name="encryptedSecret", refs={String.class}, tree="[0]")
     private Output<String> encryptedSecret;
 
     /**
-     * @return Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
+     * @return Encrypted secret, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
      * 
      */
     public Output<String> encryptedSecret() {
         return this.encryptedSecret;
     }
     /**
-     * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
      * 
      */
     @Export(name="encryptedSesSmtpPasswordV4", refs={String.class}, tree="[0]")
     private Output<String> encryptedSesSmtpPasswordV4;
 
     /**
-     * @return Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
+     * @return Encrypted SES SMTP password, base64 encoded, if `pgpKey` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
      * 
      */
     public Output<String> encryptedSesSmtpPasswordV4() {
@@ -186,28 +186,28 @@ public class AccessKey extends com.pulumi.resources.CustomResource {
         return this.keyFingerprint;
     }
     /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
+     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
     @Export(name="pgpKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pgpKey;
 
     /**
-     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
+     * @return Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encryptedSecret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
     public Output<Optional<String>> pgpKey() {
         return Codegen.optional(this.pgpKey);
     }
     /**
-     * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+     * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      * 
      */
     @Export(name="secret", refs={String.class}, tree="[0]")
     private Output<String> secret;
 
     /**
-     * @return Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+     * @return Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      * 
      */
     public Output<String> secret() {

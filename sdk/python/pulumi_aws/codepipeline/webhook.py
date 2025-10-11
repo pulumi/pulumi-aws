@@ -352,6 +352,22 @@ class Webhook(pulumi.CustomResource):
         """
         Provides a CodePipeline Webhook.
 
+        ## Example Usage
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+
+        Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+
+        console
+
+        % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication: The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
@@ -371,6 +387,22 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodePipeline Webhook.
+
+        ## Example Usage
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+
+        Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+
+        console
+
+        % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

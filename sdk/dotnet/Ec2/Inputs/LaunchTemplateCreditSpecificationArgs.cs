@@ -14,9 +14,9 @@ namespace Pulumi.Aws.Ec2.Inputs
     {
         /// <summary>
         /// The credit option for CPU usage.
-        /// Can be `standard` or `unlimited`.
-        /// T3 instances are launched as `unlimited` by default.
-        /// T2 instances are launched as `standard` by default.
+        /// Can be `Standard` or `Unlimited`.
+        /// T3 instances are launched as `Unlimited` by default.
+        /// T2 instances are launched as `Standard` by default.
         /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }

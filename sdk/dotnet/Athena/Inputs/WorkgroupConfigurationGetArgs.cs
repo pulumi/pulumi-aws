@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
-        /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+        /// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `True`.
         /// </summary>
         [Input("enforceWorkgroupConfiguration")]
         public Input<bool>? EnforceWorkgroupConfiguration { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<Inputs.WorkgroupConfigurationIdentityCenterConfigurationGetArgs>? IdentityCenterConfiguration { get; set; }
 
         /// <summary>
-        /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+        /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `True`.
         /// </summary>
         [Input("publishCloudwatchMetricsEnabled")]
         public Input<bool>? PublishCloudwatchMetricsEnabled { get; set; }

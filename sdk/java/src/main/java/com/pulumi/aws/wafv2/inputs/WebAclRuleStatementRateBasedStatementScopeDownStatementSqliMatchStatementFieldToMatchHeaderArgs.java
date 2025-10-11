@@ -16,14 +16,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs();
 
     /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     @Import(name="matchPattern", required=true)
     private Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     public Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
@@ -87,7 +87,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 

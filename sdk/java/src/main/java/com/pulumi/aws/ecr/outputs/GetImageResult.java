@@ -38,7 +38,7 @@ public final class GetImageResult {
      */
     private List<String> imageTags;
     /**
-     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * @return The URI for the specific image version specified by `imageTag` or `imageDigest`.
      * 
      */
     private String imageUri;
@@ -83,7 +83,7 @@ public final class GetImageResult {
         return this.imageTags;
     }
     /**
-     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * @return The URI for the specific image version specified by `imageTag` or `imageDigest`.
      * 
      */
     public String imageUri() {

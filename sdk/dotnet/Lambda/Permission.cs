@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> StatementId { get; private set; } = null!;
 
         /// <summary>
-        /// Statement identifier prefix. Conflicts with `statement_id`
+        /// Statement identifier prefix. Conflicts with `StatementId`
         /// </summary>
         [Output("statementIdPrefix")]
         public Output<string> StatementIdPrefix { get; private set; } = null!;
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? StatementId { get; set; }
 
         /// <summary>
-        /// Statement identifier prefix. Conflicts with `statement_id`
+        /// Statement identifier prefix. Conflicts with `StatementId`
         /// </summary>
         [Input("statementIdPrefix")]
         public Input<string>? StatementIdPrefix { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? StatementId { get; set; }
 
         /// <summary>
-        /// Statement identifier prefix. Conflicts with `statement_id`
+        /// Statement identifier prefix. Conflicts with `StatementId`
         /// </summary>
         [Input("statementIdPrefix")]
         public Input<string>? StatementIdPrefix { get; set; }

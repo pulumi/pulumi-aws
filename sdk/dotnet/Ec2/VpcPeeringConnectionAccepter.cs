@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcPeeringConnectionAccepterAccepter> Accepter { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to accept the peering request. Defaults to `false`.
+        /// Whether or not to accept the peering request. Defaults to `False`.
         /// </summary>
         [Output("autoAccept")]
         public Output<bool?> AutoAccept { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcPeeringConnectionAccepterRequester> Requester { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterArgs>? Accepter { get; set; }
 
         /// <summary>
-        /// Whether or not to accept the peering request. Defaults to `false`.
+        /// Whether or not to accept the peering request. Defaults to `False`.
         /// </summary>
         [Input("autoAccept")]
         public Input<bool>? AutoAccept { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterGetArgs>? Accepter { get; set; }
 
         /// <summary>
-        /// Whether or not to accept the peering request. Defaults to `false`.
+        /// Whether or not to accept the peering request. Defaults to `False`.
         /// </summary>
         [Input("autoAccept")]
         public Input<bool>? AutoAccept { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

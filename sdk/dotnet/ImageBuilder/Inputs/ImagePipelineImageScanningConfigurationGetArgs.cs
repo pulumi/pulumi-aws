@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationGetArgs>? EcrConfiguration { get; set; }
 
         /// <summary>
-        /// Whether image scans are enabled. Defaults to `false`.
+        /// Whether image scans are enabled. Defaults to `False`.
         /// </summary>
         [Input("imageScanningEnabled")]
         public Input<bool>? ImageScanningEnabled { get; set; }

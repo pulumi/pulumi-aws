@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired transit gateway route table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public Dictionary<string, string> Tags
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired transit gateway route table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public InputMap<string> Tags

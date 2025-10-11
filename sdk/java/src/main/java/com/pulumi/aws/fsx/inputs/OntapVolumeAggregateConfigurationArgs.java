@@ -48,14 +48,14 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+     * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     @Import(name="totalConstituents")
     private @Nullable Output<Integer> totalConstituents;
 
     /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     public Optional<Output<Integer>> totalConstituents() {
@@ -141,7 +141,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
          * 
          * @return builder
          * 

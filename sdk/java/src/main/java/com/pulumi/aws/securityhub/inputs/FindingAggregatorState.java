@@ -47,14 +47,14 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
     @Import(name="specifiedRegions")
     private @Nullable Output<List<String>> specifiedRegions;
 
     /**
-     * @return List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     * @return List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
     public Optional<Output<List<String>>> specifiedRegions() {
@@ -130,7 +130,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+         * @param specifiedRegions List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+         * @param specifiedRegions List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+         * @param specifiedRegions List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyzerConfigurationInternalAccess {
     /**
-     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
      * 
      */
     private @Nullable AnalyzerConfigurationInternalAccessAnalysisRule analysisRule;
 
     private AnalyzerConfigurationInternalAccess() {}
     /**
-     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+     * @return Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysisRule` Block for Internal Access Analyzer for details.
      * 
      */
     public Optional<AnalyzerConfigurationInternalAccessAnalysisRule> analysisRule() {

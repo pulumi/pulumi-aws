@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift cluster.
+ *
+ * ## Example Usage
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -206,6 +208,8 @@ export interface GetClusterResult {
 }
 /**
  * Provides details about a specific redshift cluster.
+ *
+ * ## Example Usage
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

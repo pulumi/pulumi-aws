@@ -16,6 +16,8 @@ import (
 //
 // Note that the grant must exist in the destination region, and not in the region of the cluster.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:

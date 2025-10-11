@@ -23,6 +23,10 @@ import (
 //
 // ## Example Usage
 //
+// ### DNS Validation with Route 53
+//
+// ### Alternative Domains DNS Validation with Route 53
+//
 // ### Email Validation
 //
 // In this situation, the resource is simply a waiter for manual email approval of ACM certificates.

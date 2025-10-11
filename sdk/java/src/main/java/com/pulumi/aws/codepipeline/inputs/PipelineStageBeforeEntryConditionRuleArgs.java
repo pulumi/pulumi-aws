@@ -111,14 +111,14 @@ public final class PipelineStageBeforeEntryConditionRuleArgs extends com.pulumi.
     }
 
     /**
-     * The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+     * The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
      * 
      */
     @Import(name="ruleTypeId", required=true)
     private Output<PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs> ruleTypeId;
 
     /**
-     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+     * @return The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
      * 
      */
     public Output<PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs> ruleTypeId() {
@@ -318,7 +318,7 @@ public final class PipelineStageBeforeEntryConditionRuleArgs extends com.pulumi.
         }
 
         /**
-         * @param ruleTypeId The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+         * @param ruleTypeId The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class PipelineStageBeforeEntryConditionRuleArgs extends com.pulumi.
         }
 
         /**
-         * @param ruleTypeId The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+         * @param ruleTypeId The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
          * 
          * @return builder
          * 

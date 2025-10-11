@@ -238,6 +238,8 @@ import (
 //
 // ```
 //
+// ### Outbound with encryption configuration
+//
 // ### Combined inbound and outbound
 //
 // ```go

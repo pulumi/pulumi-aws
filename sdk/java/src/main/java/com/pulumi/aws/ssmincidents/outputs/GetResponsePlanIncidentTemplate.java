@@ -30,7 +30,7 @@ public final class GetResponsePlanIncidentTemplate {
      */
     private Map<String,String> incidentTags;
     /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
      * 
      */
     private List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets;
@@ -68,7 +68,7 @@ public final class GetResponsePlanIncidentTemplate {
         return this.incidentTags;
     }
     /**
-     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+     * @return The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notificationTarget` configuration block supports the following argument:
      * 
      */
     public List<GetResponsePlanIncidentTemplateNotificationTarget> notificationTargets() {

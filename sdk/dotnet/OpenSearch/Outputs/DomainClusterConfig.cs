@@ -46,7 +46,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainClusterConfigNodeOption> NodeOptions;
         /// <summary>
-        /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `WarmCount` can be only and must be set when `WarmEnabled` is set to `True`.
         /// </summary>
         public readonly int? WarmCount;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? WarmEnabled;
         /// <summary>
-        /// Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        /// Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `WarmType` can be only and must be set when `WarmEnabled` is set to `True`.
         /// </summary>
         public readonly string? WarmType;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly Outputs.DomainClusterConfigZoneAwarenessConfig? ZoneAwarenessConfig;
         /// <summary>
-        /// Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        /// Whether zone awareness is enabled, set to `True` for multi-az deployment. To enable awareness with three Availability Zones, the `AvailabilityZoneCount` within the `ZoneAwarenessConfig` must be set to `3`.
         /// </summary>
         public readonly bool? ZoneAwarenessEnabled;
 

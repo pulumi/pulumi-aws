@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Use the `aws_prefix_list_entry` resource to manage a managed prefix list entry.
+    /// Use the `AwsPrefixListEntry` resource to manage a managed prefix list entry.
     /// 
     /// &gt; **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
     /// 
-    /// &gt; **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
+    /// &gt; **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `Entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
     /// 
     /// ## Example Usage
     /// 

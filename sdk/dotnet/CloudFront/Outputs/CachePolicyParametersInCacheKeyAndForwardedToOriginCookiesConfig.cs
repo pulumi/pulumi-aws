@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig
     {
         /// <summary>
-        /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `CookieBehavior` are `None`, `Whitelist`, `allExcept`, and `All`.
         /// </summary>
         public readonly string CookieBehavior;
         /// <summary>

@@ -23,12 +23,12 @@ public final class LaunchTemplatePlacement {
      */
     private @Nullable String availabilityZone;
     /**
-     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * @return The ID of the placement group for the instance. Conflicts with `groupName`.
      * 
      */
     private @Nullable String groupId;
     /**
-     * @return The name of the placement group for the instance. Conflicts with `group_id`.
+     * @return The name of the placement group for the instance. Conflicts with `groupId`.
      * 
      */
     private @Nullable String groupName;
@@ -74,14 +74,14 @@ public final class LaunchTemplatePlacement {
         return Optional.ofNullable(this.availabilityZone);
     }
     /**
-     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * @return The ID of the placement group for the instance. Conflicts with `groupName`.
      * 
      */
     public Optional<String> groupId() {
         return Optional.ofNullable(this.groupId);
     }
     /**
-     * @return The name of the placement group for the instance. Conflicts with `group_id`.
+     * @return The name of the placement group for the instance. Conflicts with `groupId`.
      * 
      */
     public Optional<String> groupName() {

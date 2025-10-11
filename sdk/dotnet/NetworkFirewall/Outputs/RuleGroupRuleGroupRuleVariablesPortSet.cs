@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroupRuleVariablesPortSet
     {
         /// <summary>
-        /// An unique alphanumeric string to identify the `port_set`.
+        /// An unique alphanumeric string to identify the `PortSet`.
         /// </summary>
         public readonly string Key;
         /// <summary>

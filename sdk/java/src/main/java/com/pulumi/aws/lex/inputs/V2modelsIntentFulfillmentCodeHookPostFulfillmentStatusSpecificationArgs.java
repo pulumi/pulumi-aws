@@ -24,14 +24,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs();
 
     /**
-     * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
+     * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureConditional`.
      * 
      */
     @Import(name="failureConditional")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs> failureConditional;
 
     /**
-     * @return Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs>> failureConditional() {
@@ -39,14 +39,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
+     * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureNextStep`.
      * 
      */
     @Import(name="failureNextStep")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepArgs> failureNextStep;
 
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepArgs>> failureNextStep() {
@@ -54,14 +54,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     @Import(name="failureResponse")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseArgs> failureResponse;
 
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseArgs>> failureResponse() {
@@ -69,14 +69,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+     * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
      * 
      */
     @Import(name="successConditional")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalArgs> successConditional;
 
     /**
-     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalArgs>> successConditional() {
@@ -84,14 +84,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+     * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
      * 
      */
     @Import(name="successNextStep")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepArgs> successNextStep;
 
     /**
-     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+     * @return Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepArgs>> successNextStep() {
@@ -99,14 +99,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
      * 
      */
     @Import(name="successResponse")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseArgs> successResponse;
 
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseArgs>> successResponse() {
@@ -114,14 +114,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+     * Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
      * 
      */
     @Import(name="timeoutConditional")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalArgs> timeoutConditional;
 
     /**
-     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+     * @return Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalArgs>> timeoutConditional() {
@@ -129,14 +129,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+     * Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
      * 
      */
     @Import(name="timeoutNextStep")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepArgs> timeoutNextStep;
 
     /**
-     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+     * @return Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepArgs>> timeoutNextStep() {
@@ -144,14 +144,14 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
     }
 
     /**
-     * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+     * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
      * 
      */
     @Import(name="timeoutResponse")
     private @Nullable Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseArgs> timeoutResponse;
 
     /**
-     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+     * @return Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseArgs>> timeoutResponse() {
@@ -191,7 +191,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureConditional Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
+         * @param failureConditional Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureConditional`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureConditional Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
+         * @param failureConditional Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureConditional`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureNextStep Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
+         * @param failureNextStep Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureNextStep`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureNextStep Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
+         * @param failureNextStep Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureNextStep`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successConditional Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+         * @param successConditional Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successConditional Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
+         * @param successConditional Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successNextStep Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+         * @param successNextStep Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successNextStep Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
+         * @param successNextStep Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+         * @param successResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param successResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
+         * @param successResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutConditional Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+         * @param timeoutConditional Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutConditional Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
+         * @param timeoutConditional Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutNextStep Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+         * @param timeoutNextStep Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutNextStep Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
+         * @param timeoutNextStep Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutResponse Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+         * @param timeoutResponse Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
         }
 
         /**
-         * @param timeoutResponse Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
+         * @param timeoutResponse Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
          * 
          * @return builder
          * 

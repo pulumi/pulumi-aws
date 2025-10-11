@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.GroupInstanceRefreshPreferencesAlarmSpecificationGetArgs>? AlarmSpecification { get; set; }
 
         /// <summary>
-        /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+        /// Automatically rollback if instance refresh fails. Defaults to `False`. This option may only be set to `True` when specifying a `LaunchTemplate` or `MixedInstancesPolicy`.
         /// </summary>
         [Input("autoRollback")]
         public Input<bool>? AutoRollback { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? ScaleInProtectedInstances { get; set; }
 
         /// <summary>
-        /// Skip replacing instances that already have your desired configuration. Defaults to `false`.
+        /// Skip replacing instances that already have your desired configuration. Defaults to `False`.
         /// </summary>
         [Input("skipMatching")]
         public Input<bool>? SkipMatching { get; set; }

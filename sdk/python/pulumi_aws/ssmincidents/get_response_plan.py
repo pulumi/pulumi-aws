@@ -170,6 +170,8 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ### Basic Usage
+
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -202,6 +204,8 @@ def get_response_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 
     ## Example Usage
+
+    ### Basic Usage
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.

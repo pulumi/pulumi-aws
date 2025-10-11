@@ -16,14 +16,14 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
     public static final DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs Empty = new DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs();
 
     /**
-     * A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+     * A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
      * 
      */
     @Import(name="s3Prefix")
     private @Nullable Output<String> s3Prefix;
 
     /**
-     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
      * 
      */
     public Optional<Output<String>> s3Prefix() {
@@ -55,7 +55,7 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
         }
 
         /**
-         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
         }
 
         /**
-         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+         * @param s3Prefix A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
          * 
          * @return builder
          * 

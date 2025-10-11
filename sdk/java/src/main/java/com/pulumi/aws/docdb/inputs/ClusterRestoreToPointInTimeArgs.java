@@ -18,14 +18,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     public static final ClusterRestoreToPointInTimeArgs Empty = new ClusterRestoreToPointInTimeArgs();
 
     /**
-     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     @Import(name="restoreToTime")
     private @Nullable Output<String> restoreToTime;
 
     /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
      * 
      */
     public Optional<Output<String>> restoreToTime() {
@@ -63,14 +63,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     }
 
     /**
-     * A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+     * A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
      * 
      */
     @Import(name="useLatestRestorableTime")
     private @Nullable Output<Boolean> useLatestRestorableTime;
 
     /**
-     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+     * @return A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
      * 
      */
     public Optional<Output<Boolean>> useLatestRestorableTime() {
@@ -105,7 +105,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+         * @param restoreToTime The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+         * @param useLatestRestorableTime A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
          * 
          * @return builder
          * 

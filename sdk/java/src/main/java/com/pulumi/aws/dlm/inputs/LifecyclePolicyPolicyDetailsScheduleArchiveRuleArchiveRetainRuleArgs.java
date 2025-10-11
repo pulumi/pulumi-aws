@@ -15,14 +15,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainR
     public static final LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleArgs();
 
     /**
-     * Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+     * Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
      * 
      */
     @Import(name="retentionArchiveTier", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs> retentionArchiveTier;
 
     /**
-     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierArgs> retentionArchiveTier() {
@@ -54,7 +54,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainR
         }
 
         /**
-         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainR
         }
 
         /**
-         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+         * @param retentionArchiveTier Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
          * 
          * @return builder
          * 

@@ -18,15 +18,15 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
-        /// ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+        /// ID of the Dedicated Host on which build and test instances run. Conflicts with `HostResourceGroupArn`.
         /// </summary>
         public readonly string? HostId;
         /// <summary>
-        /// ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+        /// ARN of the host resource group in which to launch build and test instances. Conflicts with `HostId`.
         /// </summary>
         public readonly string? HostResourceGroupArn;
         /// <summary>
-        /// Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+        /// Placement tenancy of the instance. Valid values: `Default`, `Dedicated` and `Host`.
         /// </summary>
         public readonly string? Tenancy;
 

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetOrderableDbInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `neptune`)
+        /// DB engine. (Default: `Neptune`)
         /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class GetOrderableDbInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `neptune`)
+        /// DB engine. (Default: `Neptune`)
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

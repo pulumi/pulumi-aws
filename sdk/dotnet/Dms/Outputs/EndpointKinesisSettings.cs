@@ -14,31 +14,31 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointKinesisSettings
     {
         /// <summary>
-        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `False`.
         /// </summary>
         public readonly bool? IncludeControlDetails;
         /// <summary>
-        /// Include NULL and empty columns in the target. Default is `false`.
+        /// Include NULL and empty columns in the target. Default is `False`.
         /// </summary>
         public readonly bool? IncludeNullAndEmpty;
         /// <summary>
-        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `False`.
         /// </summary>
         public readonly bool? IncludePartitionValue;
         /// <summary>
-        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `False`.
         /// </summary>
         public readonly bool? IncludeTableAlterOperations;
         /// <summary>
-        /// Provides detailed transaction information from the source database. Default is `false`.
+        /// Provides detailed transaction information from the source database. Default is `False`.
         /// </summary>
         public readonly bool? IncludeTransactionDetails;
         /// <summary>
-        /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+        /// Output format for the records created. Default is `Json`. Valid values are `Json` and `json-unformatted` (a single line with no tab).
         /// </summary>
         public readonly string? MessageFormat;
         /// <summary>
-        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `False`.
         /// </summary>
         public readonly bool? PartitionIncludeSchemaTable;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? StreamArn;
         /// <summary>
-        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `False`.
         /// </summary>
         public readonly bool? UseLargeIntegerValue;
 

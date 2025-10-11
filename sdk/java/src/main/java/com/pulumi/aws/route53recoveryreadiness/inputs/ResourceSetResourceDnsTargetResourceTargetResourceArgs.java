@@ -17,14 +17,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceArgs extend
     public static final ResourceSetResourceDnsTargetResourceTargetResourceArgs Empty = new ResourceSetResourceDnsTargetResourceTargetResourceArgs();
 
     /**
-     * NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+     * NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
      * 
      */
     @Import(name="nlbResource")
     private @Nullable Output<ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs> nlbResource;
 
     /**
-     * @return NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+     * @return NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
      * 
      */
     public Optional<Output<ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs>> nlbResource() {
@@ -72,7 +72,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceArgs extend
         }
 
         /**
-         * @param nlbResource NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+         * @param nlbResource NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceArgs extend
         }
 
         /**
-         * @param nlbResource NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+         * @param nlbResource NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
          * 
          * @return builder
          * 

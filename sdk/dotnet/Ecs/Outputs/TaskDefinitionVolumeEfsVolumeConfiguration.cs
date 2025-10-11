@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+        /// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `AuthorizationConfig`.
         /// </summary>
         public readonly string? RootDirectory;
         /// <summary>

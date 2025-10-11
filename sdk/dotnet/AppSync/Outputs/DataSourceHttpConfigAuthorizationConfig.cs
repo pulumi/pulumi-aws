@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string? AuthorizationType;
         /// <summary>
-        /// Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
+        /// Identity and Access Management (IAM) settings. See `AwsIamConfig` Block for details.
         /// </summary>
         public readonly Outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig? AwsIamConfig;
 

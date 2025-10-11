@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         public Input<string> BucketOwner { get; set; } = null!;
 
         /// <summary>
-        /// EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+        /// EventBridge format for the log records. Valid values `Json`, `Plain` and `W3c`.
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }

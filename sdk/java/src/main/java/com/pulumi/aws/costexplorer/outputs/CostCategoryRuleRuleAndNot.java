@@ -24,7 +24,7 @@ public final class CostCategoryRuleRuleAndNot {
      */
     private @Nullable CostCategoryRuleRuleAndNotDimension dimension;
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable CostCategoryRuleRuleAndNotTags tags;
@@ -45,7 +45,7 @@ public final class CostCategoryRuleRuleAndNot {
         return Optional.ofNullable(this.dimension);
     }
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<CostCategoryRuleRuleAndNotTags> tags() {

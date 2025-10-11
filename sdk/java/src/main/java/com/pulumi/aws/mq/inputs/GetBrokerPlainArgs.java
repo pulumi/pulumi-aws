@@ -47,7 +47,7 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
+     * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
      * 
      */
     @Import(name="region")
@@ -55,7 +55,7 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
+     * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
      * 
      */
     public Optional<String> region() {
@@ -128,7 +128,7 @@ public final class GetBrokerPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * &gt; **Note:** Either `broker_id` or `broker_name` must be specified.
+         * &gt; **Note:** Either `brokerId` or `brokerName` must be specified.
          * 
          * @return builder
          * 

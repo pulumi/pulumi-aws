@@ -97,7 +97,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private List<Inputs.GetNotificationChannelFilterArgs>? _filters;
 
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` attribute reference below.
         /// </summary>
         public List<Inputs.GetNotificationChannelFilterArgs> Filters
         {
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private List<Inputs.GetNotificationChannelSnArgs>? _sns;
 
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` attribute reference below.
+        /// SNS noficiation channel configurations. See the `Sns` attribute reference below.
         /// </summary>
         public List<Inputs.GetNotificationChannelSnArgs> Sns
         {
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private InputList<Inputs.GetNotificationChannelFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` attribute reference below.
         /// </summary>
         public InputList<Inputs.GetNotificationChannelFilterInputArgs> Filters
         {
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.DevOpsGuru
         private InputList<Inputs.GetNotificationChannelSnInputArgs>? _sns;
 
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` attribute reference below.
+        /// SNS noficiation channel configurations. See the `Sns` attribute reference below.
         /// </summary>
         public InputList<Inputs.GetNotificationChannelSnInputArgs> Sns
         {
@@ -184,13 +184,13 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class GetNotificationChannelResult
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` attribute reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationChannelFilterResult> Filters;
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` attribute reference below.
+        /// SNS noficiation channel configurations. See the `Sns` attribute reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationChannelSnResult> Sns;
 

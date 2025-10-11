@@ -31,14 +31,14 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
     }
 
     /**
-     * A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     @Import(name="s3Encryption", required=true)
     private Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption;
 
     /**
-     * @return A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     public Output<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption() {
@@ -90,7 +90,7 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
         }
 
         /**
-         * @param s3Encryption A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * @param s3Encryption A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
         }
 
         /**
-         * @param s3Encryption A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
+         * @param s3Encryption A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
          * 
          * @return builder
          * 

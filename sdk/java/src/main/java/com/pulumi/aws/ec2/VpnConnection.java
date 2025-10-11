@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
  * Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
  * 
- * &gt; **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
+ * &gt; **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  * 
  * ## Example Usage
@@ -348,14 +348,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.outsideIpAddressType;
     }
     /**
-     * ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
      * 
      */
     @Export(name="presharedKeyArn", refs={String.class}, tree="[0]")
     private Output<String> presharedKeyArn;
 
     /**
-     * @return ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
+     * @return ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `presharedKeyStorage` argument is set to `SecretsManager`.
      * 
      */
     public Output<String> presharedKeyArn() {
@@ -446,42 +446,42 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.staticRoutesOnly;
     }
     /**
-     * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+     * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayAttachmentId;
 
     /**
-     * @return When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
+     * @return When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      * 
      */
     public Output<String> transitGatewayAttachmentId() {
@@ -796,28 +796,28 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel1PresharedKey;
     }
     /**
-     * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Export(name="tunnel1RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Output<Optional<Integer>> tunnel1RekeyFuzzPercentage() {
         return Codegen.optional(this.tunnel1RekeyFuzzPercentage);
     }
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     @Export(name="tunnel1RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     public Output<Optional<Integer>> tunnel1RekeyMarginTimeSeconds() {
@@ -1146,28 +1146,28 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnel2PresharedKey;
     }
     /**
-     * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Export(name="tunnel2RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Output<Optional<Integer>> tunnel2RekeyFuzzPercentage() {
         return Codegen.optional(this.tunnel2RekeyFuzzPercentage);
     }
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     @Export(name="tunnel2RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     public Output<Optional<Integer>> tunnel2RekeyMarginTimeSeconds() {

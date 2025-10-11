@@ -18,19 +18,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string BasePromptTemplate;
         /// <summary>
-        /// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
+        /// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `PromptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `InferenceConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> InferenceConfigurations;
         /// <summary>
-        /// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        /// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `PromptType`. If you set the argument as `OVERRIDDEN`, the `OverrideLambda` argument in the `PromptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
         /// </summary>
         public readonly string ParserMode;
         /// <summary>
-        /// Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        /// Whether to override the default prompt template for this `PromptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `BasePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
         /// </summary>
         public readonly string PromptCreationMode;
         /// <summary>
-        /// Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        /// Whether to allow the agent to carry out the step specified in the `PromptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string PromptState;
         /// <summary>

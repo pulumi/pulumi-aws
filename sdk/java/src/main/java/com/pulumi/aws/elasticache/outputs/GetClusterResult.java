@@ -22,7 +22,7 @@ public final class GetClusterResult {
      */
     private String availabilityZone;
     /**
-     * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
+     * @return List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      * 
      */
@@ -152,7 +152,7 @@ public final class GetClusterResult {
         return this.availabilityZone;
     }
     /**
-     * @return List of node objects including `id`, `address`, `port`, `availability_zone` and `outpost_arn`.
+     * @return List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      * 
      */

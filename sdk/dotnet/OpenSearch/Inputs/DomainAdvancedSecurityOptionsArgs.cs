@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainAdvancedSecurityOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+        /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `AdvancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
         /// </summary>
         [Input("anonymousAuthEnabled")]
         public Input<bool>? AnonymousAuthEnabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether the internal user database is enabled. Default is `false`.
+        /// Whether the internal user database is enabled. Default is `False`.
         /// </summary>
         [Input("internalUserDatabaseEnabled")]
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinition
     {
         /// <summary>
-        /// Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+        /// Set of actions to take on a packet that matches one of the stateless rule definition's `MatchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>

@@ -29,7 +29,7 @@ public final class GetQueueResult {
      */
     private String status;
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     private Map<String,String> tags;
@@ -63,7 +63,7 @@ public final class GetQueueResult {
         return this.status;
     }
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Map<String,String> tags() {

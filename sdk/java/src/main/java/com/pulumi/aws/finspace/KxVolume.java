@@ -201,14 +201,14 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      * 
      */
     @Export(name="nas1Configurations", refs={List.class,KxVolumeNas1Configuration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KxVolumeNas1Configuration>> nas1Configurations;
 
     /**
-     * @return Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+     * @return Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      * 
      */
     public Output<Optional<List<KxVolumeNas1Configuration>>> nas1Configurations() {
@@ -295,14 +295,14 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
      * 
      */
     public Output<String> type() {

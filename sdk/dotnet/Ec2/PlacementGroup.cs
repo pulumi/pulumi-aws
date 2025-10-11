@@ -57,8 +57,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `strategy` is set to
-        /// `partition`.  Valid values are 1 - 7 (default is `2`).
+        /// placement group.  Can only be specified when the `Strategy` is set to
+        /// `Partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
@@ -77,25 +77,25 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Output("spreadLevel")]
         public Output<string> SpreadLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
+        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Output("strategy")]
         public Output<string> Strategy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,8 +154,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `strategy` is set to
-        /// `partition`.  Valid values are 1 - 7 (default is `2`).
+        /// placement group.  Can only be specified when the `Strategy` is set to
+        /// `Partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -168,13 +168,13 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
+        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Input("strategy", required: true)]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy> Strategy { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -213,8 +213,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `strategy` is set to
-        /// `partition`.  Valid values are 1 - 7 (default is `2`).
+        /// placement group.  Can only be specified when the `Strategy` is set to
+        /// `Partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -233,13 +233,13 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
-        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
+        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Input("strategy")]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy>? Strategy { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

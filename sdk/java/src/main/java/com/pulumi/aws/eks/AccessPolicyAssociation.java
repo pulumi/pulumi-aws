@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/accessPolicyAssociation:AccessPolicyAssociation")
 public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The configuration block to determine the scope of the access. See `access_scope` Block below.
+     * The configuration block to determine the scope of the access. See `accessScope` Block below.
      * 
      */
     @Export(name="accessScope", refs={AccessPolicyAssociationAccessScope.class}, tree="[0]")
     private Output<AccessPolicyAssociationAccessScope> accessScope;
 
     /**
-     * @return The configuration block to determine the scope of the access. See `access_scope` Block below.
+     * @return The configuration block to determine the scope of the access. See `accessScope` Block below.
      * 
      */
     public Output<AccessPolicyAssociationAccessScope> accessScope() {

@@ -142,14 +142,14 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
         return this.hierarchyGroupId;
     }
     /**
-     * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      * 
      */
     @Export(name="hierarchyPaths", refs={List.class,UserHierarchyGroupHierarchyPath.class}, tree="[0,1]")
     private Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
 
     /**
-     * @return A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * @return A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      * 
      */
     public Output<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths() {
@@ -227,7 +227,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -235,21 +235,21 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Tags to apply to the hierarchy group. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

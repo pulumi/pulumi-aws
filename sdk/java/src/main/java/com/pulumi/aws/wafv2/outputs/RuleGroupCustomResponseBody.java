@@ -21,7 +21,7 @@ public final class RuleGroupCustomResponseBody {
      */
     private String contentType;
     /**
-     * @return A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     private String key;
@@ -42,7 +42,7 @@ public final class RuleGroupCustomResponseBody {
         return this.contentType;
     }
     /**
-     * @return A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     public String key() {

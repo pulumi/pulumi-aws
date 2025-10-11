@@ -17,14 +17,14 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
     public static final ClusterOpenMonitoringPrometheusArgs Empty = new ClusterOpenMonitoringPrometheusArgs();
 
     /**
-     * Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+     * Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
      * 
      */
     @Import(name="jmxExporter")
     private @Nullable Output<ClusterOpenMonitoringPrometheusJmxExporterArgs> jmxExporter;
 
     /**
-     * @return Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+     * @return Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
      * 
      */
     public Optional<Output<ClusterOpenMonitoringPrometheusJmxExporterArgs>> jmxExporter() {
@@ -32,14 +32,14 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
     }
 
     /**
-     * Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+     * Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
      * 
      */
     @Import(name="nodeExporter")
     private @Nullable Output<ClusterOpenMonitoringPrometheusNodeExporterArgs> nodeExporter;
 
     /**
-     * @return Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+     * @return Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
      * 
      */
     public Optional<Output<ClusterOpenMonitoringPrometheusNodeExporterArgs>> nodeExporter() {
@@ -72,7 +72,7 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
         }
 
         /**
-         * @param jmxExporter Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+         * @param jmxExporter Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
         }
 
         /**
-         * @param jmxExporter Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+         * @param jmxExporter Configuration block for JMX Exporter. See openMonitoring prometheus jmxExporter Argument Reference below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
         }
 
         /**
-         * @param nodeExporter Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+         * @param nodeExporter Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
         }
 
         /**
-         * @param nodeExporter Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+         * @param nodeExporter Configuration block for Node Exporter. See openMonitoring prometheus nodeExporter Argument Reference below.
          * 
          * @return builder
          * 

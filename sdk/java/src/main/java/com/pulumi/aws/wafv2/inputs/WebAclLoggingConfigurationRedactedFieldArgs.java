@@ -49,14 +49,14 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     }
 
     /**
-     * &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+     * &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs> singleHeader;
 
     /**
-     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+     * @return &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs>> singleHeader() {
@@ -148,7 +148,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param singleHeader &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+         * @param singleHeader &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param singleHeader &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+         * @param singleHeader &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
          * 
          * @return builder
          * 

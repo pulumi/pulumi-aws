@@ -77,9 +77,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The certificate to be registered. If `ca_pem` is unspecified, review
+     * The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `ca_pem` is specified, review
+     * If `caPem` is specified, review
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      * 
@@ -88,9 +88,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> certificatePem;
 
     /**
-     * @return The certificate to be registered. If `ca_pem` is unspecified, review
+     * @return The certificate to be registered. If `caPem` is unspecified, review
      * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `ca_pem` is specified, review
+     * If `caPem` is specified, review
      * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
      * for more information on registering a certificate.
      * 
@@ -284,9 +284,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePem The certificate to be registered. If `ca_pem` is unspecified, review
+         * @param certificatePem The certificate to be registered. If `caPem` is unspecified, review
          * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-         * If `ca_pem` is specified, review
+         * If `caPem` is specified, review
          * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
          * for more information on registering a certificate.
          * 
@@ -299,9 +299,9 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePem The certificate to be registered. If `ca_pem` is unspecified, review
+         * @param certificatePem The certificate to be registered. If `caPem` is unspecified, review
          * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-         * If `ca_pem` is specified, review
+         * If `caPem` is specified, review
          * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
          * for more information on registering a certificate.
          * 

@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Id of the VPC that the desired security group belongs to.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         [Input("vpcId")]
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Id of the VPC that the desired security group belongs to.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         [Input("vpcId")]

@@ -79,7 +79,7 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
@@ -87,7 +87,7 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Tags to apply to the hierarchy group. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -208,7 +208,7 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tags Tags to apply to the hierarchy group. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param tags Tags to apply to the hierarchy group. If configured with a provider
-         * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

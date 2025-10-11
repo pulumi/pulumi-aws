@@ -21,12 +21,16 @@ public final class IotFunctions {
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint() {
         return getEndpoint(GetEndpointArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
@@ -35,12 +39,16 @@ public final class IotFunctions {
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
         return getEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -49,6 +57,8 @@ public final class IotFunctions {
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
@@ -56,12 +66,16 @@ public final class IotFunctions {
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {

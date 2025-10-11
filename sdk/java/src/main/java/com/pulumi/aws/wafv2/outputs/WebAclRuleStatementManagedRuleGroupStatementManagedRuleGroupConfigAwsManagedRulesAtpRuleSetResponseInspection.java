@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection {
     /**
-     * @return Configures inspection of the response body. See `body_contains` for more details.
+     * @return Configures inspection of the response body. See `bodyContains` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains bodyContains;
@@ -30,14 +30,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson json;
     /**
-     * @return Configures inspection of the response status code.See `status_code` for more details.
+     * @return Configures inspection of the response status code.See `statusCode` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode statusCode;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection() {}
     /**
-     * @return Configures inspection of the response body. See `body_contains` for more details.
+     * @return Configures inspection of the response body. See `bodyContains` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains> bodyContains() {
@@ -58,7 +58,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return Optional.ofNullable(this.json);
     }
     /**
-     * @return Configures inspection of the response status code.See `status_code` for more details.
+     * @return Configures inspection of the response status code.See `statusCode` for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode> statusCode() {

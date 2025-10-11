@@ -31,6 +31,10 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Application Load Balancer
+ * 
+ * ### Network Load Balancer
+ * 
  * ### Specifying Elastic IPs
  * 
  * <pre>
@@ -251,14 +255,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     @Export(name="dnsRecordClientRoutingPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsRecordClientRoutingPolicy;
 
     /**
-     * @return How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * @return How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     public Output<Optional<String>> dnsRecordClientRoutingPolicy() {
@@ -433,14 +437,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      * 
      */
     @Export(name="ipamPools", refs={LoadBalancerIpamPools.class}, tree="[0]")
     private Output</* @Nullable */ LoadBalancerIpamPools> ipamPools;
 
     /**
-     * @return . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * @return . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      * 
      */
     public Output<Optional<LoadBalancerIpamPools>> ipamPools() {
@@ -587,28 +591,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.subnets;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -623,9 +627,9 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
-     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
      * 
-     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
      * 
      */
     @Export(name="xffHeaderProcessingMode", refs={String.class}, tree="[0]")
@@ -634,9 +638,9 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
-     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
      * 
-     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
      * 
      */
     public Output<Optional<String>> xffHeaderProcessingMode() {

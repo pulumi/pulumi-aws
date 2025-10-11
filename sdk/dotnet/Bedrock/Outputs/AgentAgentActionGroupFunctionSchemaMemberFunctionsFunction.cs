@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        /// Parameters that the agent elicits from the user to fulfill the function. See `Parameters` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter> Parameters;
 

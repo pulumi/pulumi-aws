@@ -39,14 +39,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+     * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
      * 
      */
     @Import(name="cachePolicyId")
     private @Nullable Output<String> cachePolicyId;
 
     /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
      * 
      */
     public Optional<Output<String>> cachePolicyId() {
@@ -414,7 +414,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
          * 
          * @return builder
          * 

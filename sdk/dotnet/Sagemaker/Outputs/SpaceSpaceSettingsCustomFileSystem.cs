@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsCustomFileSystem
     {
         /// <summary>
-        /// A custom file system in Amazon EFS. See `efs_file_system` Block below.
+        /// A custom file system in Amazon EFS. See `EfsFileSystem` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystem EfsFileSystem;
 

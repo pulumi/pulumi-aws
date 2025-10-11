@@ -15,12 +15,12 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     {
         /// <summary>
         /// Describes the rule action that returns a custom HTTP response.
-        /// See `fixed_response` Block for details.
+        /// See `FixedResponse` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleActionFixedResponse? FixedResponse;
         /// <summary>
         /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-        /// See `forward` Block for details.
+        /// See `Forward` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleActionForward? Forward;
 

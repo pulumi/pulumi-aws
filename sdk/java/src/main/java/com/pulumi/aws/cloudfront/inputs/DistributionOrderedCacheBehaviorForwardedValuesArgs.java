@@ -65,14 +65,14 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
     }
 
     /**
-     * When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
      * 
      */
     @Import(name="queryStringCacheKeys")
     private @Nullable Output<List<String>> queryStringCacheKeys;
 
     /**
-     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+     * @return When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
      * 
      */
     public Optional<Output<List<String>>> queryStringCacheKeys() {
@@ -180,7 +180,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
         }
 
         /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
+         * @param queryStringCacheKeys When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
          * 
          * @return builder
          * 

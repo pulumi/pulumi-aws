@@ -14,8 +14,8 @@ namespace Pulumi.Aws.Waf.Outputs
     public sealed class RegexMatchSetRegexMatchTupleFieldToMatch
     {
         /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
-        /// If `type` is any other value, omit this field.
+        /// When `Type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+        /// If `Type` is any other value, omit this field.
         /// </summary>
         public readonly string? Data;
         /// <summary>

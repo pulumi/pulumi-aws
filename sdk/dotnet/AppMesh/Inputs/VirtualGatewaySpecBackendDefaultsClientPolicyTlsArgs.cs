@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs>? Certificate { get; set; }
 
         /// <summary>
-        /// Whether the policy is enforced. Default is `true`.
+        /// Whether the policy is enforced. Default is `True`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }

@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetLinkLinkConfiguration {
     /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
      * 
      */
     private List<GetLinkLinkConfigurationLogGroupConfiguration> logGroupConfigurations;
     /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
      * 
      */
     private List<GetLinkLinkConfigurationMetricConfiguration> metricConfigurations;
 
     private GetLinkLinkConfiguration() {}
     /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
      * 
      */
     public List<GetLinkLinkConfigurationLogGroupConfiguration> logGroupConfigurations() {
         return this.logGroupConfigurations;
     }
     /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
      * 
      */
     public List<GetLinkLinkConfigurationMetricConfiguration> metricConfigurations() {

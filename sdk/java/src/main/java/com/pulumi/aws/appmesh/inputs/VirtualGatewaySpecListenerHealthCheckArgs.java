@@ -63,14 +63,14 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
     }
 
     /**
-     * Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -216,7 +216,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param port Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+         * @param port Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         /**
-         * @param port Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+         * @param port Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
          * 
          * @return builder
          * 

@@ -61,7 +61,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
      * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
      * Valid values are `redis` or `valkey`.
-     * Default is `redis` if `engine_version` is specified.
+     * Default is `redis` if `engineVersion` is specified.
      * 
      */
     @Import(name="engine")
@@ -72,7 +72,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
      * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
      * Valid values are `redis` or `valkey`.
-     * Default is `redis` if `engine_version` is specified.
+     * Default is `redis` if `engineVersion` is specified.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -87,7 +87,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
@@ -101,7 +101,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -124,14 +124,14 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+     * The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      * 
      */
     @Import(name="globalReplicationGroupIdSuffix", required=true)
     private Output<String> globalReplicationGroupIdSuffix;
 
     /**
-     * @return The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+     * @return The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
      * 
      */
     public Output<String> globalReplicationGroupIdSuffix() {
@@ -175,14 +175,14 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      * 
      */
     @Import(name="primaryReplicationGroupId", required=true)
     private Output<String> primaryReplicationGroupId;
 
     /**
-     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      * 
      */
     public Output<String> primaryReplicationGroupId() {
@@ -292,7 +292,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
          * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
          * Valid values are `redis` or `valkey`.
-         * Default is `redis` if `engine_version` is specified.
+         * Default is `redis` if `engineVersion` is specified.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When creating, by default the Global Replication Group inherits the engine of the primary replication group.
          * If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
          * Valid values are `redis` or `valkey`.
-         * Default is `redis` if `engine_version` is specified.
+         * Default is `redis` if `engineVersion` is specified.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
          * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
          * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
          * 
          * @return builder
          * 

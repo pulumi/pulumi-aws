@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
         /// <summary>
-        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        /// Whether a signed token is required for instance metadata retrieval requests. Valid values: `Required`, `Optional`.
         /// </summary>
         public readonly string? HttpTokens;
 

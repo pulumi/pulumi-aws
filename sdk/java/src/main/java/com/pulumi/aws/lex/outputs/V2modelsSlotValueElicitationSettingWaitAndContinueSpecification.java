@@ -24,19 +24,19 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     private @Nullable Boolean active;
     /**
      * @return Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-     * See the `continue_response` argument reference below.
+     * See the `continueResponse` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse> continueResponses;
     /**
      * @return Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-     * See the `still_waiting_response` argument reference below.
+     * See the `stillWaitingResponse` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> stillWaitingResponses;
     /**
      * @return Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-     * See the `waiting_response` argument reference below.
+     * See the `waitingResponse` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> waitingResponses;
@@ -53,7 +53,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     /**
      * @return Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
-     * See the `continue_response` argument reference below.
+     * See the `continueResponse` argument reference below.
      * 
      */
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse> continueResponses() {
@@ -61,7 +61,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     /**
      * @return Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
-     * See the `still_waiting_response` argument reference below.
+     * See the `stillWaitingResponse` argument reference below.
      * 
      */
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> stillWaitingResponses() {
@@ -69,7 +69,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     /**
      * @return Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
-     * See the `waiting_response` argument reference below.
+     * See the `waitingResponse` argument reference below.
      * 
      */
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> waitingResponses() {

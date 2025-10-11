@@ -487,6 +487,8 @@ class Analysis(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -539,6 +541,8 @@ class Analysis(pulumi.CustomResource):
                 },
             })
         ```
+
+        ### With Definition
 
         ## Import
 

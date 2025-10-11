@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
         /// 
-        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
         /// 
         /// ## Example Usage
         /// 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example Multiple Condition Keys and Values
         /// 
-        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `Condition` blocks with the same `Test` value, but differing `Variable` and `Values` values.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `SourcePolicyDocuments` and `OverridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `SourcePolicyDocuments` or `OverridePolicyDocuments` attributes. `SourcePolicyDocuments` requires that all documents have unique Sids, while `OverridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -771,7 +771,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
         /// 
-        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
         /// 
         /// ## Example Usage
         /// 
@@ -854,7 +854,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example Multiple Condition Keys and Values
         /// 
-        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `Condition` blocks with the same `Test` value, but differing `Variable` and `Values` values.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1186,7 +1186,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `SourcePolicyDocuments` and `OverridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1267,7 +1267,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `SourcePolicyDocuments` or `OverridePolicyDocuments` attributes. `SourcePolicyDocuments` requires that all documents have unique Sids, while `OverridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1528,7 +1528,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
         /// 
-        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `File` interpolation function to read a raw JSON policy document from a file.
         /// 
         /// ## Example Usage
         /// 
@@ -1611,7 +1611,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example Multiple Condition Keys and Values
         /// 
-        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `Condition` blocks with the same `Test` value, but differing `Variable` and `Values` values.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -1943,7 +1943,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example with Both Source and Override Documents
         /// 
-        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// You can also combine `SourcePolicyDocuments` and `OverridePolicyDocuments` in the same document.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -2024,7 +2024,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Example of Merging Source Documents
         /// 
-        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// Multiple documents can be combined using the `SourcePolicyDocuments` or `OverridePolicyDocuments` attributes. `SourcePolicyDocuments` requires that all documents have unique Sids, while `OverridePolicyDocuments` will iteratively override matching Sids.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -2293,7 +2293,7 @@ namespace Pulumi.Aws.Iam
         private List<string>? _overridePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `Sid`s will override statements with the same `Sid` from earlier documents in the list. Statements with non-blank `Sid`s will also override statements with the same `Sid` from `SourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
         /// </summary>
         public List<string> OverridePolicyDocuments
         {
@@ -2314,7 +2314,7 @@ namespace Pulumi.Aws.Iam
         private List<string>? _sourcePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `SourcePolicyDocuments` must have unique `Sid`s. Statements with the same `Sid` from `OverridePolicyDocuments` will override source statements.
         /// </summary>
         public List<string> SourcePolicyDocuments
         {
@@ -2355,7 +2355,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _overridePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+        /// List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `Sid`s will override statements with the same `Sid` from earlier documents in the list. Statements with non-blank `Sid`s will also override statements with the same `Sid` from `SourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
         /// </summary>
         public InputList<string> OverridePolicyDocuments
         {
@@ -2376,7 +2376,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _sourcePolicyDocuments;
 
         /// <summary>
-        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+        /// List of IAM policy documents that are merged together into the exported document. Statements defined in `SourcePolicyDocuments` must have unique `Sid`s. Statements with the same `Sid` from `OverridePolicyDocuments` will override source statements.
         /// </summary>
         public InputList<string> SourcePolicyDocuments
         {

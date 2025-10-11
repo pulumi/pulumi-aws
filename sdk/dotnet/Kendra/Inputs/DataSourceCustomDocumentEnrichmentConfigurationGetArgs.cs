@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationGetArgs>? PreExtractionHookConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

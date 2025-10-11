@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Dsql
 
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
-        /// Default value is `false`.
+        /// Default value is `False`.
         /// </summary>
         [Output("deletionProtectionEnabled")]
         public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
@@ -67,8 +67,8 @@ namespace Pulumi.Aws.Dsql
         public Output<ImmutableArray<Outputs.ClusterEncryptionDetail>> EncryptionDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        /// Default value is `false`.
+        /// Destroys cluster even if `DeletionProtectionEnabled` is set to `True`.
+        /// Default value is `False`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool> ForceDestroy { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Dsql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -166,14 +166,14 @@ namespace Pulumi.Aws.Dsql
     {
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
-        /// Default value is `false`.
+        /// Default value is `False`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         /// <summary>
-        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        /// Default value is `false`.
+        /// Destroys cluster even if `DeletionProtectionEnabled` is set to `True`.
+        /// Default value is `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Dsql
 
         /// <summary>
         /// Whether deletion protection is enabled in this cluster.
-        /// Default value is `false`.
+        /// Default value is `False`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
@@ -245,8 +245,8 @@ namespace Pulumi.Aws.Dsql
         }
 
         /// <summary>
-        /// Destroys cluster even if `deletion_protection_enabled` is set to `true`.
-        /// Default value is `false`.
+        /// Destroys cluster even if `DeletionProtectionEnabled` is set to `True`.
+        /// Default value is `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Dsql
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamRedshiftConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+        /// The password for the username above. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public Input<string>? Password
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -77,8 +77,8 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
+        /// The configuration for backup in Amazon S3. Required if `S3BackupMode` is `Enabled`. Supports the same fields as `S3Configuration` object.
+        /// `SecretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `Username` and `Password` are not provided.
         /// </summary>
         [Input("s3BackupConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>? S3BackupConfiguration { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See s3_configuration below for details.
+        /// The S3 Configuration. See S3Configuration below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
 
         /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

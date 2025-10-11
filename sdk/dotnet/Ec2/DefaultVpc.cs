@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// The `aws.ec2.DefaultVpc` resource behaves differently from normal resources in that if a default VPC exists, this provider does not _create_ this resource, but instead "adopts" it into management.
     /// If no default VPC exists, the provider creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).
     /// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
-    /// Set the `force_destroy` argument to `true` to delete the default VPC.
+    /// Set the `ForceDestroy` argument to `True` to delete the default VPC.
     /// 
     /// ## Example Usage
     /// 
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> ExistingDefaultVpc { get; private set; } = null!;
 
         /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `false`
+        /// Whether destroying the resource deletes the default VPC. Default: `False`
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
 
         /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `false`
+        /// Whether destroying the resource deletes the default VPC. Default: `False`
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ExistingDefaultVpc { get; set; }
 
         /// <summary>
-        /// Whether destroying the resource deletes the default VPC. Default: `false`
+        /// Whether destroying the resource deletes the default VPC. Default: `False`
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }

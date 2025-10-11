@@ -30,7 +30,7 @@ public final class KxClusterDatabase {
      */
     private String databaseName;
     /**
-     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     private @Nullable String dataviewName;
@@ -58,7 +58,7 @@ public final class KxClusterDatabase {
         return this.databaseName;
     }
     /**
-     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
+     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     public Optional<String> dataviewName() {

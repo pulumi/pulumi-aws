@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks.Inputs
         private InputList<string>? _resources;
 
         /// <summary>
-        /// List of strings with resources to be encrypted. Valid values: `secrets`.
+        /// List of strings with resources to be encrypted. Valid values: `Secrets`.
         /// </summary>
         public InputList<string> Resources
         {

@@ -48,16 +48,16 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Example of Managing Multiple IPs on a Network Interface
     /// 
-    /// By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
+    /// By default, private IPs are managed through the `PrivateIps` and `PrivateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
     /// 
-    /// In order to manage the private IPs as a sequentially ordered list, configure `private_ip_list_enabled` to `true` and use `private_ip_list` to manage the IPs. This will disable the `private_ips` and `private_ips_count` settings, which must be removed from the config file but are still exported. Note that changing the first address of `private_ip_list`, which is the primary, always requires a new interface.
+    /// In order to manage the private IPs as a sequentially ordered list, configure `PrivateIpListEnabled` to `True` and use `PrivateIpList` to manage the IPs. This will disable the `PrivateIps` and `PrivateIpsCount` settings, which must be removed from the config file but are still exported. Note that changing the first address of `PrivateIpList`, which is the primary, always requires a new interface.
     /// 
-    /// If you are managing a specific set or list of IPs, instead of just using `private_ips_count`, this is a potential workflow for also leveraging `private_ips_count` to have AWS automatically assign additional IP addresses:
+    /// If you are managing a specific set or list of IPs, instead of just using `PrivateIpsCount`, this is a potential workflow for also leveraging `PrivateIpsCount` to have AWS automatically assign additional IP addresses:
     /// 
-    /// 1. Comment out `private_ips`, `private_ip_list`, `private_ip_list_enabled` in your configuration
-    /// 2. Set the desired `private_ips_count` (count of the number of secondaries, the primary is not included)
+    /// 1. Comment out `PrivateIps`, `PrivateIpList`, `PrivateIpListEnabled` in your configuration
+    /// 2. Set the desired `PrivateIpsCount` (count of the number of secondaries, the primary is not included)
     /// 3. Apply to assign the extra IPs
-    /// 4. Remove `private_ips_count` and restore your settings from the first step
+    /// 4. Remove `PrivateIpsCount` and restore your settings from the first step
     /// 5. Add the new IPs to your current settings
     /// 6. Apply again to update the stored state
     /// 
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EnablePrimaryIpv6 { get; private set; } = null!;
 
         /// <summary>
-        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+        /// Type of network interface to create. Set to `Efa` for Elastic Fabric Adapter. Changing `InterfaceType` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("interfaceType")]
         public Output<string> InterfaceType { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> Ipv4Prefixes { get; private set; } = null!;
 
         /// <summary>
-        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `Ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `True`, you can specify `0` to override this setting.
         /// </summary>
         [Output("ipv6AddressCount")]
         public Output<int> Ipv6AddressCount { get; private set; } = null!;
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+        /// Whether `Ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `Ipv6Addresses` and `Ipv6AddressCount` become read-only. Default is `False`.
         /// </summary>
         [Output("ipv6AddressListEnabled")]
         public Output<bool?> Ipv6AddressListEnabled { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> Ipv6AddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `Ipv6AddressCount`.
         /// </summary>
         [Output("ipv6Addresses")]
         public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
@@ -177,13 +177,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateIp { get; private set; } = null!;
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+        /// Whether `PrivateIpList` is allowed and controls the IPs to assign to the ENI and `PrivateIps` and `PrivateIpsCount` become read-only. Default is `False`.
         /// </summary>
         [Output("privateIpListEnabled")]
         public Output<bool?> PrivateIpListEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `PrivateIpListEnabled` to `True`.
         /// </summary>
         [Output("privateIpLists")]
         public Output<ImmutableArray<string>> PrivateIpLists { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PrivateIps { get; private set; } = null!;
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Output("privateIpsCount")]
         public Output<int> PrivateIpsCount { get; private set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnablePrimaryIpv6 { get; set; }
 
         /// <summary>
-        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+        /// Type of network interface to create. Set to `Efa` for Elastic Fabric Adapter. Changing `InterfaceType` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("interfaceType")]
         public Input<string>? InterfaceType { get; set; }
@@ -333,13 +333,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `Ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `True`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+        /// Whether `Ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `Ipv6Addresses` and `Ipv6AddressCount` become read-only. Default is `False`.
         /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6Addresses;
 
         /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `Ipv6AddressCount`.
         /// </summary>
         public InputList<string> Ipv6Addresses
         {
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+        /// Whether `PrivateIpList` is allowed and controls the IPs to assign to the ENI and `PrivateIps` and `PrivateIpsCount` become read-only. Default is `False`.
         /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _privateIpLists;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `PrivateIpListEnabled` to `True`.
         /// </summary>
         public InputList<string> PrivateIpLists
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -508,7 +508,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnablePrimaryIpv6 { get; set; }
 
         /// <summary>
-        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+        /// Type of network interface to create. Set to `Efa` for Elastic Fabric Adapter. Changing `InterfaceType` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("interfaceType")]
         public Input<string>? InterfaceType { get; set; }
@@ -532,13 +532,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `Ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `True`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
         public Input<int>? Ipv6AddressCount { get; set; }
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+        /// Whether `Ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `Ipv6Addresses` and `Ipv6AddressCount` become read-only. Default is `False`.
         /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _ipv6Addresses;
 
         /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `Ipv6AddressCount`.
         /// </summary>
         public InputList<string> Ipv6Addresses
         {
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+        /// Whether `PrivateIpList` is allowed and controls the IPs to assign to the ENI and `PrivateIps` and `PrivateIpsCount` become read-only. Default is `False`.
         /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _privateIpLists;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `PrivateIpListEnabled` to `True`.
         /// </summary>
         public InputList<string> PrivateIpLists
         {
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -693,7 +693,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

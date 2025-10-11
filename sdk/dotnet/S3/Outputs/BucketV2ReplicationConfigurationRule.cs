@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRule
     {
         /// <summary>
-        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `Filter` is used).
         /// </summary>
         public readonly string? DeleteMarkerReplicationStatus;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// Priority associated with the rule. Priority should only be set if `Filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         public readonly int? Priority;
         /// <summary>

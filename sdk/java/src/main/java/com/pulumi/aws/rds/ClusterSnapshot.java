@@ -165,14 +165,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.engineVersion;
     }
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -275,28 +275,28 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.storageEncrypted;
     }
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

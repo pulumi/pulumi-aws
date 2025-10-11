@@ -13,7 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
     public sealed class UserEmailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `true`, this is the primary email associated with the user.
+        /// When `True`, this is the primary email associated with the user.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }

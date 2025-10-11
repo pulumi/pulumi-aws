@@ -32,14 +32,14 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs extend
     }
 
     /**
-     * Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+     * Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
      * 
      */
     @Import(name="sseKmsEncryptedObjects")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs> sseKmsEncryptedObjects;
 
     /**
-     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+     * @return Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs>> sseKmsEncryptedObjects() {
@@ -93,7 +93,7 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs extend
         }
 
         /**
-         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs extend
         }
 
         /**
-         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+         * @param sseKmsEncryptedObjects Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
          * 
          * @return builder
          * 

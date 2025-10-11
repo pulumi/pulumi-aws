@@ -14,7 +14,7 @@ namespace Pulumi.Aws.RedShift.Outputs
     public sealed class ScheduledActionTargetActionResizeCluster
     {
         /// <summary>
-        /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `False`.
         /// </summary>
         public readonly bool? Classic;
         /// <summary>

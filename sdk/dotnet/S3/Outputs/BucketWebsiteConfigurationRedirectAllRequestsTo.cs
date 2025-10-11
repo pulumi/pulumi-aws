@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `Http`, `Https`.
         /// </summary>
         public readonly string? Protocol;
 

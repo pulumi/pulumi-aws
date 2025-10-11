@@ -30,12 +30,12 @@ public final class ConnectorCapacityAutoscaling {
      */
     private Integer minWorkerCount;
     /**
-     * @return The scale-in policy for the connector. See `scale_in_policy` Block for details.
+     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
      * 
      */
     private @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy;
     /**
-     * @return The scale-out policy for the connector. See `scale_out_policy` Block for details.
+     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
      * 
      */
     private @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy;
@@ -63,14 +63,14 @@ public final class ConnectorCapacityAutoscaling {
         return this.minWorkerCount;
     }
     /**
-     * @return The scale-in policy for the connector. See `scale_in_policy` Block for details.
+     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
      * 
      */
     public Optional<ConnectorCapacityAutoscalingScaleInPolicy> scaleInPolicy() {
         return Optional.ofNullable(this.scaleInPolicy);
     }
     /**
-     * @return The scale-out policy for the connector. See `scale_out_policy` Block for details.
+     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
      * 
      */
     public Optional<ConnectorCapacityAutoscalingScaleOutPolicy> scaleOutPolicy() {

@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  * 
  * ### Example with Delivery Policy
  * 
- * This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `&#34;http&#34;` object.
+ * This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `deliveryPolicy` for `aws.sns.TopicSubscription` should not be wrapped in an `&#34;http&#34;` object.
  * 
  * <pre>
  * {@code
@@ -405,14 +405,14 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filterPolicy);
     }
     /**
-     * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
     @Export(name="filterPolicyScope", refs={String.class}, tree="[0]")
     private Output<String> filterPolicyScope;
 
     /**
-     * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+     * @return Whether the `filterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
     public Output<String> filterPolicyScope() {

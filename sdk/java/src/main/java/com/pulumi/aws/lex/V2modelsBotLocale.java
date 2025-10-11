@@ -219,14 +219,14 @@ public class V2modelsBotLocale extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      * 
      */
     @Export(name="voiceSettings", refs={V2modelsBotLocaleVoiceSettings.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsBotLocaleVoiceSettings> voiceSettings;
 
     /**
-     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      * 
      */
     public Output<Optional<V2modelsBotLocaleVoiceSettings>> voiceSettings() {

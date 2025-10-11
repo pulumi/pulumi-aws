@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Vpc
     /// <summary>
     /// Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
     /// 
-    /// &gt; When using this resource, the `private_dns_enabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
+    /// &gt; When using this resource, the `PrivateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
     /// Setting the value both places can lead to unintended behavior and persistent differences.
     /// 
     /// ## Example Usage

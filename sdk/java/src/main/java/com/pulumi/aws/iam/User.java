@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an IAM user.
  * 
- * &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
+ * &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
  * 
  * ## Example Usage
  * 
@@ -107,7 +107,7 @@ public class User extends com.pulumi.resources.CustomResource {
     }
     /**
      * When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
@@ -116,7 +116,7 @@ public class User extends com.pulumi.resources.CustomResource {
 
     /**
      * @return When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
+     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
@@ -166,28 +166,28 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.permissionsBoundary);
     }
     /**
-     * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

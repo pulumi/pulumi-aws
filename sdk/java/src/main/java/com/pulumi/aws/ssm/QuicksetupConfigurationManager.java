@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Patch Policy Configuration Type
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
@@ -36,14 +38,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")
 public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomResource {
     /**
-     * Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
+     * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      * 
      */
     @Export(name="configurationDefinition", refs={QuicksetupConfigurationManagerConfigurationDefinition.class}, tree="[0]")
     private Output</* @Nullable */ QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
 
     /**
-     * @return Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
+     * @return Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      * 
      */
     public Output<Optional<QuicksetupConfigurationManagerConfigurationDefinition>> configurationDefinition() {
@@ -110,42 +112,42 @@ public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomR
         return this.region;
     }
     /**
-     * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
+     * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      * 
      */
     @Export(name="statusSummaries", refs={List.class,QuicksetupConfigurationManagerStatusSummary.class}, tree="[0,1]")
     private Output<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries;
 
     /**
-     * @return A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
+     * @return A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
      * 
      */
     public Output<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries() {
         return this.statusSummaries;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

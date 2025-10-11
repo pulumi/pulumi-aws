@@ -65,7 +65,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> ControlId { get; private set; } = null!;
 
         /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
         /// </summary>
         [Output("controlStatus")]
         public Output<string> ControlStatus { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
         /// </summary>
         [Output("disabledReason")]
         public Output<string> DisabledReason { get; private set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class StandardsControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
         /// </summary>
         [Input("controlStatus", required: true)]
         public Input<string> ControlStatus { get; set; } = null!;
 
         /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
         /// </summary>
         [Input("disabledReason")]
         public Input<string>? DisabledReason { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? ControlId { get; set; }
 
         /// <summary>
-        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `DisabledReason` argument for `DISABLED` control status.
         /// </summary>
         [Input("controlStatus")]
         public Input<string>? ControlStatus { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `ControlStatus` will be set to `DISABLED` automatically.
         /// </summary>
         [Input("disabledReason")]
         public Input<string>? DisabledReason { get; set; }

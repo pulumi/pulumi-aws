@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `docker_volume_configuration`
+    /// ### Example Using `DockerVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `efs_volume_configuration`
+    /// ### Example Using `EfsVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `fsx_windows_file_server_volume_configuration`
+    /// ### Example Using `FsxWindowsFileServerVolumeConfiguration`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `container_definitions`
+    /// ### Example Using `ContainerDefinitions`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### Example Using `runtime_platform` and `fargate`
+    /// ### Example Using `RuntimePlatform` and `Fargate`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -346,13 +346,13 @@ namespace Pulumi.Aws.Ecs
     public partial class TaskDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Full ARN of the Task Definition (including both `family` and `revision`).
+        /// Full ARN of the Task Definition (including both `Family` and `Revision`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        /// ARN of the Task Definition with the trailing `Revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
         [Output("arnWithoutRevision")]
         public Output<string> ArnWithoutRevision { get; private set; } = null!;
@@ -364,13 +364,13 @@ namespace Pulumi.Aws.Ecs
         public Output<string> ContainerDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
 
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `False`.
         /// </summary>
         [Output("enableFaultInjection")]
         public Output<bool> EnableFaultInjection { get; private set; } = null!;
@@ -396,31 +396,31 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        /// IPC resource namespace to be used for the containers in the task The valid values are `Host`, `Task`, and `None`.
         /// </summary>
         [Output("ipcMode")]
         public Output<string?> IpcMode { get; private set; } = null!;
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
 
         /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        /// Docker networking mode to use for the containers in the task. Valid values are `None`, `Bridge`, `Awsvpc`, and `Host`.
         /// </summary>
         [Output("networkMode")]
         public Output<string> NetworkMode { get; private set; } = null!;
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        /// Process namespace to use for the containers in the task. The valid values are `Host` and `Task`.
         /// </summary>
         [Output("pidMode")]
         public Output<string?> PidMode { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. Detailed below.
         /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
@@ -450,25 +450,25 @@ namespace Pulumi.Aws.Ecs
         public Output<int> Revision { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for RuntimePlatform that containers in your task may use.
         /// </summary>
         [Output("runtimePlatform")]
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `False`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `False`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Output("trackLatest")]
         public Output<bool?> TrackLatest { get; private set; } = null!;
@@ -488,9 +488,9 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
-        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 
-        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// &gt; **Note:** Fault injection only works with tasks using the `Awsvpc` or `Host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
@@ -548,13 +548,13 @@ namespace Pulumi.Aws.Ecs
         public Input<string> ContainerDefinitions { get; set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `False`.
         /// </summary>
         [Input("enableFaultInjection")]
         public Input<bool>? EnableFaultInjection { get; set; }
@@ -580,25 +580,25 @@ namespace Pulumi.Aws.Ecs
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        /// IPC resource namespace to be used for the containers in the task The valid values are `Host`, `Task`, and `None`.
         /// </summary>
         [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
         /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        /// Docker networking mode to use for the containers in the task. Valid values are `None`, `Bridge`, `Awsvpc`, and `Host`.
         /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        /// Process namespace to use for the containers in the task. The valid values are `Host` and `Task`.
         /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
@@ -607,7 +607,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. Detailed below.
         /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
@@ -640,13 +640,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for RuntimePlatform that containers in your task may use.
         /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
         /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         /// <summary>
-        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `False`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Input("trackLatest")]
         public Input<bool>? TrackLatest { get; set; }
@@ -681,9 +681,9 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
-        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 
-        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// &gt; **Note:** Fault injection only works with tasks using the `Awsvpc` or `Host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
@@ -700,13 +700,13 @@ namespace Pulumi.Aws.Ecs
     public sealed class TaskDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Full ARN of the Task Definition (including both `family` and `revision`).
+        /// Full ARN of the Task Definition (including both `Family` and `Revision`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        /// ARN of the Task Definition with the trailing `Revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
         [Input("arnWithoutRevision")]
         public Input<string>? ArnWithoutRevision { get; set; }
@@ -718,13 +718,13 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ContainerDefinitions { get; set; }
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `False`.
         /// </summary>
         [Input("enableFaultInjection")]
         public Input<bool>? EnableFaultInjection { get; set; }
@@ -750,25 +750,25 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        /// IPC resource namespace to be used for the containers in the task The valid values are `Host`, `Task`, and `None`.
         /// </summary>
         [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
         /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        /// Docker networking mode to use for the containers in the task. Valid values are `None`, `Bridge`, `Awsvpc`, and `Host`.
         /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        /// Process namespace to use for the containers in the task. The valid values are `Host` and `Task`.
         /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
@@ -777,7 +777,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. Detailed below.
         /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs> PlacementConstraints
         {
@@ -816,13 +816,13 @@ namespace Pulumi.Aws.Ecs
         public Input<int>? Revision { get; set; }
 
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for RuntimePlatform that containers in your task may use.
         /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
 
         /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
+        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -843,7 +843,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -858,7 +858,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskRoleArn { get; set; }
 
         /// <summary>
-        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
+        /// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `False`. Useful in the event the task definition is modified outside of this resource.
         /// </summary>
         [Input("trackLatest")]
         public Input<bool>? TrackLatest { get; set; }
@@ -869,9 +869,9 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// 
-        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+        /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 
-        /// &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// &gt; **Note:** Fault injection only works with tasks using the `Awsvpc` or `Host` network modes. Fault injection isn't available on Windows.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeGetArgs> Volumes
         {

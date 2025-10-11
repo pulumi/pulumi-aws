@@ -13,20 +13,20 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
     public sealed class ScalingPlanScalingInstructionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+        /// Customized load metric to use for predictive scaling. You must specify either `CustomizedLoadMetricSpecification` or `PredefinedLoadMetricSpecification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationGetArgs>? CustomizedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
+        /// Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `False`.
         /// </summary>
         [Input("disableDynamicScaling")]
         public Input<bool>? DisableDynamicScaling { get; set; }
 
         /// <summary>
-        /// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+        /// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `PredictiveScalingMaxCapacityBehavior`.
         /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<int> MinCapacity { get; set; } = null!;
 
         /// <summary>
-        /// Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+        /// Predefined load metric to use for predictive scaling. You must specify either `PredefinedLoadMetricSpecification` or `CustomizedLoadMetricSpecification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public Input<int>? ScheduledActionBufferTime { get; set; }
 
         /// <summary>
-        /// Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
+        /// Namespace of the AWS service. Valid values: `Autoscaling`, `Dynamodb`, `Ecs`, `Ec2`, `Rds`.
         /// </summary>
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;

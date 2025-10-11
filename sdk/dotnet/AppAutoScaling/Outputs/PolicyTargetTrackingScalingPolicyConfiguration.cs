@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification? CustomizedMetricSpecification;
         /// <summary>
-        /// Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        /// Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `False`.
         /// </summary>
         public readonly bool? DisableScaleIn;
         /// <summary>

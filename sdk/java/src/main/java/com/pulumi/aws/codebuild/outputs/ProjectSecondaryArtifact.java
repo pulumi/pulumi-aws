@@ -65,7 +65,7 @@ public final class ProjectSecondaryArtifact {
      */
     private @Nullable String packaging;
     /**
-     * @return Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+     * @return Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
      * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
      * is set to `S3`, this is the path to the output artifact.
      * 
@@ -146,7 +146,7 @@ public final class ProjectSecondaryArtifact {
         return Optional.ofNullable(this.packaging);
     }
     /**
-     * @return Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+     * @return Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
      * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
      * is set to `S3`, this is the path to the output artifact.
      * 

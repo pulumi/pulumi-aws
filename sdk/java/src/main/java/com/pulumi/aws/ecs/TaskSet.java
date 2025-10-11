@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ### Ignoring Changes to Scale
  * 
- * You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ * You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * <pre>
  * {@code
@@ -230,14 +230,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConfiguration);
     }
     /**
-     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
     /**
-     * @return The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Output<String> platformVersion() {
@@ -286,14 +286,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return this.service;
     }
     /**
-     * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     @Export(name="serviceRegistries", refs={TaskSetServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ TaskSetServiceRegistries> serviceRegistries;
 
     /**
-     * @return The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+     * @return The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     public Output<Optional<TaskSetServiceRegistries>> serviceRegistries() {
@@ -328,28 +328,28 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

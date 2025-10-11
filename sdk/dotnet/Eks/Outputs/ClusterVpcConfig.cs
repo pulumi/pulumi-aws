@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string? ClusterSecurityGroupId;
         /// <summary>
-        /// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        /// Whether the Amazon EKS private API server endpoint is enabled. Default is `False`.
         /// </summary>
         public readonly bool? EndpointPrivateAccess;
         /// <summary>
-        /// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        /// Whether the Amazon EKS public API server endpoint is enabled. Default is `True`.
         /// </summary>
         public readonly bool? EndpointPublicAccess;
         /// <summary>

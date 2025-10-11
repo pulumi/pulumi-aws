@@ -20,14 +20,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs();
 
     /**
-     * The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+     * The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
      * 
      */
     @Import(name="firstEntries")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs>> firstEntries;
 
     /**
-     * @return The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+     * @return The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs>>> firstEntries() {
@@ -65,14 +65,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+     * The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
      * 
      */
     @Import(name="lastEntries")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs>> lastEntries;
 
     /**
-     * @return The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+     * @return The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs>>> lastEntries() {
@@ -107,7 +107,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+         * @param firstEntries The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+         * @param lastEntries The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs extends com.pulumi.
     public static final ClusterBrokerNodeGroupInfoStorageInfoArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoArgs();
 
     /**
-     * A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+     * A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
      * 
      */
     @Import(name="ebsStorageInfo")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs> ebsStorageInfo;
 
     /**
-     * @return A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+     * @return A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs>> ebsStorageInfo() {
@@ -55,7 +55,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs extends com.pulumi.
         }
 
         /**
-         * @param ebsStorageInfo A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+         * @param ebsStorageInfo A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs extends com.pulumi.
         }
 
         /**
-         * @param ebsStorageInfo A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+         * @param ebsStorageInfo A block that contains EBS volume information. See storageInfo ebs_storage_info Argument Reference below.
          * 
          * @return builder
          * 

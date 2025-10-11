@@ -213,24 +213,24 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+     * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use connection_region instead.
+     * region is deprecated. Use connectionRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use connection_region instead. */
+    @Deprecated /* region is deprecated. Use connectionRegion instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+     * @return (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use connection_region instead.
+     * region is deprecated. Use connectionRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use connection_region instead. */
+    @Deprecated /* region is deprecated. Use connectionRegion instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -578,30 +578,30 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use connection_region instead.
+         * region is deprecated. Use connectionRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use connection_region instead. */
+        @Deprecated /* region is deprecated. Use connectionRegion instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use connection_region instead.
+         * region is deprecated. Use connectionRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use connection_region instead. */
+        @Deprecated /* region is deprecated. Use connectionRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }

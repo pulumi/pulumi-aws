@@ -109,6 +109,8 @@ import (
 //
 // ```
 //
+// ### Amazon Data Firehose logging
+//
 // ### S3 Logging
 //
 // ```go

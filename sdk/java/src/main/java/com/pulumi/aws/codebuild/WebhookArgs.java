@@ -22,14 +22,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     public static final WebhookArgs Empty = new WebhookArgs();
 
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      * 
      */
     @Import(name="branchFilter")
     private @Nullable Output<String> branchFilter;
 
     /**
-     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      * 
      */
     public Optional<Output<String>> branchFilter() {
@@ -52,14 +52,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the webhook&#39;s trigger. See filter_group for details.
+     * Information about the webhook&#39;s trigger. See filterGroup for details.
      * 
      */
     @Import(name="filterGroups")
     private @Nullable Output<List<WebhookFilterGroupArgs>> filterGroups;
 
     /**
-     * @return Information about the webhook&#39;s trigger. See filter_group for details.
+     * @return Information about the webhook&#39;s trigger. See filterGroup for details.
      * 
      */
     public Optional<Output<List<WebhookFilterGroupArgs>>> filterGroups() {
@@ -67,14 +67,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      * 
      */
     @Import(name="manualCreation")
     private @Nullable Output<Boolean> manualCreation;
 
     /**
-     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+     * @return If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      * 
      */
     public Optional<Output<Boolean>> manualCreation() {
@@ -97,14 +97,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      * 
      */
     @Import(name="pullRequestBuildPolicy")
     private @Nullable Output<WebhookPullRequestBuildPolicyArgs> pullRequestBuildPolicy;
 
     /**
-     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+     * @return Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      * 
      */
     public Optional<Output<WebhookPullRequestBuildPolicyArgs>> pullRequestBuildPolicy() {
@@ -127,14 +127,14 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Scope configuration for global or organization webhooks. See scope_configuration for details.
+     * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      * 
      */
     @Import(name="scopeConfiguration")
     private @Nullable Output<WebhookScopeConfigurationArgs> scopeConfiguration;
 
     /**
-     * @return Scope configuration for global or organization webhooks. See scope_configuration for details.
+     * @return Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      * 
      */
     public Optional<Output<WebhookScopeConfigurationArgs>> scopeConfiguration() {
@@ -173,7 +173,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+         * @param branchFilter A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filterGroups Information about the webhook&#39;s trigger. See filter_group for details.
+         * @param filterGroups Information about the webhook&#39;s trigger. See filterGroup for details.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+         * @param manualCreation If true, CodeBuild doesn&#39;t create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+         * @param pullRequestBuildPolicy Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scope_configuration for details.
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scopeConfiguration for details.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scope_configuration for details.
+         * @param scopeConfiguration Scope configuration for global or organization webhooks. See scopeConfiguration for details.
          * 
          * @return builder
          * 

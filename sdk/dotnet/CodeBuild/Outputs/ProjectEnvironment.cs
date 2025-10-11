@@ -52,7 +52,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         public readonly string? ImagePullCredentialsType;
         /// <summary>
         /// Whether to enable running the Docker daemon inside a Docker container. Defaults to
-        /// `false`.
+        /// `False`.
         /// </summary>
         public readonly bool? PrivilegedMode;
         /// <summary>

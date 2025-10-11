@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ### All Regions Except Specified Regions Usage
  * 
- * The following example will enable the aggregator for every region except those specified in `specified_regions`.
+ * The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
  * 
  * <pre>
  * {@code
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  * ### Specified Regions Usage
  * 
- * The following example will enable the aggregator for every region specified in `specified_regions`.
+ * The following example will enable the aggregator for every region specified in `specifiedRegions`.
  * 
  * <pre>
  * {@code
@@ -230,14 +230,14 @@ public class FindingAggregator extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
     @Export(name="specifiedRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> specifiedRegions;
 
     /**
-     * @return List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+     * @return List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
     public Output<Optional<List<String>>> specifiedRegions() {

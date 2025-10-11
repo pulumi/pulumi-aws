@@ -36,17 +36,17 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
      */
     private String catalogArn;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
+     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
      * 
      */
     private @Nullable List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration processingConfiguration;
@@ -62,7 +62,7 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
     private String roleArn;
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration;
@@ -93,21 +93,21 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         return this.catalogArn;
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
+     * @return Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
      * 
      */
     public List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations() {
         return this.destinationTableConfigurations == null ? List.of() : this.destinationTableConfigurations;
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration> processingConfiguration() {
@@ -131,7 +131,7 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration() {

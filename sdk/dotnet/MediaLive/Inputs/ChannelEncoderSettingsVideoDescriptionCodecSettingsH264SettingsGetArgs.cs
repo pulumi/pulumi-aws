@@ -109,13 +109,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? GopNumBFrames { get; set; }
 
         /// <summary>
-        /// GOP size in units of either frames of seconds per `gop_size_units`.
+        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
         /// </summary>
         [Input("gopSize")]
         public Input<double>? GopSize { get; set; }
 
         /// <summary>
-        /// Indicates if the `gop_size` is specified in frames or seconds.
+        /// Indicates if the `GopSize` is specified in frames or seconds.
         /// </summary>
         [Input("gopSizeUnits")]
         public Input<string>? GopSizeUnits { get; set; }

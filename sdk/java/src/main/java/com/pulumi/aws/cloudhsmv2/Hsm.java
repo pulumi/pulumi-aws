@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudhsmv2/hsm:Hsm")
 public class Hsm extends com.pulumi.resources.CustomResource {
     /**
-     * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+     * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+     * @return The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      * 
      */
     public Output<String> availabilityZone() {
@@ -142,7 +142,7 @@ public class Hsm extends com.pulumi.resources.CustomResource {
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
@@ -151,7 +151,7 @@ public class Hsm extends com.pulumi.resources.CustomResource {
     /**
      * @return The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
-     * &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+     * &gt; **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      * 
      */
     public Output<String> ipAddress() {
@@ -172,14 +172,14 @@ public class Hsm extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+     * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+     * @return The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      * 
      */
     public Output<String> subnetId() {

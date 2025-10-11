@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Waf.Outputs
         /// </summary>
         public readonly string PositionalConstraint;
         /// <summary>
-        /// The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+        /// The value that you want to search for within the field specified by `FieldToMatch`, e.g., `Badrefer1`.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
         /// for all supported values.
         /// </summary>
         public readonly string? TargetString;
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        /// If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
+        /// If you specify a transformation, AWS WAF performs the transformation on `TargetString` before inspecting a request for a match.
         /// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         /// for all supported values.

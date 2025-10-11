@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         private InputList<string>? _addressAllocationIds;
 
         /// <summary>
-        /// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+        /// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         public InputList<string> AddressAllocationIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+        /// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
+        /// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Transfer.Inputs
         }
 
         /// <summary>
-        /// The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
+        /// The ID of the VPC endpoint. This property can only be used when `EndpointType` is set to `VPC_ENDPOINT`
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
-        /// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
+        /// The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

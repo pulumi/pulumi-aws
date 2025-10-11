@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Alb.Inputs
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        /// The behavior if the user is not authenticated. Valid values: `Deny`, `Allow` and `Authenticate`
         /// </summary>
         [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }

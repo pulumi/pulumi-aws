@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         public string? Description { get; set; }
 
         /// <summary>
-        /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
+        /// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `Priority`. Values do not need to be sequential across rules in a policy. A rule with a `TagStatus` value of "any" must have the highest value for `Priority` and be evaluated last.
         /// </summary>
         [Input("priority", required: true)]
         public int Priority { get; set; }

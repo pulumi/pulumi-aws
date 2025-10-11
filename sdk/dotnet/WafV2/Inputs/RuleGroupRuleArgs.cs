@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+        /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See Statement below for details.
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupRuleStatementArgs> Statement { get; set; } = null!;

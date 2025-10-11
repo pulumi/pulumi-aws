@@ -29,7 +29,7 @@ public final class VirtualNodeSpecListenerHealthCheck {
      */
     private @Nullable String path;
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
      * 
      */
     private @Nullable Integer port;
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecListenerHealthCheck {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
      * 
      */
     public Optional<Integer> port() {

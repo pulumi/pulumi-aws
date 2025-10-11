@@ -34,7 +34,7 @@ public final class GetAppregistryApplicationResult {
     private String name;
     private String region;
     /**
-     * @return A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private Map<String,String> tags;
@@ -75,7 +75,7 @@ public final class GetAppregistryApplicationResult {
         return this.region;
     }
     /**
-     * @return A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

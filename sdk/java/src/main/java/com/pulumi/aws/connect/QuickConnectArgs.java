@@ -64,14 +64,14 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+     * A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      * 
      */
     @Import(name="quickConnectConfig", required=true)
     private Output<QuickConnectQuickConnectConfigArgs> quickConnectConfig;
 
     /**
-     * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+     * @return A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      * 
      */
     public Output<QuickConnectQuickConnectConfigArgs> quickConnectConfig() {
@@ -94,14 +94,14 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -201,7 +201,7 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quickConnectConfig A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+         * @param quickConnectConfig A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quickConnectConfig A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+         * @param quickConnectConfig A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class QuickConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM policy attached to a user.
     /// 
-    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `Policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
     /// 
     /// ## Example Usage
     /// 
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

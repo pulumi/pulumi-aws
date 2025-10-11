@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SerialConsoleAccess : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not serial console access is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SerialConsoleAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not serial console access is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SerialConsoleAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// Whether or not serial console access is enabled. Valid values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

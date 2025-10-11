@@ -18,17 +18,17 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
     /// 
-    /// &gt; **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
+    /// &gt; **NOTE on `GatewayId` and `NatGatewayId`:** The AWS API is very forgiving with these two
     /// attributes and the `aws.ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
     /// This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
     /// parameters in the returned route table. If you're experiencing constant diffs in your `aws.ec2.RouteTable` resources,
     /// the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
     /// 
-    /// &gt; **NOTE on `propagating_vgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
-    /// If the `propagating_vgws` argument is present, it's not supported to _also_
+    /// &gt; **NOTE on `PropagatingVgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
+    /// If the `PropagatingVgws` argument is present, it's not supported to _also_
     /// define route propagations using `aws.ec2.VpnGatewayRoutePropagation`, since
     /// this resource will delete any propagating gateways not explicitly listed in
-    /// `propagating_vgws`. Omit this argument when defining route propagation using
+    /// `PropagatingVgws`. Omit this argument when defining route propagation using
     /// the separate resource.
     /// 
     /// ## Example Usage
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// The target could then be updated again back to `local`.
+    /// The target could then be updated again back to `Local`.
     /// 
     /// ## Import
     /// 
@@ -225,13 +225,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

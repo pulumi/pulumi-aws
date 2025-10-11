@@ -17,14 +17,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs();
 
     /**
-     * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+     * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
      * 
      */
     @Import(name="headerBehavior")
     private @Nullable Output<String> headerBehavior;
 
     /**
-     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
      * 
      */
     public Optional<Output<String>> headerBehavior() {
@@ -72,7 +72,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
          * 
          * @return builder
          * 

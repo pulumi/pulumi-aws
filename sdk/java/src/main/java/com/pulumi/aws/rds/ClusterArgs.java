@@ -75,7 +75,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      * A maximum of 3 AZs can be configured.
      * 
      */
@@ -85,7 +85,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
      * A maximum of 3 AZs can be configured.
      * 
      */
@@ -154,14 +154,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      * 
      */
     @Import(name="clusterIdentifierPrefix")
     private @Nullable Output<String> clusterIdentifierPrefix;
 
     /**
-     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+     * @return Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      * 
      */
     public Optional<Output<String>> clusterIdentifierPrefix() {
@@ -274,14 +274,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+     * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
      * 
      */
     @Import(name="dbInstanceParameterGroupName")
     private @Nullable Output<String> dbInstanceParameterGroupName;
 
     /**
-     * @return Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+     * @return Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
      * 
      */
     public Optional<Output<String>> dbInstanceParameterGroupName() {
@@ -290,7 +290,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * DB subnet group to associate with this DB cluster.
-     * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     @Import(name="dbSubnetGroupName")
@@ -298,7 +298,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return DB subnet group to associate with this DB cluster.
-     * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     public Optional<Output<String>> dbSubnetGroupName() {
@@ -400,14 +400,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
      * 
      */
     @Import(name="enableHttpEndpoint")
     private @Nullable Output<Boolean> enableHttpEndpoint;
 
     /**
-     * @return Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
+     * @return Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
      * 
      */
     public Optional<Output<Boolean>> enableHttpEndpoint() {
@@ -490,14 +490,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
+     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
+     * @return Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -580,14 +580,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -595,14 +595,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
      * 
      */
     @Import(name="manageMasterUserPassword")
     private @Nullable Output<Boolean> manageMasterUserPassword;
 
     /**
-     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
      * 
      */
     public Optional<Output<Boolean>> manageMasterUserPassword() {
@@ -610,14 +610,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     @Import(name="masterPassword")
     private @Nullable Output<String> masterPassword;
 
     /**
-     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -842,14 +842,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      * 
      */
     @Import(name="scalingConfiguration")
     private @Nullable Output<ClusterScalingConfigurationArgs> scalingConfiguration;
 
     /**
-     * @return Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+     * @return Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      * 
      */
     public Optional<Output<ClusterScalingConfigurationArgs>> scalingConfiguration() {
@@ -857,14 +857,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+     * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
      * 
      */
     @Import(name="serverlessv2ScalingConfiguration")
     private @Nullable Output<ClusterServerlessv2ScalingConfigurationArgs> serverlessv2ScalingConfiguration;
 
     /**
-     * @return Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+     * @return Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
      * 
      */
     public Optional<Output<ClusterServerlessv2ScalingConfigurationArgs>> serverlessv2ScalingConfiguration() {
@@ -872,14 +872,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     @Import(name="skipFinalSnapshot")
     private @Nullable Output<Boolean> skipFinalSnapshot;
 
     /**
-     * @return Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+     * @return Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> skipFinalSnapshot() {
@@ -887,14 +887,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     @Import(name="snapshotIdentifier")
     private @Nullable Output<String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     public Optional<Output<String>> snapshotIdentifier() {
@@ -917,14 +917,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * @return Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -932,14 +932,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -947,14 +947,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -1140,7 +1140,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
          * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
          * A maximum of 3 AZs can be configured.
          * 
          * @return builder
@@ -1154,7 +1154,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
          * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
          * A maximum of 3 AZs can be configured.
          * 
          * @return builder
@@ -1167,7 +1167,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param availabilityZones List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
          * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+         * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
          * A maximum of 3 AZs can be configured.
          * 
          * @return builder
@@ -1262,7 +1262,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
          * 
          * @return builder
          * 
@@ -1273,7 +1273,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+         * @param clusterIdentifierPrefix Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
          * 
          * @return builder
          * 
@@ -1440,7 +1440,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceParameterGroupName Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+         * @param dbInstanceParameterGroupName Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
          * 
          * @return builder
          * 
@@ -1451,7 +1451,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceParameterGroupName Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+         * @param dbInstanceParameterGroupName Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
          * 
          * @return builder
          * 
@@ -1462,7 +1462,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dbSubnetGroupName DB subnet group to associate with this DB cluster.
-         * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+         * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
          * 
          * @return builder
          * 
@@ -1474,7 +1474,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dbSubnetGroupName DB subnet group to associate with this DB cluster.
-         * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+         * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
          * 
          * @return builder
          * 
@@ -1614,7 +1614,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
+         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
          * 
          * @return builder
          * 
@@ -1625,7 +1625,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
+         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
          * 
          * @return builder
          * 
@@ -1790,7 +1790,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
+         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -1801,7 +1801,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
+         * @param engineVersion Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -1926,7 +1926,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1937,7 +1937,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
          * 
          * @return builder
          * 
@@ -1947,7 +1947,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
          * 
          * @return builder
          * 
@@ -1958,7 +1958,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `masterPassword` is provided.
          * 
          * @return builder
          * 
@@ -1968,7 +1968,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
          * 
          * @return builder
          * 
@@ -1979,7 +1979,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
          * 
          * @return builder
          * 
@@ -2292,7 +2292,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+         * @param scalingConfiguration Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
          * 
          * @return builder
          * 
@@ -2303,7 +2303,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+         * @param scalingConfiguration Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
          * 
          * @return builder
          * 
@@ -2313,7 +2313,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverlessv2ScalingConfiguration Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+         * @param serverlessv2ScalingConfiguration Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
          * 
          * @return builder
          * 
@@ -2324,7 +2324,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverlessv2ScalingConfiguration Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+         * @param serverlessv2ScalingConfiguration Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
          * 
          * @return builder
          * 
@@ -2334,7 +2334,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
          * 
          * @return builder
          * 
@@ -2345,7 +2345,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
          * 
          * @return builder
          * 
@@ -2355,7 +2355,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
          * 
          * @return builder
          * 
@@ -2366,7 +2366,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
          * 
          * @return builder
          * 
@@ -2397,7 +2397,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -2408,7 +2408,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -2418,7 +2418,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
          * 
          * @return builder
          * 
@@ -2429,7 +2429,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+         * @param storageType (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
          * 
          * @return builder
          * 
@@ -2439,7 +2439,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -2450,7 +2450,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

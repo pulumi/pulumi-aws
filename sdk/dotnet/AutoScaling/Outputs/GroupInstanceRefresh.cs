@@ -22,11 +22,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string Strategy;
         /// <summary>
-        /// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+        /// Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `LaunchConfiguration`, `LaunchTemplate`, or `MixedInstancesPolicy`.
         /// 
-        /// &gt; **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launch_configuration`, `launch_template`, `mixed_instances_policy`. Additional properties can be specified in the `triggers` property of `instance_refresh`.
+        /// &gt; **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `LaunchConfiguration`, `LaunchTemplate`, `MixedInstancesPolicy`. Additional properties can be specified in the `Triggers` property of `InstanceRefresh`.
         /// 
-        /// &gt; **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launch_template` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource.
+        /// &gt; **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `LaunchTemplate` block. To trigger the instance refresh when a launch template is changed, configure `Version` to use the `LatestVersion` attribute of the `aws.ec2.LaunchTemplate` resource.
         /// 
         /// &gt; **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
         /// 

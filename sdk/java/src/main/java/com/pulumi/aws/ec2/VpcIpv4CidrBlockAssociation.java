@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")
 public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
-     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     public Output<String> cidrBlock() {
@@ -115,14 +115,14 @@ public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.ipv4IpamPoolId);
     }
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     @Export(name="ipv4NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv4NetmaskLength;
 
     /**
-     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     public Output<Optional<Integer>> ipv4NetmaskLength() {

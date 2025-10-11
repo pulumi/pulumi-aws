@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class SpaceSpaceSettingsCustomFileSystem {
     /**
-     * @return A custom file system in Amazon EFS. See `efs_file_system` Block below.
+     * @return A custom file system in Amazon EFS. See `efsFileSystem` Block below.
      * 
      */
     private SpaceSpaceSettingsCustomFileSystemEfsFileSystem efsFileSystem;
 
     private SpaceSpaceSettingsCustomFileSystem() {}
     /**
-     * @return A custom file system in Amazon EFS. See `efs_file_system` Block below.
+     * @return A custom file system in Amazon EFS. See `efsFileSystem` Block below.
      * 
      */
     public SpaceSpaceSettingsCustomFileSystemEfsFileSystem efsFileSystem() {

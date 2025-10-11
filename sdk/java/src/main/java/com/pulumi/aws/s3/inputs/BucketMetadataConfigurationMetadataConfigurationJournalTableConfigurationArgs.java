@@ -18,14 +18,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
     public static final BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs();
 
     /**
-     * Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+     * Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
      * 
      */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -33,14 +33,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
     }
 
     /**
-     * Journal table record expiration settings. See `record_expiration` Block for details.
+     * Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
     @Import(name="recordExpiration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> recordExpiration;
 
     /**
-     * @return Journal table record expiration settings. See `record_expiration` Block for details.
+     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs>> recordExpiration() {
@@ -105,7 +105,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
         }
 
         /**
-         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
         }
 
         /**
-         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+         * @param encryptionConfiguration Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
         }
 
         /**
-         * @param recordExpiration Journal table record expiration settings. See `record_expiration` Block for details.
+         * @param recordExpiration Journal table record expiration settings. See `recordExpiration` Block for details.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
         }
 
         /**
-         * @param recordExpiration Journal table record expiration settings. See `record_expiration` Block for details.
+         * @param recordExpiration Journal table record expiration settings. See `recordExpiration` Block for details.
          * 
          * @return builder
          * 

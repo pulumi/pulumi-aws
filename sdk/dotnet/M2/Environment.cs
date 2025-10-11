@@ -14,6 +14,14 @@ namespace Pulumi.Aws.M2
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ### High Availability
+    /// 
+    /// ### EFS Filesystem
+    /// 
+    /// ### FSX Filesystem
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
@@ -38,7 +46,7 @@ namespace Pulumi.Aws.M2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Engine type must be `microfocus` or `bluage`.
+        /// Engine type must be `Microfocus` or `Bluage`.
         /// </summary>
         [Output("engineType")]
         public Output<string> EngineType { get; private set; } = null!;
@@ -124,7 +132,7 @@ namespace Pulumi.Aws.M2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -188,7 +196,7 @@ namespace Pulumi.Aws.M2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Engine type must be `microfocus` or `bluage`.
+        /// Engine type must be `Microfocus` or `Bluage`.
         /// </summary>
         [Input("engineType", required: true)]
         public Input<string> EngineType { get; set; } = null!;
@@ -277,7 +285,7 @@ namespace Pulumi.Aws.M2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -309,7 +317,7 @@ namespace Pulumi.Aws.M2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Engine type must be `microfocus` or `bluage`.
+        /// Engine type must be `Microfocus` or `Bluage`.
         /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
@@ -410,7 +418,7 @@ namespace Pulumi.Aws.M2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the place index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> DefaultLogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
+        /// If `True` all logs are disabled. The default is `False`.
         /// </summary>
         [Output("disableAllLogs")]
         public Output<bool?> DisableAllLogs { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Iot
         public Input<string> DefaultLogLevel { get; set; } = null!;
 
         /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
+        /// If `True` all logs are disabled. The default is `False`.
         /// </summary>
         [Input("disableAllLogs")]
         public Input<bool>? DisableAllLogs { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? DefaultLogLevel { get; set; }
 
         /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
+        /// If `True` all logs are disabled. The default is `False`.
         /// </summary>
         [Input("disableAllLogs")]
         public Input<bool>? DisableAllLogs { get; set; }

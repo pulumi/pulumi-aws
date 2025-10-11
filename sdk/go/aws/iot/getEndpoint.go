@@ -12,6 +12,8 @@ import (
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
+//
+// ## Example Usage
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointResult

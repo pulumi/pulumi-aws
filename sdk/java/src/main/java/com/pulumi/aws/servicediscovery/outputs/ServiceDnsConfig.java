@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceDnsConfig {
     /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
+     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
      * 
      */
     private List<ServiceDnsConfigDnsRecord> dnsRecords;
@@ -32,7 +32,7 @@ public final class ServiceDnsConfig {
 
     private ServiceDnsConfig() {}
     /**
-     * @return An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
+     * @return An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
      * 
      */
     public List<ServiceDnsConfigDnsRecord> dnsRecords() {

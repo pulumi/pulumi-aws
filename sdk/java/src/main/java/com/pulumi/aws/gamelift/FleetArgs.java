@@ -23,14 +23,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     public static final FleetArgs Empty = new FleetArgs();
 
     /**
-     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+     * ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      * 
      */
     @Import(name="buildId")
     private @Nullable Output<String> buildId;
 
     /**
-     * @return ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+     * @return ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
      * 
      */
     public Optional<Output<String>> buildId() {
@@ -218,14 +218,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+     * ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      * 
      */
     @Import(name="scriptId")
     private @Nullable Output<String> scriptId;
 
     /**
-     * @return ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+     * @return ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
      * 
      */
     public Optional<Output<String>> scriptId() {
@@ -233,14 +233,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -286,7 +286,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+         * @param buildId ID of the GameLift Build to be deployed on the fleet. Conflicts with `scriptId`.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+         * @param scriptId ID of the GameLift Script to be deployed on the fleet. Conflicts with `buildId`.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

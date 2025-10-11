@@ -18,14 +18,14 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetExportArgs Empty = new GetExportArgs();
 
     /**
-     * Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+     * Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
      * 
      */
     @Import(name="accepts")
     private @Nullable Output<String> accepts;
 
     /**
-     * @return Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+     * @return Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
      * 
      */
     public Optional<Output<String>> accepts() {
@@ -137,7 +137,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+         * @param accepts Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `exportType` `ofoas30` and `swagger`.
          * 
          * @return builder
          * 

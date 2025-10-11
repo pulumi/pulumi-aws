@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Eks
     public partial class AccessPolicyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
+        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
         /// </summary>
         [Output("accessScope")]
         public Output<Outputs.AccessPolicyAssociationAccessScope> AccessScope { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Eks
     public sealed class AccessPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
+        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
         /// </summary>
         [Input("accessScope", required: true)]
         public Input<Inputs.AccessPolicyAssociationAccessScopeArgs> AccessScope { get; set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Eks
     public sealed class AccessPolicyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
+        /// The configuration block to determine the scope of the access. See `AccessScope` Block below.
         /// </summary>
         [Input("accessScope")]
         public Input<Inputs.AccessPolicyAssociationAccessScopeGetArgs>? AccessScope { get; set; }

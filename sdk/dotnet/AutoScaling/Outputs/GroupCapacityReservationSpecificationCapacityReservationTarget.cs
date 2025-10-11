@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupCapacityReservationSpecificationCapacityReservationTarget
     {
         /// <summary>
-        /// List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+        /// List of On-Demand Capacity Reservation Ids. Conflicts with `CapacityReservationResourceGroupArns`.
         /// </summary>
         public readonly ImmutableArray<string> CapacityReservationIds;
         /// <summary>
-        /// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+        /// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `CapacityReservationIds`.
         /// </summary>
         public readonly ImmutableArray<string> CapacityReservationResourceGroupArns;
 

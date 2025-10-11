@@ -36,7 +36,7 @@ public final class ListenerRuleAction {
     /**
      * @return Configuration block for creating an action that distributes requests among one or more target groups.
      * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
+     * Cannot be specified with `targetGroupArn`.
      * 
      */
     private @Nullable ListenerRuleActionForward forward;
@@ -92,7 +92,7 @@ public final class ListenerRuleAction {
     /**
      * @return Configuration block for creating an action that distributes requests among one or more target groups.
      * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
+     * Cannot be specified with `targetGroupArn`.
      * 
      */
     public Optional<ListenerRuleActionForward> forward() {

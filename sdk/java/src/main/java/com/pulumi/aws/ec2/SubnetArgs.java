@@ -54,14 +54,14 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+     * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      * 
      */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
     /**
-     * @return AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+     * @return AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      * 
      */
     public Optional<Output<String>> availabilityZoneId() {
@@ -84,14 +84,14 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+     * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      * 
      */
     @Import(name="customerOwnedIpv4Pool")
     private @Nullable Output<String> customerOwnedIpv4Pool;
 
     /**
-     * @return The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+     * @return The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      * 
      */
     public Optional<Output<String>> customerOwnedIpv4Pool() {
@@ -191,14 +191,14 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+     * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
     @Import(name="mapCustomerOwnedIpOnLaunch")
     private @Nullable Output<Boolean> mapCustomerOwnedIpOnLaunch;
 
     /**
-     * @return Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+     * @return Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> mapCustomerOwnedIpOnLaunch() {
@@ -270,14 +270,14 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -387,7 +387,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneId AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+         * @param availabilityZoneId AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneId AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+         * @param availabilityZoneId AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerOwnedIpv4Pool The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+         * @param customerOwnedIpv4Pool The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerOwnedIpv4Pool The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+         * @param customerOwnedIpv4Pool The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapCustomerOwnedIpOnLaunch Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+         * @param mapCustomerOwnedIpOnLaunch Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapCustomerOwnedIpOnLaunch Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+         * @param mapCustomerOwnedIpOnLaunch Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

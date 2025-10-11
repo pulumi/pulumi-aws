@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AutoImport { get; private set; } = null!;
 
         /// <summary>
-        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `Ec2`.
         /// </summary>
         [Output("awsService")]
         public Output<string?> AwsService { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Ec2
         public Output<int> PoolDepth { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `Byoip` or `Amazon`. Default is `Byoip`.
         /// </summary>
         [Output("publicIpSource")]
         public Output<string?> PublicIpSource { get; private set; } = null!;
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `AddressFamily = "ipv6"` and `PublicIpSource = "byoip"`, default is `False`. This option is not available for IPv4 pool space or if `PublicIpSource = "amazon"`. Setting this argument to `True` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Output("publiclyAdvertisable")]
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
@@ -220,13 +220,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoImport { get; set; }
 
         /// <summary>
-        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `Ec2`.
         /// </summary>
         [Input("awsService")]
         public Input<string>? AwsService { get; set; }
@@ -351,13 +351,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `Byoip` or `Amazon`. Default is `Byoip`.
         /// </summary>
         [Input("publicIpSource")]
         public Input<string>? PublicIpSource { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `AddressFamily = "ipv6"` and `PublicIpSource = "byoip"`, default is `False`. This option is not available for IPv4 pool space or if `PublicIpSource = "amazon"`. Setting this argument to `True` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoImport { get; set; }
 
         /// <summary>
-        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `Ec2`.
         /// </summary>
         [Input("awsService")]
         public Input<string>? AwsService { get; set; }
@@ -480,13 +480,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PoolDepth { get; set; }
 
         /// <summary>
-        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `Byoip` or `Amazon`. Default is `Byoip`.
         /// </summary>
         [Input("publicIpSource")]
         public Input<string>? PublicIpSource { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `AddressFamily = "ipv6"` and `PublicIpSource = "byoip"`, default is `False`. This option is not available for IPv4 pool space or if `PublicIpSource = "amazon"`. Setting this argument to `True` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

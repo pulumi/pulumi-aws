@@ -79,14 +79,14 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs extends com.pul
     }
 
     /**
-     * Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+     * Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
      * 
      */
     @Import(name="units", required=true)
     private Output<String> units;
 
     /**
-     * @return Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+     * @return Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
      * 
      */
     public Output<String> units() {
@@ -206,7 +206,7 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs extends com.pul
         }
 
         /**
-         * @param units Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+         * @param units Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs extends com.pul
         }
 
         /**
-         * @param units Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+         * @param units Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
          * 
          * @return builder
          * 

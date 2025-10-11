@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Kms
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        /// The default value is `false`.
+        /// The default value is `False`.
         /// </summary>
         [Output("bypassPolicyLockoutSafetyCheck")]
         public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
+        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the replica key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Kms
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        /// The default value is `false`.
+        /// The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
+        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the replica key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Kms
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        /// The default value is `false`.
+        /// The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
+        /// Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the replica key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

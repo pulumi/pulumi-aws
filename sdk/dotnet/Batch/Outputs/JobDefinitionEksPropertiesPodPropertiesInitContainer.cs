@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. The supported resources include `Memory`, `Cpu`, and `nvidia.com/gpu`.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResources? Resources;
         /// <summary>

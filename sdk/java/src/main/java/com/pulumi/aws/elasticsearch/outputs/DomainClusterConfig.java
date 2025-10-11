@@ -46,7 +46,7 @@ public final class DomainClusterConfig {
      */
     private @Nullable String instanceType;
     /**
-     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     private @Nullable Integer warmCount;
@@ -56,7 +56,7 @@ public final class DomainClusterConfig {
      */
     private @Nullable Boolean warmEnabled;
     /**
-     * @return Instance type for the Elasticsearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+     * @return Instance type for the Elasticsearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     private @Nullable String warmType;
@@ -66,7 +66,7 @@ public final class DomainClusterConfig {
      */
     private @Nullable DomainClusterConfigZoneAwarenessConfig zoneAwarenessConfig;
     /**
-     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
      * 
      */
     private @Nullable Boolean zoneAwarenessEnabled;
@@ -115,7 +115,7 @@ public final class DomainClusterConfig {
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+     * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     public Optional<Integer> warmCount() {
@@ -129,7 +129,7 @@ public final class DomainClusterConfig {
         return Optional.ofNullable(this.warmEnabled);
     }
     /**
-     * @return Instance type for the Elasticsearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+     * @return Instance type for the Elasticsearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     public Optional<String> warmType() {
@@ -143,7 +143,7 @@ public final class DomainClusterConfig {
         return Optional.ofNullable(this.zoneAwarenessConfig);
     }
     /**
-     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+     * @return Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
      * 
      */
     public Optional<Boolean> zoneAwarenessEnabled() {

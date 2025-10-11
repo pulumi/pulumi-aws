@@ -13,7 +13,7 @@ namespace Pulumi.Aws.EmrServerless.Inputs
     public sealed class ApplicationAutoStopConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+        /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -16,14 +16,14 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsArgs extends com
     public static final DomainDefaultUserSettingsSpaceStorageSettingsArgs Empty = new DomainDefaultUserSettingsSpaceStorageSettingsArgs();
 
     /**
-     * The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+     * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
      * 
      */
     @Import(name="defaultEbsStorageSettings")
     private @Nullable Output<DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings;
 
     /**
-     * @return The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+     * @return The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs>> defaultEbsStorageSettings() {
@@ -55,7 +55,7 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsArgs extends com
         }
 
         /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsArgs extends com
         }
 
         /**
-         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+         * @param defaultEbsStorageSettings The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
          * 
          * @return builder
          * 

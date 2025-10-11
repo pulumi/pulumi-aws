@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        /// Math expression used on the returned metric. You must specify either `Expression` or `MetricStat`, but not both.
         /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        /// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `Expression` or `MetricStat`, but not both.
         /// </summary>
         [Input("metricStat")]
         public Input<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatGetArgs>? MetricStat { get; set; }

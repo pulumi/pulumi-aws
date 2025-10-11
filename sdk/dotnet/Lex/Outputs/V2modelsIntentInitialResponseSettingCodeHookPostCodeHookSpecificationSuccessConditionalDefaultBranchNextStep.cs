@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep
     {
         /// <summary>
-        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
+        /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `DialogAction`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction? DialogAction;
         /// <summary>
-        /// Configuration block for override settings to configure the intent state. See `intent`.
+        /// Configuration block for override settings to configure the intent state. See `Intent`.
         /// </summary>
         public readonly Outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent? Intent;
         /// <summary>

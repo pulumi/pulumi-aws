@@ -150,19 +150,19 @@ namespace Pulumi.Aws.Eks
         public Output<string> ServiceAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Output("targetRoleArn")]
         public Output<string?> TargetRoleArn { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }

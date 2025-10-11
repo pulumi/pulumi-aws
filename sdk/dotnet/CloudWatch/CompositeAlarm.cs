@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Composite Alarm resource.
     /// 
-    /// &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
+    /// &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `DependsOn`, references to alarm names, and two-stage updates.
     /// 
     /// ## Example Usage
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class CompositeAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `True`.
         /// </summary>
         [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
@@ -116,13 +116,13 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class CompositeAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `True`.
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class CompositeAlarmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `True`.
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

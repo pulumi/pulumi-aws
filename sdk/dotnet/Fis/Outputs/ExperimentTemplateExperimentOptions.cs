@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string? AccountTargeting;
         /// <summary>
-        /// Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        /// Specifies the empty target resolution mode for experiment options. Supports `Fail` and `Skip`.
         /// </summary>
         public readonly string? EmptyTargetResolutionMode;
 

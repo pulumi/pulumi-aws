@@ -34,14 +34,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
     }
 
     /**
-     * Inventory table configuration. See `inventory_table_configuration` Block for details.
+     * Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
     @Import(name="inventoryTableConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration;
 
     /**
-     * @return Inventory table configuration. See `inventory_table_configuration` Block for details.
+     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs>> inventoryTableConfiguration() {
@@ -49,14 +49,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
     }
 
     /**
-     * Journal table configuration. See `journal_table_configuration` Block for details.
+     * Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
     @Import(name="journalTableConfiguration")
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration;
 
     /**
-     * @return Journal table configuration. See `journal_table_configuration` Block for details.
+     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
     public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs>> journalTableConfiguration() {
@@ -121,7 +121,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param inventoryTableConfiguration Inventory table configuration. See `inventory_table_configuration` Block for details.
+         * @param inventoryTableConfiguration Inventory table configuration. See `inventoryTableConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param inventoryTableConfiguration Inventory table configuration. See `inventory_table_configuration` Block for details.
+         * @param inventoryTableConfiguration Inventory table configuration. See `inventoryTableConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param journalTableConfiguration Journal table configuration. See `journal_table_configuration` Block for details.
+         * @param journalTableConfiguration Journal table configuration. See `journalTableConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param journalTableConfiguration Journal table configuration. See `journal_table_configuration` Block for details.
+         * @param journalTableConfiguration Journal table configuration. See `journalTableConfiguration` Block for details.
          * 
          * @return builder
          * 

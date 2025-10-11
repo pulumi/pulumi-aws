@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainCognitoOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
+        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

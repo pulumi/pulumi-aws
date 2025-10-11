@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
+        /// Set of entries in this prefix list. Each entry is an object with `Cidr` and `Description`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedPrefixListEntryResult> Entries;
         public readonly ImmutableArray<Outputs.GetManagedPrefixListFilterResult> Filters;

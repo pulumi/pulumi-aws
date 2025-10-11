@@ -82,14 +82,14 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+     * @return Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -213,7 +213,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+         * @param version Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param version Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+         * @param version Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
          * 
          * @return builder
          * 

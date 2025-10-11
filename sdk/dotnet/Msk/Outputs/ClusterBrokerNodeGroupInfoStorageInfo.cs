@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterBrokerNodeGroupInfoStorageInfo
     {
         /// <summary>
-        /// A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+        /// A block that contains EBS volume information. See StorageInfo ebs_storage_info Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo? EbsStorageInfo;
 

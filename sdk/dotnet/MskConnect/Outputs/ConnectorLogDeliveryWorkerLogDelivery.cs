@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorLogDeliveryWorkerLogDelivery
     {
         /// <summary>
-        /// Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
+        /// Details about delivering logs to Amazon CloudWatch Logs. See `CloudwatchLogs` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs? CloudwatchLogs;
         /// <summary>
-        /// Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
+        /// Details about delivering logs to Amazon Kinesis Data Firehose. See `Firehose` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorLogDeliveryWorkerLogDeliveryFirehose? Firehose;
         /// <summary>
-        /// Details about delivering logs to Amazon S3. See `s3` Block for deetails.
+        /// Details about delivering logs to Amazon S3. See `S3` Block for deetails.
         /// </summary>
         public readonly Outputs.ConnectorLogDeliveryWorkerLogDeliveryS3? S3;
 

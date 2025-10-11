@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Chime.Inputs
         public Input<string>? ConfigurationArn { get; set; }
 
         /// <summary>
-        /// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        /// When `True`, the media insights configuration is not enabled. Defaults to `False`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }

@@ -20,14 +20,14 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
     public static final ConfigurationPolicyConfigurationPolicyArgs Empty = new ConfigurationPolicyConfigurationPolicyArgs();
 
     /**
-     * A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+     * A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
      * 
      */
     @Import(name="enabledStandardArns")
     private @Nullable Output<List<String>> enabledStandardArns;
 
     /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
      * 
      */
     public Optional<Output<List<String>>> enabledStandardArns() {
@@ -91,7 +91,7 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+         * @param enabledStandardArns A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
          * 
          * @return builder
          * 

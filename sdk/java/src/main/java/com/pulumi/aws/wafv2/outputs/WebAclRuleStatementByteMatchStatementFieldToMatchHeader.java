@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeader {
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     private WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern matchPattern;
@@ -29,7 +29,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchHeader {
 
     private WebAclRuleStatementByteMatchStatementFieldToMatchHeader() {}
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     public WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern matchPattern() {

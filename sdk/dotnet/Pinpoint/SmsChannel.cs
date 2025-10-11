@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

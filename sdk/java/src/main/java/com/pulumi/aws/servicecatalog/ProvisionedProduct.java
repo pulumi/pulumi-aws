@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources.
  * 
- * Like this resource, the `aws_servicecatalog_record` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
+ * Like this resource, the `awsServicecatalogRecord` data source also provides information about a provisioned product. Although a Service Catalog record provides some overlapping information with this resource, a record is tied to a provisioned product event, such as provisioning, termination, and updating.
  * 
  * &gt; **Tip:** If you include conflicted keys as tags, AWS will report an error, &#34;Parameter validation failed: Missing required parameter in Tags[N]:Value&#34;.
  * 
@@ -258,98 +258,98 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
         return this.outputs;
     }
     /**
-     * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+     * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      * 
      */
     @Export(name="pathId", refs={String.class}, tree="[0]")
     private Output<String> pathId;
 
     /**
-     * @return Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+     * @return Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      * 
      */
     public Output<String> pathId() {
         return this.pathId;
     }
     /**
-     * Name of the path. You must provide `path_id` or `path_name`, but not both.
+     * Name of the path. You must provide `pathId` or `pathName`, but not both.
      * 
      */
     @Export(name="pathName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pathName;
 
     /**
-     * @return Name of the path. You must provide `path_id` or `path_name`, but not both.
+     * @return Name of the path. You must provide `pathId` or `pathName`, but not both.
      * 
      */
     public Output<Optional<String>> pathName() {
         return Codegen.optional(this.pathName);
     }
     /**
-     * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+     * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
     /**
-     * @return Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+     * @return Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      * 
      */
     public Output<String> productId() {
         return this.productId;
     }
     /**
-     * Name of the product. You must provide `product_id` or `product_name`, but not both.
+     * Name of the product. You must provide `productId` or `productName`, but not both.
      * 
      */
     @Export(name="productName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> productName;
 
     /**
-     * @return Name of the product. You must provide `product_id` or `product_name`, but not both.
+     * @return Name of the product. You must provide `productId` or `productName`, but not both.
      * 
      */
     public Output<Optional<String>> productName() {
         return Codegen.optional(this.productName);
     }
     /**
-     * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     @Export(name="provisioningArtifactId", refs={String.class}, tree="[0]")
     private Output<String> provisioningArtifactId;
 
     /**
-     * @return Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * @return Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     public Output<String> provisioningArtifactId() {
         return this.provisioningArtifactId;
     }
     /**
-     * Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     @Export(name="provisioningArtifactName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> provisioningArtifactName;
 
     /**
-     * @return Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * @return Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     public Output<Optional<String>> provisioningArtifactName() {
         return Codegen.optional(this.provisioningArtifactName);
     }
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      * 
      */
     @Export(name="provisioningParameters", refs={List.class,ProvisionedProductProvisioningParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProvisionedProductProvisioningParameter>> provisioningParameters;
 
     /**
-     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      * 
      */
     public Output<Optional<List<ProvisionedProductProvisioningParameter>>> provisioningParameters() {
@@ -384,14 +384,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retainPhysicalResources);
     }
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      * 
      */
     @Export(name="stackSetProvisioningPreferences", refs={ProvisionedProductStackSetProvisioningPreferences.class}, tree="[0]")
     private Output</* @Nullable */ ProvisionedProductStackSetProvisioningPreferences> stackSetProvisioningPreferences;
 
     /**
-     * @return Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+     * @return Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      * 
      */
     public Output<Optional<ProvisionedProductStackSetProvisioningPreferences>> stackSetProvisioningPreferences() {
@@ -426,28 +426,28 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
         return this.statusMessage;
     }
     /**
-     * Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

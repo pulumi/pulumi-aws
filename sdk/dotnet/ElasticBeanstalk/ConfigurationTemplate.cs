@@ -42,12 +42,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Option Settings
     /// 
-    /// The `setting` field supports the following format:
+    /// The `Setting` field supports the following format:
     /// 
-    /// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-    /// * `name` - (Required) Name of the configuration option
-    /// * `value` - (Required) Value for the configuration option
-    /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+    /// * `Namespace` - (Required) Unique namespace identifying the option's associated AWS resource
+    /// * `Name` - (Required) Name of the configuration option
+    /// * `Value` - (Required) Value for the configuration option
+    /// * `Resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
     public partial class ConfigurationTemplate : global::Pulumi.CustomResource

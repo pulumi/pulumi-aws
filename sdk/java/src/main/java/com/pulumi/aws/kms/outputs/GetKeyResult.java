@@ -42,12 +42,12 @@ public final class GetKeyResult {
      */
     private String customKeyStoreId;
     /**
-     * @return See `key_spec`.
+     * @return See `keySpec`.
      * 
      */
     private String customerMasterKeySpec;
     /**
-     * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
+     * @return The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
      * 
      */
     private String deletionDate;
@@ -57,7 +57,7 @@ public final class GetKeyResult {
      */
     private String description;
     /**
-     * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
+     * @return Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
      * 
      */
     private Boolean enabled;
@@ -99,7 +99,7 @@ public final class GetKeyResult {
      */
     private Boolean multiRegion;
     /**
-     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
+     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
      * 
      */
     private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
@@ -119,7 +119,7 @@ public final class GetKeyResult {
      */
     private String region;
     /**
-     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
     private String validTo;
@@ -166,14 +166,14 @@ public final class GetKeyResult {
         return this.customKeyStoreId;
     }
     /**
-     * @return See `key_spec`.
+     * @return See `keySpec`.
      * 
      */
     public String customerMasterKeySpec() {
         return this.customerMasterKeySpec;
     }
     /**
-     * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
+     * @return The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
      * 
      */
     public String deletionDate() {
@@ -187,7 +187,7 @@ public final class GetKeyResult {
         return this.description;
     }
     /**
-     * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
+     * @return Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
      * 
      */
     public Boolean enabled() {
@@ -249,7 +249,7 @@ public final class GetKeyResult {
         return this.multiRegion;
     }
     /**
-     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
+     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
      * 
      */
     public List<GetKeyMultiRegionConfiguration> multiRegionConfigurations() {
@@ -277,7 +277,7 @@ public final class GetKeyResult {
         return this.region;
     }
     /**
-     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
     public String validTo() {

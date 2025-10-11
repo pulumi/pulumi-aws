@@ -178,14 +178,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
+     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `source_db_cluster_identifier`.
+     * @return Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
      * 
      */
     public Output<String> engine() {
@@ -282,14 +282,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Boolean> storageEncrypted() {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
         /// </summary>
         public readonly string ApplicationProviderArn;
         /// <summary>
-        /// An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        /// An object describing how IAM Identity Center represents the application provider in the portal. See `DisplayData` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationProvidersApplicationProviderDisplayDataResult> DisplayDatas;
         /// <summary>

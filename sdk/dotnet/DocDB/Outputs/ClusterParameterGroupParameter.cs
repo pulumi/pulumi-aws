@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DocDB.Outputs
     public sealed class ClusterParameterGroupParameter
     {
         /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        /// Valid values are `Immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>

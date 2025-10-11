@@ -71,14 +71,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     @Import(name="kafkaCluster", required=true)
     private Output<ConnectorKafkaClusterArgs> kafkaCluster;
 
     /**
-     * @return Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+     * @return Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterArgs> kafkaCluster() {
@@ -86,14 +86,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+     * Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
      * 
      */
     @Import(name="kafkaClusterClientAuthentication", required=true)
     private Output<ConnectorKafkaClusterClientAuthenticationArgs> kafkaClusterClientAuthentication;
 
     /**
-     * @return Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+     * @return Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterClientAuthenticationArgs> kafkaClusterClientAuthentication() {
@@ -101,14 +101,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+     * Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
      * 
      */
     @Import(name="kafkaClusterEncryptionInTransit", required=true)
     private Output<ConnectorKafkaClusterEncryptionInTransitArgs> kafkaClusterEncryptionInTransit;
 
     /**
-     * @return Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+     * @return Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterEncryptionInTransitArgs> kafkaClusterEncryptionInTransit() {
@@ -131,14 +131,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details about log delivery. See `log_delivery` Block for details.
+     * Details about log delivery. See `logDelivery` Block for details.
      * 
      */
     @Import(name="logDelivery")
     private @Nullable Output<ConnectorLogDeliveryArgs> logDelivery;
 
     /**
-     * @return Details about log delivery. See `log_delivery` Block for details.
+     * @return Details about log delivery. See `logDelivery` Block for details.
      * 
      */
     public Optional<Output<ConnectorLogDeliveryArgs>> logDelivery() {
@@ -210,14 +210,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -225,14 +225,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     @Import(name="workerConfiguration")
     private @Nullable Output<ConnectorWorkerConfigurationArgs> workerConfiguration;
 
     /**
-     * @return Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+     * @return Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     public Optional<Output<ConnectorWorkerConfigurationArgs>> workerConfiguration() {
@@ -340,7 +340,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusterClientAuthentication Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+         * @param kafkaClusterClientAuthentication Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusterClientAuthentication Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+         * @param kafkaClusterClientAuthentication Details of the client authentication used by the Apache Kafka cluster. See `kafkaClusterClientAuthentication` Block for details.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusterEncryptionInTransit Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+         * @param kafkaClusterEncryptionInTransit Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusterEncryptionInTransit Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+         * @param kafkaClusterEncryptionInTransit Details of encryption in transit to the Apache Kafka cluster. See `kafkaClusterEncryptionInTransit` Block for details.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDelivery Details about log delivery. See `log_delivery` Block for details.
+         * @param logDelivery Details about log delivery. See `logDelivery` Block for details.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDelivery Details about log delivery. See `log_delivery` Block for details.
+         * @param logDelivery Details about log delivery. See `logDelivery` Block for details.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
          * 
          * @return builder
          * 

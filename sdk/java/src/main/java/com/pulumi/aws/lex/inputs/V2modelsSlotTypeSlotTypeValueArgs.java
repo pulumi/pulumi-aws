@@ -19,7 +19,7 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
     /**
      * Value of the slot type entry.
-     * See `sample_value` argument reference below.
+     * See `sampleValue` argument reference below.
      * 
      */
     @Import(name="sampleValues")
@@ -27,7 +27,7 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
     /**
      * @return Value of the slot type entry.
-     * See `sample_value` argument reference below.
+     * See `sampleValue` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValueSampleValueArgs>>> sampleValues() {
@@ -78,7 +78,7 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
         /**
          * @param sampleValues Value of the slot type entry.
-         * See `sample_value` argument reference below.
+         * See `sampleValue` argument reference below.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
         /**
          * @param sampleValues Value of the slot type entry.
-         * See `sample_value` argument reference below.
+         * See `sampleValue` argument reference below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class V2modelsSlotTypeSlotTypeValueArgs extends com.pulumi.resource
 
         /**
          * @param sampleValues Value of the slot type entry.
-         * See `sample_value` argument reference below.
+         * See `sampleValue` argument reference below.
          * 
          * @return builder
          * 

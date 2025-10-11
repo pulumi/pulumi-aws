@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The options to apply. See `option` Block below for more details.
+        /// The options to apply. See `Option` Block below for more details.
         /// </summary>
         [Output("options")]
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionArgs>? _options;
 
         /// <summary>
-        /// The options to apply. See `option` Block below for more details.
+        /// The options to apply. See `Option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionArgs> Options
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionGetArgs>? _options;
 
         /// <summary>
-        /// The options to apply. See `option` Block below for more details.
+        /// The options to apply. See `Option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionGetArgs> Options
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

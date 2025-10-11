@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TargetGroupTargetFailover {
     /**
-     * @return Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+     * @return Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
      * 
      */
     private String onDeregistration;
     /**
-     * @return Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+     * @return Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
      * 
      */
     private String onUnhealthy;
 
     private TargetGroupTargetFailover() {}
     /**
-     * @return Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
+     * @return Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onUnhealthy`. Default: `noRebalance`.
      * 
      */
     public String onDeregistration() {
         return this.onDeregistration;
     }
     /**
-     * @return Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
+     * @return Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
      * 
      */
     public String onUnhealthy() {

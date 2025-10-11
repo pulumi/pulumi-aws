@@ -117,7 +117,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     @Export(name="inputDataConfig", refs={DocumentClassifierInputDataConfig.class}, tree="[0]")
@@ -125,7 +125,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Configuration for the training and testing data.
-     * See the `input_data_config` Configuration Block section below.
+     * See the `inputDataConfig` Configuration Block section below.
      * 
      */
     public Output<DocumentClassifierInputDataConfig> inputDataConfig() {
@@ -205,7 +205,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration for the output results of training.
-     * See the `output_data_config` Configuration Block section below.
+     * See the `outputDataConfig` Configuration Block section below.
      * 
      */
     @Export(name="outputDataConfig", refs={DocumentClassifierOutputDataConfig.class}, tree="[0]")
@@ -213,7 +213,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Configuration for the output results of training.
-     * See the `output_data_config` Configuration Block section below.
+     * See the `outputDataConfig` Configuration Block section below.
      * 
      */
     public Output<DocumentClassifierOutputDataConfig> outputDataConfig() {
@@ -234,28 +234,28 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -268,7 +268,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     @Export(name="versionName", refs={String.class}, tree="[0]")
@@ -281,7 +281,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name_prefix`.
+     * Conflicts with `versionNamePrefix`.
      * 
      */
     public Output<String> versionName() {
@@ -291,7 +291,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     @Export(name="versionNamePrefix", refs={String.class}, tree="[0]")
@@ -301,7 +301,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
-     * Conflicts with `version_name`.
+     * Conflicts with `versionName`.
      * 
      */
     public Output<String> versionNamePrefix() {
@@ -325,7 +325,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
     }
     /**
      * Configuration parameters for VPC to contain Document Classifier resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     @Export(name="vpcConfig", refs={DocumentClassifierVpcConfig.class}, tree="[0]")
@@ -333,7 +333,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Configuration parameters for VPC to contain Document Classifier resources.
-     * See the `vpc_config` Configuration Block section below.
+     * See the `vpcConfig` Configuration Block section below.
      * 
      */
     public Output<Optional<DocumentClassifierVpcConfig>> vpcConfig() {

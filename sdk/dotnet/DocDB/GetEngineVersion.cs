@@ -88,7 +88,7 @@ namespace Pulumi.Aws.DocDB
     public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `docdb`)
+        /// DB engine. (Default: `Docdb`)
         /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.DocDB
         private List<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `Version` and `PreferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         public List<string> PreferredVersions
         {
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.DocDB
         public string? Region { get; set; }
 
         /// <summary>
-        /// Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Version of the DB engine. For example, `3.6.0`. If `Version` and `PreferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `Version` and `PreferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.DocDB
     public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// DB engine. (Default: `docdb`)
+        /// DB engine. (Default: `Docdb`)
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `Version` and `PreferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         public InputList<string> PreferredVersions
         {
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// Version of the DB engine. For example, `3.6.0`. If `Version` and `PreferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `Version` and `PreferredVersions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.DocDB
         public readonly ImmutableArray<string> PreferredVersions;
         public readonly string Region;
         /// <summary>
-        /// Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+        /// Indicates whether the engine version supports exporting the log types specified by `ExportableLogTypes` to CloudWatch Logs.
         /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
         /// <summary>

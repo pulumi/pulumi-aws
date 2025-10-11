@@ -13,37 +13,37 @@ namespace Pulumi.Aws.SecurityHub.Inputs
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        /// The bool `Value` for a Boolean-typed Security Hub Control Parameter.
         /// </summary>
         [Input("bool")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs>? Bool { get; set; }
 
         /// <summary>
-        /// The float `value` for a Double-typed Security Hub Control Parameter.
+        /// The float `Value` for a Double-typed Security Hub Control Parameter.
         /// </summary>
         [Input("double")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs>? Double { get; set; }
 
         /// <summary>
-        /// The string `value` for a Enum-typed Security Hub Control Parameter.
+        /// The string `Value` for a Enum-typed Security Hub Control Parameter.
         /// </summary>
         [Input("enum")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs>? Enum { get; set; }
 
         /// <summary>
-        /// The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        /// The string list `Value` for a EnumList-typed Security Hub Control Parameter.
         /// </summary>
         [Input("enumList")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs>? EnumList { get; set; }
 
         /// <summary>
-        /// The int `value` for a Int-typed Security Hub Control Parameter.
+        /// The int `Value` for a Int-typed Security Hub Control Parameter.
         /// </summary>
         [Input("int")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs>? Int { get; set; }
 
         /// <summary>
-        /// The int list `value` for a IntList-typed Security Hub Control Parameter.
+        /// The int list `Value` for a IntList-typed Security Hub Control Parameter.
         /// </summary>
         [Input("intList")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs>? IntList { get; set; }
@@ -55,13 +55,13 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The string `value` for a String-typed Security Hub Control Parameter.
+        /// The string `Value` for a String-typed Security Hub Control Parameter.
         /// </summary>
         [Input("string")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs>? String { get; set; }
 
         /// <summary>
-        /// The string list `value` for a StringList-typed Security Hub Control Parameter.
+        /// The string list `Value` for a StringList-typed Security Hub Control Parameter.
         /// </summary>
         [Input("stringList")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs>? StringList { get; set; }

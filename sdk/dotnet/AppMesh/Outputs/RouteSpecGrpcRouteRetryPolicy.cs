@@ -15,7 +15,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     {
         /// <summary>
         /// List of gRPC retry events.
-        /// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+        /// Valid values: `Cancelled`, `deadline-exceeded`, `Internal`, `resource-exhausted`, `Unavailable`.
         /// </summary>
         public readonly ImmutableArray<string> GrpcRetryEvents;
         /// <summary>

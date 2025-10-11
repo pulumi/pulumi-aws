@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Alb.Inputs
         }
 
         /// <summary>
-        /// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
+        /// Behavior if the user is not authenticated. Valid values are `Deny`, `Allow` and `Authenticate`.
         /// </summary>
         [Input("onUnauthenticatedRequest")]
         public Input<string>? OnUnauthenticatedRequest { get; set; }

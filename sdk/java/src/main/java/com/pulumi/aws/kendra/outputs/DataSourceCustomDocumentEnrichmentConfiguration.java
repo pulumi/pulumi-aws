@@ -31,7 +31,7 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration preExtractionHookConfiguration;
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     private @Nullable String roleArn;
@@ -59,7 +59,7 @@ public final class DataSourceCustomDocumentEnrichmentConfiguration {
         return Optional.ofNullable(this.preExtractionHookConfiguration);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     public Optional<String> roleArn() {

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
     /// 
-    /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
+    /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `CertificateSigningRequest` attribute. The `aws.acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
     /// 
     /// ## Example Usage
     /// 
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `True`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -254,13 +254,13 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> Serial { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> CertificateAuthorityConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `True`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
-        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `True`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Acmpca
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

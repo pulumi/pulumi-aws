@@ -271,14 +271,14 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
      * 
      */
     @Import(name="studioWebPortalSettings")
     private @Nullable Output<UserProfileUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings;
 
     /**
-     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * @return The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsStudioWebPortalSettingsArgs>> studioWebPortalSettings() {
@@ -698,7 +698,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
          * 
          * @return builder
          * 

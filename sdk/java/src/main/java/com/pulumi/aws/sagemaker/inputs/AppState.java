@@ -108,14 +108,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the space. At least one of `user_profile_name` or `space_name` required.
+     * The name of the space. At least one of `userProfileName` or `spaceName` required.
      * 
      */
     @Import(name="spaceName")
     private @Nullable Output<String> spaceName;
 
     /**
-     * @return The name of the space. At least one of `user_profile_name` or `space_name` required.
+     * @return The name of the space. At least one of `userProfileName` or `spaceName` required.
      * 
      */
     public Optional<Output<String>> spaceName() {
@@ -123,14 +123,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -138,14 +138,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -153,14 +153,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user profile name. At least one of `user_profile_name` or `space_name` required.
+     * The user profile name. At least one of `userProfileName` or `spaceName` required.
      * 
      */
     @Import(name="userProfileName")
     private @Nullable Output<String> userProfileName;
 
     /**
-     * @return The user profile name. At least one of `user_profile_name` or `space_name` required.
+     * @return The user profile name. At least one of `userProfileName` or `spaceName` required.
      * 
      */
     public Optional<Output<String>> userProfileName() {
@@ -327,7 +327,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceName The name of the space. At least one of `user_profile_name` or `space_name` required.
+         * @param spaceName The name of the space. At least one of `userProfileName` or `spaceName` required.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceName The name of the space. At least one of `user_profile_name` or `space_name` required.
+         * @param spaceName The name of the space. At least one of `userProfileName` or `spaceName` required.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name. At least one of `user_profile_name` or `space_name` required.
+         * @param userProfileName The user profile name. At least one of `userProfileName` or `spaceName` required.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userProfileName The user profile name. At least one of `user_profile_name` or `space_name` required.
+         * @param userProfileName The user profile name. At least one of `userProfileName` or `spaceName` required.
          * 
          * @return builder
          * 

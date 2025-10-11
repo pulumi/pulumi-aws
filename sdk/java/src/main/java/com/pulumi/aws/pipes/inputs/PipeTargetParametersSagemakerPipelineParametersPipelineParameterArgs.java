@@ -15,14 +15,14 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
     public static final PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs Empty = new PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs();
 
     /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 

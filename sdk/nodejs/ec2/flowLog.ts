@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Amazon Data Firehose logging
+ *
  * ### S3 Logging
  *
  * ```typescript

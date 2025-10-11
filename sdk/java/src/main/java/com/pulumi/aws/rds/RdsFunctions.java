@@ -3293,7 +3293,7 @@ public final class RdsFunctions {
      * }
      * </pre>
      * 
-     * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
      * 
      * <pre>
      * {@code
@@ -3382,7 +3382,7 @@ public final class RdsFunctions {
      * }
      * </pre>
      * 
-     * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
      * 
      * <pre>
      * {@code
@@ -3471,7 +3471,7 @@ public final class RdsFunctions {
      * }
      * </pre>
      * 
-     * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
      * 
      * <pre>
      * {@code
@@ -3560,7 +3560,7 @@ public final class RdsFunctions {
      * }
      * </pre>
      * 
-     * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
      * 
      * <pre>
      * {@code
@@ -3649,7 +3649,7 @@ public final class RdsFunctions {
      * }
      * </pre>
      * 
-     * Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+     * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
      * 
      * <pre>
      * {@code

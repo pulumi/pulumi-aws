@@ -115,7 +115,7 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class GetApplicationProvidersResult
     {
         /// <summary>
-        /// A list of application providers available in the current region. See `application_providers` below.
+        /// A list of application providers available in the current region. See `ApplicationProviders` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationProvidersApplicationProviderResult> ApplicationProviders;
         /// <summary>

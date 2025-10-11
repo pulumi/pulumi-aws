@@ -145,14 +145,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:budgets/budgetAction:BudgetAction")
 public class BudgetAction extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
+     * @return The ID of the target account for budget. Will use current user&#39;s accountId by default if omitted.
      * 
      */
     public Output<String> accountId() {
@@ -313,28 +313,28 @@ public class BudgetAction extends com.pulumi.resources.CustomResource {
         return this.subscribers;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -141,7 +141,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     /**
      * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
      * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      * 
      */
     @Import(name="maxAggregationInterval")
@@ -150,7 +150,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
      * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      * 
      */
     public Optional<Output<Integer>> maxAggregationInterval() {
@@ -188,18 +188,18 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+     * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -207,14 +207,14 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -492,7 +492,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxAggregationInterval The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
          * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-         * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+         * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxAggregationInterval The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
          * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-         * When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+         * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -557,9 +557,9 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+         * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
          * 
          * @return builder
          * 
@@ -570,9 +570,9 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * &gt; **NOTE:** One of `eni_id`, `subnet_id`, `transit_gateway_id`, `transit_gateway_attachment_id`, or `vpc_id` must be specified.
+         * &gt; **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

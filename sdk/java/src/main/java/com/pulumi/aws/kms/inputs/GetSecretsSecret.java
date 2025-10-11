@@ -65,7 +65,7 @@ public final class GetSecretsSecret extends com.pulumi.resources.InvokeArgs {
     /**
      * Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
-     * For more information on `context` and `grant_tokens` see the [KMS
+     * For more information on `context` and `grantTokens` see the [KMS
      * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
      * 
      */
@@ -75,7 +75,7 @@ public final class GetSecretsSecret extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
-     * For more information on `context` and `grant_tokens` see the [KMS
+     * For more information on `context` and `grantTokens` see the [KMS
      * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
      * 
      */
@@ -188,7 +188,7 @@ public final class GetSecretsSecret extends com.pulumi.resources.InvokeArgs {
         /**
          * @param keyId Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
          * 
-         * For more information on `context` and `grant_tokens` see the [KMS
+         * For more information on `context` and `grantTokens` see the [KMS
          * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
          * 
          * @return builder

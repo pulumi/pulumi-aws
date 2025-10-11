@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Patch Policy Configuration Type
+//
 // ## Import
 //
 // Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:

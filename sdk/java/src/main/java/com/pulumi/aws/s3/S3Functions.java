@@ -1073,7 +1073,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -1116,7 +1116,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -1192,7 +1192,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -1235,7 +1235,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -1311,7 +1311,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -1354,7 +1354,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -1430,7 +1430,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -1473,7 +1473,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -1549,7 +1549,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -1592,7 +1592,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -1647,7 +1647,7 @@ public final class S3Functions {
     /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -1658,7 +1658,7 @@ public final class S3Functions {
     /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -1669,7 +1669,7 @@ public final class S3Functions {
     /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -1680,7 +1680,7 @@ public final class S3Functions {
     /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -1691,7 +1691,7 @@ public final class S3Functions {
     /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -2497,7 +2497,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -2540,7 +2540,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -2615,7 +2615,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -2658,7 +2658,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -2733,7 +2733,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -2776,7 +2776,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -2851,7 +2851,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -2894,7 +2894,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -2969,7 +2969,7 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
-     * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
      * 
      * <pre>
      * {@code
@@ -3012,7 +3012,7 @@ public final class S3Functions {
      * </pre>
      * 
      * The following, more-complex example retrieves only the metadata for a zip
-     * file stored in S3, which is then used to pass the most recent `version_id`
+     * file stored in S3, which is then used to pass the most recent `versionId`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
@@ -3065,7 +3065,7 @@ public final class S3Functions {
         return Deployment.getInstance().invokeAsync("aws:s3/getObject:getObject", TypeShape.of(GetObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -3074,7 +3074,7 @@ public final class S3Functions {
         return getObjects(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -3083,7 +3083,7 @@ public final class S3Functions {
         return getObjectsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -3092,7 +3092,7 @@ public final class S3Functions {
         return Deployment.getInstance().invoke("aws:s3/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 
@@ -3101,7 +3101,7 @@ public final class S3Functions {
         return Deployment.getInstance().invoke("aws:s3/getObjects:getObjects", TypeShape.of(GetObjectsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
+     * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider&#39;s performance.
      * 
      * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
      * 

@@ -34,14 +34,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the crawler to be executed. Conflicts with `job_name`.
+     * The name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     @Import(name="crawlerName")
     private @Nullable Output<String> crawlerName;
 
     /**
-     * @return The name of the crawler to be executed. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     public Optional<Output<String>> crawlerName() {
@@ -49,14 +49,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a job to be executed. Conflicts with `crawler_name`.
+     * The name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
     /**
-     * @return The name of a job to be executed. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     public Optional<Output<String>> jobName() {
@@ -159,7 +159,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `job_name`.
+         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `job_name`.
+         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawler_name`.
+         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawler_name`.
+         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 

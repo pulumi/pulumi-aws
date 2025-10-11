@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleLockConfiguration {
     /**
-     * @return Information about the retention rule unlock delay. See `unlock_delay` below.
+     * @return Information about the retention rule unlock delay. See `unlockDelay` below.
      * 
      */
     private RuleLockConfigurationUnlockDelay unlockDelay;
 
     private RuleLockConfiguration() {}
     /**
-     * @return Information about the retention rule unlock delay. See `unlock_delay` below.
+     * @return Information about the retention rule unlock delay. See `unlockDelay` below.
      * 
      */
     public RuleLockConfigurationUnlockDelay unlockDelay() {

@@ -20,14 +20,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectPeerArgs Empty = new ConnectPeerArgs();
 
     /**
-     * Connect peer BGP options. See bgp_options for more information.
+     * Connect peer BGP options. See bgpOptions for more information.
      * 
      */
     @Import(name="bgpOptions")
     private @Nullable Output<ConnectPeerBgpOptionsArgs> bgpOptions;
 
     /**
-     * @return Connect peer BGP options. See bgp_options for more information.
+     * @return Connect peer BGP options. See bgpOptions for more information.
      * 
      */
     public Optional<Output<ConnectPeerBgpOptionsArgs>> bgpOptions() {
@@ -114,14 +114,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -159,7 +159,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
+         * @param bgpOptions Connect peer BGP options. See bgpOptions for more information.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
+         * @param bgpOptions Connect peer BGP options. See bgpOptions for more information.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -21,7 +21,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     public static final AgentAgentActionGroupState Empty = new AgentAgentActionGroupState();
 
     /**
-     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -30,7 +30,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     private @Nullable Output<AgentAgentActionGroupActionGroupExecutorArgs> actionGroupExecutor;
 
     /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -115,14 +115,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      * 
      */
     @Import(name="apiSchema")
     private @Nullable Output<AgentAgentActionGroupApiSchemaArgs> apiSchema;
 
     /**
-     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupApiSchemaArgs>> apiSchema() {
@@ -147,7 +147,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     /**
      * Describes the function schema for the action group.
      * Each function represents an action in an action group.
-     * See `function_schema` Block for details.
+     * See `functionSchema` Block for details.
      * 
      */
     @Import(name="functionSchema")
@@ -156,7 +156,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     /**
      * @return Describes the function schema for the action group.
      * Each function represents an action in an action group.
-     * See `function_schema` Block for details.
+     * See `functionSchema` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupFunctionSchemaArgs>> functionSchema() {
@@ -164,14 +164,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
     @Import(name="parentActionGroupSignature")
     private @Nullable Output<String> parentActionGroupSignature;
 
     /**
-     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
     public Optional<Output<String>> parentActionGroupSignature() {
@@ -268,7 +268,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -281,7 +281,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -398,7 +398,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` Block for details.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         /**
          * @param functionSchema Describes the function schema for the action group.
          * Each function represents an action in an action group.
-         * See `function_schema` Block for details.
+         * See `functionSchema` Block for details.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         /**
          * @param functionSchema Describes the function schema for the action group.
          * Each function represents an action in an action group.
-         * See `function_schema` Block for details.
+         * See `functionSchema` Block for details.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
          * 
          * @return builder
          * 

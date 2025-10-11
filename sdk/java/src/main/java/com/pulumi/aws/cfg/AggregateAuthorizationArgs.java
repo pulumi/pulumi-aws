@@ -48,37 +48,37 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use authorized_aws_region instead.
+     * region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use authorized_aws_region instead.
+     * region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -155,36 +155,36 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use authorized_aws_region instead.
+         * region is deprecated. Use authorizedAwsRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+        @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+         * @param region The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use authorized_aws_region instead.
+         * region is deprecated. Use authorizedAwsRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+        @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -17,20 +17,20 @@ import javax.annotation.Nullable;
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
     /**
      * @return List of default values for a slot.
-     * See the `default_value_specification` argument reference below.
+     * See the `defaultValueSpecification` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications;
     /**
      * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
-     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification;
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> sampleUtterances;
     /**
      * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-     * See the `wait_and_continue_specification` argument reference below.
+     * See the `waitAndContinueSpecification` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications;
@@ -38,7 +38,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting() {}
     /**
      * @return List of default values for a slot.
-     * See the `default_value_specification` argument reference below.
+     * See the `defaultValueSpecification` argument reference below.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications() {
@@ -46,7 +46,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     }
     /**
      * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
-     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
     public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification() {
@@ -57,7 +57,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     }
     /**
      * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
-     * See the `wait_and_continue_specification` argument reference below.
+     * See the `waitAndContinueSpecification` argument reference below.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications() {

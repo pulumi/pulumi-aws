@@ -40,9 +40,9 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly int? Period;
         /// <summary>
-        /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+        /// Specify exactly one `MetricQuery` to be `True` to use that `MetricQuery` result as the alarm.
         /// 
-        /// &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
+        /// &gt; **NOTE:**  You must specify either `Metric` or `Expression`. Not both.
         /// </summary>
         public readonly bool? ReturnData;
 

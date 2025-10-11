@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  * 
- * &gt; Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+ * &gt; Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
  * 
  * ## Example Usage
  * 

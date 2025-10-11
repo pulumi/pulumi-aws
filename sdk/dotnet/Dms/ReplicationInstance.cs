@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
-    /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+    /// Create required roles and then create a DMS instance, setting the DependsOn to the required role policy attachments.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -187,13 +187,13 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.ReplicationInstanceKerberosAuthenticationSettings?> KerberosAuthenticationSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `KmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `AvailabilityZone` parameter if the `MultiAz` parameter is set to `True`.
         /// </summary>
         [Output("multiAz")]
         public Output<bool> MultiAz { get; private set; } = null!;
@@ -259,13 +259,13 @@ namespace Pulumi.Aws.Dms
         public Output<string> ReplicationSubnetGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -371,13 +371,13 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.ReplicationInstanceKerberosAuthenticationSettingsArgs>? KerberosAuthenticationSettings { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `KmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `AvailabilityZone` parameter if the `MultiAz` parameter is set to `True`.
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -505,13 +505,13 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.ReplicationInstanceKerberosAuthenticationSettingsGetArgs>? KerberosAuthenticationSettings { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `KmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `AvailabilityZone` parameter if the `MultiAz` parameter is set to `True`.
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -604,7 +604,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

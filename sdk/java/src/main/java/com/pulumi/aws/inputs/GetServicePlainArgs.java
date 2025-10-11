@@ -15,14 +15,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
     /**
-     * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      * 
      */
     @Import(name="dnsName")
     private @Nullable String dnsName;
 
     /**
-     * @return DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * @return DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      * 
      */
     public Optional<String> dnsName() {
@@ -52,14 +52,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      * 
      */
     @Import(name="reverseDnsName")
     private @Nullable String reverseDnsName;
 
     /**
-     * @return Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * @return Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      * 
      */
     public Optional<String> reverseDnsName() {
@@ -82,14 +82,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
+     * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      * 
      */
     @Import(name="serviceId")
     private @Nullable String serviceId;
 
     /**
-     * @return Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
+     * @return Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      * 
      */
     public Optional<String> serviceId() {
@@ -126,7 +126,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dnsName DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+         * @param dnsName DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param reverseDnsName Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+         * @param reverseDnsName Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceId Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
+         * @param serviceId Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
          * 
          * @return builder
          * 

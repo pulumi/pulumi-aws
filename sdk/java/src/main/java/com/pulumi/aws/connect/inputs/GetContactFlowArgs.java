@@ -50,7 +50,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific Contact Flow by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
      * 
      */
     @Import(name="name")
@@ -59,7 +59,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Returns information on a specific Contact Flow by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -185,7 +185,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Contact Flow by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GetContactFlowArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Returns information on a specific Contact Flow by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
          * 
          * @return builder
          * 

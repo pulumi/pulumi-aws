@@ -15,7 +15,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// By default, applications will require users to have an explicit assignment in order to access an application.
     /// This resource can be used to adjust this default behavior if necessary.
     /// 
-    /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
+    /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `AssignmentRequired = true`).
     /// 
     /// ## Example Usage
     /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
         /// </summary>
         [Output("assignmentRequired")]
         public Output<bool> AssignmentRequired { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string> ApplicationArn { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
         /// </summary>
         [Input("assignmentRequired", required: true)]
         public Input<bool> AssignmentRequired { get; set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? ApplicationArn { get; set; }
 
         /// <summary>
-        /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        /// Indicates whether users must have an explicit assignment to access the application. If `False`, all users have access to the application.
         /// </summary>
         [Input("assignmentRequired")]
         public Input<bool>? AssignmentRequired { get; set; }

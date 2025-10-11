@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+        /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `Slot`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot> Slots;
 

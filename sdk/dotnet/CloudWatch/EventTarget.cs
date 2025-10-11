@@ -913,13 +913,13 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name or ARN of the event bus to associate with the rule.
-        /// If you omit this, the `default` event bus is used.
+        /// If you omit this, the `Default` event bus is used.
         /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
 
         /// <summary>
-        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// Used to delete managed rules created by AWS. Defaults to `False`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -931,19 +931,19 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetHttpTarget?> HttpTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+        /// Valid JSON text passed to the target. Conflicts with `InputPath` and `InputTransformer`.
         /// </summary>
         [Output("input")]
         public Output<string?> Input { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `Input` and `InputTransformer`.
         /// </summary>
         [Output("inputPath")]
         public Output<string?> InputPath { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `Input` and `InputPath`.
         /// </summary>
         [Output("inputTransformer")]
         public Output<Outputs.EventTargetInputTransformer?> InputTransformer { get; private set; } = null!;
@@ -973,7 +973,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetRetryPolicy?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -1088,13 +1088,13 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name or ARN of the event bus to associate with the rule.
-        /// If you omit this, the `default` event bus is used.
+        /// If you omit this, the `Default` event bus is used.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
 
         /// <summary>
-        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// Used to delete managed rules created by AWS. Defaults to `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -1106,19 +1106,19 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetHttpTargetArgs>? HttpTarget { get; set; }
 
         /// <summary>
-        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+        /// Valid JSON text passed to the target. Conflicts with `InputPath` and `InputTransformer`.
         /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `Input` and `InputTransformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `Input` and `InputPath`.
         /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.EventTargetInputTransformerArgs>? InputTransformer { get; set; }
@@ -1148,7 +1148,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -1231,13 +1231,13 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name or ARN of the event bus to associate with the rule.
-        /// If you omit this, the `default` event bus is used.
+        /// If you omit this, the `Default` event bus is used.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
 
         /// <summary>
-        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// Used to delete managed rules created by AWS. Defaults to `False`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -1249,19 +1249,19 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetHttpTargetGetArgs>? HttpTarget { get; set; }
 
         /// <summary>
-        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+        /// Valid JSON text passed to the target. Conflicts with `InputPath` and `InputTransformer`.
         /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
         /// <summary>
-        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `Input` and `InputTransformer`.
         /// </summary>
         [Input("inputPath")]
         public Input<string>? InputPath { get; set; }
 
         /// <summary>
-        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `Input` and `InputPath`.
         /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.EventTargetInputTransformerGetArgs>? InputTransformer { get; set; }
@@ -1291,7 +1291,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -235,7 +235,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
+    /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `Statistic` and `ExtendedStatistic` parameters.
     /// You must choose one or the other
     /// 
     /// ## Import
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class MetricAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `True`.
         /// </summary>
         [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
@@ -305,9 +305,9 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Used only for alarms based on percentiles.
-        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
-        /// The following values are supported: `ignore`, and `evaluate`.
+        /// If you specify `Ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `Evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
+        /// The following values are supported: `Ignore`, and `Evaluate`.
         /// </summary>
         [Output("evaluateLowSampleCountPercentiles")]
         public Output<string> EvaluateLowSampleCountPercentiles { get; private set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
         /// <summary>
-        /// The period in seconds over which the specified `statistic` is applied.
+        /// The period in seconds over which the specified `Statistic` is applied.
         /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Output("period")]
@@ -383,18 +383,18 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Statistic { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
         /// for details about valid values.
         /// 
-        /// &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
+        /// &gt; **NOTE:**  If you specify at least one `MetricQuery`, you may not specify a `MetricName`, `Namespace`, `Period` or `Statistic`. If you do not specify a `MetricQuery`, you must specify each of these (although you may use `ExtendedStatistic` instead of `Statistic`).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> ThresholdMetricId { get; private set; } = null!;
 
         /// <summary>
-        /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+        /// Sets how this alarm is to handle missing data points. The following values are supported: `Missing`, `Ignore`, `Breaching` and `notBreaching`. Defaults to `Missing`.
         /// </summary>
         [Output("treatMissingData")]
         public Output<string?> TreatMissingData { get; private set; } = null!;
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class MetricAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `True`.
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -519,9 +519,9 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Used only for alarms based on percentiles.
-        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
-        /// The following values are supported: `ignore`, and `evaluate`.
+        /// If you specify `Ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `Evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
+        /// The following values are supported: `Ignore`, and `Evaluate`.
         /// </summary>
         [Input("evaluateLowSampleCountPercentiles")]
         public Input<string>? EvaluateLowSampleCountPercentiles { get; set; }
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The period in seconds over which the specified `statistic` is applied.
+        /// The period in seconds over which the specified `Statistic` is applied.
         /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
@@ -618,12 +618,12 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
         /// for details about valid values.
         /// 
-        /// &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
+        /// &gt; **NOTE:**  If you specify at least one `MetricQuery`, you may not specify a `MetricName`, `Namespace`, `Period` or `Statistic`. If you do not specify a `MetricQuery`, you must specify each of these (although you may use `ExtendedStatistic` instead of `Statistic`).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? ThresholdMetricId { get; set; }
 
         /// <summary>
-        /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+        /// Sets how this alarm is to handle missing data points. The following values are supported: `Missing`, `Ignore`, `Breaching` and `notBreaching`. Defaults to `Missing`.
         /// </summary>
         [Input("treatMissingData")]
         public Input<string>? TreatMissingData { get; set; }
@@ -664,7 +664,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class MetricAlarmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
+        /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `True`.
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -719,9 +719,9 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Used only for alarms based on percentiles.
-        /// If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
-        /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
-        /// The following values are supported: `ignore`, and `evaluate`.
+        /// If you specify `Ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
+        /// If you specify `Evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
+        /// The following values are supported: `Ignore`, and `Evaluate`.
         /// </summary>
         [Input("evaluateLowSampleCountPercentiles")]
         public Input<string>? EvaluateLowSampleCountPercentiles { get; set; }
@@ -795,7 +795,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The period in seconds over which the specified `statistic` is applied.
+        /// The period in seconds over which the specified `Statistic` is applied.
         /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
@@ -818,12 +818,12 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// See [related part of AWS Docs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)
         /// for details about valid values.
         /// 
-        /// &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
+        /// &gt; **NOTE:**  If you specify at least one `MetricQuery`, you may not specify a `MetricName`, `Namespace`, `Period` or `Statistic`. If you do not specify a `MetricQuery`, you must specify each of these (although you may use `ExtendedStatistic` instead of `Statistic`).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -835,7 +835,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -856,7 +856,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? ThresholdMetricId { get; set; }
 
         /// <summary>
-        /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
+        /// Sets how this alarm is to handle missing data points. The following values are supported: `Missing`, `Ignore`, `Breaching` and `notBreaching`. Defaults to `Missing`.
         /// </summary>
         [Input("treatMissingData")]
         public Input<string>? TreatMissingData { get; set; }

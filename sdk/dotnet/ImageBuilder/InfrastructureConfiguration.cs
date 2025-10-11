@@ -167,25 +167,25 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        /// EC2 Subnet identifier. Also requires `SecurityGroupIds` argument.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `False`.
         /// </summary>
         [Output("terminateInstanceOnFailure")]
         public Output<bool?> TerminateInstanceOnFailure { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        /// EC2 Subnet identifier. Also requires `SecurityGroupIds` argument.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `False`.
         /// </summary>
         [Input("terminateInstanceOnFailure")]
         public Input<bool>? TerminateInstanceOnFailure { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        /// EC2 Subnet identifier. Also requires `SecurityGroupIds` argument.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `False`.
         /// </summary>
         [Input("terminateInstanceOnFailure")]
         public Input<bool>? TerminateInstanceOnFailure { get; set; }

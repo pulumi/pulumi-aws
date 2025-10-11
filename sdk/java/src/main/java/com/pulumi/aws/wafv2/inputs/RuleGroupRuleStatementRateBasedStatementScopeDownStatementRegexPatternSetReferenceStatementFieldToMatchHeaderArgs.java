@@ -16,14 +16,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs();
 
     /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     @Import(name="matchPattern", required=true)
     private Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     public Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
@@ -87,7 +87,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 

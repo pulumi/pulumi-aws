@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Manages an ECR repository lifecycle policy.
     /// 
-    /// &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
+    /// &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `Policy` JSON.
     /// 
     /// &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ecr
     public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `Policy` argument.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `Policy` argument.
         /// </summary>
         [Input("policy", required: true)]
         public InputUnion<string, Inputs.LifecyclePolicyDocumentArgs> Policy { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` DataSource to generate/manage the JSON document used for the `Policy` argument.
         /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.LifecyclePolicyDocumentGetArgs>? Policy { get; set; }

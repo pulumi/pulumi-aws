@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Sqs
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `Queue` (default).
         /// </summary>
         [Output("deduplicationScope")]
         public Output<string> DeduplicationScope { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Sqs
         public Output<int?> DelaySeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        /// Boolean designating a FIFO queue. If not set, it defaults to `False` making it standard.
         /// </summary>
         [Output("fifoQueue")]
         public Output<bool?> FifoQueue { get; private set; } = null!;
@@ -254,13 +254,13 @@ namespace Pulumi.Aws.Sqs
         public Output<int?> MessageRetentionSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -302,19 +302,19 @@ namespace Pulumi.Aws.Sqs
         public Output<bool> SqsManagedSseEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the queue. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Same as `id`: The URL for the created Amazon SQS queue.
+        /// Same as `Id`: The URL for the created Amazon SQS queue.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Sqs
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
-        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `Queue` (default).
         /// </summary>
         [Input("deduplicationScope")]
         public Input<string>? DeduplicationScope { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? DelaySeconds { get; set; }
 
         /// <summary>
-        /// Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        /// Boolean designating a FIFO queue. If not set, it defaults to `False` making it standard.
         /// </summary>
         [Input("fifoQueue")]
         public Input<bool>? FifoQueue { get; set; }
@@ -426,13 +426,13 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? MessageRetentionSeconds { get; set; }
 
         /// <summary>
-        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the queue. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -512,7 +512,7 @@ namespace Pulumi.Aws.Sqs
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
-        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `Queue` (default).
         /// </summary>
         [Input("deduplicationScope")]
         public Input<string>? DeduplicationScope { get; set; }
@@ -524,7 +524,7 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? DelaySeconds { get; set; }
 
         /// <summary>
-        /// Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        /// Boolean designating a FIFO queue. If not set, it defaults to `False` making it standard.
         /// </summary>
         [Input("fifoQueue")]
         public Input<bool>? FifoQueue { get; set; }
@@ -560,13 +560,13 @@ namespace Pulumi.Aws.Sqs
         public Input<int>? MessageRetentionSeconds { get; set; }
 
         /// <summary>
-        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -611,7 +611,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the queue. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -632,7 +632,7 @@ namespace Pulumi.Aws.Sqs
         }
 
         /// <summary>
-        /// Same as `id`: The URL for the created Amazon SQS queue.
+        /// Same as `Id`: The URL for the created Amazon SQS queue.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

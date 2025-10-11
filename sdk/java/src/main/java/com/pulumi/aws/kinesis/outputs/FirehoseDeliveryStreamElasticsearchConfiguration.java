@@ -28,17 +28,17 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     private @Nullable String clusterEndpoint;
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     private @Nullable String domainArn;
@@ -53,7 +53,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration;
@@ -73,7 +73,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration;
@@ -83,7 +83,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig;
@@ -104,21 +104,21 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     public Optional<String> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
     }
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
+     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     public Optional<String> domainArn() {
@@ -139,7 +139,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -167,7 +167,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration() {
@@ -181,7 +181,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
+     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig> vpcConfig() {

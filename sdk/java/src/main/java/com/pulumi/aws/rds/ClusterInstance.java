@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * Instances and Aurora manages the replication. You can use the [count][5]
  * meta-parameter to make multiple instances and join them all to the same RDS
  * Cluster, or you may specify different Cluster Instance resources with various
- * `instance_class` sizes.
+ * `instanceClass` sizes.
  * 
  * For more information on Amazon Aurora, see [Aurora on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html) in the Amazon RDS User Guide.
  * 
@@ -228,14 +228,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.dbParameterGroupName;
     }
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
+     * @return Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     public Output<String> dbSubnetGroupName() {
@@ -286,14 +286,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * @return Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      * 
      */
     public Output<String> engineVersion() {
@@ -440,28 +440,28 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.performanceInsightsEnabled;
     }
     /**
-     * ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+     * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+     * @return ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      * 
      */
     public Output<String> performanceInsightsKmsKeyId() {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Output<Integer> performanceInsightsRetentionPeriod() {
@@ -482,14 +482,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+     * Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
-     * @return Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
+     * @return Daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;. **NOTE:** If `preferredBackupWindow` is set at the cluster level, this argument **must** be omitted.
      * 
      */
     public Output<String> preferredBackupWindow() {
@@ -566,7 +566,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.storageEncrypted;
     }
     /**
-     * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -576,7 +576,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -586,14 +586,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Connect.Outputs
         /// </summary>
         public readonly string Day;
         /// <summary>
-        /// A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        /// A end time block specifies the time that your contact center closes. The `EndTime` is documented below.
         /// </summary>
         public readonly Outputs.HoursOfOperationConfigEndTime EndTime;
         /// <summary>
-        /// A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        /// A start time block specifies the time that your contact center opens. The `StartTime` is documented below.
         /// </summary>
         public readonly Outputs.HoursOfOperationConfigStartTime StartTime;
 

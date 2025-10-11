@@ -21,7 +21,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     /**
      * @return Configuration blocks for responses that Amazon Lex can send to the user.
      * Amazon Lex chooses the actual response to send at runtime.
-     * See `message_group`.
+     * See `messageGroup`.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup> messageGroups;
@@ -37,7 +37,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     /**
      * @return Configuration blocks for responses that Amazon Lex can send to the user.
      * Amazon Lex chooses the actual response to send at runtime.
-     * See `message_group`.
+     * See `messageGroup`.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup> messageGroups() {

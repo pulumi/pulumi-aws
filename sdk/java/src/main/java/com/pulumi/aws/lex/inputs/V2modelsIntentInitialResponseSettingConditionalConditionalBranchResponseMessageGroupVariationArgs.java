@@ -19,14 +19,14 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     public static final V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs Empty = new V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs();
 
     /**
-     * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     @Import(name="customPayload")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs> customPayload;
 
     /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * @return Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs>> customPayload() {
@@ -34,14 +34,14 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     }
 
     /**
-     * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     @Import(name="imageResponseCard")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard;
 
     /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs>> imageResponseCard() {
@@ -49,14 +49,14 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     }
 
     /**
-     * Configuration block for a message in plain text format. See `plain_text_message`.
+     * Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     @Import(name="plainTextMessage")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs> plainTextMessage;
 
     /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * @return Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs>> plainTextMessage() {
@@ -64,14 +64,14 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
     }
 
     /**
-     * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     @Import(name="ssmlMessage")
     private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs> ssmlMessage;
 
     /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     public Optional<Output<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs>> ssmlMessage() {
@@ -106,7 +106,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+         * @param customPayload Configuration block for a message in a custom format defined by the client application. See `customPayload`.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+         * @param imageResponseCard Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plain_text_message`.
+         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param plainTextMessage Configuration block for a message in plain text format. See `plain_text_message`.
+         * @param plainTextMessage Configuration block for a message in plain text format. See `plainTextMessage`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
         }
 
         /**
-         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+         * @param ssmlMessage Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
          * 
          * @return builder
          * 

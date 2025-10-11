@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
     public sealed class XssMatchSetXssMatchTupleFieldToMatch
     {
         /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
+        /// When the value of `Type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `Type` is any other value, omit `Data`.
         /// </summary>
         public readonly string? Data;
         /// <summary>

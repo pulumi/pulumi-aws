@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class FieldLevelEncryptionProfileEncryptionEntitiesItem
     {
         /// <summary>
-        /// Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+        /// Object that contains an attribute `Items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
         /// </summary>
         public readonly Outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns FieldPatterns;
         /// <summary>

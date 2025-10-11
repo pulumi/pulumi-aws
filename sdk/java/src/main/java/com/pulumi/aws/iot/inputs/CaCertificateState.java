@@ -157,14 +157,14 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -172,14 +172,14 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -203,7 +203,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      * 
      */
     @Import(name="verificationCertificatePem")
@@ -211,7 +211,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return PEM encoded verification certificate containing the common name of a registration code. Review
-     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
+     * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
      * 
      */
     public Optional<Output<String>> verificationCertificatePem() {
@@ -444,7 +444,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param verificationCertificatePem PEM encoded verification certificate containing the common name of a registration code. Review
-         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
+         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param verificationCertificatePem PEM encoded verification certificate containing the common name of a registration code. Review
-         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificate_mode` is `DEFAULT`.
+         * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.
          * 
          * @return builder
          * 

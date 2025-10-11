@@ -12,6 +12,10 @@ import (
 )
 
 // This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+//
+// ## Example Usage
+//
+// The following returns all NAT gateways in a specified VPC that are marked as available
 func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulumi.InvokeOption) (*GetNatGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNatGatewaysResult

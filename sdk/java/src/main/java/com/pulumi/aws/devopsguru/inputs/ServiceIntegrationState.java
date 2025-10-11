@@ -19,14 +19,14 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
     public static final ServiceIntegrationState Empty = new ServiceIntegrationState();
 
     /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
     @Import(name="kmsServerSideEncryption")
     private @Nullable Output<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption;
 
     /**
-     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
     public Optional<Output<ServiceIntegrationKmsServerSideEncryptionArgs>> kmsServerSideEncryption() {
@@ -34,14 +34,14 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
     @Import(name="logsAnomalyDetection")
     private @Nullable Output<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection;
 
     /**
-     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
     public Optional<Output<ServiceIntegrationLogsAnomalyDetectionArgs>> logsAnomalyDetection() {
@@ -49,14 +49,14 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
     @Import(name="opsCenter")
     private @Nullable Output<ServiceIntegrationOpsCenterArgs> opsCenter;
 
     /**
-     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
     public Optional<Output<ServiceIntegrationOpsCenterArgs>> opsCenter() {
@@ -106,7 +106,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+         * @param kmsServerSideEncryption Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+         * @param logsAnomalyDetection Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+         * @param opsCenter Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
          * 
          * @return builder
          * 

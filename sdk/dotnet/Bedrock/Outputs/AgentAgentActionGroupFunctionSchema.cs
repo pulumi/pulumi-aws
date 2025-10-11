@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Contains a list of functions.
         /// Each function describes and action in the action group.
-        /// See `member_functions` Block for details.
+        /// See `MemberFunctions` Block for details.
         /// </summary>
         public readonly Outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions? MemberFunctions;
 

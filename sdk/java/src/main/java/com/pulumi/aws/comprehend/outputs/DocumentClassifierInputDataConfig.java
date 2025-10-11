@@ -15,8 +15,8 @@ import javax.annotation.Nullable;
 public final class DocumentClassifierInputDataConfig {
     /**
      * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `data_format` is `AUGMENTED_MANIFEST`.
-     * See the `augmented_manifests` Configuration Block section below.
+     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+     * See the `augmentedManifests` Configuration Block section below.
      * 
      */
     private @Nullable List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests;
@@ -35,7 +35,7 @@ public final class DocumentClassifierInputDataConfig {
     private @Nullable String labelDelimiter;
     /**
      * @return Location of training documents.
-     * Used if `data_format` is `COMPREHEND_CSV`.
+     * Used if `dataFormat` is `COMPREHEND_CSV`.
      * 
      */
     private @Nullable String s3Uri;
@@ -44,8 +44,8 @@ public final class DocumentClassifierInputDataConfig {
     private DocumentClassifierInputDataConfig() {}
     /**
      * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
-     * Used if `data_format` is `AUGMENTED_MANIFEST`.
-     * See the `augmented_manifests` Configuration Block section below.
+     * Used if `dataFormat` is `AUGMENTED_MANIFEST`.
+     * See the `augmentedManifests` Configuration Block section below.
      * 
      */
     public List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests() {
@@ -70,7 +70,7 @@ public final class DocumentClassifierInputDataConfig {
     }
     /**
      * @return Location of training documents.
-     * Used if `data_format` is `COMPREHEND_CSV`.
+     * Used if `dataFormat` is `COMPREHEND_CSV`.
      * 
      */
     public Optional<String> s3Uri() {

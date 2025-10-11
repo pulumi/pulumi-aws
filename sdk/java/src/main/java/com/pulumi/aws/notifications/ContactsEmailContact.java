@@ -118,7 +118,7 @@ public class ContactsEmailContact extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -127,7 +127,7 @@ public class ContactsEmailContact extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of tags to assign to the resource. If configured with a provider
-     * `default_tags` configuration block
+     * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -136,7 +136,7 @@ public class ContactsEmailContact extends com.pulumi.resources.CustomResource {
     }
     /**
      * Map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -144,7 +144,7 @@ public class ContactsEmailContact extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider
-     * `default_tags` configuration block.
+     * `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

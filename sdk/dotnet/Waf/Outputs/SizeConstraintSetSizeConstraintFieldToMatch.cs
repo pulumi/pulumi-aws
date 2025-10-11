@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Waf.Outputs
     public sealed class SizeConstraintSetSizeConstraintFieldToMatch
     {
         /// <summary>
-        /// When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
+        /// When the `Type` is `HEADER`, specify the name of the header that you want to search using the `Data` field, for example, `User-Agent` or `Referer`. If the `Type` is any other value, you can omit this field.
         /// </summary>
         public readonly string? Data;
         /// <summary>

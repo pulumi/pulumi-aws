@@ -18,7 +18,7 @@ public final class GetApplicationAssignmentsResult {
      */
     private String applicationArn;
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     private List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments;
@@ -34,7 +34,7 @@ public final class GetApplicationAssignmentsResult {
         return this.applicationArn;
     }
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     public List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments() {

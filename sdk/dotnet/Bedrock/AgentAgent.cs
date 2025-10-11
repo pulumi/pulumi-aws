@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> FoundationModel { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block for details.
         /// </summary>
         [Output("guardrailConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentGuardrailConfiguration>> GuardrailConfigurations { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<Outputs.AgentAgentMemoryConfiguration>> MemoryConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> PreparedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `PromptOverrideConfiguration` Block for details.
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
@@ -239,13 +239,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<bool> SkipResourceInUseCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentGuardrailConfigurationArgs>? _guardrailConfigurations;
 
         /// <summary>
-        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentGuardrailConfigurationArgs> GuardrailConfigurations
         {
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `PromptOverrideConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs> PromptOverrideConfigurations
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs>? _guardrailConfigurations;
 
         /// <summary>
-        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs> GuardrailConfigurations
         {
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `True`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -534,7 +534,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `PromptOverrideConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs> PromptOverrideConfigurations
         {
@@ -558,7 +558,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

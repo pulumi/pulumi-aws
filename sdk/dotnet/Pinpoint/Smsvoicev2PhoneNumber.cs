@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// By default this is set to `false`. When set to true the phone number can’t be deleted.
+        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
         /// </summary>
         [Output("deletionProtectionEnabled")]
         public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> RegistrationId { get; private set; } = null!;
 
         /// <summary>
-        /// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         /// </summary>
         [Output("selfManagedOptOutsEnabled")]
         public Output<bool> SelfManagedOptOutsEnabled { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> TwoWayChannelArn { get; private set; } = null!;
 
         /// <summary>
-        /// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
         /// </summary>
         [Output("twoWayChannelEnabled")]
         public Output<bool> TwoWayChannelEnabled { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class Smsvoicev2PhoneNumberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// By default this is set to `false`. When set to true the phone number can’t be deleted.
+        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? RegistrationId { get; set; }
 
         /// <summary>
-        /// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         /// </summary>
         [Input("selfManagedOptOutsEnabled")]
         public Input<bool>? SelfManagedOptOutsEnabled { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TwoWayChannelArn { get; set; }
 
         /// <summary>
-        /// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
         /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// By default this is set to `false`. When set to true the phone number can’t be deleted.
+        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? RegistrationId { get; set; }
 
         /// <summary>
-        /// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        /// When set to `False` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         /// </summary>
         [Input("selfManagedOptOutsEnabled")]
         public Input<bool>? SelfManagedOptOutsEnabled { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TwoWayChannelArn { get; set; }
 
         /// <summary>
-        /// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
         /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string Encrypted;
         /// <summary>
-        /// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+        /// Number of Input/Output (I/O) operations per second to provision for an `Io1` or `Io2` volume.
         /// </summary>
         public readonly int Iops;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly int VolumeSize;
         /// <summary>
-        /// Type of the volume. For example, `gp2` or `io2`.
+        /// Type of the volume. For example, `Gp2` or `Io2`.
         /// </summary>
         public readonly string VolumeType;
 

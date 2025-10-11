@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string LaunchType;
         /// <summary>
-        /// Load balancers for the ECS Service. See `load_balancer` Block for details.
+        /// Load balancers for the ECS Service. See `LoadBalancer` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLoadBalancerResult> LoadBalancers;
         public readonly string Region;

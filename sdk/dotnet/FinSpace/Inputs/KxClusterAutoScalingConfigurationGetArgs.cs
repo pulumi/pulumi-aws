@@ -25,13 +25,13 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<int> MaxNodeCount { get; set; } = null!;
 
         /// <summary>
-        /// Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+        /// Desired value of chosen `AutoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
         /// </summary>
         [Input("metricTarget", required: true)]
         public Input<double> MetricTarget { get; set; } = null!;
 
         /// <summary>
-        /// Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
+        /// Lowest number of nodes to scale. Must be at least 1 and less than the `MaxNodeCount`. If nodes in cluster belong to multiple availability zones, then `MinNodeCount` must be at least 3.
         /// </summary>
         [Input("minNodeCount", required: true)]
         public Input<int> MinNodeCount { get; set; } = null!;

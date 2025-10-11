@@ -47,14 +47,14 @@ public final class FunctionSyncConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+     * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
      * 
      */
     @Import(name="lambdaConflictHandlerConfig")
     private @Nullable Output<FunctionSyncConfigLambdaConflictHandlerConfigArgs> lambdaConflictHandlerConfig;
 
     /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
      * 
      */
     public Optional<Output<FunctionSyncConfigLambdaConflictHandlerConfigArgs>> lambdaConflictHandlerConfig() {
@@ -130,7 +130,7 @@ public final class FunctionSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FunctionSyncConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
          * 
          * @return builder
          * 

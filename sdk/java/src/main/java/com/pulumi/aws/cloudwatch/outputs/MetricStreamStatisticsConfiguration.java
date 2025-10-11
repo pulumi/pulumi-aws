@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class MetricStreamStatisticsConfiguration {
     /**
-     * @return The additional statistics to stream for the metrics listed in `include_metrics`.
+     * @return The additional statistics to stream for the metrics listed in `includeMetrics`.
      * 
      */
     private List<String> additionalStatistics;
@@ -25,7 +25,7 @@ public final class MetricStreamStatisticsConfiguration {
 
     private MetricStreamStatisticsConfiguration() {}
     /**
-     * @return The additional statistics to stream for the metrics listed in `include_metrics`.
+     * @return The additional statistics to stream for the metrics listed in `includeMetrics`.
      * 
      */
     public List<String> additionalStatistics() {

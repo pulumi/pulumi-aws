@@ -19,7 +19,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      */
     private String modelArn;
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt parsingPrompt;
@@ -33,7 +33,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         return this.modelArn;
     }
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt> parsingPrompt() {

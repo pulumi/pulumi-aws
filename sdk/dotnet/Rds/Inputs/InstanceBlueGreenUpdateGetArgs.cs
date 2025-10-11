@@ -13,8 +13,8 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class InstanceBlueGreenUpdateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables low-downtime updates when `true`.
-        /// Default is `false`.
+        /// Enables low-downtime updates when `True`.
+        /// Default is `False`.
         /// 
         /// [instance-replication]:
         /// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html

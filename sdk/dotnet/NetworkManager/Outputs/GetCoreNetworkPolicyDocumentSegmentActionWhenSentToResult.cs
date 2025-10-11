@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult
     {
         /// <summary>
-        /// A list of strings. The list of segments that the `send-via` `action` uses.
+        /// A list of strings. The list of segments that the `send-via` `Action` uses.
         /// </summary>
         public readonly ImmutableArray<string> Segments;
 

@@ -18,7 +18,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp {
      */
     private Integer maxConnections;
     /**
-     * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
     private @Nullable Integer maxPendingRequests;
@@ -32,7 +32,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp {
         return this.maxConnections;
     }
     /**
-     * @return Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+     * @return Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
     public Optional<Integer> maxPendingRequests() {

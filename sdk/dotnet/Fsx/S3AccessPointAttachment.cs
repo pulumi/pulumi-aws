@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `OpenzfsConfiguration` Block for details.
         /// </summary>
         [Output("openzfsConfiguration")]
         public Output<Outputs.S3AccessPointAttachmentOpenzfsConfiguration?> OpenzfsConfiguration { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// S3 access point configuration. See `s3_access_point` Block for details.
+        /// S3 access point configuration. See `S3AccessPoint` Block for details.
         /// </summary>
         [Output("s3AccessPoint")]
         public Output<Outputs.S3AccessPointAttachmentS3AccessPoint?> S3AccessPoint { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `OpenzfsConfiguration` Block for details.
         /// </summary>
         [Input("openzfsConfiguration")]
         public Input<Inputs.S3AccessPointAttachmentOpenzfsConfigurationArgs>? OpenzfsConfiguration { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// S3 access point configuration. See `s3_access_point` Block for details.
+        /// S3 access point configuration. See `S3AccessPoint` Block for details.
         /// </summary>
         [Input("s3AccessPoint")]
         public Input<Inputs.S3AccessPointAttachmentS3AccessPointArgs>? S3AccessPoint { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `OpenzfsConfiguration` Block for details.
         /// </summary>
         [Input("openzfsConfiguration")]
         public Input<Inputs.S3AccessPointAttachmentOpenzfsConfigurationGetArgs>? OpenzfsConfiguration { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// S3 access point configuration. See `s3_access_point` Block for details.
+        /// S3 access point configuration. See `S3AccessPoint` Block for details.
         /// </summary>
         [Input("s3AccessPoint")]
         public Input<Inputs.S3AccessPointAttachmentS3AccessPointGetArgs>? S3AccessPoint { get; set; }

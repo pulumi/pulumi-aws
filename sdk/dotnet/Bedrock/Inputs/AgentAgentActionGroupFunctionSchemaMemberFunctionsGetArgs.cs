@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionGetArgs>? _functions;
 
         /// <summary>
-        /// Functions that each define an action in the action group. See `functions` Block for details.
+        /// Functions that each define an action in the action group. See `Functions` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionGetArgs> Functions
         {

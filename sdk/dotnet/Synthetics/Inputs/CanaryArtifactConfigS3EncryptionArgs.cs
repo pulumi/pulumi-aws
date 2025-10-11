@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public Input<string>? EncryptionMode { get; set; }
 
         /// <summary>
-        /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+        /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `EncryptionMode`.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

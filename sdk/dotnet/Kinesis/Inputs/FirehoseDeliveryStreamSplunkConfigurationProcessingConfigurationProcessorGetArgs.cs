@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+        /// Specifies the processor parameters as multiple blocks. See `Parameters` block below for details.
         /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterGetArgs> Parameters
         {

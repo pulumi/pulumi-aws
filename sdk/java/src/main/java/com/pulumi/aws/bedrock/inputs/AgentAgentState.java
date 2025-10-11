@@ -163,14 +163,14 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      * 
      */
     @Import(name="guardrailConfigurations")
     private @Nullable Output<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations;
 
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentGuardrailConfigurationArgs>>> guardrailConfigurations() {
@@ -253,14 +253,14 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      * 
      */
     @Import(name="promptOverrideConfigurations")
     private @Nullable Output<List<AgentAgentPromptOverrideConfigurationArgs>> promptOverrideConfigurations;
 
     /**
-     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentPromptOverrideConfigurationArgs>>> promptOverrideConfigurations() {
@@ -298,14 +298,14 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -313,14 +313,14 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -572,7 +572,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -812,7 +812,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

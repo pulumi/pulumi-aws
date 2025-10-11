@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class FleetSpotOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
+        /// How to allocate the target capacity across the Spot pools. Valid values: `Diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
-        /// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+        /// Behavior when a Spot Instance is interrupted. Valid values: `Hibernate`, `Stop`, `Terminate`. Default: `Terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
         /// <summary>
-        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `AllocationStrategy` is set to `lowestPrice`. Default: `1`.
         /// </summary>
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? MaxTotalPrice { get; set; }
 
         /// <summary>
-        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `Instant`.
         /// </summary>
         [Input("minTargetCapacity")]
         public Input<int>? MinTargetCapacity { get; set; }
 
         /// <summary>
-        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `Instant`.
         /// </summary>
         [Input("singleAvailabilityZone")]
         public Input<bool>? SingleAvailabilityZone { get; set; }
 
         /// <summary>
-        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `Instant`.
         /// </summary>
         [Input("singleInstanceType")]
         public Input<bool>? SingleInstanceType { get; set; }

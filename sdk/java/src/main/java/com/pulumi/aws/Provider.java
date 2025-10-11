@@ -40,14 +40,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.accessKey);
     }
     /**
-     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
      * 
      */
     @Export(name="customCaBundle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customCaBundle;
 
     /**
-     * @return File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+     * @return File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
      * 
      */
     public Output<Optional<String>> customCaBundle() {
@@ -82,42 +82,42 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.ec2MetadataServiceEndpointMode);
     }
     /**
-     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+     * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
      * 
      */
     @Export(name="httpProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpProxy;
 
     /**
-     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+     * @return URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
      * 
      */
     public Output<Optional<String>> httpProxy() {
         return Codegen.optional(this.httpProxy);
     }
     /**
-     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+     * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
      * 
      */
     @Export(name="httpsProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpsProxy;
 
     /**
-     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+     * @return URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
      * 
      */
     public Output<Optional<String>> httpsProxy() {
         return Codegen.optional(this.httpsProxy);
     }
     /**
-     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+     * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
      * 
      */
     @Export(name="noProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> noProxy;
 
     /**
-     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+     * @return Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
      * 
      */
     public Output<Optional<String>> noProxy() {
@@ -170,14 +170,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.retryMode);
     }
     /**
-     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      * 
      */
     @Export(name="s3UsEast1RegionalEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3UsEast1RegionalEndpoint;
 
     /**
-     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      * 
      */
     public Output<Optional<String>> s3UsEast1RegionalEndpoint() {

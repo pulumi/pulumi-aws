@@ -94,7 +94,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.DirectoryBucketAccessPointScopeScope?> Scope { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.DirectoryBucketAccessPointScopeScopeArgs>? Scope { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        /// . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `Scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.DirectoryBucketAccessPointScopeScopeGetArgs>? Scope { get; set; }

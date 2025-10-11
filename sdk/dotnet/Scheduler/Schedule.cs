@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Scheduler
         public Output<Outputs.ScheduleFlexibleTimeWindow> FlexibleTimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
+        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.Scheduler
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Scheduler
         public Input<Inputs.ScheduleFlexibleTimeWindowArgs> FlexibleTimeWindow { get; set; } = null!;
 
         /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
+        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -269,13 +269,13 @@ namespace Pulumi.Aws.Scheduler
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Scheduler
         public Input<Inputs.ScheduleFlexibleTimeWindowGetArgs>? FlexibleTimeWindow { get; set; }
 
         /// <summary>
-        /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
+        /// Name of the schedule group to associate with this schedule. When omitted, the `Default` schedule group is used.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -369,13 +369,13 @@ namespace Pulumi.Aws.Scheduler
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

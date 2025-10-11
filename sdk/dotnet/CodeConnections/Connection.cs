@@ -65,13 +65,13 @@ namespace Pulumi.Aws.CodeConnections
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CodeConnections
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Aws.CodeConnections
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -153,19 +153,19 @@ namespace Pulumi.Aws.CodeConnections
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
         /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.CodeConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.CodeConnections
         public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
         /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `Name` will create a new resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.CodeConnections
         public Input<string>? OwnerAccountId { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+        /// The name of the external provider where your third-party code repository is configured. Changing `ProviderType` will create a new resource. Conflicts with `HostArn`.
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.CodeConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.CodeConnections
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

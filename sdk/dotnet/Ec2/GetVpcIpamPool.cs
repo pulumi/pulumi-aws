@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AutoImport;
         /// <summary>
-        /// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
+        /// Limits which service in AWS that the pool can be used in. `Ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         /// </summary>
         public readonly string AwsService;
         /// <summary>

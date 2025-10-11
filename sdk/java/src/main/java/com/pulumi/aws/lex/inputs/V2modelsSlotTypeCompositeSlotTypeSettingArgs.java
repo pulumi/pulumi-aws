@@ -18,7 +18,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
     /**
      * Sub slots in the composite slot.
-     * See `sub_slots` argument reference below.
+     * See `subSlots` argument reference below.
      * 
      */
     @Import(name="subSlots")
@@ -26,7 +26,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
     /**
      * @return Sub slots in the composite slot.
-     * See `sub_slots` argument reference below.
+     * See `subSlots` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>>> subSlots() {
@@ -59,7 +59,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
         /**
          * @param subSlots Sub slots in the composite slot.
-         * See `sub_slots` argument reference below.
+         * See `subSlots` argument reference below.
          * 
          * @return builder
          * 
@@ -71,7 +71,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
         /**
          * @param subSlots Sub slots in the composite slot.
-         * See `sub_slots` argument reference below.
+         * See `subSlots` argument reference below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
 
         /**
          * @param subSlots Sub slots in the composite slot.
-         * See `sub_slots` argument reference below.
+         * See `subSlots` argument reference below.
          * 
          * @return builder
          * 

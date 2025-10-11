@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection {
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField;
@@ -23,14 +23,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private String payloadType;
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection() {}
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField() {
@@ -44,7 +44,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return this.payloadType;
     }
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField() {

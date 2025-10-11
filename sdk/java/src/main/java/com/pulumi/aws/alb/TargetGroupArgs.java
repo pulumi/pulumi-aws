@@ -85,14 +85,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      * 
      */
     @Import(name="lambdaMultiValueHeadersEnabled")
     private @Nullable Output<Boolean> lambdaMultiValueHeadersEnabled;
 
     /**
-     * @return Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+     * @return Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> lambdaMultiValueHeadersEnabled() {
@@ -100,14 +100,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      * 
      */
     @Import(name="loadBalancingAlgorithmType")
     private @Nullable Output<String> loadBalancingAlgorithmType;
 
     /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      * 
      */
     public Optional<Output<String>> loadBalancingAlgorithmType() {
@@ -115,14 +115,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
      * 
      */
     @Import(name="loadBalancingAnomalyMitigation")
     private @Nullable Output<String> loadBalancingAnomalyMitigation;
 
     /**
-     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
      * 
      */
     public Optional<Output<String>> loadBalancingAnomalyMitigation() {
@@ -130,14 +130,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;useLoadBalancerConfiguration&#34;`. The default is `&#34;useLoadBalancerConfiguration&#34;`.
      * 
      */
     @Import(name="loadBalancingCrossZoneEnabled")
     private @Nullable Output<String> loadBalancingCrossZoneEnabled;
 
     /**
-     * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+     * @return Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;useLoadBalancerConfiguration&#34;`. The default is `&#34;useLoadBalancerConfiguration&#34;`.
      * 
      */
     public Optional<Output<String>> loadBalancingCrossZoneEnabled() {
@@ -175,14 +175,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -207,8 +207,8 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Protocol to use for routing traffic to the targets.
      * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-     * Required when `target_type` is `instance`, `ip`, or `alb`.
-     * Does not apply when `target_type` is `lambda`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      * 
      */
     @Import(name="protocol")
@@ -217,8 +217,8 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Protocol to use for routing traffic to the targets.
      * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-     * Required when `target_type` is `instance`, `ip`, or `alb`.
-     * Does not apply when `target_type` is `lambda`.
+     * Required when `targetType` is `instance`, `ip`, or `alb`.
+     * Does not apply when `targetType` is `lambda`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -301,14 +301,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -316,14 +316,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      * 
      */
     @Import(name="targetFailovers")
     private @Nullable Output<List<TargetGroupTargetFailoverArgs>> targetFailovers;
 
     /**
-     * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+     * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      * 
      */
     public Optional<Output<List<TargetGroupTargetFailoverArgs>>> targetFailovers() {
@@ -331,14 +331,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target health requirements block. See target_group_health for more information.
+     * Target health requirements block. See targetGroupHealth for more information.
      * 
      */
     @Import(name="targetGroupHealth")
     private @Nullable Output<TargetGroupTargetGroupHealthArgs> targetGroupHealth;
 
     /**
-     * @return Target health requirements block. See target_group_health for more information.
+     * @return Target health requirements block. See targetGroupHealth for more information.
      * 
      */
     public Optional<Output<TargetGroupTargetGroupHealthArgs>> targetGroupHealth() {
@@ -346,14 +346,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      * 
      */
     @Import(name="targetHealthStates")
     private @Nullable Output<List<TargetGroupTargetHealthStateArgs>> targetHealthStates;
 
     /**
-     * @return Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+     * @return Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      * 
      */
     public Optional<Output<List<TargetGroupTargetHealthStateArgs>>> targetHealthStates() {
@@ -396,14 +396,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+     * @return Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -542,7 +542,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaMultiValueHeadersEnabled Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+         * @param lambdaMultiValueHeadersEnabled Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaMultiValueHeadersEnabled Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
+         * @param lambdaMultiValueHeadersEnabled Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;useLoadBalancerConfiguration&#34;`. The default is `&#34;useLoadBalancerConfiguration&#34;`.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
+         * @param loadBalancingCrossZoneEnabled Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;useLoadBalancerConfiguration&#34;`. The default is `&#34;useLoadBalancerConfiguration&#34;`.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param port Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 
@@ -712,8 +712,8 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocol Protocol to use for routing traffic to the targets.
          * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-         * Required when `target_type` is `instance`, `ip`, or `alb`.
-         * Does not apply when `target_type` is `lambda`.
+         * Required when `targetType` is `instance`, `ip`, or `alb`.
+         * Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 
@@ -726,8 +726,8 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocol Protocol to use for routing traffic to the targets.
          * Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
-         * Required when `target_type` is `instance`, `ip`, or `alb`.
-         * Does not apply when `target_type` is `lambda`.
+         * Required when `targetType` is `instance`, `ip`, or `alb`.
+         * Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -853,7 +853,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
          * 
          * @return builder
          * 
@@ -874,7 +874,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+         * @param targetFailovers Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupHealth Target health requirements block. See target_group_health for more information.
+         * @param targetGroupHealth Target health requirements block. See targetGroupHealth for more information.
          * 
          * @return builder
          * 
@@ -905,7 +905,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupHealth Target health requirements block. See target_group_health for more information.
+         * @param targetGroupHealth Target health requirements block. See targetGroupHealth for more information.
          * 
          * @return builder
          * 
@@ -915,7 +915,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
          * 
          * @return builder
          * 
@@ -936,7 +936,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+         * @param targetHealthStates Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param vpcId Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
+         * @param vpcId Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
          * 
          * @return builder
          * 

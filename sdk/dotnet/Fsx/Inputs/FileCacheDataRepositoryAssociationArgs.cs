@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.FileCacheDataRepositoryAssociationNfArgs>? _nfs;
 
         /// <summary>
-        /// (Optional) See the `nfs` configuration block.
+        /// (Optional) See the `Nfs` configuration block.
         /// </summary>
         public InputList<Inputs.FileCacheDataRepositoryAssociationNfArgs> Nfs
         {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file cache. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

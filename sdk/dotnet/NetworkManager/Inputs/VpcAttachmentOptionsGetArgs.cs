@@ -31,7 +31,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<bool>? Ipv6Support { get; set; }
 
         /// <summary>
-        /// Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        /// Whether to enable security group referencing support for this VPC attachment. The default is `True`. However, at the core network policy-level the default is set to `False`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         /// </summary>
         [Input("securityGroupReferencingSupport")]
         public Input<bool>? SecurityGroupReferencingSupport { get; set; }

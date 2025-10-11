@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
  * 
- * &gt; **Note:** Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
+ * &gt; **Note:** Destruction of this resource will return the `recursiveLoop` configuration back to the default value of `Terminate`.
  * 
  * ## Example Usage
  * 

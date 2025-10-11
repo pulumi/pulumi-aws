@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebhookPullRequestBuildPolicy {
     /**
-     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requires_comment_approval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
      * 
      */
     private @Nullable List<String> approverRoles;
@@ -25,7 +25,7 @@ public final class WebhookPullRequestBuildPolicy {
 
     private WebhookPullRequestBuildPolicy() {}
     /**
-     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requires_comment_approval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
+     * @return List of repository roles that have approval privileges for pull request builds when comment approval is required. This argument must be specified only when `requiresCommentApproval` is not `DISABLED`. See the [AWS documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/pull-request-build-policy.html#pull-request-build-policy.configuration) for valid values and defaults.
      * 
      */
     public List<String> approverRoles() {

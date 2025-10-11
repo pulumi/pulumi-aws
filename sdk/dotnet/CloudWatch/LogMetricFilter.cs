@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogMetricFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
         /// </summary>
         [Output("applyOnTransformedLogs")]
         public Output<bool> ApplyOnTransformedLogs { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogMetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
         /// </summary>
         [Input("applyOnTransformedLogs")]
         public Input<bool>? ApplyOnTransformedLogs { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogMetricFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
+        /// Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `False`. Valid only for log groups that have an active log transformer.
         /// </summary>
         [Input("applyOnTransformedLogs")]
         public Input<bool>? ApplyOnTransformedLogs { get; set; }

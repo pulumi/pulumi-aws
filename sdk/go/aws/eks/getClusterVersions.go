@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ### Filter by Cluster Type
 //
 // ```go

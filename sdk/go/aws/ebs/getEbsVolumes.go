@@ -14,6 +14,10 @@ import (
 // `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
 //
 // This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+//
+// ## Example Usage
+//
+// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEbsVolumesResult

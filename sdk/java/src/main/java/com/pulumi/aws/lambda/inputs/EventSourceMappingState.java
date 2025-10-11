@@ -30,14 +30,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     public static final EventSourceMappingState Empty = new EventSourceMappingState();
 
     /**
-     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
      * 
      */
     @Import(name="amazonManagedKafkaEventSourceConfig")
     private @Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> amazonManagedKafkaEventSourceConfig;
 
     /**
-     * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+     * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
      * 
      */
     public Optional<Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>> amazonManagedKafkaEventSourceConfig() {
@@ -165,14 +165,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      * 
      */
     @Import(name="functionArn")
     private @Nullable Output<String> functionArn;
 
     /**
-     * @return ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * @return ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      * 
      */
     public Optional<Output<String>> functionArn() {
@@ -259,14 +259,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     * Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      * 
      */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
     /**
-     * @return Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+     * @return Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      * 
      */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
@@ -394,14 +394,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+     * For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
      * 
      */
     @Import(name="selfManagedEventSource")
     private @Nullable Output<EventSourceMappingSelfManagedEventSourceArgs> selfManagedEventSource;
 
     /**
-     * @return For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+     * @return For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
      * 
      */
     public Optional<Output<EventSourceMappingSelfManagedEventSourceArgs>> selfManagedEventSource() {
@@ -409,14 +409,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+     * Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
      * 
      */
     @Import(name="selfManagedKafkaEventSourceConfig")
     private @Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> selfManagedKafkaEventSourceConfig;
 
     /**
-     * @return Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+     * @return Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
      * 
      */
     public Optional<Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>> selfManagedKafkaEventSourceConfig() {
@@ -424,14 +424,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
      * 
      */
     @Import(name="sourceAccessConfigurations")
     private @Nullable Output<List<EventSourceMappingSourceAccessConfigurationArgs>> sourceAccessConfigurations;
 
     /**
-     * @return For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+     * @return For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
      * 
      */
     public Optional<Output<List<EventSourceMappingSourceAccessConfigurationArgs>>> sourceAccessConfigurations() {
@@ -454,14 +454,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      * 
      */
     @Import(name="startingPositionTimestamp")
     private @Nullable Output<String> startingPositionTimestamp;
 
     /**
-     * @return Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+     * @return Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      * 
      */
     public Optional<Output<String>> startingPositionTimestamp() {
@@ -499,14 +499,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -514,14 +514,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -633,7 +633,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with `self_managed_event_source` and `self_managed_kafka_event_source_config`. See below.
+         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with `selfManagedEventSource` and `selfManagedKafkaEventSourceConfig`. See below.
          * 
          * @return builder
          * 
@@ -822,7 +822,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param functionArn ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+         * @param functionArn ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
          * 
          * @return builder
          * 
@@ -833,7 +833,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param functionArn ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+         * @param functionArn ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
          * 
          * @return builder
          * 
@@ -962,7 +962,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+         * @param maximumBatchingWindowInSeconds Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
          * 
          * @return builder
          * 
@@ -973,7 +973,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+         * @param maximumBatchingWindowInSeconds Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
          * 
          * @return builder
          * 
@@ -1162,7 +1162,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. See below.
+         * @param selfManagedEventSource For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. See below.
          * 
          * @return builder
          * 
@@ -1172,7 +1172,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
          * 
          * @return builder
          * 
@@ -1183,7 +1183,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with `event_source_arn` and `amazon_managed_kafka_event_source_config`. See below.
+         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with `eventSourceArn` and `amazonManagedKafkaEventSourceConfig`. See below.
          * 
          * @return builder
          * 
@@ -1193,7 +1193,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
          * 
          * @return builder
          * 
@@ -1204,7 +1204,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
          * 
          * @return builder
          * 
@@ -1214,7 +1214,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. See below.
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. See below.
          * 
          * @return builder
          * 
@@ -1245,7 +1245,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param startingPositionTimestamp Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+         * @param startingPositionTimestamp Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
          * 
          * @return builder
          * 
@@ -1256,7 +1256,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param startingPositionTimestamp Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+         * @param startingPositionTimestamp Timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
          * 
          * @return builder
          * 
@@ -1308,7 +1308,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1319,7 +1319,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1329,7 +1329,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1340,7 +1340,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

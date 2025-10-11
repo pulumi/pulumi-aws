@@ -13,18 +13,24 @@ namespace Pulumi.Aws.Glue
     {
         /// <summary>
         /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());

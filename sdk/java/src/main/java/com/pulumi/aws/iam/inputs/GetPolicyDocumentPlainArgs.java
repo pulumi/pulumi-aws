@@ -36,14 +36,14 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
      * 
      */
     @Import(name="overridePolicyDocuments")
     private @Nullable List<String> overridePolicyDocuments;
 
     /**
-     * @return List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+     * @return List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
      * 
      */
     public Optional<List<String>> overridePolicyDocuments() {
@@ -85,14 +85,14 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+     * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
      * 
      */
     @Import(name="sourcePolicyDocuments")
     private @Nullable List<String> sourcePolicyDocuments;
 
     /**
-     * @return List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+     * @return List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
      * 
      */
     public Optional<List<String>> sourcePolicyDocuments() {
@@ -173,7 +173,7 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
+         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
+         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
          * 
          * @return builder
          * 

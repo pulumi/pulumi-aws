@@ -49,14 +49,14 @@ public final class PipelineTriggerAllGitConfigurationPullRequestArgs extends com
     }
 
     /**
-     * The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+     * The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
      * 
      */
     @Import(name="filePaths")
     private @Nullable Output<List<PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>> filePaths;
 
     /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
      * 
      */
     public Optional<Output<List<PipelineTriggerAllGitConfigurationPullRequestFilePathArgs>>> filePaths() {
@@ -152,7 +152,7 @@ public final class PipelineTriggerAllGitConfigurationPullRequestArgs extends com
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PipelineTriggerAllGitConfigurationPullRequestArgs extends com
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PipelineTriggerAllGitConfigurationPullRequestArgs extends com
         }
 
         /**
-         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+         * @param filePaths The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
          * 
          * @return builder
          * 

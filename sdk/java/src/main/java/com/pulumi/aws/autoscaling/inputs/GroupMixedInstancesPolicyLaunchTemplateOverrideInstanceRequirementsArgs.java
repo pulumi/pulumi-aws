@@ -105,7 +105,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     /**
      * List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
      * 
-     * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
+     * &gt; **NOTE:** If you specify `allowedInstanceTypes`, you can&#39;t specify `excludedInstanceTypes`.
      * 
      */
     @Import(name="allowedInstanceTypes")
@@ -114,7 +114,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     /**
      * @return List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
      * 
-     * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
+     * &gt; **NOTE:** If you specify `allowedInstanceTypes`, you can&#39;t specify `excludedInstanceTypes`.
      * 
      */
     public Optional<Output<List<String>>> allowedInstanceTypes() {
@@ -188,7 +188,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     /**
      * List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
-     * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
+     * &gt; **NOTE:** If you specify `excludedInstanceTypes`, you can&#39;t specify `allowedInstanceTypes`.
      * 
      */
     @Import(name="excludedInstanceTypes")
@@ -197,7 +197,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     /**
      * @return List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
      * 
-     * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
+     * &gt; **NOTE:** If you specify `excludedInstanceTypes`, you can&#39;t specify `allowedInstanceTypes`.
      * 
      */
     public Optional<Output<List<String>>> excludedInstanceTypes() {
@@ -250,14 +250,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     }
 
     /**
-     * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+     * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
      * 
      */
     @Import(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
     private @Nullable Output<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
 
     /**
-     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
      * 
      */
     public Optional<Output<Integer>> maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
@@ -359,7 +359,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     }
 
     /**
-     * Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+     * Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
      * 
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
@@ -368,7 +368,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     private @Nullable Output<Integer> spotMaxPricePercentageOverLowestPrice;
 
     /**
-     * @return Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+     * @return Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
      * 
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
@@ -592,7 +592,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param allowedInstanceTypes List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
          * 
-         * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
+         * &gt; **NOTE:** If you specify `allowedInstanceTypes`, you can&#39;t specify `excludedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param allowedInstanceTypes List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
          * 
-         * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
+         * &gt; **NOTE:** If you specify `allowedInstanceTypes`, you can&#39;t specify `excludedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param allowedInstanceTypes List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
          * 
-         * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
+         * &gt; **NOTE:** If you specify `allowedInstanceTypes`, you can&#39;t specify `excludedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param excludedInstanceTypes List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
          * 
-         * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
+         * &gt; **NOTE:** If you specify `excludedInstanceTypes`, you can&#39;t specify `allowedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param excludedInstanceTypes List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
          * 
-         * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
+         * &gt; **NOTE:** If you specify `excludedInstanceTypes`, you can&#39;t specify `allowedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         /**
          * @param excludedInstanceTypes List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
          * 
-         * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
+         * &gt; **NOTE:** If you specify `excludedInstanceTypes`, you can&#39;t specify `allowedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -847,7 +847,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
          * 
          * @return builder
          * 
@@ -858,7 +858,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param spotMaxPricePercentageOverLowestPrice Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+         * @param spotMaxPricePercentageOverLowestPrice Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
          * 
          * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
          * 
@@ -1011,7 +1011,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param spotMaxPricePercentageOverLowestPrice Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+         * @param spotMaxPricePercentageOverLowestPrice Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
          * 
          * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
          * 

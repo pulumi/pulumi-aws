@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Rum
     public partial class AppMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// configuration data for the app monitor. See AppMonitorConfiguration below.
         /// </summary>
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorAppMonitorConfiguration> AppMonitorConfiguration { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Rum
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See CustomEvents below.
         /// </summary>
         [Output("customEvents")]
         public Output<Outputs.AppMonitorCustomEvents> CustomEvents { get; private set; } = null!;
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `False`.
         /// </summary>
         [Output("cwLogEnabled")]
         public Output<bool?> CwLogEnabled { get; private set; } = null!;
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Rum
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -155,19 +155,19 @@ namespace Pulumi.Aws.Rum
     public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// configuration data for the app monitor. See AppMonitorConfiguration below.
         /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See CustomEvents below.
         /// </summary>
         [Input("customEvents")]
         public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `False`.
         /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Rum
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Rum
     public sealed class AppMonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// configuration data for the app monitor. See AppMonitorConfiguration below.
         /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationGetArgs>? AppMonitorConfiguration { get; set; }
@@ -234,13 +234,13 @@ namespace Pulumi.Aws.Rum
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See CustomEvents below.
         /// </summary>
         [Input("customEvents")]
         public Input<Inputs.AppMonitorCustomEventsGetArgs>? CustomEvents { get; set; }
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `False`.
         /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Rum
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Rum
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -17,7 +17,7 @@ public final class UserPoolVerificationMessageTemplate {
      */
     private @Nullable String defaultEmailOption;
     /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
      * 
      */
     private @Nullable String emailMessage;
@@ -27,7 +27,7 @@ public final class UserPoolVerificationMessageTemplate {
      */
     private @Nullable String emailMessageByLink;
     /**
-     * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+     * @return Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
      * 
      */
     private @Nullable String emailSubject;
@@ -37,7 +37,7 @@ public final class UserPoolVerificationMessageTemplate {
      */
     private @Nullable String emailSubjectByLink;
     /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
      * 
      */
     private @Nullable String smsMessage;
@@ -51,7 +51,7 @@ public final class UserPoolVerificationMessageTemplate {
         return Optional.ofNullable(this.defaultEmailOption);
     }
     /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
      * 
      */
     public Optional<String> emailMessage() {
@@ -65,7 +65,7 @@ public final class UserPoolVerificationMessageTemplate {
         return Optional.ofNullable(this.emailMessageByLink);
     }
     /**
-     * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+     * @return Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
      * 
      */
     public Optional<String> emailSubject() {
@@ -79,7 +79,7 @@ public final class UserPoolVerificationMessageTemplate {
         return Optional.ofNullable(this.emailSubjectByLink);
     }
     /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
      * 
      */
     public Optional<String> smsMessage() {

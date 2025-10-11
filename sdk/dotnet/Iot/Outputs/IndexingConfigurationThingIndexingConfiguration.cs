@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string? DeviceDefenderIndexingMode;
         /// <summary>
-        /// Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        /// Required if `NamedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `Filter` to fleet indexing configuration.
         /// </summary>
         public readonly Outputs.IndexingConfigurationThingIndexingConfigurationFilter? Filter;
         /// <summary>

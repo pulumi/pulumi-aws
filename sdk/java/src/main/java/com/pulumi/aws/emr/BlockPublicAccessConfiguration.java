@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  * 
  * ### Multiple Permitted Public Security Group Rule Ranges
  * 
- * The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
+ * The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
  * 
  * <pre>
  * {@code
@@ -207,14 +207,14 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
         return this.blockPublicSecurityGroupRules;
     }
     /**
-     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      * 
      */
     @Export(name="permittedPublicSecurityGroupRuleRanges", refs={List.class,BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> permittedPublicSecurityGroupRuleRanges;
 
     /**
-     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      * 
      */
     public Output<Optional<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>>> permittedPublicSecurityGroupRuleRanges() {

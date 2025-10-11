@@ -390,16 +390,16 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     @Export(name="startApplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startApplication;
 
     /**
-     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
+     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     public Output<Optional<Boolean>> startApplication() {
@@ -420,28 +420,28 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

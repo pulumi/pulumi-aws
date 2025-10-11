@@ -33,14 +33,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
      * 
      */
     @Import(name="certificatePem")
     private @Nullable Output<String> certificatePem;
 
     /**
-     * @return The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+     * @return The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
      * 
      */
     public Optional<Output<String>> certificatePem() {
@@ -48,14 +48,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      * 
      */
     @Import(name="certificateWallet")
     private @Nullable Output<String> certificateWallet;
 
     /**
-     * @return The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+     * @return The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      * 
      */
     public Optional<Output<String>> certificateWallet() {
@@ -78,14 +78,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -142,7 +142,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+         * @param certificatePem The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+         * @param certificateWallet The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

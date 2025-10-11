@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId`.
         /// </summary>
         [Output("engineSecurityGroupId")]
         public Output<string> EngineSecurityGroupId { get; private set; } = null!;
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId`. Studio users can create a Workspace in any of the specified subnets.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `VpcId`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId`.
         /// </summary>
         [Input("engineSecurityGroupId", required: true)]
         public Input<string> EngineSecurityGroupId { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Emr
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId`. Studio users can create a Workspace in any of the specified subnets.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Emr
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Emr
         public Input<string> VpcId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `VpcId`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId`.
         /// </summary>
         [Input("engineSecurityGroupId")]
         public Input<string>? EngineSecurityGroupId { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Emr
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId`. Studio users can create a Workspace in any of the specified subnets.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Emr
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `VpcId`.
         /// 
         /// The following arguments are optional:
         /// </summary>

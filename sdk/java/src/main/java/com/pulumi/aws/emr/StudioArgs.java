@@ -79,14 +79,14 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+     * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      * 
      */
     @Import(name="engineSecurityGroupId", required=true)
     private Output<String> engineSecurityGroupId;
 
     /**
-     * @return The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+     * @return The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      * 
      */
     public Output<String> engineSecurityGroupId() {
@@ -169,14 +169,14 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+     * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+     * @return A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -184,14 +184,14 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -229,7 +229,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+     * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
      * 
      * The following arguments are optional:
      * 
@@ -238,7 +238,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> workspaceSecurityGroupId;
 
     /**
-     * @return The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+     * @return The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
      * 
      * The following arguments are optional:
      * 
@@ -370,7 +370,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineSecurityGroupId The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+         * @param engineSecurityGroupId The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineSecurityGroupId The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+         * @param engineSecurityGroupId The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+         * @param subnetIds A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceSecurityGroupId The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+         * @param workspaceSecurityGroupId The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
          * 
          * The following arguments are optional:
          * 
@@ -603,7 +603,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceSecurityGroupId The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+         * @param workspaceSecurityGroupId The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
          * 
          * The following arguments are optional:
          * 

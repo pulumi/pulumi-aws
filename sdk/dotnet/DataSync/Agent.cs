@@ -12,7 +12,7 @@ namespace Pulumi.Aws.DataSync
     /// <summary>
     /// Manages an AWS DataSync Agent deployed on premises.
     /// 
-    /// &gt; **NOTE:** One of `activation_key` or `ip_address` must be provided for resource creation (agent activation). Neither is required for resource import. If using `ip_address`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
+    /// &gt; **NOTE:** One of `ActivationKey` or `IpAddress` must be provided for resource creation (agent activation). Neither is required for resource import. If using `IpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running. The agent will turn off that HTTP server after activation.
     /// 
     /// ## Example Usage
     /// 
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.DataSync
     public partial class Agent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `IpAddress`. If an `IpAddress` is provided instead, the provider will retrieve the `ActivationKey` as part of the resource creation.
         /// </summary>
         [Output("activationKey")]
         public Output<string> ActivationKey { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `ActivationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `ActivationKey`.
         /// </summary>
         [Output("privateLinkEndpoint")]
         public Output<string> PrivateLinkEndpoint { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableArray<string>> SubnetArns { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.DataSync
     public sealed class AgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `IpAddress`. If an `IpAddress` is provided instead, the provider will retrieve the `ActivationKey` as part of the resource creation.
         /// </summary>
         [Input("activationKey")]
         public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
-        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `ActivationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `ActivationKey`.
         /// </summary>
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class AgentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// DataSync Agent activation key during resource creation. Conflicts with `IpAddress`. If an `IpAddress` is provided instead, the provider will retrieve the `ActivationKey` as part of the resource creation.
         /// </summary>
         [Input("activationKey")]
         public Input<string>? ActivationKey { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `ActivationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `ActivationKey`.
         /// </summary>
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

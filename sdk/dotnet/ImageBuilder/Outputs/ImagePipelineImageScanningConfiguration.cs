@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly Outputs.ImagePipelineImageScanningConfigurationEcrConfiguration? EcrConfiguration;
         /// <summary>
-        /// Whether image scans are enabled. Defaults to `false`.
+        /// Whether image scans are enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? ImageScanningEnabled;
 

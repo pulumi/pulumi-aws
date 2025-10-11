@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Eks.Outputs
     {
         /// <summary>
         /// Type of clusters to filter by.
-        /// Currently, the only valid value is `eks`.
+        /// Currently, the only valid value is `Eks`.
         /// </summary>
         public readonly string ClusterType;
         /// <summary>

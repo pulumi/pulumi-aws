@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly string AppBlockArn;
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with name_regex or name.
+        /// Arn of the image being searched for. Cannot be used with NameRegex or name.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A list named icon_s3_location that contains the following:
+        /// A list named IconS3Location that contains the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageApplicationIconS3LocationResult> IconS3Locations;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with name_regex or arn.
+        /// Name of the image being searched for. Cannot be used with NameRegex or arn.
         /// </summary>
         public readonly string Name;
         /// <summary>

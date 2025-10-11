@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sfn.Inputs
     public sealed class StateMachineTracingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        /// When set to `True`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

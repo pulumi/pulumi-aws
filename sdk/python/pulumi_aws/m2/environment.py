@@ -633,6 +633,14 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ### High Availability
+
+        ### EFS Filesystem
+
+        ### FSX Filesystem
+
         ## Import
 
         Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
@@ -668,6 +676,14 @@ class Environment(pulumi.CustomResource):
         Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ### High Availability
+
+        ### EFS Filesystem
+
+        ### FSX Filesystem
 
         ## Import
 

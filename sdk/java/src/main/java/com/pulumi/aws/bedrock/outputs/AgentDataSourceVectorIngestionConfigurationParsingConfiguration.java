@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration bedrockFoundationModelConfiguration;
@@ -26,7 +26,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfiguration() {}
     /**
-     * @return Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+     * @return Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration> bedrockFoundationModelConfiguration() {

@@ -254,16 +254,16 @@ public class TableExport extends com.pulumi.resources.CustomResource {
         return this.exportTime;
     }
     /**
-     * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incrementalExportSpecification` argument must also be provided.
+     * `incrementalExportSpecification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incrementalExportSpecification` Block for details.
      * 
      */
     @Export(name="exportType", refs={String.class}, tree="[0]")
     private Output<String> exportType;
 
     /**
-     * @return Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
-     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * @return Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incrementalExportSpecification` argument must also be provided.
+     * `incrementalExportSpecification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incrementalExportSpecification` Block for details.
      * 
      */
     public Output<String> exportType() {

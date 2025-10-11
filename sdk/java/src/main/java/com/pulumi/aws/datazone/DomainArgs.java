@@ -115,14 +115,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * @return ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -338,7 +338,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
          * 
          * @return builder
          * 

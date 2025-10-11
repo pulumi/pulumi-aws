@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:efs/backupPolicy:BackupPolicy")
 public class BackupPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A backup_policy object (documented below).
+     * A backupPolicy object (documented below).
      * 
      */
     @Export(name="backupPolicy", refs={BackupPolicyBackupPolicy.class}, tree="[0]")
     private Output<BackupPolicyBackupPolicy> backupPolicy;
 
     /**
-     * @return A backup_policy object (documented below).
+     * @return A backupPolicy object (documented below).
      * 
      */
     public Output<BackupPolicyBackupPolicy> backupPolicy() {

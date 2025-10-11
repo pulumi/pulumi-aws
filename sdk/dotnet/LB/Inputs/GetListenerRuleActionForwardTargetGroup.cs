@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LB.Inputs
     {
         /// <summary>
         /// ARN of the Listener Rule.
-        /// Either `arn` or `listener_arn` must be set.
+        /// Either `Arn` or `ListenerArn` must be set.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;

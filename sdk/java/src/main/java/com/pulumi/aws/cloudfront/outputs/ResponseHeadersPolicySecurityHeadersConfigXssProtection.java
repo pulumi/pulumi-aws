@@ -29,7 +29,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
      */
     private Boolean protection;
     /**
-     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
+     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
      * 
      */
     private @Nullable String reportUri;
@@ -57,7 +57,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtection {
         return this.protection;
     }
     /**
-     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
+     * @return A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
      * 
      */
     public Optional<String> reportUri() {

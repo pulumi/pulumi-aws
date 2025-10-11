@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? StudioWebPortal;
         /// <summary>
-        /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        /// The Studio Web Portal settings. See `StudioWebPortalSettings` Block below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsStudioWebPortalSettings? StudioWebPortalSettings;
         /// <summary>

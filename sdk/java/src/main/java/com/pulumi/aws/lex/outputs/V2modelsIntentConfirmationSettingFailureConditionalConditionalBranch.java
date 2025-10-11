@@ -26,7 +26,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
      */
     private String name;
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     private V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep nextStep;
@@ -52,7 +52,7 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
         return this.name;
     }
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep nextStep() {

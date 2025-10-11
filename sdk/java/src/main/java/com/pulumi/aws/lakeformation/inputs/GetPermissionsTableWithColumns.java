@@ -33,14 +33,14 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
     }
 
     /**
-     * Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+     * Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
      * 
      */
     @Import(name="columnNames")
     private @Nullable List<String> columnNames;
 
     /**
-     * @return Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+     * @return Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
      * 
      */
     public Optional<List<String>> columnNames() {
@@ -63,14 +63,14 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
     }
 
     /**
-     * Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+     * Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
      * 
      */
     @Import(name="excludedColumnNames")
     private @Nullable List<String> excludedColumnNames;
 
     /**
-     * @return Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+     * @return Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
      * 
      */
     public Optional<List<String>> excludedColumnNames() {
@@ -152,7 +152,7 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
         }
 
         /**
-         * @param columnNames Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+         * @param columnNames Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
         }
 
         /**
-         * @param columnNames Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+         * @param columnNames Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
         }
 
         /**
-         * @param excludedColumnNames Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+         * @param excludedColumnNames Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class GetPermissionsTableWithColumns extends com.pulumi.resources.I
         }
 
         /**
-         * @param excludedColumnNames Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+         * @param excludedColumnNames Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
          * 
          * @return builder
          * 

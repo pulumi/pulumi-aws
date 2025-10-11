@@ -22,13 +22,13 @@ public final class AnalyticsApplicationOutput {
      */
     private @Nullable String id;
     /**
-     * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+     * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
     private @Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose;
     /**
-     * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+     * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */
@@ -58,7 +58,7 @@ public final class AnalyticsApplicationOutput {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
+     * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
@@ -66,7 +66,7 @@ public final class AnalyticsApplicationOutput {
         return Optional.ofNullable(this.kinesisFirehose);
     }
     /**
-     * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
+     * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */

@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Msk
         private List<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `PreferredVersions` or `Version` must be set.
         /// </summary>
         public List<string> PreferredVersions
         {
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Msk
         public string? Region { get; set; }
 
         /// <summary>
-        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
+        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `PreferredVersions` or `Version` must be set.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Msk
         private InputList<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `PreferredVersions` or `Version` must be set.
         /// </summary>
         public InputList<string> PreferredVersions
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
+        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `PreferredVersions` or `Version` must be set.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

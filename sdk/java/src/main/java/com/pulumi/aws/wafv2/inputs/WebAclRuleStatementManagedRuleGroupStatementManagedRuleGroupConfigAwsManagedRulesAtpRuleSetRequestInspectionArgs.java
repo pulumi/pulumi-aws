@@ -17,14 +17,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs();
 
     /**
-     * Details about your login page password field. See `password_field` for more details.
+     * Details about your login page password field. See `passwordField` for more details.
      * 
      */
     @Import(name="passwordField", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField;
 
     /**
-     * @return Details about your login page password field. See `password_field` for more details.
+     * @return Details about your login page password field. See `passwordField` for more details.
      * 
      */
     public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs> passwordField() {
@@ -47,14 +47,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
 
     /**
-     * Details about your login page username field. See `username_field` for more details.
+     * Details about your login page username field. See `usernameField` for more details.
      * 
      */
     @Import(name="usernameField", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField;
 
     /**
-     * @return Details about your login page username field. See `username_field` for more details.
+     * @return Details about your login page username field. See `usernameField` for more details.
      * 
      */
     public Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs> usernameField() {
@@ -88,7 +88,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param passwordField Details about your login page password field. See `password_field` for more details.
+         * @param passwordField Details about your login page password field. See `passwordField` for more details.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param passwordField Details about your login page password field. See `password_field` for more details.
+         * @param passwordField Details about your login page password field. See `passwordField` for more details.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param usernameField Details about your login page username field. See `username_field` for more details.
+         * @param usernameField Details about your login page username field. See `usernameField` for more details.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param usernameField Details about your login page username field. See `username_field` for more details.
+         * @param usernameField Details about your login page username field. See `usernameField` for more details.
          * 
          * @return builder
          * 

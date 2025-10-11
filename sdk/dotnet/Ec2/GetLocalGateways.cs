@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+        /// The following example retrieves Local Gateways with a resource tag of `Service` set to `Production`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetLocalGatewaysFilterArgs> Filters
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
         /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetLocalGatewaysFilterInputArgs> Filters

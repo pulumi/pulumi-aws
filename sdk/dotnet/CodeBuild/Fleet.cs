@@ -95,7 +95,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<int> BaseCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
         /// </summary>
         [Output("computeConfiguration")]
         public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
         /// </summary>
         [Output("scalingConfiguration")]
         public Output<Outputs.FleetScalingConfiguration?> ScalingConfiguration { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableArray<Outputs.FleetStatus>> Statuses { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. See `vpc_config` below.
+        /// Configuration block. See `VpcConfig` below.
         /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.FleetVpcConfig>> VpcConfigs { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int> BaseCapacity { get; set; } = null!;
 
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
         /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationArgs>? ScalingConfiguration { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.FleetVpcConfigArgs>? _vpcConfigs;
 
         /// <summary>
-        /// Configuration block. See `vpc_config` below.
+        /// Configuration block. See `VpcConfig` below.
         /// </summary>
         public InputList<Inputs.FleetVpcConfigArgs> VpcConfigs
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? BaseCapacity { get; set; }
 
         /// <summary>
-        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
+        /// The compute configuration of the compute fleet. This is only required if `ComputeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `ComputeConfiguration` below.
         /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationGetArgs>? ComputeConfiguration { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `ScalingConfiguration` below.
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationGetArgs>? ScalingConfiguration { get; set; }
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.FleetVpcConfigGetArgs>? _vpcConfigs;
 
         /// <summary>
-        /// Configuration block. See `vpc_config` below.
+        /// Configuration block. See `VpcConfig` below.
         /// </summary>
         public InputList<Inputs.FleetVpcConfigGetArgs> VpcConfigs
         {

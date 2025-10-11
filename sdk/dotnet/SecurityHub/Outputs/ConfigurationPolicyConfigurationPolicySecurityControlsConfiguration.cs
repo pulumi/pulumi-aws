@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     public sealed class ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration
     {
         /// <summary>
-        /// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        /// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `EnabledControlIdentifiers`.
         /// </summary>
         public readonly ImmutableArray<string> DisabledControlIdentifiers;
         /// <summary>
-        /// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        /// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `DisabledControlIdentifiers`.
         /// </summary>
         public readonly ImmutableArray<string> EnabledControlIdentifiers;
         /// <summary>

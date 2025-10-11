@@ -16,14 +16,14 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
     public static final AppCampaignHookArgs Empty = new AppCampaignHookArgs();
 
     /**
-     * Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+     * Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
      * 
      */
     @Import(name="lambdaFunctionName")
     private @Nullable Output<String> lambdaFunctionName;
 
     /**
-     * @return Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+     * @return Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
      * 
      */
     public Optional<Output<String>> lambdaFunctionName() {
@@ -46,14 +46,14 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+     * Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
      * 
      */
     @Import(name="webUrl")
     private @Nullable Output<String> webUrl;
 
     /**
-     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
      * 
      */
     public Optional<Output<String>> webUrl() {
@@ -87,7 +87,7 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lambdaFunctionName Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+         * @param lambdaFunctionName Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lambdaFunctionName Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+         * @param lambdaFunctionName Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param webUrl Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+         * @param webUrl Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AppCampaignHookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param webUrl Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+         * @param webUrl Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
          * 
          * @return builder
          * 

@@ -100,7 +100,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Type of lifecycle policy. Must be `retention`.
+        /// Type of lifecycle policy. Must be `Retention`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of lifecycle policy. Must be `retention`.
+        /// Type of lifecycle policy. Must be `Retention`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of lifecycle policy. Must be `retention`.
+        /// Type of lifecycle policy. Must be `Retention`.
         /// 
         /// The following arguments are optional:
         /// </summary>

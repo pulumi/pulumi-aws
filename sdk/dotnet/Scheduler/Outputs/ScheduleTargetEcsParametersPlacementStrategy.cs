@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        /// The type of placement strategy. One of: `Random`, `Spread`, `Binpack`.
         /// </summary>
         public readonly string Type;
 

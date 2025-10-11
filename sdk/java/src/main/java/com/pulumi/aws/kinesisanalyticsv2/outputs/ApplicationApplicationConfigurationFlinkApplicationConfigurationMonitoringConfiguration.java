@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
     /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     private String configurationType;
@@ -30,7 +30,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
     private ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration() {}
     /**
-     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+     * @return Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
      * 
      */
     public String configurationType() {

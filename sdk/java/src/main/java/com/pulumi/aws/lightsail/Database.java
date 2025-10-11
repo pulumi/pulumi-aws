@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  * 
  * ### Final Snapshots
  * 
- * To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
+ * To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
  * 
  * <pre>
  * {@code
@@ -193,7 +193,7 @@ import javax.annotation.Nullable;
  * 
  * ### Apply Immediately
  * 
- * To enable applying changes immediately instead of waiting for a maintenance window, use the `apply_immediately` argument.
+ * To enable applying changes immediately instead of waiting for a maintenance window, use the `applyImmediately` argument.
  * 
  * <pre>
  * {@code
@@ -239,8 +239,8 @@ import javax.annotation.Nullable;
  * 
  * ### Examples
  * 
- * - `mysql_8_0`
- * - `postgres_12`
+ * - `mysql80`
+ * - `postgres12`
  * 
  * ### Prefix
  * 
@@ -256,10 +256,10 @@ import javax.annotation.Nullable;
  * 
  * ### Examples
  * 
- * - `small_1_0`
- * - `small_ha_1_0`
- * - `large_1_0`
- * - `large_ha_1_0`
+ * - `small10`
+ * - `smallHa10`
+ * - `large10`
+ * - `largeHa10`
  * 
  * ### Prefix
  * 
@@ -278,7 +278,7 @@ import javax.annotation.Nullable;
  * 
  * ### Suffix
  * 
- * A Bundle ID ends with one of the following suffix: `1_0`
+ * A Bundle ID ends with one of the following suffix: `10`
  * 
  * ## Import
  * 
@@ -674,28 +674,28 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.supportCode;
     }
     /**
-     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

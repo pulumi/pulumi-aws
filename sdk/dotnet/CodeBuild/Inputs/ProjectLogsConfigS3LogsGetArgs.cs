@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? BucketOwnerAccess { get; set; }
 
         /// <summary>
-        /// Whether to disable encrypting S3 logs. Defaults to `false`.
+        /// Whether to disable encrypting S3 logs. Defaults to `False`.
         /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }

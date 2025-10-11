@@ -26,7 +26,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? CustomEndpointEnabled;
         /// <summary>
-        /// Whether or not to require HTTPS. Defaults to `true`.
+        /// Whether or not to require HTTPS. Defaults to `True`.
         /// </summary>
         public readonly bool? EnforceHttps;
         /// <summary>

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string> ServiceAccessRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+        /// Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `False`.
         /// </summary>
         [Input("useNewMappingType")]
         public Input<bool>? UseNewMappingType { get; set; }

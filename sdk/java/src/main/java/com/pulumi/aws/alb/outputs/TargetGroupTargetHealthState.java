@@ -19,7 +19,7 @@ public final class TargetGroupTargetHealthState {
      */
     private Boolean enableUnhealthyConnectionTermination;
     /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
      * 
      */
     private @Nullable Integer unhealthyDrainingInterval;
@@ -33,7 +33,7 @@ public final class TargetGroupTargetHealthState {
         return this.enableUnhealthyConnectionTermination;
     }
     /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
      * 
      */
     public Optional<Integer> unhealthyDrainingInterval() {

@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly bool? Active;
         /// <summary>
-        /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closing_response`.
+        /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `ClosingResponse`.
         /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingClosingResponse? ClosingResponse;
         /// <summary>
-        /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `next_step` attribute is set to `EvalutateConditional`. See `conditional`.
+        /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `NextStep` attribute is set to `EvalutateConditional`. See `Conditional`.
         /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingConditional? Conditional;
         /// <summary>
-        /// Next step that the bot executes after playing the intent's closing response. See `next_step`.
+        /// Next step that the bot executes after playing the intent's closing response. See `NextStep`.
         /// </summary>
         public readonly Outputs.V2modelsIntentClosingSettingNextStep? NextStep;
 

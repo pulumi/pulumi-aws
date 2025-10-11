@@ -27,14 +27,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     public static final WebAclArgs Empty = new WebAclArgs();
 
     /**
-     * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     @Import(name="associationConfig")
     private @Nullable Output<WebAclAssociationConfigArgs> associationConfig;
 
     /**
-     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     public Optional<Output<WebAclAssociationConfigArgs>> associationConfig() {
@@ -42,14 +42,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
@@ -57,14 +57,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     @Import(name="challengeConfig")
     private @Nullable Output<WebAclChallengeConfigArgs> challengeConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     public Optional<Output<WebAclChallengeConfigArgs>> challengeConfig() {
@@ -72,14 +72,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     @Import(name="customResponseBodies")
     private @Nullable Output<List<WebAclCustomResponseBodyArgs>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+     * @return Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     public Optional<Output<List<WebAclCustomResponseBodyArgs>>> customResponseBodies() {
@@ -87,14 +87,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     @Import(name="dataProtectionConfig")
     private @Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig;
 
     /**
-     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     public Optional<Output<WebAclDataProtectionConfigArgs>> dataProtectionConfig() {
@@ -102,14 +102,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<WebAclDefaultActionArgs> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      * 
      */
     public Output<WebAclDefaultActionArgs> defaultAction() {
@@ -132,14 +132,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -177,14 +177,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      * 
      */
     @Import(name="ruleJson")
     private @Nullable Output<String> ruleJson;
 
     /**
-     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      * 
      */
     public Optional<Output<String>> ruleJson() {
@@ -222,14 +222,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -252,14 +252,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      * 
      */
     @Import(name="visibilityConfig", required=true)
     private Output<WebAclVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      * 
      */
     public Output<WebAclVisibilityConfigArgs> visibilityConfig() {
@@ -306,7 +306,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+         * @param ruleJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+         * @param ruleJson Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 

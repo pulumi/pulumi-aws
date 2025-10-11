@@ -21,7 +21,7 @@ public final class GroupInstanceRefreshPreferences {
      */
     private @Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification;
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
      * 
      */
     private @Nullable Boolean autoRollback;
@@ -75,7 +75,7 @@ public final class GroupInstanceRefreshPreferences {
         return Optional.ofNullable(this.alarmSpecification);
     }
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
      * 
      */
     public Optional<Boolean> autoRollback() {

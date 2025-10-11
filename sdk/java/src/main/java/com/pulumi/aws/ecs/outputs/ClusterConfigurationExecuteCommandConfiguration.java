@@ -18,7 +18,7 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
+     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
      * 
      */
     private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration;
@@ -37,7 +37,7 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
+     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
      * 
      */
     public Optional<ClusterConfigurationExecuteCommandConfigurationLogConfiguration> logConfiguration() {

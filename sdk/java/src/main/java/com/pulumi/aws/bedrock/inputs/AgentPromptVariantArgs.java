@@ -37,14 +37,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+     * Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
      * 
      */
     @Import(name="genAiResource")
     private @Nullable Output<AgentPromptVariantGenAiResourceArgs> genAiResource;
 
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantGenAiResourceArgs>> genAiResource() {
@@ -82,14 +82,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+     * Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
      * 
      */
     @Import(name="modelId")
     private @Nullable Output<String> modelId;
 
     /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
      * 
      */
     public Optional<Output<String>> modelId() {
@@ -194,7 +194,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+         * @param genAiResource Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+         * @param modelId Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
          * 
          * @return builder
          * 

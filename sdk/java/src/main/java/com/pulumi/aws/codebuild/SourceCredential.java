@@ -208,7 +208,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
     }
     /**
      * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
      * Connection ARN.
      * 
      */
@@ -217,7 +217,7 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
 
     /**
      * @return For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
      * Connection ARN.
      * 
      */

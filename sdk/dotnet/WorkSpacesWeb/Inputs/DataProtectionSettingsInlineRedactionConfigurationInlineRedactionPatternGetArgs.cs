@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
     public sealed class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The built-in pattern from the list of preconfigured patterns. Either a `custom_pattern` or `built_in_pattern_id` is required.
+        /// The built-in pattern from the list of preconfigured patterns. Either a `CustomPattern` or `BuiltInPatternId` is required.
         /// </summary>
         [Input("builtInPatternId")]
         public Input<string>? BuiltInPatternId { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
         public Input<int>? ConfidenceLevel { get; set; }
 
         /// <summary>
-        /// The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
+        /// The configuration for a custom pattern. Either a `CustomPattern` or `BuiltInPatternId` is required. Detailed below.
         /// </summary>
         [Input("customPattern")]
         public Input<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternGetArgs>? CustomPattern { get; set; }

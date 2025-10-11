@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration
     {
         /// <summary>
-        /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        /// Defaults to `True`. Set it to `False` if you want to disable format conversion while preserving the configuration details.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
+        /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `InputFormatConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration InputFormatConfiguration;
         /// <summary>
-        /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
+        /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `OutputFormatConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration OutputFormatConfiguration;
         /// <summary>
-        /// Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
+        /// Specifies the AWS Glue Data Catalog table that contains the column information. See `SchemaConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration SchemaConfiguration;
 

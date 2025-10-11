@@ -20,7 +20,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
         /// <summary>
         /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
         /// 
-        /// _Only one `deployment_style` is allowed_.
+        /// _Only one `DeploymentStyle` is allowed_.
         /// </summary>
         public readonly string? DeploymentType;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
         /// 
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
         /// 
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
         /// 
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.S3
     {
         public readonly string Bucket;
         /// <summary>
-        /// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
+        /// List of any keys between `Prefix` and the next occurrence of `Delimiter` (i.e., similar to subdirectories of the `Prefix` "directory"); the list is only returned when you specify `Delimiter`
         /// </summary>
         public readonly ImmutableArray<string> CommonPrefixes;
         public readonly string? Delimiter;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableArray<string> Keys;
         public readonly int? MaxKeys;
         /// <summary>
-        /// List of strings representing object owner IDs (see `fetch_owner` above)
+        /// List of strings representing object owner IDs (see `FetchOwner` above)
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;

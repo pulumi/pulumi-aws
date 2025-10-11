@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
         /// </summary>
         public readonly string? BannerText;
         /// <summary>
-        /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
+        /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `False` (not enabled).
         /// </summary>
         public readonly bool? Enabled;
 

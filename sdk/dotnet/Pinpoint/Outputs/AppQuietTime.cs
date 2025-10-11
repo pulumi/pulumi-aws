@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Pinpoint.Outputs
     public sealed class AppQuietTime
     {
         /// <summary>
-        /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+        /// The default end time for quiet time in ISO 8601 format. Required if `Start` is set
         /// </summary>
         public readonly string? End;
         /// <summary>
-        /// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+        /// The default start time for quiet time in ISO 8601 format. Required if `End` is set
         /// </summary>
         public readonly string? Start;
 

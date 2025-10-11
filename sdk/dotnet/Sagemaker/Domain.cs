@@ -176,13 +176,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AuthMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default space settings. See `default_space_settings` Block below.
+        /// The default space settings. See `DefaultSpaceSettings` Block below.
         /// </summary>
         [Output("defaultSpaceSettings")]
         public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The default user settings. See `default_user_settings` Block below.
+        /// The default user settings. See `DefaultUserSettings` Block below.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainDefaultUserSettings> DefaultUserSettings { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The domain settings. See `domain_settings` Block below.
+        /// The domain settings. See `DomainSettings` Block below.
         /// </summary>
         [Output("domainSettings")]
         public Output<Outputs.DomainDomainSettings?> DomainSettings { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `RetentionPolicy` Block below.
         /// </summary>
         [Output("retentionPolicy")]
         public Output<Outputs.DomainRetentionPolicy?> RetentionPolicy { get; private set; } = null!;
@@ -254,13 +254,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> TagPropagation { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -344,13 +344,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AuthMode { get; set; } = null!;
 
         /// <summary>
-        /// The default space settings. See `default_space_settings` Block below.
+        /// The default space settings. See `DefaultSpaceSettings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See `default_user_settings` Block below.
+        /// The default user settings. See `DefaultUserSettings` Block below.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainDefaultUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The domain settings. See `domain_settings` Block below.
+        /// The domain settings. See `DomainSettings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsArgs>? DomainSettings { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `RetentionPolicy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyArgs>? RetentionPolicy { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -456,13 +456,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AuthMode { get; set; }
 
         /// <summary>
-        /// The default space settings. See `default_space_settings` Block below.
+        /// The default space settings. See `DefaultSpaceSettings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See `default_user_settings` Block below.
+        /// The default user settings. See `DefaultUserSettings` Block below.
         /// </summary>
         [Input("defaultUserSettings")]
         public Input<Inputs.DomainDefaultUserSettingsGetArgs>? DefaultUserSettings { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The domain settings. See `domain_settings` Block below.
+        /// The domain settings. See `DomainSettings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsGetArgs>? DomainSettings { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `RetentionPolicy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -555,7 +555,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

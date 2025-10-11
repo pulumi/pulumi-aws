@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html)
     /// 
     /// !&gt; **WARN:** Contact Flows exported from the Console [Contact Flow import/export](https://docs.aws.amazon.com/connect/latest/adminguide/contact-flow-import-export.html) are not in the Amazon Connect Contact Flow Language and can not be used with this resource. Instead, the recommendation is to use the AWS CLI [`describe-contact-flow`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/describe-contact-flow.html).
-    /// See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
+    /// See example below which uses `Jq` to extract the `Content` attribute and saves it to a local file.
     /// 
     /// ## Example Usage
     /// 
@@ -148,13 +148,13 @@ namespace Pulumi.Aws.Connect
         public Output<string> ContactFlowId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `Filename` argument cannot be used.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `Filename`.
         /// </summary>
         [Output("contentHash")]
         public Output<string?> ContentHash { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Connect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
+        /// The path to the Contact Flow source within the local filesystem. Conflicts with `Content`.
         /// </summary>
         [Output("filename")]
         public Output<string?> Filename { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Connect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Contact Flow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -254,13 +254,13 @@ namespace Pulumi.Aws.Connect
     public sealed class ContactFlowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `Filename` argument cannot be used.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `Filename`.
         /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
+        /// The path to the Contact Flow source within the local filesystem. Conflicts with `Content`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Contact Flow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -334,13 +334,13 @@ namespace Pulumi.Aws.Connect
         public Input<string>? ContactFlowId { get; set; }
 
         /// <summary>
-        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
+        /// Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `Filename` argument cannot be used.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `Filename`.
         /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
+        /// The path to the Contact Flow source within the local filesystem. Conflicts with `Content`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the Contact Flow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Connect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

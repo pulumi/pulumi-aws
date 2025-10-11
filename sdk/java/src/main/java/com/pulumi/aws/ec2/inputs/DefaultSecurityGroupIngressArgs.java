@@ -95,14 +95,14 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
     }
 
     /**
-     * Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+     * @return Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
      * 
      */
     public Output<String> protocol() {
@@ -322,7 +322,7 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class DefaultSecurityGroupIngressArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         * @param protocol Protocol. If you select a protocol of &#34;-1&#34; (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
          * 
          * @return builder
          * 

@@ -130,6 +130,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Deployment Version Tracking
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -296,6 +298,8 @@ public final class LambdaFunctions {
      * }}{@code
      * }
      * </pre>
+     * 
+     * ### Deployment Version Tracking
      * 
      * ### EventBridge Rule Target
      * 
@@ -464,6 +468,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Deployment Version Tracking
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -631,6 +637,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Deployment Version Tracking
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -797,6 +805,8 @@ public final class LambdaFunctions {
      * }}{@code
      * }
      * </pre>
+     * 
+     * ### Deployment Version Tracking
      * 
      * ### EventBridge Rule Target
      * 
@@ -3349,6 +3359,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Create Function Inventory
+     * 
      */
     public static Output<GetFunctionsResult> getFunctions() {
         return getFunctions(GetFunctionsArgs.Empty, InvokeOptions.Empty);
@@ -3448,6 +3460,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Create Function Inventory
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
@@ -3549,6 +3563,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Create Function Inventory
+     * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args) {
         return getFunctions(args, InvokeOptions.Empty);
@@ -3648,6 +3664,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Create Function Inventory
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args) {
@@ -3749,6 +3767,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Create Function Inventory
+     * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
@@ -3849,6 +3869,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Create Function Inventory
+     * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
@@ -3948,6 +3970,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Create Function Inventory
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args, InvokeOptions options) {

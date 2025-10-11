@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecr.Outputs
     public sealed class GetLifecyclePolicyDocumentRuleActionResult
     {
         /// <summary>
-        /// The supported value is `expire`.
+        /// The supported value is `Expire`.
         /// </summary>
         public readonly string Type;
 

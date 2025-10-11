@@ -14,6 +14,8 @@ import (
 // Get information on EC2 Transit Gateway VPC Attachments.
 //
 // ## Example Usage
+//
+// ### By Filter
 func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetVpcAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcAttachmentsResult

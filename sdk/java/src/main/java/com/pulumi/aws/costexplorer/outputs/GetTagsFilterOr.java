@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTagsFilterOr {
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
      * 
      */
     private @Nullable GetTagsFilterOrCostCategory costCategory;
@@ -31,7 +31,7 @@ public final class GetTagsFilterOr {
 
     private GetTagsFilterOr() {}
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `costCategory` block below for details.
      * 
      */
     public Optional<GetTagsFilterOrCostCategory> costCategory() {

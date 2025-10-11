@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
         /// </summary>
         [Output("statistic")]
         public Output<string?> Statistic { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
         /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        /// The statistic used for the enabled subscription. Valid values: `P50`. Default: `P50`.
         /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }

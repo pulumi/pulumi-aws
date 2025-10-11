@@ -50,14 +50,14 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
     }
 
     /**
-     * Configuration block for the next step in the conversation. See `next_step`.
+     * Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     @Import(name="nextStep", required=true)
     private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep;
 
     /**
-     * @return Configuration block for the next step in the conversation. See `next_step`.
+     * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
     public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep() {
@@ -149,7 +149,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         /**
-         * @param nextStep Configuration block for the next step in the conversation. See `next_step`.
+         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         /**
-         * @param nextStep Configuration block for the next step in the conversation. See `next_step`.
+         * @param nextStep Configuration block for the next step in the conversation. See `nextStep`.
          * 
          * @return builder
          * 

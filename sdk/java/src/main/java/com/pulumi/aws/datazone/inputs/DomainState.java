@@ -144,14 +144,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * @return ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -196,14 +196,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -427,7 +427,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+         * @param serviceRole ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -31,13 +31,13 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<int> MinWorkerCount { get; set; } = null!;
 
         /// <summary>
-        /// The scale-in policy for the connector. See `scale_in_policy` Block for details.
+        /// The scale-in policy for the connector. See `ScaleInPolicy` Block for details.
         /// </summary>
         [Input("scaleInPolicy")]
         public Input<Inputs.ConnectorCapacityAutoscalingScaleInPolicyGetArgs>? ScaleInPolicy { get; set; }
 
         /// <summary>
-        /// The scale-out policy for the connector. See `scale_out_policy` Block for details.
+        /// The scale-out policy for the connector. See `ScaleOutPolicy` Block for details.
         /// </summary>
         [Input("scaleOutPolicy")]
         public Input<Inputs.ConnectorCapacityAutoscalingScaleOutPolicyGetArgs>? ScaleOutPolicy { get; set; }

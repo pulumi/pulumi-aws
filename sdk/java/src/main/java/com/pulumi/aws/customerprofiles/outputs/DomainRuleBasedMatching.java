@@ -40,7 +40,7 @@ public final class DomainRuleBasedMatching {
      */
     private @Nullable DomainRuleBasedMatchingExportingConfig exportingConfig;
     /**
-     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
+     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
      * 
      */
     private @Nullable List<DomainRuleBasedMatchingMatchingRule> matchingRules;
@@ -86,7 +86,7 @@ public final class DomainRuleBasedMatching {
         return Optional.ofNullable(this.exportingConfig);
     }
     /**
-     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
+     * @return A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natchingRules`. Documented below.
      * 
      */
     public List<DomainRuleBasedMatchingMatchingRule> matchingRules() {

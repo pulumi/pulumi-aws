@@ -49,14 +49,14 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
+     * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
     @Import(name="singleSignOnUserIdentifier")
     private @Nullable Output<String> singleSignOnUserIdentifier;
 
     /**
-     * @return A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
+     * @return A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
     public Optional<Output<String>> singleSignOnUserIdentifier() {
@@ -79,14 +79,14 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -196,7 +196,7 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleSignOnUserIdentifier A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
+         * @param singleSignOnUserIdentifier A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singleSignOnUserIdentifier A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
+         * @param singleSignOnUserIdentifier A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

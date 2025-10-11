@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The request configuration.  See `request_configuration` block below for details.
+        /// The request configuration.  See `RequestConfiguration` block below for details.
         /// </summary>
         [Input("requestConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs>? RequestConfiguration { get; set; }
@@ -83,13 +83,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        /// The Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
         /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }

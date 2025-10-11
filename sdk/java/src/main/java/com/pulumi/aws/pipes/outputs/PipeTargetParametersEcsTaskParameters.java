@@ -82,7 +82,7 @@ public final class PipeTargetParametersEcsTaskParameters {
      */
     private @Nullable String referenceId;
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -183,7 +183,7 @@ public final class PipeTargetParametersEcsTaskParameters {
         return Optional.ofNullable(this.referenceId);
     }
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

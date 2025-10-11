@@ -16,14 +16,14 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetMountTargetArgs Empty = new GetMountTargetArgs();
 
     /**
-     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
      * 
      */
     @Import(name="accessPointId")
     private @Nullable Output<String> accessPointId;
 
     /**
-     * @return ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+     * @return ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
      * 
      */
     public Optional<Output<String>> accessPointId() {
@@ -31,14 +31,14 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
      * 
      */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
     /**
-     * @return ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+     * @return ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
      * 
      */
     public Optional<Output<String>> fileSystemId() {
@@ -46,14 +46,14 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+     * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
      * 
      */
     @Import(name="mountTargetId")
     private @Nullable Output<String> mountTargetId;
 
     /**
-     * @return ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+     * @return ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
      * 
      */
     public Optional<Output<String>> mountTargetId() {
@@ -103,7 +103,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+         * @param accessPointId ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+         * @param fileSystemId ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class GetMountTargetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+         * @param mountTargetId ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
          * 
          * @return builder
          * 

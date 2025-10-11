@@ -78,14 +78,14 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
     }
 
     /**
-     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      * 
      */
     @Import(name="inputParameters")
     private @Nullable Output<List<OrganizationConformancePackInputParameterArgs>> inputParameters;
 
     /**
-     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      * 
      */
     public Optional<Output<List<OrganizationConformancePackInputParameterArgs>>> inputParameters() {
@@ -279,7 +279,7 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
         }
 
         /**
-         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
         }
 
         /**
-         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
         }
 
         /**
-         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+         * @param inputParameters Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
          * 
          * @return builder
          * 

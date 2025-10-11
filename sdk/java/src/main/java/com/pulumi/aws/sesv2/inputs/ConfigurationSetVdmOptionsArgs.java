@@ -17,14 +17,14 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
     public static final ConfigurationSetVdmOptionsArgs Empty = new ConfigurationSetVdmOptionsArgs();
 
     /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+     * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
      * 
      */
     @Import(name="dashboardOptions")
     private @Nullable Output<ConfigurationSetVdmOptionsDashboardOptionsArgs> dashboardOptions;
 
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetVdmOptionsDashboardOptionsArgs>> dashboardOptions() {
@@ -32,14 +32,14 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+     * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
      * 
      */
     @Import(name="guardianOptions")
     private @Nullable Output<ConfigurationSetVdmOptionsGuardianOptionsArgs> guardianOptions;
 
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetVdmOptionsGuardianOptionsArgs>> guardianOptions() {
@@ -72,7 +72,7 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+         * @param dashboardOptions Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConfigurationSetVdmOptionsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+         * @param guardianOptions Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
          * 
          * @return builder
          * 

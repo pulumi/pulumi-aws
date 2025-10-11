@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -87,19 +87,19 @@ namespace Pulumi.Aws.ResourceGroups
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A `resource_query` block. Resource queries are documented below.
+        /// A `ResourceQuery` block. Resource queries are documented below.
         /// </summary>
         [Output("resourceQuery")]
         public Output<Outputs.GroupResourceQuery?> ResourceQuery { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A `resource_query` block. Resource queries are documented below.
+        /// A `ResourceQuery` block. Resource queries are documented below.
         /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryArgs>? ResourceQuery { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.ResourceGroups
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `Aws`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A `resource_query` block. Resource queries are documented below.
+        /// A `ResourceQuery` block. Resource queries are documented below.
         /// </summary>
         [Input("resourceQuery")]
         public Input<Inputs.GroupResourceQueryGetArgs>? ResourceQuery { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.ResourceGroups
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.ResourceGroups
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

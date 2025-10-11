@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Output("autoUpdate")]
         public Output<string> AutoUpdate { get; private set; } = null!;
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Rekognition
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
+        /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `Feature` is `CONTENT_MODERATION`, but do not set otherwise.
         /// </summary>
         [Input("autoUpdate")]
         public Input<string>? AutoUpdate { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

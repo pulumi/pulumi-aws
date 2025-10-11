@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsJupyterLabAppSettings {
     /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     private @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
      * 
      */
     private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsJupyterLabAppSettings() {}
     /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     public Optional<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
     /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
      * 
      */
     public List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec() {

@@ -24,7 +24,7 @@ public final class ResourceSetResourceDnsTargetResource {
      */
     private @Nullable String hostedZoneArn;
     /**
-     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * @return Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
      * 
      */
     private @Nullable String recordSetId;
@@ -55,7 +55,7 @@ public final class ResourceSetResourceDnsTargetResource {
         return Optional.ofNullable(this.hostedZoneArn);
     }
     /**
-     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * @return Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
      * 
      */
     public Optional<String> recordSetId() {

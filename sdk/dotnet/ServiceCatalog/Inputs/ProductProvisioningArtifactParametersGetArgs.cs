@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public Input<bool>? DisableTemplateValidation { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the provisioning artifact (for example, `V1`, `V2beta`). No spaces are allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

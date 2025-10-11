@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
     /**
-     * @return Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl sasl;
     /**
-     * @return Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
      * 
      */
     private @Nullable Boolean tls;
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication() {}
     /**
-     * @return Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+     * @return Configuration block for specifying SASL client authentication. See clientAuthentication sasl Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl> sasl() {
         return Optional.ofNullable(this.sasl);
     }
     /**
-     * @return Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+     * @return Configuration block for specifying TLS client authentication. See clientAuthentication tls Argument Reference below.
      * 
      */
     public Optional<Boolean> tls() {

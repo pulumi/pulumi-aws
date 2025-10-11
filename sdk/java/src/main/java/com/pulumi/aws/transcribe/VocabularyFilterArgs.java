@@ -49,14 +49,14 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -98,14 +98,14 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     @Import(name="words")
     private @Nullable Output<List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     public Optional<Output<List<String>>> words() {
@@ -184,7 +184,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
     public static final OntapVolumeSnaplockConfigurationRetentionPeriodArgs Empty = new OntapVolumeSnaplockConfigurationRetentionPeriodArgs();
 
     /**
-     * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+     * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
      * 
      */
     @Import(name="defaultRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs> defaultRetention;
 
     /**
-     * @return The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+     * @return The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs>> defaultRetention() {
@@ -33,14 +33,14 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
     }
 
     /**
-     * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+     * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
      * 
      */
     @Import(name="maximumRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs> maximumRetention;
 
     /**
-     * @return The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+     * @return The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs>> maximumRetention() {
@@ -48,14 +48,14 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
     }
 
     /**
-     * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+     * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
      * 
      */
     @Import(name="minimumRetention")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs> minimumRetention;
 
     /**
-     * @return The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+     * @return The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs>> minimumRetention() {
@@ -89,7 +89,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+         * @param defaultRetention The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+         * @param maximumRetention The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodArgs extends c
         }
 
         /**
-         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+         * @param minimumRetention The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
          * 
          * @return builder
          * 

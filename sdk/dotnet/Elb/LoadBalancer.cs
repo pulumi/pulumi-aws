@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Elb
     /// &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently
     /// provides both a standalone ELB Attachment resource
     /// (describing an instance attached to an ELB), and an ELB resource with
-    /// `instances` defined in-line. At this time you cannot use an ELB with in-line
+    /// `Instances` defined in-line. At this time you cannot use an ELB with in-line
     /// instances in conjunction with a ELB Attachment resources. Doing so will cause a
     /// conflict and will overwrite attachments.
     /// 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
-    /// If the ARN of the `ssl_certificate_id` that is pointed to references a
+    /// If the ARN of the `SslCertificateId` that is pointed to references a
     /// certificate that was signed by an ECDSA key, note that ELB only supports the
     /// P256 and P384 curves.  Using a certificate signed by a key using a different
     /// curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Elb
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to enable connection draining. Default: `false`
+        /// Boolean to enable connection draining. Default: `False`
         /// </summary>
         [Output("connectionDraining")]
         public Output<bool?> ConnectionDraining { get; private set; } = null!;
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.Elb
         public Output<int?> ConnectionDrainingTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Enable cross-zone load balancing. Default: `true`
+        /// Enable cross-zone load balancing. Default: `True`
         /// </summary>
         [Output("crossZoneLoadBalancing")]
         public Output<bool?> CrossZoneLoadBalancing { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Output("desyncMitigationMode")]
         public Output<string?> DesyncMitigationMode { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Elb
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A HealthCheck block. Health Check documented below.
         /// </summary>
         [Output("healthCheck")]
         public Output<Outputs.LoadBalancerHealthCheck> HealthCheck { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -236,16 +236,16 @@ namespace Pulumi.Aws.Elb
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `AvailabilityZones` or `Subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Elb
         }
 
         /// <summary>
-        /// Boolean to enable connection draining. Default: `false`
+        /// Boolean to enable connection draining. Default: `False`
         /// </summary>
         [Input("connectionDraining")]
         public Input<bool>? ConnectionDraining { get; set; }
@@ -337,19 +337,19 @@ namespace Pulumi.Aws.Elb
         public Input<int>? ConnectionDrainingTimeout { get; set; }
 
         /// <summary>
-        /// Enable cross-zone load balancing. Default: `true`
+        /// Enable cross-zone load balancing. Default: `True`
         /// </summary>
         [Input("crossZoneLoadBalancing")]
         public Input<bool>? CrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A HealthCheck block. Health Check documented below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerHealthCheckArgs>? HealthCheck { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -446,9 +446,9 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `AvailabilityZones` or `Subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
@@ -490,7 +490,7 @@ namespace Pulumi.Aws.Elb
         }
 
         /// <summary>
-        /// Boolean to enable connection draining. Default: `false`
+        /// Boolean to enable connection draining. Default: `False`
         /// </summary>
         [Input("connectionDraining")]
         public Input<bool>? ConnectionDraining { get; set; }
@@ -502,13 +502,13 @@ namespace Pulumi.Aws.Elb
         public Input<int>? ConnectionDrainingTimeout { get; set; }
 
         /// <summary>
-        /// Enable cross-zone load balancing. Default: `true`
+        /// Enable cross-zone load balancing. Default: `True`
         /// </summary>
         [Input("crossZoneLoadBalancing")]
         public Input<bool>? CrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Elb
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// A health_check block. Health Check documented below.
+        /// A HealthCheck block. Health Check documented below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.LoadBalancerHealthCheckGetArgs>? HealthCheck { get; set; }
@@ -569,7 +569,7 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -625,9 +625,9 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
-        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// Exactly one of `AvailabilityZones` or `Subnets` must be specified: this
         /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Elb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

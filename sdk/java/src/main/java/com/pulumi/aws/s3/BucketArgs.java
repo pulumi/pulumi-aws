@@ -79,14 +79,14 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
+     * @return Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -222,26 +222,26 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
-     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+     * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
      * 
      * @deprecated
-     * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead.
+     * object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
+    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
     @Import(name="objectLockConfiguration")
     private @Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration;
 
     /**
      * @return Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
-     * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+     * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
      * 
      * @deprecated
-     * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead.
+     * object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
+    @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
     public Optional<Output<BucketObjectLockConfigurationArgs>> objectLockConfiguration() {
         return Optional.ofNullable(this.objectLockConfiguration);
     }
@@ -387,7 +387,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * The following arguments are deprecated, and will be removed in a future major version:
      * 
@@ -396,7 +396,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * The following arguments are deprecated, and will be removed in a future major version:
      * 
@@ -584,7 +584,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
+         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
+         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
          * 
          * @return builder
          * 
@@ -812,15 +812,15 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param objectLockConfiguration Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
          * The provider wil only perform drift detection if a configuration value is provided.
-         * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+         * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead.
+         * object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead.
          * 
          */
-        @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
+        @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
         public Builder objectLockConfiguration(@Nullable Output<BucketObjectLockConfigurationArgs> objectLockConfiguration) {
             $.objectLockConfiguration = objectLockConfiguration;
             return this;
@@ -829,15 +829,15 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param objectLockConfiguration Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
          * The provider wil only perform drift detection if a configuration value is provided.
-         * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+         * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead.
+         * object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead.
          * 
          */
-        @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
+        @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfiguration resource instead. */
         public Builder objectLockConfiguration(BucketObjectLockConfigurationArgs objectLockConfiguration) {
             return objectLockConfiguration(Output.of(objectLockConfiguration));
         }
@@ -1051,7 +1051,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * The following arguments are deprecated, and will be removed in a future major version:
          * 
@@ -1064,7 +1064,7 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * The following arguments are deprecated, and will be removed in a future major version:
          * 

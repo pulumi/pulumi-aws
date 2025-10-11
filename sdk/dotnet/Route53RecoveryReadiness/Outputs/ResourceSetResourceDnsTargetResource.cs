@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
         /// </summary>
         public readonly string? HostedZoneArn;
         /// <summary>
-        /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+        /// Route53 record set id to uniquely identify a record given a `DomainName` and a `RecordType`.
         /// </summary>
         public readonly string? RecordSetId;
         /// <summary>

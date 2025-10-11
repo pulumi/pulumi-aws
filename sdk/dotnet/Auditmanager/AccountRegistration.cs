@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string?> DelegatedAdminAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
+        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `False` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
         [Output("deregisterOnDestroy")]
         public Output<bool?> DeregisterOnDestroy { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Auditmanager
         public Input<string>? DelegatedAdminAccount { get; set; }
 
         /// <summary>
-        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
+        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `False` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
         [Input("deregisterOnDestroy")]
         public Input<bool>? DeregisterOnDestroy { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Auditmanager
         public Input<string>? DelegatedAdminAccount { get; set; }
 
         /// <summary>
-        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
+        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `False` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
         [Input("deregisterOnDestroy")]
         public Input<bool>? DeregisterOnDestroy { get; set; }

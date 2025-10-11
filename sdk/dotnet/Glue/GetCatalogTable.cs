@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Glue
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
         /// </summary>
         [Input("queryAsOfTime")]
         public string? QueryAsOfTime { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+        /// The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
         /// </summary>
         [Input("queryAsOfTime")]
         public Input<string>? QueryAsOfTime { get; set; }
@@ -213,11 +213,11 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
         /// <summary>
-        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// Configuration block for a maximum of 3 partition indexes. See `PartitionIndex` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTablePartitionIndexResult> PartitionIndices;
         /// <summary>
-        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `PartitionKeys` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTablePartitionKeyResult> PartitionKeys;
         public readonly string? QueryAsOfTime;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly int Retention;
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `StorageDescriptor` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorResult> StorageDescriptors;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string TableType;
         /// <summary>
-        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// Configuration block of a target table for resource linking. See `TargetTable` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableTargetTableResult> TargetTables;
         public readonly int? TransactionId;

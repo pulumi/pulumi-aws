@@ -20,7 +20,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// &gt; **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub's OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
     /// 
-    /// &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
+    /// &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `BitbucketHook`/`GithubRepositoryWebhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `Secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -57,6 +57,12 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// 
+    /// ### GitHub Enterprise
+    /// 
+    /// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `GithubRepositoryWebhook` resource).
+    /// 
+    /// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
     /// 
     /// ### For CodeBuild Runner Project
     /// 
@@ -106,7 +112,7 @@ namespace Pulumi.Aws.CodeBuild
     public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `FilterGroup` over `BranchFilter`.
         /// </summary>
         [Output("branchFilter")]
         public Output<string?> BranchFilter { get; private set; } = null!;
@@ -118,13 +124,13 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> BuildType { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the webhook's trigger. See filter_group for details.
+        /// Information about the webhook's trigger. See FilterGroup for details.
         /// </summary>
         [Output("filterGroups")]
         public Output<ImmutableArray<Outputs.WebhookFilterGroup>> FilterGroups { get; private set; } = null!;
 
         /// <summary>
-        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `PayloadUrl` and `Secret` values for the webhook. The `PayloadUrl` and `Secret` values in the output can be used to manually create a webhook within GitHub.
         /// </summary>
         [Output("manualCreation")]
         public Output<bool?> ManualCreation { get; private set; } = null!;
@@ -142,7 +148,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See PullRequestBuildPolicy for details.
         /// </summary>
         [Output("pullRequestBuildPolicy")]
         public Output<Outputs.WebhookPullRequestBuildPolicy> PullRequestBuildPolicy { get; private set; } = null!;
@@ -154,7 +160,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
+        /// Scope configuration for global or organization webhooks. See ScopeConfiguration for details.
         /// </summary>
         [Output("scopeConfiguration")]
         public Output<Outputs.WebhookScopeConfiguration?> ScopeConfiguration { get; private set; } = null!;
@@ -222,7 +228,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `FilterGroup` over `BranchFilter`.
         /// </summary>
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }
@@ -237,7 +243,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.WebhookFilterGroupArgs>? _filterGroups;
 
         /// <summary>
-        /// Information about the webhook's trigger. See filter_group for details.
+        /// Information about the webhook's trigger. See FilterGroup for details.
         /// </summary>
         public InputList<Inputs.WebhookFilterGroupArgs> FilterGroups
         {
@@ -246,7 +252,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `PayloadUrl` and `Secret` values for the webhook. The `PayloadUrl` and `Secret` values in the output can be used to manually create a webhook within GitHub.
         /// </summary>
         [Input("manualCreation")]
         public Input<bool>? ManualCreation { get; set; }
@@ -258,7 +264,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See PullRequestBuildPolicy for details.
         /// </summary>
         [Input("pullRequestBuildPolicy")]
         public Input<Inputs.WebhookPullRequestBuildPolicyArgs>? PullRequestBuildPolicy { get; set; }
@@ -270,7 +276,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
+        /// Scope configuration for global or organization webhooks. See ScopeConfiguration for details.
         /// </summary>
         [Input("scopeConfiguration")]
         public Input<Inputs.WebhookScopeConfigurationArgs>? ScopeConfiguration { get; set; }
@@ -284,7 +290,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `FilterGroup` over `BranchFilter`.
         /// </summary>
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }
@@ -299,7 +305,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.WebhookFilterGroupGetArgs>? _filterGroups;
 
         /// <summary>
-        /// Information about the webhook's trigger. See filter_group for details.
+        /// Information about the webhook's trigger. See FilterGroup for details.
         /// </summary>
         public InputList<Inputs.WebhookFilterGroupGetArgs> FilterGroups
         {
@@ -308,7 +314,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payload_url` and `secret` values for the webhook. The `payload_url` and `secret` values in the output can be used to manually create a webhook within GitHub.
+        /// If true, CodeBuild doesn't create a webhook in GitHub and instead returns `PayloadUrl` and `Secret` values for the webhook. The `PayloadUrl` and `Secret` values in the output can be used to manually create a webhook within GitHub.
         /// </summary>
         [Input("manualCreation")]
         public Input<bool>? ManualCreation { get; set; }
@@ -326,7 +332,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// Defines comment-based approval requirements for triggering builds on pull requests. See pull_request_build_policy for details.
+        /// Defines comment-based approval requirements for triggering builds on pull requests. See PullRequestBuildPolicy for details.
         /// </summary>
         [Input("pullRequestBuildPolicy")]
         public Input<Inputs.WebhookPullRequestBuildPolicyGetArgs>? PullRequestBuildPolicy { get; set; }
@@ -338,7 +344,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Scope configuration for global or organization webhooks. See scope_configuration for details.
+        /// Scope configuration for global or organization webhooks. See ScopeConfiguration for details.
         /// </summary>
         [Input("scopeConfiguration")]
         public Input<Inputs.WebhookScopeConfigurationGetArgs>? ScopeConfiguration { get; set; }

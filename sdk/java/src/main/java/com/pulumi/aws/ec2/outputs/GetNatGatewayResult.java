@@ -21,7 +21,7 @@ public final class GetNatGatewayResult {
      */
     private String allocationId;
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      * 
      */
     private String associationId;
@@ -77,7 +77,7 @@ public final class GetNatGatewayResult {
         return this.allocationId;
     }
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      * 
      */
     public String associationId() {

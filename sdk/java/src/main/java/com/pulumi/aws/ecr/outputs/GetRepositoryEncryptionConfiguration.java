@@ -16,7 +16,7 @@ public final class GetRepositoryEncryptionConfiguration {
      */
     private String encryptionType;
     /**
-     * @return If `encryption_type` is `KMS`, the ARN of the KMS key used.
+     * @return If `encryptionType` is `KMS`, the ARN of the KMS key used.
      * 
      */
     private String kmsKey;
@@ -30,7 +30,7 @@ public final class GetRepositoryEncryptionConfiguration {
         return this.encryptionType;
     }
     /**
-     * @return If `encryption_type` is `KMS`, the ARN of the KMS key used.
+     * @return If `encryptionType` is `KMS`, the ARN of the KMS key used.
      * 
      */
     public String kmsKey() {

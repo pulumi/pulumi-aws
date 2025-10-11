@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class AgentAgentPromptOverrideConfiguration {
     /**
-     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
      * 
      */
     private String overrideLambda;
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
      * 
      */
     private List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations;
 
     private AgentAgentPromptOverrideConfiguration() {}
     /**
-     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
      * 
      */
     public String overrideLambda() {
         return this.overrideLambda;
     }
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
      * 
      */
     public List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations() {

@@ -48,14 +48,14 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
     }
 
     /**
-     * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
      * 
      */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
     /**
-     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * @return Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
      * 
      */
     public Optional<Output<String>> recordSetId() {
@@ -163,7 +163,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
          * 
          * @return builder
          * 

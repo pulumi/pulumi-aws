@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class ImagePipelineImageTestsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether image tests are enabled. Defaults to `true`.
+        /// Whether image tests are enabled. Defaults to `True`.
         /// </summary>
         [Input("imageTestsEnabled")]
         public Input<bool>? ImageTestsEnabled { get; set; }

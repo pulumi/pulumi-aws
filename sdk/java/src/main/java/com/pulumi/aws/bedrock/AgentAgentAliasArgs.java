@@ -85,14 +85,14 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+     * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      * 
      */
     @Import(name="routingConfigurations")
     private @Nullable Output<List<AgentAgentAliasRoutingConfigurationArgs>> routingConfigurations;
 
     /**
-     * @return Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+     * @return Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      * 
      */
     public Optional<Output<List<AgentAgentAliasRoutingConfigurationArgs>>> routingConfigurations() {
@@ -100,14 +100,14 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -240,7 +240,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

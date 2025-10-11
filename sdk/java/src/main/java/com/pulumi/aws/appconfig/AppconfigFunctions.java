@@ -542,6 +542,8 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args) {
         return getConfigurationProfiles(args, InvokeOptions.Empty);
@@ -551,6 +553,8 @@ public final class AppconfigFunctions {
      * Profile IDs to another resource.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static CompletableFuture<GetConfigurationProfilesResult> getConfigurationProfilesPlain(GetConfigurationProfilesPlainArgs args) {
@@ -562,6 +566,8 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
@@ -572,6 +578,8 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
@@ -581,6 +589,8 @@ public final class AppconfigFunctions {
      * Profile IDs to another resource.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static CompletableFuture<GetConfigurationProfilesResult> getConfigurationProfilesPlain(GetConfigurationProfilesPlainArgs args, InvokeOptions options) {

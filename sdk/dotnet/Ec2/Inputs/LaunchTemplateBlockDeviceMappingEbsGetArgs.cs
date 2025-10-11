@@ -21,21 +21,21 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-        /// Cannot be used with `snapshot_id`.
+        /// Cannot be used with `SnapshotId`.
         /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
         /// <summary>
         /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-        /// This must be set with a `volume_type` of `"io1/io2/gp3"`.
+        /// This must be set with a `VolumeType` of `"io1/io2/gp3"`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
-        /// `encrypted` must be set to `true` when this is set.
+        /// `Encrypted` must be set to `True` when this is set.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+        /// The throughput to provision for a `Gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The volume type.
-        /// Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
+        /// Can be one of `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1` or `St1`.
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

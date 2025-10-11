@@ -18,7 +18,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly Outputs.DomainClusterConfigNodeOptionNodeConfig? NodeConfig;
         /// <summary>
-        /// Type of node this configuration describes. Valid values: `coordinator`.
+        /// Type of node this configuration describes. Valid values: `Coordinator`.
         /// </summary>
         public readonly string? NodeType;
 

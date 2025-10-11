@@ -543,6 +543,8 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
     """
     Provides details about a specific redshift cluster.
 
+    ## Example Usage
+
 
     :param _builtins.str cluster_identifier: Cluster identifier
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -604,6 +606,8 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]]
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides details about a specific redshift cluster.
+
+    ## Example Usage
 
 
     :param _builtins.str cluster_identifier: Cluster identifier

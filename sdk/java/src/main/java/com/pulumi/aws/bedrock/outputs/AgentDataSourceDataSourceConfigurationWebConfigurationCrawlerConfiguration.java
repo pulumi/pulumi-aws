@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits crawlerLimits;
@@ -41,7 +41,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration() {}
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
      * 
      */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits> crawlerLimits() {

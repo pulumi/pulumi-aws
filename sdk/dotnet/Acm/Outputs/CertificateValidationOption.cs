@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Acm.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        /// Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         /// </summary>
         public readonly string ValidationDomain;
 

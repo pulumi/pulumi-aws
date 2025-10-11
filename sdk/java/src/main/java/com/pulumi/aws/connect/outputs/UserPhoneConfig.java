@@ -25,7 +25,7 @@ public final class UserPhoneConfig {
      */
     private @Nullable Boolean autoAccept;
     /**
-     * @return The phone number for the user&#39;s desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+     * @return The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
      * 
      */
     private @Nullable String deskPhoneNumber;
@@ -51,7 +51,7 @@ public final class UserPhoneConfig {
         return Optional.ofNullable(this.autoAccept);
     }
     /**
-     * @return The phone number for the user&#39;s desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+     * @return The phone number for the user&#39;s desk phone. Required if `phoneType` is set as `DESK_PHONE`.
      * 
      */
     public Optional<String> deskPhoneNumber() {

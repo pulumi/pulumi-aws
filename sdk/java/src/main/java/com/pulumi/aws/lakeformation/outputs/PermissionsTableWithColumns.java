@@ -30,7 +30,7 @@ public final class PermissionsTableWithColumns {
      */
     private String databaseName;
     /**
-     * @return Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
      */
     private @Nullable List<String> excludedColumnNames;
@@ -40,7 +40,7 @@ public final class PermissionsTableWithColumns {
      */
     private String name;
     /**
-     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
      * The following arguments are optional:
      * 
@@ -70,7 +70,7 @@ public final class PermissionsTableWithColumns {
         return this.databaseName;
     }
     /**
-     * @return Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
      */
     public List<String> excludedColumnNames() {
@@ -84,7 +84,7 @@ public final class PermissionsTableWithColumns {
         return this.name;
     }
     /**
-     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
      * The following arguments are optional:
      * 

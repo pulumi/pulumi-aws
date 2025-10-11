@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class PrefixListReference : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
         /// </summary>
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class PrefixListReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
         /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class PrefixListReferenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `False`.
         /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }

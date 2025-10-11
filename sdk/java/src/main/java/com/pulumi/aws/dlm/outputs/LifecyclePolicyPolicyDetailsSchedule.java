@@ -23,31 +23,31 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
     /**
-     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * @return Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleArchiveRule archiveRule;
     private @Nullable Boolean copyTags;
     /**
-     * @return See the `create_rule` block. Max of 1 per schedule.
+     * @return See the `createRule` block. Max of 1 per schedule.
      * 
      */
     private LifecyclePolicyPolicyDetailsScheduleCreateRule createRule;
     /**
-     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * @return See the `crossRegionCopyRule` block. Max of 3 per schedule.
      * 
      */
     private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
     private @Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule;
     /**
-     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
+     * @return See the `fastRestoreRule` block. Max of 1 per schedule.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleFastRestoreRule fastRestoreRule;
     private String name;
     private LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule;
     /**
-     * @return See the `share_rule` block. Max of 1 per schedule.
+     * @return See the `shareRule` block. Max of 1 per schedule.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleShareRule shareRule;
@@ -57,14 +57,14 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
      */
     private @Nullable Map<String,String> tagsToAdd;
     /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
      * 
      */
     private @Nullable Map<String,String> variableTags;
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
     /**
-     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * @return Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleArchiveRule> archiveRule() {
@@ -74,14 +74,14 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return Optional.ofNullable(this.copyTags);
     }
     /**
-     * @return See the `create_rule` block. Max of 1 per schedule.
+     * @return See the `createRule` block. Max of 1 per schedule.
      * 
      */
     public LifecyclePolicyPolicyDetailsScheduleCreateRule createRule() {
         return this.createRule;
     }
     /**
-     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * @return See the `crossRegionCopyRule` block. Max of 3 per schedule.
      * 
      */
     public List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules() {
@@ -91,7 +91,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return Optional.ofNullable(this.deprecateRule);
     }
     /**
-     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
+     * @return See the `fastRestoreRule` block. Max of 1 per schedule.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleFastRestoreRule> fastRestoreRule() {
@@ -104,7 +104,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return this.retainRule;
     }
     /**
-     * @return See the `share_rule` block. Max of 1 per schedule.
+     * @return See the `shareRule` block. Max of 1 per schedule.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleShareRule> shareRule() {
@@ -118,7 +118,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return this.tagsToAdd == null ? Map.of() : this.tagsToAdd;
     }
     /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
      * 
      */
     public Map<String,String> variableTags() {

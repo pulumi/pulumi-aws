@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupCapacityReservationSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+        /// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `Default`, `capacity-reservations-only`, `capacity-reservations-first` and `None`. Default is `Default`.
         /// </summary>
         [Input("capacityReservationPreference")]
         public Input<string>? CapacityReservationPreference { get; set; }

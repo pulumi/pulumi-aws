@@ -21,7 +21,7 @@ public final class GetStandardsControlAssociationsResult {
     private String securityControlId;
     /**
      * @return A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standards_control_associations` below.
+     * See `standardsControlAssociations` below.
      * 
      */
     private List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
@@ -42,7 +42,7 @@ public final class GetStandardsControlAssociationsResult {
     }
     /**
      * @return A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standards_control_associations` below.
+     * See `standardsControlAssociations` below.
      * 
      */
     public List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations() {

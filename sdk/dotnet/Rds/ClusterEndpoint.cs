@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `StaticMembers`.
         /// </summary>
         [Output("excludedMembers")]
         public Output<ImmutableArray<string>> ExcludedMembers { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `ExcludedMembers`.
         /// </summary>
         [Output("staticMembers")]
         public Output<ImmutableArray<string>> StaticMembers { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _excludedMembers;
 
         /// <summary>
-        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `StaticMembers`.
         /// </summary>
         public InputList<string> ExcludedMembers
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _staticMembers;
 
         /// <summary>
-        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `ExcludedMembers`.
         /// </summary>
         public InputList<string> StaticMembers
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _excludedMembers;
 
         /// <summary>
-        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `StaticMembers`.
         /// </summary>
         public InputList<string> ExcludedMembers
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _staticMembers;
 
         /// <summary>
-        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `ExcludedMembers`.
         /// </summary>
         public InputList<string> StaticMembers
         {
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

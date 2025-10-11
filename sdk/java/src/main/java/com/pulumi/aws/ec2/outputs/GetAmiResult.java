@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 public final class GetAmiResult {
     private @Nullable Boolean allowUnsafeFilter;
     /**
-     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * @return OS architecture of the AMI (ie: `i386` or `x8664`).
      * 
      */
     private String architecture;
@@ -218,7 +218,7 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.allowUnsafeFilter);
     }
     /**
-     * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
+     * @return OS architecture of the AMI (ie: `i386` or `x8664`).
      * 
      */
     public String architecture() {

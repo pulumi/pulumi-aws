@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicy {
     /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
      * 
      */
     private @Nullable List<String> enabledStandardArns;
@@ -33,7 +33,7 @@ public final class ConfigurationPolicyConfigurationPolicy {
 
     private ConfigurationPolicyConfigurationPolicy() {}
     /**
-     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
      * 
      */
     public List<String> enabledStandardArns() {

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string>? InvocationLabel { get; set; }
 
         /// <summary>
-        /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+        /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `PostCodeHookSpecification`.
         /// </summary>
         [Input("postCodeHookSpecification", required: true)]
         public Input<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> PostCodeHookSpecification { get; set; } = null!;

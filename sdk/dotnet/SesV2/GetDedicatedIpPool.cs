@@ -164,7 +164,7 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.
+        /// A list of objects describing the pool's dedicated IP's. See `DedicatedIps`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDedicatedIpPoolDedicatedIpResult> DedicatedIps;
         /// <summary>

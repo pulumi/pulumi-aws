@@ -162,7 +162,7 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// Name of the WAF rule group.
         /// 
-        /// At least one of `name` or `metric_name` must be configured.
+        /// At least one of `Name` or `MetricName` must be configured.
         /// </summary>
         [Input("metricName")]
         public string? MetricName { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// Name of the WAF rule group.
         /// 
-        /// At least one of `name` or `metric_name` must be configured.
+        /// At least one of `Name` or `MetricName` must be configured.
         /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }

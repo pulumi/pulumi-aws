@@ -26,11 +26,11 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly int MinWorkerCount;
         /// <summary>
-        /// The scale-in policy for the connector. See `scale_in_policy` Block for details.
+        /// The scale-in policy for the connector. See `ScaleInPolicy` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscalingScaleInPolicy? ScaleInPolicy;
         /// <summary>
-        /// The scale-out policy for the connector. See `scale_out_policy` Block for details.
+        /// The scale-out policy for the connector. See `ScaleOutPolicy` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorCapacityAutoscalingScaleOutPolicy? ScaleOutPolicy;
 

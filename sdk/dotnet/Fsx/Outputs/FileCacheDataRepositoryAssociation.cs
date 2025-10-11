@@ -34,12 +34,12 @@ namespace Pulumi.Aws.Fsx.Outputs
         public readonly string? FileSystemPath;
         public readonly int? ImportedFileChunkSize;
         /// <summary>
-        /// (Optional) See the `nfs` configuration block.
+        /// (Optional) See the `Nfs` configuration block.
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheDataRepositoryAssociationNf> Nfs;
         public readonly string? ResourceArn;
         /// <summary>
-        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file cache. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

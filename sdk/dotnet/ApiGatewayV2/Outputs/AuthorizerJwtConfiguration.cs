@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
-        /// Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+        /// Base domain of the identity provider that issues JSON Web Tokens, such as the `Endpoint` attribute of the `aws.cognito.UserPool` resource.
         /// </summary>
         public readonly string? Issuer;
 

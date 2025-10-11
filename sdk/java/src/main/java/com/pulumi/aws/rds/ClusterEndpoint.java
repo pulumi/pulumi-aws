@@ -193,14 +193,14 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      * 
      */
     @Export(name="excludedMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedMembers;
 
     /**
-     * @return List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+     * @return List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      * 
      */
     public Output<Optional<List<String>>> excludedMembers() {
@@ -221,21 +221,21 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      * 
      */
     @Export(name="staticMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> staticMembers;
 
     /**
-     * @return List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+     * @return List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      * 
      */
     public Output<Optional<List<String>>> staticMembers() {
         return Codegen.optional(this.staticMembers);
     }
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -245,7 +245,7 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
@@ -255,14 +255,14 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

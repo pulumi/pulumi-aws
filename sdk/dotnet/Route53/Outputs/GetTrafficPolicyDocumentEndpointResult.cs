@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `Region`.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
+        /// Type of the endpoint. Valid values are `Value`, `Cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// Value of the `type`.
+        /// Value of the `Type`.
         /// </summary>
         public readonly string? Value;
 

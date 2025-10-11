@@ -18,14 +18,14 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
     public static final PackageArgs Empty = new PackageArgs();
 
     /**
-     * Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+     * @return Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -137,7 +137,7 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+         * @param engineVersion Engine version that the package is compatible with. This argument is required and only valid when `packageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
          * 
          * @return builder
          * 

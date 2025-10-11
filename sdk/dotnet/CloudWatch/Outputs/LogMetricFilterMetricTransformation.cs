@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class LogMetricFilterMetricTransformation
     {
         /// <summary>
-        /// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
+        /// The value to emit when a filter pattern does not match a log event. Conflicts with `Dimensions`.
         /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `DefaultValue`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
         /// <summary>

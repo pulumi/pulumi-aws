@@ -152,28 +152,28 @@ public class Workforce extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+     * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      * 
      */
     @Export(name="cognitoConfig", refs={WorkforceCognitoConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceCognitoConfig> cognitoConfig;
 
     /**
-     * @return Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
+     * @return Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      * 
      */
     public Output<Optional<WorkforceCognitoConfig>> cognitoConfig() {
         return Codegen.optional(this.cognitoConfig);
     }
     /**
-     * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+     * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      * 
      */
     @Export(name="oidcConfig", refs={WorkforceOidcConfig.class}, tree="[0]")
     private Output</* @Nullable */ WorkforceOidcConfig> oidcConfig;
 
     /**
-     * @return Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+     * @return Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      * 
      */
     public Output<Optional<WorkforceOidcConfig>> oidcConfig() {

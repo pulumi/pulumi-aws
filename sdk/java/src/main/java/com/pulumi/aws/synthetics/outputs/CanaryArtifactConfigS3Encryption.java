@@ -17,7 +17,7 @@ public final class CanaryArtifactConfigS3Encryption {
      */
     private @Nullable String encryptionMode;
     /**
-     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -31,7 +31,7 @@ public final class CanaryArtifactConfigS3Encryption {
         return Optional.ofNullable(this.encryptionMode);
     }
     /**
-     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+     * @return The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
      * 
      */
     public Optional<String> kmsKeyArn() {

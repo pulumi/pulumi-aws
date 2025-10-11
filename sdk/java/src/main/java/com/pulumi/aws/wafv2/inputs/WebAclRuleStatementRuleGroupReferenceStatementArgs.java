@@ -34,14 +34,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
     }
 
     /**
-     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     @Import(name="ruleActionOverrides")
     private @Nullable Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>> ruleActionOverrides;
 
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs>>> ruleActionOverrides() {
@@ -95,7 +95,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementArgs extends co
         }
 
         /**
-         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+         * @param ruleActionOverrides Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
          * 
          * @return builder
          * 

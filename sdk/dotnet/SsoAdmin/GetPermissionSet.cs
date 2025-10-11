@@ -123,7 +123,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Name of the SSO Permission Set.
         /// 
-        /// &gt; **NOTE:** Either `arn` or `name` must be configured.
+        /// &gt; **NOTE:** Either `Arn` or `Name` must be configured.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Name of the SSO Permission Set.
         /// 
-        /// &gt; **NOTE:** Either `arn` or `name` must be configured.
+        /// &gt; **NOTE:** Either `Arn` or `Name` must be configured.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

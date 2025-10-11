@@ -20,14 +20,14 @@ public final class GetClusterCredentialsResult {
     private @Nullable List<String> dbGroups;
     private @Nullable String dbName;
     /**
-     * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
+     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
      * 
      */
     private String dbPassword;
     private String dbUser;
     private @Nullable Integer durationSeconds;
     /**
-     * @return Date and time the password in `db_password` expires.
+     * @return Date and time the password in `dbPassword` expires.
      * 
      */
     private String expiration;
@@ -52,7 +52,7 @@ public final class GetClusterCredentialsResult {
         return Optional.ofNullable(this.dbName);
     }
     /**
-     * @return Temporary password that authorizes the user name returned by `db_user` to log on to the database `db_name`.
+     * @return Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
      * 
      */
     public String dbPassword() {
@@ -65,7 +65,7 @@ public final class GetClusterCredentialsResult {
         return Optional.ofNullable(this.durationSeconds);
     }
     /**
-     * @return Date and time the password in `db_password` expires.
+     * @return Date and time the password in `dbPassword` expires.
      * 
      */
     public String expiration() {

@@ -106,14 +106,14 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
     }
 
     /**
-     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      * 
      */
     @Import(name="statementIdPrefix")
     private @Nullable Output<String> statementIdPrefix;
 
     /**
-     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      * 
      */
     public Optional<Output<String>> statementIdPrefix() {
@@ -277,7 +277,7 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
+         * @param statementIdPrefix A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
          * 
          * @return builder
          * 

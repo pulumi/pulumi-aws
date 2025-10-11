@@ -18,7 +18,7 @@ public final class GetContributorManagedInsightRulesManagedRule {
      */
     private String resourceArn;
     /**
-     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
+     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
      * 
      */
     private List<GetContributorManagedInsightRulesManagedRuleRuleState> ruleStates;
@@ -37,7 +37,7 @@ public final class GetContributorManagedInsightRulesManagedRule {
         return this.resourceArn;
     }
     /**
-     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
+     * @return Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
      * 
      */
     public List<GetContributorManagedInsightRulesManagedRuleRuleState> ruleStates() {

@@ -18,7 +18,7 @@ public final class ConnectorCapacity {
      */
     private @Nullable ConnectorCapacityAutoscaling autoscaling;
     /**
-     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+     * @return Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
      * 
      */
     private @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity;
@@ -32,7 +32,7 @@ public final class ConnectorCapacity {
         return Optional.ofNullable(this.autoscaling);
     }
     /**
-     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+     * @return Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
      * 
      */
     public Optional<ConnectorCapacityProvisionedCapacity> provisionedCapacity() {

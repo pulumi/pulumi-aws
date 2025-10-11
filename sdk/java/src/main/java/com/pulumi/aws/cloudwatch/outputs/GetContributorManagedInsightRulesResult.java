@@ -18,7 +18,7 @@ public final class GetContributorManagedInsightRulesResult {
      */
     private String id;
     /**
-     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managed_rules reference` below for details.
+     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      * 
      */
     private List<GetContributorManagedInsightRulesManagedRule> managedRules;
@@ -38,7 +38,7 @@ public final class GetContributorManagedInsightRulesResult {
         return this.id;
     }
     /**
-     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managed_rules reference` below for details.
+     * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      * 
      */
     public List<GetContributorManagedInsightRulesManagedRule> managedRules() {

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ### Create an association for all managed instances in an AWS account
     /// 
-    /// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+    /// To target all managed instances in an AWS account, set the `Key` as `"InstanceIds"` with `Values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Ssm
     public partial class Association : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `False`.
         /// </summary>
         [Output("applyOnlyAtCronInterval")]
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> AssociationName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `Parameter` that will define how your automation will branch out.
         /// </summary>
         [Output("automationTargetParameterName")]
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
@@ -460,13 +460,13 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> SyncCompliance { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         /// 
-        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+        /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
@@ -532,7 +532,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `False`.
         /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `Parameter` that will define how your automation will branch out.
         /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -642,7 +642,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         /// 
-        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+        /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
@@ -656,7 +656,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class AssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `False`.
         /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
@@ -680,7 +680,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `Parameter` that will define how your automation will branch out.
         /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
@@ -755,7 +755,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -767,7 +767,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -790,7 +790,7 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
         /// 
-        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+        /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }

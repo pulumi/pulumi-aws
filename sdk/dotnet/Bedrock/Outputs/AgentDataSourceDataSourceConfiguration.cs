@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfiguration
     {
         /// <summary>
-        /// Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        /// Details about the configuration of the Confluence data source. See `ConfluenceDataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration;
         /// <summary>
-        /// Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration;
         /// <summary>
-        /// Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+        /// Details about the configuration of the Salesforce data source. See `SalesforceDataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration? SalesforceConfiguration;
         /// <summary>
-        /// Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+        /// Details about the configuration of the SharePoint data source. See `SharePointDataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        /// Details about the configuration of the web data source. See `WebDataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration;
 

@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With target_table
+ * ### With targetTable
  * 
  * <pre>
  * {@code
@@ -288,42 +288,42 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
         return this.ruleset;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      * 
      */
     @Export(name="targetTable", refs={DataQualityRulesetTargetTable.class}, tree="[0]")
     private Output</* @Nullable */ DataQualityRulesetTargetTable> targetTable;
 
     /**
-     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      * 
      */
     public Output<Optional<DataQualityRulesetTargetTable>> targetTable() {

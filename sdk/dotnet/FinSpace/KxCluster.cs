@@ -14,6 +14,8 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
@@ -38,7 +40,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<Outputs.KxClusterAutoScalingConfiguration?> AutoScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
@@ -136,7 +138,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Output("savedownStorageConfiguration")]
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
@@ -154,13 +156,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -243,7 +245,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<Inputs.KxClusterAutoScalingConfigurationArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -347,7 +349,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string> ReleaseLabel { get; set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationArgs>? SavedownStorageConfiguration { get; set; }
@@ -362,7 +364,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -422,7 +424,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<Inputs.KxClusterAutoScalingConfigurationGetArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -538,7 +540,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? ReleaseLabel { get; set; }
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationGetArgs>? SavedownStorageConfiguration { get; set; }
@@ -559,7 +561,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -571,7 +573,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

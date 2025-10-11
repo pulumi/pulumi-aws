@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudFront
     public static class GetLogDeliveryCanonicalUserId
     {
         /// <summary>
-        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `Awslogsdelivery` account for CloudFront bucket logging.
         /// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
         /// 
         /// ## Example Usage
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `Awslogsdelivery` account for CloudFront bucket logging.
         /// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
         /// 
         /// ## Example Usage
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `Awslogsdelivery` account for CloudFront bucket logging.
         /// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
         /// 
         /// ## Example Usage

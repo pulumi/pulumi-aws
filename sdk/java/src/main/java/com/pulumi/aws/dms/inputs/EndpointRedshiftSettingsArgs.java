@@ -61,14 +61,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+     * ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+     * @return ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -182,7 +182,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+         * @param serverSideEncryptionKmsKeyId ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
          * 
          * @return builder
          * 

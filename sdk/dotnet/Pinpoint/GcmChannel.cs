@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -19,7 +19,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
      */
     private String arn;
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides;
@@ -33,7 +33,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatement {
         return this.arn;
     }
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     public List<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride> ruleActionOverrides() {

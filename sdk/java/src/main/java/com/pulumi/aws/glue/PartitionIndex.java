@@ -165,14 +165,14 @@ public class PartitionIndex extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * Configuration block for a partition index. See `partition_index` below.
+     * Configuration block for a partition index. See `partitionIndex` below.
      * 
      */
     @Export(name="partitionIndex", refs={PartitionIndexPartitionIndex.class}, tree="[0]")
     private Output<PartitionIndexPartitionIndex> partitionIndex;
 
     /**
-     * @return Configuration block for a partition index. See `partition_index` below.
+     * @return Configuration block for a partition index. See `partitionIndex` below.
      * 
      */
     public Output<PartitionIndexPartitionIndex> partitionIndex() {

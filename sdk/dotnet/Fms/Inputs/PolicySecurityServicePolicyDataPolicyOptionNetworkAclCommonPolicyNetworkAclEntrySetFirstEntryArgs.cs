@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs>? _icmpTypeCodes;
 
         /// <summary>
-        /// A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+        /// A configuration block for ICMP protocol: The ICMP type and code. See the `IcmpTypeCode` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs> IcmpTypeCodes
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs>? _portRanges;
 
         /// <summary>
-        /// A configuration block for PortRange. See the `port_range` block.
+        /// A configuration block for PortRange. See the `PortRange` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs> PortRanges
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Fms.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `Allow`, `Deny`.
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;

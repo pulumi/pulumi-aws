@@ -76,19 +76,19 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+     * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      * 
      */
-    @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+    @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
 
     /**
      * @deprecated
-     * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+     * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      * 
      */
-    @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+    @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
     public Optional<Output<List<String>>> defaultAddonsToRemoves() {
         return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
@@ -229,14 +229,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+     * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+     * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
     public Output<String> roleArn() {
@@ -259,14 +259,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -274,14 +274,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      * 
      */
     @Import(name="upgradePolicy")
     private @Nullable Output<ClusterUpgradePolicyArgs> upgradePolicy;
 
     /**
-     * @return Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * @return Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      * 
      */
     public Optional<Output<ClusterUpgradePolicyArgs>> upgradePolicy() {
@@ -447,10 +447,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
             $.defaultAddonsToRemoves = defaultAddonsToRemoves;
             return this;
@@ -460,10 +460,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
         public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
         }
@@ -472,10 +472,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider
+         * Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
          * 
          */
-        @Deprecated /* Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider */
+        @Deprecated /* Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider */
         public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
             return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
@@ -680,7 +680,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+         * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+         * @param upgradePolicy Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
          * 
          * @return builder
          * 

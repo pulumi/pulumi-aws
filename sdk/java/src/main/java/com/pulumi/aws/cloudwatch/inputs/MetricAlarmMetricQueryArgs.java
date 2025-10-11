@@ -114,7 +114,7 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+     * Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
      * 
      * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
      * 
@@ -123,7 +123,7 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
     private @Nullable Output<Boolean> returnData;
 
     /**
-     * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+     * @return Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
      * 
      * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
      * 
@@ -293,7 +293,7 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param returnData Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+         * @param returnData Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
          * 
          * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
          * 
@@ -306,7 +306,7 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param returnData Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+         * @param returnData Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
          * 
          * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
          * 

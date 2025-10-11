@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// &gt; **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services, see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
     /// 
-    /// &gt; **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
+    /// &gt; **NOTE:** You must create and validate an SSL/TLS certificate before you can use `PublicDomainNames` with your container service. For more information, see [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
     /// 
     /// ## Example Usage
     /// 
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to disable the container service. Defaults to `false`.
+        /// Whether to disable the container service. Defaults to `False`.
         /// </summary>
         [Output("isDisabled")]
         public Output<bool?> IsDisabled { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `Nano`, `Micro`, `Small`, `Medium`, `Large`, `Xlarge`.
         /// </summary>
         [Output("power")]
         public Output<string> Power { get; private set; } = null!;
@@ -236,13 +236,13 @@ namespace Pulumi.Aws.LightSail
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class ContainerServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to disable the container service. Defaults to `false`.
+        /// Whether to disable the container service. Defaults to `False`.
         /// </summary>
         [Input("isDisabled")]
         public Input<bool>? IsDisabled { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `Nano`, `Micro`, `Small`, `Medium`, `Large`, `Xlarge`.
         /// </summary>
         [Input("power", required: true)]
         public Input<string> Power { get; set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Whether to disable the container service. Defaults to `false`.
+        /// Whether to disable the container service. Defaults to `False`.
         /// </summary>
         [Input("isDisabled")]
         public Input<bool>? IsDisabled { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
+        /// Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `Nano`, `Micro`, `Small`, `Medium`, `Large`, `Xlarge`.
         /// </summary>
         [Input("power")]
         public Input<string>? Power { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

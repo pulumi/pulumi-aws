@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorRegionsOfInterestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+        /// Box representing a region of interest on screen. Only 1 per region is allowed. See `BoundingBox`.
         /// </summary>
         [Input("boundingBox", required: true)]
         public Input<Inputs.StreamProcessorRegionsOfInterestBoundingBoxGetArgs> BoundingBox { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
         private InputList<Inputs.StreamProcessorRegionsOfInterestPolygonGetArgs>? _polygons;
 
         /// <summary>
-        /// Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+        /// Shape made up of up to 10 Point objects to define a region of interest. See `Polygon`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestPolygonGetArgs> Polygons
         {

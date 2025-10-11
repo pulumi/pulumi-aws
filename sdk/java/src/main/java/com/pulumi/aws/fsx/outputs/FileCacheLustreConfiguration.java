@@ -23,7 +23,7 @@ public final class FileCacheLustreConfiguration {
     private String deploymentType;
     private @Nullable List<FileCacheLustreConfigurationLogConfiguration> logConfigurations;
     /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
      * 
      */
     private List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations;
@@ -51,7 +51,7 @@ public final class FileCacheLustreConfiguration {
         return this.logConfigurations == null ? List.of() : this.logConfigurations;
     }
     /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
      * 
      */
     public List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations() {

@@ -15,12 +15,12 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     {
         /// <summary>
         /// Indicates whether the match is case sensitive.
-        /// Default is `false`.
+        /// Default is `False`.
         /// </summary>
         public readonly bool? CaseSensitive;
         /// <summary>
         /// The header match type.
-        /// See Header Match `match` Block for details.
+        /// See Header Match `Match` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch Match;
         /// <summary>

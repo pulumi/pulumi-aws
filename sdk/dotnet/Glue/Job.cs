@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Job resource.
     /// 
-    /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+    /// &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `DefaultArguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
     /// 
     /// ## Example Usage
     /// 
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `Pythonshell` is set, accept either `0.0625` or `1.0`. Use `NumberOfWorkers` and `WorkerType` arguments instead with `GlueVersion` `2.0` and above.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
@@ -428,19 +428,19 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.JobSourceControlDetails?> SourceControlDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and null (unlimited) for `Gluestreaming` jobs.
         /// </summary>
         [Output("timeout")]
         public Output<int> Timeout { get; private set; } = null!;
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `Pythonshell` is set, accept either `0.0625` or `1.0`. Use `NumberOfWorkers` and `WorkerType` arguments instead with `GlueVersion` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -639,7 +639,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -648,7 +648,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and null (unlimited) for `Gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
+        /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `Pythonshell` is set, accept either `0.0625` or `1.0`. Use `NumberOfWorkers` and `WorkerType` arguments instead with `GlueVersion` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
@@ -815,7 +815,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -827,7 +827,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -836,7 +836,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and null (unlimited) for `Gluestreaming` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

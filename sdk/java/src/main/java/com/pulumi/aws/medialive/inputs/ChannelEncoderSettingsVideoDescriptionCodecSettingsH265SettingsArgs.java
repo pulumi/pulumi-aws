@@ -209,14 +209,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * GOP size in units of either frames of seconds per `gop_size_units`.
+     * GOP size in units of either frames of seconds per `gopSizeUnits`.
      * 
      */
     @Import(name="gopSize")
     private @Nullable Output<Double> gopSize;
 
     /**
-     * @return GOP size in units of either frames of seconds per `gop_size_units`.
+     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
      * 
      */
     public Optional<Output<Double>> gopSize() {
@@ -224,14 +224,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Indicates if the `gop_size` is specified in frames or seconds.
+     * Indicates if the `gopSize` is specified in frames or seconds.
      * 
      */
     @Import(name="gopSizeUnits")
     private @Nullable Output<String> gopSizeUnits;
 
     /**
-     * @return Indicates if the `gop_size` is specified in frames or seconds.
+     * @return Indicates if the `gopSize` is specified in frames or seconds.
      * 
      */
     public Optional<Output<String>> gopSizeUnits() {
@@ -890,7 +890,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gop_size_units`.
+         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gop_size_units`.
+         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -911,7 +911,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gop_size` is specified in frames or seconds.
+         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 
@@ -922,7 +922,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gop_size` is specified in frames or seconds.
+         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 

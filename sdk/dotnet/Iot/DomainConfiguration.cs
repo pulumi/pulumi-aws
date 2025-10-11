@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
+        /// An object that specifies the authorization service for a domain. See the `AuthorizerConfig` Block below for details.
         /// </summary>
         [Output("authorizerConfig")]
         public Output<Outputs.DomainConfigurationAuthorizerConfig?> AuthorizerConfig { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
+        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `DomainName`, the cert must include it.
         /// </summary>
         [Output("serverCertificateArns")]
         public Output<ImmutableArray<string>> ServerCertificateArns { get; private set; } = null!;
@@ -114,19 +114,19 @@ namespace Pulumi.Aws.Iot
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
+        /// An object that specifies the TLS configuration for a domain. See the `TlsConfig` Block below for details.
         /// </summary>
         [Output("tlsConfig")]
         public Output<Outputs.DomainConfigurationTlsConfig> TlsConfig { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
+        /// An object that specifies the authorization service for a domain. See the `AuthorizerConfig` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Iot
         private InputList<string>? _serverCertificateArns;
 
         /// <summary>
-        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
+        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `DomainName`, the cert must include it.
         /// </summary>
         public InputList<string> ServerCertificateArns
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Iot
         }
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
+        /// An object that specifies the TLS configuration for a domain. See the `TlsConfig` Block below for details.
         /// </summary>
         [Input("tlsConfig")]
         public Input<Inputs.DomainConfigurationTlsConfigArgs>? TlsConfig { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
+        /// An object that specifies the authorization service for a domain. See the `AuthorizerConfig` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigGetArgs>? AuthorizerConfig { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Iot
         private InputList<string>? _serverCertificateArns;
 
         /// <summary>
-        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
+        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `DomainName`, the cert must include it.
         /// </summary>
         public InputList<string> ServerCertificateArns
         {
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Iot
         }
 
         /// <summary>
-        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
+        /// An object that specifies the TLS configuration for a domain. See the `TlsConfig` Block below for details.
         /// </summary>
         [Input("tlsConfig")]
         public Input<Inputs.DomainConfigurationTlsConfigGetArgs>? TlsConfig { get; set; }

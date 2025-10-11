@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AssetId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `On`, `Off`. Default: `On`.
         /// </summary>
         [Output("autoPlacement")]
         public Output<string?> AutoPlacement { get; private set; } = null!;
@@ -71,19 +71,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `On`, `Off`. Default: `Off`.
         /// </summary>
         [Output("hostRecovery")]
         public Output<string?> HostRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Output("instanceFamily")]
         public Output<string?> InstanceFamily { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
@@ -107,13 +107,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AssetId { get; set; }
 
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `On`, `Off`. Default: `On`.
         /// </summary>
         [Input("autoPlacement")]
         public Input<string>? AutoPlacement { get; set; }
@@ -183,19 +183,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `On`, `Off`. Default: `Off`.
         /// </summary>
         [Input("hostRecovery")]
         public Input<string>? HostRecovery { get; set; }
 
         /// <summary>
-        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AssetId { get; set; }
 
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `On`, `Off`. Default: `On`.
         /// </summary>
         [Input("autoPlacement")]
         public Input<string>? AutoPlacement { get; set; }
@@ -257,19 +257,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `On`, `Off`. Default: `Off`.
         /// </summary>
         [Input("hostRecovery")]
         public Input<string>? HostRecovery { get; set; }
 
         /// <summary>
-        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `InstanceFamily` or `InstanceType` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to this resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

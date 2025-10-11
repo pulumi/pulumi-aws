@@ -19,14 +19,14 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     public static final DomainDomainSettingsArgs Empty = new DomainDomainSettingsArgs();
 
     /**
-     * A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
      * 
      */
     @Import(name="dockerSettings")
     private @Nullable Output<DomainDomainSettingsDockerSettingsArgs> dockerSettings;
 
     /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsDockerSettingsArgs>> dockerSettings() {
@@ -49,14 +49,14 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+     * A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
      * 
      */
     @Import(name="rStudioServerProDomainSettings")
     private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings;
 
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs>> rStudioServerProDomainSettings() {
@@ -106,7 +106,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
          * 
          * @return builder
          * 

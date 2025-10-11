@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fis.Inputs
     public sealed class ExperimentTemplateStopConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
+        /// Source of the condition. One of `None`, `aws:cloudwatch:alarm`.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

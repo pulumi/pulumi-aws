@@ -248,14 +248,14 @@ public class EventArchive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+     * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      * 
      */
     @Export(name="eventPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventPattern;
 
     /**
-     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
+     * @return Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      * 
      */
     public Output<Optional<String>> eventPattern() {

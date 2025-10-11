@@ -37,7 +37,7 @@ public final class GetServiceResult {
      */
     private String launchType;
     /**
-     * @return Load balancers for the ECS Service. See `load_balancer` Block for details.
+     * @return Load balancers for the ECS Service. See `loadBalancer` Block for details.
      * 
      */
     private List<GetServiceLoadBalancer> loadBalancers;
@@ -95,7 +95,7 @@ public final class GetServiceResult {
         return this.launchType;
     }
     /**
-     * @return Load balancers for the ECS Service. See `load_balancer` Block for details.
+     * @return Load balancers for the ECS Service. See `loadBalancer` Block for details.
      * 
      */
     public List<GetServiceLoadBalancer> loadBalancers() {

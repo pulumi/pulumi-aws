@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     public sealed class ClusterShard
     {
         /// <summary>
-        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

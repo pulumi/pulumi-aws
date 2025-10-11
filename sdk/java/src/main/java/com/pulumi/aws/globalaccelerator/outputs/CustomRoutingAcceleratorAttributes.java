@@ -18,12 +18,12 @@ public final class CustomRoutingAcceleratorAttributes {
      */
     private @Nullable Boolean flowLogsEnabled;
     /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     private @Nullable String flowLogsS3Bucket;
     /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     private @Nullable String flowLogsS3Prefix;
@@ -37,14 +37,14 @@ public final class CustomRoutingAcceleratorAttributes {
         return Optional.ofNullable(this.flowLogsEnabled);
     }
     /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<String> flowLogsS3Bucket() {
         return Optional.ofNullable(this.flowLogsS3Bucket);
     }
     /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<String> flowLogsS3Prefix() {

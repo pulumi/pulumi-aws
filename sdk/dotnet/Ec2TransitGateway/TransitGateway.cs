@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
         /// 
-        /// &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
+        /// &gt; **NOTE:** Modifying `AmazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `AmazonSideAsn`.
         /// </summary>
         [Output("amazonSideAsn")]
         public Output<int?> AmazonSideAsn { get; private set; } = null!;
@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> AssociationDefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether resource attachment requests are automatically accepted. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Output("autoAcceptSharedAttachments")]
         public Output<string?> AutoAcceptSharedAttachments { get; private set; } = null!;
 
         /// <summary>
-        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Output("defaultRouteTableAssociation")]
         public Output<string?> DefaultRouteTableAssociation { get; private set; } = null!;
 
         /// <summary>
-        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Output("defaultRouteTablePropagation")]
         public Output<string?> DefaultRouteTablePropagation { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether DNS support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Output("dnsSupport")]
         public Output<string?> DnsSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Output("multicastSupport")]
         public Output<string?> MulticastSupport { get; private set; } = null!;
@@ -116,19 +116,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Security Group Referencing Support is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Output("securityGroupReferencingSupport")]
         public Output<string?> SecurityGroupReferencingSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<ImmutableArray<string>> TransitGatewayCidrBlocks { get; private set; } = null!;
 
         /// <summary>
-        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Output("vpnEcmpSupport")]
         public Output<string?> VpnEcmpSupport { get; private set; } = null!;
@@ -194,25 +194,25 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
         /// 
-        /// &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
+        /// &gt; **NOTE:** Modifying `AmazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `AmazonSideAsn`.
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<int>? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether resource attachment requests are automatically accepted. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("autoAcceptSharedAttachments")]
         public Input<string>? AutoAcceptSharedAttachments { get; set; }
 
         /// <summary>
-        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("defaultRouteTableAssociation")]
         public Input<string>? DefaultRouteTableAssociation { get; set; }
 
         /// <summary>
-        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("defaultRouteTablePropagation")]
         public Input<string>? DefaultRouteTablePropagation { get; set; }
@@ -224,13 +224,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether DNS support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
         /// <summary>
-        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Security Group Referencing Support is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("securityGroupReferencingSupport")]
         public Input<string>? SecurityGroupReferencingSupport { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("vpnEcmpSupport")]
         public Input<string>? VpnEcmpSupport { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
         /// 
-        /// &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
+        /// &gt; **NOTE:** Modifying `AmazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `AmazonSideAsn`.
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<int>? AmazonSideAsn { get; set; }
@@ -306,19 +306,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? AssociationDefaultRouteTableId { get; set; }
 
         /// <summary>
-        /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether resource attachment requests are automatically accepted. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("autoAcceptSharedAttachments")]
         public Input<string>? AutoAcceptSharedAttachments { get; set; }
 
         /// <summary>
-        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("defaultRouteTableAssociation")]
         public Input<string>? DefaultRouteTableAssociation { get; set; }
 
         /// <summary>
-        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("defaultRouteTablePropagation")]
         public Input<string>? DefaultRouteTablePropagation { get; set; }
@@ -330,13 +330,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether DNS support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
         /// <summary>
-        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Multicast support is enabled. Required to use `Ec2TransitGatewayMulticastDomain`. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// Whether Security Group Referencing Support is enabled. Valid values: `Disable`, `Enable`. Default value: `Disable`.
         /// </summary>
         [Input("securityGroupReferencingSupport")]
         public Input<string>? SecurityGroupReferencingSupport { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
-        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `Disable`, `Enable`. Default value: `Enable`.
         /// </summary>
         [Input("vpnEcmpSupport")]
         public Input<string>? VpnEcmpSupport { get; set; }

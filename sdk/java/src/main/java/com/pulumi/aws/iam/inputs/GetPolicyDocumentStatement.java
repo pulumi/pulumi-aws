@@ -124,14 +124,14 @@ public final class GetPolicyDocumentStatement extends com.pulumi.resources.Invok
     }
 
     /**
-     * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     @Import(name="resources")
     private @Nullable List<String> resources;
 
     /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     public Optional<List<String>> resources() {
@@ -323,7 +323,7 @@ public final class GetPolicyDocumentStatement extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class GetPolicyDocumentStatement extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          * 
          * @return builder
          * 

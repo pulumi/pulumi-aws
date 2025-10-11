@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource's id attribute.
+        /// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `SubnetId` is the value you would find in an aws.ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `SecurityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource's id attribute.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

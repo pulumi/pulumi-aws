@@ -100,7 +100,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// An object describing the repository to associate. Valid values: `Bitbucket`, `Codecommit`, `GithubEnterpriseServer`, or `S3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `Bitbucket`, `GithubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
         /// 
         /// The following arguments are optional:
         /// </summary>

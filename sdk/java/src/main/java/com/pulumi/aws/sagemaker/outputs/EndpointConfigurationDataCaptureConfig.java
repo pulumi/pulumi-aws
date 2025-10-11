@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 public final class EndpointConfigurationDataCaptureConfig {
     /**
      * @return The content type headers to capture.
-     * See `capture_content_type_header` below.
+     * See `captureContentTypeHeader` below.
      * 
      */
     private @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
@@ -52,7 +52,7 @@ public final class EndpointConfigurationDataCaptureConfig {
     private EndpointConfigurationDataCaptureConfig() {}
     /**
      * @return The content type headers to capture.
-     * See `capture_content_type_header` below.
+     * See `captureContentTypeHeader` below.
      * 
      */
     public Optional<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader> captureContentTypeHeader() {

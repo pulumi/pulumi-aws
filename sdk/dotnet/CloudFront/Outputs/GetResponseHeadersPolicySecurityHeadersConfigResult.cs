@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult> FrameOptions;
         /// <summary>
-        /// Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        /// Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `Origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult> ReferrerPolicies;
         /// <summary>

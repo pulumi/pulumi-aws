@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> CustomPermissionsName { get; private set; } = null!;
 
         /// <summary>
-        /// Namespace that the user belongs to. Defaults to `default`.
+        /// Namespace that the user belongs to. Defaults to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> CustomPermissionsName { get; set; } = null!;
 
         /// <summary>
-        /// Namespace that the user belongs to. Defaults to `default`.
+        /// Namespace that the user belongs to. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? CustomPermissionsName { get; set; }
 
         /// <summary>
-        /// Namespace that the user belongs to. Defaults to `default`.
+        /// Namespace that the user belongs to. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

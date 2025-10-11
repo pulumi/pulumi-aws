@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// List of default values.
         /// Amazon Lex chooses the default value to use in the order that they are presented in the list.
-        /// See the `default_value_list` argument reference below.
+        /// See the `DefaultValueList` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> DefaultValueLists;
 

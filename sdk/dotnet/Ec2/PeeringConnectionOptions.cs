@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on VPC Peering Connections and VPC Peering Connection Options:** This provider provides
     /// both a standalone VPC Peering Connection Options and a VPC Peering Connection
-    /// resource with `accepter` and `requester` attributes. Do not manage options for the same VPC peering
+    /// resource with `Accepter` and `Requester` attributes. Do not manage options for the same VPC peering
     /// connection in both a VPC Peering Connection resource and a VPC Peering Connection Options resource.
     /// Doing so will cause a conflict of options and will overwrite the options.
     /// Using a VPC Peering Connection Options resource decouples management of the connection options from

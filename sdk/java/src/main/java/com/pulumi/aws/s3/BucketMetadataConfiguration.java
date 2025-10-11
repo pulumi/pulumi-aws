@@ -110,7 +110,7 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * Metadata configuration. See `metadata_configuration` Block for details.
+     * Metadata configuration. See `metadataConfiguration` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -119,7 +119,7 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
     private Output</* @Nullable */ BucketMetadataConfigurationMetadataConfiguration> metadataConfiguration;
 
     /**
-     * @return Metadata configuration. See `metadata_configuration` Block for details.
+     * @return Metadata configuration. See `metadataConfiguration` Block for details.
      * 
      * The following arguments are optional:
      * 

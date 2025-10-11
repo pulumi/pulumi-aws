@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorPlugin {
     /**
-     * @return Details about a custom plugin. See `custom_plugin` Block for details.
+     * @return Details about a custom plugin. See `customPlugin` Block for details.
      * 
      */
     private ConnectorPluginCustomPlugin customPlugin;
 
     private ConnectorPlugin() {}
     /**
-     * @return Details about a custom plugin. See `custom_plugin` Block for details.
+     * @return Details about a custom plugin. See `customPlugin` Block for details.
      * 
      */
     public ConnectorPluginCustomPlugin customPlugin() {

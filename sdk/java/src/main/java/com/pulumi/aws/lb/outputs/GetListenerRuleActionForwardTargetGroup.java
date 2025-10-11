@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetListenerRuleActionForwardTargetGroup {
     /**
      * @return ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     private String arn;
@@ -26,7 +26,7 @@ public final class GetListenerRuleActionForwardTargetGroup {
     private GetListenerRuleActionForwardTargetGroup() {}
     /**
      * @return ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public String arn() {

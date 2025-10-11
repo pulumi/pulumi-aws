@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Detective
         public Output<string> AdministratorId { get; private set; } = null!;
 
         /// <summary>
-        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `False`.
         /// </summary>
         [Output("disableEmailNotification")]
         public Output<bool?> DisableEmailNotification { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Detective
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `False`.
         /// </summary>
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Detective
         public Input<string>? AdministratorId { get; set; }
 
         /// <summary>
-        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `False`.
         /// </summary>
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }

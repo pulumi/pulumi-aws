@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+ *
+ * ## Example Usage
  */
 export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +51,8 @@ export interface GetDataCatalogEncryptionSettingsResult {
 }
 /**
  * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+ *
+ * ## Example Usage
  */
 export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

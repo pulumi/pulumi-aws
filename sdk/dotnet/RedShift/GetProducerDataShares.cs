@@ -152,7 +152,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetProducerDataSharesResult
     {
         /// <summary>
-        /// An array of all data shares in the producer. See `data_shares` below.
+        /// An array of all data shares in the producer. See `DataShares` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProducerDataSharesDataShareResult> DataShares;
         /// <summary>

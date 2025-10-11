@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class GetListenerRuleConditionHttpRequestMethodResult
     {
         /// <summary>
-        /// Set of `key`-`value` pairs indicating the query string parameters to match.
+        /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

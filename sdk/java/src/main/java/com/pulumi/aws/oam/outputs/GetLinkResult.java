@@ -34,7 +34,7 @@ public final class GetLinkResult {
      */
     private String labelTemplate;
     /**
-     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      * 
      */
     private List<GetLinkLinkConfiguration> linkConfigurations;
@@ -87,7 +87,7 @@ public final class GetLinkResult {
         return this.labelTemplate;
     }
     /**
-     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      * 
      */
     public List<GetLinkLinkConfiguration> linkConfigurations() {

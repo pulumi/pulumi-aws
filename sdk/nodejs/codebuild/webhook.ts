@@ -42,6 +42,12 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### GitHub Enterprise
+ *
+ * When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
+ *
+ * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+ *
  * ### For CodeBuild Runner Project
  *
  * To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.

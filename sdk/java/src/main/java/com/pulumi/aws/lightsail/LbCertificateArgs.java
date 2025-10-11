@@ -82,14 +82,14 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
     /**
-     * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+     * @return Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
      * 
      */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
@@ -213,7 +213,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
          * 
          * @return builder
          * 

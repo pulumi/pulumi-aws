@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     {
         /// <summary>
-        /// Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        /// Configuration of crawl limits for the web URLs. See `CrawlerLimits` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits? CrawlerLimits;
         /// <summary>

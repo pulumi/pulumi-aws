@@ -78,7 +78,7 @@ public final class GetPatchBaselineResult {
      */
     private List<String> rejectedPatches;
     /**
-     * @return Action specified to take on patches included in the `rejected_patches` list.
+     * @return Action specified to take on patches included in the `rejectedPatches` list.
      * 
      */
     private String rejectedPatchesAction;
@@ -182,7 +182,7 @@ public final class GetPatchBaselineResult {
         return this.rejectedPatches;
     }
     /**
-     * @return Action specified to take on patches included in the `rejected_patches` list.
+     * @return Action specified to take on patches included in the `rejectedPatches` list.
      * 
      */
     public String rejectedPatchesAction() {

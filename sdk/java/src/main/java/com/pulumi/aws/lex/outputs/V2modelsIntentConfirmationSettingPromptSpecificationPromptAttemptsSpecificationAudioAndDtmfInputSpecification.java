@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
     /**
-     * @return Configuration block for the settings on audio input. See `audio_specification`.
+     * @return Configuration block for the settings on audio input. See `audioSpecification`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification;
     /**
-     * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
+     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
      * 
      */
     private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification;
@@ -32,14 +32,14 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
 
     private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification() {}
     /**
-     * @return Configuration block for the settings on audio input. See `audio_specification`.
+     * @return Configuration block for the settings on audio input. See `audioSpecification`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification() {
         return Optional.ofNullable(this.audioSpecification);
     }
     /**
-     * @return Configuration block for the settings on DTMF input. See `dtmf_specification`.
+     * @return Configuration block for the settings on DTMF input. See `dtmfSpecification`.
      * 
      */
     public Optional<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification() {

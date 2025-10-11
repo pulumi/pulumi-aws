@@ -356,7 +356,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * &gt; **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      * 
      */
     @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
@@ -365,7 +365,7 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * &gt; **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      * 
      */
     public Output<List<String>> trustedResourceOwners() {

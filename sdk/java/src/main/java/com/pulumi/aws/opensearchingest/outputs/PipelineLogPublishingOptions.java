@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipelineLogPublishingOptions {
     /**
-     * @return The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
+     * @return The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
      * 
      */
     private @Nullable PipelineLogPublishingOptionsCloudwatchLogDestination cloudwatchLogDestination;
@@ -25,7 +25,7 @@ public final class PipelineLogPublishingOptions {
 
     private PipelineLogPublishingOptions() {}
     /**
-     * @return The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
+     * @return The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
      * 
      */
     public Optional<PipelineLogPublishingOptionsCloudwatchLogDestination> cloudwatchLogDestination() {

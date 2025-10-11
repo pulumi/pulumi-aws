@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
         /// </summary>
         public readonly string OwningAccountId;
         /// <summary>
-        /// Structure with additional type-specific details about the resource.  See `properties` below.
+        /// Structure with additional type-specific details about the resource.  See `Properties` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourcePropertyResult> Properties;
         /// <summary>

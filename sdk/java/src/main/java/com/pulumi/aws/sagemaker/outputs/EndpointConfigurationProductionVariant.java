@@ -76,7 +76,7 @@ public final class EndpointConfigurationProductionVariant {
      */
     private String modelName;
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     private @Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs;
@@ -175,7 +175,7 @@ public final class EndpointConfigurationProductionVariant {
         return this.modelName;
     }
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     public List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs() {

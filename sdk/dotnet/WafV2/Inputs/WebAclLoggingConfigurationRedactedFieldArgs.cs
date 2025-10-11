@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
+        /// "SingleHeader" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs>? SingleHeader { get; set; }

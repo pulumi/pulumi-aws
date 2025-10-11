@@ -17,14 +17,14 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
     public static final WebAclLoggingConfigurationLoggingFilterArgs Empty = new WebAclLoggingConfigurationLoggingFilterArgs();
 
     /**
-     * Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+     * Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
      * 
      */
     @Import(name="defaultBehavior", required=true)
     private Output<String> defaultBehavior;
 
     /**
-     * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+     * @return Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
      * 
      */
     public Output<String> defaultBehavior() {
@@ -72,7 +72,7 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
         }
 
         /**
-         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
         }
 
         /**
-         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+         * @param defaultBehavior Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
          * 
          * @return builder
          * 

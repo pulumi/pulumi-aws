@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string AuthenticationMode;
         /// <summary>
-        /// Default to `true`.
+        /// Default to `True`.
         /// </summary>
         public readonly bool BootstrapClusterCreatorAdminPermissions;
 

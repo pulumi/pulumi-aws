@@ -32,14 +32,14 @@ public final class AccountPasswordPolicyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+     * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
     @Import(name="expirePasswords")
     private @Nullable Output<Boolean> expirePasswords;
 
     /**
-     * @return Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+     * @return Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
     public Optional<Output<Boolean>> expirePasswords() {
@@ -221,7 +221,7 @@ public final class AccountPasswordPolicyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AccountPasswordPolicyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
+         * @param expirePasswords Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
          * 
          * @return builder
          * 

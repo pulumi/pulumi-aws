@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule {
     /**
-     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
      * 
      */
     private LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier retentionArchiveTier;
 
     private LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule() {}
     /**
-     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+     * @return Information about retention period in the Amazon EBS Snapshots Archive. See the `retentionArchiveTier` block.
      * 
      */
     public LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier retentionArchiveTier() {

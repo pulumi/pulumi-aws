@@ -96,14 +96,14 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -111,14 +111,14 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+     * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      * 
      */
     @Import(name="targetControls")
     private @Nullable Output<List<String>> targetControls;
 
     /**
-     * @return Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+     * @return Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      * 
      */
     public Optional<Output<List<String>>> targetControls() {
@@ -301,7 +301,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetControls Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+         * @param targetControls Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetControls Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+         * @param targetControls Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetControls Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+         * @param targetControls Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
          * 
          * @return builder
          * 

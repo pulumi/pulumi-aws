@@ -16,14 +16,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs();
 
     /**
-     * A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     @Import(name="actionDefinition", required=true)
     private Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition;
 
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     public Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition() {
@@ -71,7 +71,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
         }
 
         /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
         }
 
         /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
          * 
          * @return builder
          * 

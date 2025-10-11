@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Xray
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
         /// </summary>
         [Output("bypassPolicyLockoutCheck")]
         public Output<bool?> BypassPolicyLockoutCheck { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Xray
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutCheck")]
         public Input<bool>? BypassPolicyLockoutCheck { get; set; }
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Xray
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutCheck")]
         public Input<bool>? BypassPolicyLockoutCheck { get; set; }

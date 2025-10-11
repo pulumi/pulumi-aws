@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainSoftwareUpdateOptions
     {
         /// <summary>
-        /// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        /// Whether automatic service software updates are enabled for the domain. Defaults to `False`.
         /// </summary>
         public readonly bool? AutoSoftwareUpdateEnabled;
 

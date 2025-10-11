@@ -21,7 +21,7 @@ public final class TaskSetLoadBalancer {
     /**
      * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
-     * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     private @Nullable Integer containerPort;
@@ -47,7 +47,7 @@ public final class TaskSetLoadBalancer {
     /**
      * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
-     * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     public Optional<Integer> containerPort() {

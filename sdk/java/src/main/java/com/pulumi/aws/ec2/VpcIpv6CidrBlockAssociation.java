@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")
 public class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      * 
      */
     @Export(name="assignGeneratedIpv6CidrBlock", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> assignGeneratedIpv6CidrBlock;
 
     /**
-     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
+     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      * 
      */
     public Output<Boolean> assignGeneratedIpv6CidrBlock() {
@@ -129,56 +129,56 @@ public class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.CustomReso
         return this.ipv6AddressAttribute;
     }
     /**
-     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
+     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
      * 
      */
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output<String> ipv6CidrBlock;
 
     /**
-     * @return The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
+     * @return The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
      * 
      */
     public Output<String> ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
     /**
-     * The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
+     * The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
      * 
      */
     @Export(name="ipv6IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6IpamPoolId;
 
     /**
-     * @return The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
+     * @return The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6Pool`.
      * 
      */
     public Output<Optional<String>> ipv6IpamPoolId() {
         return Codegen.optional(this.ipv6IpamPoolId);
     }
     /**
-     * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
+     * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
      * 
      */
     @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv6NetmaskLength;
 
     /**
-     * @return The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
+     * @return The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6IpamPoolId`. This parameter is optional if the IPAM pool has `allocationDefaultNetmask` set, otherwise it or `ipv6CidrBlock` are required. Conflicts with `ipv6CidrBlock`.
      * 
      */
     public Output<Optional<Integer>> ipv6NetmaskLength() {
         return Codegen.optional(this.ipv6NetmaskLength);
     }
     /**
-     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
+     * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      * 
      */
     @Export(name="ipv6Pool", refs={String.class}, tree="[0]")
     private Output<String> ipv6Pool;
 
     /**
-     * @return The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_ipam_pool_id`.
+     * @return The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
      * 
      */
     public Output<String> ipv6Pool() {

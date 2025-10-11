@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Elb.Outputs
         public readonly string LbProtocol;
         /// <summary>
         /// The ARN of an SSL certificate you have
-        /// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+        /// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `LbProtocol` is either HTTPS or SSL**
         /// </summary>
         public readonly string? SslCertificateId;
 

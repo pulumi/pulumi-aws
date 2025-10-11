@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
  * both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
- * and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
+ * and a single `securityGroupId`) and a VPC Endpoint resource with a `securityGroupIds`
  * attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
  * Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
  * 
@@ -86,14 +86,14 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      * 
      */
     @Export(name="replaceDefaultAssociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceDefaultAssociation;
 
     /**
-     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      * 
      */
     public Output<Optional<Boolean>> replaceDefaultAssociation() {

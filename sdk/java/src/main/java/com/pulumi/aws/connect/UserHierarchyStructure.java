@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/userHierarchyStructure:UserHierarchyStructure")
 public class UserHierarchyStructure extends com.pulumi.resources.CustomResource {
     /**
-     * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     @Export(name="hierarchyStructure", refs={UserHierarchyStructureHierarchyStructure.class}, tree="[0]")
     private Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
 
     /**
-     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
+     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchyStructure` block is documented below.
      * 
      */
     public Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure() {

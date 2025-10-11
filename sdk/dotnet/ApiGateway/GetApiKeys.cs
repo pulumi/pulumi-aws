@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ApiGateway
         public string? CustomerId { get; set; }
 
         /// <summary>
-        /// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
+        /// Set this value to `True` if you wish the result contains the key value. Defaults to `False`.
         /// </summary>
         [Input("includeValues")]
         public bool? IncludeValues { get; set; }
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CustomerId { get; set; }
 
         /// <summary>
-        /// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
+        /// Set this value to `True` if you wish the result contains the key value. Defaults to `False`.
         /// </summary>
         [Input("includeValues")]
         public Input<bool>? IncludeValues { get; set; }

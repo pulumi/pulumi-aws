@@ -49,14 +49,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
+     * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
      * 
      */
     @Import(name="peerAddress", required=true)
     private Output<String> peerAddress;
 
     /**
-     * @return The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
+     * @return The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
      * 
      */
     public Output<String> peerAddress() {
@@ -79,14 +79,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -94,14 +94,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
+     * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
     @Import(name="transitGatewayAddress")
     private @Nullable Output<String> transitGatewayAddress;
 
     /**
-     * @return The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
+     * @return The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
     public Optional<Output<String>> transitGatewayAddress() {
@@ -206,7 +206,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
+         * @param peerAddress The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
+         * @param peerAddress The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayAddress The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
+         * @param transitGatewayAddress The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayAddress The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
+         * @param transitGatewayAddress The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
          * 
          * @return builder
          * 

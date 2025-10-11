@@ -21,14 +21,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     public static final AppMonitorState Empty = new AppMonitorState();
 
     /**
-     * configuration data for the app monitor. See app_monitor_configuration below.
+     * configuration data for the app monitor. See appMonitorConfiguration below.
      * 
      */
     @Import(name="appMonitorConfiguration")
     private @Nullable Output<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration;
 
     /**
-     * @return configuration data for the app monitor. See app_monitor_configuration below.
+     * @return configuration data for the app monitor. See appMonitorConfiguration below.
      * 
      */
     public Optional<Output<AppMonitorAppMonitorConfigurationArgs>> appMonitorConfiguration() {
@@ -66,14 +66,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      * 
      */
     @Import(name="customEvents")
     private @Nullable Output<AppMonitorCustomEventsArgs> customEvents;
 
     /**
-     * @return Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+     * @return Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      * 
      */
     public Optional<Output<AppMonitorCustomEventsArgs>> customEvents() {
@@ -155,14 +155,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -170,14 +170,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -220,7 +220,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * @param appMonitorConfiguration configuration data for the app monitor. See appMonitorConfiguration below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appMonitorConfiguration configuration data for the app monitor. See app_monitor_configuration below.
+         * @param appMonitorConfiguration configuration data for the app monitor. See appMonitorConfiguration below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -128,8 +128,8 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ### CloudWatch Alarm Check With Triggers
     /// 
-    /// The `triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
-    /// In the configuration below, the health check will be synchronized any time the `threshold` of the alarm is changed.
+    /// The `Triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
+    /// In the configuration below, the health check will be synchronized any time the `Threshold` of the alarm is changed.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.Route53
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
-        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `InvertHealthcheck`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+        /// A boolean value that indicates whether Route53 should send the `Fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `Type` is "HTTPS" `EnableSni` defaults to `True`, when `Type` is anything else `EnableSni` defaults to `False`.
         /// </summary>
         [Output("enableSni")]
         public Output<bool> EnableSni { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `IpAddress`, the value set for `Fqdn` will be passed in the `Host` header.
         /// </summary>
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// This is a reference name used in Caller Reference
-        /// (helpful for identifying single health_check set amongst others)
+        /// (helpful for identifying single HealthCheck set amongst others)
         /// </summary>
         [Output("referenceName")]
         public Output<string?> ReferenceName { get; private set; } = null!;
@@ -305,13 +305,13 @@ namespace Pulumi.Aws.Route53
         public Output<string?> SearchString { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -410,13 +410,13 @@ namespace Pulumi.Aws.Route53
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
-        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `InvertHealthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+        /// A boolean value that indicates whether Route53 should send the `Fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `Type` is "HTTPS" `EnableSni` defaults to `True`, when `Type` is anything else `EnableSni` defaults to `False`.
         /// </summary>
         [Input("enableSni")]
         public Input<bool>? EnableSni { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `IpAddress`, the value set for `Fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// This is a reference name used in Caller Reference
-        /// (helpful for identifying single health_check set amongst others)
+        /// (helpful for identifying single HealthCheck set amongst others)
         /// </summary>
         [Input("referenceName")]
         public Input<string>? ReferenceName { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -586,13 +586,13 @@ namespace Pulumi.Aws.Route53
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
-        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `InvertHealthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+        /// A boolean value that indicates whether Route53 should send the `Fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `Type` is "HTTPS" `EnableSni` defaults to `True`, when `Type` is anything else `EnableSni` defaults to `False`.
         /// </summary>
         [Input("enableSni")]
         public Input<bool>? EnableSni { get; set; }
@@ -604,7 +604,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `IpAddress`, the value set for `Fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -641,7 +641,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// This is a reference name used in Caller Reference
-        /// (helpful for identifying single health_check set amongst others)
+        /// (helpful for identifying single HealthCheck set amongst others)
         /// </summary>
         [Input("referenceName")]
         public Input<string>? ReferenceName { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -698,7 +698,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -35,7 +35,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     /**
      * Returns information on a specific Security Profile by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      * 
      */
     @Import(name="name")
@@ -44,7 +44,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     /**
      * @return Returns information on a specific Security Profile by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -148,7 +148,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param name Returns information on a specific Security Profile by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
          * 
          * @return builder
          * 

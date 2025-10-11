@@ -51,7 +51,7 @@ public final class GetPolicyDocumentStatement {
      */
     private @Nullable List<GetPolicyDocumentStatementPrincipal> principals;
     /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     private @Nullable List<String> resources;
@@ -112,7 +112,7 @@ public final class GetPolicyDocumentStatement {
         return this.principals == null ? List.of() : this.principals;
     }
     /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     public List<String> resources() {

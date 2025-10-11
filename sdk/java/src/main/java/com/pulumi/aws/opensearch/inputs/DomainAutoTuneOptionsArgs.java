@@ -37,7 +37,7 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
     /**
      * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
-     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
      * 
      */
     @Import(name="maintenanceSchedules")
@@ -46,7 +46,7 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
     /**
      * @return Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
-     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+     * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
      * 
      */
     public Optional<Output<List<DomainAutoTuneOptionsMaintenanceScheduleArgs>>> maintenanceSchedules() {
@@ -134,7 +134,7 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          * 
-         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          * 
-         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         /**
          * @param maintenanceSchedules Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
          * 
-         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
          * 
          * @return builder
          * 

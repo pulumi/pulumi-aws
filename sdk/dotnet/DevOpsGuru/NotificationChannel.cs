@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` argument reference below.
         /// </summary>
         [Output("filters")]
         public Output<Outputs.NotificationChannelFilters?> Filters { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` argument reference below.
+        /// SNS noficiation channel configurations. See the `Sns` argument reference below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` argument reference below.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.NotificationChannelFiltersArgs>? Filters { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` argument reference below.
+        /// SNS noficiation channel configurations. See the `Sns` argument reference below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class NotificationChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic. See the `Filters` argument reference below.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.NotificationChannelFiltersGetArgs>? Filters { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// SNS noficiation channel configurations. See the `sns` argument reference below.
+        /// SNS noficiation channel configurations. See the `Sns` argument reference below.
         /// 
         /// The following arguments are optional:
         /// </summary>

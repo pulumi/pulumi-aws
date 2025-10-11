@@ -18,7 +18,7 @@ public final class GetGroupMembershipsResult {
      */
     private String groupId;
     /**
-     * @return A list of group membership objects. See `group_memberships` below.
+     * @return A list of group membership objects. See `groupMemberships` below.
      * 
      */
     private List<GetGroupMembershipsGroupMembership> groupMemberships;
@@ -43,7 +43,7 @@ public final class GetGroupMembershipsResult {
         return this.groupId;
     }
     /**
-     * @return A list of group membership objects. See `group_memberships` below.
+     * @return A list of group membership objects. See `groupMemberships` below.
      * 
      */
     public List<GetGroupMembershipsGroupMembership> groupMemberships() {

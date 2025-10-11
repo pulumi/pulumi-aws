@@ -135,14 +135,14 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+     * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      * 
      */
     @Import(name="voiceSettings")
     private @Nullable Output<V2modelsBotLocaleVoiceSettingsArgs> voiceSettings;
 
     /**
-     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+     * @return Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      * 
      */
     public Optional<Output<V2modelsBotLocaleVoiceSettingsArgs>> voiceSettings() {
@@ -342,7 +342,7 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class V2modelsBotLocaleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+         * @param voiceSettings Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
          * 
          * @return builder
          * 

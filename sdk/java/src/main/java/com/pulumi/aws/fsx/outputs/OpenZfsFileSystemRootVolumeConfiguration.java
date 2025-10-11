@@ -27,7 +27,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      */
     private @Nullable String dataCompressionType;
     /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
      * 
      */
     private @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports;
@@ -42,7 +42,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      */
     private @Nullable Integer recordSizeKib;
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
      * 
      */
     private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas;
@@ -63,7 +63,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         return Optional.ofNullable(this.dataCompressionType);
     }
     /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
      * 
      */
     public Optional<OpenZfsFileSystemRootVolumeConfigurationNfsExports> nfsExports() {
@@ -84,7 +84,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         return Optional.ofNullable(this.recordSizeKib);
     }
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
      * 
      */
     public List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas() {

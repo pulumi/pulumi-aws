@@ -701,14 +701,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      * 
      */
     @Export(name="physicalConnectionRequirements", refs={ConnectionPhysicalConnectionRequirements.class}, tree="[0]")
     private Output</* @Nullable */ ConnectionPhysicalConnectionRequirements> physicalConnectionRequirements;
 
     /**
-     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      * 
      */
     public Output<Optional<ConnectionPhysicalConnectionRequirements>> physicalConnectionRequirements() {
@@ -729,28 +729,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

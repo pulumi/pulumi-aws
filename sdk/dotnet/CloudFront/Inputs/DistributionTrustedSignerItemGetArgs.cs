@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionTrustedSignerItemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS account ID or `self`
+        /// AWS account ID or `Self`
         /// </summary>
         [Input("awsAccountNumber")]
         public Input<string>? AwsAccountNumber { get; set; }

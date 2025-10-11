@@ -44,10 +44,10 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
-    /// ### Ignoring Provider `default_tags`
+    /// ### Ignoring Provider `DefaultTags`
     /// 
     /// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
-    /// If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object copy, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+    /// If the resource's own `Tags` and the provider-level `DefaultTags` would together lead to more than 10 tags on an S3 object copy, use the `OverrideProvider` configuration block to suppress any provider-level `DefaultTags`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.S3
     public partial class ObjectCopy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `Grant`.
         /// </summary>
         [Output("acl")]
         public Output<string> Acl { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.S3
         public Output<bool> BucketKeyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        /// Specifies caching behavior along the request/reply chain Read [w3c CacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
         [Output("cacheControl")]
         public Output<string> CacheControl { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.S3
         public Output<string> ChecksumSha256 { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        /// Specifies presentational information for the object. Read [w3c ContentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
         [Output("contentDisposition")]
         public Output<string> ContentDisposition { get; private set; } = null!;
@@ -237,13 +237,13 @@ namespace Pulumi.Aws.S3
         public Output<string?> Expires { get; private set; } = null!;
 
         /// <summary>
-        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `False`. This value should be set to `True` only if the bucket has S3 object lock enabled.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for header grants. Documented below. Conflicts with `acl`.
+        /// Configuration block for header grants. Documented below. Conflicts with `Acl`.
         /// </summary>
         [Output("grants")]
         public Output<ImmutableArray<Outputs.ObjectCopyGrant>> Grants { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.S3
         public Output<string> KmsEncryptionContext { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `Arn` attribute: `KmsKeyId = aws_kms_key.foo.arn`
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.S3
         public Output<bool> RequestCharged { get; private set; } = null!;
 
         /// <summary>
-        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `Requester`.
         /// </summary>
         [Output("requestPayer")]
         public Output<string?> RequestPayer { get; private set; } = null!;
@@ -374,13 +374,13 @@ namespace Pulumi.Aws.S3
         public Output<string?> TaggingDirective { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.S3
     public sealed class ObjectCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `Grant`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? BucketKeyEnabled { get; set; }
 
         /// <summary>
-        /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        /// Specifies caching behavior along the request/reply chain Read [w3c CacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
         [Input("cacheControl")]
         public Input<string>? CacheControl { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ChecksumAlgorithm { get; set; }
 
         /// <summary>
-        /// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        /// Specifies presentational information for the object. Read [w3c ContentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
         [Input("contentDisposition")]
         public Input<string>? ContentDisposition { get; set; }
@@ -572,7 +572,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Expires { get; set; }
 
         /// <summary>
-        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `False`. This value should be set to `True` only if the bucket has S3 object lock enabled.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -581,7 +581,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.ObjectCopyGrantArgs>? _grants;
 
         /// <summary>
-        /// Configuration block for header grants. Documented below. Conflicts with `acl`.
+        /// Configuration block for header grants. Documented below. Conflicts with `Acl`.
         /// </summary>
         public InputList<Inputs.ObjectCopyGrantArgs> Grants
         {
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.S3
         private Input<string>? _kmsKeyId;
 
         /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `Arn` attribute: `KmsKeyId = aws_kms_key.foo.arn`
         /// </summary>
         public Input<string>? KmsKeyId
         {
@@ -673,7 +673,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `Requester`.
         /// </summary>
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
@@ -736,7 +736,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -759,7 +759,7 @@ namespace Pulumi.Aws.S3
     public sealed class ObjectCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `Grant`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -780,7 +780,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? BucketKeyEnabled { get; set; }
 
         /// <summary>
-        /// Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        /// Specifies caching behavior along the request/reply chain Read [w3c CacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         /// </summary>
         [Input("cacheControl")]
         public Input<string>? CacheControl { get; set; }
@@ -822,7 +822,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ChecksumSha256 { get; set; }
 
         /// <summary>
-        /// Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        /// Specifies presentational information for the object. Read [w3c ContentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         /// </summary>
         [Input("contentDisposition")]
         public Input<string>? ContentDisposition { get; set; }
@@ -928,7 +928,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Expires { get; set; }
 
         /// <summary>
-        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
+        /// Allow the object to be deleted by removing any legal hold on any object version. Default is `False`. This value should be set to `True` only if the bucket has S3 object lock enabled.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -937,7 +937,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.ObjectCopyGrantGetArgs>? _grants;
 
         /// <summary>
-        /// Configuration block for header grants. Documented below. Conflicts with `acl`.
+        /// Configuration block for header grants. Documented below. Conflicts with `Acl`.
         /// </summary>
         public InputList<Inputs.ObjectCopyGrantGetArgs> Grants
         {
@@ -971,7 +971,7 @@ namespace Pulumi.Aws.S3
         private Input<string>? _kmsKeyId;
 
         /// <summary>
-        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        /// Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `Arn` attribute: `KmsKeyId = aws_kms_key.foo.arn`
         /// </summary>
         public Input<string>? KmsKeyId
         {
@@ -1041,7 +1041,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? RequestCharged { get; set; }
 
         /// <summary>
-        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `Requester`.
         /// </summary>
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
@@ -1110,7 +1110,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1122,7 +1122,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

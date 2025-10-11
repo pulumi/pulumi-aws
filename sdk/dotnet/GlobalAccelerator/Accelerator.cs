@@ -84,7 +84,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> DualStackDnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        /// Indicates whether the accelerator is enabled. Defaults to `True`. Valid values: `True`, `False`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -122,13 +122,13 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<Inputs.AcceleratorAttributesArgs>? Attributes { get; set; }
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        /// Indicates whether the accelerator is enabled. Defaults to `True`. Valid values: `True`, `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? DualStackDnsName { get; set; }
 
         /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        /// Indicates whether the accelerator is enabled. Defaults to `True`. Valid values: `True`, `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

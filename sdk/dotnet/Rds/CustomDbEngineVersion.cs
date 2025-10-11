@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Output("filename")]
         public Output<string?> Filename { get; private set; } = null!;
@@ -222,19 +222,19 @@ namespace Pulumi.Aws.Rds
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Output("manifest")]
         public Output<string?> Manifest { get; private set; } = null!;
 
         /// <summary>
-        /// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
+        /// The returned manifest file, in JSON format, service generated and often different from input `Manifest`.
         /// </summary>
         [Output("manifestComputed")]
         public Output<string> ManifestComputed { get; private set; } = null!;
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Output("manifestHash")]
         public Output<string?> ManifestHash { get; private set; } = null!;
@@ -252,19 +252,19 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> EngineVersion { get; set; } = null!;
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
@@ -358,13 +358,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Input("manifestHash")]
         public Input<string>? ManifestHash { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
@@ -480,19 +480,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MajorEngineVersion { get; set; }
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
 
         /// <summary>
-        /// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
+        /// The returned manifest file, in JSON format, service generated and often different from input `Manifest`.
         /// </summary>
         [Input("manifestComputed")]
         public Input<string>? ManifestComputed { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Input("manifestHash")]
         public Input<string>? ManifestHash { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

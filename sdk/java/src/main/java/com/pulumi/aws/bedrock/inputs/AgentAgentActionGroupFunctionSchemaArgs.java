@@ -18,7 +18,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
     /**
      * Contains a list of functions.
      * Each function describes and action in the action group.
-     * See `member_functions` Block for details.
+     * See `memberFunctions` Block for details.
      * 
      */
     @Import(name="memberFunctions")
@@ -27,7 +27,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
     /**
      * @return Contains a list of functions.
      * Each function describes and action in the action group.
-     * See `member_functions` Block for details.
+     * See `memberFunctions` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs>> memberFunctions() {
@@ -61,7 +61,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
         /**
          * @param memberFunctions Contains a list of functions.
          * Each function describes and action in the action group.
-         * See `member_functions` Block for details.
+         * See `memberFunctions` Block for details.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class AgentAgentActionGroupFunctionSchemaArgs extends com.pulumi.re
         /**
          * @param memberFunctions Contains a list of functions.
          * Each function describes and action in the action group.
-         * See `member_functions` Block for details.
+         * See `memberFunctions` Block for details.
          * 
          * @return builder
          * 

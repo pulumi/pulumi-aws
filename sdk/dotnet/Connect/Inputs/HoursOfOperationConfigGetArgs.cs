@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<string> Day { get; set; } = null!;
 
         /// <summary>
-        /// A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        /// A end time block specifies the time that your contact center closes. The `EndTime` is documented below.
         /// </summary>
         [Input("endTime", required: true)]
         public Input<Inputs.HoursOfOperationConfigEndTimeGetArgs> EndTime { get; set; } = null!;
 
         /// <summary>
-        /// A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        /// A start time block specifies the time that your contact center opens. The `StartTime` is documented below.
         /// </summary>
         [Input("startTime", required: true)]
         public Input<Inputs.HoursOfOperationConfigStartTimeGetArgs> StartTime { get; set; } = null!;

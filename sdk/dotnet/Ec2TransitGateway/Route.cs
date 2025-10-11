@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `false`).
+        /// Indicates whether to drop traffic that matches this route (default to `False`).
         /// </summary>
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `false`).
+        /// Indicates whether to drop traffic that matches this route (default to `False`).
         /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to drop traffic that matches this route (default to `false`).
+        /// Indicates whether to drop traffic that matches this route (default to `False`).
         /// </summary>
         [Input("blackhole")]
         public Input<bool>? Blackhole { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+        /// Identifier of EC2 Transit Gateway Attachment (required if `Blackhole` is set to false).
         /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }

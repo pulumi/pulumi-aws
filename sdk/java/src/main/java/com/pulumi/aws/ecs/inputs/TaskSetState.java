@@ -144,14 +144,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Import(name="platformVersion")
     private @Nullable Output<String> platformVersion;
 
     /**
-     * @return The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Optional<Output<String>> platformVersion() {
@@ -204,14 +204,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     @Import(name="serviceRegistries")
     private @Nullable Output<TaskSetServiceRegistriesArgs> serviceRegistries;
 
     /**
-     * @return The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+     * @return The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     public Optional<Output<TaskSetServiceRegistriesArgs>> serviceRegistries() {
@@ -249,14 +249,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -264,14 +264,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -575,7 +575,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformVersion The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformVersion The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegistries The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+         * @param serviceRegistries The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegistries The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+         * @param serviceRegistries The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class PipelineTriggerArgs extends com.pulumi.resources.ResourceArgs
     public static final PipelineTriggerArgs Empty = new PipelineTriggerArgs();
 
     /**
-     * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+     * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
      * 
      */
     @Import(name="gitConfiguration", required=true)
     private Output<PipelineTriggerGitConfigurationArgs> gitConfiguration;
 
     /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
      * 
      */
     public Output<PipelineTriggerGitConfigurationArgs> gitConfiguration() {
@@ -71,7 +71,7 @@ public final class PipelineTriggerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipelineTriggerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+         * @param gitConfiguration Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
          * 
          * @return builder
          * 

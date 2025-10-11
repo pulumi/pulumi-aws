@@ -14,23 +14,23 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementCustomKey
     {
         /// <summary>
-        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `asn` below for details.
+        /// Use an Autonomous System Number (ASN) derived from the request's originating or forwarded IP address as an aggregate key. See RateLimit `Asn` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyAsn? Asn;
         /// <summary>
-        /// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        /// Use the value of a cookie in the request as an aggregate key. See RateLimit `Cookie` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie? Cookie;
         /// <summary>
-        /// Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        /// Use the first IP address in an HTTP header as an aggregate key. See `ForwardedIp` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp? ForwardedIp;
         /// <summary>
-        /// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        /// Use the value of a header in the request as an aggregate key. See RateLimit `Header` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader? Header;
         /// <summary>
-        /// Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        /// Use the request's HTTP method as an aggregate key. See RateLimit `HttpMethod` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod? HttpMethod;
         /// <summary>
@@ -46,19 +46,19 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
-        /// Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        /// Use the specified label namespace as an aggregate key. See RateLimit `LabelNamespace` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace;
         /// <summary>
-        /// Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        /// Use the specified query argument as an aggregate key. See RateLimit `QueryArgument` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument;
         /// <summary>
-        /// Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        /// Use the request's query string as an aggregate key. See RateLimit `QueryString` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString? QueryString;
         /// <summary>
-        /// Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        /// Use the request's URI path as an aggregate key. See RateLimit `UriPath` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath? UriPath;
 

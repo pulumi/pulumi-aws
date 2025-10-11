@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `resource_key_value_pair` below.
+        /// See `ResourceKeyValuePair` below.
         /// </summary>
         [Output("resourceKeyValuePairs")]
         public Output<ImmutableArray<Outputs.KeyvaluestoreKeysExclusiveResourceKeyValuePair>> ResourceKeyValuePairs { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `resource_key_value_pair` below.
+        /// See `ResourceKeyValuePair` below.
         /// </summary>
         public InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs> ResourceKeyValuePairs
         {
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// A list of all resource key value pairs associated with the KeyValueStore.
-        /// See `resource_key_value_pair` below.
+        /// See `ResourceKeyValuePair` below.
         /// </summary>
         public InputList<Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairGetArgs> ResourceKeyValuePairs
         {

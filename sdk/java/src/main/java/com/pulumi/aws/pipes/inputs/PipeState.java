@@ -126,14 +126,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -216,14 +216,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -231,14 +231,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -467,7 +467,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

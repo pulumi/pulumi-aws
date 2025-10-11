@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an SSM Patch Baseline resource.
  * 
- * &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
+ * &gt; **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
  * 
@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage
  * 
- * Using `approved_patches` only.
+ * Using `approvedPatches` only.
  * 
  * <pre>
  * {@code
@@ -299,28 +299,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/patchBaseline:PatchBaseline")
 public class PatchBaseline extends com.pulumi.resources.CustomResource {
     /**
-     * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+     * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      * 
      */
     @Export(name="approvalRules", refs={List.class,PatchBaselineApprovalRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PatchBaselineApprovalRule>> approvalRules;
 
     /**
-     * @return Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+     * @return Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      * 
      */
     public Output<Optional<List<PatchBaselineApprovalRule>>> approvalRules() {
         return Codegen.optional(this.approvalRules);
     }
     /**
-     * List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+     * List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      * 
      */
     @Export(name="approvedPatches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> approvedPatches;
 
     /**
-     * @return List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+     * @return List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      * 
      */
     public Output<Optional<List<String>>> approvedPatches() {
@@ -485,14 +485,14 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rejectedPatches);
     }
     /**
-     * Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * Action for Patch Manager to take on patches included in the `rejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     @Export(name="rejectedPatchesAction", refs={String.class}, tree="[0]")
     private Output<String> rejectedPatchesAction;
 
     /**
-     * @return Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * @return Action for Patch Manager to take on patches included in the `rejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     public Output<String> rejectedPatchesAction() {
@@ -513,28 +513,28 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sources);
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

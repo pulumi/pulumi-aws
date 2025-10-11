@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class DataSourceDynamodbConfig
     {
         /// <summary>
-        /// The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+        /// The DeltaSyncConfig for a versioned data source. See `DeltaSyncConfig` Block for details.
         /// </summary>
         public readonly Outputs.DataSourceDynamodbConfigDeltaSyncConfig? DeltaSyncConfig;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string TableName;
         /// <summary>
-        /// Set to `true` to use Amazon Cognito credentials with this data source.
+        /// Set to `True` to use Amazon Cognito credentials with this data source.
         /// </summary>
         public readonly bool? UseCallerCredentials;
         /// <summary>

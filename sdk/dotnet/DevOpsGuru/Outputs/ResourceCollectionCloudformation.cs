@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     public sealed class ResourceCollectionCloudformation
     {
         /// <summary>
-        /// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+        /// Array of the names of the AWS CloudFormation stacks. If `Type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
         /// </summary>
         public readonly ImmutableArray<string> StackNames;
 

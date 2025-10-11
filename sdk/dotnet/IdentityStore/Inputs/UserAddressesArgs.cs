@@ -37,7 +37,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public Input<string>? PostalCode { get; set; }
 
         /// <summary>
-        /// When `true`, this is the primary address associated with the user.
+        /// When `True`, this is the primary address associated with the user.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }

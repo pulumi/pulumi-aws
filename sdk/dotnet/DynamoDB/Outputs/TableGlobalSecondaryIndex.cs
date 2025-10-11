@@ -30,7 +30,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly Outputs.TableGlobalSecondaryIndexOnDemandThroughput? OnDemandThroughput;
         /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index HashKey and SortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
         /// </summary>
         public readonly string ProjectionType;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string? RangeKey;
         /// <summary>
-        /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of read units for this index. Must be set if BillingMode is set to PROVISIONED.
         /// </summary>
         public readonly int? ReadCapacity;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly Outputs.TableGlobalSecondaryIndexWarmThroughput? WarmThroughput;
         /// <summary>
-        /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of write units for this index. Must be set if BillingMode is set to PROVISIONED.
         /// </summary>
         public readonly int? WriteCapacity;
 

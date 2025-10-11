@@ -182,7 +182,7 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Filter IP ranges by regions (or include all regions, if
-        /// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
+        /// omitted). Valid items are `Global` (for `Cloudfront`) as well as all AWS regions
         /// (e.g., `eu-central-1`)
         /// </summary>
         public List<string> Regions
@@ -195,11 +195,11 @@ namespace Pulumi.Aws
         private List<string>? _services;
 
         /// <summary>
-        /// Filter IP ranges by services. Valid items are `amazon`
-        /// (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-        /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-        /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-        /// [`service` attribute][2] documentation for other possible values.
+        /// Filter IP ranges by services. Valid items are `Amazon`
+        /// (for amazon.com), `AmazonConnect`, `ApiGateway`, `Cloud9`, `Cloudfront`,
+        /// `Codebuild`, `Dynamodb`, `Ec2`, `Ec2InstanceConnect`, `Globalaccelerator`,
+        /// `Route53`, `Route53Healthchecks`, `S3` and `WorkspacesGateways`. See the
+        /// [`Service` attribute][2] documentation for other possible values.
         /// 
         /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
         /// CIDR blocks, this call will fail.
@@ -232,7 +232,7 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Filter IP ranges by regions (or include all regions, if
-        /// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
+        /// omitted). Valid items are `Global` (for `Cloudfront`) as well as all AWS regions
         /// (e.g., `eu-central-1`)
         /// </summary>
         public InputList<string> Regions
@@ -245,11 +245,11 @@ namespace Pulumi.Aws
         private InputList<string>? _services;
 
         /// <summary>
-        /// Filter IP ranges by services. Valid items are `amazon`
-        /// (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-        /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-        /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-        /// [`service` attribute][2] documentation for other possible values.
+        /// Filter IP ranges by services. Valid items are `Amazon`
+        /// (for amazon.com), `AmazonConnect`, `ApiGateway`, `Cloud9`, `Cloudfront`,
+        /// `Codebuild`, `Dynamodb`, `Ec2`, `Ec2InstanceConnect`, `Globalaccelerator`,
+        /// `Route53`, `Route53Healthchecks`, `S3` and `WorkspacesGateways`. See the
+        /// [`Service` attribute][2] documentation for other possible values.
         /// 
         /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
         /// CIDR blocks, this call will fail.

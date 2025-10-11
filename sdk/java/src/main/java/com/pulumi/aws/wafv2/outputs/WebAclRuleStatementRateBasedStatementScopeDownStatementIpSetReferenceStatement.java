@@ -19,7 +19,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
      */
     private String arn;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig;
@@ -33,7 +33,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         return this.arn;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig> ipSetForwardedIpConfig() {

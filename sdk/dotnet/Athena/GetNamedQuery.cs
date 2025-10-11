@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Athena
         public string? Region { get; set; }
 
         /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `primary`.
+        /// The workgroup to which the query belongs. Defaults to `Primary`.
         /// </summary>
         [Input("workgroup")]
         public string? Workgroup { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The workgroup to which the query belongs. Defaults to `primary`.
+        /// The workgroup to which the query belongs. Defaults to `Primary`.
         /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }

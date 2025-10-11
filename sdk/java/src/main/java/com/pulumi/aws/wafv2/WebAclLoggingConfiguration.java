@@ -168,14 +168,14 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.loggingFilter);
     }
     /**
-     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     @Export(name="redactedFields", refs={List.class,WebAclLoggingConfigurationRedactedField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclLoggingConfigurationRedactedField>> redactedFields;
 
     /**
-     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     public Output<Optional<List<WebAclLoggingConfigurationRedactedField>>> redactedFields() {
@@ -196,14 +196,14 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      * 
      */
     public Output<String> resourceArn() {

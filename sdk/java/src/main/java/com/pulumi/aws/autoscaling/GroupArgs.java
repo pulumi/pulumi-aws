@@ -48,14 +48,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+     * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+     * @return A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -157,14 +157,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
      * 
      */
     @Import(name="desiredCapacityType")
     private @Nullable Output<String> desiredCapacityType;
 
     /**
-     * @return The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+     * @return The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
      * 
      */
     public Optional<Output<String>> desiredCapacityType() {
@@ -275,7 +275,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * to attach to the Auto Scaling Group **before** instances are launched. The
      * syntax is exactly the same as the separate
      * `aws.autoscaling.LifecycleHook`
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+     * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
@@ -288,7 +288,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * to attach to the Auto Scaling Group **before** instances are launched. The
      * syntax is exactly the same as the separate
      * `aws.autoscaling.LifecycleHook`
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+     * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
@@ -362,7 +362,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+     * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
     @Import(name="loadBalancers")
@@ -370,7 +370,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+     * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
     public Optional<Output<List<String>>> loadBalancers() {
@@ -476,14 +476,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
+     * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
+     * @return Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -653,14 +653,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+     * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      * 
      */
     @Import(name="vpcZoneIdentifiers")
     private @Nullable Output<List<String>> vpcZoneIdentifiers;
 
     /**
-     * @return List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+     * @return List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
      * 
      */
     public Optional<Output<List<String>>> vpcZoneIdentifiers() {
@@ -694,7 +694,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * Setting this will cause Pulumi to wait
      * for exactly this number of healthy instances from this Auto Scaling Group in
      * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
+     * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      * 
      */
@@ -705,7 +705,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * @return Setting this will cause Pulumi to wait
      * for exactly this number of healthy instances from this Auto Scaling Group in
      * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
+     * precedence over `minElbCapacity` behavior.)
      * (See also Waiting for Capacity below.)
      * 
      */
@@ -817,7 +817,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+         * @param availabilityZones A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
          * 
          * @return builder
          * 
@@ -978,7 +978,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacityType The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+         * @param desiredCapacityType The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
          * 
          * @return builder
          * 
@@ -989,7 +989,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredCapacityType The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
+         * @param desiredCapacityType The unit of measurement for the value specified for `desiredCapacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
          * 
          * @return builder
          * 
@@ -1148,7 +1148,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * to attach to the Auto Scaling Group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
-         * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+         * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
          * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
@@ -1165,7 +1165,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * to attach to the Auto Scaling Group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
-         * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+         * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
          * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
@@ -1181,7 +1181,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * to attach to the Auto Scaling Group **before** instances are launched. The
          * syntax is exactly the same as the separate
          * `aws.autoscaling.LifecycleHook`
-         * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+         * resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
          * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
          * 
          * @return builder
@@ -1281,7 +1281,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param loadBalancers List of elastic load balancer names to add to the autoscaling
-         * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+         * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
          * 
@@ -1293,7 +1293,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param loadBalancers List of elastic load balancer names to add to the autoscaling
-         * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+         * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
          * 
@@ -1304,7 +1304,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param loadBalancers List of elastic load balancer names to add to the autoscaling
-         * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+         * group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
          * 
          * @return builder
          * 
@@ -1468,7 +1468,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
+         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -1479,7 +1479,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
+         * @param name Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -1762,7 +1762,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
          * 
          * @return builder
          * 
@@ -1773,7 +1773,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
          * 
          * @return builder
          * 
@@ -1783,7 +1783,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+         * @param vpcZoneIdentifiers List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
          * 
          * @return builder
          * 
@@ -1825,7 +1825,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @param waitForElbCapacity Setting this will cause Pulumi to wait
          * for exactly this number of healthy instances from this Auto Scaling Group in
          * all attached load balancers on both create and update operations. (Takes
-         * precedence over `min_elb_capacity` behavior.)
+         * precedence over `minElbCapacity` behavior.)
          * (See also Waiting for Capacity below.)
          * 
          * @return builder
@@ -1840,7 +1840,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @param waitForElbCapacity Setting this will cause Pulumi to wait
          * for exactly this number of healthy instances from this Auto Scaling Group in
          * all attached load balancers on both create and update operations. (Takes
-         * precedence over `min_elb_capacity` behavior.)
+         * precedence over `minElbCapacity` behavior.)
          * (See also Waiting for Capacity below.)
          * 
          * @return builder

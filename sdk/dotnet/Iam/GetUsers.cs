@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Users filtered by name regex
         /// 
-        /// Users whose username contains `abc`
+        /// Users whose username contains `Abc`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Users filtered by name regex
         /// 
-        /// Users whose username contains `abc`
+        /// Users whose username contains `Abc`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Users filtered by name regex
         /// 
-        /// Users whose username contains `abc`
+        /// Users whose username contains `Abc`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

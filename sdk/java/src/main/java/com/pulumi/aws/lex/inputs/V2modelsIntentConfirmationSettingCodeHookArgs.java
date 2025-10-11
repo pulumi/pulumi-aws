@@ -64,14 +64,14 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs extends com.pul
     }
 
     /**
-     * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+     * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
     @Import(name="postCodeHookSpecification", required=true)
     private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification;
 
     /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
     public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification() {
@@ -169,7 +169,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs extends com.pul
         }
 
         /**
-         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs extends com.pul
         }
 
         /**
-         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+         * @param postCodeHookSpecification Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
          * 
          * @return builder
          * 

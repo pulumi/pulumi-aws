@@ -225,14 +225,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.iamRoleArn;
     }
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
      * 
      */
     @Export(name="idleDisconnectTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleDisconnectTimeoutInSeconds;
 
     /**
-     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
+     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
      * 
      */
     public Output<Optional<Integer>> idleDisconnectTimeoutInSeconds() {

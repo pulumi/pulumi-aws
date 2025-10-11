@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsJupyterLabAppSettings {
     /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
@@ -28,22 +28,22 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
      */
     private @Nullable String builtInLifecycleConfigArn;
     /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings emrSettings;
@@ -55,7 +55,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
 
     private DomainDefaultUserSettingsJupyterLabAppSettings() {}
     /**
-     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement() {
@@ -69,28 +69,28 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
     /**
-     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings> emrSettings() {

@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
+        /// ARN of the Task Definition with the trailing `Revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
         /// </summary>
         public readonly string ArnWithoutRevision;
         /// <summary>
@@ -247,11 +247,11 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string ContainerDefinitions;
         /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         public readonly string Cpu;
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `False`.
         /// </summary>
         public readonly bool EnableFaultInjection;
         /// <summary>
@@ -272,23 +272,23 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        /// IPC resource namespace to be used for the containers in the task The valid values are `Host`, `Task`, and `None`.
         /// </summary>
         public readonly string IpcMode;
         /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// Amount (in MiB) of memory used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         public readonly string Memory;
         /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
+        /// Docker networking mode to use for the containers in the task. Valid values are `None`, `Bridge`, `Awsvpc`, and `Host`.
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        /// Process namespace to use for the containers in the task. The valid values are `Host` and `Task`.
         /// </summary>
         public readonly string PidMode;
         /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `PlacementConstraints` is `10`. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> PlacementConstraints;
         /// <summary>
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
+        /// Configuration block for RuntimePlatform that containers in your task may use.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionRuntimePlatformResult> RuntimePlatforms;
         /// <summary>

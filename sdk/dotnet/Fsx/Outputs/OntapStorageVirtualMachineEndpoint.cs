@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointNf> Nfs;
         /// <summary>
-        /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an ActiveDirectoryConfiguration has been set. See Endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.OntapStorageVirtualMachineEndpointSmb> Smbs;
 

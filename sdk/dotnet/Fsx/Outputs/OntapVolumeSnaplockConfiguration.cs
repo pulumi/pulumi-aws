@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class OntapVolumeSnaplockConfiguration
     {
         /// <summary>
-        /// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        /// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `False`.
         /// </summary>
         public readonly bool? AuditLogVolume;
         /// <summary>
-        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `AutocommitPeriod` Block for details.
         /// </summary>
         public readonly Outputs.OntapVolumeSnaplockConfigurationAutocommitPeriod? AutocommitPeriod;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? PrivilegedDelete;
         /// <summary>
-        /// The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+        /// The retention period of an FSx for ONTAP SnapLock volume. See `RetentionPeriod` Block for details.
         /// </summary>
         public readonly Outputs.OntapVolumeSnaplockConfigurationRetentionPeriod? RetentionPeriod;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string SnaplockType;
         /// <summary>
-        /// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        /// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `False`.
         /// </summary>
         public readonly bool? VolumeAppendModeEnabled;
 

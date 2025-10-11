@@ -63,6 +63,10 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Extended Threat Detection for EKS
+ * 
+ * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+ * 
  */
 @ResourceType(type="aws:guardduty/memberDetectorFeature:MemberDetectorFeature")
 public class MemberDetectorFeature extends com.pulumi.resources.CustomResource {

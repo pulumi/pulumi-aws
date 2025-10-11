@@ -64,14 +64,14 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -243,7 +243,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

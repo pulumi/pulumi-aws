@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> SnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
+        /// State of fast snapshot restores. Valid values are `Enabling`, `Optimizing`, `Enabled`, `Disabling`, `Disabled`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
+        /// State of fast snapshot restores. Valid values are `Enabling`, `Optimizing`, `Enabled`, `Disabling`, `Disabled`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

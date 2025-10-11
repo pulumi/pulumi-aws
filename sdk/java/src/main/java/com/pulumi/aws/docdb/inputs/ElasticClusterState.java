@@ -140,14 +140,14 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
      * 
      */
     @Import(name="preferredBackupWindow")
     private @Nullable Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+     * @return The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
      * 
      */
     public Optional<Output<String>> preferredBackupWindow() {
@@ -234,14 +234,14 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -493,7 +493,7 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+         * @param preferredBackupWindow The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

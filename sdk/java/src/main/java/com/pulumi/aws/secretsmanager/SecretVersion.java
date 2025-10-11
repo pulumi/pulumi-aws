@@ -133,14 +133,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      * 
      */
     @Export(name="secretBinary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretBinary;
 
     /**
-     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
+     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      * 
      */
     public Output<Optional<String>> secretBinary() {
@@ -161,14 +161,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return this.secretId;
     }
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      * 
      */
     @Export(name="secretString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretString;
 
     /**
-     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      * 
      */
     public Output<Optional<String>> secretString() {
@@ -191,7 +191,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      * 
-     * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
+     * &gt; **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
     @Export(name="versionStages", refs={List.class,String.class}, tree="[0,1]")
@@ -200,7 +200,7 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      * 
-     * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
+     * &gt; **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
     public Output<List<String>> versionStages() {

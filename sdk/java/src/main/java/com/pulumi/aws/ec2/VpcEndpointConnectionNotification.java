@@ -98,7 +98,7 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     @Export(name="connectionEvents", refs={List.class,String.class}, tree="[0,1]")
@@ -107,7 +107,7 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
     /**
      * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     public Output<List<String>> connectionEvents() {

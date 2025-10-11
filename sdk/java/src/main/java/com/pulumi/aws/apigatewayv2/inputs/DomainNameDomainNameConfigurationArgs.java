@@ -77,14 +77,14 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      * 
      */
     @Import(name="ownershipVerificationCertificateArn")
     private @Nullable Output<String> ownershipVerificationCertificateArn;
 
     /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      * 
      */
     public Optional<Output<String>> ownershipVerificationCertificateArn() {
@@ -236,7 +236,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+         * @param ownershipVerificationCertificateArn ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
          * 
          * @return builder
          * 

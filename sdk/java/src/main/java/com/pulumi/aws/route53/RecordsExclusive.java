@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
 public class RecordsExclusive extends com.pulumi.resources.CustomResource {
     /**
      * A list of all resource record sets associated with the hosted zone.
-     * See `resource_record_set` below.
+     * See `resourceRecordSet` below.
      * 
      */
     @Export(name="resourceRecordSets", refs={List.class,RecordsExclusiveResourceRecordSet.class}, tree="[0,1]")
@@ -39,7 +39,7 @@ public class RecordsExclusive extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A list of all resource record sets associated with the hosted zone.
-     * See `resource_record_set` below.
+     * See `resourceRecordSet` below.
      * 
      */
     public Output<Optional<List<RecordsExclusiveResourceRecordSet>>> resourceRecordSets() {

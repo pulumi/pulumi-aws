@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Shield
     public partial class ProactiveEngagement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
         /// </summary>
         [Output("emergencyContacts")]
         public Output<ImmutableArray<Outputs.ProactiveEngagementEmergencyContact>> EmergencyContacts { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Shield
         private InputList<Inputs.ProactiveEngagementEmergencyContactArgs>? _emergencyContacts;
 
         /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
         /// </summary>
         public InputList<Inputs.ProactiveEngagementEmergencyContactArgs> EmergencyContacts
         {
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Shield
         private InputList<Inputs.ProactiveEngagementEmergencyContactGetArgs>? _emergencyContacts;
 
         /// <summary>
-        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `EmergencyContacts`.
         /// </summary>
         public InputList<Inputs.ProactiveEngagementEmergencyContactGetArgs> EmergencyContacts
         {

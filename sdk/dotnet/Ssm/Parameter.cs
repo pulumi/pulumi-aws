@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Parameter resource.
     /// 
-    /// &gt; **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
+    /// &gt; **Note:** The `Overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
     /// 
     /// ## Example Usage
     /// 
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `Type` of `SecureString`.
         /// </summary>
         [Output("insecureValue")]
         public Output<string> InsecureValue { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        /// Overwrite an existing parameter. If not specified, defaults to `False` during create operations to avoid overwriting existing resources and then `True` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         /// </summary>
         [Output("overwrite")]
         public Output<bool?> Overwrite { get; private set; } = null!;
@@ -153,13 +153,13 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `Type` of `SecureString`.
         /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        /// Overwrite an existing parameter. If not specified, defaults to `False` during create operations to avoid overwriting existing resources and then `True` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `Type` of `SecureString`.
         /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        /// Overwrite an existing parameter. If not specified, defaults to `False` during create operations to avoid overwriting existing resources and then `True` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

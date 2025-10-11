@@ -43,7 +43,7 @@ public final class CostCategoryRuleRuleAnd {
      */
     private @Nullable List<CostCategoryRuleRuleAndOr> ors;
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable CostCategoryRuleRuleAndTags tags;
@@ -85,7 +85,7 @@ public final class CostCategoryRuleRuleAnd {
         return this.ors == null ? List.of() : this.ors;
     }
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<CostCategoryRuleRuleAndTags> tags() {

@@ -17,14 +17,14 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
     public static final ClusterKerberosAttributesArgs Empty = new ClusterKerberosAttributesArgs();
 
     /**
-     * Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+     * Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
      * 
      */
     @Import(name="adDomainJoinPassword")
     private @Nullable Output<String> adDomainJoinPassword;
 
     /**
-     * @return Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+     * @return Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
      * 
      */
     public Optional<Output<String>> adDomainJoinPassword() {
@@ -120,7 +120,7 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param adDomainJoinPassword Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+         * @param adDomainJoinPassword Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param adDomainJoinPassword Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+         * @param adDomainJoinPassword Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
          * 
          * @return builder
          * 

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `Unblocked`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `Unblocked`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `Unblocked`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

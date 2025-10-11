@@ -18,7 +18,7 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// </summary>
         public readonly string? LastFreshStart;
         /// <summary>
-        /// If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
+        /// If `True`, tracking of reputation metrics is enabled for the configuration set. If `False`, tracking of reputation metrics is disabled for the configuration set.
         /// </summary>
         public readonly bool? ReputationMetricsEnabled;
 

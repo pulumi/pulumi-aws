@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DirectConnect
     public partial class HostedPrivateVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Output("addressFamily")]
         public Output<string> AddressFamily { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class HostedPrivateVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Input("addressFamily", required: true)]
         public Input<string> AddressFamily { get; set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class HostedPrivateVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }

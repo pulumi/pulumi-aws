@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Alb
         public Output<int?> ClientKeepAlive { get; private set; } = null!;
 
         /// <summary>
-        /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
+        /// Connection Logs block. See below. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Output("connectionLogs")]
         public Output<Outputs.LoadBalancerConnectionLogs?> ConnectionLogs { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Alb
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
-        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Output("desyncMitigationMode")]
         public Output<string?> DesyncMitigationMode { get; private set; } = null!;
@@ -215,97 +215,97 @@ namespace Pulumi.Aws.Alb
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `AnyAvailabilityZone` (default), `AvailabilityZoneAffinity`, or `PartialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `Network` type load balancers.
         /// </summary>
         [Output("dnsRecordClientRoutingPolicy")]
         public Output<string?> DnsRecordClientRoutingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Output("dropInvalidHeaderFields")]
         public Output<bool?> DropInvalidHeaderFields { get; private set; } = null!;
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. For `Network` and `Gateway` type load balancers, this feature is disabled by default (`False`). For `Application` load balancer this feature is always enabled (`True`) and cannot be disabled. Defaults to `False`.
         /// </summary>
         [Output("enableCrossZoneLoadBalancing")]
         public Output<bool?> EnableCrossZoneLoadBalancing { get; private set; } = null!;
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `False`.
         /// </summary>
         [Output("enableDeletionProtection")]
         public Output<bool?> EnableDeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        /// Whether HTTP/2 is enabled in `Application` load balancers. Defaults to `True`.
         /// </summary>
         [Output("enableHttp2")]
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `Application`. Defaults to `False`
         /// </summary>
         [Output("enableTlsVersionAndCipherSuiteHeaders")]
         public Output<bool?> EnableTlsVersionAndCipherSuiteHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `False`.
         /// </summary>
         [Output("enableWafFailOpen")]
         public Output<bool?> EnableWafFailOpen { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `Application` load balancers. Defaults to `False`.
         /// </summary>
         [Output("enableXffClientPort")]
         public Output<bool?> EnableXffClientPort { get; private set; } = null!;
 
         /// <summary>
-        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// Whether zonal shift is enabled. Defaults to `False`.
         /// </summary>
         [Output("enableZonalShift")]
         public Output<bool?> EnableZonalShift { get; private set; } = null!;
 
         /// <summary>
-        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `Network`. The possible values are `On` and `Off`.
         /// </summary>
         [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Output<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
 
         /// <summary>
-        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.
         /// </summary>
         [Output("idleTimeout")]
         public Output<int?> IdleTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the LB will be internal. Defaults to `false`.
+        /// If true, the LB will be internal. Defaults to `False`.
         /// </summary>
         [Output("internal")]
         public Output<bool> Internal { get; private set; } = null!;
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `Ipv4` (all load balancer types), `Dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `Application` only).
         /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `Application`. See IpamPools for more information.
         /// </summary>
         [Output("ipamPools")]
         public Output<Outputs.LoadBalancerIpamPools?> IpamPools { get; private set; } = null!;
 
         /// <summary>
-        /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `Application`, `Gateway`, or `Network`. The default value is `Application`.
         /// </summary>
         [Output("loadBalancerType")]
         public Output<Pulumi.Aws.Alb.LoadBalancerType?> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `Application` or `Network`.
         /// </summary>
         [Output("minimumLoadBalancerCapacity")]
         public Output<Outputs.LoadBalancerMinimumLoadBalancerCapacity?> MinimumLoadBalancerCapacity { get; private set; } = null!;
@@ -317,13 +317,13 @@ namespace Pulumi.Aws.Alb
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `False`.
         /// </summary>
         [Output("preserveHostHeader")]
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
@@ -335,37 +335,37 @@ namespace Pulumi.Aws.Alb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `Network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
         /// </summary>
         [Output("secondaryIpsAutoAssignedPerSubnet")]
         public Output<int> SecondaryIpsAutoAssignedPerSubnet { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `Application` or `Network`. For load balancers of type `Network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
+        /// Subnet mapping block. See below. For Load Balancers of type `Network` subnet mappings can only be added.
         /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.LoadBalancerSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
-        /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+        /// List of subnet IDs to attach to the LB. For Load Balancers of type `Network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `Network` will force a recreation of the resource.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -374,11 +374,11 @@ namespace Pulumi.Aws.Alb
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `Append`, `Preserve`, and `Remove`. Only valid for Load Balancers of type `Application`. The default is `Append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `Ipv4` as the `IpAddressType`. You can only change to `Dualstack` `IpAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `Subnets` or `SubnetMapping` is required.
         /// </summary>
         [Output("xffHeaderProcessingMode")]
         public Output<string?> XffHeaderProcessingMode { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Alb
         public Input<int>? ClientKeepAlive { get; set; }
 
         /// <summary>
-        /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
+        /// Connection Logs block. See below. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Input("connectionLogs")]
         public Input<Inputs.LoadBalancerConnectionLogsArgs>? ConnectionLogs { get; set; }
@@ -464,103 +464,103 @@ namespace Pulumi.Aws.Alb
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `AnyAvailabilityZone` (default), `AvailabilityZoneAffinity`, or `PartialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `Network` type load balancers.
         /// </summary>
         [Input("dnsRecordClientRoutingPolicy")]
         public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
 
         /// <summary>
-        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Input("dropInvalidHeaderFields")]
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. For `Network` and `Gateway` type load balancers, this feature is disabled by default (`False`). For `Application` load balancer this feature is always enabled (`True`) and cannot be disabled. Defaults to `False`.
         /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `False`.
         /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
 
         /// <summary>
-        /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        /// Whether HTTP/2 is enabled in `Application` load balancers. Defaults to `True`.
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
-        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `Application`. Defaults to `False`
         /// </summary>
         [Input("enableTlsVersionAndCipherSuiteHeaders")]
         public Input<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
 
         /// <summary>
-        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `False`.
         /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
-        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `Application` load balancers. Defaults to `False`.
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
-        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// Whether zonal shift is enabled. Defaults to `False`.
         /// </summary>
         [Input("enableZonalShift")]
         public Input<bool>? EnableZonalShift { get; set; }
 
         /// <summary>
-        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `Network`. The possible values are `On` and `Off`.
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
 
         /// <summary>
-        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
-        /// If true, the LB will be internal. Defaults to `false`.
+        /// If true, the LB will be internal. Defaults to `False`.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `Ipv4` (all load balancer types), `Dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `Application` only).
         /// </summary>
         [Input("ipAddressType")]
         public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `Application`. See IpamPools for more information.
         /// </summary>
         [Input("ipamPools")]
         public Input<Inputs.LoadBalancerIpamPoolsArgs>? IpamPools { get; set; }
 
         /// <summary>
-        /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `Application`, `Gateway`, or `Network`. The default value is `Application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `Application` or `Network`.
         /// </summary>
         [Input("minimumLoadBalancerCapacity")]
         public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityArgs>? MinimumLoadBalancerCapacity { get; set; }
@@ -572,13 +572,13 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `False`.
         /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `Network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
         /// </summary>
         [Input("secondaryIpsAutoAssignedPerSubnet")]
         public Input<int>? SecondaryIpsAutoAssignedPerSubnet { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `Application` or `Network`. For load balancers of type `Network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -611,7 +611,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.LoadBalancerSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
-        /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
+        /// Subnet mapping block. See below. For Load Balancers of type `Network` subnet mappings can only be added.
         /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingArgs> SubnetMappings
         {
@@ -623,7 +623,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+        /// List of subnet IDs to attach to the LB. For Load Balancers of type `Network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `Network` will force a recreation of the resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -644,11 +644,11 @@ namespace Pulumi.Aws.Alb
         }
 
         /// <summary>
-        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `Append`, `Preserve`, and `Remove`. Only valid for Load Balancers of type `Application`. The default is `Append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `Ipv4` as the `IpAddressType`. You can only change to `Dualstack` `IpAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `Subnets` or `SubnetMapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Aws.Alb
         public Input<int>? ClientKeepAlive { get; set; }
 
         /// <summary>
-        /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
+        /// Connection Logs block. See below. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Input("connectionLogs")]
         public Input<Inputs.LoadBalancerConnectionLogsGetArgs>? ConnectionLogs { get; set; }
@@ -698,7 +698,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
-        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `Monitor`, `Defensive` (default), `Strictest`.
         /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
@@ -711,97 +711,97 @@ namespace Pulumi.Aws.Alb
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        /// How traffic is distributed among the load balancer Availability Zones. Possible values are `AnyAvailabilityZone` (default), `AvailabilityZoneAffinity`, or `PartialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `Network` type load balancers.
         /// </summary>
         [Input("dnsRecordClientRoutingPolicy")]
         public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
 
         /// <summary>
-        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+        /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `Application`.
         /// </summary>
         [Input("dropInvalidHeaderFields")]
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
         /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
+        /// If true, cross-zone load balancing of the load balancer will be enabled. For `Network` and `Gateway` type load balancers, this feature is disabled by default (`False`). For `Application` load balancer this feature is always enabled (`True`) and cannot be disabled. Defaults to `False`.
         /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
         /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
+        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `False`.
         /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
 
         /// <summary>
-        /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        /// Whether HTTP/2 is enabled in `Application` load balancers. Defaults to `True`.
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
-        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+        /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `Application`. Defaults to `False`
         /// </summary>
         [Input("enableTlsVersionAndCipherSuiteHeaders")]
         public Input<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
 
         /// <summary>
-        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `False`.
         /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
-        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+        /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `Application` load balancers. Defaults to `False`.
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
-        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// Whether zonal shift is enabled. Defaults to `False`.
         /// </summary>
         [Input("enableZonalShift")]
         public Input<bool>? EnableZonalShift { get; set; }
 
         /// <summary>
-        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `Network`. The possible values are `On` and `Off`.
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
         public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
 
         /// <summary>
-        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+        /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `Application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
-        /// If true, the LB will be internal. Defaults to `false`.
+        /// If true, the LB will be internal. Defaults to `False`.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `Ipv4` (all load balancer types), `Dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `Application` only).
         /// </summary>
         [Input("ipAddressType")]
         public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
-        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `Application`. See IpamPools for more information.
         /// </summary>
         [Input("ipamPools")]
         public Input<Inputs.LoadBalancerIpamPoolsGetArgs>? IpamPools { get; set; }
 
         /// <summary>
-        /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+        /// Type of load balancer to create. Possible values are `Application`, `Gateway`, or `Network`. The default value is `Application`.
         /// </summary>
         [Input("loadBalancerType")]
         public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `Application` or `Network`.
         /// </summary>
         [Input("minimumLoadBalancerCapacity")]
         public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityGetArgs>? MinimumLoadBalancerCapacity { get; set; }
@@ -813,13 +813,13 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+        /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `False`.
         /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
+        /// The number of secondary IP addresses to configure for your load balancer nodes. Only valid for Load Balancers of type `Network`. The valid range is 0-7. When decreased, this will force a recreation of the resource. Default: `0`.
         /// </summary>
         [Input("secondaryIpsAutoAssignedPerSubnet")]
         public Input<int>? SecondaryIpsAutoAssignedPerSubnet { get; set; }
@@ -840,7 +840,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+        /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `Application` or `Network`. For load balancers of type `Network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -852,7 +852,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.LoadBalancerSubnetMappingGetArgs>? _subnetMappings;
 
         /// <summary>
-        /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
+        /// Subnet mapping block. See below. For Load Balancers of type `Network` subnet mappings can only be added.
         /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingGetArgs> SubnetMappings
         {
@@ -864,7 +864,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+        /// List of subnet IDs to attach to the LB. For Load Balancers of type `Network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `Network` will force a recreation of the resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -876,7 +876,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -888,7 +888,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -900,11 +900,11 @@ namespace Pulumi.Aws.Alb
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `Append`, `Preserve`, and `Remove`. Only valid for Load Balancers of type `Application`. The default is `Append`.
         /// 
-        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// &gt; **NOTE:** Please note that internal LBs can only use `Ipv4` as the `IpAddressType`. You can only change to `Dualstack` `IpAddressType` if the selected subnets are IPv6 enabled.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+        /// &gt; **NOTE:** Please note that one of either `Subnets` or `SubnetMapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolSoftwareTokenMfaConfiguration
     {
         /// <summary>
-        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        /// Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `SmsConfiguration` is not present, the `MfaConfiguration` argument must be set to `OFF` and the `SoftwareTokenMfaConfiguration` configuration block must be fully removed.
         /// </summary>
         public readonly bool Enabled;
 

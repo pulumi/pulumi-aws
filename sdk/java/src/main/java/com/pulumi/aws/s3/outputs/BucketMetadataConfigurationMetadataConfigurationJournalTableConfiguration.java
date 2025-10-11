@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration {
     /**
-     * @return Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
      * 
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration encryptionConfiguration;
     /**
-     * @return Journal table record expiration settings. See `record_expiration` Block for details.
+     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration recordExpiration;
@@ -36,14 +36,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationJournalTableC
 
     private BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration() {}
     /**
-     * @return Encryption configuration for the journal table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
      * 
      */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
     /**
-     * @return Journal table record expiration settings. See `record_expiration` Block for details.
+     * @return Journal table record expiration settings. See `recordExpiration` Block for details.
      * 
      */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration> recordExpiration() {

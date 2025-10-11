@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        /// Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `ClientSideActionConfig` for more details.
         /// </summary>
         [Input("clientSideActionConfig", required: true)]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs> ClientSideActionConfig { get; set; } = null!;

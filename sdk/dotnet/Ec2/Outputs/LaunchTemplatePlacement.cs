@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
-        /// The ID of the placement group for the instance. Conflicts with `group_name`.
+        /// The ID of the placement group for the instance. Conflicts with `GroupName`.
         /// </summary>
         public readonly string? GroupId;
         /// <summary>
-        /// The name of the placement group for the instance. Conflicts with `group_id`.
+        /// The name of the placement group for the instance. Conflicts with `GroupId`.
         /// </summary>
         public readonly string? GroupName;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? SpreadDomain;
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        /// The tenancy of the instance (if the instance is running in a VPC). Can be `Default`, `Dedicated`, or `Host`.
         /// </summary>
         public readonly string? Tenancy;
 

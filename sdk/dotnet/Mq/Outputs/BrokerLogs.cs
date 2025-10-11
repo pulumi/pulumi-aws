@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerLogs
     {
         /// <summary>
-        /// Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
+        /// Whether to enable audit logging. Only possible for `EngineType` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `False`.
         /// </summary>
         public readonly bool? Audit;
         /// <summary>
-        /// Whether to enable general logging via CloudWatch. Defaults to `false`.
+        /// Whether to enable general logging via CloudWatch. Defaults to `False`.
         /// </summary>
         public readonly bool? General;
 

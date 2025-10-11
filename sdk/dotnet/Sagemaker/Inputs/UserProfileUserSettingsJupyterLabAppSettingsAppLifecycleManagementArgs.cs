@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        /// Settings related to idle shutdown of Studio applications. see `IdleSettings` Block below.
         /// </summary>
         [Input("idleSettings")]
         public Input<Inputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs>? IdleSettings { get; set; }

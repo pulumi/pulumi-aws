@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `False`
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }

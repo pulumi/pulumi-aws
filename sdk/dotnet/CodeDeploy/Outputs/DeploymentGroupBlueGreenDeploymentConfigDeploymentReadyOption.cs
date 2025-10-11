@@ -20,7 +20,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
         /// </summary>
         public readonly string? ActionOnTimeout;
         /// <summary>
-        /// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+        /// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `ActionOnTimeout`.
         /// </summary>
         public readonly int? WaitTimeInMinutes;
 

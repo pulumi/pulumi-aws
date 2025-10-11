@@ -19,19 +19,19 @@ namespace Pulumi.Aws.Route53.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `Region`.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
+        /// Type of the endpoint. Valid values are `Value`, `Cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Value of the `type`.
+        /// Value of the `Type`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

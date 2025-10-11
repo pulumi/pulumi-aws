@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+     * Details about the embeddings model that&#39;sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
      * 
      */
     @Import(name="vectorKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration;
 
     /**
-     * @return Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+     * @return Details about the embeddings model that&#39;sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>> vectorKnowledgeBaseConfiguration() {
@@ -94,7 +94,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
          * 
          * @return builder
          * 

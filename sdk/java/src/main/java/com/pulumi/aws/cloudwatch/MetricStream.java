@@ -269,14 +269,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.creationDate;
     }
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      * 
      */
     @Export(name="excludeFilters", refs={List.class,MetricStreamExcludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamExcludeFilter>> excludeFilters;
 
     /**
-     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
+     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      * 
      */
     public Output<Optional<List<MetricStreamExcludeFilter>>> excludeFilters() {
@@ -297,14 +297,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.firehoseArn;
     }
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      * 
      */
     @Export(name="includeFilters", refs={List.class,MetricStreamIncludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamIncludeFilter>> includeFilters;
 
     /**
-     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
+     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      * 
      */
     public Output<Optional<List<MetricStreamIncludeFilter>>> includeFilters() {
@@ -339,14 +339,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.lastUpdateDate;
     }
     /**
-     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
@@ -427,42 +427,42 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
     @Export(name="statisticsConfigurations", refs={List.class,MetricStreamStatisticsConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamStatisticsConfiguration>> statisticsConfigurations;
 
     /**
-     * @return For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
+     * @return For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
     public Output<Optional<List<MetricStreamStatisticsConfiguration>>> statisticsConfigurations() {
         return Codegen.optional(this.statisticsConfigurations);
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? AutoMountHomeEfs { get; set; }
 
         /// <summary>
-        /// The Canvas app settings. See `canvas_app_settings` Block below.
+        /// The Canvas app settings. See `CanvasAppSettings` Block below.
         /// </summary>
         [Input("canvasAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsArgs>? CanvasAppSettings { get; set; }
 
         /// <summary>
-        /// The Code Editor application settings. See `code_editor_app_settings` Block below.
+        /// The Code Editor application settings. See `CodeEditorAppSettings` Block below.
         /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs>? _customFileSystemConfigs;
 
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `CustomFileSystemConfig` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        /// Details about the POSIX identity that is used for file system operations. See `CustomPosixUserConfig` Block below.
         /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.DomainDefaultUserSettingsCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
@@ -61,31 +61,31 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> ExecutionRole { get; set; } = null!;
 
         /// <summary>
-        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        /// The settings for the JupyterLab application. See `JupyterLabAppSettings` Block below.
         /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
-        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        /// The Jupyter server's app settings. See `JupyterServerAppSettings` Block below.
         /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
         /// <summary>
-        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        /// The kernel gateway app settings. See `KernelGatewayAppSettings` Block below.
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
         /// <summary>
-        /// The RSession app settings. See `r_session_app_settings` Block below.
+        /// The RSession app settings. See `RSessionAppSettings` Block below.
         /// </summary>
         [Input("rSessionAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
 
         /// <summary>
-        /// A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
+        /// A collection of settings that configure user interaction with the RStudioServerPro app. See `RStudioServerProAppSettings` Block below.
         /// </summary>
         [Input("rStudioServerProAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
@@ -103,13 +103,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The sharing settings. See `sharing_settings` Block below.
+        /// The sharing settings. See `SharingSettings` Block below.
         /// </summary>
         [Input("sharingSettings")]
         public Input<Inputs.DomainDefaultUserSettingsSharingSettingsArgs>? SharingSettings { get; set; }
 
         /// <summary>
-        /// The storage settings for a private space. See `space_storage_settings` Block below.
+        /// The storage settings for a private space. See `SpaceStorageSettings` Block below.
         /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? StudioWebPortal { get; set; }
 
         /// <summary>
-        /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        /// The Studio Web Portal settings. See `StudioWebPortalSettings` Block below.
         /// </summary>
         [Input("studioWebPortalSettings")]
         public Input<Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs>? StudioWebPortalSettings { get; set; }
 
         /// <summary>
-        /// The TensorBoard app settings. See `tensor_board_app_settings` Block below.
+        /// The TensorBoard app settings. See `TensorBoardAppSettings` Block below.
         /// </summary>
         [Input("tensorBoardAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs>? TensorBoardAppSettings { get; set; }

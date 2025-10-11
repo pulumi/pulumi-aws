@@ -33,14 +33,14 @@ public final class LogMetricFilterMetricTransformationArgs extends com.pulumi.re
     }
 
     /**
-     * Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+     * Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<Map<String,String>> dimensions;
 
     /**
-     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+     * @return Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
      * 
      */
     public Optional<Output<Map<String,String>>> dimensions() {
@@ -158,7 +158,7 @@ public final class LogMetricFilterMetricTransformationArgs extends com.pulumi.re
         }
 
         /**
-         * @param dimensions Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+         * @param dimensions Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class LogMetricFilterMetricTransformationArgs extends com.pulumi.re
         }
 
         /**
-         * @param dimensions Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+         * @param dimensions Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
          * 
          * @return builder
          * 

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterLoggingInfoBrokerLogs {
     /**
-     * @return Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+     * @return Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
      * 
      */
     private @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs;
     /**
-     * @return Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+     * @return Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
      * 
      */
     private @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose;
     /**
-     * @return Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+     * @return Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
      * 
      */
     private @Nullable ClusterLoggingInfoBrokerLogsS3 s3;
 
     private ClusterLoggingInfoBrokerLogs() {}
     /**
-     * @return Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+     * @return Configuration block for Cloudwatch Logs settings. See loggingInfo broker_logs cloudwatchLogs Argument Reference below.
      * 
      */
     public Optional<ClusterLoggingInfoBrokerLogsCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
     /**
-     * @return Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+     * @return Configuration block for Kinesis Data Firehose settings. See loggingInfo broker_logs firehose Argument Reference below.
      * 
      */
     public Optional<ClusterLoggingInfoBrokerLogsFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
     /**
-     * @return Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+     * @return Configuration block for S3 settings. See loggingInfo broker_logs s3 Argument Reference below.
      * 
      */
     public Optional<ClusterLoggingInfoBrokerLogsS3> s3() {

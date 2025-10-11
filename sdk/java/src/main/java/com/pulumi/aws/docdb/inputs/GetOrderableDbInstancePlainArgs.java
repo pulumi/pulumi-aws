@@ -47,14 +47,14 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
+     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
      * 
      */
     @Import(name="instanceClass")
     private @Nullable String instanceClass;
 
     /**
-     * @return DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
+     * @return DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
      * 
      */
     public Optional<String> instanceClass() {
@@ -77,14 +77,14 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
      * 
      */
     @Import(name="preferredInstanceClasses")
     private @Nullable List<String> preferredInstanceClasses;
 
     /**
-     * @return Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+     * @return Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
      * 
      */
     public Optional<List<String>> preferredInstanceClasses() {
@@ -174,7 +174,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param instanceClass DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
+         * @param instanceClass DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredInstanceClasses Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+         * @param preferredInstanceClasses Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredInstanceClasses Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+         * @param preferredInstanceClasses Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
          * 
          * @return builder
          * 

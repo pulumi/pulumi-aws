@@ -37,7 +37,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     @Import(name="arn")
@@ -45,7 +45,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * @return ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public Optional<String> arn() {
@@ -71,7 +71,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * ARN of the associated Listener.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     @Import(name="listenerArn")
@@ -79,7 +79,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * @return ARN of the associated Listener.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public Optional<String> listenerArn() {
@@ -88,7 +88,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * Priority of the Listener Rule within the Listener.
-     * Must be set if `listener_arn` is set, otherwise must not be set.
+     * Must be set if `listenerArn` is set, otherwise must not be set.
      * 
      */
     @Import(name="priority")
@@ -96,7 +96,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * @return Priority of the Listener Rule within the Listener.
-     * Must be set if `listener_arn` is set, otherwise must not be set.
+     * Must be set if `listenerArn` is set, otherwise must not be set.
      * 
      */
     public Optional<Integer> priority() {
@@ -172,7 +172,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param listenerArn ARN of the associated Listener.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param priority Priority of the Listener Rule within the Listener.
-         * Must be set if `listener_arn` is set, otherwise must not be set.
+         * Must be set if `listenerArn` is set, otherwise must not be set.
          * 
          * @return builder
          * 

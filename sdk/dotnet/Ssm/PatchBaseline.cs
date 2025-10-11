@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Patch Baseline resource.
     /// 
-    /// &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
+    /// &gt; **NOTE on Patch Baselines:** The `ApprovedPatches` and `ApprovalRule` are
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
     /// 
@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ### Basic Usage
     /// 
-    /// Using `approved_patches` only.
+    /// Using `ApprovedPatches` only.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -297,13 +297,13 @@ namespace Pulumi.Aws.Ssm
     public partial class PatchBaseline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `ApprovalRule` below.
         /// </summary>
         [Output("approvalRules")]
         public Output<ImmutableArray<Outputs.PatchBaselineApprovalRule>> ApprovalRules { get; private set; } = null!;
 
         /// <summary>
-        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `ApprovalRule`.
         /// </summary>
         [Output("approvedPatches")]
         public Output<ImmutableArray<string>> ApprovedPatches { get; private set; } = null!;
@@ -377,25 +377,25 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<string>> RejectedPatches { get; private set; } = null!;
 
         /// <summary>
-        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `RejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Output("rejectedPatchesAction")]
         public Output<string> RejectedPatchesAction { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `Source` below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.PatchBaselineSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineApprovalRuleArgs>? _approvalRules;
 
         /// <summary>
-        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `ApprovalRule` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineApprovalRuleArgs> ApprovalRules
         {
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _approvedPatches;
 
         /// <summary>
-        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `ApprovalRule`.
         /// </summary>
         public InputList<string> ApprovedPatches
         {
@@ -539,7 +539,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `RejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Input("rejectedPatchesAction")]
         public Input<string>? RejectedPatchesAction { get; set; }
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineSourceArgs>? _sources;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `Source` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineSourceArgs> Sources
         {
@@ -560,7 +560,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -580,7 +580,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineApprovalRuleGetArgs>? _approvalRules;
 
         /// <summary>
-        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `ApprovalRule` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineApprovalRuleGetArgs> ApprovalRules
         {
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _approvedPatches;
 
         /// <summary>
-        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `ApprovalRule`.
         /// </summary>
         public InputList<string> ApprovedPatches
         {
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// Action for Patch Manager to take on patches included in the `RejectedPatches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Input("rejectedPatchesAction")]
         public Input<string>? RejectedPatchesAction { get; set; }
@@ -690,7 +690,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.PatchBaselineSourceGetArgs>? _sources;
 
         /// <summary>
-        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `Source` below.
         /// </summary>
         public InputList<Inputs.PatchBaselineSourceGetArgs> Sources
         {
@@ -702,7 +702,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -714,7 +714,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

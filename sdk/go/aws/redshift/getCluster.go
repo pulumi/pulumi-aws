@@ -12,6 +12,8 @@ import (
 )
 
 // Provides details about a specific redshift cluster.
+//
+// ## Example Usage
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult

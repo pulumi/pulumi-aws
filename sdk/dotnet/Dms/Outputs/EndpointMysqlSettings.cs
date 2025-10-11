@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? AfterConnectScript;
         /// <summary>
-        /// Authentication method to use. Valid values: `password`, `iam`.
+        /// Authentication method to use. Valid values: `Password`, `Iam`.
         /// </summary>
         public readonly string? AuthenticationMethod;
         /// <summary>

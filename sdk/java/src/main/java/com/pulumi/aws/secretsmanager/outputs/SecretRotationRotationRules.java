@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecretRotationRotationRules {
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     private @Nullable Integer automaticallyAfterDays;
@@ -23,14 +23,14 @@ public final class SecretRotationRotationRules {
      */
     private @Nullable String duration;
     /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     private @Nullable String scheduleExpression;
 
     private SecretRotationRotationRules() {}
     /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     public Optional<Integer> automaticallyAfterDays() {
@@ -44,7 +44,7 @@ public final class SecretRotationRotationRules {
         return Optional.ofNullable(this.duration);
     }
     /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+     * @return A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
      * 
      */
     public Optional<String> scheduleExpression() {

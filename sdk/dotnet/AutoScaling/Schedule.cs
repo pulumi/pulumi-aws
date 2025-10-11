@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
         /// 
-        /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
         /// 
-        /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.AutoScaling
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
         /// 
-        /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+        /// &gt; **NOTE:** When `StartTime` and `EndTime` are specified with `Recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

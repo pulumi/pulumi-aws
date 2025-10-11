@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The type of reservation to create. Valid values: `explicit`, `prefix`
+        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
         /// </summary>
         [Output("reservationType")]
         public Output<string> ReservationType { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of reservation to create. Valid values: `explicit`, `prefix`
+        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
         /// </summary>
         [Input("reservationType", required: true)]
         public Input<string> ReservationType { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of reservation to create. Valid values: `explicit`, `prefix`
+        /// The type of reservation to create. Valid values: `Explicit`, `Prefix`
         /// </summary>
         [Input("reservationType")]
         public Input<string>? ReservationType { get; set; }

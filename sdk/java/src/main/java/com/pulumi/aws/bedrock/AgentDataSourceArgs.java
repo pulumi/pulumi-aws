@@ -36,14 +36,14 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Details about how the data source is stored. See `data_source_configuration` block for details.
+     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      * 
      */
     @Import(name="dataSourceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration;
 
     /**
-     * @return Details about how the data source is stored. See `data_source_configuration` block for details.
+     * @return Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationArgs>> dataSourceConfiguration() {
@@ -115,14 +115,14 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      * 
      */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<AgentDataSourceServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
     /**
-     * @return Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+     * @return Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
@@ -137,14 +137,14 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
      * 
      */
     @Import(name="vectorIngestionConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationArgs> vectorIngestionConfiguration;
 
     /**
-     * @return Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+     * @return Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationArgs>> vectorIngestionConfiguration() {
@@ -205,7 +205,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataSourceConfiguration Details about how the data source is stored. See `data_source_configuration` block for details.
+         * @param dataSourceConfiguration Details about how the data source is stored. See `dataSourceConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataSourceConfiguration Details about how the data source is stored. See `data_source_configuration` block for details.
+         * @param dataSourceConfiguration Details about how the data source is stored. See `dataSourceConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
          * 
          * @return builder
          * 

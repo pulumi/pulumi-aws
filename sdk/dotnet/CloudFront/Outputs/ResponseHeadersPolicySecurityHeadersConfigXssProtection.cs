@@ -22,11 +22,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool Override;
         /// <summary>
-        /// A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
+        /// A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `True`, the value of the `X-XSS-Protection` header is `1`. When this setting is `False`, the value of the `X-XSS-Protection` header is `0`.
         /// </summary>
         public readonly bool Protection;
         /// <summary>
-        /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
+        /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `ReportUri` when `ModeBlock` is `True`.
         /// </summary>
         public readonly string? ReportUri;
 

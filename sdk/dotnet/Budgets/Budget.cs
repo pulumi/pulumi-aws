@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Budgets
     public partial class Budget : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// The ID of the target account for budget. Will use current user's AccountId by default if omitted.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -362,13 +362,13 @@ namespace Pulumi.Aws.Budgets
         public Output<ImmutableArray<Outputs.BudgetPlannedLimit>> PlannedLimits { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Budgets
     public sealed class BudgetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// The ID of the target account for budget. Will use current user's AccountId by default if omitted.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -576,7 +576,7 @@ namespace Pulumi.Aws.Budgets
     public sealed class BudgetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// The ID of the target account for budget. Will use current user's AccountId by default if omitted.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -687,7 +687,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

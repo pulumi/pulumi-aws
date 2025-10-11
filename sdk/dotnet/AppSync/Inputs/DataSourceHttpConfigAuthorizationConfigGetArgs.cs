@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
-        /// Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
+        /// Identity and Access Management (IAM) settings. See `AwsIamConfig` Block for details.
         /// </summary>
         [Input("awsIamConfig")]
         public Input<Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigGetArgs>? AwsIamConfig { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly int MaxRetries;
         /// <summary>
-        /// Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+        /// Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `MessageGroup`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup> MessageGroups;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string? MessageSelectionStrategy;
         /// <summary>
-        /// Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+        /// Configuration block for advanced settings on each attempt of the prompt. See `PromptAttemptsSpecification`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification> PromptAttemptsSpecifications;
 

@@ -30,7 +30,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
      */
     private @Nullable String invocationLabel;
     /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
     private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification;
@@ -58,7 +58,7 @@ public final class V2modelsIntentInitialResponseSettingCodeHook {
         return Optional.ofNullable(this.invocationLabel);
     }
     /**
-     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+     * @return Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
      * 
      */
     public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification postCodeHookSpecification() {

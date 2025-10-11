@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Only return baseline identities where `default_baseline` is `true`.
+        /// Only return baseline identities where `DefaultBaseline` is `True`.
         /// </summary>
         [Input("defaultBaselines")]
         public bool? DefaultBaselines { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Ssm
         private List<Inputs.GetPatchBaselinesFilterArgs>? _filters;
 
         /// <summary>
-        /// Key-value pairs used to filter the results. See `filter` below.
+        /// Key-value pairs used to filter the results. See `Filter` below.
         /// </summary>
         public List<Inputs.GetPatchBaselinesFilterArgs> Filters
         {
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Only return baseline identities where `default_baseline` is `true`.
+        /// Only return baseline identities where `DefaultBaseline` is `True`.
         /// </summary>
         [Input("defaultBaselines")]
         public Input<bool>? DefaultBaselines { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.GetPatchBaselinesFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Key-value pairs used to filter the results. See `filter` below.
+        /// Key-value pairs used to filter the results. See `Filter` below.
         /// </summary>
         public InputList<Inputs.GetPatchBaselinesFilterInputArgs> Filters
         {
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetPatchBaselinesResult
     {
         /// <summary>
-        /// List of baseline identities. See `baseline_identities` below.
+        /// List of baseline identities. See `BaselineIdentities` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPatchBaselinesBaselineIdentityResult> BaselineIdentities;
         public readonly bool? DefaultBaselines;

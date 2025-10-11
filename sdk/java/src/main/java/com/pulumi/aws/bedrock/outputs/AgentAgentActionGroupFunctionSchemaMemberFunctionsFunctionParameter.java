@@ -21,7 +21,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
     /**
      * @return Name of the parameter.
      * 
-     * **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
      * 
      */
     private String mapBlockKey;
@@ -47,7 +47,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
     /**
      * @return Name of the parameter.
      * 
-     * **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+     * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
      * 
      */
     public String mapBlockKey() {

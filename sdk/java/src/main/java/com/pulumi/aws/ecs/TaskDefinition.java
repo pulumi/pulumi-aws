@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example Using `docker_volume_configuration`
+ * ### Example Using `dockerVolumeConfiguration`
  * 
  * <pre>
  * {@code
@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example Using `efs_volume_configuration`
+ * ### Example Using `efsVolumeConfiguration`
  * 
  * <pre>
  * {@code
@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example Using `fsx_windows_file_server_volume_configuration`
+ * ### Example Using `fsxWindowsFileServerVolumeConfiguration`
  * 
  * <pre>
  * {@code
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example Using `container_definitions`
+ * ### Example Using `containerDefinitions`
  * 
  * <pre>
  * {@code
@@ -373,7 +373,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example Using `runtime_platform` and `fargate`
+ * ### Example Using `runtimePlatform` and `fargate`
  * 
  * <pre>
  * {@code
@@ -480,14 +480,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.containerDefinitions;
     }
     /**
-     * Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     @Export(name="cpu", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cpu;
 
     /**
-     * @return Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * @return Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     public Output<Optional<String>> cpu() {
@@ -568,14 +568,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipcMode);
     }
     /**
-     * Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     @Export(name="memory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memory;
 
     /**
-     * @return Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * @return Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      * 
      */
     public Output<Optional<String>> memory() {
@@ -610,14 +610,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pidMode);
     }
     /**
-     * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+     * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      * 
      */
     @Export(name="placementConstraints", refs={List.class,TaskDefinitionPlacementConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskDefinitionPlacementConstraint>> placementConstraints;
 
     /**
-     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      * 
      */
     public Output<Optional<List<TaskDefinitionPlacementConstraint>>> placementConstraints() {
@@ -680,14 +680,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.revision;
     }
     /**
-     * Configuration block for runtime_platform that containers in your task may use.
+     * Configuration block for runtimePlatform that containers in your task may use.
      * 
      */
     @Export(name="runtimePlatform", refs={TaskDefinitionRuntimePlatform.class}, tree="[0]")
     private Output</* @Nullable */ TaskDefinitionRuntimePlatform> runtimePlatform;
 
     /**
-     * @return Configuration block for runtime_platform that containers in your task may use.
+     * @return Configuration block for runtimePlatform that containers in your task may use.
      * 
      */
     public Output<Optional<TaskDefinitionRuntimePlatform>> runtimePlatform() {
@@ -708,28 +708,28 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -115,7 +115,7 @@ namespace Pulumi.Aws.LightSail
         public Output<Outputs.InstanceAddOn?> AddOn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Lightsail instance (matches `id`).
+        /// ARN of the Lightsail instance (matches `Id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
+        /// IP address type of the Lightsail Instance. Valid values: `Dualstack`, `Ipv4`, `Ipv6`. Default: `Dualstack`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string> BundleId { get; set; } = null!;
 
         /// <summary>
-        /// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
+        /// IP address type of the Lightsail Instance. Valid values: `Dualstack`, `Ipv4`, `Ipv6`. Default: `Dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.InstanceAddOnGetArgs>? AddOn { get; set; }
 
         /// <summary>
-        /// ARN of the Lightsail instance (matches `id`).
+        /// ARN of the Lightsail instance (matches `Id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// IP address type of the Lightsail Instance. Valid values: `dualstack`, `ipv4`, `ipv6`. Default: `dualstack`.
+        /// IP address type of the Lightsail Instance. Valid values: `Dualstack`, `Ipv4`, `Ipv6`. Default: `Dualstack`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

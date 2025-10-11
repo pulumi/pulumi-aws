@@ -19,13 +19,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+        /// Type of content in the payload that you are defining in the `Content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
+        /// Unique key identifying the custom response body. This is referenced by the `CustomResponseBodyKey` argument in the `CustomResponse` block.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

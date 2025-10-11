@@ -12,6 +12,8 @@ namespace Pulumi.Aws.DataZone
     /// <summary>
     /// Resource for managing an AWS DataZone Project.
     /// 
+    /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

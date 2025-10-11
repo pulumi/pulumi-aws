@@ -237,7 +237,7 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// The name of the event bus to set the permissions on.
-        /// If you omit this, the permissions are set on the `default` event bus.
+        /// If you omit this, the permissions are set on the `Default` event bus.
         /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// The name of the event bus to set the permissions on.
-        /// If you omit this, the permissions are set on the `default` event bus.
+        /// If you omit this, the permissions are set on the `Default` event bus.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// The name of the event bus to set the permissions on.
-        /// If you omit this, the permissions are set on the `default` event bus.
+        /// If you omit this, the permissions are set on the `Default` event bus.
         /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }

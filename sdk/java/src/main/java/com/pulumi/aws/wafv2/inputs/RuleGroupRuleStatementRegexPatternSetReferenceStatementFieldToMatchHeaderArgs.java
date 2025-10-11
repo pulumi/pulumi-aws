@@ -16,14 +16,14 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public static final RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs Empty = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs();
 
     /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     @Import(name="matchPattern", required=true)
     private Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
      * 
      */
     public Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
@@ -87,7 +87,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
          * 
          * @return builder
          * 

@@ -160,7 +160,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+     * Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
      * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
      * is set to `S3`, this is the path to the output artifact.
      * 
@@ -169,7 +169,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
     private @Nullable Output<String> path;
 
     /**
-     * @return Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+     * @return Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
      * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
      * is set to `S3`, this is the path to the output artifact.
      * 
@@ -417,7 +417,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+         * @param path Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
          * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
          * is set to `S3`, this is the path to the output artifact.
          * 
@@ -430,7 +430,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
+         * @param path Along with `namespaceType` and `name`, the pattern that AWS CodeBuild uses to name and store the
          * output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
          * is set to `S3`, this is the path to the output artifact.
          * 

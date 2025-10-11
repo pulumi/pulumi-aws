@@ -16,14 +16,14 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
     public static final WorkgroupConfigurationEngineVersionArgs Empty = new WorkgroupConfigurationEngineVersionArgs();
 
     /**
-     * The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+     * The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
      */
     @Import(name="effectiveEngineVersion")
     private @Nullable Output<String> effectiveEngineVersion;
 
     /**
-     * @return The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+     * @return The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
      */
     public Optional<Output<String>> effectiveEngineVersion() {
@@ -71,7 +71,7 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
         }
 
         /**
-         * @param effectiveEngineVersion The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+         * @param effectiveEngineVersion The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WorkgroupConfigurationEngineVersionArgs extends com.pulumi.re
         }
 
         /**
-         * @param effectiveEngineVersion The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+         * @param effectiveEngineVersion The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
          * 
          * @return builder
          * 

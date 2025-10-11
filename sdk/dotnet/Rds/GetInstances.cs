@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Rds
         private List<Inputs.GetInstancesFilterArgs>? _filters;
 
         /// <summary>
-        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `Engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
         /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `Engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
         /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {

@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation {
     /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * @return Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload customPayload;
     /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard imageResponseCard;
     /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * @return Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage plainTextMessage;
     /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation() {}
     /**
-     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * @return Configuration block for a message in a custom format defined by the client application. See `customPayload`.
      * 
      */
     public Optional<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload> customPayload() {
         return Optional.ofNullable(this.customPayload);
     }
     /**
-     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
      * 
      */
     public Optional<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
     /**
-     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * @return Configuration block for a message in plain text format. See `plainTextMessage`.
      * 
      */
     public Optional<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
     /**
-     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
      * 
      */
     public Optional<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage> ssmlMessage() {

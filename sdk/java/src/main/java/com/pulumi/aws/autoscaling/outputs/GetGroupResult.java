@@ -36,7 +36,7 @@ public final class GetGroupResult {
      */
     private Integer desiredCapacity;
     /**
-     * @return The unit of measurement for the value returned for `desired_capacity`.
+     * @return The unit of measurement for the value returned for `desiredCapacity`.
      * 
      */
     private String desiredCapacityType;
@@ -194,7 +194,7 @@ public final class GetGroupResult {
         return this.desiredCapacity;
     }
     /**
-     * @return The unit of measurement for the value returned for `desired_capacity`.
+     * @return The unit of measurement for the value returned for `desiredCapacity`.
      * 
      */
     public String desiredCapacityType() {

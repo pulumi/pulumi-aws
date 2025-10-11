@@ -20,7 +20,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * If true, allow unsafe filter values. With unsafe
-     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
      * will be returned by this data source. Consider filtering by owner or image ID rather
      * than setting this argument.
      * 
@@ -30,7 +30,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return If true, allow unsafe filter values. With unsafe
-     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
      * will be returned by this data source. Consider filtering by owner or image ID rather
      * than setting this argument.
      * 
@@ -116,7 +116,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * &gt; **NOTE:** If more or less than a single match is returned by the search,
      * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `most_recent` to choose the most recent one. If
+     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
      * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      * 
      */
@@ -132,7 +132,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
      * 
      * &gt; **NOTE:** If more or less than a single match is returned by the search,
      * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `most_recent` to choose the most recent one. If
+     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
      * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      * 
      */
@@ -239,7 +239,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
-         * filters and `most_recent` set to `true`, a third party may introduce a new image which
+         * filters and `mostRecent` set to `true`, a third party may introduce a new image which
          * will be returned by this data source. Consider filtering by owner or image ID rather
          * than setting this argument.
          * 
@@ -331,7 +331,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * &gt; **NOTE:** If more or less than a single match is returned by the search,
          * this call will fail. Ensure that your search is specific enough to return
-         * a single AMI ID only, or use `most_recent` to choose the most recent one. If
+         * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
          * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
          * 
          * @return builder

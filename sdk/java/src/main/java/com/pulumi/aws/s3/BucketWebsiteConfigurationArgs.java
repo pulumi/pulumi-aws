@@ -82,14 +82,14 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      * 
      */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<BucketWebsiteConfigurationRedirectAllRequestsToArgs> redirectAllRequestsTo;
 
     /**
-     * @return Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+     * @return Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      * 
      */
     public Optional<Output<BucketWebsiteConfigurationRedirectAllRequestsToArgs>> redirectAllRequestsTo() {
@@ -259,7 +259,7 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class BucketWebsiteConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+         * @param redirectAllRequestsTo Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
          * 
          * @return builder
          * 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         private InputList<string>? _userGroups;
 
         /// <summary>
-        /// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+        /// Set of EC2 launch permission user groups to assign. Use `All` to distribute a public AMI.
         /// </summary>
         public InputList<string> UserGroups
         {

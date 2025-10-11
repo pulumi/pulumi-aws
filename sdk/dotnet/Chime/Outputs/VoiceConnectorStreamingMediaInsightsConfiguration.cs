@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Chime.Outputs
         /// </summary>
         public readonly string? ConfigurationArn;
         /// <summary>
-        /// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        /// When `True`, the media insights configuration is not enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Disabled;
 

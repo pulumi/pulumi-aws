@@ -495,14 +495,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyType);
     }
     /**
-     * Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
      * 
      */
     @Export(name="predictiveScalingPolicyConfiguration", refs={PolicyPredictiveScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyPredictiveScalingPolicyConfiguration> predictiveScalingPolicyConfiguration;
 
     /**
-     * @return Predictive scaling policy configuration, requires `policy_type = &#34;PredictiveScaling&#34;`. See supported fields below.
+     * @return Predictive scaling policy configuration, requires `policyType = &#34;PredictiveScaling&#34;`. See supported fields below.
      * 
      */
     public Output<Optional<PolicyPredictiveScalingPolicyConfiguration>> predictiveScalingPolicyConfiguration() {
@@ -565,28 +565,28 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.serviceNamespace;
     }
     /**
-     * Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+     * Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
     @Export(name="stepScalingPolicyConfiguration", refs={PolicyStepScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyStepScalingPolicyConfiguration> stepScalingPolicyConfiguration;
 
     /**
-     * @return Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
+     * @return Step scaling policy configuration, requires `policyType = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
     public Output<Optional<PolicyStepScalingPolicyConfiguration>> stepScalingPolicyConfiguration() {
         return Codegen.optional(this.stepScalingPolicyConfiguration);
     }
     /**
-     * Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     @Export(name="targetTrackingScalingPolicyConfiguration", refs={PolicyTargetTrackingScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
 
     /**
-     * @return Target tracking policy configuration, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
+     * @return Target tracking policy configuration, requires `policyType = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
     public Output<Optional<PolicyTargetTrackingScalingPolicyConfiguration>> targetTrackingScalingPolicyConfiguration() {

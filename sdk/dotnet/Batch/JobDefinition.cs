@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
-    /// ### Job definition of type container using `ecs_properties`
+    /// ### Job definition of type container using `EcsProperties`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -444,25 +444,25 @@ namespace Pulumi.Aws.Batch
         public Output<string> ArnPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Output("containerProperties")]
         public Output<string?> ContainerProperties { get; private set; } = null!;
 
         /// <summary>
-        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `Deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `True`.
         /// </summary>
         [Output("deregisterOnNewRevision")]
         public Output<bool?> DeregisterOnNewRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Output("ecsProperties")]
         public Output<string?> EcsProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Output("eksProperties")]
         public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `Type` parameter is `Multinode`.
         /// </summary>
         [Output("nodeProperties")]
         public Output<string?> NodeProperties { get; private set; } = null!;
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableArray<string>> PlatformCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `False`.
         /// </summary>
         [Output("propagateTags")]
         public Output<bool?> PropagateTags { get; private set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `RetryStrategy` is `1`.  Defined below.
         /// </summary>
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
@@ -522,25 +522,25 @@ namespace Pulumi.Aws.Batch
         public Output<int?> SchedulingPriority { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `Timeout` is `1`. Defined below.
         /// </summary>
         [Output("timeout")]
         public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `Container` or `Multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -594,25 +594,25 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
 
         /// <summary>
-        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `Deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `True`.
         /// </summary>
         [Input("deregisterOnNewRevision")]
         public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
-        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("ecsProperties")]
         public Input<string>? EcsProperties { get; set; }
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
@@ -624,7 +624,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `Type` parameter is `Multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `False`.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
@@ -666,7 +666,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `RetryStrategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -690,13 +690,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `Timeout` is `1`. Defined below.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `Container` or `Multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -724,25 +724,25 @@ namespace Pulumi.Aws.Batch
         public Input<string>? ArnPrefix { get; set; }
 
         /// <summary>
-        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
 
         /// <summary>
-        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `Deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `True`.
         /// </summary>
         [Input("deregisterOnNewRevision")]
         public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
-        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("ecsProperties")]
         public Input<string>? EcsProperties { get; set; }
 
         /// <summary>
-        /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// Valid eks properties. This parameter is only valid if the `Type` parameter is `Container`.
         /// </summary>
         [Input("eksProperties")]
         public Input<Inputs.JobDefinitionEksPropertiesGetArgs>? EksProperties { get; set; }
@@ -754,7 +754,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `Type` parameter is `Multinode`.
         /// </summary>
         [Input("nodeProperties")]
         public Input<string>? NodeProperties { get; set; }
@@ -784,7 +784,7 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
+        /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `False`.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
@@ -796,7 +796,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `RetryStrategy` is `1`.  Defined below.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyGetArgs>? RetryStrategy { get; set; }
@@ -817,7 +817,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -829,7 +829,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -838,13 +838,13 @@ namespace Pulumi.Aws.Batch
         }
 
         /// <summary>
-        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
+        /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `Timeout` is `1`. Defined below.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.JobDefinitionTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Type of job definition. Must be `container` or `multinode`.
+        /// Type of job definition. Must be `Container` or `Multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>

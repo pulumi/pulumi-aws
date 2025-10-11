@@ -542,7 +542,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -617,7 +617,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -692,7 +692,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -767,7 +767,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -842,7 +842,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -917,7 +917,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code
@@ -992,7 +992,7 @@ public final class AmpFunctions {
      * </pre>
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
+     * aliases that begin with the value of `aliasPrefix` will be returned:
      * 
      * <pre>
      * {@code

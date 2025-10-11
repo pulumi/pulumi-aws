@@ -117,7 +117,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      * 
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
@@ -126,7 +126,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> minAdjustmentMagnitude;
 
     /**
-     * @return Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+     * @return Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      * 
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
@@ -582,7 +582,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minAdjustmentMagnitude Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+         * @param minAdjustmentMagnitude Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
          * 
          * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
          * 
@@ -595,7 +595,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minAdjustmentMagnitude Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+         * @param minAdjustmentMagnitude Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
          * 
          * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
          * 

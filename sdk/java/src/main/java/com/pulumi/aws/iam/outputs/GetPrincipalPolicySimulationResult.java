@@ -35,7 +35,7 @@ public final class GetPrincipalPolicySimulationResult {
      */
     private Map<String,String> decisionDetails;
     /**
-     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
      * 
      */
     private List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements;
@@ -80,7 +80,7 @@ public final class GetPrincipalPolicySimulationResult {
         return this.decisionDetails;
     }
     /**
-     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+     * @return A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `sourcePolicyId` and `sourcePolicyType` to identify one of the policies.
      * 
      */
     public List<GetPrincipalPolicySimulationResultMatchedStatement> matchedStatements() {

@@ -140,7 +140,7 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
     /**
      * The name for the public key. Conflicts with `name`.
      * 
-     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
@@ -149,7 +149,7 @@ public class PublicKey extends com.pulumi.resources.CustomResource {
     /**
      * @return The name for the public key. Conflicts with `name`.
      * 
-     * **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      * 
      */
     public Output<String> namePrefix() {

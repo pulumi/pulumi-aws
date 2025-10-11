@@ -18,11 +18,11 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+        /// Valid values include: `Equals`, `not-equals`, `Contains`, `begins-with`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+        /// Valid values include: `account-id`, `Any`, `tag-value`, `tag-exists`, `resource-id`, `Region`, `attachment-type`.
         /// </summary>
         public readonly string Type;
         /// <summary>

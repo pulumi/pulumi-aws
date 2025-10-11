@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
     public sealed class EndpointClientConnectOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        /// Indicates whether client connect options are enabled. The default is `False` (not enabled).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

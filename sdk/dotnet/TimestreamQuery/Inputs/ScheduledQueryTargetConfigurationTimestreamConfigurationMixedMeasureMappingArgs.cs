@@ -13,13 +13,13 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
+        /// Refers to the value of MeasureName in a result row. This field is required if `MeasureNameColumn` is provided.
         /// </summary>
         [Input("measureName")]
         public Input<string>? MeasureName { get; set; }
 
         /// <summary>
-        /// Type of the value that is to be read from `source_column`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
+        /// Type of the value that is to be read from `SourceColumn`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
         /// </summary>
         [Input("measureValueType", required: true)]
         public Input<string> MeasureValueType { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs>? _multiMeasureAttributeMappings;
 
         /// <summary>
-        /// Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
+        /// Configuration block for attribute mappings for `MULTI` value measures. Required when `MeasureValueType` is `MULTI`. See below.
         /// </summary>
         public InputList<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs> MultiMeasureAttributeMappings
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         public Input<string>? SourceColumn { get; set; }
 
         /// <summary>
-        /// Target measure name to be used. If not provided, the target measure name by default is `measure_name`, if provided, or `source_column` otherwise.
+        /// Target measure name to be used. If not provided, the target measure name by default is `MeasureName`, if provided, or `SourceColumn` otherwise.
         /// </summary>
         [Input("targetMeasureName")]
         public Input<string>? TargetMeasureName { get; set; }

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class PipelineTrigger {
     /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
      * 
      */
     private PipelineTriggerGitConfiguration gitConfiguration;
@@ -24,7 +24,7 @@ public final class PipelineTrigger {
 
     private PipelineTrigger() {}
     /**
-     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+     * @return Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `gitConfiguration` block is documented below.
      * 
      */
     public PipelineTriggerGitConfiguration gitConfiguration() {

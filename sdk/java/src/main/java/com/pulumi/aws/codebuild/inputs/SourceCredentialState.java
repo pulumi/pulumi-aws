@@ -81,7 +81,7 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
 
     /**
      * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
      * Connection ARN.
      * 
      */
@@ -90,7 +90,7 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
      * Connection ARN.
      * 
      */
@@ -234,7 +234,7 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-         * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+         * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
          * Connection ARN.
          * 
          * @return builder
@@ -247,7 +247,7 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
-         * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+         * app password. When using an AWS CodeStar connection (`authType = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
          * Connection ARN.
          * 
          * @return builder

@@ -19,7 +19,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Returns information on a specific connect instance by alias
      * 
-     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
      * 
      */
     @Import(name="instanceAlias")
@@ -28,7 +28,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Returns information on a specific connect instance by alias
      * 
-     * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+     * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
      * 
      */
     public Optional<Output<String>> instanceAlias() {
@@ -110,7 +110,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param instanceAlias Returns information on a specific connect instance by alias
          * 
-         * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+         * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param instanceAlias Returns information on a specific connect instance by alias
          * 
-         * &gt; **NOTE:** One of either `instance_id` or `instance_alias` is required.
+         * &gt; **NOTE:** One of either `instanceId` or `instanceAlias` is required.
          * 
          * @return builder
          * 

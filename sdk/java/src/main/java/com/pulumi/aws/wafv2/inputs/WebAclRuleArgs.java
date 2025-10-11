@@ -41,14 +41,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclRuleCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      * 
      */
     public Optional<Output<WebAclRuleCaptchaConfigArgs>> captchaConfig() {
@@ -56,14 +56,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
      * 
      */
     @Import(name="challengeConfig")
     private @Nullable Output<WebAclRuleChallengeConfigArgs> challengeConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
      * 
      */
     public Optional<Output<WebAclRuleChallengeConfigArgs>> challengeConfig() {
@@ -86,14 +86,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+     * Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
      * 
      */
     @Import(name="overrideAction")
     private @Nullable Output<WebAclRuleOverrideActionArgs> overrideAction;
 
     /**
-     * @return Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+     * @return Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
      * 
      */
     public Optional<Output<WebAclRuleOverrideActionArgs>> overrideAction() {
@@ -116,14 +116,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+     * Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
      * 
      */
     @Import(name="ruleLabels")
     private @Nullable Output<List<WebAclRuleRuleLabelArgs>> ruleLabels;
 
     /**
-     * @return Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+     * @return Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleRuleLabelArgs>>> ruleLabels() {
@@ -131,14 +131,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+     * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
      * 
      */
     @Import(name="statement", required=true)
     private Output<WebAclRuleStatementArgs> statement;
 
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
      * 
      */
     public Output<WebAclRuleStatementArgs> statement() {
@@ -146,14 +146,14 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      * 
      */
     @Import(name="visibilityConfig", required=true)
     private Output<WebAclRuleVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      * 
      */
     public Output<WebAclRuleVisibilityConfigArgs> visibilityConfig() {
@@ -214,7 +214,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overrideAction Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+         * @param overrideAction Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overrideAction Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+         * @param overrideAction Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+         * @param ruleLabels Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 

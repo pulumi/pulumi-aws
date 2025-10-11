@@ -237,6 +237,8 @@ class RoleAlias(pulumi.CustomResource):
         """
         Provides an IoT role alias.
 
+        ## Example Usage
+
         ## Import
 
         Using `pulumi import`, import IOT Role Alias using the alias. For example:
@@ -261,6 +263,8 @@ class RoleAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IoT role alias.
+
+        ## Example Usage
 
         ## Import
 

@@ -18,14 +18,14 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
     public static final LoggingArgs Empty = new LoggingArgs();
 
     /**
-     * Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+     * @return Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -67,14 +67,14 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+     * Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      * 
      */
     @Import(name="logExports")
     private @Nullable Output<List<String>> logExports;
 
     /**
-     * @return Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+     * @return Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      * 
      */
     public Optional<Output<List<String>>> logExports() {
@@ -141,7 +141,7 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+         * @param bucketName Name of an existing S3 bucket where the log files are to be stored. Required when `logDestinationType` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logExports Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logExports Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class LoggingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logExports Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+         * @param logExports Collection of exported log types. Required when `logDestinationType` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("amdSevSnp")]
         public Input<string>? AmdSevSnp { get; set; }

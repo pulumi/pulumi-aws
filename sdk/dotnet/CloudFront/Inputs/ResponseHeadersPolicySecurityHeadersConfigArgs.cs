@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs>? ContentSecurityPolicy { get; set; }
 
         /// <summary>
-        /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
+        /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `Nosniff`. See Content Type Options for more information.
         /// </summary>
         [Input("contentTypeOptions")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs>? ContentTypeOptions { get; set; }

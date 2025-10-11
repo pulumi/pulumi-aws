@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public readonly bool EnableModelImprovements;
         /// <summary>
-        /// If the `status` is `FAILED`, the reason why the bot failed to build.
+        /// If the `Status` is `FAILED`, the reason why the bot failed to build.
         /// </summary>
         public readonly string FailureReason;
         /// <summary>

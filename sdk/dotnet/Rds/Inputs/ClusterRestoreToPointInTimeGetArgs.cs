@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class ClusterRestoreToPointInTimeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+        /// Date and time in UTC format to restore the database cluster to. Conflicts with `UseLatestRestorableTime`.
         /// </summary>
         [Input("restoreToTime")]
         public Input<string>? RestoreToTime { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? SourceClusterResourceId { get; set; }
 
         /// <summary>
-        /// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+        /// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `RestoreToTime`.
         /// </summary>
         [Input("useLatestRestorableTime")]
         public Input<bool>? UseLatestRestorableTime { get; set; }

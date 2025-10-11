@@ -64,14 +64,14 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * See the `policy_details` configuration block. Max of 1.
+     * See the `policyDetails` configuration block. Max of 1.
      * 
      */
     @Import(name="policyDetails", required=true)
     private Output<LifecyclePolicyPolicyDetailsArgs> policyDetails;
 
     /**
-     * @return See the `policy_details` configuration block. Max of 1.
+     * @return See the `policyDetails` configuration block. Max of 1.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsArgs> policyDetails() {
@@ -109,14 +109,14 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -217,7 +217,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyDetails See the `policy_details` configuration block. Max of 1.
+         * @param policyDetails See the `policyDetails` configuration block. Max of 1.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyDetails See the `policy_details` configuration block. Max of 1.
+         * @param policyDetails See the `policyDetails` configuration block. Max of 1.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

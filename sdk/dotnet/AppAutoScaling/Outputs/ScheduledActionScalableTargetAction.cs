@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class ScheduledActionScalableTargetAction
     {
         /// <summary>
-        /// Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
+        /// Maximum capacity. At least one of `MaxCapacity` or `MinCapacity` must be set.
         /// </summary>
         public readonly int? MaxCapacity;
         /// <summary>
-        /// Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
+        /// Minimum capacity. At least one of `MinCapacity` or `MaxCapacity` must be set.
         /// </summary>
         public readonly int? MinCapacity;
 

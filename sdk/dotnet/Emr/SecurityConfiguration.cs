@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// prefix. Conflicts with `Name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }

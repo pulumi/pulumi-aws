@@ -16,14 +16,14 @@ public final class WebAclRuleActionChallengeCustomRequestHandlingArgs extends co
     public static final WebAclRuleActionChallengeCustomRequestHandlingArgs Empty = new WebAclRuleActionChallengeCustomRequestHandlingArgs();
 
     /**
-     * The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
      * 
      */
     public Output<List<WebAclRuleActionChallengeCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -55,7 +55,7 @@ public final class WebAclRuleActionChallengeCustomRequestHandlingArgs extends co
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleActionChallengeCustomRequestHandlingArgs extends co
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class WebAclRuleActionChallengeCustomRequestHandlingArgs extends co
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 

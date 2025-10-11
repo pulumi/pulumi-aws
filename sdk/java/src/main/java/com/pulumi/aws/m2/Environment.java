@@ -25,6 +25,14 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * ### High Availability
+ * 
+ * ### EFS Filesystem
+ * 
+ * ### FSX Filesystem
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Mainframe Modernization Environment using the `01234567890abcdef012345678`. For example:
@@ -261,14 +269,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

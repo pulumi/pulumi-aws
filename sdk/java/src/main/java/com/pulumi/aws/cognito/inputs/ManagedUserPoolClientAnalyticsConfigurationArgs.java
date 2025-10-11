@@ -17,14 +17,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     public static final ManagedUserPoolClientAnalyticsConfigurationArgs Empty = new ManagedUserPoolClientAnalyticsConfigurationArgs();
 
     /**
-     * Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+     * Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
      * 
      */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
     /**
-     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
      * 
      */
     public Optional<Output<String>> applicationArn() {
@@ -47,14 +47,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * ID for the Analytics Configuration and conflicts with `application_arn`.
+     * ID for the Analytics Configuration and conflicts with `applicationArn`.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return ID for the Analytics Configuration and conflicts with `application_arn`.
+     * @return ID for the Analytics Configuration and conflicts with `applicationArn`.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -62,14 +62,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+     * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -77,14 +77,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     @Import(name="userDataShared")
     private @Nullable Output<Boolean> userDataShared;
 
     /**
-     * @return If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     public Optional<Output<Boolean>> userDataShared() {
@@ -120,7 +120,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param externalId ID for the Analytics Configuration and conflicts with `application_arn`.
+         * @param externalId ID for the Analytics Configuration and conflicts with `applicationArn`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param externalId ID for the Analytics Configuration and conflicts with `application_arn`.
+         * @param externalId ID for the Analytics Configuration and conflicts with `applicationArn`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param userDataShared If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         * @param userDataShared If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param userDataShared If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         * @param userDataShared If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          * 
          * @return builder
          * 

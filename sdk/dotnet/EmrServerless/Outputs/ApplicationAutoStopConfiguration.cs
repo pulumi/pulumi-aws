@@ -14,7 +14,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
     public sealed class ApplicationAutoStopConfiguration
     {
         /// <summary>
-        /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+        /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

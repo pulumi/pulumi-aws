@@ -52,14 +52,14 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      * 
      */
     @Import(name="handlerConfigs")
     private @Nullable Output<ChannelNamespaceHandlerConfigsArgs> handlerConfigs;
 
     /**
-     * @return Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      * 
      */
     public Optional<Output<ChannelNamespaceHandlerConfigsArgs>> handlerConfigs() {
@@ -131,14 +131,14 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -219,7 +219,7 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param handlerConfigs Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param handlerConfigs Configuration for the `on_publish` and `on_subscribe` handlers. See Handler Configs below.
+         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ChannelNamespaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -95,7 +95,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> ApplicationAccount { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated** Reference `arn` instead) ARN of the application.
+        /// (**Deprecated** Reference `Arn` instead) ARN of the application.
         /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Options for the portal associated with an application. See `portal_options` below.
+        /// Options for the portal associated with an application. See `PortalOptions` below.
         /// </summary>
         [Output("portalOptions")]
         public Output<Outputs.ApplicationPortalOptions?> PortalOptions { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Options for the portal associated with an application. See `portal_options` below.
+        /// Options for the portal associated with an application. See `PortalOptions` below.
         /// </summary>
         [Input("portalOptions")]
         public Input<Inputs.ApplicationPortalOptionsArgs>? PortalOptions { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? ApplicationAccount { get; set; }
 
         /// <summary>
-        /// (**Deprecated** Reference `arn` instead) ARN of the application.
+        /// (**Deprecated** Reference `Arn` instead) ARN of the application.
         /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Options for the portal associated with an application. See `portal_options` below.
+        /// Options for the portal associated with an application. See `PortalOptions` below.
         /// </summary>
         [Input("portalOptions")]
         public Input<Inputs.ApplicationPortalOptionsGetArgs>? PortalOptions { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

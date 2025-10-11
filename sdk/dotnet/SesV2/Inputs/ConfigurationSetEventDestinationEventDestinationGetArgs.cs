@@ -13,25 +13,25 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetEventDestinationEventDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+        /// An object that defines an Amazon CloudWatch destination for email events. See `CloudWatchDestination` Block for details.
         /// </summary>
         [Input("cloudWatchDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationGetArgs>? CloudWatchDestination { get; set; }
 
         /// <summary>
-        /// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        /// When the event destination is enabled, the specified event types are sent to the destinations. Default: `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        /// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `EventBridgeDestination` Block for details.
         /// </summary>
         [Input("eventBridgeDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationGetArgs>? EventBridgeDestination { get; set; }
 
         /// <summary>
-        /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+        /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `KinesisFirehoseDestination` Block for details.
         /// </summary>
         [Input("kinesisFirehoseDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationGetArgs>? KinesisFirehoseDestination { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.SesV2.Inputs
         }
 
         /// <summary>
-        /// An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        /// An object that defines an Amazon Pinpoint project destination for email events. See `PinpointDestination` Block for details.
         /// </summary>
         [Input("pinpointDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationGetArgs>? PinpointDestination { get; set; }
 
         /// <summary>
-        /// An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+        /// An object that defines an Amazon SNS destination for email events. See `SnsDestination` Block for details.
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationGetArgs>? SnsDestination { get; set; }

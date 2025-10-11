@@ -75,14 +75,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
      * 
      */
     @Import(name="headerOrders")
     private @Nullable Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
 
     /**
-     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
@@ -105,14 +105,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
@@ -120,14 +120,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     @Import(name="ja4Fingerprint")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
 
     /**
-     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * @return Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
@@ -135,14 +135,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect the request body as JSON. See `json_body` for details.
+     * Inspect the request body as JSON. See `jsonBody` for details.
      * 
      */
     @Import(name="jsonBody")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
 
     /**
-     * @return Inspect the request body as JSON. See `json_body` for details.
+     * @return Inspect the request body as JSON. See `jsonBody` for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs>> jsonBody() {
@@ -180,14 +180,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect a single header. See `single_header` below for details.
+     * Inspect a single header. See `singleHeader` below for details.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs> singleHeader;
 
     /**
-     * @return Inspect a single header. See `single_header` below for details.
+     * @return Inspect a single header. See `singleHeader` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs>> singleHeader() {
@@ -195,14 +195,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect a single query argument. See `single_query_argument` below for details.
+     * Inspect a single query argument. See `singleQueryArgument` below for details.
      * 
      */
     @Import(name="singleQueryArgument")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
 
     /**
-     * @return Inspect a single query argument. See `single_query_argument` below for details.
+     * @return Inspect a single query argument. See `singleQueryArgument` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
@@ -210,14 +210,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
     }
 
     /**
-     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
      * 
      */
     @Import(name="uriFragment")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs> uriFragment;
 
     /**
-     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs>> uriFragment() {
@@ -340,7 +340,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
+         * @param jsonBody Inspect the request body as JSON. See `jsonBody` for details.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
+         * @param jsonBody Inspect the request body as JSON. See `jsonBody` for details.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param singleHeader Inspect a single header. See `single_header` below for details.
+         * @param singleHeader Inspect a single header. See `singleHeader` below for details.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param singleHeader Inspect a single header. See `single_header` below for details.
+         * @param singleHeader Inspect a single header. See `singleHeader` below for details.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `singleQueryArgument` below for details.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `singleQueryArgument` below for details.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
         }
 
         /**
-         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+         * @param uriFragment Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uriFragment` below for details.
          * 
          * @return builder
          * 

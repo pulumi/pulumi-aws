@@ -37,7 +37,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+        /// Indicates whether to `Allow` or `Deny` the traffic that matches the rule.
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;

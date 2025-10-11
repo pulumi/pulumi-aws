@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+        /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `Date` or `Days`.
         /// </summary>
         [Input("expiredObjectDeleteMarker")]
         public Input<bool>? ExpiredObjectDeleteMarker { get; set; }

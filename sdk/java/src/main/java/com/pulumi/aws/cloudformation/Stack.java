@@ -109,7 +109,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     }
     /**
      * Set to true to disable rollback of the stack if stack creation failed.
-     * Conflicts with `on_failure`.
+     * Conflicts with `onFailure`.
      * 
      */
     @Export(name="disableRollback", refs={Boolean.class}, tree="[0]")
@@ -117,7 +117,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Set to true to disable rollback of the stack if stack creation failed.
-     * Conflicts with `on_failure`.
+     * Conflicts with `onFailure`.
      * 
      */
     public Output<Optional<Boolean>> disableRollback() {
@@ -167,7 +167,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     }
     /**
      * Action to be taken if stack creation fails. This must be
-     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      * 
      */
     @Export(name="onFailure", refs={String.class}, tree="[0]")
@@ -175,7 +175,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Action to be taken if stack creation fails. This must be
-     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+     * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
      * 
      */
     public Output<Optional<String>> onFailure() {
@@ -211,7 +211,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     }
     /**
      * Structure containing the stack policy body.
-     * Conflicts w/ `policy_url`.
+     * Conflicts w/ `policyUrl`.
      * 
      */
     @Export(name="policyBody", refs={String.class}, tree="[0]")
@@ -219,7 +219,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Structure containing the stack policy body.
-     * Conflicts w/ `policy_url`.
+     * Conflicts w/ `policyUrl`.
      * 
      */
     public Output<String> policyBody() {
@@ -227,7 +227,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     }
     /**
      * Location of a file containing the stack policy.
-     * Conflicts w/ `policy_body`.
+     * Conflicts w/ `policyBody`.
      * 
      */
     @Export(name="policyUrl", refs={String.class}, tree="[0]")
@@ -235,7 +235,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Location of a file containing the stack policy.
-     * Conflicts w/ `policy_body`.
+     * Conflicts w/ `policyBody`.
      * 
      */
     public Output<Optional<String>> policyUrl() {
@@ -256,28 +256,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

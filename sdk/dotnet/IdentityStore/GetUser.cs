@@ -130,7 +130,7 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `UserId` and `Filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a user in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `Filter` and `UserId` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `UserId` and `Filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a user in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `Filter` and `UserId` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

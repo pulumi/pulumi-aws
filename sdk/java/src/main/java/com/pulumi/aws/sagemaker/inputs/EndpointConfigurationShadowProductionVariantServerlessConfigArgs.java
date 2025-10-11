@@ -47,14 +47,14 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
     }
 
     /**
-     * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     @Import(name="provisionedConcurrency")
     private @Nullable Output<Integer> provisionedConcurrency;
 
     /**
-     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
      * 
      */
     public Optional<Output<Integer>> provisionedConcurrency() {
@@ -130,7 +130,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         /**
-         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
          * 
          * @return builder
          * 

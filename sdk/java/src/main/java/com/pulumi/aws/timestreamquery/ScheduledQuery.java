@@ -489,14 +489,14 @@ public class ScheduledQuery extends com.pulumi.resources.CustomResource {
         return this.executionRoleArn;
     }
     /**
-     * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
+     * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
+     * @return Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {
@@ -573,14 +573,14 @@ public class ScheduledQuery extends com.pulumi.resources.CustomResource {
         return this.previousInvocationTime;
     }
     /**
-     * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
     @Export(name="queryString", refs={String.class}, tree="[0]")
     private Output<String> queryString;
 
     /**
-     * @return Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     * @return Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
     public Output<String> queryString() {
@@ -643,28 +643,28 @@ public class ScheduledQuery extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

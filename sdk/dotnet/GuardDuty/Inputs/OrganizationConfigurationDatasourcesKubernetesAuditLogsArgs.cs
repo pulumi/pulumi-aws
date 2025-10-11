@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     {
         /// <summary>
         /// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// Defaults to `true`.
+        /// Defaults to `True`.
         /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;

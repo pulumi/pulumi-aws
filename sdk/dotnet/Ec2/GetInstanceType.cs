@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetInstanceTypeResult
     {
         /// <summary>
-        /// `true` if auto recovery is supported.
+        /// `True` if auto recovery is supported.
         /// </summary>
         public readonly bool AutoRecoverySupported;
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> BandwidthWeightings;
         /// <summary>
-        /// `true` if it is a bare metal instance type.
+        /// `True` if it is a bare metal instance type.
         /// </summary>
         public readonly bool BareMetal;
         /// <summary>
@@ -146,15 +146,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> BootModes;
         /// <summary>
-        /// `true` if the instance type is a burstable performance instance type.
+        /// `True` if the instance type is a burstable performance instance type.
         /// </summary>
         public readonly bool BurstablePerformanceSupported;
         /// <summary>
-        /// `true`  if the instance type is a current generation.
+        /// `True`  if the instance type is a current generation.
         /// </summary>
         public readonly bool CurrentGeneration;
         /// <summary>
-        /// `true` if Dedicated Hosts are supported on the instance type.
+        /// `True` if Dedicated Hosts are supported on the instance type.
         /// </summary>
         public readonly bool DedicatedHostsSupported;
         /// <summary>
@@ -214,11 +214,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int EfaMaximumInterfaces;
         /// <summary>
-        /// `true` if Elastic Fabric Adapter (EFA) is supported.
+        /// `True` if Elastic Fabric Adapter (EFA) is supported.
         /// </summary>
         public readonly bool EfaSupported;
         /// <summary>
-        /// `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+        /// `True` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
         /// </summary>
         public readonly bool EnaSrdSupported;
         /// <summary>
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string EnaSupport;
         /// <summary>
-        /// `true` if encryption in-transit between instances is supported.
+        /// `True` if encryption in-transit between instances is supported.
         /// </summary>
         public readonly bool EncryptionInTransitSupported;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeFpgaResult> Fpgas;
         /// <summary>
-        /// `true` if the instance type is eligible for the free tier.
+        /// `True` if the instance type is eligible for the free tier.
         /// </summary>
         public readonly bool FreeTierEligible;
         /// <summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeGpusResult> Gpuses;
         /// <summary>
-        /// `true` if On-Demand hibernation is supported.
+        /// `True` if On-Demand hibernation is supported.
         /// </summary>
         public readonly bool HibernationSupported;
         /// <summary>
@@ -277,12 +277,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeInstanceDiskResult> InstanceDisks;
         /// <summary>
-        /// `true` if instance storage is supported.
+        /// `True` if instance storage is supported.
         /// </summary>
         public readonly bool InstanceStorageSupported;
         public readonly string InstanceType;
         /// <summary>
-        /// `true` if IPv6 is supported.
+        /// `True` if IPv6 is supported.
         /// </summary>
         public readonly bool Ipv6Supported;
         /// <summary>
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> NitroTpmSupportedVersions;
         /// <summary>
-        /// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+        /// `True` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
         /// </summary>
         public readonly string PhcSupport;
         public readonly string Region;

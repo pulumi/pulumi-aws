@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
      * 
      */
     private @Nullable String cronExpression;
@@ -26,19 +26,19 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
      */
     private @Nullable String location;
     /**
-     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts scripts;
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
      * 
      */
     private @Nullable String times;
 
     private LifecyclePolicyPolicyDetailsScheduleCreateRule() {}
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
      * 
      */
     public Optional<String> cronExpression() {
@@ -58,14 +58,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleCreateRuleScripts> scripts() {
         return Optional.ofNullable(this.scripts);
     }
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
      * 
      */
     public Optional<String> times() {

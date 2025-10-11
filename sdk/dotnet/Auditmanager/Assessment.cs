@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        /// Assessment report storage destination configuration. See `AssessmentReportsDestination` below.
         /// </summary>
         [Output("assessmentReportsDestination")]
         public Output<Outputs.AssessmentAssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
@@ -111,19 +111,19 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of roles for the assessment. See `roles` below.
+        /// List of roles for the assessment. See `Roles` below.
         /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<Outputs.AssessmentRole>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
+        /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `Roles` block, and any roles which have access to all Audit Manager assessments by default.
         /// </summary>
         [Output("rolesAlls")]
         public Output<ImmutableArray<Outputs.AssessmentRolesAll>> RolesAlls { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        /// Amazon Web Services accounts and services that are in scope for the assessment. See `Scope` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the assessment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Auditmanager
     public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        /// Assessment report storage destination configuration. See `AssessmentReportsDestination` below.
         /// </summary>
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentAssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.AssessmentRoleArgs>? _roles;
 
         /// <summary>
-        /// List of roles for the assessment. See `roles` below.
+        /// List of roles for the assessment. See `Roles` below.
         /// </summary>
         public InputList<Inputs.AssessmentRoleArgs> Roles
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Auditmanager
         }
 
         /// <summary>
-        /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        /// Amazon Web Services accounts and services that are in scope for the assessment. See `Scope` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the assessment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Auditmanager
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        /// Assessment report storage destination configuration. See `AssessmentReportsDestination` below.
         /// </summary>
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentAssessmentReportsDestinationGetArgs>? AssessmentReportsDestination { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.AssessmentRoleGetArgs>? _roles;
 
         /// <summary>
-        /// List of roles for the assessment. See `roles` below.
+        /// List of roles for the assessment. See `Roles` below.
         /// </summary>
         public InputList<Inputs.AssessmentRoleGetArgs> Roles
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputList<Inputs.AssessmentRolesAllGetArgs>? _rolesAlls;
 
         /// <summary>
-        /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
+        /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `Roles` block, and any roles which have access to all Audit Manager assessments by default.
         /// </summary>
         public InputList<Inputs.AssessmentRolesAllGetArgs> RolesAlls
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Auditmanager
         }
 
         /// <summary>
-        /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        /// Amazon Web Services accounts and services that are in scope for the assessment. See `Scope` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the assessment. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

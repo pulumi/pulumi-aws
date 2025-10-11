@@ -17,14 +17,14 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
     public static final WebAclDataProtectionConfigArgs Empty = new WebAclDataProtectionConfigArgs();
 
     /**
-     * A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+     * A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
      * 
      */
     @Import(name="dataProtections")
     private @Nullable Output<List<WebAclDataProtectionConfigDataProtectionArgs>> dataProtections;
 
     /**
-     * @return A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+     * @return A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
      * 
      */
     public Optional<Output<List<WebAclDataProtectionConfigDataProtectionArgs>>> dataProtections() {
@@ -56,7 +56,7 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class WebAclDataProtectionConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dataProtections A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+         * @param dataProtections A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
          * 
          * @return builder
          * 

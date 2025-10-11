@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Route53.Inputs
         private InputList<Inputs.RecordGeoproximityRoutingPolicyCoordinateGetArgs>? _coordinates;
 
         /// <summary>
-        /// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        /// Specify `Latitude` and `Longitude` for routing traffic to non-AWS resources.
         /// </summary>
         public InputList<Inputs.RecordGeoproximityRoutingPolicyCoordinateGetArgs> Coordinates
         {

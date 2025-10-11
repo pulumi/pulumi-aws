@@ -307,7 +307,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Job definition of type container using `ecs_properties`
+ * ### Job definition of type container using `ecsProperties`
  * 
  * <pre>
  * {@code
@@ -597,14 +597,14 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      * 
      */
     @Export(name="retryStrategy", refs={JobDefinitionRetryStrategy.class}, tree="[0]")
     private Output</* @Nullable */ JobDefinitionRetryStrategy> retryStrategy;
 
     /**
-     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
+     * @return Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      * 
      */
     public Output<Optional<JobDefinitionRetryStrategy>> retryStrategy() {
@@ -639,28 +639,28 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedulingPriority);
     }
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

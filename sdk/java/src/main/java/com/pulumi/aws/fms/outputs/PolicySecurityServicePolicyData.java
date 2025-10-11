@@ -19,7 +19,7 @@ public final class PolicySecurityServicePolicyData {
      */
     private @Nullable String managedServiceData;
     /**
-     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOption policyOption;
@@ -38,7 +38,7 @@ public final class PolicySecurityServicePolicyData {
         return Optional.ofNullable(this.managedServiceData);
     }
     /**
-     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOption> policyOption() {

@@ -30,11 +30,11 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        /// What is excluded in this configuration. Conflicts with `Include`. See Exclude below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExclude? Exclude;
         /// <summary>
-        /// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        /// What is included in this configuration. Conflicts with `Exclude`. See Include below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationInclude? Include;
 

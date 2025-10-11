@@ -18,14 +18,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs();
 
     /**
-     * Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
      * 
      */
     @Import(name="crawlerLimits")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs> crawlerLimits;
 
     /**
-     * @return Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * @return Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs>> crawlerLimits() {
@@ -121,7 +121,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         /**
-         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+         * @param crawlerLimits Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
          * 
          * @return builder
          * 

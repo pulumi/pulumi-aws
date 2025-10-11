@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Alb
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Alb
         public Input<string> TargetGroupArn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Alb
     public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `All`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `Ip`, specify an IP address. If the target type is `Lambda`, specify the Lambda function ARN. If the target type is `Alb`, specify the ALB ARN.
         /// 
         /// The following arguments are optional:
         /// </summary>

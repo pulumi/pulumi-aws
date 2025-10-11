@@ -14,7 +14,7 @@ public final class AgentAgentActionGroupFunctionSchema {
     /**
      * @return Contains a list of functions.
      * Each function describes and action in the action group.
-     * See `member_functions` Block for details.
+     * See `memberFunctions` Block for details.
      * 
      */
     private @Nullable AgentAgentActionGroupFunctionSchemaMemberFunctions memberFunctions;
@@ -23,7 +23,7 @@ public final class AgentAgentActionGroupFunctionSchema {
     /**
      * @return Contains a list of functions.
      * Each function describes and action in the action group.
-     * See `member_functions` Block for details.
+     * See `memberFunctions` Block for details.
      * 
      */
     public Optional<AgentAgentActionGroupFunctionSchemaMemberFunctions> memberFunctions() {

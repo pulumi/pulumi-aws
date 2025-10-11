@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class DirectorySelfServicePermissions
     {
         /// <summary>
-        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `False`.
         /// </summary>
         public readonly bool? ChangeComputeType;
         /// <summary>
-        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `False`.
         /// </summary>
         public readonly bool? IncreaseVolumeSize;
         /// <summary>
-        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+        /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `False`.
         /// </summary>
         public readonly bool? RebuildWorkspace;
         /// <summary>
-        /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
+        /// Whether WorkSpaces directory users can restart their workspace. Default `True`.
         /// </summary>
         public readonly bool? RestartWorkspace;
         /// <summary>
-        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+        /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `False`.
         /// </summary>
         public readonly bool? SwitchRunningMode;
 

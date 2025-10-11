@@ -20,9 +20,9 @@ import javax.annotation.Nullable;
 /**
  * Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
  * 
- * &gt; **Note:** AWS is deprecating `extra_connection_attributes`, such as used with `aws.dms.Endpoint`. This resource is an alternative to `aws.dms.Endpoint` and does not use `extra_connection_attributes`. (AWS currently includes `extra_connection_attributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
+ * &gt; **Note:** AWS is deprecating `extraConnectionAttributes`, such as used with `aws.dms.Endpoint`. This resource is an alternative to `aws.dms.Endpoint` and does not use `extraConnectionAttributes`. (AWS currently includes `extraConnectionAttributes` in the raw responses to the AWS Provider requests and so they may be visible in the logs.)
  * 
- * &gt; **Note:** Some of this resource&#39;s arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, &#34;AWS default...&#34;).
+ * &gt; **Note:** Some of this resource&#39;s arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdcMaxBatchInterval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, &#34;AWS default...&#34;).
  * 
  * ## Example Usage
  * 
@@ -289,14 +289,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cdcMinFileSize);
     }
     /**
-     * Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
+     * Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      * 
      */
     @Export(name="cdcPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdcPath;
 
     /**
-     * @return Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
+     * @return Folder path of CDC files. If `cdcPath` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      * 
      */
     public Output<Optional<String>> cdcPath() {
@@ -345,14 +345,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.csvDelimiter);
     }
     /**
-     * Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+     * Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="csvNoSupValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> csvNoSupValue;
 
     /**
-     * @return Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+     * @return Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<String>> csvNoSupValue() {
@@ -443,28 +443,28 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.datePartitionEnabled);
     }
     /**
-     * Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
+     * Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      * 
      */
     @Export(name="datePartitionSequence", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> datePartitionSequence;
 
     /**
-     * @return Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
+     * @return Date format to use during folder partitioning. Use this parameter when `datePartitionEnabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. (AWS default is `YYYYMMDD`.) (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<String>> datePartitionSequence() {
         return Codegen.optional(this.datePartitionSequence);
     }
     /**
-     * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+     * Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="datePartitionTimezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> datePartitionTimezone;
 
     /**
-     * @return Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `date_partition_enabled` is `true`. (Ignored for source endpoints.)
+     * @return Convert the current UTC time to a timezone. The conversion occurs when a date partition folder is created and a CDC filename is generated. The timezone format is Area/Location (_e.g._, `Europe/Paris`). Use this when `datePartitionEnabled` is `true`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<String>> datePartitionTimezone() {
@@ -513,14 +513,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableStatistics);
     }
     /**
-     * Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
      * 
      */
     @Export(name="encodingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encodingType;
 
     /**
-     * @return Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+     * @return Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
      * 
      */
     public Output<Optional<String>> encodingType() {
@@ -681,14 +681,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includeOpForFullLoad);
     }
     /**
-     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -737,14 +737,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parquetVersion);
     }
     /**
-     * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+     * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="preserveTransactions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preserveTransactions;
 
     /**
-     * @return Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
+     * @return Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<Boolean>> preserveTransactions() {
@@ -793,14 +793,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowGroupLength);
     }
     /**
-     * When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
+     * When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      * 
      */
     @Export(name="serverSideEncryptionKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return When `encryption_mode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryption_mode` is valid.)
+     * @return When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
      * 
      */
     public Output<Optional<String>> serverSideEncryptionKmsKeyId() {
@@ -853,28 +853,28 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -895,14 +895,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timestampColumnName);
     }
     /**
-     * Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
+     * Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
      * 
      */
     @Export(name="useCsvNoSupValue", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useCsvNoSupValue;
 
     /**
-     * @return Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
+     * @return Whether to use `csvNoSupValue` for columns not included in the supplemental log. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<Boolean>> useCsvNoSupValue() {

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
     /**
-     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
      * 
      */
     private @Nullable String s3Prefix;
 
     private DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration() {}
     /**
-     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
+     * @return A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
      * 
      */
     public Optional<String> s3Prefix() {

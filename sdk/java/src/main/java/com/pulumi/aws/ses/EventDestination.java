@@ -279,7 +279,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
     /**
      * Send the events to an SNS Topic destination
      * 
-     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+     * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
      * 
      */
     @Export(name="snsDestination", refs={EventDestinationSnsDestination.class}, tree="[0]")
@@ -288,7 +288,7 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
     /**
      * @return Send the events to an SNS Topic destination
      * 
-     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+     * &gt; **NOTE:** You can specify `&#34;cloudwatchDestination&#34;` or `&#34;kinesisDestination&#34;` but not both
      * 
      */
     public Output<Optional<EventDestinationSnsDestination>> snsDestination() {

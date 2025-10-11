@@ -50,7 +50,7 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
 
     /**
      * Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * The full path to the output file will be returned in `outputS3Uri`.
      * 
      */
     @Import(name="s3Uri", required=true)
@@ -58,7 +58,7 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
 
     /**
      * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * The full path to the output file will be returned in `outputS3Uri`.
      * 
      */
     public Output<String> s3Uri() {
@@ -137,7 +137,7 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
 
         /**
          * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * The full path to the output file will be returned in `outputS3Uri`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DocumentClassifierOutputDataConfigArgs extends com.pulumi.res
 
         /**
          * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * The full path to the output file will be returned in `outputS3Uri`.
          * 
          * @return builder
          * 

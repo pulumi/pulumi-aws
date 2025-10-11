@@ -35,7 +35,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-     * Cannot be used with `snapshot_id`.
+     * Cannot be used with `snapshotId`.
      * 
      */
     @Import(name="encrypted")
@@ -43,7 +43,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-     * Cannot be used with `snapshot_id`.
+     * Cannot be used with `snapshotId`.
      * 
      */
     public Optional<Output<String>> encrypted() {
@@ -52,7 +52,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
+     * This must be set with a `volumeType` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     @Import(name="iops")
@@ -60,7 +60,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-     * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
+     * This must be set with a `volumeType` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -218,7 +218,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-         * Cannot be used with `snapshot_id`.
+         * Cannot be used with `snapshotId`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param encrypted Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
-         * Cannot be used with `snapshot_id`.
+         * Cannot be used with `snapshotId`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
+         * This must be set with a `volumeType` of `&#34;io1/io2/gp3&#34;`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-         * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
+         * This must be set with a `volumeType` of `&#34;io1/io2/gp3&#34;`.
          * 
          * @return builder
          * 

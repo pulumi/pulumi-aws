@@ -48,14 +48,14 @@ public final class PipelineStageOnFailureArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+     * The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
      * 
      */
     @Import(name="retryConfiguration")
     private @Nullable Output<PipelineStageOnFailureRetryConfigurationArgs> retryConfiguration;
 
     /**
-     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+     * @return The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
      * 
      */
     public Optional<Output<PipelineStageOnFailureRetryConfigurationArgs>> retryConfiguration() {
@@ -131,7 +131,7 @@ public final class PipelineStageOnFailureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PipelineStageOnFailureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+         * @param retryConfiguration The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
          * 
          * @return builder
          * 

@@ -155,7 +155,7 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`Alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         /// </summary>
         public readonly string DomainName;
         /// <summary>

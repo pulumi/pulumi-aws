@@ -65,14 +65,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+     * Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      * 
      */
     @Import(name="aliasAttributes")
     private @Nullable Output<List<String>> aliasAttributes;
 
     /**
-     * @return Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+     * @return Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      * 
      */
     public Optional<Output<List<String>>> aliasAttributes() {
@@ -95,14 +95,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+     * Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
      * 
      */
     @Import(name="autoVerifiedAttributes")
     private @Nullable Output<List<String>> autoVerifiedAttributes;
 
     /**
-     * @return Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+     * @return Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
      * 
      */
     public Optional<Output<List<String>>> autoVerifiedAttributes() {
@@ -200,14 +200,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Import(name="emailMfaConfiguration")
     private @Nullable Output<UserPoolEmailMfaConfigurationArgs> emailMfaConfiguration;
 
     /**
-     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Optional<Output<UserPoolEmailMfaConfigurationArgs>> emailMfaConfiguration() {
@@ -215,14 +215,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      * 
      */
     @Import(name="emailVerificationMessage")
     private @Nullable Output<String> emailVerificationMessage;
 
     /**
-     * @return String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+     * @return String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      * 
      */
     public Optional<Output<String>> emailVerificationMessage() {
@@ -230,14 +230,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      * 
      */
     @Import(name="emailVerificationSubject")
     private @Nullable Output<String> emailVerificationSubject;
 
     /**
-     * @return String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+     * @return String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
      * 
      */
     public Optional<Output<String>> emailVerificationSubject() {
@@ -305,14 +305,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
      * 
      */
     @Import(name="mfaConfiguration")
     private @Nullable Output<String> mfaConfiguration;
 
     /**
-     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+     * @return Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
      * 
      */
     public Optional<Output<String>> mfaConfiguration() {
@@ -410,14 +410,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     @Import(name="smsConfiguration")
     private @Nullable Output<UserPoolSmsConfigurationArgs> smsConfiguration;
 
     /**
-     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+     * @return Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
     public Optional<Output<UserPoolSmsConfigurationArgs>> smsConfiguration() {
@@ -425,14 +425,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      * 
      */
     @Import(name="smsVerificationMessage")
     private @Nullable Output<String> smsVerificationMessage;
 
     /**
-     * @return String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+     * @return String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      * 
      */
     public Optional<Output<String>> smsVerificationMessage() {
@@ -440,14 +440,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     @Import(name="softwareTokenMfaConfiguration")
     private @Nullable Output<UserPoolSoftwareTokenMfaConfigurationArgs> softwareTokenMfaConfiguration;
 
     /**
-     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+     * @return Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
      * 
      */
     public Optional<Output<UserPoolSoftwareTokenMfaConfigurationArgs>> softwareTokenMfaConfiguration() {
@@ -455,14 +455,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -470,14 +470,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -530,14 +530,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      * 
      */
     @Import(name="usernameAttributes")
     private @Nullable Output<List<String>> usernameAttributes;
 
     /**
-     * @return Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+     * @return Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      * 
      */
     public Optional<Output<List<String>>> usernameAttributes() {
@@ -692,7 +692,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
          * 
          * @return builder
          * 
@@ -713,7 +713,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
+         * @param aliasAttributes Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 
@@ -755,7 +755,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phone_number`.
+         * @param autoVerifiedAttributes Attributes to be auto-verified. Valid values: `email`, `phoneNumber`.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
          * 
          * @return builder
          * 
@@ -922,7 +922,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailVerificationMessage String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+         * @param emailVerificationMessage String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailVerificationMessage String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
+         * @param emailVerificationMessage String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailVerificationSubject String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+         * @param emailVerificationSubject String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailVerificationSubject String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
+         * @param emailVerificationSubject String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
          * 
          * @return builder
          * 
@@ -1048,7 +1048,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaConfiguration Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+         * @param mfaConfiguration Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mfaConfiguration Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `email_mfa_configuration`, `sms_configuration` or `software_token_mfa_configuration` to be configured).
+         * @param mfaConfiguration Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `emailMfaConfiguration`, `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
          * 
          * @return builder
          * 
@@ -1205,7 +1205,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
          * 
          * @return builder
          * 
@@ -1216,7 +1216,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfa_configuration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
+         * @param smsConfiguration Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). SMS MFA is activated only when `mfaConfiguration` is set to `ON` or `OPTIONAL` along with this block. Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
          * 
          * @return builder
          * 
@@ -1226,7 +1226,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsVerificationMessage String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+         * @param smsVerificationMessage String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
          * 
          * @return builder
          * 
@@ -1237,7 +1237,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsVerificationMessage String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
+         * @param smsVerificationMessage String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
          * 
          * @return builder
          * 
@@ -1247,7 +1247,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param softwareTokenMfaConfiguration Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+         * @param softwareTokenMfaConfiguration Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
          * 
          * @return builder
          * 
@@ -1258,7 +1258,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param softwareTokenMfaConfiguration Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfa_configuration` is `ON` or `OPTIONAL`. Detailed below.
+         * @param softwareTokenMfaConfiguration Configuration block for software token Mult-Factor Authentication (MFA) settings. Effective only when `mfaConfiguration` is `ON` or `OPTIONAL`. Detailed below.
          * 
          * @return builder
          * 
@@ -1268,7 +1268,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1279,7 +1279,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1289,7 +1289,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1300,7 +1300,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1373,7 +1373,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
          * 
          * @return builder
          * 
@@ -1384,7 +1384,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
          * 
          * @return builder
          * 
@@ -1394,7 +1394,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
+         * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
          * 
          * @return builder
          * 

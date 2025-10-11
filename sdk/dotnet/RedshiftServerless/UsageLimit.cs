@@ -62,13 +62,13 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
+        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `Log`, `emit-metric`, and `Deactivate`. The default is `Log`.
         /// </summary>
         [Output("breachAction")]
         public Output<string?> BreachAction { get; private set; } = null!;
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `Daily`, `Weekly`, and `Monthly`. The default is `Monthly`.
         /// </summary>
         [Output("period")]
         public Output<string?> Period { get; private set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<int> Amount { get; set; } = null!;
 
         /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
+        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `Log`, `emit-metric`, and `Deactivate`. The default is `Log`.
         /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `Daily`, `Weekly`, and `Monthly`. The default is `Monthly`.
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
@@ -194,13 +194,13 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
+        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `Log`, `emit-metric`, and `Deactivate`. The default is `Log`.
         /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
 
         /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
+        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `Daily`, `Weekly`, and `Monthly`. The default is `Monthly`.
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }

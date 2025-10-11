@@ -53,14 +53,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
     @Import(name="directInternetAccess")
     private @Nullable Output<String> directInternetAccess;
 
     /**
-     * @return Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+     * @return Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
     public Optional<Output<String>> directInternetAccess() {
@@ -68,14 +68,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      * 
      */
     @Import(name="instanceMetadataServiceConfiguration")
     private @Nullable Output<NotebookInstanceInstanceMetadataServiceConfigurationArgs> instanceMetadataServiceConfiguration;
 
     /**
-     * @return Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * @return Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      * 
      */
     public Optional<Output<NotebookInstanceInstanceMetadataServiceConfigurationArgs>> instanceMetadataServiceConfiguration() {
@@ -233,14 +233,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -357,7 +357,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
+         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

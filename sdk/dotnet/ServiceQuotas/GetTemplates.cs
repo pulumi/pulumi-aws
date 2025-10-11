@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// A list of quota increase templates for specified region. See `templates`.
+        /// A list of quota increase templates for specified region. See `Templates`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTemplatesTemplateResult> Templates;
 

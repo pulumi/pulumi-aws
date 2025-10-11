@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetSpotOptions
     {
         /// <summary>
-        /// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
+        /// How to allocate the target capacity across the Spot pools. Valid values: `Diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         /// </summary>
         public readonly string? AllocationStrategy;
         /// <summary>
-        /// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+        /// Behavior when a Spot Instance is interrupted. Valid values: `Hibernate`, `Stop`, `Terminate`. Default: `Terminate`.
         /// </summary>
         public readonly string? InstanceInterruptionBehavior;
         /// <summary>
-        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `AllocationStrategy` is set to `lowestPrice`. Default: `1`.
         /// </summary>
         public readonly int? InstancePoolsToUseCount;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? MaxTotalPrice;
         /// <summary>
-        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `Instant`.
         /// </summary>
         public readonly int? MinTargetCapacity;
         /// <summary>
-        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `Instant`.
         /// </summary>
         public readonly bool? SingleAvailabilityZone;
         /// <summary>
-        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `Instant`.
         /// </summary>
         public readonly bool? SingleInstanceType;
 

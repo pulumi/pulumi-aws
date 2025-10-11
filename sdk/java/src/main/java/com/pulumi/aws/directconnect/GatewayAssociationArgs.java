@@ -20,9 +20,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
-     * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
      * 
-     * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      * 
      */
     @Import(name="allowedPrefixes")
@@ -31,9 +31,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
     /**
      * @return VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
-     * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+     * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
      * 
-     * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+     * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      * 
      */
     public Optional<Output<List<String>>> allowedPrefixes() {
@@ -153,9 +153,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
          * 
-         * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
          * 
-         * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
          * 
          * @return builder
          * 
@@ -168,9 +168,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
          * 
-         * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
          * 
-         * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
          * 
          * @return builder
          * 
@@ -182,9 +182,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param allowedPrefixes VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
          * 
-         * &gt; **NOTE:** `dx_gateway_id` and `associated_gateway_id` must be specified for single account Direct Connect gateway associations.
+         * &gt; **NOTE:** `dxGatewayId` and `associatedGatewayId` must be specified for single account Direct Connect gateway associations.
          * 
-         * &gt; **NOTE:** If the `associated_gateway_id` is in another region, an alias in a new provider block for that region should be specified.
+         * &gt; **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
          * 
          * @return builder
          * 

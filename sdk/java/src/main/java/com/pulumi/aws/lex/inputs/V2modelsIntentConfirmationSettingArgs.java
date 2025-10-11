@@ -44,14 +44,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
+     * Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
      * 
      */
     @Import(name="codeHook")
     private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookArgs> codeHook;
 
     /**
-     * @return Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
+     * @return Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingCodeHookArgs>> codeHook() {
@@ -59,14 +59,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
+     * Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
      * 
      */
     @Import(name="confirmationConditional")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationConditionalArgs> confirmationConditional;
 
     /**
-     * @return Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationConditionalArgs>> confirmationConditional() {
@@ -74,14 +74,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
+     * Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
      * 
      */
     @Import(name="confirmationNextStep")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationNextStepArgs> confirmationNextStep;
 
     /**
-     * @return Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
+     * @return Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationNextStepArgs>> confirmationNextStep() {
@@ -89,14 +89,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
+     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
      * 
      */
     @Import(name="confirmationResponse")
     private @Nullable Output<V2modelsIntentConfirmationSettingConfirmationResponseArgs> confirmationResponse;
 
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingConfirmationResponseArgs>> confirmationResponse() {
@@ -104,14 +104,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
+     * Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
      * 
      */
     @Import(name="declinationConditional")
     private @Nullable Output<V2modelsIntentConfirmationSettingDeclinationConditionalArgs> declinationConditional;
 
     /**
-     * @return Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
+     * @return Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingDeclinationConditionalArgs>> declinationConditional() {
@@ -119,14 +119,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
+     * Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
      * 
      */
     @Import(name="declinationNextStep")
     private @Nullable Output<V2modelsIntentConfirmationSettingDeclinationNextStepArgs> declinationNextStep;
 
     /**
-     * @return Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
+     * @return Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingDeclinationNextStepArgs>> declinationNextStep() {
@@ -134,14 +134,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for when the user answers &#34;no&#34; to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
+     * Configuration block for when the user answers &#34;no&#34; to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
      * 
      */
     @Import(name="declinationResponse")
     private @Nullable Output<V2modelsIntentConfirmationSettingDeclinationResponseArgs> declinationResponse;
 
     /**
-     * @return Configuration block for when the user answers &#34;no&#34; to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
+     * @return Configuration block for when the user answers &#34;no&#34; to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingDeclinationResponseArgs>> declinationResponse() {
@@ -149,14 +149,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
+     * Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
      * 
      */
     @Import(name="elicitationCodeHook")
     private @Nullable Output<V2modelsIntentConfirmationSettingElicitationCodeHookArgs> elicitationCodeHook;
 
     /**
-     * @return Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
+     * @return Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingElicitationCodeHookArgs>> elicitationCodeHook() {
@@ -164,14 +164,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
+     * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
      * 
      */
     @Import(name="failureConditional")
     private @Nullable Output<V2modelsIntentConfirmationSettingFailureConditionalArgs> failureConditional;
 
     /**
-     * @return Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
+     * @return Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingFailureConditionalArgs>> failureConditional() {
@@ -179,14 +179,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
+     * Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
      * 
      */
     @Import(name="failureNextStep")
     private @Nullable Output<V2modelsIntentConfirmationSettingFailureNextStepArgs> failureNextStep;
 
     /**
-     * @return Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
+     * @return Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingFailureNextStepArgs>> failureNextStep() {
@@ -194,14 +194,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     @Import(name="failureResponse")
     private @Nullable Output<V2modelsIntentConfirmationSettingFailureResponseArgs> failureResponse;
 
     /**
-     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+     * @return Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
      * 
      */
     public Optional<Output<V2modelsIntentConfirmationSettingFailureResponseArgs>> failureResponse() {
@@ -209,14 +209,14 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
     }
 
     /**
-     * Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+     * Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
     @Import(name="promptSpecification", required=true)
     private Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification;
 
     /**
-     * @return Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+     * @return Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
     public Output<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification() {
@@ -281,7 +281,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param codeHook Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
+         * @param codeHook Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param codeHook Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
+         * @param codeHook Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationConditional Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
+         * @param confirmationConditional Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationConditional Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
+         * @param confirmationConditional Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationNextStep Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
+         * @param confirmationNextStep Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationNextStep Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
+         * @param confirmationNextStep Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
+         * @param confirmationResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param confirmationResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
+         * @param confirmationResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationConditional Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
+         * @param declinationConditional Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationConditional Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
+         * @param declinationConditional Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationNextStep Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
+         * @param declinationNextStep Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationNextStep Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
+         * @param declinationNextStep Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationResponse Configuration block for when the user answers &#34;no&#34; to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
+         * @param declinationResponse Configuration block for when the user answers &#34;no&#34; to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param declinationResponse Configuration block for when the user answers &#34;no&#34; to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
+         * @param declinationResponse Configuration block for when the user answers &#34;no&#34; to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param elicitationCodeHook Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
+         * @param elicitationCodeHook Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param elicitationCodeHook Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
+         * @param elicitationCodeHook Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureConditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
+         * @param failureConditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureConditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
+         * @param failureConditional Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureNextStep Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
+         * @param failureNextStep Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureNextStep Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
+         * @param failureNextStep Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+         * @param failureResponse Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param promptSpecification Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+         * @param promptSpecification Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class V2modelsIntentConfirmationSettingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param promptSpecification Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+         * @param promptSpecification Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
          * 
          * @return builder
          * 

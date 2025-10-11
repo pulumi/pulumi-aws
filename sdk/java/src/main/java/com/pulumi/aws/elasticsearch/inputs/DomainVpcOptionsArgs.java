@@ -17,14 +17,14 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
     public static final DomainVpcOptionsArgs Empty = new DomainVpcOptionsArgs();
 
     /**
-     * If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * @return If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -104,7 +104,7 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<Inputs.ImageImageScanningConfigurationEcrConfigurationGetArgs>? EcrConfiguration { get; set; }
 
         /// <summary>
-        /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
+        /// Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `False`.
         /// </summary>
         [Input("imageScanningEnabled")]
         public Input<bool>? ImageScanningEnabled { get; set; }

@@ -958,14 +958,14 @@ public class Index extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverSideEncryptionConfiguration);
     }
     /**
-     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
+     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     public Output<String> status() {
@@ -973,7 +973,7 @@ public class Index extends com.pulumi.resources.CustomResource {
     }
     /**
      * Tags to apply to the Index. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -981,21 +981,21 @@ public class Index extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Tags to apply to the Index. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

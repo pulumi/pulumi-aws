@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? NotebookOutputOption;
         /// <summary>
-        /// When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+        /// When `NotebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         /// </summary>
         public readonly string? S3KmsKeyId;
         /// <summary>
-        /// When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
+        /// When `NotebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
         /// </summary>
         public readonly string? S3OutputPath;
 

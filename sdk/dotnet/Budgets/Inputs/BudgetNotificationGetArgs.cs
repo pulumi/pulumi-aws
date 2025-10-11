@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _subscriberEmailAddresses;
 
         /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+        /// (Optional) E-Mail addresses to notify. Either this or `SubscriberSnsTopicArns` is required.
         /// </summary>
         public InputList<string> SubscriberEmailAddresses
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         private InputList<string>? _subscriberSnsTopicArns;
 
         /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+        /// (Optional) SNS topics to notify. Either this or `SubscriberEmailAddresses` is required.
         /// </summary>
         public InputList<string> SubscriberSnsTopicArns
         {

@@ -36,7 +36,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     @Import(name="adminUserPassword")
@@ -44,7 +44,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     public Optional<Output<String>> adminUserPassword() {
@@ -82,14 +82,14 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -143,7 +143,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
+     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     @Import(name="manageAdminPassword")
@@ -151,7 +151,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
+     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     public Optional<Output<Boolean>> manageAdminPassword() {
@@ -189,14 +189,14 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -261,7 +261,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+         * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+         * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `admin_user_password` and `admin_user_password_wo`.
+         * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `admin_user_password` and `admin_user_password_wo`.
+         * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     public static class GetObjects
     {
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// &gt; **NOTE on `MaxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
         /// 
         /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.S3
         public string? Region { get; set; }
 
         /// <summary>
-        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `Requester`.
         /// </summary>
         [Input("requestPayer")]
         public string? RequestPayer { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `Requester`.
         /// </summary>
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.S3
     {
         public readonly string Bucket;
         /// <summary>
-        /// List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
+        /// List of any keys between `Prefix` and the next occurrence of `Delimiter` (i.e., similar to subdirectories of the `Prefix` "directory"); the list is only returned when you specify `Delimiter`
         /// </summary>
         public readonly ImmutableArray<string> CommonPrefixes;
         public readonly string? Delimiter;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableArray<string> Keys;
         public readonly int? MaxKeys;
         /// <summary>
-        /// List of strings representing object owner IDs (see `fetch_owner` above)
+        /// List of strings representing object owner IDs (see `FetchOwner` above)
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;

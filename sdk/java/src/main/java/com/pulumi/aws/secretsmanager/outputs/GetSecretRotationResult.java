@@ -30,7 +30,7 @@ public final class GetSecretRotationResult {
      */
     private String rotationLambdaArn;
     /**
-     * @return Configuration block for rotation rules. See `rotation_rules` below.
+     * @return Configuration block for rotation rules. See `rotationRules` below.
      * 
      */
     private List<GetSecretRotationRotationRule> rotationRules;
@@ -62,7 +62,7 @@ public final class GetSecretRotationResult {
         return this.rotationLambdaArn;
     }
     /**
-     * @return Configuration block for rotation rules. See `rotation_rules` below.
+     * @return Configuration block for rotation rules. See `rotationRules` below.
      * 
      */
     public List<GetSecretRotationRotationRule> rotationRules() {

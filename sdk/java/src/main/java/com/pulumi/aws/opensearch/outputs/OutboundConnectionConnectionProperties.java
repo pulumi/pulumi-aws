@@ -18,7 +18,7 @@ public final class OutboundConnectionConnectionProperties {
      */
     private @Nullable OutboundConnectionConnectionPropertiesCrossClusterSearch crossClusterSearch;
     /**
-     * @return The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+     * @return The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
      * 
      */
     private @Nullable String endpoint;
@@ -32,7 +32,7 @@ public final class OutboundConnectionConnectionProperties {
         return Optional.ofNullable(this.crossClusterSearch);
     }
     /**
-     * @return The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+     * @return The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
      * 
      */
     public Optional<String> endpoint() {

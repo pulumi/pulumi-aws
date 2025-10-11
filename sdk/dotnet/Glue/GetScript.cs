@@ -935,12 +935,12 @@ namespace Pulumi.Aws.Glue
         public readonly string Id;
         public readonly string? Language;
         /// <summary>
-        /// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
+        /// Python script generated from the DAG when the `Language` argument is set to `PYTHON`.
         /// </summary>
         public readonly string PythonScript;
         public readonly string Region;
         /// <summary>
-        /// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
+        /// Scala code generated from the DAG when the `Language` argument is set to `SCALA`.
         /// </summary>
         public readonly string ScalaCode;
 

@@ -19,14 +19,14 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
     public static final LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs Empty = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs();
 
     /**
-     * The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
      * 
      */
     @Import(name="encryptionConfiguration", required=true)
     private Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+     * @return The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration() {
@@ -74,7 +74,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
         }
 
         /**
-         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
         }
 
         /**
-         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
          * 
          * @return builder
          * 

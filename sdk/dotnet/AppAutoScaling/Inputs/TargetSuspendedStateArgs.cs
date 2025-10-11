@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class TargetSuspendedStateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `False`.
         /// </summary>
         [Input("dynamicScalingInSuspended")]
         public Input<bool>? DynamicScalingInSuspended { get; set; }
 
         /// <summary>
-        /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `False`.
         /// </summary>
         [Input("dynamicScalingOutSuspended")]
         public Input<bool>? DynamicScalingOutSuspended { get; set; }
 
         /// <summary>
-        /// Whether scheduled scaling is suspended. Default is `false`.
+        /// Whether scheduled scaling is suspended. Default is `False`.
         /// </summary>
         [Input("scheduledScalingSuspended")]
         public Input<bool>? ScheduledScalingSuspended { get; set; }

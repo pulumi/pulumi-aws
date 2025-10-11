@@ -19,7 +19,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
     /**
      * List of default values.
      * Amazon Lex chooses the default value to use in the order that they are presented in the list.
-     * See the `default_value_list` argument reference below.
+     * See the `defaultValueList` argument reference below.
      * 
      */
     @Import(name="defaultValueLists")
@@ -28,7 +28,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
     /**
      * @return List of default values.
      * Amazon Lex chooses the default value to use in the order that they are presented in the list.
-     * See the `default_value_list` argument reference below.
+     * See the `defaultValueList` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>>> defaultValueLists() {
@@ -62,7 +62,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
         /**
          * @param defaultValueLists List of default values.
          * Amazon Lex chooses the default value to use in the order that they are presented in the list.
-         * See the `default_value_list` argument reference below.
+         * See the `defaultValueList` argument reference below.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
         /**
          * @param defaultValueLists List of default values.
          * Amazon Lex chooses the default value to use in the order that they are presented in the list.
-         * See the `default_value_list` argument reference below.
+         * See the `defaultValueList` argument reference below.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
         /**
          * @param defaultValueLists List of default values.
          * Amazon Lex chooses the default value to use in the order that they are presented in the list.
-         * See the `default_value_list` argument reference below.
+         * See the `defaultValueList` argument reference below.
          * 
          * @return builder
          * 

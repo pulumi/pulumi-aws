@@ -59,7 +59,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> ControlFindingGenerator { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
         /// </summary>
         [Output("enableDefaultStandards")]
         public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? ControlFindingGenerator { get; set; }
 
         /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
         /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? ControlFindingGenerator { get; set; }
 
         /// <summary>
-        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `True`.
         /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }

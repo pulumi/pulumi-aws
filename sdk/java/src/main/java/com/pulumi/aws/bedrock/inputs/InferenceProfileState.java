@@ -66,7 +66,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `model_source`.
+     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      * The following arguments are optional:
      * 
@@ -75,7 +75,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     private @Nullable Output<InferenceProfileModelSourceArgs> modelSource;
 
     /**
-     * @return The source of the model this inference profile will track metrics and cost for. See `model_source`.
+     * @return The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      * The following arguments are optional:
      * 
@@ -303,7 +303,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `model_source`.
+         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * The following arguments are optional:
          * 
@@ -316,7 +316,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `model_source`.
+         * @param modelSource The source of the model this inference profile will track metrics and cost for. See `modelSource`.
          * 
          * The following arguments are optional:
          * 

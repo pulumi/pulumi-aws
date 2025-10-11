@@ -214,14 +214,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     @Import(name="syncConfig")
     private @Nullable Output<FunctionSyncConfigArgs> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+     * @return Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     public Optional<Output<FunctionSyncConfigArgs>> syncConfig() {
@@ -539,7 +539,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+         * @param syncConfig Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+         * @param syncConfig Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
          * 
          * @return builder
          * 

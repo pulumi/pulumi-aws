@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Manages a Service Catalog Product.
     /// 
-    /// &gt; **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
+    /// &gt; **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `TemplatePhysicalId` argument.
     /// 
     /// &gt; A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
     /// 
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class Product : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `ProvisioningArtifactParameters` Block for details.
         /// </summary>
         [Output("provisioningArtifactParameters")]
         public Output<Outputs.ProductProvisioningArtifactParameters> ProvisioningArtifactParameters { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> SupportUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProductArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> Owner { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `ProvisioningArtifactParameters` Block for details.
         /// </summary>
         [Input("provisioningArtifactParameters", required: true)]
         public Input<Inputs.ProductProvisioningArtifactParametersArgs> ProvisioningArtifactParameters { get; set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class ProductState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// Language code. Valid values: `En` (English), `Jp` (Japanese), `Zh` (Chinese). Default value is `En`.
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `ProvisioningArtifactParameters` Block for details.
         /// </summary>
         [Input("provisioningArtifactParameters")]
         public Input<Inputs.ProductProvisioningArtifactParametersGetArgs>? ProvisioningArtifactParameters { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the product. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

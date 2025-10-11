@@ -34,14 +34,14 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
     }
 
     /**
-     * Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+     * Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
      * 
      */
     @Import(name="basic")
     private @Nullable Output<EventConnectionAuthParametersBasicArgs> basic;
 
     /**
-     * @return Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+     * @return Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
      * 
      */
     public Optional<Output<EventConnectionAuthParametersBasicArgs>> basic() {
@@ -64,14 +64,14 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
     }
 
     /**
-     * Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+     * Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
      * 
      */
     @Import(name="oauth")
     private @Nullable Output<EventConnectionAuthParametersOauthArgs> oauth;
 
     /**
-     * @return Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+     * @return Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
      * 
      */
     public Optional<Output<EventConnectionAuthParametersOauthArgs>> oauth() {
@@ -127,7 +127,7 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
         }
 
         /**
-         * @param basic Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+         * @param basic Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
         }
 
         /**
-         * @param basic Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+         * @param basic Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
         }
 
         /**
-         * @param oauth Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+         * @param oauth Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class EventConnectionAuthParametersArgs extends com.pulumi.resource
         }
 
         /**
-         * @param oauth Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+         * @param oauth Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
          * 
          * @return builder
          * 

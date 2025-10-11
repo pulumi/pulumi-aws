@@ -17,7 +17,7 @@ namespace Pulumi.Aws.S3
         /// The S3 object data source allows access to the metadata and
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 
-        /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type`:
+        /// &gt; **Note:** The content of an object (`Body` field) is available only for objects which have a human-readable `Content-Type`:
         /// 
         /// * `text/*`
         /// * `application/json`
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `UserData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `VersionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.S3
         /// The S3 object data source allows access to the metadata and
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 
-        /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type`:
+        /// &gt; **Note:** The content of an object (`Body` field) is available only for objects which have a human-readable `Content-Type`:
         /// 
         /// * `text/*`
         /// * `application/json`
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `UserData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `VersionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.S3
         /// The S3 object data source allows access to the metadata and
         /// _optionally_ (see below) content of an object stored inside S3 bucket.
         /// 
-        /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type`:
+        /// &gt; **Note:** The content of an object (`Body` field) is available only for objects which have a human-readable `Content-Type`:
         /// 
         /// * `text/*`
         /// * `application/json`
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.S3
         /// ## Example Usage
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
-        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// value starting with `text/`) and uses it as the `UserData` for an EC2 instance:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.S3
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
-        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// file stored in S3, which is then used to pass the most recent `VersionId`
         /// to AWS Lambda for use as a function implementation. More information about
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.

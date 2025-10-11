@@ -33,14 +33,14 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
     @Import(name="replaceExistingAssociation")
     private @Nullable Output<Boolean> replaceExistingAssociation;
 
     /**
-     * @return Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * @return Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
     public Optional<Output<Boolean>> replaceExistingAssociation() {
@@ -126,7 +126,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
          * 
          * @return builder
          * 

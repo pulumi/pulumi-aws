@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` if the destination was reachable.
+        /// Set to `True` if the destination was reachable.
         /// </summary>
         [Output("pathFound")]
         public Output<bool> PathFound { get; private set; } = null!;
@@ -111,31 +111,31 @@ namespace Pulumi.Aws.Ec2
         public Output<string> StartDate { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// The status of the analysis. `Succeeded` means the analysis was completed, not that a path was found, for that see `PathFound`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A message to provide more context when the `status` is `failed`.
+        /// A message to provide more context when the `Status` is `Failed`.
         /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `Succeeded` or `Failed`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Output("waitForCompletion")]
         public Output<bool?> WaitForCompletion { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `Succeeded` or `Failed`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForCompletion")]
         public Input<bool>? WaitForCompletion { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInsightsPathId { get; set; }
 
         /// <summary>
-        /// Set to `true` if the destination was reachable.
+        /// Set to `True` if the destination was reachable.
         /// </summary>
         [Input("pathFound")]
         public Input<bool>? PathFound { get; set; }
@@ -337,13 +337,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+        /// The status of the analysis. `Succeeded` means the analysis was completed, not that a path was found, for that see `PathFound`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// A message to provide more context when the `status` is `failed`.
+        /// A message to provide more context when the `Status` is `Failed`.
         /// </summary>
         [Input("statusMessage")]
         public Input<string>? StatusMessage { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `Succeeded` or `Failed`. Setting this to `False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForCompletion")]
         public Input<bool>? WaitForCompletion { get; set; }

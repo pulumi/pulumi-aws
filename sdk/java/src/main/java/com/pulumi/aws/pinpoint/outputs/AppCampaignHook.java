@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppCampaignHook {
     /**
-     * @return Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+     * @return Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
      * 
      */
     private @Nullable String lambdaFunctionName;
@@ -22,14 +22,14 @@ public final class AppCampaignHook {
      */
     private @Nullable String mode;
     /**
-     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
      * 
      */
     private @Nullable String webUrl;
 
     private AppCampaignHook() {}
     /**
-     * @return Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+     * @return Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
      * 
      */
     public Optional<String> lambdaFunctionName() {
@@ -43,7 +43,7 @@ public final class AppCampaignHook {
         return Optional.ofNullable(this.mode);
     }
     /**
-     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+     * @return Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
      * 
      */
     public Optional<String> webUrl() {

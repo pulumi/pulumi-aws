@@ -126,42 +126,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devopsguru/serviceIntegration:ServiceIntegration")
 public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+     * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
     @Export(name="kmsServerSideEncryption", refs={ServiceIntegrationKmsServerSideEncryption.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationKmsServerSideEncryption> kmsServerSideEncryption;
 
     /**
-     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+     * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
     public Output<Optional<ServiceIntegrationKmsServerSideEncryption>> kmsServerSideEncryption() {
         return Codegen.optional(this.kmsServerSideEncryption);
     }
     /**
-     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+     * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
     @Export(name="logsAnomalyDetection", refs={ServiceIntegrationLogsAnomalyDetection.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationLogsAnomalyDetection> logsAnomalyDetection;
 
     /**
-     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+     * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
     public Output<Optional<ServiceIntegrationLogsAnomalyDetection>> logsAnomalyDetection() {
         return Codegen.optional(this.logsAnomalyDetection);
     }
     /**
-     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+     * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
     @Export(name="opsCenter", refs={ServiceIntegrationOpsCenter.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIntegrationOpsCenter> opsCenter;
 
     /**
-     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+     * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
     public Output<Optional<ServiceIntegrationOpsCenter>> opsCenter() {

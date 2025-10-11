@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     private String accountAccessType;
@@ -113,7 +113,7 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
+     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     public String accountAccessType() {

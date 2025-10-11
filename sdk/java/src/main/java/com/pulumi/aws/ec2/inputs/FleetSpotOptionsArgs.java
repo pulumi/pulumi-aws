@@ -49,14 +49,14 @@ public final class FleetSpotOptionsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+     * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
     @Import(name="instancePoolsToUseCount")
     private @Nullable Output<Integer> instancePoolsToUseCount;
 
     /**
-     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+     * @return Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
     public Optional<Output<Integer>> instancePoolsToUseCount() {
@@ -212,7 +212,7 @@ public final class FleetSpotOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class FleetSpotOptionsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+         * @param instancePoolsToUseCount Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocationStrategy` is set to `lowestPrice`. Default: `1`.
          * 
          * @return builder
          * 

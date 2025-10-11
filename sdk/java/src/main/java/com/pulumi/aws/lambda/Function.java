@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ### Function with Lambda Layers
  * 
- * &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `arn` references.
+ * &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layerArn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `arn` references.
  * 
  * <pre>
  * {@code
@@ -366,8 +366,8 @@ import javax.annotation.Nullable;
  * * An S3 bucket or Data Firehose delivery stream to store the logs.
  * * A CloudWatch Log Group with:
  *   
- *     * `log_group_class = &#34;DELIVERY&#34;`
- *     * A subscription filter whose `destination_arn` points to the S3 bucket or the Data Firehose delivery stream.
+ *     * `logGroupClass = &#34;DELIVERY&#34;`
+ *     * A subscription filter whose `destinationArn` points to the S3 bucket or the Data Firehose delivery stream.
  * 
  * * IAM roles:
  *   
@@ -376,7 +376,7 @@ import javax.annotation.Nullable;
  * 
  * * A Lambda function:
  *   
- *     * In the `logging_configuration`, specify the name of the Log Group created above using the `log_group` field
+ *     * In the `loggingConfiguration`, specify the name of the Log Group created above using the `logGroup` field
  *     * No special configuration is required to use S3 or Firehose as the log destination
  * 
  * For more details, see [Sending Lambda function logs to Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/logging-with-s3.html).
@@ -667,7 +667,7 @@ import javax.annotation.Nullable;
  * 
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
  * 
- * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
  * 
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
  * 
@@ -695,14 +695,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lambda/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     @Export(name="architectures", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> architectures;
 
     /**
-     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     public Output<List<String>> architectures() {
@@ -723,14 +723,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Export(name="code", refs={Archive.class}, tree="[0]")
     private Output</* @Nullable */ Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Output<Optional<Archive>> code() {
@@ -835,14 +835,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileSystemConfig);
     }
     /**
-     * Function entry point in your code. Required if `package_type` is `Zip`.
+     * Function entry point in your code. Required if `packageType` is `Zip`.
      * 
      */
     @Export(name="handler", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> handler;
 
     /**
-     * @return Function entry point in your code. Required if `package_type` is `Zip`.
+     * @return Function entry point in your code. Required if `packageType` is `Zip`.
      * 
      */
     public Output<Optional<String>> handler() {
@@ -863,14 +863,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageConfig);
     }
     /**
-     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Export(name="imageUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Output<Optional<String>> imageUri() {
@@ -1059,14 +1059,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.replaceSecurityGroupsOnDestroy);
     }
     /**
-     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      * 
      */
     @Export(name="replacementSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> replacementSecurityGroupIds;
 
     /**
-     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      * 
      */
     public Output<Optional<List<String>>> replacementSecurityGroupIds() {
@@ -1105,56 +1105,56 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.role;
     }
     /**
-     * Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     @Export(name="runtime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * @return Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     public Output<Optional<String>> runtime() {
         return Codegen.optional(this.runtime);
     }
     /**
-     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Export(name="s3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Output<Optional<String>> s3Bucket() {
         return Codegen.optional(this.s3Bucket);
     }
     /**
-     * S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+     * S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
      * 
      */
     @Export(name="s3Key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
      * 
      */
     public Output<Optional<String>> s3Key() {
         return Codegen.optional(this.s3Key);
     }
     /**
-     * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
      * 
      */
     @Export(name="s3ObjectVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3ObjectVersion;
 
     /**
-     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
      * 
      */
     public Output<Optional<String>> s3ObjectVersion() {
@@ -1245,42 +1245,42 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.sourceCodeSize;
     }
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     @Export(name="sourceKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceKmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     public Output<Optional<String>> sourceKmsKeyArn() {
         return Codegen.optional(this.sourceKmsKeyArn);
     }
     /**
-     * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

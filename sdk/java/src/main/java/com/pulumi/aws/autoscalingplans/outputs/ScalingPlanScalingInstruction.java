@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScalingPlanScalingInstruction {
     /**
-     * @return Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+     * @return Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
@@ -30,7 +30,7 @@ public final class ScalingPlanScalingInstruction {
      */
     private @Nullable Boolean disableDynamicScaling;
     /**
-     * @return Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+     * @return Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
      * 
      */
     private Integer maxCapacity;
@@ -40,7 +40,7 @@ public final class ScalingPlanScalingInstruction {
      */
     private Integer minCapacity;
     /**
-     * @return Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+     * @return Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */
@@ -95,7 +95,7 @@ public final class ScalingPlanScalingInstruction {
 
     private ScalingPlanScalingInstruction() {}
     /**
-     * @return Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+     * @return Customized load metric to use for predictive scaling. You must specify either `customizedLoadMetricSpecification` or `predefinedLoadMetricSpecification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
@@ -110,7 +110,7 @@ public final class ScalingPlanScalingInstruction {
         return Optional.ofNullable(this.disableDynamicScaling);
     }
     /**
-     * @return Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
+     * @return Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictiveScalingMaxCapacityBehavior`.
      * 
      */
     public Integer maxCapacity() {
@@ -124,7 +124,7 @@ public final class ScalingPlanScalingInstruction {
         return this.minCapacity;
     }
     /**
-     * @return Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+     * @return Predefined load metric to use for predictive scaling. You must specify either `predefinedLoadMetricSpecification` or `customizedLoadMetricSpecification` when configuring predictive scaling.
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */

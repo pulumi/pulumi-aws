@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public final class EventActionEvent {
     /**
      * @return Configuration for a Revision Published event.
-     * Described in `revision_published` Configuration Block below.
+     * Described in `revisionPublished` Configuration Block below.
      * 
      */
     private @Nullable EventActionEventRevisionPublished revisionPublished;
@@ -21,7 +21,7 @@ public final class EventActionEvent {
     private EventActionEvent() {}
     /**
      * @return Configuration for a Revision Published event.
-     * Described in `revision_published` Configuration Block below.
+     * Described in `revisionPublished` Configuration Block below.
      * 
      */
     public Optional<EventActionEventRevisionPublished> revisionPublished() {

@@ -13,18 +13,18 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceOrderedPlacementStrategyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
+        /// For the `Spread` placement strategy, valid values are `instanceId` (or `Host`,
         /// which has the same effect), or any platform or custom attribute that is applied to a container instance.
-        /// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
+        /// For the `Binpack` type, valid values are `Memory` and `Cpu`. For the `Random` type, this attribute is not
         /// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         /// 
-        /// &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        /// &gt; **Note:** for `Spread`, `Host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `Host`.
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
         /// <summary>
-        /// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+        /// Type of placement strategy. Must be one of: `Binpack`, `Random`, or `Spread`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sfn.Inputs
     public sealed class StateMachineLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        /// Determines whether execution data is included in your log. When set to `False`, data is excluded.
         /// </summary>
         [Input("includeExecutionData")]
         public Input<bool>? IncludeExecutionData { get; set; }

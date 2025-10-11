@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for more details.
+        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ForwardedIpConfig` below for more details.
         /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementForwardedIpConfigArgs>? ForwardedIpConfig { get; set; }

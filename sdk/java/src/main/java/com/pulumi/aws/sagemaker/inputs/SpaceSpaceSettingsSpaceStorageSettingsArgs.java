@@ -15,14 +15,14 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsArgs extends com.pulumi
     public static final SpaceSpaceSettingsSpaceStorageSettingsArgs Empty = new SpaceSpaceSettingsSpaceStorageSettingsArgs();
 
     /**
-     * A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+     * A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
      * 
      */
     @Import(name="ebsStorageSettings", required=true)
     private Output<SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs> ebsStorageSettings;
 
     /**
-     * @return A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+     * @return A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs> ebsStorageSettings() {
@@ -54,7 +54,7 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsArgs extends com.pulumi
         }
 
         /**
-         * @param ebsStorageSettings A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+         * @param ebsStorageSettings A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsArgs extends com.pulumi
         }
 
         /**
-         * @param ebsStorageSettings A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+         * @param ebsStorageSettings A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
          * 
          * @return builder
          * 

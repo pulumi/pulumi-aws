@@ -166,42 +166,42 @@ public class VpcBlockPublicAccessExclusion extends com.pulumi.resources.CustomRe
         return this.resourceArn;
     }
     /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+     * @return Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      * 
      */
     public Output<Optional<String>> subnetId() {
         return Codegen.optional(this.subnetId);
     }
     /**
-     * A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -214,14 +214,14 @@ public class VpcBlockPublicAccessExclusion extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
     /**
-     * @return Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+     * @return Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      * 
      */
     public Output<Optional<String>> vpcId() {

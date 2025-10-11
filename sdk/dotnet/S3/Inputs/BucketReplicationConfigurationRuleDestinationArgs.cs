@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `AccountId` owner override configuration.
         /// </summary>
         [Input("accessControlTranslation")]
         public Input<Inputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs>? AccessControlTranslation { get; set; }
 
         /// <summary>
-        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `AccessControlTranslation` override configuration.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.S3.Inputs
 
         /// <summary>
         /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-        /// `sse_kms_encrypted_objects` source selection criteria.
+        /// `SseKmsEncryptedObjects` source selection criteria.
         /// </summary>
         [Input("replicaKmsKeyId")]
         public Input<string>? ReplicaKmsKeyId { get; set; }

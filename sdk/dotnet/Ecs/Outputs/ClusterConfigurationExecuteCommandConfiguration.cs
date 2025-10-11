@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
+        /// Log configuration for the results of the execute command actions. Required when `Logging` is `OVERRIDE`. See `LogConfiguration` Block for details.
         /// </summary>
         public readonly Outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration? LogConfiguration;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool ForwardWhenQueryArgProfileIsUnknown;
         /// <summary>
-        /// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        /// Object that contains an attribute `Items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
         /// </summary>
         public readonly Outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles? QueryArgProfiles;
 

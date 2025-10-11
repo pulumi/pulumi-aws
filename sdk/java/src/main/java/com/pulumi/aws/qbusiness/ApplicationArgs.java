@@ -21,14 +21,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
     /**
-     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+     * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
     @Import(name="attachmentsConfiguration")
     private @Nullable Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration;
 
     /**
-     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+     * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
     public Optional<Output<ApplicationAttachmentsConfigurationArgs>> attachmentsConfiguration() {
@@ -66,14 +66,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about encryption configuration. See `encryption_configuration` below.
+     * Information about encryption configuration. See `encryptionConfiguration` below.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<ApplicationEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return Information about encryption configuration. See `encryption_configuration` below.
+     * @return Information about encryption configuration. See `encryptionConfiguration` below.
      * 
      */
     public Optional<Output<ApplicationEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -176,7 +176,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+         * @param attachmentsConfiguration Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration Information about encryption configuration. See `encryption_configuration` below.
+         * @param encryptionConfiguration Information about encryption configuration. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration Information about encryption configuration. See `encryption_configuration` below.
+         * @param encryptionConfiguration Information about encryption configuration. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 

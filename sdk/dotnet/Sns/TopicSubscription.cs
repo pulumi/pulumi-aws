@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// &gt; **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires the provider to have access to BOTH accounts.
     /// 
-    /// &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts but the same region, the `aws.sns.TopicSubscription` must use the AWS provider for the account with the SQS queue. If `aws.sns.TopicSubscription` uses a Provider with a different account than the SQS queue, this provider creates the subscription but does not keep state and tries to re-create the subscription at every `apply`.
+    /// &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts but the same region, the `aws.sns.TopicSubscription` must use the AWS provider for the account with the SQS queue. If `aws.sns.TopicSubscription` uses a Provider with a different account than the SQS queue, this provider creates the subscription but does not keep state and tries to re-create the subscription at every `Apply`.
     /// 
     /// &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts and different AWS regions, the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
     /// 
-    /// &gt; **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
+    /// &gt; **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `Email`, `email-json`, or `Http`/`Https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `Destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
     /// 
     /// ## Example Usage
     /// 
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ### Example with Delivery Policy
     /// 
-    /// This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
+    /// This example demonstrates how to define a `DeliveryPolicy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `DeliveryPolicy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Sns
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `False`.
         /// </summary>
         [Output("endpointAutoConfirms")]
         public Output<bool?> EndpointAutoConfirms { get; private set; } = null!;
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.Sns
         public Output<string?> FilterPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `FilterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Output("filterPolicyScope")]
         public Output<string> FilterPolicyScope { get; private set; } = null!;
@@ -401,13 +401,13 @@ namespace Pulumi.Aws.Sns
         public Output<bool> PendingConfirmation { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+        /// Protocol to use. Valid values are: `Sqs`, `Sms`, `Lambda`, `Firehose`, and `Application`. Protocols `Email`, `email-json`, `Http` and `Https` are also valid but partially supported. See details below.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `False`.
         /// </summary>
         [Output("rawMessageDelivery")]
         public Output<bool?> RawMessageDelivery { get; private set; } = null!;
@@ -509,7 +509,7 @@ namespace Pulumi.Aws.Sns
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `False`.
         /// </summary>
         [Input("endpointAutoConfirms")]
         public Input<bool>? EndpointAutoConfirms { get; set; }
@@ -521,19 +521,19 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `FilterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Input("filterPolicyScope")]
         public Input<string>? FilterPolicyScope { get; set; }
 
         /// <summary>
-        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+        /// Protocol to use. Valid values are: `Sqs`, `Sms`, `Lambda`, `Firehose`, and `Application`. Protocols `Email`, `email-json`, `Http` and `Https` are also valid but partially supported. See details below.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `False`.
         /// </summary>
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }
@@ -609,7 +609,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
+        /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `False`.
         /// </summary>
         [Input("endpointAutoConfirms")]
         public Input<bool>? EndpointAutoConfirms { get; set; }
@@ -621,7 +621,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? FilterPolicy { get; set; }
 
         /// <summary>
-        /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
+        /// Whether the `FilterPolicy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
         [Input("filterPolicyScope")]
         public Input<string>? FilterPolicyScope { get; set; }
@@ -639,13 +639,13 @@ namespace Pulumi.Aws.Sns
         public Input<bool>? PendingConfirmation { get; set; }
 
         /// <summary>
-        /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
+        /// Protocol to use. Valid values are: `Sqs`, `Sms`, `Lambda`, `Firehose`, and `Application`. Protocols `Email`, `email-json`, `Http` and `Https` are also valid but partially supported. See details below.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
+        /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `False`.
         /// </summary>
         [Input("rawMessageDelivery")]
         public Input<bool>? RawMessageDelivery { get; set; }

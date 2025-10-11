@@ -66,14 +66,14 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
     }
 
     /**
-     * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+     * @return Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -191,7 +191,7 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principalType = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 

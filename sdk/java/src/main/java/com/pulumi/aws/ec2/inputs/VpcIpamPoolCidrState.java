@@ -18,14 +18,14 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
     public static final VpcIpamPoolCidrState Empty = new VpcIpamPoolCidrState();
 
     /**
-     * The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
+     * The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
+     * @return The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -33,14 +33,14 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+     * A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
      * 
      */
     @Import(name="cidrAuthorizationContext")
     private @Nullable Output<VpcIpamPoolCidrCidrAuthorizationContextArgs> cidrAuthorizationContext;
 
     /**
-     * @return A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+     * @return A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
      * 
      */
     public Optional<Output<VpcIpamPoolCidrCidrAuthorizationContextArgs>> cidrAuthorizationContext() {
@@ -137,7 +137,7 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
+         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
+         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VpcIpamPoolCidrState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
          * 
          * @return builder
          * 

@@ -94,13 +94,13 @@ namespace Pulumi.Aws.AppConfig
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Application. Either `id` or `name` must be specified.
+        /// ID of the Application. Either `Id` or `Name` must be specified.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// AWS AppConfig Application name. Either `name` or `id` must be specified.
+        /// AWS AppConfig Application name. Either `Name` or `Id` must be specified.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.AppConfig
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Application. Either `id` or `name` must be specified.
+        /// ID of the Application. Either `Id` or `Name` must be specified.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// AWS AppConfig Application name. Either `name` or `id` must be specified.
+        /// AWS AppConfig Application name. Either `Name` or `Id` must be specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

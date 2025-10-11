@@ -45,9 +45,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-     * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+     * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+     * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+     * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
      * [`service` attribute][2] documentation for other possible values.
      * 
      * &gt; **NOTE:** If the specified combination of regions and services does not yield any
@@ -59,9 +59,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-     * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+     * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+     * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+     * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
      * [`service` attribute][2] documentation for other possible values.
      * 
      * &gt; **NOTE:** If the specified combination of regions and services does not yield any
@@ -162,9 +162,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+         * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+         * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+         * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
          * &gt; **NOTE:** If the specified combination of regions and services does not yield any
@@ -180,9 +180,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+         * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+         * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+         * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
          * &gt; **NOTE:** If the specified combination of regions and services does not yield any
@@ -197,9 +197,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
+         * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
+         * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
+         * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
          * &gt; **NOTE:** If the specified combination of regions and services does not yield any

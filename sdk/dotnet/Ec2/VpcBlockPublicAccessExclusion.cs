@@ -100,19 +100,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        /// Id of the subnet to which this exclusion applies. Either this or the VpcId needs to be provided.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the exclusion. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcBlockPublicAccessExclusionTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        /// Id of the VPC to which this exclusion applies. Either this or the SubnetId needs to be provided.
         /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        /// Id of the subnet to which this exclusion applies. Either this or the VpcId needs to be provided.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the exclusion. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcBlockPublicAccessExclusionTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        /// Id of the VPC to which this exclusion applies. Either this or the SubnetId needs to be provided.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        /// Id of the subnet to which this exclusion applies. Either this or the VpcId needs to be provided.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the exclusion. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcBlockPublicAccessExclusionTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        /// Id of the VPC to which this exclusion applies. Either this or the SubnetId needs to be provided.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

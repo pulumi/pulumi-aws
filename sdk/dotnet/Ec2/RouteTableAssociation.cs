@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     public partial class RouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The gateway ID to create an association. Conflicts with `subnet_id`.
+        /// The gateway ID to create an association. Conflicts with `SubnetId`.
         /// </summary>
         [Output("gatewayId")]
         public Output<string?> GatewayId { get; private set; } = null!;
@@ -84,13 +84,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the routing table to associate with.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet ID to create an association. Conflicts with `gateway_id`.
+        /// The subnet ID to create an association. Conflicts with `GatewayId`.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class RouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The gateway ID to create an association. Conflicts with `subnet_id`.
+        /// The gateway ID to create an association. Conflicts with `SubnetId`.
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
@@ -156,13 +156,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the routing table to associate with.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
         /// <summary>
-        /// The subnet ID to create an association. Conflicts with `gateway_id`.
+        /// The subnet ID to create an association. Conflicts with `GatewayId`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class RouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The gateway ID to create an association. Conflicts with `subnet_id`.
+        /// The gateway ID to create an association. Conflicts with `SubnetId`.
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The ID of the routing table to associate with.
         /// 
-        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+        /// &gt; **NOTE:** Please note that one of either `SubnetId` or `GatewayId` is required.
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
         /// <summary>
-        /// The subnet ID to create an association. Conflicts with `gateway_id`.
+        /// The subnet ID to create an association. Conflicts with `GatewayId`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

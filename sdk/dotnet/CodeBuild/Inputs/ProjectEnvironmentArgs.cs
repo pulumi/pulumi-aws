@@ -71,7 +71,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
         /// <summary>
         /// Whether to enable running the Docker daemon inside a Docker container. Defaults to
-        /// `false`.
+        /// `False`.
         /// </summary>
         [Input("privilegedMode")]
         public Input<bool>? PrivilegedMode { get; set; }

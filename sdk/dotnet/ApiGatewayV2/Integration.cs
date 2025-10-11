@@ -197,7 +197,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
+        /// Integration's HTTP method. Must be specified if `IntegrationType` is not `MOCK`.
         /// </summary>
         [Output("integrationMethod")]
         public Output<string?> IntegrationMethod { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> IntegrationResponseSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+        /// AWS service action to invoke. Supported only for HTTP APIs when `IntegrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Output("integrationSubtype")]
         public Output<string?> IntegrationSubtype { get; private set; } = null!;
@@ -222,14 +222,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> IntegrationType { get; private set; } = null!;
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Output("integrationUri")]
         public Output<string?> IntegrationUri { get; private set; } = null!;
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Output("passthroughBehavior")]
@@ -249,8 +249,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         [Output("requestParameters")]
@@ -371,13 +371,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
+        /// Integration's HTTP method. Must be specified if `IntegrationType` is not `MOCK`.
         /// </summary>
         [Input("integrationMethod")]
         public Input<string>? IntegrationMethod { get; set; }
 
         /// <summary>
-        /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+        /// AWS service action to invoke. Supported only for HTTP APIs when `IntegrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("integrationSubtype")]
         public Input<string>? IntegrationSubtype { get; set; }
@@ -390,14 +390,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> IntegrationType { get; set; } = null!;
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Input("integrationUri")]
         public Input<string>? IntegrationUri { get; set; }
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("passthroughBehavior")]
@@ -420,8 +420,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
+        /// Integration's HTTP method. Must be specified if `IntegrationType` is not `MOCK`.
         /// </summary>
         [Input("integrationMethod")]
         public Input<string>? IntegrationMethod { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationResponseSelectionExpression { get; set; }
 
         /// <summary>
-        /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+        /// AWS service action to invoke. Supported only for HTTP APIs when `IntegrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("integrationSubtype")]
         public Input<string>? IntegrationSubtype { get; set; }
@@ -544,14 +544,14 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationType { get; set; }
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Input("integrationUri")]
         public Input<string>? IntegrationUri { get; set; }
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("passthroughBehavior")]
@@ -574,8 +574,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters

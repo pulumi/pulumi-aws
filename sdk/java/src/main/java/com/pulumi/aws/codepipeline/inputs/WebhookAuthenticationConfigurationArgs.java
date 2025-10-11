@@ -31,14 +31,14 @@ public final class WebhookAuthenticationConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+     * The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
      * 
      */
     @Import(name="secretToken")
     private @Nullable Output<String> secretToken;
 
     /**
-     * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+     * @return The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
      * 
      */
     public Optional<Output<String>> secretToken() {
@@ -92,7 +92,7 @@ public final class WebhookAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WebhookAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
+         * @param secretToken The shared secret for the GitHub repository webhook. Set this as `secret` in your `githubRepositoryWebhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
          * 
          * @return builder
          * 

@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketReplicationConfigurationRuleDestination {
     /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
      * 
      */
     private @Nullable BucketReplicationConfigurationRuleDestinationAccessControlTranslation accessControlTranslation;
     /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     private @Nullable String accountId;
@@ -37,7 +37,7 @@ public final class BucketReplicationConfigurationRuleDestination {
     private @Nullable BucketReplicationConfigurationRuleDestinationMetrics metrics;
     /**
      * @return Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sse_kms_encrypted_objects` source selection criteria.
+     * `sseKmsEncryptedObjects` source selection criteria.
      * 
      */
     private @Nullable String replicaKmsKeyId;
@@ -54,14 +54,14 @@ public final class BucketReplicationConfigurationRuleDestination {
 
     private BucketReplicationConfigurationRuleDestination() {}
     /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
      * 
      */
     public Optional<BucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslation() {
         return Optional.ofNullable(this.accessControlTranslation);
     }
     /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
      * 
      */
     public Optional<String> accountId() {
@@ -83,7 +83,7 @@ public final class BucketReplicationConfigurationRuleDestination {
     }
     /**
      * @return Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-     * `sse_kms_encrypted_objects` source selection criteria.
+     * `sseKmsEncryptedObjects` source selection criteria.
      * 
      */
     public Optional<String> replicaKmsKeyId() {

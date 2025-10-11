@@ -354,6 +354,8 @@ class Project(pulumi.CustomResource):
         """
         Resource for managing an AWS DataZone Project.
 
+        ## Example Usage
+
         ### Basic Usage
 
         ```python
@@ -392,6 +394,8 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS DataZone Project.
+
+        ## Example Usage
 
         ### Basic Usage
 

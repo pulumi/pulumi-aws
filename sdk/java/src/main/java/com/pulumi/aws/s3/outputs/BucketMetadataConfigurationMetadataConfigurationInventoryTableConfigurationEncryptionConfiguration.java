@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration {
     /**
-     * @return KMS key ARN when `sse_algorithm` is `aws:kms`.
+     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -25,7 +25,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
 
     private BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration() {}
     /**
-     * @return KMS key ARN when `sse_algorithm` is `aws:kms`.
+     * @return KMS key ARN when `sseAlgorithm` is `aws:kms`.
      * 
      */
     public Optional<String> kmsKeyArn() {

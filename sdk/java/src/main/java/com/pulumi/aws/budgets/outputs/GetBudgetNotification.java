@@ -23,12 +23,12 @@ public final class GetBudgetNotification {
      */
     private String notificationType;
     /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
      * 
      */
     private List<String> subscriberEmailAddresses;
     /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
      * 
      */
     private List<String> subscriberSnsTopicArns;
@@ -59,14 +59,14 @@ public final class GetBudgetNotification {
         return this.notificationType;
     }
     /**
-     * @return (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+     * @return (Optional) E-Mail addresses to notify. Either this or `subscriberSnsTopicArns` is required.
      * 
      */
     public List<String> subscriberEmailAddresses() {
         return this.subscriberEmailAddresses;
     }
     /**
-     * @return (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+     * @return (Optional) SNS topics to notify. Either this or `subscriberEmailAddresses` is required.
      * 
      */
     public List<String> subscriberSnsTopicArns() {

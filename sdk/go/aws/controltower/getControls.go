@@ -12,6 +12,8 @@ import (
 )
 
 // List of Control Tower controls applied to an OU.
+//
+// ## Example Usage
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult

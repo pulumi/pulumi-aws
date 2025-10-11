@@ -21,14 +21,14 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
     public static final WebAclRuleGroupAssociationArgs Empty = new WebAclRuleGroupAssociationArgs();
 
     /**
-     * Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+     * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      * 
      */
     @Import(name="managedRuleGroup")
     private @Nullable Output<WebAclRuleGroupAssociationManagedRuleGroupArgs> managedRuleGroup;
 
     /**
-     * @return Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+     * @return Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      * 
      */
     public Optional<Output<WebAclRuleGroupAssociationManagedRuleGroupArgs>> managedRuleGroup() {
@@ -81,14 +81,14 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+     * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      * 
      */
     @Import(name="ruleGroupReference")
     private @Nullable Output<WebAclRuleGroupAssociationRuleGroupReferenceArgs> ruleGroupReference;
 
     /**
-     * @return Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+     * @return Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      * 
      */
     public Optional<Output<WebAclRuleGroupAssociationRuleGroupReferenceArgs>> ruleGroupReference() {
@@ -168,7 +168,7 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param managedRuleGroup Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+         * @param managedRuleGroup Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param managedRuleGroup Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
+         * @param managedRuleGroup Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ruleGroupReference Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+         * @param ruleGroupReference Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class WebAclRuleGroupAssociationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ruleGroupReference Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
+         * @param ruleGroupReference Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
          * 
          * @return builder
          * 

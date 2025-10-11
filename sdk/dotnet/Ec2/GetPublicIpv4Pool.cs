@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         /// <summary>
         /// Name of the location from which the address pool is advertised.
-        /// * pool_address_ranges` - List of Address Ranges in the Pool; each address range record contains:
+        /// * PoolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
         /// </summary>
         public readonly string NetworkBorderGroup;
         public readonly ImmutableArray<Outputs.GetPublicIpv4PoolPoolAddressRangeResult> PoolAddressRanges;

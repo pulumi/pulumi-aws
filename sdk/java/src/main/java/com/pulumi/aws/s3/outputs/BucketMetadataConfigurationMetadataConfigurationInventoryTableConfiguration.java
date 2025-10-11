@@ -19,7 +19,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
      */
     private String configurationState;
     /**
-     * @return Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
      * 
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration encryptionConfiguration;
@@ -43,7 +43,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         return this.configurationState;
     }
     /**
-     * @return Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
+     * @return Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
      * 
      */
     public Optional<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration> encryptionConfiguration() {

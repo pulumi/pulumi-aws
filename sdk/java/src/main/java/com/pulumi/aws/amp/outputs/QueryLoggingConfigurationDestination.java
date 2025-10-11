@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class QueryLoggingConfigurationDestination {
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
     private @Nullable QueryLoggingConfigurationDestinationCloudwatchLogs cloudwatchLogs;
@@ -25,7 +25,7 @@ public final class QueryLoggingConfigurationDestination {
 
     private QueryLoggingConfigurationDestination() {}
     /**
-     * @return Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+     * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
     public Optional<QueryLoggingConfigurationDestinationCloudwatchLogs> cloudwatchLogs() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// This resource can be useful for getting back a list of VPC Ids for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `Count` of an aws.ec2.FlowLog resource.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// This resource can be useful for getting back a list of VPC Ids for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `Count` of an aws.ec2.FlowLog resource.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// This resource can be useful for getting back a list of VPC Ids for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+        /// An example use case would be interpolate the `aws.ec2.getVpcs` output into `Count` of an aws.ec2.FlowLog resource.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

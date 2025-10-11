@@ -18,14 +18,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     public static final LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs();
 
     /**
-     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
      * 
      */
     @Import(name="cronExpression")
     private @Nullable Output<String> cronExpression;
 
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
      * 
      */
     public Optional<Output<String>> cronExpression() {
@@ -62,14 +62,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
-     * Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
      * 
      */
     @Import(name="scripts")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs> scripts;
 
     /**
-     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+     * @return Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs>> scripts() {
@@ -77,14 +77,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
-     * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+     * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
      * 
      */
     @Import(name="times")
     private @Nullable Output<String> times;
 
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
      * 
      */
     public Optional<Output<String>> times() {
@@ -121,7 +121,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
+         * @param scripts Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resourceType` is INSTANCE. See the `scripts` configuration block.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 

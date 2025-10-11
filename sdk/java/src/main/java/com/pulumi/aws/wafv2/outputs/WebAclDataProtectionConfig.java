@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclDataProtectionConfig {
     /**
-     * @return A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+     * @return A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
      * 
      */
     private @Nullable List<WebAclDataProtectionConfigDataProtection> dataProtections;
 
     private WebAclDataProtectionConfig() {}
     /**
-     * @return A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+     * @return A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
      * 
      */
     public List<WebAclDataProtectionConfigDataProtection> dataProtections() {

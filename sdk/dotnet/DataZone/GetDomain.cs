@@ -94,13 +94,13 @@ namespace Pulumi.Aws.DataZone
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Domain. One of `name` or `id` is required
+        /// ID of the Domain. One of `Name` or `Id` is required
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the Domain. One of `name` or `id` is required.
+        /// Name of the Domain. One of `Name` or `Id` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.DataZone
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Domain. One of `name` or `id` is required
+        /// ID of the Domain. One of `Name` or `Id` is required
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Domain. One of `name` or `id` is required.
+        /// Name of the Domain. One of `Name` or `Id` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

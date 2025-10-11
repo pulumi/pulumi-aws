@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Whether to include cookies in access logs (default: `false`).
+        /// Whether to include cookies in access logs (default: `False`).
         /// </summary>
         [Input("includeCookies")]
         public Input<bool>? IncludeCookies { get; set; }

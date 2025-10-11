@@ -106,9 +106,9 @@ namespace Pulumi.Aws.Iot
         public Output<string?> CaPem { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// The certificate to be registered. If `CaPem` is unspecified, review
         /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-        /// If `ca_pem` is specified, review
+        /// If `CaPem` is specified, review
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
@@ -222,9 +222,9 @@ namespace Pulumi.Aws.Iot
         private Input<string>? _certificatePem;
 
         /// <summary>
-        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// The certificate to be registered. If `CaPem` is unspecified, review
         /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-        /// If `ca_pem` is specified, review
+        /// If `CaPem` is specified, review
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
@@ -300,9 +300,9 @@ namespace Pulumi.Aws.Iot
         private Input<string>? _certificatePem;
 
         /// <summary>
-        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// The certificate to be registered. If `CaPem` is unspecified, review
         /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-        /// If `ca_pem` is specified, review
+        /// If `CaPem` is specified, review
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>

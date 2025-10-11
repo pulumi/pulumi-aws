@@ -104,7 +104,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single solution stack, or use `most_recent` to choose the most recent one.
+        /// a single solution stack, or use `MostRecent` to choose the most recent one.
         /// </summary>
         [Input("nameRegex", required: true)]
         public string NameRegex { get; set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
-        /// a single solution stack, or use `most_recent` to choose the most recent one.
+        /// a single solution stack, or use `MostRecent` to choose the most recent one.
         /// </summary>
         [Input("nameRegex", required: true)]
         public Input<string> NameRegex { get; set; } = null!;

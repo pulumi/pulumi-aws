@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public Input<string>? PaddingPolicy { get; set; }
 
         /// <summary>
-        /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
+        /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `MaxWidth`, `MaxHeight`, `SizingPolicy`, and `PaddingPolicy` instead of `Resolution` and `AspectRatio`. The two groups of settings are mutually exclusive. Do not use them together)
         /// </summary>
         [Input("resolution")]
         public Input<string>? Resolution { get; set; }

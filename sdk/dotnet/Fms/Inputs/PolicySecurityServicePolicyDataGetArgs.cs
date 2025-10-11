@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fms.Inputs
     public sealed class PolicySecurityServicePolicyDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
+        /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `Type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         /// </summary>
         [Input("managedServiceData")]
         public Input<string>? ManagedServiceData { get; set; }
 
         /// <summary>
-        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `PolicyOption` block.
         /// </summary>
         [Input("policyOption")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionGetArgs>? PolicyOption { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+        /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `True`, the delete marker will be expired; if set to `False` the policy takes no action.
         /// </summary>
         public readonly bool? ExpiredObjectDeleteMarker;
 

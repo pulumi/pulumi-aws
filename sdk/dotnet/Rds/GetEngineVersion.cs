@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// ### With `filter`
+        /// ### With `Filter`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// ### With `filter`
+        /// ### With `Filter`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// 
-        /// ### With `filter`
+        /// ### With `Filter`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -202,13 +202,13 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+        /// Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `DefaultOnly` may help avoid `multiple RDS engine versions` errors. See also `Latest`.
         /// </summary>
         [Input("defaultOnly")]
         public bool? DefaultOnly { get; set; }
 
         /// <summary>
-        /// Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// Database engine. Engine values include `Aurora`, `aurora-mysql`, `aurora-postgresql`, `Docdb`, `Mariadb`, `Mysql`, `Neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `Postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -228,31 +228,31 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
+        /// Whether the engine version must have one or more major upgrade targets. Not including `HasMajorTarget` or setting it to `False` doesn't imply that there's no corresponding major upgrade target for the engine version.
         /// </summary>
         [Input("hasMajorTarget")]
         public bool? HasMajorTarget { get; set; }
 
         /// <summary>
-        /// Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
+        /// Whether the engine version must have one or more minor upgrade targets. Not including `HasMinorTarget` or setting it to `False` doesn't imply that there's no corresponding minor upgrade target for the engine version.
         /// </summary>
         [Input("hasMinorTarget")]
         public bool? HasMinorTarget { get; set; }
 
         /// <summary>
-        /// Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
+        /// Whether the engine version `Status` can either be `Deprecated` or `Available`. When not set or set to `False`, the engine version `Status` will always be `Available`.
         /// </summary>
         [Input("includeAll")]
         public bool? IncludeAll { get; set; }
 
         /// <summary>
-        /// Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+        /// Whether the engine version is the most recent version matching the other criteria. This is different from `DefaultOnly` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `DefaultOnly` might not prevent errors from `multiple RDS engine versions`, while `Latest` will. (`Latest` can be used with `DefaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `Latest` may not always result in the engine version being the actual latest version.
         /// </summary>
         [Input("latest")]
         public bool? Latest { get; set; }
 
         /// <summary>
-        /// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+        /// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `Postgres12`.
         /// </summary>
         [Input("parameterGroupFamily")]
         public string? ParameterGroupFamily { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredMajorTargets;
 
         /// <summary>
-        /// Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
+        /// Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredMajorTargets`.
         /// </summary>
         public List<string> PreferredMajorTargets
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredUpgradeTargets;
 
         /// <summary>
-        /// Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
+        /// Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredUpgradeTargets`.
         /// </summary>
         public List<string> PreferredUpgradeTargets
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Rds
         private List<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
+        /// Ordered list of preferred versions. The engine version will be the first match in this list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredVersions`.
         /// </summary>
         public List<string> PreferredVersions
         {
@@ -311,13 +311,13 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
+        /// Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `DefaultOnly` may help avoid `multiple RDS engine versions` errors. See also `Latest`.
         /// </summary>
         [Input("defaultOnly")]
         public Input<bool>? DefaultOnly { get; set; }
 
         /// <summary>
-        /// Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// Database engine. Engine values include `Aurora`, `aurora-mysql`, `aurora-postgresql`, `Docdb`, `Mariadb`, `Mysql`, `Neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `Postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -337,31 +337,31 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
+        /// Whether the engine version must have one or more major upgrade targets. Not including `HasMajorTarget` or setting it to `False` doesn't imply that there's no corresponding major upgrade target for the engine version.
         /// </summary>
         [Input("hasMajorTarget")]
         public Input<bool>? HasMajorTarget { get; set; }
 
         /// <summary>
-        /// Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
+        /// Whether the engine version must have one or more minor upgrade targets. Not including `HasMinorTarget` or setting it to `False` doesn't imply that there's no corresponding minor upgrade target for the engine version.
         /// </summary>
         [Input("hasMinorTarget")]
         public Input<bool>? HasMinorTarget { get; set; }
 
         /// <summary>
-        /// Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
+        /// Whether the engine version `Status` can either be `Deprecated` or `Available`. When not set or set to `False`, the engine version `Status` will always be `Available`.
         /// </summary>
         [Input("includeAll")]
         public Input<bool>? IncludeAll { get; set; }
 
         /// <summary>
-        /// Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
+        /// Whether the engine version is the most recent version matching the other criteria. This is different from `DefaultOnly` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `DefaultOnly` might not prevent errors from `multiple RDS engine versions`, while `Latest` will. (`Latest` can be used with `DefaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `Latest` may not always result in the engine version being the actual latest version.
         /// </summary>
         [Input("latest")]
         public Input<bool>? Latest { get; set; }
 
         /// <summary>
-        /// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+        /// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `Postgres12`.
         /// </summary>
         [Input("parameterGroupFamily")]
         public Input<string>? ParameterGroupFamily { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredMajorTargets;
 
         /// <summary>
-        /// Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
+        /// Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredMajorTargets`.
         /// </summary>
         public InputList<string> PreferredMajorTargets
         {
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredUpgradeTargets;
 
         /// <summary>
-        /// Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
+        /// Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredUpgradeTargets`.
         /// </summary>
         public InputList<string> PreferredUpgradeTargets
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _preferredVersions;
 
         /// <summary>
-        /// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
+        /// Ordered list of preferred versions. The engine version will be the first match in this list unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `PreferredVersions`.
         /// </summary>
         public InputList<string> PreferredVersions
         {
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Rds
         public readonly ImmutableArray<string> PreferredVersions;
         public readonly string Region;
         /// <summary>
-        /// Status of the engine version, either `available` or `deprecated`.
+        /// Status of the engine version, either `Available` or `Deprecated`.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -490,7 +490,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool SupportsLocalWriteForwarding;
         /// <summary>
-        /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+        /// Whether the engine version supports exporting the log types specified by `ExportableLogTypes` to CloudWatch Logs.
         /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
         /// <summary>

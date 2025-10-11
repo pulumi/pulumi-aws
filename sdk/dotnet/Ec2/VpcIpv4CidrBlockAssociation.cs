@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpv4CidrBlockAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpv4CidrBlockAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpv4CidrBlockAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     public sealed class GetUserEmailResult
     {
         /// <summary>
-        /// When `true`, this is the primary phone number associated with the user.
+        /// When `True`, this is the primary phone number associated with the user.
         /// </summary>
         public readonly bool Primary;
         /// <summary>

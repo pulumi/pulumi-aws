@@ -25,14 +25,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     public static final EventTargetEcsTargetArgs Empty = new EventTargetEcsTargetArgs();
 
     /**
-     * The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
      * 
      */
     @Import(name="capacityProviderStrategies")
     private @Nullable Output<List<EventTargetEcsTargetCapacityProviderStrategyArgs>> capacityProviderStrategies;
 
     /**
-     * @return The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+     * @return The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
      * 
      */
     public Optional<Output<List<EventTargetEcsTargetCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
@@ -100,14 +100,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+     * Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<EventTargetEcsTargetNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+     * @return Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
      * 
      */
     public Optional<Output<EventTargetEcsTargetNetworkConfigurationArgs>> networkConfiguration() {
@@ -256,7 +256,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+         * @param capacityProviderStrategies The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+         * @param networkConfiguration Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launchType` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
          * 
          * @return builder
          * 

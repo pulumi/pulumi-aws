@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53.Inputs
 
         /// <summary>
         /// Coordinates for a geoproximity resource record.
-        /// See `coordinates` below.
+        /// See `Coordinates` below.
         /// </summary>
         [Input("coordinates")]
         public Input<Inputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesGetArgs>? Coordinates { get; set; }

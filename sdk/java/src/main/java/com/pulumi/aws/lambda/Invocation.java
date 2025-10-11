@@ -122,16 +122,16 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * &gt; **Note:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the Lambda function to handle different lifecycle transitions uniquely. If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
+ * &gt; **Note:** `lifecycleScope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the Lambda function to handle different lifecycle transitions uniquely. If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.
  * 
  * The lifecycle key gets added with subkeys:
  * 
  * * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
- * * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
+ * * `prevInput` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
  * 
  * When the resource from the CRUD example above is created, the Lambda will receive the following JSON payload:
  * 
- * If the `database_url` changes, the Lambda will be invoked again with:
+ * If the `databaseUrl` changes, the Lambda will be invoked again with:
  * 
  * When the invocation resource is removed, the final invocation will have:
  * 

@@ -56,7 +56,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+     * The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
      * for all supported values.
      * 
@@ -65,7 +65,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
     private @Nullable Output<String> targetString;
 
     /**
-     * @return The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+     * @return The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
      * for all supported values.
      * 
@@ -76,7 +76,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
     /**
      * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
+     * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
      * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
@@ -87,7 +87,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
     /**
      * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
+     * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
      * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
      * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
      * for all supported values.
@@ -175,7 +175,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+         * @param targetString The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
          * for all supported values.
          * 
@@ -188,7 +188,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+         * @param targetString The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
          * for all supported values.
          * 
@@ -201,7 +201,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
         /**
          * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
+         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
          * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
@@ -216,7 +216,7 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
         /**
          * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
+         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
          * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.

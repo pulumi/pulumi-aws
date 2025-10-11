@@ -137,6 +137,22 @@ import (
 //	}
 //
 // ```
+//
+// ### Basic Usage - Logging to S3
+//
+// ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
+//
+// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
+//
+// console
+//
+// % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 

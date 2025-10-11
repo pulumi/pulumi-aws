@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.BotClarificationPrompt?> ClarificationPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
+        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `False`.
         /// </summary>
         [Output("createVersion")]
         public Output<bool?> CreateVersion { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.Lex
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
+        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `False`.
         /// </summary>
         [Output("detectSentiment")]
         public Output<bool?> DetectSentiment { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
+        /// Set to `True` to enable access to natural language understanding improvements. When you set the `EnableModelImprovements` parameter to true you can use the `NluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `EnableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
         [Output("enableModelImprovements")]
         public Output<bool?> EnableModelImprovements { get; private set; } = null!;
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Lex
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
+        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `EnableModelImprovements` to be set to `True` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
         [Output("nluIntentConfidenceThreshold")]
         public Output<double?> NluIntentConfidenceThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        /// If you set the `ProcessBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
         [Output("processBehavior")]
         public Output<string?> ProcessBehavior { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Lex
         /// When you send a request to create or update a bot, Amazon Lex sets the status response
         /// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
         /// build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-        /// failure_reason response element.
+        /// FailureReason response element.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.BotClarificationPromptArgs>? ClarificationPrompt { get; set; }
 
         /// <summary>
-        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
+        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `False`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }
@@ -290,13 +290,13 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
+        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `False`.
         /// </summary>
         [Input("detectSentiment")]
         public Input<bool>? DetectSentiment { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
+        /// Set to `True` to enable access to natural language understanding improvements. When you set the `EnableModelImprovements` parameter to true you can use the `NluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `EnableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
         [Input("enableModelImprovements")]
         public Input<bool>? EnableModelImprovements { get; set; }
@@ -332,13 +332,13 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
+        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `EnableModelImprovements` to be set to `True` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
         [Input("nluIntentConfidenceThreshold")]
         public Input<double>? NluIntentConfidenceThreshold { get; set; }
 
         /// <summary>
-        /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        /// If you set the `ProcessBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
         [Input("processBehavior")]
         public Input<string>? ProcessBehavior { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.BotClarificationPromptGetArgs>? ClarificationPrompt { get; set; }
 
         /// <summary>
-        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
+        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `False`.
         /// </summary>
         [Input("createVersion")]
         public Input<bool>? CreateVersion { get; set; }
@@ -410,13 +410,13 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
+        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `False`.
         /// </summary>
         [Input("detectSentiment")]
         public Input<bool>? DetectSentiment { get; set; }
 
         /// <summary>
-        /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
+        /// Set to `True` to enable access to natural language understanding improvements. When you set the `EnableModelImprovements` parameter to true you can use the `NluIntentConfidenceThreshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `EnableModelImprovements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
         [Input("enableModelImprovements")]
         public Input<bool>? EnableModelImprovements { get; set; }
@@ -464,13 +464,13 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
+        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `EnableModelImprovements` to be set to `True` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
         [Input("nluIntentConfidenceThreshold")]
         public Input<double>? NluIntentConfidenceThreshold { get; set; }
 
         /// <summary>
-        /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        /// If you set the `ProcessBehavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
         [Input("processBehavior")]
         public Input<string>? ProcessBehavior { get; set; }
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Lex
         /// When you send a request to create or update a bot, Amazon Lex sets the status response
         /// element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
         /// build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-        /// failure_reason response element.
+        /// FailureReason response element.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

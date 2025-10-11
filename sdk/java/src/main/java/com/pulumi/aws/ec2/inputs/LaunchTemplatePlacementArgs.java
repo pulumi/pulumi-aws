@@ -47,14 +47,14 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ID of the placement group for the instance. Conflicts with `group_name`.
+     * The ID of the placement group for the instance. Conflicts with `groupName`.
      * 
      */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
     /**
-     * @return The ID of the placement group for the instance. Conflicts with `group_name`.
+     * @return The ID of the placement group for the instance. Conflicts with `groupName`.
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -62,14 +62,14 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the placement group for the instance. Conflicts with `group_id`.
+     * The name of the placement group for the instance. Conflicts with `groupId`.
      * 
      */
     @Import(name="groupName")
     private @Nullable Output<String> groupName;
 
     /**
-     * @return The name of the placement group for the instance. Conflicts with `group_id`.
+     * @return The name of the placement group for the instance. Conflicts with `groupId`.
      * 
      */
     public Optional<Output<String>> groupName() {
@@ -226,7 +226,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupId The ID of the placement group for the instance. Conflicts with `group_name`.
+         * @param groupId The ID of the placement group for the instance. Conflicts with `groupName`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupId The ID of the placement group for the instance. Conflicts with `group_name`.
+         * @param groupId The ID of the placement group for the instance. Conflicts with `groupName`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupName The name of the placement group for the instance. Conflicts with `group_id`.
+         * @param groupName The name of the placement group for the instance. Conflicts with `groupId`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class LaunchTemplatePlacementArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupName The name of the placement group for the instance. Conflicts with `group_id`.
+         * @param groupName The name of the placement group for the instance. Conflicts with `groupId`.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Boolean if the value is used as a parameter. Defaults to `false`.
+        /// Boolean if the value is used as a parameter. Defaults to `False`.
         /// </summary>
         public readonly bool? Param;
         /// <summary>

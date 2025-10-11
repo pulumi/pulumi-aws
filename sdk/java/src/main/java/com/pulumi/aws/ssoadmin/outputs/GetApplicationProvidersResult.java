@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationProvidersResult {
     /**
-     * @return A list of application providers available in the current region. See `application_providers` below.
+     * @return A list of application providers available in the current region. See `applicationProviders` below.
      * 
      */
     private List<GetApplicationProvidersApplicationProvider> applicationProviders;
@@ -26,7 +26,7 @@ public final class GetApplicationProvidersResult {
 
     private GetApplicationProvidersResult() {}
     /**
-     * @return A list of application providers available in the current region. See `application_providers` below.
+     * @return A list of application providers available in the current region. See `applicationProviders` below.
      * 
      */
     public List<GetApplicationProvidersApplicationProvider> applicationProviders() {

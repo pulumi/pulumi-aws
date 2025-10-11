@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Qbusiness
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
         /// </summary>
         [Output("attachmentsConfiguration")]
         public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Qbusiness
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Information about encryption configuration. See `encryption_configuration` below.
+        /// Information about encryption configuration. See `EncryptionConfiguration` below.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Qbusiness
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Qbusiness
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
         /// </summary>
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Qbusiness
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Information about encryption configuration. See `encryption_configuration` below.
+        /// Information about encryption configuration. See `EncryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Qbusiness
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
         /// </summary>
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationGetArgs>? AttachmentsConfiguration { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Qbusiness
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Information about encryption configuration. See `encryption_configuration` below.
+        /// Information about encryption configuration. See `EncryptionConfiguration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Qbusiness
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

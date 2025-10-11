@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DevOpsGuru.Outputs
     public sealed class EventSourcesConfigEventSource
     {
         /// <summary>
-        /// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
+        /// Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `AmazonCodeGuruProfiler` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler> AmazonCodeGuruProfilers;
 

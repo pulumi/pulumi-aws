@@ -16,7 +16,7 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
 
     /**
      * ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     @Import(name="arn", required=true)
@@ -24,7 +24,7 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
 
     /**
      * @return ARN of the Listener Rule.
-     * Either `arn` or `listener_arn` must be set.
+     * Either `arn` or `listenerArn` must be set.
      * 
      */
     public String arn() {
@@ -73,7 +73,7 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
 
         /**
          * @param arn ARN of the Listener Rule.
-         * Either `arn` or `listener_arn` must be set.
+         * Either `arn` or `listenerArn` must be set.
          * 
          * @return builder
          * 

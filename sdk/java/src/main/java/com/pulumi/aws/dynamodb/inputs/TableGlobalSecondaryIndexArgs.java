@@ -81,14 +81,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
     public Output<String> projectionType() {
@@ -111,14 +111,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     @Import(name="readCapacity")
     private @Nullable Output<Integer> readCapacity;
 
     /**
-     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> readCapacity() {
@@ -141,14 +141,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     @Import(name="writeCapacity")
     private @Nullable Output<Integer> writeCapacity;
 
     /**
-     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> writeCapacity() {
@@ -282,7 +282,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          * 
          * @return builder
          * 

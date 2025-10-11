@@ -89,14 +89,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customDomainName;
 
     /**
-     * @return The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+     * @return The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
      * 
      */
     public Output<Optional<String>> customDomainName() {
@@ -311,14 +311,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.statusReason;
     }
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

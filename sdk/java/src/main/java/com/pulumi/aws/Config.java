@@ -37,7 +37,7 @@ public final class Config {
         return Codegen.objectProp("assumeRoles", TypeShape.<List<AssumeRoles>>builder(List.class).addParameter(AssumeRoles.class).build()).config(config).get();
     }
 /**
- * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
+ * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
  * 
  */
     public Optional<String> customCaBundle() {
@@ -71,14 +71,14 @@ public final class Config {
         return Codegen.objectProp("forbiddenAccountIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
+ * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
  * 
  */
     public Optional<String> httpProxy() {
         return Codegen.stringProp("httpProxy").config(config).get();
     }
 /**
- * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
+ * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
  * 
  */
     public Optional<String> httpsProxy() {
@@ -108,7 +108,7 @@ public final class Config {
         return Codegen.integerProp("maxRetries").config(config).get();
     }
 /**
- * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
+ * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
  * 
  */
     public Optional<String> noProxy() {
@@ -138,7 +138,7 @@ public final class Config {
         return Codegen.stringProp("retryMode").config(config).get();
     }
 /**
- * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
  * 
  */
     public Optional<String> s3UsEast1RegionalEndpoint() {

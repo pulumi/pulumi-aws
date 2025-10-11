@@ -15,14 +15,14 @@ public final class TableEncryptionConfigurationArgs extends com.pulumi.resources
     public static final TableEncryptionConfigurationArgs Empty = new TableEncryptionConfigurationArgs();
 
     /**
-     * The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+     * The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
      * 
      */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+     * @return The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -70,7 +70,7 @@ public final class TableEncryptionConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TableEncryptionConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+         * @param kmsKeyArn The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
          * 
          * @return builder
          * 

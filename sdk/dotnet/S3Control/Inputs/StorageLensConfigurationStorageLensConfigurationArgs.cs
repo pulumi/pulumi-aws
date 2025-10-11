@@ -37,13 +37,13 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        /// What is excluded in this configuration. Conflicts with `Include`. See Exclude below for more details.
         /// </summary>
         [Input("exclude")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs>? Exclude { get; set; }
 
         /// <summary>
-        /// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        /// What is included in this configuration. Conflicts with `Exclude`. See Include below for more details.
         /// </summary>
         [Input("include")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationIncludeArgs>? Include { get; set; }

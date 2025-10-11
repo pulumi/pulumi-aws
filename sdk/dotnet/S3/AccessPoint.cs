@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE on Access Points and Access Point Policies:** This provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
     /// 
-    /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
+    /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `S3control` endpoint provider configuration), not the `S3` endpoint provider configuration.
     /// 
     /// &gt; This resource can be used with s3 directory buckets. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html) for more information.
     /// 
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
         [Output("domainName")]
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.S3
         public Output<string> NetworkOrigin { get; private set; } = null!;
 
         /// <summary>
-        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `Policy` from your configuration or setting `Policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `Policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -212,13 +212,13 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the bucket. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `Policy` from your configuration or setting `Policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `Policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the bucket. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketAccountId { get; set; }
 
         /// <summary>
-        /// DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
+        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
         [Input("domainName")]
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? NetworkOrigin { get; set; }
 
         /// <summary>
-        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `Policy` from your configuration or setting `Policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `Policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the bucket. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

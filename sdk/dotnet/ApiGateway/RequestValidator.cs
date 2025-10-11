@@ -63,13 +63,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether to validate request body. Defaults to `false`.
+        /// Boolean whether to validate request body. Defaults to `False`.
         /// </summary>
         [Output("validateRequestBody")]
         public Output<bool?> ValidateRequestBody { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// Boolean whether to validate request parameters. Defaults to `False`.
         /// </summary>
         [Output("validateRequestParameters")]
         public Output<bool?> ValidateRequestParameters { get; private set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> RestApi { get; set; } = null!;
 
         /// <summary>
-        /// Boolean whether to validate request body. Defaults to `false`.
+        /// Boolean whether to validate request body. Defaults to `False`.
         /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
         /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// Boolean whether to validate request parameters. Defaults to `False`.
         /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }
@@ -177,13 +177,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RestApi { get; set; }
 
         /// <summary>
-        /// Boolean whether to validate request body. Defaults to `false`.
+        /// Boolean whether to validate request body. Defaults to `False`.
         /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
         /// <summary>
-        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// Boolean whether to validate request parameters. Defaults to `False`.
         /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }

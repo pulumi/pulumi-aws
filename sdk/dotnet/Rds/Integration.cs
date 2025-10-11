@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set of non-secret key–value pairs that contains additional contextual information about the data.
         /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
         /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
         /// If you don't specify an encryption key, RDS uses a default AWS owned key.
-        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// If you use the default AWS owned key, you should ignore `KmsKeyId` parameter by using `Lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> SourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
         /// </summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set of non-secret key–value pairs that contains additional contextual information about the data.
         /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
         /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
         /// If you don't specify an encryption key, RDS uses a default AWS owned key.
-        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// If you use the default AWS owned key, you should ignore `KmsKeyId` parameter by using `Lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
         /// </summary>
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set of non-secret key–value pairs that contains additional contextual information about the data.
         /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-        /// You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// You can only include this parameter if you specify the `KmsKeyId` parameter.
         /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
@@ -405,7 +405,7 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
         /// If you don't specify an encryption key, RDS uses a default AWS owned key.
-        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// If you use the default AWS owned key, you should ignore `KmsKeyId` parameter by using `Lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
         /// </summary>
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

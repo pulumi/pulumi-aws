@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleErrorActionHttp
     {
         /// <summary>
-        /// The HTTPS URL used to verify ownership of `url`.
+        /// The HTTPS URL used to verify ownership of `Url`.
         /// </summary>
         public readonly string? ConfirmationUrl;
         /// <summary>

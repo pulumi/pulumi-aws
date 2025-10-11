@@ -21,7 +21,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Set of non-secret key–value pairs that contains additional contextual information about the data.
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kms_key_id` parameter.
+     * You can only include this parameter if you specify the `kmsKeyId` parameter.
      * 
      */
     @Import(name="additionalEncryptionContext")
@@ -30,7 +30,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Set of non-secret key–value pairs that contains additional contextual information about the data.
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-     * You can only include this parameter if you specify the `kms_key_id` parameter.
+     * You can only include this parameter if you specify the `kmsKeyId` parameter.
      * 
      */
     public Optional<Output<Map<String,String>>> additionalEncryptionContext() {
@@ -70,7 +70,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * KMS key identifier for the key to use to encrypt the integration.
      * If you don&#39;t specify an encryption key, Redshift uses a default AWS owned key.
-     * You can only include this parameter if `source_arn` references a DynamoDB table.
+     * You can only include this parameter if `sourceArn` references a DynamoDB table.
      * 
      */
     @Import(name="kmsKeyId")
@@ -79,7 +79,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return KMS key identifier for the key to use to encrypt the integration.
      * If you don&#39;t specify an encryption key, Redshift uses a default AWS owned key.
-     * You can only include this parameter if `source_arn` references a DynamoDB table.
+     * You can only include this parameter if `sourceArn` references a DynamoDB table.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -117,7 +117,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
      * 
@@ -126,7 +126,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
      * 
@@ -196,7 +196,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data.
          * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-         * You can only include this parameter if you specify the `kms_key_id` parameter.
+         * You can only include this parameter if you specify the `kmsKeyId` parameter.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data.
          * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
-         * You can only include this parameter if you specify the `kms_key_id` parameter.
+         * You can only include this parameter if you specify the `kmsKeyId` parameter.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration.
          * If you don&#39;t specify an encryption key, Redshift uses a default AWS owned key.
-         * You can only include this parameter if `source_arn` references a DynamoDB table.
+         * You can only include this parameter if `sourceArn` references a DynamoDB table.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration.
          * If you don&#39;t specify an encryption key, Redshift uses a default AWS owned key.
-         * You can only include this parameter if `source_arn` references a DynamoDB table.
+         * You can only include this parameter if `sourceArn` references a DynamoDB table.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
          * 
@@ -341,7 +341,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
          * 

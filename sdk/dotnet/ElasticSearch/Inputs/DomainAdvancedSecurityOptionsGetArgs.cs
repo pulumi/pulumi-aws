@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+        /// Whether the internal user database is enabled. If not set, defaults to `False` by the AWS API.
         /// </summary>
         [Input("internalUserDatabaseEnabled")]
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }

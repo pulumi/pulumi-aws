@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? Attempts;
         /// <summary>
-        /// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        /// Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `Attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionRetryStrategyEvaluateOnExit> EvaluateOnExits;
 

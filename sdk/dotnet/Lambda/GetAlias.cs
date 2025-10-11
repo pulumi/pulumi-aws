@@ -598,7 +598,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
+        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `Uri`.
         /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;

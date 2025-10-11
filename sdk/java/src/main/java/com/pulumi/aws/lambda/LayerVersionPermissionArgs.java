@@ -49,14 +49,14 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+     * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
      * 
      */
     @Import(name="organizationId")
     private @Nullable Output<String> organizationId;
 
     /**
-     * @return AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+     * @return AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
      * 
      */
     public Optional<Output<String>> organizationId() {
@@ -216,7 +216,7 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
+         * @param organizationId AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
          * 
          * @return builder
          * 

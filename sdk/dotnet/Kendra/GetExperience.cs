@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+        /// Block that specifies the configuration information for your Amazon Kendra Experience. This includes `ContentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `UserIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExperienceConfigurationResult> Configurations;
         /// <summary>
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
+        /// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `ErrorMessage` field contains the reason that this failed.
         /// </summary>
         public readonly string Status;
         /// <summary>

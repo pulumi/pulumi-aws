@@ -51,14 +51,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+     * A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     @Import(name="icmpTypeCodes")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs>> icmpTypeCodes;
 
     /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs>>> icmpTypeCodes() {
@@ -81,14 +81,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A configuration block for PortRange. See the `port_range` block.
+     * A configuration block for PortRange. See the `portRange` block.
      * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs>> portRanges;
 
     /**
-     * @return A configuration block for PortRange. See the `port_range` block.
+     * @return A configuration block for PortRange. See the `portRange` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs>>> portRanges() {
@@ -198,7 +198,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `port_range` block.
+         * @param portRanges A configuration block for PortRange. See the `portRange` block.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `port_range` block.
+         * @param portRanges A configuration block for PortRange. See the `portRange` block.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `port_range` block.
+         * @param portRanges A configuration block for PortRange. See the `portRange` block.
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
     /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
      * 
      */
     private @Nullable List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration() {}
     /**
-     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+     * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
      * 
      */
     public List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation> storageLocations() {

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option. Defaults to `false`.
+        /// When set to `True`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "AB" when using this option. Defaults to `False`.
         /// </summary>
         [Input("convertDotsInJsonKeysToUnderscores")]
         public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }

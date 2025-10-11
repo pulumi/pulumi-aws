@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required Resources
  * 
- * * EventBridge Event Bus with `log_config` configured
+ * * EventBridge Event Bus with `logConfig` configured
  * * Log destinations:
  *   
  *     * CloudWatch Logs log group
@@ -487,7 +487,7 @@ public class EventBus extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logConfig);
     }
     /**
-     * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      * 
      * The following arguments are optional:
      * 
@@ -496,7 +496,7 @@ public class EventBus extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * @return Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
      * 
      * The following arguments are optional:
      * 
@@ -519,28 +519,28 @@ public class EventBus extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

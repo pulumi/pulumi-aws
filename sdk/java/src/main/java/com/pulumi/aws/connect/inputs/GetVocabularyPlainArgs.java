@@ -79,7 +79,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * Returns information on a specific Vocabulary by Vocabulary id
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      * 
      */
     @Import(name="vocabularyId")
@@ -88,7 +88,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * @return Returns information on a specific Vocabulary by Vocabulary id
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      * 
      */
     public Optional<String> vocabularyId() {
@@ -170,7 +170,7 @@ public final class GetVocabularyPlainArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param vocabularyId Returns information on a specific Vocabulary by Vocabulary id
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
          * 
          * @return builder
          * 

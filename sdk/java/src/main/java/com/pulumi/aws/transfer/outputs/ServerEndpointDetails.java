@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServerEndpointDetails {
     /**
-     * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     private @Nullable List<String> addressAllocationIds;
     /**
-     * @return A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     private @Nullable List<String> securityGroupIds;
     /**
-     * @return A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     private @Nullable List<String> subnetIds;
     /**
-     * @return The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
+     * @return The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
      * 
      */
     private @Nullable String vpcEndpointId;
     /**
-     * @return The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     private @Nullable String vpcId;
 
     private ServerEndpointDetails() {}
     /**
-     * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public List<String> addressAllocationIds() {
         return this.addressAllocationIds == null ? List.of() : this.addressAllocationIds;
     }
     /**
-     * @return A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
-     * @return A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }
     /**
-     * @return The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
+     * @return The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
      * 
      */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
     /**
-     * @return The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
+     * @return The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public Optional<String> vpcId() {

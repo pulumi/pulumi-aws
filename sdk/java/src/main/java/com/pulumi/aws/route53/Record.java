@@ -279,7 +279,7 @@ import javax.annotation.Nullable;
  * 
  * ### NS and SOA Record Management
  * 
- * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+ * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  * 
  * <pre>
  * {@code
@@ -561,14 +561,14 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.records);
     }
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      * 
      */
     @Export(name="setIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      * 
      */
     public Output<Optional<String>> setIdentifier() {

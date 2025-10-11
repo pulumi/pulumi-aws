@@ -94,14 +94,14 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Import(name="idpMetadataUrl")
     private @Nullable Output<String> idpMetadataUrl;
 
     /**
-     * @return The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * @return The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Optional<Output<String>> idpMetadataUrl() {
@@ -109,14 +109,14 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Import(name="idpMetadataXml")
     private @Nullable Output<String> idpMetadataXml;
 
     /**
-     * @return The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+     * @return The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Optional<Output<String>> idpMetadataXml() {
@@ -405,7 +405,7 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idpMetadataXml The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+         * @param idpMetadataXml The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idpMetadataXml The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+         * @param idpMetadataXml The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 

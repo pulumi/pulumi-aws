@@ -13,67 +13,67 @@ namespace Pulumi.Aws.Budgets.Inputs
     public sealed class BudgetCostTypesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean value whether to include credits in the cost budget. Defaults to `true`
+        /// A boolean value whether to include credits in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeCredit")]
         public Input<bool>? IncludeCredit { get; set; }
 
         /// <summary>
-        /// Whether a budget includes discounts. Defaults to `true`
+        /// Whether a budget includes discounts. Defaults to `True`
         /// </summary>
         [Input("includeDiscount")]
         public Input<bool>? IncludeDiscount { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+        /// A boolean value whether to include other subscription costs in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeOtherSubscription")]
         public Input<bool>? IncludeOtherSubscription { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+        /// A boolean value whether to include recurring costs in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeRecurring")]
         public Input<bool>? IncludeRecurring { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include refunds in the cost budget. Defaults to `true`
+        /// A boolean value whether to include refunds in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeRefund")]
         public Input<bool>? IncludeRefund { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+        /// A boolean value whether to include subscriptions in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeSubscription")]
         public Input<bool>? IncludeSubscription { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include support costs in the cost budget. Defaults to `true`
+        /// A boolean value whether to include support costs in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeSupport")]
         public Input<bool>? IncludeSupport { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include tax in the cost budget. Defaults to `true`
+        /// A boolean value whether to include tax in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeTax")]
         public Input<bool>? IncludeTax { get; set; }
 
         /// <summary>
-        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+        /// A boolean value whether to include upfront costs in the cost budget. Defaults to `True`
         /// </summary>
         [Input("includeUpfront")]
         public Input<bool>? IncludeUpfront { get; set; }
 
         /// <summary>
-        /// Whether a budget uses the amortized rate. Defaults to `false`
+        /// Whether a budget uses the amortized rate. Defaults to `False`
         /// </summary>
         [Input("useAmortized")]
         public Input<bool>? UseAmortized { get; set; }
 
         /// <summary>
-        /// A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+        /// A boolean value whether to use blended costs in the cost budget. Defaults to `False`
         /// </summary>
         [Input("useBlended")]
         public Input<bool>? UseBlended { get; set; }

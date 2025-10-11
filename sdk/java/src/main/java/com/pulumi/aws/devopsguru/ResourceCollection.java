@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * 
  * ### Tags All Resources
  * 
- * To analyze all resources with the `app_boundary_key` regardless of the corresponding tag value, set `tag_values` to `[&#34;*&#34;]`.
+ * To analyze all resources with the `appBoundaryKey` regardless of the corresponding tag value, set `tagValues` to `[&#34;*&#34;]`.
  * 
  * <pre>
  * {@code

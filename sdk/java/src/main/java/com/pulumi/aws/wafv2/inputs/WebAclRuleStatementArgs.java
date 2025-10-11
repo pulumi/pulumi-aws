@@ -31,14 +31,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     public static final WebAclRuleStatementArgs Empty = new WebAclRuleStatementArgs();
 
     /**
-     * Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+     * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
      * 
      */
     @Import(name="andStatement")
     private @Nullable Output<WebAclRuleStatementAndStatementArgs> andStatement;
 
     /**
-     * @return Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+     * @return Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementAndStatementArgs>> andStatement() {
@@ -46,14 +46,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     @Import(name="asnMatchStatement")
     private @Nullable Output<WebAclRuleStatementAsnMatchStatementArgs> asnMatchStatement;
 
     /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementAsnMatchStatementArgs>> asnMatchStatement() {
@@ -61,14 +61,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+     * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
      * 
      */
     @Import(name="byteMatchStatement")
     private @Nullable Output<WebAclRuleStatementByteMatchStatementArgs> byteMatchStatement;
 
     /**
-     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+     * @return Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementByteMatchStatementArgs>> byteMatchStatement() {
@@ -76,14 +76,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+     * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
      * 
      */
     @Import(name="geoMatchStatement")
     private @Nullable Output<WebAclRuleStatementGeoMatchStatementArgs> geoMatchStatement;
 
     /**
-     * @return Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+     * @return Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementGeoMatchStatementArgs>> geoMatchStatement() {
@@ -91,14 +91,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
      * 
      */
     @Import(name="ipSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementIpSetReferenceStatementArgs> ipSetReferenceStatement;
 
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementIpSetReferenceStatementArgs>> ipSetReferenceStatement() {
@@ -106,14 +106,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+     * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
      * 
      */
     @Import(name="labelMatchStatement")
     private @Nullable Output<WebAclRuleStatementLabelMatchStatementArgs> labelMatchStatement;
 
     /**
-     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+     * @return Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementLabelMatchStatementArgs>> labelMatchStatement() {
@@ -121,14 +121,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
+     * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
      * 
      */
     @Import(name="managedRuleGroupStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementArgs> managedRuleGroupStatement;
 
     /**
-     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
+     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementArgs>> managedRuleGroupStatement() {
@@ -136,14 +136,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+     * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
      * 
      */
     @Import(name="notStatement")
     private @Nullable Output<WebAclRuleStatementNotStatementArgs> notStatement;
 
     /**
-     * @return Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+     * @return Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementNotStatementArgs>> notStatement() {
@@ -151,14 +151,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+     * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
      * 
      */
     @Import(name="orStatement")
     private @Nullable Output<WebAclRuleStatementOrStatementArgs> orStatement;
 
     /**
-     * @return Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+     * @return Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementArgs>> orStatement() {
@@ -166,14 +166,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+     * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     @Import(name="rateBasedStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementArgs> rateBasedStatement;
 
     /**
-     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementArgs>> rateBasedStatement() {
@@ -181,14 +181,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+     * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
      * 
      */
     @Import(name="regexMatchStatement")
     private @Nullable Output<WebAclRuleStatementRegexMatchStatementArgs> regexMatchStatement;
 
     /**
-     * @return Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+     * @return Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRegexMatchStatementArgs>> regexMatchStatement() {
@@ -196,14 +196,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+     * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
      * 
      */
     @Import(name="regexPatternSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement;
 
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRegexPatternSetReferenceStatementArgs>> regexPatternSetReferenceStatement() {
@@ -211,14 +211,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
+     * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
      * 
      */
     @Import(name="ruleGroupReferenceStatement")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementArgs> ruleGroupReferenceStatement;
 
     /**
-     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
+     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementArgs>> ruleGroupReferenceStatement() {
@@ -226,14 +226,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
+     * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
      * 
      */
     @Import(name="sizeConstraintStatement")
     private @Nullable Output<WebAclRuleStatementSizeConstraintStatementArgs> sizeConstraintStatement;
 
     /**
-     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
+     * @return Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
      * 
      */
     public Optional<Output<WebAclRuleStatementSizeConstraintStatementArgs>> sizeConstraintStatement() {
@@ -241,14 +241,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+     * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
      * 
      */
     @Import(name="sqliMatchStatement")
     private @Nullable Output<WebAclRuleStatementSqliMatchStatementArgs> sqliMatchStatement;
 
     /**
-     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+     * @return An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementSqliMatchStatementArgs>> sqliMatchStatement() {
@@ -256,14 +256,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+     * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
      * 
      */
     @Import(name="xssMatchStatement")
     private @Nullable Output<WebAclRuleStatementXssMatchStatementArgs> xssMatchStatement;
 
     /**
-     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+     * @return Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -310,7 +310,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+         * @param andStatement Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+         * @param asnMatchStatement Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+         * @param byteMatchStatement Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+         * @param geoMatchStatement Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+         * @param labelMatchStatement Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
+         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
+         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+         * @param notStatement Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+         * @param orStatement Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+         * @param regexMatchStatement Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
+         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
+         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
+         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
+         * @param sizeConstraintStatement Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `sizeConstraintStatement` below for more details.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+         * @param sqliMatchStatement An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+         * @param xssMatchStatement Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
          * 
          * @return builder
          * 

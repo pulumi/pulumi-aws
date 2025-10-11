@@ -122,14 +122,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:shield/proactiveEngagement:ProactiveEngagement")
 public class ProactiveEngagement extends com.pulumi.resources.CustomResource {
     /**
-     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+     * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      * 
      */
     @Export(name="emergencyContacts", refs={List.class,ProactiveEngagementEmergencyContact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProactiveEngagementEmergencyContact>> emergencyContacts;
 
     /**
-     * @return One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+     * @return One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      * 
      */
     public Output<Optional<List<ProactiveEngagementEmergencyContact>>> emergencyContacts() {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string Clients;
         /// <summary>
-        /// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        /// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `Crossmount` and `Sync` are used by default.
         /// </summary>
         public readonly ImmutableArray<string> Options;
 

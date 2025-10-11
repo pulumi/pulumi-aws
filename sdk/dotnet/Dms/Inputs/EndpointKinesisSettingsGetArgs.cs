@@ -13,43 +13,43 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointKinesisSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `False`.
         /// </summary>
         [Input("includeControlDetails")]
         public Input<bool>? IncludeControlDetails { get; set; }
 
         /// <summary>
-        /// Include NULL and empty columns in the target. Default is `false`.
+        /// Include NULL and empty columns in the target. Default is `False`.
         /// </summary>
         [Input("includeNullAndEmpty")]
         public Input<bool>? IncludeNullAndEmpty { get; set; }
 
         /// <summary>
-        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `False`.
         /// </summary>
         [Input("includePartitionValue")]
         public Input<bool>? IncludePartitionValue { get; set; }
 
         /// <summary>
-        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `False`.
         /// </summary>
         [Input("includeTableAlterOperations")]
         public Input<bool>? IncludeTableAlterOperations { get; set; }
 
         /// <summary>
-        /// Provides detailed transaction information from the source database. Default is `false`.
+        /// Provides detailed transaction information from the source database. Default is `False`.
         /// </summary>
         [Input("includeTransactionDetails")]
         public Input<bool>? IncludeTransactionDetails { get; set; }
 
         /// <summary>
-        /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+        /// Output format for the records created. Default is `Json`. Valid values are `Json` and `json-unformatted` (a single line with no tab).
         /// </summary>
         [Input("messageFormat")]
         public Input<string>? MessageFormat { get; set; }
 
         /// <summary>
-        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `False`.
         /// </summary>
         [Input("partitionIncludeSchemaTable")]
         public Input<bool>? PartitionIncludeSchemaTable { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? StreamArn { get; set; }
 
         /// <summary>
-        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+        /// Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `False`.
         /// </summary>
         [Input("useLargeIntegerValue")]
         public Input<bool>? UseLargeIntegerValue { get; set; }

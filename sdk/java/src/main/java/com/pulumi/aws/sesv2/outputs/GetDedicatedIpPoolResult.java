@@ -19,7 +19,7 @@ public final class GetDedicatedIpPoolResult {
      */
     private String arn;
     /**
-     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
+     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
      * 
      */
     private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
@@ -50,7 +50,7 @@ public final class GetDedicatedIpPoolResult {
         return this.arn;
     }
     /**
-     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicated_ips`.
+     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
      * 
      */
     public List<GetDedicatedIpPoolDedicatedIp> dedicatedIps() {

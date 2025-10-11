@@ -31,7 +31,7 @@ public final class GetQuickConnectResult {
     private String instanceId;
     private String name;
     /**
-     * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+     * @return A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      * 
      */
     private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
@@ -76,7 +76,7 @@ public final class GetQuickConnectResult {
         return this.name;
     }
     /**
-     * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+     * @return A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      * 
      */
     public List<GetQuickConnectQuickConnectConfig> quickConnectConfigs() {

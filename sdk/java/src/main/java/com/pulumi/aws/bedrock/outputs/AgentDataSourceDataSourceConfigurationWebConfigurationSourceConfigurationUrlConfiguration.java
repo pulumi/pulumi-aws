@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
     /**
-     * @return List of one or more seed URLs to crawl. See `seed_urls` block for details.
+     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
      * 
      */
     private @Nullable List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> seedUrls;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration() {}
     /**
-     * @return List of one or more seed URLs to crawl. See `seed_urls` block for details.
+     * @return List of one or more seed URLs to crawl. See `seedUrls` block for details.
      * 
      */
     public List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> seedUrls() {

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
@@ -64,19 +66,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         [Output("routingConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentAliasRoutingConfiguration>> RoutingConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,7 +162,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs> RoutingConfigurations
         {
@@ -172,7 +174,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -233,7 +235,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// Details about the routing configuration of the alias. See `RoutingConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs> RoutingConfigurations
         {
@@ -245,7 +247,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -257,7 +259,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

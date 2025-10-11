@@ -18,11 +18,11 @@ namespace Pulumi.Aws.CloudTrail.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TrailEventSelectorDataResource> DataResources;
         /// <summary>
-        /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+        /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `IncludeManagementEvents` must be set to`True` to allow this.
         /// </summary>
         public readonly ImmutableArray<string> ExcludeManagementEventSources;
         /// <summary>
-        /// Whether to include management events for your trail. Defaults to `true`.
+        /// Whether to include management events for your trail. Defaults to `True`.
         /// </summary>
         public readonly bool? IncludeManagementEvents;
         /// <summary>

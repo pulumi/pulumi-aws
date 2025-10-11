@@ -20,12 +20,12 @@ public final class TriggerAction {
      */
     private @Nullable Map<String,String> arguments;
     /**
-     * @return The name of the crawler to be executed. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     private @Nullable String crawlerName;
     /**
-     * @return The name of a job to be executed. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     private @Nullable String jobName;
@@ -54,14 +54,14 @@ public final class TriggerAction {
         return this.arguments == null ? Map.of() : this.arguments;
     }
     /**
-     * @return The name of the crawler to be executed. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     public Optional<String> crawlerName() {
         return Optional.ofNullable(this.crawlerName);
     }
     /**
-     * @return The name of a job to be executed. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     public Optional<String> jobName() {

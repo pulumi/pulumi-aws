@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
         public readonly Outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings Settings;
         /// <summary>
         /// Whether the configuration is enabled.
-        /// Valid values are `enabled` and `disabled`.
+        /// Valid values are `Enabled` and `Disabled`.
         /// </summary>
         public readonly string Status;
 

@@ -33,14 +33,14 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
     }
 
     /**
-     * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
      * 
      */
     @Import(name="unhealthyDrainingInterval")
     private @Nullable Output<Integer> unhealthyDrainingInterval;
 
     /**
-     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
      * 
      */
     public Optional<Output<Integer>> unhealthyDrainingInterval() {
@@ -94,7 +94,7 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
          * 
          * @return builder
          * 

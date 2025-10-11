@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
     public sealed class ApplicationAppversionLifecycleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+        /// Set to `True` to delete a version's source bundle from S3 when the application version is deleted.
         /// </summary>
         [Input("deleteSourceFromS3")]
         public Input<bool>? DeleteSourceFromS3 { get; set; }

@@ -19,14 +19,14 @@ import javax.annotation.Nullable;
  * Provides an AutoScaling Lifecycle Hook resource.
  * 
  * &gt; **NOTE:** This provider has two types of ways you can add lifecycle hooks - via
- * the `initial_lifecycle_hook` attribute from the
+ * the `initialLifecycleHook` attribute from the
  * `aws.autoscaling.Group`
  * resource, or via this one. Hooks added via this resource will not be added
  * until the autoscaling group has been created, and depending on your
  * capacity
  * settings, after the initial instances have been launched, creating unintended
  * behavior. If you need hooks to run on all instances, add them with
- * `initial_lifecycle_hook` in
+ * `initialLifecycleHook` in
  * `aws.autoscaling.Group`,
  * but take care to not duplicate those hooks with this resource.
  * 

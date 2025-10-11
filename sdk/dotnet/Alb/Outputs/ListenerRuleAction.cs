@@ -14,21 +14,21 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerRuleAction
     {
         /// <summary>
-        /// Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+        /// Information for creating an authenticate action using Cognito. Required if `Type` is `authenticate-cognito`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionAuthenticateCognito? AuthenticateCognito;
         /// <summary>
-        /// Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+        /// Information for creating an authenticate action using OIDC. Required if `Type` is `authenticate-oidc`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionAuthenticateOidc? AuthenticateOidc;
         /// <summary>
-        /// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        /// Information for creating an action that returns a custom HTTP response. Required if `Type` is `fixed-response`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionFixedResponse? FixedResponse;
         /// <summary>
         /// Configuration block for creating an action that distributes requests among one or more target groups.
-        /// Specify only if `type` is `forward`.
-        /// Cannot be specified with `target_group_arn`.
+        /// Specify only if `Type` is `Forward`.
+        /// Cannot be specified with `TargetGroupArn`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionForward? Forward;
         /// <summary>
@@ -39,18 +39,18 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly int? Order;
         /// <summary>
-        /// Information for creating a redirect action. Required if `type` is `redirect`.
+        /// Information for creating a redirect action. Required if `Type` is `Redirect`.
         /// </summary>
         public readonly Outputs.ListenerRuleActionRedirect? Redirect;
         /// <summary>
         /// ARN of the Target Group to which to route traffic.
-        /// Specify only if `type` is `forward` and you want to route to a single target group.
-        /// To route to one or more target groups, use a `forward` block instead.
-        /// Cannot be specified with `forward`.
+        /// Specify only if `Type` is `Forward` and you want to route to a single target group.
+        /// To route to one or more target groups, use a `Forward` block instead.
+        /// Cannot be specified with `Forward`.
         /// </summary>
         public readonly string? TargetGroupArn;
         /// <summary>
-        /// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+        /// The type of routing action. Valid values are `Forward`, `Redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         /// </summary>
         public readonly string Type;
 

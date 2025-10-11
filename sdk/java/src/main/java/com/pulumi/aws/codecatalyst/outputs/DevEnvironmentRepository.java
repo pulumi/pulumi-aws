@@ -15,7 +15,7 @@ public final class DevEnvironmentRepository {
     /**
      * @return The name of the branch in a source repository.
      * 
-     * persistent storage (`  persistent_storage `) supports the following:
+     * persistent storage (`  persistentStorage `) supports the following:
      * 
      */
     private @Nullable String branchName;
@@ -29,7 +29,7 @@ public final class DevEnvironmentRepository {
     /**
      * @return The name of the branch in a source repository.
      * 
-     * persistent storage (`  persistent_storage `) supports the following:
+     * persistent storage (`  persistentStorage `) supports the following:
      * 
      */
     public Optional<String> branchName() {

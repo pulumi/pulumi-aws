@@ -403,7 +403,7 @@ namespace Pulumi.Aws.LB
     public partial class Listener : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `Protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         /// </summary>
         [Output("alpnPolicy")]
         public Output<string?> AlpnPolicy { get; private set; } = null!;
@@ -507,7 +507,7 @@ namespace Pulumi.Aws.LB
         public Output<string> RoutingHttpRequestXAmznTlsVersionHeaderName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `True`.
         /// </summary>
         [Output("routingHttpResponseAccessControlAllowCredentialsHeaderValue")]
         public Output<string> RoutingHttpResponseAccessControlAllowCredentialsHeaderValue { get; private set; } = null!;
@@ -549,7 +549,7 @@ namespace Pulumi.Aws.LB
         public Output<string> RoutingHttpResponseContentSecurityPolicyHeaderValue { get; private set; } = null!;
 
         /// <summary>
-        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `True` or `False`.
         /// </summary>
         [Output("routingHttpResponseServerEnabled")]
         public Output<bool> RoutingHttpResponseServerEnabled { get; private set; } = null!;
@@ -561,7 +561,7 @@ namespace Pulumi.Aws.LB
         public Output<string> RoutingHttpResponseStrictTransportSecurityHeaderValue { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `Nosniff`.
         /// </summary>
         [Output("routingHttpResponseXContentTypeOptionsHeaderValue")]
         public Output<string> RoutingHttpResponseXContentTypeOptionsHeaderValue { get; private set; } = null!;
@@ -573,13 +573,13 @@ namespace Pulumi.Aws.LB
         public Output<string> RoutingHttpResponseXFrameOptionsHeaderValue { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
+        /// Name of the SSL Policy for the listener. Required if `Protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Output("sslPolicy")]
         public Output<string> SslPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         /// </summary>
@@ -587,7 +587,7 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -649,7 +649,7 @@ namespace Pulumi.Aws.LB
     public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `Protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         /// </summary>
         [Input("alpnPolicy")]
         public Input<string>? AlpnPolicy { get; set; }
@@ -753,7 +753,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpRequestXAmznTlsVersionHeaderName { get; set; }
 
         /// <summary>
-        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `True`.
         /// </summary>
         [Input("routingHttpResponseAccessControlAllowCredentialsHeaderValue")]
         public Input<string>? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue { get; set; }
@@ -795,7 +795,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseContentSecurityPolicyHeaderValue { get; set; }
 
         /// <summary>
-        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `True` or `False`.
         /// </summary>
         [Input("routingHttpResponseServerEnabled")]
         public Input<bool>? RoutingHttpResponseServerEnabled { get; set; }
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseStrictTransportSecurityHeaderValue { get; set; }
 
         /// <summary>
-        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `Nosniff`.
         /// </summary>
         [Input("routingHttpResponseXContentTypeOptionsHeaderValue")]
         public Input<string>? RoutingHttpResponseXContentTypeOptionsHeaderValue { get; set; }
@@ -819,7 +819,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseXFrameOptionsHeaderValue { get; set; }
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
+        /// Name of the SSL Policy for the listener. Required if `Protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
@@ -828,7 +828,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         /// </summary>
@@ -853,7 +853,7 @@ namespace Pulumi.Aws.LB
     public sealed class ListenerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
+        /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `Protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         /// </summary>
         [Input("alpnPolicy")]
         public Input<string>? AlpnPolicy { get; set; }
@@ -963,7 +963,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpRequestXAmznTlsVersionHeaderName { get; set; }
 
         /// <summary>
-        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+        /// Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `True`.
         /// </summary>
         [Input("routingHttpResponseAccessControlAllowCredentialsHeaderValue")]
         public Input<string>? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue { get; set; }
@@ -1005,7 +1005,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseContentSecurityPolicyHeaderValue { get; set; }
 
         /// <summary>
-        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+        /// Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `True` or `False`.
         /// </summary>
         [Input("routingHttpResponseServerEnabled")]
         public Input<bool>? RoutingHttpResponseServerEnabled { get; set; }
@@ -1017,7 +1017,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseStrictTransportSecurityHeaderValue { get; set; }
 
         /// <summary>
-        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+        /// Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `Nosniff`.
         /// </summary>
         [Input("routingHttpResponseXContentTypeOptionsHeaderValue")]
         public Input<string>? RoutingHttpResponseXContentTypeOptionsHeaderValue { get; set; }
@@ -1029,7 +1029,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RoutingHttpResponseXFrameOptionsHeaderValue { get; set; }
 
         /// <summary>
-        /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
+        /// Name of the SSL Policy for the listener. Required if `Protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
@@ -1038,7 +1038,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         /// </summary>
@@ -1052,7 +1052,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

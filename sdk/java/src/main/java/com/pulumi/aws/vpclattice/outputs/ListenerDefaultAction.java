@@ -17,7 +17,7 @@ public final class ListenerDefaultAction {
     /**
      * @return Route requests to one or more target groups. See Forward blocks below.
      * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
      * 
      */
     private @Nullable List<ListenerDefaultActionForward> forwards;
@@ -29,7 +29,7 @@ public final class ListenerDefaultAction {
     /**
      * @return Route requests to one or more target groups. See Forward blocks below.
      * 
-     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
      * 
      */
     public List<ListenerDefaultActionForward> forwards() {

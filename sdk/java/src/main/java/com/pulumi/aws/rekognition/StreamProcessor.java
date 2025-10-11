@@ -337,14 +337,14 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * See `data_sharing_preference`.
+     * See `dataSharingPreference`.
      * 
      */
     @Export(name="dataSharingPreference", refs={StreamProcessorDataSharingPreference.class}, tree="[0]")
     private Output</* @Nullable */ StreamProcessorDataSharingPreference> dataSharingPreference;
 
     /**
-     * @return See `data_sharing_preference`.
+     * @return See `dataSharingPreference`.
      * 
      */
     public Output<Optional<StreamProcessorDataSharingPreference>> dataSharingPreference() {
@@ -393,14 +393,14 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     @Export(name="notificationChannel", refs={StreamProcessorNotificationChannel.class}, tree="[0]")
     private Output</* @Nullable */ StreamProcessorNotificationChannel> notificationChannel;
 
     /**
-     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     public Output<Optional<StreamProcessorNotificationChannel>> notificationChannel() {
@@ -435,14 +435,14 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+     * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     @Export(name="regionsOfInterests", refs={List.class,StreamProcessorRegionsOfInterest.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StreamProcessorRegionsOfInterest>> regionsOfInterests;
 
     /**
-     * @return Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+     * @return Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     public Output<Optional<List<StreamProcessorRegionsOfInterest>>> regionsOfInterests() {
@@ -501,28 +501,28 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.streamProcessorArn;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

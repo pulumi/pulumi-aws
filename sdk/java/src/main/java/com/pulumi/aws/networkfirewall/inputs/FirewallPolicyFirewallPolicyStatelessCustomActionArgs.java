@@ -16,14 +16,14 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
     public static final FirewallPolicyFirewallPolicyStatelessCustomActionArgs Empty = new FirewallPolicyFirewallPolicyStatelessCustomActionArgs();
 
     /**
-     * A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     @Import(name="actionDefinition", required=true)
     private Output<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs> actionDefinition;
 
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     public Output<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs> actionDefinition() {
@@ -71,7 +71,7 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
         }
 
         /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
         }
 
         /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+         * @param actionDefinition A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
          * 
          * @return builder
          * 

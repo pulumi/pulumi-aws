@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### cluster_identifier
+ * ### clusterIdentifier
  * 
  * <pre>
  * {@code
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### workgroup_name
+ * ### workgroupName
  * 
  * <pre>
  * {@code

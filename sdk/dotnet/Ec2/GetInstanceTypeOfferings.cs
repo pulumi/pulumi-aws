@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+        /// Location type. Defaults to `Region`. Valid values: `availability-zone`, `availability-zone-id`, and `Region`.
         /// </summary>
         [Input("locationType")]
         public string? LocationType { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+        /// Location type. Defaults to `Region`. Valid values: `availability-zone`, `availability-zone-id`, and `Region`.
         /// </summary>
         [Input("locationType")]
         public Input<string>? LocationType { get; set; }

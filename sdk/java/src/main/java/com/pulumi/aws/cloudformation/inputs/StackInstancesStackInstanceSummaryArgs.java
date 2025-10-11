@@ -61,14 +61,14 @@ public final class StackInstancesStackInstanceSummaryArgs extends com.pulumi.res
     }
 
     /**
-     * Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+     * Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
      * 
      */
     @Import(name="organizationalUnitId")
     private @Nullable Output<String> organizationalUnitId;
 
     /**
-     * @return Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+     * @return Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
      * 
      */
     public Optional<Output<String>> organizationalUnitId() {
@@ -246,7 +246,7 @@ public final class StackInstancesStackInstanceSummaryArgs extends com.pulumi.res
         }
 
         /**
-         * @param organizationalUnitId Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+         * @param organizationalUnitId Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class StackInstancesStackInstanceSummaryArgs extends com.pulumi.res
         }
 
         /**
-         * @param organizationalUnitId Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+         * @param organizationalUnitId Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
          * 
          * @return builder
          * 

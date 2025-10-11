@@ -17,14 +17,14 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
     public static final ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs();
 
     /**
-     * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+     * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
      * 
      */
     @Import(name="provisionedThroughput")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs> provisionedThroughput;
 
     /**
-     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
      * 
      */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs>> provisionedThroughput() {
@@ -72,7 +72,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
         }
 
         /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
          * 
          * @return builder
          * 

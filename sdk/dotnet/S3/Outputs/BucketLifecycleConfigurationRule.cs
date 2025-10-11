@@ -39,7 +39,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleConfigurationRuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
         /// <summary>
-        /// **DEPRECATED** Use `filter` instead.
+        /// **DEPRECATED** Use `Filter` instead.
         /// This has been deprecated by Amazon S3.
         /// Prefix identifying one or more objects to which the rule applies.
         /// </summary>

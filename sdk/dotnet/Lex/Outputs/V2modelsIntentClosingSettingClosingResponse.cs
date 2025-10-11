@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly bool? AllowInterrupt;
         /// <summary>
-        /// Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
+        /// Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `MessageGroup`.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsIntentClosingSettingClosingResponseMessageGroup> MessageGroups;
 

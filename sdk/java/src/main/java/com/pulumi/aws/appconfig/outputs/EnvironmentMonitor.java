@@ -18,7 +18,7 @@ public final class EnvironmentMonitor {
      */
     private String alarmArn;
     /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+     * @return ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
      * 
      */
     private @Nullable String alarmRoleArn;
@@ -32,7 +32,7 @@ public final class EnvironmentMonitor {
         return this.alarmArn;
     }
     /**
-     * @return ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+     * @return ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
      * 
      */
     public Optional<String> alarmRoleArn() {

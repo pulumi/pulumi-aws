@@ -12,9 +12,9 @@ namespace Pulumi.Aws.CloudFormation
     /// <summary>
     /// Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
     /// 
-    /// &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `execution_role_name` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+    /// &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `ExecutionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
     /// 
-    /// &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
+    /// &gt; **NOTE:** To retain the Stack during resource destroy, ensure `RetainStack` has been set to `True` in the state first. This must be completed _before_ a deployment that would destroy the resource.
     /// 
     /// ## Example Usage
     /// 
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string?> CallAs { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See DeploymentTargets below.
         /// </summary>
         [Output("deploymentTargets")]
         public Output<Outputs.StackSetInstanceDeploymentTargets?> DeploymentTargets { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableDictionary<string, string>?> ParameterOverrides { get; private set; } = null!;
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `StackSetInstanceRegion` instead.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `False`.
         /// </summary>
         [Output("retainStack")]
         public Output<bool?> RetainStack { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> StackId { get; private set; } = null!;
 
         /// <summary>
-        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `DeploymentTargets` is set. See `StackInstanceSummaries`.
         /// </summary>
         [Output("stackInstanceSummaries")]
         public Output<ImmutableArray<Outputs.StackSetInstanceStackInstanceSummary>> StackInstanceSummaries { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? CallAs { get; set; }
 
         /// <summary>
-        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See DeploymentTargets below.
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsArgs>? DeploymentTargets { get; set; }
@@ -319,13 +319,13 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `StackSetInstanceRegion` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `False`.
         /// </summary>
         [Input("retainStack")]
         public Input<bool>? RetainStack { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? CallAs { get; set; }
 
         /// <summary>
-        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See DeploymentTargets below.
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsGetArgs>? DeploymentTargets { get; set; }
@@ -393,13 +393,13 @@ namespace Pulumi.Aws.CloudFormation
         }
 
         /// <summary>
-        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `StackSetInstanceRegion` instead.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `False`.
         /// </summary>
         [Input("retainStack")]
         public Input<bool>? RetainStack { get; set; }
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs>? _stackInstanceSummaries;
 
         /// <summary>
-        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `DeploymentTargets` is set. See `StackInstanceSummaries`.
         /// </summary>
         public InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs> StackInstanceSummaries
         {

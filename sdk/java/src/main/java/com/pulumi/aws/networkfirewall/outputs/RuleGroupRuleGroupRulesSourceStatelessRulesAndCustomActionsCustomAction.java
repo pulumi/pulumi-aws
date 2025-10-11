@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction {
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition;
@@ -24,7 +24,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
 
     private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction() {}
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinition actionDefinition() {

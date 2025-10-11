@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclDataProtectionConfigDataProtectionGetArgs>? _dataProtections;
 
         /// <summary>
-        /// A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        /// A block for data protection configurations for specific web request field types. See `DataProtection` block for details.
         /// </summary>
         public InputList<Inputs.WebAclDataProtectionConfigDataProtectionGetArgs> DataProtections
         {

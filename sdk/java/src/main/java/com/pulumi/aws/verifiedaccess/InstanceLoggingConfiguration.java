@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With `include_trust_context`
+ * ### With `includeTrustContext`
  * 
  * <pre>
  * {@code
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With `log_version`
+ * ### With `logVersion`
  * 
  * <pre>
  * {@code

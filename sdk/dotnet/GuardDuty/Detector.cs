@@ -12,7 +12,7 @@ namespace Pulumi.Aws.GuardDuty
     /// <summary>
     /// Provides a resource to manage an Amazon GuardDuty detector.
     /// 
-    /// &gt; **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
+    /// &gt; **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `Enable` attribute to `False` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
     /// 
     /// ## Example Usage
     /// 
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<Outputs.DetectorDatasources> Datasources { get; private set; } = null!;
 
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Enable monitoring and feedback reporting. Setting to `False` is equivalent to "suspending" GuardDuty. Defaults to `True`.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -105,13 +105,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<Inputs.DetectorDatasourcesArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Enable monitoring and feedback reporting. Setting to `False` is equivalent to "suspending" GuardDuty. Defaults to `True`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<Inputs.DetectorDatasourcesGetArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Enable monitoring and feedback reporting. Setting to `False` is equivalent to "suspending" GuardDuty. Defaults to `True`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -92,13 +92,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Body { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
         /// </summary>
         [Output("failOnWarnings")]
         public Output<bool> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
-        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> Body { get; set; } = null!;
 
         /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+        /// Whether to rollback the API update when a warning is encountered. The default value is `False`.
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// Map of customizations for importing the specification in the `Body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `Basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         public InputMap<string> Parameters
         {

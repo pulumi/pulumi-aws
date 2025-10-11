@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string CloudwatchLogsRoleArn;
         /// <summary>
-        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `True`, `False`. Default value: `False`
         /// </summary>
         public readonly bool? ExcludeVerboseContent;
         /// <summary>

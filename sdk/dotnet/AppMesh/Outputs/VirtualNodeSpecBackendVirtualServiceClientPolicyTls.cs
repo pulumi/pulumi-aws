@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate? Certificate;
         /// <summary>
-        /// Whether the policy is enforced. Default is `true`.
+        /// Whether the policy is enforced. Default is `True`.
         /// </summary>
         public readonly bool? Enforce;
         /// <summary>

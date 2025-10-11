@@ -25,7 +25,7 @@ public final class WebAclLoggingConfigurationRedactedField {
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString;
     /**
-     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+     * @return &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
@@ -51,7 +51,7 @@ public final class WebAclLoggingConfigurationRedactedField {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
+     * @return &#34;singleHeader&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     public Optional<WebAclLoggingConfigurationRedactedFieldSingleHeader> singleHeader() {

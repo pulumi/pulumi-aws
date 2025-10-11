@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * Provides an HTTP Method Integration Response for an API Gateway Resource.
  * 
  * &gt; **Note:** Depends on having `aws.apigateway.Integration` inside your rest api. To ensure this
- * you might need to add an explicit `depends_on` for clean runs.
+ * you might need to add an explicit `dependsOn` for clean runs.
  * 
  * ## Example Usage
  * 
@@ -174,14 +174,14 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+     * Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     @Export(name="responseParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseParameters;
 
     /**
-     * @return Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
+     * @return Map of response parameters that can be read from the backend response. For example: `responseParameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
     public Output<Optional<Map<String,String>>> responseParameters() {

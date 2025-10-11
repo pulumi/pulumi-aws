@@ -25,7 +25,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         public Input<string> SourceColumn { get; set; } = null!;
 
         /// <summary>
-        /// Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+        /// Custom name to be used for attribute name in derived table. If not provided, `SourceColumn` is used.
         /// </summary>
         [Input("targetMultiMeasureAttributeName")]
         public Input<string>? TargetMultiMeasureAttributeName { get; set; }

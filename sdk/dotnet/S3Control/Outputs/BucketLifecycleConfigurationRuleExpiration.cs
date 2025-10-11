@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+        /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `Date` or `Days`.
         /// </summary>
         public readonly bool? ExpiredObjectDeleteMarker;
 

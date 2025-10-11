@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        /// The replication rules for a replication configuration. A maximum of 10 are allowed per `ReplicationConfiguration`. See Rule
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleGetArgs> Rules
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionVolumeDockerVolumeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+        /// If this value is `True`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `Shared`.
         /// </summary>
         [Input("autoprovision")]
         public Input<bool>? Autoprovision { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+        /// Scope for the Docker volume, which determines its lifecycle, either `Task` or `Shared`.  Docker volumes that are scoped to a `Task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `Shared` persist after the task stops.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

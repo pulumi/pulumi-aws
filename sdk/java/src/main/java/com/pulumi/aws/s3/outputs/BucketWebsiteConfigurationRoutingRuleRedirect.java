@@ -27,7 +27,7 @@ public final class BucketWebsiteConfigurationRoutingRuleRedirect {
      */
     private @Nullable String protocol;
     /**
-     * @return Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+     * @return Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `keyPrefixEquals` set to `docs/` and in the `redirect` set `replaceKeyPrefixWith` to `/documents`.
      * 
      */
     private @Nullable String replaceKeyPrefixWith;
@@ -60,7 +60,7 @@ public final class BucketWebsiteConfigurationRoutingRuleRedirect {
         return Optional.ofNullable(this.protocol);
     }
     /**
-     * @return Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+     * @return Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `keyPrefixEquals` set to `docs/` and in the `redirect` set `replaceKeyPrefixWith` to `/documents`.
      * 
      */
     public Optional<String> replaceKeyPrefixWith() {

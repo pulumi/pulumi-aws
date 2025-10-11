@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> DistributionConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `true`.
+        /// Whether additional information about the image being created is collected. Defaults to `True`.
         /// </summary>
         [Output("enhancedImageMetadataEnabled")]
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? DistributionConfigurationArn { get; set; }
 
         /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `true`.
+        /// Whether additional information about the image being created is collected. Defaults to `True`.
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? DistributionConfigurationArn { get; set; }
 
         /// <summary>
-        /// Whether additional information about the image being created is collected. Defaults to `true`.
+        /// Whether additional information about the image being created is collected. Defaults to `True`.
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

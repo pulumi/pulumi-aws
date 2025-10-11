@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRule
     {
         /// <summary>
-        /// Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+        /// Information about retention period in the Amazon EBS Snapshots Archive. See the `RetentionArchiveTier` block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTier RetentionArchiveTier;
 

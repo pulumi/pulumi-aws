@@ -16,14 +16,14 @@ public final class WebAclRuleActionAllowArgs extends com.pulumi.resources.Resour
     public static final WebAclRuleActionAllowArgs Empty = new WebAclRuleActionAllowArgs();
 
     /**
-     * Defines custom handling for the web request. See `custom_request_handling` below for details.
+     * Defines custom handling for the web request. See `customRequestHandling` below for details.
      * 
      */
     @Import(name="customRequestHandling")
     private @Nullable Output<WebAclRuleActionAllowCustomRequestHandlingArgs> customRequestHandling;
 
     /**
-     * @return Defines custom handling for the web request. See `custom_request_handling` below for details.
+     * @return Defines custom handling for the web request. See `customRequestHandling` below for details.
      * 
      */
     public Optional<Output<WebAclRuleActionAllowCustomRequestHandlingArgs>> customRequestHandling() {
@@ -55,7 +55,7 @@ public final class WebAclRuleActionAllowArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `custom_request_handling` below for details.
+         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclRuleActionAllowArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See `custom_request_handling` below for details.
+         * @param customRequestHandling Defines custom handling for the web request. See `customRequestHandling` below for details.
          * 
          * @return builder
          * 

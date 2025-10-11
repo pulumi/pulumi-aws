@@ -16,14 +16,14 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
     public static final ReplicationConfigurationReplicationConfigurationArgs Empty = new ReplicationConfigurationReplicationConfigurationArgs();
 
     /**
-     * The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+     * The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<ReplicationConfigurationReplicationConfigurationRuleArgs>> rules;
 
     /**
-     * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+     * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
      * 
      */
     public Output<List<ReplicationConfigurationReplicationConfigurationRuleArgs>> rules() {
@@ -55,7 +55,7 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
         }
 
         /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
         }
 
         /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
         }
 
         /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
          * 
          * @return builder
          * 

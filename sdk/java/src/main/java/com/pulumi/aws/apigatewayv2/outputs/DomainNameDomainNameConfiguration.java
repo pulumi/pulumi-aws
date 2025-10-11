@@ -33,7 +33,7 @@ public final class DomainNameDomainNameConfiguration {
      */
     private @Nullable String ipAddressType;
     /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      * 
      */
     private @Nullable String ownershipVerificationCertificateArn;
@@ -78,7 +78,7 @@ public final class DomainNameDomainNameConfiguration {
         return Optional.ofNullable(this.ipAddressType);
     }
     /**
-     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+     * @return ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      * 
      */
     public Optional<String> ownershipVerificationCertificateArn() {

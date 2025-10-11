@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * With the `disallowed_cidrs` attribute:
+ * With the `disallowedCidrs` attribute:
  * 
  * <pre>
  * {@code

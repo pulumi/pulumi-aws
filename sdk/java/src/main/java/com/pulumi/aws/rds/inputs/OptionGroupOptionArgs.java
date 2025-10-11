@@ -50,14 +50,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The option settings to apply. See `option_settings` Block below for more details.
+     * The option settings to apply. See `optionSettings` Block below for more details.
      * 
      */
     @Import(name="optionSettings")
     private @Nullable Output<List<OptionGroupOptionOptionSettingArgs>> optionSettings;
 
     /**
-     * @return The option settings to apply. See `option_settings` Block below for more details.
+     * @return The option settings to apply. See `optionSettings` Block below for more details.
      * 
      */
     public Optional<Output<List<OptionGroupOptionOptionSettingArgs>>> optionSettings() {
@@ -191,7 +191,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings The option settings to apply. See `option_settings` Block below for more details.
+         * @param optionSettings The option settings to apply. See `optionSettings` Block below for more details.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings The option settings to apply. See `option_settings` Block below for more details.
+         * @param optionSettings The option settings to apply. See `optionSettings` Block below for more details.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings The option settings to apply. See `option_settings` Block below for more details.
+         * @param optionSettings The option settings to apply. See `optionSettings` Block below for more details.
          * 
          * @return builder
          * 

@@ -246,28 +246,28 @@ public class ContinuousDeploymentPolicy extends com.pulumi.resources.CustomResou
         return this.lastModifiedTime;
     }
     /**
-     * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+     * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
     @Export(name="stagingDistributionDnsNames", refs={ContinuousDeploymentPolicyStagingDistributionDnsNames.class}, tree="[0]")
     private Output</* @Nullable */ ContinuousDeploymentPolicyStagingDistributionDnsNames> stagingDistributionDnsNames;
 
     /**
-     * @return CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+     * @return CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      * 
      */
     public Output<Optional<ContinuousDeploymentPolicyStagingDistributionDnsNames>> stagingDistributionDnsNames() {
         return Codegen.optional(this.stagingDistributionDnsNames);
     }
     /**
-     * Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+     * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      * 
      */
     @Export(name="trafficConfig", refs={ContinuousDeploymentPolicyTrafficConfig.class}, tree="[0]")
     private Output</* @Nullable */ ContinuousDeploymentPolicyTrafficConfig> trafficConfig;
 
     /**
-     * @return Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+     * @return Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      * 
      */
     public Output<Optional<ContinuousDeploymentPolicyTrafficConfig>> trafficConfig() {

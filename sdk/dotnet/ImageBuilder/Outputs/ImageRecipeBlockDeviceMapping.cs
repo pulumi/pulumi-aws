@@ -22,11 +22,11 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly Outputs.ImageRecipeBlockDeviceMappingEbs? Ebs;
         /// <summary>
-        /// Set to `true` to remove a mapping from the parent image.
+        /// Set to `True` to remove a mapping from the parent image.
         /// </summary>
         public readonly bool? NoDevice;
         /// <summary>
-        /// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+        /// Virtual device name. For example, `Ephemeral0`. Instance store volumes are numbered starting from 0.
         /// </summary>
         public readonly string? VirtualName;
 

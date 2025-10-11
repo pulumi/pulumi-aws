@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     public sealed class GetTagsFilterNotInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        /// Configuration block for the filter that's based on `CostCategory` values. See `CostCategory` block below for details.
         /// </summary>
         [Input("costCategory")]
         public Input<Inputs.GetTagsFilterNotCostCategoryInputArgs>? CostCategory { get; set; }
 
         /// <summary>
-        /// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+        /// Configuration block for the specific `Dimension` to use for `Expression`. See `Dimension` block below for details.
         /// </summary>
         [Input("dimension")]
         public Input<Inputs.GetTagsFilterNotDimensionInputArgs>? Dimension { get; set; }

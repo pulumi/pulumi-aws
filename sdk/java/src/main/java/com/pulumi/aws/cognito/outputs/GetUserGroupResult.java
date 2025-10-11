@@ -17,7 +17,7 @@ public final class GetUserGroupResult {
      */
     private String description;
     /**
-     * @return A comma-delimited string concatenating `name` and `user_pool_id`.
+     * @return A comma-delimited string concatenating `name` and `userPoolId`.
      * 
      */
     private String id;
@@ -44,7 +44,7 @@ public final class GetUserGroupResult {
         return this.description;
     }
     /**
-     * @return A comma-delimited string concatenating `name` and `user_pool_id`.
+     * @return A comma-delimited string concatenating `name` and `userPoolId`.
      * 
      */
     public String id() {

@@ -62,13 +62,13 @@ public final class GetVpcPeeringConnectionResult {
     private String peerRegion;
     private String peerVpcId;
     /**
-     * @return (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+     * @return (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use requester_region instead.
+     * region is deprecated. Use requesterRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use requester_region instead. */
+    @Deprecated /* region is deprecated. Use requesterRegion instead. */
     private String region;
     /**
      * @return Configuration block that describes [VPC Peering Connection]
@@ -155,13 +155,13 @@ public final class GetVpcPeeringConnectionResult {
         return this.peerVpcId;
     }
     /**
-     * @return (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+     * @return (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use requester_region instead.
+     * region is deprecated. Use requesterRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use requester_region instead. */
+    @Deprecated /* region is deprecated. Use requesterRegion instead. */
     public String region() {
         return this.region;
     }

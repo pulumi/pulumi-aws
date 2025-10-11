@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Connect.Inputs
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+        /// The phone number for the user's desk phone. Required if `PhoneType` is set as `DESK_PHONE`.
         /// </summary>
         [Input("deskPhoneNumber")]
         public Input<string>? DeskPhoneNumber { get; set; }

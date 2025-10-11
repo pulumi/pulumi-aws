@@ -22,14 +22,14 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     public static final ServerlessCacheArgs Empty = new ServerlessCacheArgs();
 
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      * 
      */
     @Import(name="cacheUsageLimits")
     private @Nullable Output<ServerlessCacheCacheUsageLimitsArgs> cacheUsageLimits;
 
     /**
-     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      * 
      */
     public Optional<Output<ServerlessCacheCacheUsageLimitsArgs>> cacheUsageLimits() {
@@ -208,14 +208,14 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -283,7 +283,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -14,13 +14,13 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     {
         /// <summary>
         /// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Defaults to `false`. Supported only for WebSocket APIs.
+        /// Defaults to `False`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("dataTraceEnabled")]
         public Input<bool>? DataTraceEnabled { get; set; }
 
         /// <summary>
-        /// Whether detailed metrics are enabled for the default route. Defaults to `false`.
+        /// Whether detailed metrics are enabled for the default route. Defaults to `False`.
         /// </summary>
         [Input("detailedMetricsEnabled")]
         public Input<bool>? DetailedMetricsEnabled { get; set; }

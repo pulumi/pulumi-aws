@@ -34,7 +34,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -44,12 +44,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String name;
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration;
     /**
-     * @return The request configuration.  See `request_configuration` block below for details.
+     * @return The request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration;
@@ -69,12 +69,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
     /**
-     * @return The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
@@ -107,7 +107,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -121,14 +121,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The data processing configuration.  See `processing_configuration` block below for details.
+     * @return The data processing configuration.  See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
     /**
-     * @return The request configuration.  See `request_configuration` block below for details.
+     * @return The request configuration.  See `requestConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration() {
@@ -156,14 +156,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3_configuration` block below for details.
+     * @return The S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * @return The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {

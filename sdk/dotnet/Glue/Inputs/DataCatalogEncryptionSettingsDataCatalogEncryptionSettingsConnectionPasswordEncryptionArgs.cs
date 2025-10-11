@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? AwsKmsKeyId { get; set; }
 
         /// <summary>
-        /// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        /// When set to `True`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         /// </summary>
         [Input("returnConnectionPasswordEncrypted", required: true)]
         public Input<bool> ReturnConnectionPasswordEncrypted { get; set; } = null!;

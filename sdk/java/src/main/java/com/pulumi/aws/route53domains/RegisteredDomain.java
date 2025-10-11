@@ -223,14 +223,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.expirationDate;
     }
     /**
-     * The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     @Export(name="nameServers", refs={List.class,RegisteredDomainNameServer.class}, tree="[0,1]")
     private Output<List<RegisteredDomainNameServer>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
+     * @return The list of nameservers for the domain. See `nameServer` Blocks for more details.
      * 
      */
     public Output<List<RegisteredDomainNameServer>> nameServers() {
@@ -321,28 +321,28 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.statusLists;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -379,7 +379,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     @Export(name="transferLock", refs={Boolean.class}, tree="[0]")
@@ -388,7 +388,7 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether the domain is locked for transfer. Default: `true`.
      * 
-     * &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+     * &gt; **NOTE:** You must specify the same privacy setting for `adminPrivacy`, `registrantPrivacy` and `techPrivacy`.
      * 
      */
     public Output<Optional<Boolean>> transferLock() {

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SpotInstanceRequest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Output("ami")]
         public Output<string> Ami { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `EnablePrimaryIpv6` after it has been enabled forces recreation of the instance.
         /// </summary>
         [Output("enablePrimaryIpv6")]
         public Output<bool> EnablePrimaryIpv6 { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.SpotInstanceRequestEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
         /// <summary>
-        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// Destroys instance even if `DisableApiTermination` or `DisableApiStop` is set to `True`. Defaults to `False`. Once this parameter is set to `True`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `PasswordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Output("getPasswordData")]
         public Output<bool?> GetPasswordData { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> HostId { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `Tenancy` parameter or set it to `Host`.
         /// </summary>
         [Output("hostResourceGroupArn")]
         public Output<string> HostResourceGroupArn { get; private set; } = null!;
@@ -156,13 +156,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `Stop` for EBS-backed instances and `Terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Output("instanceInitiatedShutdownBehavior")]
         public Output<string> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `Terminate`, `Stop`, or `Hibernate`. Default value is `Terminate`.
         /// </summary>
         [Output("instanceInterruptionBehavior")]
         public Output<string?> InstanceInterruptionBehavior { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceState { get; private set; } = null!;
 
         /// <summary>
-        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `InstanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -238,19 +238,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PasswordData { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
         /// </summary>
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
         /// </summary>
         [Output("placementGroupId")]
         public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
         /// </summary>
         [Output("placementPartitionNumber")]
         public Output<int> PlacementPartitionNumber { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.SpotInstanceRequestRootBlockDevice> RootBlockDevice { get; private set; } = null!;
 
         /// <summary>
-        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `NetworkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         /// </summary>
         [Output("secondaryPrivateIps")]
         public Output<ImmutableArray<string>> SecondaryPrivateIps { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// List of security group names to associate with.
         /// 
-        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `VpcSecurityGroupIds` instead.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -372,37 +372,37 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `Dedicated` runs on single-tenant hardware. The `Host` tenancy is not supported for the import-instance command. Valid values are `Default`, `Dedicated`, and `Host`.
         /// </summary>
         [Output("tenancy")]
         public Output<string> Tenancy { get; private set; } = null!;
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `UserDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// Can be used instead of `UserData` to pass base64-encoded binary data directly. Use this instead of `UserData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Output("userDataBase64")]
         public Output<string> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+        /// When used in combination with `UserData` or `UserDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `True`. Defaults to `False` if not set.
         /// </summary>
         [Output("userDataReplaceOnChange")]
         public Output<bool?> UserDataReplaceOnChange { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// 
-        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+        /// &gt; **NOTE:** Do not use `VolumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `Tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         [Output("volumeTags")]
         public Output<ImmutableDictionary<string, string>?> VolumeTags { get; private set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         /// <summary>
-        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `EnablePrimaryIpv6` after it has been enabled forces recreation of the instance.
         /// </summary>
         [Input("enablePrimaryIpv6")]
         public Input<bool>? EnablePrimaryIpv6 { get; set; }
@@ -578,13 +578,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// Destroys instance even if `DisableApiTermination` or `DisableApiStop` is set to `True`. Defaults to `False`. Once this parameter is set to `True`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `PasswordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
         public Input<bool>? GetPasswordData { get; set; }
@@ -602,7 +602,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `Tenancy` parameter or set it to `Host`.
         /// </summary>
         [Input("hostResourceGroupArn")]
         public Input<string>? HostResourceGroupArn { get; set; }
@@ -614,19 +614,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `Stop` for EBS-backed instances and `Terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `Terminate`, `Stop`, or `Hibernate`. Default value is `Terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
         /// <summary>
-        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `InstanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use PrimaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.SpotInstanceRequestNetworkInterfaceArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.SpotInstanceRequestNetworkInterfaceArgs>());
@@ -700,19 +700,19 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
@@ -745,7 +745,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryPrivateIps;
 
         /// <summary>
-        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `NetworkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         /// </summary>
         public InputList<string> SecondaryPrivateIps
         {
@@ -759,7 +759,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// List of security group names to associate with.
         /// 
-        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `VpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -796,7 +796,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -805,25 +805,25 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `Dedicated` runs on single-tenant hardware. The `Host` tenancy is not supported for the import-instance command. Valid values are `Default`, `Dedicated`, and `Host`.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `UserDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// Can be used instead of `UserData` to pass base64-encoded binary data directly. Use this instead of `UserData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
-        /// When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+        /// When used in combination with `UserData` or `UserDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `True`. Defaults to `False` if not set.
         /// </summary>
         [Input("userDataReplaceOnChange")]
         public Input<bool>? UserDataReplaceOnChange { get; set; }
@@ -846,7 +846,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// 
-        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+        /// &gt; **NOTE:** Do not use `VolumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `Tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {
@@ -883,7 +883,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }
@@ -952,7 +952,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         /// <summary>
-        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `EnablePrimaryIpv6` after it has been enabled forces recreation of the instance.
         /// </summary>
         [Input("enablePrimaryIpv6")]
         public Input<bool>? EnablePrimaryIpv6 { get; set; }
@@ -976,13 +976,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Destroys instance even if `disable_api_termination` or `disable_api_stop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
+        /// Destroys instance even if `DisableApiTermination` or `DisableApiStop` is set to `True`. Defaults to `False`. Once this parameter is set to `True`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
-        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `PasswordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
         public Input<bool>? GetPasswordData { get; set; }
@@ -1000,7 +1000,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `Tenancy` parameter or set it to `Host`.
         /// </summary>
         [Input("hostResourceGroupArn")]
         public Input<string>? HostResourceGroupArn { get; set; }
@@ -1012,13 +1012,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// Shutdown behavior for the instance. Amazon defaults this to `Stop` for EBS-backed instances and `Terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `Terminate`, `Stop`, or `Hibernate`. Default value is `Terminate`.
         /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
@@ -1027,7 +1027,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceState { get; set; }
 
         /// <summary>
-        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// Instance type to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `InstanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -1093,7 +1093,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
-        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use primary_network_interface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
+        [Obsolete(@"network_interface is deprecated. To specify the primary network interface, use PrimaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.")]
         public InputList<Inputs.SpotInstanceRequestNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.SpotInstanceRequestNetworkInterfaceGetArgs>());
@@ -1107,19 +1107,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PasswordData { get; set; }
 
         /// <summary>
-        /// Placement Group to start the instance in. Conflicts with `placement_group_id`.
+        /// Placement Group to start the instance in. Conflicts with `PlacementGroupId`.
         /// </summary>
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
-        /// Placement Group ID to start the instance in. Conflicts with `placement_group`.
+        /// Placement Group ID to start the instance in. Conflicts with `PlacementGroup`.
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
-        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `Strategy` argument is set to `"partition"`.
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
@@ -1188,7 +1188,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _secondaryPrivateIps;
 
         /// <summary>
-        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `NetworkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         /// </summary>
         public InputList<string> SecondaryPrivateIps
         {
@@ -1202,7 +1202,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// List of security group names to associate with.
         /// 
-        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `VpcSecurityGroupIds` instead.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -1262,7 +1262,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1274,7 +1274,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1283,25 +1283,25 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `Dedicated` runs on single-tenant hardware. The `Host` tenancy is not supported for the import-instance command. Valid values are `Default`, `Dedicated`, and `Host`.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `UserDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
         /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// Can be used instead of `UserData` to pass base64-encoded binary data directly. Use this instead of `UserData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `UserDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
 
         /// <summary>
-        /// When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+        /// When used in combination with `UserData` or `UserDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `True`. Defaults to `False` if not set.
         /// </summary>
         [Input("userDataReplaceOnChange")]
         public Input<bool>? UserDataReplaceOnChange { get; set; }
@@ -1324,7 +1324,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
         /// 
-        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+        /// &gt; **NOTE:** Do not use `VolumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `Tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {

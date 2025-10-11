@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devopsguru/eventSourcesConfig:EventSourcesConfig")
 public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+     * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
     @Export(name="eventSources", refs={List.class,EventSourcesConfigEventSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventSourcesConfigEventSource>> eventSources;
 
     /**
-     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+     * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
     public Output<Optional<List<EventSourcesConfigEventSource>>> eventSources() {

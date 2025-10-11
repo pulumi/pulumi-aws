@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ElastiCache
     /// However, once it is part of a Global Replication Group,
     /// the Global Replication Group manages the version of all member replication groups.
     /// 
-    /// The provider is configured to ignore changes to `engine`, `engine_version` and `parameter_group_name` inside `aws.elasticache.ReplicationGroup` resources if they belong to a global replication group.
+    /// The provider is configured to ignore changes to `Engine`, `EngineVersion` and `ParameterGroupName` inside `aws.elasticache.ReplicationGroup` resources if they belong to a global replication group.
     /// 
     /// In this example,
     /// the primary replication group will be created with Redis 6.0,
@@ -157,8 +157,8 @@ namespace Pulumi.Aws.ElastiCache
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
         /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
-        /// Valid values are `redis` or `valkey`.
-        /// Default is `redis` if `engine_version` is specified.
+        /// Valid values are `Redis` or `Valkey`.
+        /// Default is `Redis` if `EngineVersion` is specified.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `EngineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `GlobalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Output("globalReplicationGroupIdSuffix")]
         public Output<string> GlobalReplicationGroupIdSuffix { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Output("primaryReplicationGroupId")]
         public Output<string> PrimaryReplicationGroupId { get; private set; } = null!;
@@ -306,8 +306,8 @@ namespace Pulumi.Aws.ElastiCache
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
         /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
-        /// Valid values are `redis` or `valkey`.
-        /// Default is `redis` if `engine_version` is specified.
+        /// Valid values are `Redis` or `Valkey`.
+        /// Default is `Redis` if `EngineVersion` is specified.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `EngineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? GlobalReplicationGroupDescription { get; set; }
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `GlobalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Input("globalReplicationGroupIdSuffix", required: true)]
         public Input<string> GlobalReplicationGroupIdSuffix { get; set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Input("primaryReplicationGroupId", required: true)]
         public Input<string> PrimaryReplicationGroupId { get; set; } = null!;
@@ -416,8 +416,8 @@ namespace Pulumi.Aws.ElastiCache
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// When creating, by default the Global Replication Group inherits the engine of the primary replication group.
         /// If an engine is specified, the Global Replication Group and all member replication groups will be upgraded to this engine.
-        /// Valid values are `redis` or `valkey`.
-        /// Default is `redis` if `engine_version` is specified.
+        /// Valid values are `Redis` or `Valkey`.
+        /// Default is `Redis` if `EngineVersion` is specified.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// The actual engine version used is returned in the attribute `EngineVersionActual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? GlobalReplicationGroupId { get; set; }
 
         /// <summary>
-        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// The suffix name of a Global Datastore. If `GlobalReplicationGroupIdSuffix` is changed, creates a new resource.
         /// </summary>
         [Input("globalReplicationGroupIdSuffix")]
         public Input<string>? GlobalReplicationGroupIdSuffix { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `PrimaryReplicationGroupId` is changed, creates a new resource.
         /// </summary>
         [Input("primaryReplicationGroupId")]
         public Input<string>? PrimaryReplicationGroupId { get; set; }

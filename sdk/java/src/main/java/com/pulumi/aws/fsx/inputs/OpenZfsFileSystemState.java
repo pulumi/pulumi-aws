@@ -97,14 +97,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -142,14 +142,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OpenZfsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -262,14 +262,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      * 
      */
     @Import(name="preferredSubnetId")
     private @Nullable Output<String> preferredSubnetId;
 
     /**
-     * @return (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     * @return (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      * 
      */
     public Optional<Output<String>> preferredSubnetId() {
@@ -292,14 +292,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     @Import(name="rootVolumeConfiguration")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationArgs> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationArgs>> rootVolumeConfiguration() {
@@ -412,14 +412,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -427,14 +427,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -442,7 +442,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+     * Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
      * The following arguments are optional:
      * 
@@ -451,7 +451,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     private @Nullable Output<Integer> throughputCapacity;
 
     /**
-     * @return Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+     * @return Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
      * The following arguments are optional:
      * 
@@ -650,7 +650,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredSubnetId (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+         * @param preferredSubnetId (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredSubnetId (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+         * @param preferredSubnetId (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1141,7 +1141,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1152,7 +1152,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1162,7 +1162,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1173,7 +1173,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1183,7 +1183,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
          * 
          * The following arguments are optional:
          * 
@@ -1196,7 +1196,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+         * @param throughputCapacity Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
          * 
          * The following arguments are optional:
          * 

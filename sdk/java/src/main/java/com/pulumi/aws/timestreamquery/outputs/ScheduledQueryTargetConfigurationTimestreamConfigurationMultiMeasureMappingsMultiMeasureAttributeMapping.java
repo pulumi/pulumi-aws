@@ -23,7 +23,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
      */
     private String sourceColumn;
     /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
      * 
      */
     private @Nullable String targetMultiMeasureAttributeName;
@@ -44,7 +44,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         return this.sourceColumn;
     }
     /**
-     * @return Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
+     * @return Custom name to be used for attribute name in derived table. If not provided, `sourceColumn` is used.
      * 
      */
     public Optional<String> targetMultiMeasureAttributeName() {

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? HecEndpointType { get; set; }
 
         /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         [Input("hecToken")]
         public Input<string>? HecToken { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -68,13 +68,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
+        /// `SecretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;

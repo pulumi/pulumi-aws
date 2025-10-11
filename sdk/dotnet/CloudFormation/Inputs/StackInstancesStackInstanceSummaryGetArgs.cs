@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public Input<string>? DriftStatus { get; set; }
 
         /// <summary>
-        /// Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+        /// Organization root ID or organizational unit (OU) IDs that you specified for `DeploymentTargets`.
         /// </summary>
         [Input("organizationalUnitId")]
         public Input<string>? OrganizationalUnitId { get; set; }

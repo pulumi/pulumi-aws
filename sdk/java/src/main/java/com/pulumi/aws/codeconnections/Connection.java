@@ -103,14 +103,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.connectionStatus;
     }
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     @Export(name="hostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     public Output<Optional<String>> hostArn() {
@@ -137,14 +137,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.ownerAccountId;
     }
     /**
-     * The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+     * The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
      * 
      */
     @Export(name="providerType", refs={String.class}, tree="[0]")
     private Output<String> providerType;
 
     /**
-     * @return The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
+     * @return The name of the external provider where your third-party code repository is configured. Changing `providerType` will create a new resource. Conflicts with `hostArn`.
      * 
      */
     public Output<String> providerType() {
@@ -165,28 +165,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of key-value resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

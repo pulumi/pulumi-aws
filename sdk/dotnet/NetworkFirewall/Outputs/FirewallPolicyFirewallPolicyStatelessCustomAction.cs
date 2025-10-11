@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicyStatelessCustomAction
     {
         /// <summary>
-        /// A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        /// A configuration block describing the custom action associated with the `ActionName`. See Action Definition below for details.
         /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition ActionDefinition;
         /// <summary>

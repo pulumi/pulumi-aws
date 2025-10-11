@@ -39,14 +39,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+     * DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
      */
     @Import(name="dnsPolicy")
     private @Nullable Output<String> dnsPolicy;
 
     /**
-     * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+     * @return DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
      */
     public Optional<Output<String>> dnsPolicy() {
@@ -69,14 +69,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * List of Kubernetes secret resources. See `image_pull_secret` below.
+     * List of Kubernetes secret resources. See `imagePullSecret` below.
      * 
      */
     @Import(name="imagePullSecrets")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>> imagePullSecrets;
 
     /**
-     * @return List of Kubernetes secret resources. See `image_pull_secret` below.
+     * @return List of Kubernetes secret resources. See `imagePullSecret` below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>>> imagePullSecrets() {
@@ -222,7 +222,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
+         * @param dnsPolicy DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * @param imagePullSecrets List of Kubernetes secret resources. See `imagePullSecret` below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * @param imagePullSecrets List of Kubernetes secret resources. See `imagePullSecret` below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param imagePullSecrets List of Kubernetes secret resources. See `image_pull_secret` below.
+         * @param imagePullSecrets List of Kubernetes secret resources. See `imagePullSecret` below.
          * 
          * @return builder
          * 

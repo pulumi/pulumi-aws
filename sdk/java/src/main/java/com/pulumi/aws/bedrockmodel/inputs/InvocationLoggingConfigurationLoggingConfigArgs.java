@@ -18,14 +18,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     public static final InvocationLoggingConfigurationLoggingConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigArgs();
 
     /**
-     * CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+     * CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
      * 
      */
     @Import(name="cloudwatchConfig")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs> cloudwatchConfig;
 
     /**
-     * @return CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+     * @return CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs>> cloudwatchConfig() {
@@ -63,14 +63,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * S3 configuration for storing log data. See `s3_config` Block for details.
+     * S3 configuration for storing log data. See `s3Config` Block for details.
      * 
      */
     @Import(name="s3Config")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigS3ConfigArgs> s3Config;
 
     /**
-     * @return S3 configuration for storing log data. See `s3_config` Block for details.
+     * @return S3 configuration for storing log data. See `s3Config` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigS3ConfigArgs>> s3Config() {
@@ -137,7 +137,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param s3Config S3 configuration for storing log data. See `s3_config` Block for details.
+         * @param s3Config S3 configuration for storing log data. See `s3Config` Block for details.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param s3Config S3 configuration for storing log data. See `s3_config` Block for details.
+         * @param s3Config S3 configuration for storing log data. See `s3Config` Block for details.
          * 
          * @return builder
          * 

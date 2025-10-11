@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> BuildArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `ScriptId`.
         /// </summary>
         [Output("buildId")]
         public Output<string?> BuildId { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableArray<string>> LogPaths { get; private set; } = null!;
 
         /// <summary>
-        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `Default`.
         /// </summary>
         [Output("metricGroups")]
         public Output<ImmutableArray<string>> MetricGroups { get; private set; } = null!;
@@ -161,19 +161,19 @@ namespace Pulumi.Aws.GameLift
         public Output<string> ScriptArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `BuildId`.
         /// </summary>
         [Output("scriptId")]
         public Output<string?> ScriptId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `ScriptId`.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.GameLift
         private InputList<string>? _metricGroups;
 
         /// <summary>
-        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `Default`.
         /// </summary>
         public InputList<string> MetricGroups
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.FleetRuntimeConfigurationArgs>? RuntimeConfiguration { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `BuildId`.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? BuildArn { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `script_id`.
+        /// ID of the GameLift Build to be deployed on the fleet. Conflicts with `ScriptId`.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.GameLift
         private InputList<string>? _metricGroups;
 
         /// <summary>
-        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `Default`.
         /// </summary>
         public InputList<string> MetricGroups
         {
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? ScriptArn { get; set; }
 
         /// <summary>
-        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
+        /// ID of the GameLift Script to be deployed on the fleet. Conflicts with `BuildId`.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -484,7 +484,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

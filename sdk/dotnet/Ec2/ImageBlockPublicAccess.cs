@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     public partial class ImageBlockPublicAccess : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
+        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class ImageBlockPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
+        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class ImageBlockPublicAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
+        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfigurationService {
     /**
-     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
      * 
      */
     private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias;
@@ -50,7 +50,7 @@ public final class ServiceServiceConnectConfigurationService {
 
     private ServiceServiceConnectConfigurationService() {}
     /**
-     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `client_alias` with one `port` should be specified. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. For each service block where enabled is true, exactly one `clientAlias` with one `port` should be specified. See below.
      * 
      */
     public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias() {

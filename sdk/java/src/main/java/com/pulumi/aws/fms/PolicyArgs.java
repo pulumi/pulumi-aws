@@ -68,14 +68,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
+     * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
      * 
      */
     @Import(name="excludeMap")
     private @Nullable Output<PolicyExcludeMapArgs> excludeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
+     * @return A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
      * 
      */
     public Optional<Output<PolicyExcludeMapArgs>> excludeMap() {
@@ -83,14 +83,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+     * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      * 
      */
     @Import(name="excludeResourceTags", required=true)
     private Output<Boolean> excludeResourceTags;
 
     /**
-     * @return A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+     * @return A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      * 
      */
     public Output<Boolean> excludeResourceTags() {
@@ -98,14 +98,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
+     * A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
      * 
      */
     @Import(name="includeMap")
     private @Nullable Output<PolicyIncludeMapArgs> includeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
+     * @return A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
      * 
      */
     public Optional<Output<PolicyIncludeMapArgs>> includeMap() {
@@ -195,14 +195,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * @return A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -210,14 +210,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      * 
      */
     @Import(name="resourceTypeLists")
     private @Nullable Output<List<String>> resourceTypeLists;
 
     /**
-     * @return A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+     * @return A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      * 
      */
     public Optional<Output<List<String>>> resourceTypeLists() {
@@ -225,14 +225,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
+     * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      * 
      */
     @Import(name="securityServicePolicyData", required=true)
     private Output<PolicySecurityServicePolicyDataArgs> securityServicePolicyData;
 
     /**
-     * @return The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
+     * @return The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      * 
      */
     public Output<PolicySecurityServicePolicyDataArgs> securityServicePolicyData() {
@@ -240,14 +240,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -357,7 +357,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
+         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
+         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeResourceTags A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+         * @param excludeResourceTags A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeResourceTags A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+         * @param excludeResourceTags A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
+         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
+         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+         * @param resourceType A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+         * @param resourceType A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+         * @param resourceTypeLists A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
+         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
+         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
          * 
          * @return builder
          * 

@@ -43,7 +43,7 @@ public final class GetAccessEntryResult {
     private String region;
     private @Nullable Map<String,String> tags;
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     private Map<String,String> tagsAll;
@@ -107,7 +107,7 @@ public final class GetAccessEntryResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Map<String,String> tagsAll() {

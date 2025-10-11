@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ### Repository with Tokens
     /// 
-    /// If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+    /// If you create a new Amplify App with the `Repository` argument, you also need to set `OauthToken` or `AccessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `AccessToken` as follows:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Amplify
     /// });
     /// ```
     /// 
-    /// You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+    /// You can omit `AccessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
     /// 
     /// ### Auto Branch Creation
     /// 
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+        /// Automated branch creation configuration for an Amplify app. See `AutoBranchCreationConfig` Block for details.
         /// </summary>
         [Output("autoBranchCreationConfig")]
         public Output<Outputs.AppAutoBranchCreationConfig> AutoBranchCreationConfig { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string> BuildSpec { get; private set; } = null!;
 
         /// <summary>
-        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// Cache configuration for the Amplify app. See `CacheConfig` Block for details.
         /// </summary>
         [Output("cacheConfig")]
         public Output<Outputs.AppCacheConfig> CacheConfig { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+        /// Custom rewrite and redirect rules for an Amplify app. See `CustomRule` Block for details.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.AppCustomRule>> CustomRules { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> IamServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `JobConfig` Block for details.
         /// </summary>
         [Output("jobConfig")]
         public Output<Outputs.AppJobConfig> JobConfig { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> Platform { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+        /// Describes the information about a production branch for an Amplify app. A `ProductionBranch` block is documented below.
         /// </summary>
         [Output("productionBranches")]
         public Output<ImmutableArray<Outputs.AppProductionBranch>> ProductionBranches { get; private set; } = null!;
@@ -411,13 +411,13 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -491,7 +491,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+        /// Automated branch creation configuration for an Amplify app. See `AutoBranchCreationConfig` Block for details.
         /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigArgs>? AutoBranchCreationConfig { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
-        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// Cache configuration for the Amplify app. See `CacheConfig` Block for details.
         /// </summary>
         [Input("cacheConfig")]
         public Input<Inputs.AppCacheConfigArgs>? CacheConfig { get; set; }
@@ -552,7 +552,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.AppCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+        /// Custom rewrite and redirect rules for an Amplify app. See `CustomRule` Block for details.
         /// </summary>
         public InputList<Inputs.AppCustomRuleArgs> CustomRules
         {
@@ -609,7 +609,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? IamServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `JobConfig` Block for details.
         /// </summary>
         [Input("jobConfig")]
         public Input<Inputs.AppJobConfigArgs>? JobConfig { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -697,7 +697,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+        /// Automated branch creation configuration for an Amplify app. See `AutoBranchCreationConfig` Block for details.
         /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigGetArgs>? AutoBranchCreationConfig { get; set; }
@@ -737,7 +737,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
-        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// Cache configuration for the Amplify app. See `CacheConfig` Block for details.
         /// </summary>
         [Input("cacheConfig")]
         public Input<Inputs.AppCacheConfigGetArgs>? CacheConfig { get; set; }
@@ -758,7 +758,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.AppCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+        /// Custom rewrite and redirect rules for an Amplify app. See `CustomRule` Block for details.
         /// </summary>
         public InputList<Inputs.AppCustomRuleGetArgs> CustomRules
         {
@@ -821,7 +821,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? IamServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
+        /// Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `JobConfig` Block for details.
         /// </summary>
         [Input("jobConfig")]
         public Input<Inputs.AppJobConfigGetArgs>? JobConfig { get; set; }
@@ -858,7 +858,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.AppProductionBranchGetArgs>? _productionBranches;
 
         /// <summary>
-        /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+        /// Describes the information about a production branch for an Amplify app. A `ProductionBranch` block is documented below.
         /// </summary>
         public InputList<Inputs.AppProductionBranchGetArgs> ProductionBranches
         {
@@ -882,7 +882,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -894,7 +894,7 @@ namespace Pulumi.Aws.Amplify
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

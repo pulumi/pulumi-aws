@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+        /// Canonical user id to grant for. Used only when `Type` is `CanonicalUser`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Uri address to grant for. Used only when `type` is `Group`.
+        /// Uri address to grant for. Used only when `Type` is `Group`.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

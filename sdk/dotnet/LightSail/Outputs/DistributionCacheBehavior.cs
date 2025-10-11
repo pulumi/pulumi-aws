@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LightSail.Outputs
     public sealed class DistributionCacheBehavior
     {
         /// <summary>
-        /// Cache behavior for the specified path. Valid values: `cache`, `dont-cache`.
+        /// Cache behavior for the specified path. Valid values: `Cache`, `dont-cache`.
         /// </summary>
         public readonly string Behavior;
         /// <summary>

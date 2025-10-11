@@ -18,14 +18,14 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
     public static final DomainAdvancedSecurityOptionsArgs Empty = new DomainAdvancedSecurityOptionsArgs();
 
     /**
-     * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
      * 
      */
     @Import(name="anonymousAuthEnabled")
     private @Nullable Output<Boolean> anonymousAuthEnabled;
 
     /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
      * 
      */
     public Optional<Output<Boolean>> anonymousAuthEnabled() {
@@ -105,7 +105,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
+         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ public final class DistributionDefaultCacheBehavior {
      */
     private List<String> allowedMethods;
     /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
      * 
      */
     private @Nullable String cachePolicyId;
@@ -129,7 +129,7 @@ public final class DistributionDefaultCacheBehavior {
         return this.allowedMethods;
     }
     /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
      * 
      */
     public Optional<String> cachePolicyId() {

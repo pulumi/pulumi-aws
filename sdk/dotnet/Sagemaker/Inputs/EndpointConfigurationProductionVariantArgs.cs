@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.EndpointConfigurationProductionVariantRoutingConfigArgs>? _routingConfigs;
 
         /// <summary>
-        /// Sets how the endpoint routes incoming traffic. See routing_config below.
+        /// Sets how the endpoint routes incoming traffic. See RoutingConfig below.
         /// </summary>
         public InputList<Inputs.EndpointConfigurationProductionVariantRoutingConfigArgs> RoutingConfigs
         {

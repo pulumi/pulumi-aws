@@ -227,7 +227,7 @@ namespace Pulumi.Aws.SesV2
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `event_destination` Block for details.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.SesV2
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `event_destination` Block for details.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.SesV2
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationGetArgs>? EventDestination { get; set; }
 
         /// <summary>
-        /// An object that defines the event destination. See `event_destination` Block for details.
+        /// An object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }

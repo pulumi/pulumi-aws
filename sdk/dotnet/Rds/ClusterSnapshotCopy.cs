@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Rds
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to copy existing tags. Defaults to `false`.
+        /// Whether to copy existing tags. Defaults to `False`.
         /// </summary>
         [Output("copyTags")]
         public Output<bool?> CopyTags { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
         /// </summary>
         [Output("sharedAccounts")]
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterSnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to copy existing tags. Defaults to `false`.
+        /// Whether to copy existing tags. Defaults to `False`.
         /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _sharedAccounts;
 
         /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
         /// </summary>
         public InputList<string> SharedAccounts
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? AllocatedStorage { get; set; }
 
         /// <summary>
-        /// Whether to copy existing tags. Defaults to `false`.
+        /// Whether to copy existing tags. Defaults to `False`.
         /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _sharedAccounts;
 
         /// <summary>
-        /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        /// List of AWS Account IDs to share the snapshot with. Use `All` to make the snapshot public.
         /// </summary>
         public InputList<string> SharedAccounts
         {
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

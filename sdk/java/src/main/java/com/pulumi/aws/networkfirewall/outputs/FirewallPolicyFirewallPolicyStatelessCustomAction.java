@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition;
@@ -24,7 +24,7 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomAction {
 
     private FirewallPolicyFirewallPolicyStatelessCustomAction() {}
     /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+     * @return A configuration block describing the custom action associated with the `actionName`. See Action Definition below for details.
      * 
      */
     public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition actionDefinition() {

@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Route53.Outputs
     {
         /// <summary>
         /// Alias target block.
-        /// See `alias_target` below.
+        /// See `AliasTarget` below.
         /// </summary>
         public readonly Outputs.RecordsExclusiveResourceRecordSetAliasTarget? AliasTarget;
         public readonly Outputs.RecordsExclusiveResourceRecordSetCidrRoutingConfig? CidrRoutingConfig;
@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Route53.Outputs
         public readonly string? Failover;
         /// <summary>
         /// Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
-        /// See `geolocation` below.
+        /// See `Geolocation` below.
         /// </summary>
         public readonly Outputs.RecordsExclusiveResourceRecordSetGeolocation? Geolocation;
         /// <summary>
         /// Geoproximity location block.
-        /// See `geoproximity_location` below.
+        /// See `GeoproximityLocation` below.
         /// </summary>
         public readonly Outputs.RecordsExclusiveResourceRecordSetGeoproximityLocation? GeoproximityLocation;
         /// <summary>
@@ -52,12 +52,12 @@ namespace Pulumi.Aws.Route53.Outputs
         public readonly string? Region;
         /// <summary>
         /// Information about the resource records to act upon.
-        /// See `resource_records` below.
+        /// See `ResourceRecords` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RecordsExclusiveResourceRecordSetResourceRecord> ResourceRecords;
         /// <summary>
         /// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
-        /// Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        /// Required if using `CidrRoutingConfig`, `Failover`, `Geolocation`,`GeoproximityLocation`, `MultivalueAnswer`, `Region`, or `Weight`.
         /// </summary>
         public readonly string? SetIdentifier;
         public readonly string? TrafficPolicyInstanceId;
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// 
         /// The following arguments are optional:
         /// 
-        /// &gt; Exactly one of `resource_records` or `alias_target` must be specified.
+        /// &gt; Exactly one of `ResourceRecords` or `AliasTarget` must be specified.
         /// </summary>
         public readonly string? Type;
         /// <summary>

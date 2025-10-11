@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `CacheUsageLimits` Block for details.
         /// </summary>
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
+        /// Represents the information required for client programs to connect to a cache node. See `Endpoint` Block for details.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.ServerlessCacheEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` or `Valkey`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
+        /// Represents the information required for client programs to connect to a cache node. See `ReaderEndpoint` Block for details.
         /// </summary>
         [Output("readerEndpoints")]
         public Output<ImmutableArray<Outputs.ServerlessCacheReaderEndpoint>> ReaderEndpoints { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class ServerlessCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `CacheUsageLimits` Block for details.
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` or `Valkey`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `CacheUsageLimits` Block for details.
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsGetArgs>? CacheUsageLimits { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<Inputs.ServerlessCacheEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
+        /// Represents the information required for client programs to connect to a cache node. See `Endpoint` Block for details.
         /// </summary>
         public InputList<Inputs.ServerlessCacheEndpointGetArgs> Endpoints
         {
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `Memcached`, `Redis` or `Valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>? _readerEndpoints;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
+        /// Represents the information required for client programs to connect to a cache node. See `ReaderEndpoint` Block for details.
         /// </summary>
         public InputList<Inputs.ServerlessCacheReaderEndpointGetArgs> ReaderEndpoints
         {
@@ -597,7 +597,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

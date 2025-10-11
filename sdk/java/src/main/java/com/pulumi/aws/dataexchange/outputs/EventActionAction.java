@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public final class EventActionAction {
     /**
      * @return Configuration for an Export Revision to S3 action.
-     * Described in `export_revision_to_s3` Configuration Block
+     * Described in `exportRevisionToS3` Configuration Block
      * 
      */
     private @Nullable EventActionActionExportRevisionToS3 exportRevisionToS3;
@@ -21,7 +21,7 @@ public final class EventActionAction {
     private EventActionAction() {}
     /**
      * @return Configuration for an Export Revision to S3 action.
-     * Described in `export_revision_to_s3` Configuration Block
+     * Described in `exportRevisionToS3` Configuration Block
      * 
      */
     public Optional<EventActionActionExportRevisionToS3> exportRevisionToS3() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// ## Example Usage
     /// 
-    /// ### cluster_identifier
+    /// ### ClusterIdentifier
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.RedshiftData
     /// });
     /// ```
     /// 
-    /// ### workgroup_name
+    /// ### WorkgroupName
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -140,6 +140,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Outbound with encryption configuration
+ *
  * ### Combined inbound and outbound
  *
  * ```typescript

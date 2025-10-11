@@ -24,14 +24,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
     /**
-     * The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
+     * The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
      * 
      */
     @Import(name="directDeploySettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
 
     /**
-     * @return The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
+     * @return The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
@@ -39,14 +39,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     @Import(name="emrServerlessSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
 
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
@@ -61,14 +61,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+     * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
      * 
      */
     @Import(name="identityProviderOauthSettings")
     private @Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings;
 
     /**
-     * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+     * @return The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>>> identityProviderOauthSettings() {
@@ -76,14 +76,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for document querying. See `kendra_settings` Block below.
+     * The settings for document querying. See `kendraSettings` Block below.
      * 
      */
     @Import(name="kendraSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings;
 
     /**
-     * @return The settings for document querying. See `kendra_settings` Block below.
+     * @return The settings for document querying. See `kendraSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs>> kendraSettings() {
@@ -91,14 +91,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
+     * The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
      * 
      */
     @Import(name="modelRegisterSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
 
     /**
-     * @return The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
+     * @return The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
@@ -106,14 +106,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
+     * Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
      * 
      */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
     /**
-     * @return Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
+     * @return Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
@@ -121,14 +121,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
+     * The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
      * 
      */
     @Import(name="workspaceSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
 
     /**
-     * @return The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
+     * @return The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
@@ -167,7 +167,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
+         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
+         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `directDeploySettings` Block below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emrServerlessSettings` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param kendraSettings The settings for document querying. See `kendra_settings` Block below.
+         * @param kendraSettings The settings for document querying. See `kendraSettings` Block below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param kendraSettings The settings for document querying. See `kendra_settings` Block below.
+         * @param kendraSettings The settings for document querying. See `kendraSettings` Block below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `modelRegisterSettings` Block below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
+         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
+         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspaceSettings` Block below.
          * 
          * @return builder
          * 

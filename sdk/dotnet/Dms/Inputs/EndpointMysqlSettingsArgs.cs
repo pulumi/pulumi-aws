@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? AfterConnectScript { get; set; }
 
         /// <summary>
-        /// Authentication method to use. Valid values: `password`, `iam`.
+        /// Authentication method to use. Valid values: `Password`, `Iam`.
         /// </summary>
         [Input("authenticationMethod")]
         public Input<string>? AuthenticationMethod { get; set; }

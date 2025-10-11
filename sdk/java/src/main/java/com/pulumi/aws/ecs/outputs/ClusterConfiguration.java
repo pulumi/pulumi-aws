@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterConfiguration {
     /**
-     * @return Details of the execute command configuration. See `execute_command_configuration` Block for details.
+     * @return Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
      * 
      */
     private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
     /**
-     * @return Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * @return Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
      * 
      */
     private @Nullable ClusterConfigurationManagedStorageConfiguration managedStorageConfiguration;
 
     private ClusterConfiguration() {}
     /**
-     * @return Details of the execute command configuration. See `execute_command_configuration` Block for details.
+     * @return Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
      * 
      */
     public Optional<ClusterConfigurationExecuteCommandConfiguration> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
     }
     /**
-     * @return Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * @return Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
      * 
      */
     public Optional<ClusterConfigurationManagedStorageConfiguration> managedStorageConfiguration() {

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
-    /// &gt; Only one `aws.s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `aws.s3.BucketPolicy` resources with different Pulumi names but the same `bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
+    /// &gt; Only one `aws.s3.BucketPolicy` resource should be defined per S3 bucket. Defining multiple `aws.s3.BucketPolicy` resources with different Pulumi names but the same `Bucket` value may result in unexpected policy overwrites. Each resource uses the `PutBucketPolicy` API, which replaces the entire existing policy without error or warning. Because Pulumi treats each resource independently, the policy applied last will silently override any previously applied policy.
     /// 
     /// ## Import
     /// 

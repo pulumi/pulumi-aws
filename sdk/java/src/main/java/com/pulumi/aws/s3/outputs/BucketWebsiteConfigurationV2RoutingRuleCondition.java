@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
     /**
-     * @return HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+     * @return HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
      * 
      */
     private @Nullable String httpErrorCodeReturnedEquals;
     /**
-     * @return Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+     * @return Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
      * 
      */
     private @Nullable String keyPrefixEquals;
 
     private BucketWebsiteConfigurationV2RoutingRuleCondition() {}
     /**
-     * @return HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
+     * @return HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
      * 
      */
     public Optional<String> httpErrorCodeReturnedEquals() {
         return Optional.ofNullable(this.httpErrorCodeReturnedEquals);
     }
     /**
-     * @return Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
+     * @return Object key name prefix when the redirect is applied. If specified with `httpErrorCodeReturnedEquals`, then both must be true for the redirect to be applied.
      * 
      */
     public Optional<String> keyPrefixEquals() {

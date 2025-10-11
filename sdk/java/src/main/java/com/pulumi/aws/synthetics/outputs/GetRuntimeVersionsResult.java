@@ -19,7 +19,7 @@ public final class GetRuntimeVersionsResult {
     private String id;
     private String region;
     /**
-     * @return List of runtime versions. See `runtime_versions` attribute reference.
+     * @return List of runtime versions. See `runtimeVersions` attribute reference.
      * 
      */
     private List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
@@ -36,7 +36,7 @@ public final class GetRuntimeVersionsResult {
         return this.region;
     }
     /**
-     * @return List of runtime versions. See `runtime_versions` attribute reference.
+     * @return List of runtime versions. See `runtimeVersions` attribute reference.
      * 
      */
     public List<GetRuntimeVersionsRuntimeVersion> runtimeVersions() {

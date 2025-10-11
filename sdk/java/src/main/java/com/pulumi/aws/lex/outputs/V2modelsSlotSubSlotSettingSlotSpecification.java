@@ -21,7 +21,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecification {
     private String slotTypeId;
     /**
      * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `value_elicitation_setting` argument reference below.
+     * See the `valueElicitationSetting` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings;
@@ -39,7 +39,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecification {
     }
     /**
      * @return Elicitation setting details for constituent sub slots of a composite slot.
-     * See the `value_elicitation_setting` argument reference below.
+     * See the `valueElicitationSetting` argument reference below.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings() {

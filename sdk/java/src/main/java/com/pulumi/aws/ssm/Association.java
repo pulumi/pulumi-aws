@@ -630,28 +630,28 @@ public class Association extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.syncCompliance);
     }
     /**
-     * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -674,7 +674,7 @@ public class Association extends com.pulumi.resources.CustomResource {
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
-     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+     * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      * 
      */
     @Export(name="waitForSuccessTimeoutSeconds", refs={Integer.class}, tree="[0]")
@@ -683,7 +683,7 @@ public class Association extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
-     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+     * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      * 
      */
     public Output<Optional<Integer>> waitForSuccessTimeoutSeconds() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// KMS key ARN when `sse_algorithm` is `aws:kms`.
+        /// KMS key ARN when `SseAlgorithm` is `aws:kms`.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

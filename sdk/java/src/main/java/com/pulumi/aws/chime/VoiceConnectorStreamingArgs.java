@@ -51,14 +51,14 @@ public final class VoiceConnectorStreamingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The media insights configuration. See `media_insights_configuration`.
+     * The media insights configuration. See `mediaInsightsConfiguration`.
      * 
      */
     @Import(name="mediaInsightsConfiguration")
     private @Nullable Output<VoiceConnectorStreamingMediaInsightsConfigurationArgs> mediaInsightsConfiguration;
 
     /**
-     * @return The media insights configuration. See `media_insights_configuration`.
+     * @return The media insights configuration. See `mediaInsightsConfiguration`.
      * 
      */
     public Optional<Output<VoiceConnectorStreamingMediaInsightsConfigurationArgs>> mediaInsightsConfiguration() {
@@ -182,7 +182,7 @@ public final class VoiceConnectorStreamingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param mediaInsightsConfiguration The media insights configuration. See `media_insights_configuration`.
+         * @param mediaInsightsConfiguration The media insights configuration. See `mediaInsightsConfiguration`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class VoiceConnectorStreamingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param mediaInsightsConfiguration The media insights configuration. See `media_insights_configuration`.
+         * @param mediaInsightsConfiguration The media insights configuration. See `mediaInsightsConfiguration`.
          * 
          * @return builder
          * 

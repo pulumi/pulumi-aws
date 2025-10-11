@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// A list of all resource record sets associated with the hosted zone.
-        /// See `resource_record_set` below.
+        /// See `ResourceRecordSet` below.
         /// </summary>
         [Output("resourceRecordSets")]
         public Output<ImmutableArray<Outputs.RecordsExclusiveResourceRecordSet>> ResourceRecordSets { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// A list of all resource record sets associated with the hosted zone.
-        /// See `resource_record_set` below.
+        /// See `ResourceRecordSet` below.
         /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetArgs> ResourceRecordSets
         {
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// A list of all resource record sets associated with the hosted zone.
-        /// See `resource_record_set` below.
+        /// See `ResourceRecordSet` below.
         /// </summary>
         public InputList<Inputs.RecordsExclusiveResourceRecordSetGetArgs> ResourceRecordSets
         {

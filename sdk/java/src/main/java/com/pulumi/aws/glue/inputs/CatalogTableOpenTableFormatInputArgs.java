@@ -15,14 +15,14 @@ public final class CatalogTableOpenTableFormatInputArgs extends com.pulumi.resou
     public static final CatalogTableOpenTableFormatInputArgs Empty = new CatalogTableOpenTableFormatInputArgs();
 
     /**
-     * Configuration block for iceberg table config. See `iceberg_input` below.
+     * Configuration block for iceberg table config. See `icebergInput` below.
      * 
      */
     @Import(name="icebergInput", required=true)
     private Output<CatalogTableOpenTableFormatInputIcebergInputArgs> icebergInput;
 
     /**
-     * @return Configuration block for iceberg table config. See `iceberg_input` below.
+     * @return Configuration block for iceberg table config. See `icebergInput` below.
      * 
      */
     public Output<CatalogTableOpenTableFormatInputIcebergInputArgs> icebergInput() {
@@ -54,7 +54,7 @@ public final class CatalogTableOpenTableFormatInputArgs extends com.pulumi.resou
         }
 
         /**
-         * @param icebergInput Configuration block for iceberg table config. See `iceberg_input` below.
+         * @param icebergInput Configuration block for iceberg table config. See `icebergInput` below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CatalogTableOpenTableFormatInputArgs extends com.pulumi.resou
         }
 
         /**
-         * @param icebergInput Configuration block for iceberg table config. See `iceberg_input` below.
+         * @param icebergInput Configuration block for iceberg table config. See `icebergInput` below.
          * 
          * @return builder
          * 
