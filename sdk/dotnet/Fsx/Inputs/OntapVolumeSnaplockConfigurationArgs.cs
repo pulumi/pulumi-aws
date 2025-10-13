@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class OntapVolumeSnaplockConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        /// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `False`.
         /// </summary>
         [Input("auditLogVolume")]
         public Input<bool>? AuditLogVolume { get; set; }
 
         /// <summary>
-        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+        /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `AutocommitPeriod` Block for details.
         /// </summary>
         [Input("autocommitPeriod")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs>? AutocommitPeriod { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? PrivilegedDelete { get; set; }
 
         /// <summary>
-        /// The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+        /// The retention period of an FSx for ONTAP SnapLock volume. See `RetentionPeriod` Block for details.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs>? RetentionPeriod { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string> SnaplockType { get; set; } = null!;
 
         /// <summary>
-        /// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        /// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `False`.
         /// </summary>
         [Input("volumeAppendModeEnabled")]
         public Input<bool>? VolumeAppendModeEnabled { get; set; }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
+        /// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `False`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
         /// </summary>
         [Input("mfaDelete")]
         public Input<bool>? MfaDelete { get; set; }

@@ -138,7 +138,7 @@ namespace Pulumi.Aws.WafV2
         public Output<Outputs.WebAclLoggingConfigurationLoggingFilter?> LoggingFilter { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `RedactedFields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         [Output("redactedFields")]
         public Output<ImmutableArray<Outputs.WebAclLoggingConfigurationRedactedField>> RedactedFields { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs`.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>? _redactedFields;
 
         /// <summary>
-        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `RedactedFields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs> RedactedFields
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs`.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs>? _redactedFields;
 
         /// <summary>
-        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `RedactedFields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs> RedactedFields
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `LogDestinationConfigs`.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

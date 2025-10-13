@@ -33,14 +33,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+     * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
     @Import(name="parsingPrompt")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs> parsingPrompt;
 
     /**
-     * @return Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+     * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs>> parsingPrompt() {
@@ -94,7 +94,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+         * @param parsingPrompt Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
          * 
          * @return builder
          * 

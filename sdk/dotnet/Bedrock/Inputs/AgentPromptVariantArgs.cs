@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? AdditionalModelRequestFields { get; set; }
 
         /// <summary>
-        /// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+        /// Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `GenAiResource` must be defined. See Generative AI Resource for more information.
         /// </summary>
         [Input("genAiResource")]
         public Input<Inputs.AgentPromptVariantGenAiResourceArgs>? GenAiResource { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+        /// Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `GenAiResource` must be defined.
         /// </summary>
         [Input("modelId")]
         public Input<string>? ModelId { get; set; }

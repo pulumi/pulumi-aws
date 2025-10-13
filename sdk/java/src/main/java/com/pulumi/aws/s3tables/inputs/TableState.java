@@ -65,7 +65,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A single table bucket encryption configuration object.
-     * See `encryption_configuration` below.
+     * See `encryptionConfiguration` below.
      * 
      */
     @Import(name="encryptionConfiguration")
@@ -73,7 +73,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A single table bucket encryption configuration object.
-     * See `encryption_configuration` below.
+     * See `encryptionConfiguration` below.
      * 
      */
     public Optional<Output<TableEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -99,7 +99,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A single table bucket maintenance configuration object.
-     * See `maintenance_configuration` below.
+     * See `maintenanceConfiguration` below.
      * 
      */
     @Import(name="maintenanceConfiguration")
@@ -107,7 +107,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A single table bucket maintenance configuration object.
-     * See `maintenance_configuration` below.
+     * See `maintenanceConfiguration` below.
      * 
      */
     public Optional<Output<TableMaintenanceConfigurationArgs>> maintenanceConfiguration() {
@@ -418,7 +418,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryption_configuration` below.
+         * See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryption_configuration` below.
+         * See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenance_configuration` below.
+         * See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenance_configuration` below.
+         * See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 

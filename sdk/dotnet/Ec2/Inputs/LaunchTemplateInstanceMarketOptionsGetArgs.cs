@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateInstanceMarketOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The market type. Can be `spot`.
+        /// The market type. Can be `Spot`.
         /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }

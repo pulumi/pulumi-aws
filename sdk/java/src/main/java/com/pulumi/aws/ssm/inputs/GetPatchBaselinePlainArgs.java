@@ -17,14 +17,14 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
     public static final GetPatchBaselinePlainArgs Empty = new GetPatchBaselinePlainArgs();
 
     /**
-     * Filters the results against the baselines default_baseline field.
+     * Filters the results against the baselines defaultBaseline field.
      * 
      */
     @Import(name="defaultBaseline")
     private @Nullable Boolean defaultBaseline;
 
     /**
-     * @return Filters the results against the baselines default_baseline field.
+     * @return Filters the results against the baselines defaultBaseline field.
      * 
      */
     public Optional<Boolean> defaultBaseline() {
@@ -124,7 +124,7 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param defaultBaseline Filters the results against the baselines default_baseline field.
+         * @param defaultBaseline Filters the results against the baselines defaultBaseline field.
          * 
          * @return builder
          * 

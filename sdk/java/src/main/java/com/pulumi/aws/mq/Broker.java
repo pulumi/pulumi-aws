@@ -236,14 +236,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+     * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      * 
      */
     @Export(name="authenticationStrategy", refs={String.class}, tree="[0]")
     private Output<String> authenticationStrategy;
 
     /**
-     * @return Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+     * @return Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      * 
      */
     public Output<String> authenticationStrategy() {
@@ -278,14 +278,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.brokerName;
     }
     /**
-     * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+     * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
     @Export(name="configuration", refs={BrokerConfiguration.class}, tree="[0]")
     private Output<BrokerConfiguration> configuration;
 
     /**
-     * @return Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+     * @return Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
     public Output<BrokerConfiguration> configuration() {
@@ -306,14 +306,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.dataReplicationMode;
     }
     /**
-     * ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
+     * ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
      * 
      */
     @Export(name="dataReplicationPrimaryBrokerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataReplicationPrimaryBrokerArn;
 
     /**
-     * @return ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
+     * @return ARN of the primary broker used to replicate data in a data replication pair. Required when `dataReplicationMode` is `CRDR`.
      * 
      */
     public Output<Optional<String>> dataReplicationPrimaryBrokerArn() {
@@ -404,14 +404,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.instances;
     }
     /**
-     * Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
+     * Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
      * 
      */
     @Export(name="ldapServerMetadata", refs={BrokerLdapServerMetadata.class}, tree="[0]")
     private Output</* @Nullable */ BrokerLdapServerMetadata> ldapServerMetadata;
 
     /**
-     * @return Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
      * 
      */
     public Output<Optional<BrokerLdapServerMetadata>> ldapServerMetadata() {
@@ -502,14 +502,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroups);
     }
     /**
-     * Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     * @return Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
     public Output<String> storageType() {
@@ -530,35 +530,35 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
      * The following arguments are optional:
      * 
@@ -567,7 +567,7 @@ public class Broker extends com.pulumi.resources.CustomResource {
     private Output<List<BrokerUser>> users;
 
     /**
-     * @return Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     * @return Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
      * 
      * The following arguments are optional:
      * 

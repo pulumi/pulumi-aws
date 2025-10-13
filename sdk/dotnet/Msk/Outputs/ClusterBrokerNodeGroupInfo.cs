@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
         /// <summary>
-        /// Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        /// Information about the cluster access configuration. See BrokerNodeGroupInfo connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? ConnectivityInfo;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+        /// A block that contains information about storage volumes attached to MSK broker nodes. See BrokerNodeGroupInfo storage_info Argument Reference below.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoStorageInfo? StorageInfo;
 

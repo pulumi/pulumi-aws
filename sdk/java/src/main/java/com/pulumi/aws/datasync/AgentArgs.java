@@ -18,14 +18,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     public static final AgentArgs Empty = new AgentArgs();
 
     /**
-     * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+     * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      * 
      */
     @Import(name="activationKey")
     private @Nullable Output<String> activationKey;
 
     /**
-     * @return DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+     * @return DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      * 
      */
     public Optional<Output<String>> activationKey() {
@@ -33,14 +33,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+     * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+     * @return DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -63,14 +63,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+     * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      * 
      */
     @Import(name="privateLinkEndpoint")
     private @Nullable Output<String> privateLinkEndpoint;
 
     /**
-     * @return The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+     * @return The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      * 
      */
     public Optional<Output<String>> privateLinkEndpoint() {
@@ -123,14 +123,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -185,7 +185,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activationKey DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+         * @param activationKey DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activationKey DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+         * @param activationKey DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+         * @param ipAddress DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+         * @param ipAddress DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkEndpoint The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+         * @param privateLinkEndpoint The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkEndpoint The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+         * @param privateLinkEndpoint The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

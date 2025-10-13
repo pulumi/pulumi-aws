@@ -17,14 +17,14 @@ public final class ApplicationPortalOptionsArgs extends com.pulumi.resources.Res
     public static final ApplicationPortalOptionsArgs Empty = new ApplicationPortalOptionsArgs();
 
     /**
-     * Sign-in options for the access portal. See `sign_in_options` below.
+     * Sign-in options for the access portal. See `signInOptions` below.
      * 
      */
     @Import(name="signInOptions")
     private @Nullable Output<ApplicationPortalOptionsSignInOptionsArgs> signInOptions;
 
     /**
-     * @return Sign-in options for the access portal. See `sign_in_options` below.
+     * @return Sign-in options for the access portal. See `signInOptions` below.
      * 
      */
     public Optional<Output<ApplicationPortalOptionsSignInOptionsArgs>> signInOptions() {
@@ -72,7 +72,7 @@ public final class ApplicationPortalOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param signInOptions Sign-in options for the access portal. See `sign_in_options` below.
+         * @param signInOptions Sign-in options for the access portal. See `signInOptions` below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationPortalOptionsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param signInOptions Sign-in options for the access portal. See `sign_in_options` below.
+         * @param signInOptions Sign-in options for the access portal. See `signInOptions` below.
          * 
          * @return builder
          * 

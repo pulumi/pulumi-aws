@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> Aggregation { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -156,19 +156,19 @@ namespace Pulumi.Aws.Shield
         public Output<string> ProtectionGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+        /// The resource type to include in the protection group. You must set this when you set `Pattern` to BY_RESOURCE_TYPE and you must not set it for any other `Pattern` setting.
         /// </summary>
         [Output("resourceType")]
         public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Shield
         private InputList<string>? _members;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         public InputList<string> Members
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Shield
         public Input<string> ProtectionGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+        /// The resource type to include in the protection group. You must set this when you set `Pattern` to BY_RESOURCE_TYPE and you must not set it for any other `Pattern` setting.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Shield
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Shield
         private InputList<string>? _members;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         public InputList<string> Members
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? ProtectionGroupId { get; set; }
 
         /// <summary>
-        /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
+        /// The resource type to include in the protection group. You must set this when you set `Pattern` to BY_RESOURCE_TYPE and you must not set it for any other `Pattern` setting.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Shield
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Shield
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

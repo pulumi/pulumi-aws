@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CodeCommit.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+        /// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `All`, `updateReference`, `createReference`, `deleteReference`.
         /// </summary>
         public InputList<string> Events
         {

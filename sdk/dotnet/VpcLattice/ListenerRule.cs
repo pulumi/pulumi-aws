@@ -133,7 +133,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
-        /// See `action` Block for details.
+        /// See `Action` Block for details.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ListenerRuleAction> Action { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
-        /// See `match` Block
+        /// See `Match` Block
         /// </summary>
         [Output("match")]
         public Output<Outputs.ListenerRuleMatch> Match { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
-        /// See `action` Block for details.
+        /// See `Action` Block for details.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
-        /// See `match` Block
+        /// See `Match` Block
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.ListenerRuleMatchArgs> Match { get; set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.VpcLattice
     {
         /// <summary>
         /// The action for the listener rule.
-        /// See `action` Block for details.
+        /// See `Action` Block for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ListenerRuleActionGetArgs>? Action { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The rule match.
-        /// See `match` Block
+        /// See `Match` Block
         /// </summary>
         [Input("match")]
         public Input<Inputs.ListenerRuleMatchGetArgs>? Match { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

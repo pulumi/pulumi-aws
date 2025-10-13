@@ -31,14 +31,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudformation/cloudFormationType:CloudFormationType")
 public class CloudFormationType extends com.pulumi.resources.CustomResource {
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     public Output<String> arn() {

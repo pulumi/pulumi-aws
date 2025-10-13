@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; This resource creates a subscription to AWS Shield Advanced, which requires a 1 year subscription commitment with a monthly fee. Refer to the [AWS Shield Pricing](https://aws.amazon.com/shield/pricing/) page for more details.
  * 
- * &gt; Destruction of this resource will set `auto_renew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skip_destroy` to `true` to skip modifying the `auto_renew` argument during destruction.
+ * &gt; Destruction of this resource will set `autoRenew` to `DISABLED`. Automatic renewal can only be disabled during the last 30 days of a subscription. To unsubscribe outside of this window, you must contact AWS Support. Set `skipDestroy` to `true` to skip modifying the `autoRenew` argument during destruction.
  * 
  * ## Example Usage
  * 
@@ -83,14 +83,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return this.autoRenew;
     }
     /**
-     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+     * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
-     * @return Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+     * @return Skip attempting to disable automated renewal upon destruction. If set to `true`, the `autoRenew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
     public Output<Optional<Boolean>> skipDestroy() {

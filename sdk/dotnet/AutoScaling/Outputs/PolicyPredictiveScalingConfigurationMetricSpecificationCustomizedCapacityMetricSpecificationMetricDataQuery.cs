@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery
     {
         /// <summary>
-        /// Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        /// Math expression used on the returned metric. You must specify either `Expression` or `MetricStat`, but not both.
         /// </summary>
         public readonly string? Expression;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        /// Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `Expression` or `MetricStat`, but not both.
         /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat? MetricStat;
         /// <summary>

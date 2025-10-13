@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sfn.Inputs
     public sealed class StateMachineEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+        /// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `Type` is `AWS_OWNED_KEY`.
         /// </summary>
         [Input("kmsDataKeyReusePeriodSeconds")]
         public Input<int>? KmsDataKeyReusePeriodSeconds { get; set; }

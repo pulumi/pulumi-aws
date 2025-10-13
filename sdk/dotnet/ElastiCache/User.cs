@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
-        /// The current supported values are `redis`, `valkey` (case insensitive).
+        /// The current supported values are `Redis`, `Valkey` (case insensitive).
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.UserAuthenticationModeArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// The current supported values are `redis`, `valkey` (case insensitive).
+        /// The current supported values are `Redis`, `Valkey` (case insensitive).
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// The current supported values are `redis`, `valkey` (case insensitive).
+        /// The current supported values are `Redis`, `Valkey` (case insensitive).
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

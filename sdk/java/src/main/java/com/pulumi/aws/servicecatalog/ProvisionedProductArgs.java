@@ -85,14 +85,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+     * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      * 
      */
     @Import(name="pathId")
     private @Nullable Output<String> pathId;
 
     /**
-     * @return Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+     * @return Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      * 
      */
     public Optional<Output<String>> pathId() {
@@ -100,14 +100,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the path. You must provide `path_id` or `path_name`, but not both.
+     * Name of the path. You must provide `pathId` or `pathName`, but not both.
      * 
      */
     @Import(name="pathName")
     private @Nullable Output<String> pathName;
 
     /**
-     * @return Name of the path. You must provide `path_id` or `path_name`, but not both.
+     * @return Name of the path. You must provide `pathId` or `pathName`, but not both.
      * 
      */
     public Optional<Output<String>> pathName() {
@@ -115,14 +115,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+     * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      * 
      */
     @Import(name="productId")
     private @Nullable Output<String> productId;
 
     /**
-     * @return Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+     * @return Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      * 
      */
     public Optional<Output<String>> productId() {
@@ -130,14 +130,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the product. You must provide `product_id` or `product_name`, but not both.
+     * Name of the product. You must provide `productId` or `productName`, but not both.
      * 
      */
     @Import(name="productName")
     private @Nullable Output<String> productName;
 
     /**
-     * @return Name of the product. You must provide `product_id` or `product_name`, but not both.
+     * @return Name of the product. You must provide `productId` or `productName`, but not both.
      * 
      */
     public Optional<Output<String>> productName() {
@@ -145,14 +145,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     @Import(name="provisioningArtifactId")
     private @Nullable Output<String> provisioningArtifactId;
 
     /**
-     * @return Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * @return Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     public Optional<Output<String>> provisioningArtifactId() {
@@ -160,14 +160,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     @Import(name="provisioningArtifactName")
     private @Nullable Output<String> provisioningArtifactName;
 
     /**
-     * @return Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+     * @return Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      * 
      */
     public Optional<Output<String>> provisioningArtifactName() {
@@ -175,14 +175,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      * 
      */
     @Import(name="provisioningParameters")
     private @Nullable Output<List<ProvisionedProductProvisioningParameterArgs>> provisioningParameters;
 
     /**
-     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      * 
      */
     public Optional<Output<List<ProvisionedProductProvisioningParameterArgs>>> provisioningParameters() {
@@ -220,14 +220,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      * 
      */
     @Import(name="stackSetProvisioningPreferences")
     private @Nullable Output<ProvisionedProductStackSetProvisioningPreferencesArgs> stackSetProvisioningPreferences;
 
     /**
-     * @return Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+     * @return Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      * 
      */
     public Optional<Output<ProvisionedProductStackSetProvisioningPreferencesArgs>> stackSetProvisioningPreferences() {
@@ -235,14 +235,14 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -386,7 +386,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pathId Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+         * @param pathId Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pathId Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+         * @param pathId Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pathName Name of the path. You must provide `path_id` or `path_name`, but not both.
+         * @param pathName Name of the path. You must provide `pathId` or `pathName`, but not both.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pathName Name of the path. You must provide `path_id` or `path_name`, but not both.
+         * @param pathName Name of the path. You must provide `pathId` or `pathName`, but not both.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param productId Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+         * @param productId Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param productId Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+         * @param productId Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param productName Name of the product. You must provide `product_id` or `product_name`, but not both.
+         * @param productName Name of the product. You must provide `productId` or `productName`, but not both.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param productName Name of the product. You must provide `product_id` or `product_name`, but not both.
+         * @param productName Name of the product. You must provide `productId` or `productName`, but not both.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningArtifactId Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+         * @param provisioningArtifactId Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningArtifactId Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+         * @param provisioningArtifactId Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningArtifactName Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+         * @param provisioningArtifactName Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningArtifactName Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+         * @param provisioningArtifactName Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

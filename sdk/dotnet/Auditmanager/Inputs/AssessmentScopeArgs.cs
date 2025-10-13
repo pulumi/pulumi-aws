@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         private InputList<Inputs.AssessmentScopeAwsAccountArgs>? _awsAccounts;
 
         /// <summary>
-        /// Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+        /// Amazon Web Services accounts that are in scope for the assessment. See `AwsAccounts` below.
         /// </summary>
         public InputList<Inputs.AssessmentScopeAwsAccountArgs> AwsAccounts
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         private InputList<Inputs.AssessmentScopeAwsServiceArgs>? _awsServices;
 
         /// <summary>
-        /// Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+        /// Amazon Web Services services that are included in the scope of the assessment. See `AwsServices` below.
         /// </summary>
         public InputList<Inputs.AssessmentScopeAwsServiceArgs> AwsServices
         {

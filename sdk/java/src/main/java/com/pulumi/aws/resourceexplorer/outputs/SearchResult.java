@@ -25,7 +25,7 @@ public final class SearchResult {
      */
     private String region;
     /**
-     * @return Number of resources that match the query. See `resource_count` below.
+     * @return Number of resources that match the query. See `resourceCount` below.
      * 
      */
     private List<SearchResourceCount> resourceCounts;
@@ -55,7 +55,7 @@ public final class SearchResult {
         return this.region;
     }
     /**
-     * @return Number of resources that match the query. See `resource_count` below.
+     * @return Number of resources that match the query. See `resourceCount` below.
      * 
      */
     public List<SearchResourceCount> resourceCounts() {

@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string DhcpOptionsId;
         /// <summary>
-        /// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
+        /// Suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `Search` value in the `/etc/resolv.conf` file.
         /// </summary>
         public readonly string DomainName;
         /// <summary>

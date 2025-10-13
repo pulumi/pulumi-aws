@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification
     {
         /// <summary>
-        /// Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+        /// Whether to enable UDP traffic optimization through ENA Express. Requires `EnaSrdEnabled` to be `True`.
         /// 
         /// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
         /// </summary>

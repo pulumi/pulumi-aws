@@ -50,7 +50,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
     /**
      * Returns information on a specific hierarchy group by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      * 
      */
     @Import(name="name")
@@ -59,7 +59,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
     /**
      * @return Returns information on a specific hierarchy group by name
      * 
-     * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+     * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -169,7 +169,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         /**
          * @param name Returns information on a specific hierarchy group by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GetUserHierarchyGroupArgs extends com.pulumi.resources.Invoke
         /**
          * @param name Returns information on a specific hierarchy group by name
          * 
-         * &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+         * &gt; **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
          * 
          * @return builder
          * 

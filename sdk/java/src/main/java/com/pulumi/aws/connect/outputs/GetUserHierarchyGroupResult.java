@@ -20,7 +20,7 @@ public final class GetUserHierarchyGroupResult {
     private String arn;
     private String hierarchyGroupId;
     /**
-     * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * @return Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      * 
      */
     private List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths;
@@ -59,7 +59,7 @@ public final class GetUserHierarchyGroupResult {
         return this.hierarchyGroupId;
     }
     /**
-     * @return Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+     * @return Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      * 
      */
     public List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths() {

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         }
 
         /// <summary>
-        /// Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
+        /// Base domain of the identity provider that issues JSON Web Tokens, such as the `Endpoint` attribute of the `aws.cognito.UserPool` resource.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

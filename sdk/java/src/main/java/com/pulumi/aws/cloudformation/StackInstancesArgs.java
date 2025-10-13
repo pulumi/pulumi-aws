@@ -22,14 +22,14 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
     public static final StackInstancesArgs Empty = new StackInstancesArgs();
 
     /**
-     * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+     * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      * 
      */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
     /**
-     * @return Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+     * @return Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -52,14 +52,14 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+     * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      * 
      */
     @Import(name="deploymentTargets")
     private @Nullable Output<StackInstancesDeploymentTargetsArgs> deploymentTargets;
 
     /**
-     * @return AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+     * @return AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
      * 
      */
     public Optional<Output<StackInstancesDeploymentTargetsArgs>> deploymentTargets() {
@@ -67,14 +67,14 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+     * Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      * 
      */
     @Import(name="operationPreferences")
     private @Nullable Output<StackInstancesOperationPreferencesArgs> operationPreferences;
 
     /**
-     * @return Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+     * @return Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
      * 
      */
     public Optional<Output<StackInstancesOperationPreferencesArgs>> operationPreferences() {
@@ -127,14 +127,14 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+     * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
     @Import(name="retainStacks")
     private @Nullable Output<Boolean> retainStacks;
 
     /**
-     * @return Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+     * @return Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> retainStacks() {
@@ -193,7 +193,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+         * @param accounts Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deploymentTargets`, but not both.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deploymentTargets AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param deploymentTargets AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deploymentTargets below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operationPreferences Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+         * @param operationPreferences Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operationPreferences Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+         * @param operationPreferences Preferences for how AWS CloudFormation performs a stack set operation. See operationPreferences below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retainStacks Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+         * @param retainStacks Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class StackInstancesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retainStacks Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+         * @param retainStacks Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retainStacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
          * 
          * @return builder
          * 

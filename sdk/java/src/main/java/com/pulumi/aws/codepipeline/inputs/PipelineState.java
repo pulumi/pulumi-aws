@@ -38,14 +38,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more artifact_store blocks. Artifact stores are documented below.
+     * One or more artifactStore blocks. Artifact stores are documented below.
      * 
      */
     @Import(name="artifactStores")
     private @Nullable Output<List<PipelineArtifactStoreArgs>> artifactStores;
 
     /**
-     * @return One or more artifact_store blocks. Artifact stores are documented below.
+     * @return One or more artifactStore blocks. Artifact stores are documented below.
      * 
      */
     public Optional<Output<List<PipelineArtifactStoreArgs>>> artifactStores() {
@@ -143,14 +143,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -158,14 +158,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -188,14 +188,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<List<PipelineTriggerArgs>> triggers;
 
     /**
-     * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+     * @return A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      * 
      */
     public Optional<Output<List<PipelineTriggerArgs>>> triggers() {
@@ -203,7 +203,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      * 
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
@@ -212,7 +212,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<PipelineVariableArgs>> variables;
 
     /**
-     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * @return A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      * 
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
@@ -279,7 +279,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param artifactStores One or more artifact_store blocks. Artifact stores are documented below.
+         * @param artifactStores One or more artifactStore blocks. Artifact stores are documented below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param artifactStores One or more artifact_store blocks. Artifact stores are documented below.
+         * @param artifactStores One or more artifactStore blocks. Artifact stores are documented below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param artifactStores One or more artifact_store blocks. Artifact stores are documented below.
+         * @param artifactStores One or more artifactStore blocks. Artifact stores are documented below.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * @param triggers A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * @param triggers A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+         * @param triggers A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * @param variables A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
          * 
          * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
@@ -563,7 +563,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * @param variables A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
          * 
          * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
@@ -575,7 +575,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * @param variables A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
          * 
          * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 

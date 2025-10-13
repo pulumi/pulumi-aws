@@ -20,7 +20,7 @@ public final class TrailEventSelector {
      */
     private @Nullable List<TrailEventSelectorDataResource> dataResources;
     /**
-     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
      * 
      */
     private @Nullable List<String> excludeManagementEventSources;
@@ -44,7 +44,7 @@ public final class TrailEventSelector {
         return this.dataResources == null ? List.of() : this.dataResources;
     }
     /**
-     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+     * @return A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
      * 
      */
     public List<String> excludeManagementEventSources() {

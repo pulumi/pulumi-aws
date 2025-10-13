@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineStageBeforeEntryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The conditions that are configured as entry condition. Defined as a `condition` block below.
+        /// The conditions that are configured as entry condition. Defined as a `Condition` block below.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.PipelineStageBeforeEntryConditionGetArgs> Condition { get; set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
     public sealed class ViewIncludedProperty
     {
         /// <summary>
-        /// The name of the property that is included in this view. Valid values: `tags`.
+        /// The name of the property that is included in this view. Valid values: `Tags`.
         /// </summary>
         public readonly string Name;
 

@@ -155,7 +155,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, the last region in a replication set cannot be deleted.
+        /// If `True`, the last region in a replication set cannot be deleted.
         /// </summary>
         [Output("deletionProtected")]
         public Output<bool> DeletionProtected { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<string> LastModifiedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The replication set's Regions. Use `regions` instead.
+        /// The replication set's Regions. Use `Regions` instead.
         /// </summary>
         [Output("region")]
         public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Region { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// 
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputList<Inputs.ReplicationSetRegionArgs>? _region;
 
         /// <summary>
-        /// The replication set's Regions. Use `regions` instead.
+        /// The replication set's Regions. Use `Regions` instead.
         /// </summary>
         [Obsolete(@"region is deprecated. Use regions instead.")]
         public InputList<Inputs.ReplicationSetRegionArgs> Region
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// 
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Input<string>? CreatedBy { get; set; }
 
         /// <summary>
-        /// If `true`, the last region in a replication set cannot be deleted.
+        /// If `True`, the last region in a replication set cannot be deleted.
         /// </summary>
         [Input("deletionProtected")]
         public Input<bool>? DeletionProtected { get; set; }
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputList<Inputs.ReplicationSetRegionGetArgs>? _region;
 
         /// <summary>
-        /// The replication set's Regions. Use `regions` instead.
+        /// The replication set's Regions. Use `Regions` instead.
         /// </summary>
         [Obsolete(@"region is deprecated. Use regions instead.")]
         public InputList<Inputs.ReplicationSetRegionGetArgs> Region
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         /// 
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

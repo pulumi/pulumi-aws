@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string InferenceProfileName;
         /// <summary>
-        /// List of information about each model in the inference profile. See `models` Block.
+        /// List of information about each model in the inference profile. See `Models` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryModelResult> Models;
         /// <summary>

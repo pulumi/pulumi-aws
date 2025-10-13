@@ -147,14 +147,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<NodeGroupLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+     * @return Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      * 
      */
     public Optional<Output<NodeGroupLaunchTemplateArgs>> launchTemplate() {
@@ -162,14 +162,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
     @Import(name="nodeGroupName")
     private @Nullable Output<String> nodeGroupName;
 
     /**
-     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
     public Optional<Output<String>> nodeGroupName() {
@@ -177,14 +177,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      * 
      */
     @Import(name="nodeGroupNamePrefix")
     private @Nullable Output<String> nodeGroupNamePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      * 
      */
     public Optional<Output<String>> nodeGroupNamePrefix() {
@@ -192,14 +192,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
      * 
      */
     @Import(name="nodeRepairConfig")
     private @Nullable Output<NodeGroupNodeRepairConfigArgs> nodeRepairConfig;
 
     /**
-     * @return The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * @return The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
      * 
      */
     public Optional<Output<NodeGroupNodeRepairConfigArgs>> nodeRepairConfig() {
@@ -252,14 +252,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      * 
      */
     @Import(name="remoteAccess")
     private @Nullable Output<NodeGroupRemoteAccessArgs> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+     * @return Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      * 
      */
     public Optional<Output<NodeGroupRemoteAccessArgs>> remoteAccess() {
@@ -282,14 +282,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with scaling settings. See `scaling_config` below for details.
+     * Configuration block with scaling settings. See `scalingConfig` below for details.
      * 
      */
     @Import(name="scalingConfig")
     private @Nullable Output<NodeGroupScalingConfigArgs> scalingConfig;
 
     /**
-     * @return Configuration block with scaling settings. See `scaling_config` below for details.
+     * @return Configuration block with scaling settings. See `scalingConfig` below for details.
      * 
      */
     public Optional<Output<NodeGroupScalingConfigArgs>> scalingConfig() {
@@ -331,14 +331,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -346,14 +346,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -376,14 +376,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with update settings. See `update_config` below for details.
+     * Configuration block with update settings. See `updateConfig` below for details.
      * 
      */
     @Import(name="updateConfig")
     private @Nullable Output<NodeGroupUpdateConfigArgs> updateConfig;
 
     /**
-     * @return Configuration block with update settings. See `update_config` below for details.
+     * @return Configuration block with update settings. See `updateConfig` below for details.
      * 
      */
     public Optional<Output<NodeGroupUpdateConfigArgs>> updateConfig() {
@@ -632,7 +632,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+         * @param launchTemplate Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+         * @param nodeGroupName Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+         * @param nodeGroupNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeGroupNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+         * @param nodeGroupNamePrefix Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeRepairConfig The node auto repair configuration for the node group. See `node_repair_config` below for details.
+         * @param nodeRepairConfig The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeRepairConfig The node auto repair configuration for the node group. See `node_repair_config` below for details.
+         * @param nodeRepairConfig The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+         * @param remoteAccess Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteAccess Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+         * @param remoteAccess Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfig Configuration block with scaling settings. See `scaling_config` below for details.
+         * @param scalingConfig Configuration block with scaling settings. See `scalingConfig` below for details.
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfig Configuration block with scaling settings. See `scaling_config` below for details.
+         * @param scalingConfig Configuration block with scaling settings. See `scalingConfig` below for details.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -942,7 +942,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -983,7 +983,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateConfig Configuration block with update settings. See `update_config` below for details.
+         * @param updateConfig Configuration block with update settings. See `updateConfig` below for details.
          * 
          * @return builder
          * 
@@ -994,7 +994,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateConfig Configuration block with update settings. See `update_config` below for details.
+         * @param updateConfig Configuration block with update settings. See `updateConfig` below for details.
          * 
          * @return builder
          * 

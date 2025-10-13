@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainClusterConfigZoneAwarenessConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        /// Number of Availability Zones for the domain to use with `ZoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
         /// </summary>
         [Input("availabilityZoneCount")]
         public Input<int>? AvailabilityZoneCount { get; set; }

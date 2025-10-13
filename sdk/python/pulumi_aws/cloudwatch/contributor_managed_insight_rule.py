@@ -239,6 +239,8 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
@@ -265,6 +267,8 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Contributor Managed Insight Rule.
 
         ## Example Usage
+
+        ### Basic Usage
 
         ## Import
 

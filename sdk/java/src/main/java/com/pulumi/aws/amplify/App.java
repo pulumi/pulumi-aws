@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ### Repository with Tokens
  * 
- * If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+ * If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
  * 
  * <pre>
  * {@code
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+ * You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
  * 
  * ### Auto Branch Creation
  * 
@@ -410,14 +410,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+     * Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      * 
      */
     @Export(name="autoBranchCreationConfig", refs={AppAutoBranchCreationConfig.class}, tree="[0]")
     private Output<AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
     /**
-     * @return Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+     * @return Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      * 
      */
     public Output<AppAutoBranchCreationConfig> autoBranchCreationConfig() {
@@ -466,14 +466,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.buildSpec;
     }
     /**
-     * Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * Cache configuration for the Amplify app. See `cacheConfig` Block for details.
      * 
      */
     @Export(name="cacheConfig", refs={AppCacheConfig.class}, tree="[0]")
     private Output<AppCacheConfig> cacheConfig;
 
     /**
-     * @return Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * @return Cache configuration for the Amplify app. See `cacheConfig` Block for details.
      * 
      */
     public Output<AppCacheConfig> cacheConfig() {
@@ -508,14 +508,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.customHeaders;
     }
     /**
-     * Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+     * Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      * 
      */
     @Export(name="customRules", refs={List.class,AppCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppCustomRule>> customRules;
 
     /**
-     * @return Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+     * @return Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      * 
      */
     public Output<Optional<List<AppCustomRule>>> customRules() {
@@ -634,14 +634,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamServiceRoleArn);
     }
     /**
-     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
+     * Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      * 
      */
     @Export(name="jobConfig", refs={AppJobConfig.class}, tree="[0]")
     private Output<AppJobConfig> jobConfig;
 
     /**
-     * @return Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `job_config` Block for details.
+     * @return Used to configure the [Amplify Application build instance compute type](https://docs.aws.amazon.com/amplify/latest/APIReference/API_JobConfig.html#amplify-Type-JobConfig-buildComputeType). See `jobConfig` Block for details.
      * 
      */
     public Output<AppJobConfig> jobConfig() {
@@ -690,14 +690,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.platform);
     }
     /**
-     * Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+     * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      * 
      */
     @Export(name="productionBranches", refs={List.class,AppProductionBranch.class}, tree="[0,1]")
     private Output<List<AppProductionBranch>> productionBranches;
 
     /**
-     * @return Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+     * @return Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      * 
      */
     public Output<List<AppProductionBranch>> productionBranches() {
@@ -732,28 +732,28 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repository);
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

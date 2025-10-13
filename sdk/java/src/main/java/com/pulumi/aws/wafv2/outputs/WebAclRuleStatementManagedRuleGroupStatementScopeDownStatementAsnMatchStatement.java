@@ -20,7 +20,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     private List<Integer> asnLists;
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig forwardedIpConfig;
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         return this.asnLists;
     }
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for more details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwardedIpConfig` below for more details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementForwardedIpConfig> forwardedIpConfig() {

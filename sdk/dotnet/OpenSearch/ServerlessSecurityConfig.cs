@@ -56,7 +56,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.ServerlessSecurityConfigSamlOptions?> SamlOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Type of configuration. Must be `saml`.
+        /// Type of configuration. Must be `Saml`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsArgs>? SamlOptions { get; set; }
 
         /// <summary>
-        /// Type of configuration. Must be `saml`.
+        /// Type of configuration. Must be `Saml`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsGetArgs>? SamlOptions { get; set; }
 
         /// <summary>
-        /// Type of configuration. Must be `saml`.
+        /// Type of configuration. Must be `Saml`.
         /// 
         /// The following arguments are optional:
         /// </summary>

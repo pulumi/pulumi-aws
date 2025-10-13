@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class WebhookFilterGroupFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
+        /// If set to `True`, the specified filter does *not* trigger a build. Defaults to `False`.
         /// </summary>
         [Input("excludeMatchedPattern")]
         public Input<bool>? ExcludeMatchedPattern { get; set; }

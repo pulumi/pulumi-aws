@@ -19,7 +19,7 @@ namespace Pulumi.Aws.DirectoryService.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        /// Type of identifier to be used in the `Id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

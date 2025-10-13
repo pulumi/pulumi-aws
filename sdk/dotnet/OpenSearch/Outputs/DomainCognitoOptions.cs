@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainCognitoOptions
     {
         /// <summary>
-        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
+        /// Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `False`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

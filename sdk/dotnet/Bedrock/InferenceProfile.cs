@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.InferenceProfileModelSource?> ModelSource { get; private set; } = null!;
 
         /// <summary>
-        /// A list of information about each model in the inference profile. See `models`.
+        /// A list of information about each model in the inference profile. See `Models`.
         /// </summary>
         [Output("models")]
         public Output<ImmutableArray<Outputs.InferenceProfileModel>> Models { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
+        /// The source of the model this inference profile will track metrics and cost for. See `ModelSource`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.InferenceProfileModelGetArgs>? _models;
 
         /// <summary>
-        /// A list of information about each model in the inference profile. See `models`.
+        /// A list of information about each model in the inference profile. See `Models`.
         /// </summary>
         public InputList<Inputs.InferenceProfileModelGetArgs> Models
         {

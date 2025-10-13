@@ -16,14 +16,14 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
     public static final DomainRuleBasedMatchingMatchingRuleArgs Empty = new DomainRuleBasedMatchingMatchingRuleArgs();
 
     /**
-     * A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+     * A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<String>> rules;
 
     /**
-     * @return A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+     * @return A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
      * 
      */
     public Output<List<String>> rules() {
@@ -55,7 +55,7 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param rules A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param rules A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param rules A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
+         * @param rules A single rule level of the `matchRules`. Configures how the rule-based matching process should match profiles.
          * 
          * @return builder
          * 

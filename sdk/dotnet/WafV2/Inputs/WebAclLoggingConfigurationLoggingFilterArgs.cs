@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclLoggingConfigurationLoggingFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
+        /// Default handling for logs that don't match any of the specified filtering conditions. Valid values for `DefaultBehavior` are `KEEP` or `DROP`.
         /// </summary>
         [Input("defaultBehavior", required: true)]
         public Input<string> DefaultBehavior { get; set; } = null!;

@@ -27,21 +27,21 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? BucketOwnerAccess;
         /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        /// this value is ignored. Defaults to `false`.
+        /// Whether to disable encrypting output artifacts. If `Type` is set to `NO_ARTIFACTS`,
+        /// this value is ignored. Defaults to `False`.
         /// </summary>
         public readonly bool? EncryptionDisabled;
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        /// Information about the build output artifact location. If `Type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored. If `Type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Name of the project. If `Type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+        /// Namespace to use in storing build artifacts. If `Type` is set to `S3`, then valid values
         /// are `BUILD_ID`, `NONE`.
         /// </summary>
         public readonly string? NamespaceType;
@@ -50,12 +50,12 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly bool? OverrideArtifactName;
         /// <summary>
-        /// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+        /// Type of build output artifact to create. If `Type` is set to `S3`, valid values are `NONE`,
         /// `ZIP`
         /// </summary>
         public readonly string? Packaging;
         /// <summary>
-        /// If `type` is set to `S3`, this is the path to the output artifact.
+        /// If `Type` is set to `S3`, this is the path to the output artifact.
         /// </summary>
         public readonly string? Path;
         /// <summary>

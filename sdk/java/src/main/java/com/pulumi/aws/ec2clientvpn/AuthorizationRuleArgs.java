@@ -18,14 +18,14 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
     public static final AuthorizationRuleArgs Empty = new AuthorizationRuleArgs();
 
     /**
-     * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     @Import(name="accessGroupId")
     private @Nullable Output<String> accessGroupId;
 
     /**
-     * @return The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * @return The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     public Optional<Output<String>> accessGroupId() {
@@ -33,14 +33,14 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     @Import(name="authorizeAllGroups")
     private @Nullable Output<Boolean> authorizeAllGroups;
 
     /**
-     * @return Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * @return Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     public Optional<Output<Boolean>> authorizeAllGroups() {
@@ -137,7 +137,7 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+         * @param accessGroupId The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+         * @param authorizeAllGroups Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
          * 
          * @return builder
          * 

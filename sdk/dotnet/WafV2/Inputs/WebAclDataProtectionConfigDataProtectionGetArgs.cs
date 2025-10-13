@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<bool>? ExcludeRuleMatchDetails { get; set; }
 
         /// <summary>
-        /// Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        /// Specifies the field type and optional keys to apply the protection behavior to. See `Field` block below for details.
         /// </summary>
         [Input("field", required: true)]
         public Input<Inputs.WebAclDataProtectionConfigDataProtectionFieldGetArgs> Field { get; set; } = null!;

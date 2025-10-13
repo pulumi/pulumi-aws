@@ -466,14 +466,14 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
      * 
      */
     @Export(name="outputColumns", refs={List.class,DataSetOutputColumn.class}, tree="[0,1]")
     private Output<List<DataSetOutputColumn>> outputColumns;
 
     /**
-     * @return The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `output_columns` Block below.
+     * @return The final set of columns available for use in analyses and dashboards after all data preparation and transformation steps have been applied within the data set.  See `outputColumns` Block below.
      * 
      */
     public Output<List<DataSetOutputColumn>> outputColumns() {
@@ -508,14 +508,14 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.physicalTableMaps);
     }
     /**
-     * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      * 
      */
     @Export(name="refreshProperties", refs={DataSetRefreshProperties.class}, tree="[0]")
     private Output</* @Nullable */ DataSetRefreshProperties> refreshProperties;
 
     /**
-     * @return The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * @return The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      * 
      */
     public Output<Optional<DataSetRefreshProperties>> refreshProperties() {
@@ -564,28 +564,28 @@ public class DataSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowLevelPermissionTagConfiguration);
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

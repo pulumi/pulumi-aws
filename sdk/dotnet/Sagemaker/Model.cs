@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Inference Execution Config
     /// 
-    /// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
+    /// * `Mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
     /// 
     /// ## Import
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        /// Specifies containers in the inference pipeline. If not specified, the `PrimaryContainer` argument is required. Fields are documented below.
         /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ModelContainer>> Containers { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `Container` argument is required. Fields are documented below.
         /// </summary>
         [Output("primaryContainer")]
         public Output<Outputs.ModelPrimaryContainer?> PrimaryContainer { get; private set; } = null!;
@@ -136,13 +136,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.ModelContainerArgs>? _containers;
 
         /// <summary>
-        /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        /// Specifies containers in the inference pipeline. If not specified, the `PrimaryContainer` argument is required. Fields are documented below.
         /// </summary>
         public InputList<Inputs.ModelContainerArgs> Containers
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `Container` argument is required. Fields are documented below.
         /// </summary>
         [Input("primaryContainer")]
         public Input<Inputs.ModelPrimaryContainerArgs>? PrimaryContainer { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputList<Inputs.ModelContainerGetArgs>? _containers;
 
         /// <summary>
-        /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        /// Specifies containers in the inference pipeline. If not specified, the `PrimaryContainer` argument is required. Fields are documented below.
         /// </summary>
         public InputList<Inputs.ModelContainerGetArgs> Containers
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `Container` argument is required. Fields are documented below.
         /// </summary>
         [Input("primaryContainer")]
         public Input<Inputs.ModelPrimaryContainerGetArgs>? PrimaryContainer { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

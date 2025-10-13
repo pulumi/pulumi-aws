@@ -95,7 +95,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> ChangeDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ChangeDescription { get; set; }
 
         /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ChangeDescription { get; set; }
 
         /// <summary>
-        /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// Inline YAML string with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the workflow. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the workflow. Exactly one of `Data` and `Uri` can be specified.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic
+//
 // ## Import
 //
 // Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:

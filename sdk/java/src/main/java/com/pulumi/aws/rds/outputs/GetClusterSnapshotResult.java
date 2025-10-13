@@ -55,7 +55,7 @@ public final class GetClusterSnapshotResult {
     private @Nullable Boolean includePublic;
     private @Nullable Boolean includeShared;
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     private String kmsKeyId;
@@ -159,7 +159,7 @@ public final class GetClusterSnapshotResult {
         return Optional.ofNullable(this.includeShared);
     }
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+     * @return If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
     public String kmsKeyId() {

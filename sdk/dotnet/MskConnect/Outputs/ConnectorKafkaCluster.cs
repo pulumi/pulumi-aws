@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorKafkaCluster
     {
         /// <summary>
-        /// The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+        /// The Apache Kafka cluster to which the connector is connected. See `ApacheKafkaCluster` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorKafkaClusterApacheKafkaCluster ApacheKafkaCluster;
 

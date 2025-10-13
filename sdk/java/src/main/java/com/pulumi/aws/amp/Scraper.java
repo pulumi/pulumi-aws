@@ -103,14 +103,14 @@ public class Scraper extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      * 
      */
     @Export(name="roleConfiguration", refs={ScraperRoleConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ScraperRoleConfiguration> roleConfiguration;
 
     /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      * 
      */
     public Output<Optional<ScraperRoleConfiguration>> roleConfiguration() {

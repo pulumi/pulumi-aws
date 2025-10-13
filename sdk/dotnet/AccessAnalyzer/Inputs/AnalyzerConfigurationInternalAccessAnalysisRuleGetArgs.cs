@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
         private InputList<Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionGetArgs>? _inclusions;
 
         /// <summary>
-        /// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
+        /// List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `Inclusion` Block for details.
         /// </summary>
         public InputList<Inputs.AnalyzerConfigurationInternalAccessAnalysisRuleInclusionGetArgs> Inclusions
         {

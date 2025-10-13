@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDomainSettings {
     /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
      * 
      */
     private @Nullable DomainDomainSettingsDockerSettings dockerSettings;
@@ -25,7 +25,7 @@ public final class DomainDomainSettings {
      */
     private @Nullable String executionRoleIdentityConfig;
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
      * 
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
@@ -37,7 +37,7 @@ public final class DomainDomainSettings {
 
     private DomainDomainSettings() {}
     /**
-     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * @return A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
      * 
      */
     public Optional<DomainDomainSettingsDockerSettings> dockerSettings() {
@@ -51,7 +51,7 @@ public final class DomainDomainSettings {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
      * 
      */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettings> rStudioServerProDomainSettings() {

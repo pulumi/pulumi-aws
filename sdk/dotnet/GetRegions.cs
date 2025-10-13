@@ -49,7 +49,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `AllRegions` argument needs to be set to `True` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `AllRegions` argument needs to be set to `True` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+        /// To see regions that are filtered by `"not-opted-in"`, the `AllRegions` argument needs to be set to `True` or no results will be returned.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws
         public readonly bool? AllRegions;
         public readonly ImmutableArray<Outputs.GetRegionsFilterResult> Filters;
         /// <summary>
-        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         public readonly string Id;
         /// <summary>

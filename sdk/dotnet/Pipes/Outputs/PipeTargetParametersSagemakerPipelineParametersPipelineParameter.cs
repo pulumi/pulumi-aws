@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersSagemakerPipelineParametersPipelineParameter
     {
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         public readonly string Name;
         /// <summary>

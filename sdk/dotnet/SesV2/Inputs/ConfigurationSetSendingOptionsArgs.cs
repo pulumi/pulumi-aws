@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetSendingOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
+        /// If `True`, email sending is enabled for the configuration set. If `False`, email sending is disabled for the configuration set.
         /// </summary>
         [Input("sendingEnabled")]
         public Input<bool>? SendingEnabled { get; set; }

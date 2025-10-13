@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttp2RouteMatchHeader
     {
         /// <summary>
-        /// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+        /// If `True`, the match is on the opposite of the `Match` method and value. Default is `False`.
         /// </summary>
         public readonly bool? Invert;
         /// <summary>

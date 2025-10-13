@@ -630,6 +630,8 @@ class FlowLog(pulumi.CustomResource):
             policy=example.json)
         ```
 
+        ### Amazon Data Firehose logging
+
         ### S3 Logging
 
         ```python
@@ -839,6 +841,8 @@ class FlowLog(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         ```
+
+        ### Amazon Data Firehose logging
 
         ### S3 Logging
 

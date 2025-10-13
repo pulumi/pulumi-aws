@@ -22,7 +22,7 @@ public final class GetGroupMembershipsGroupMembership {
      */
     private String identityStoreId;
     /**
-     * @return An object containing the identifier of a group member. See `member_id` below.
+     * @return An object containing the identifier of a group member. See `memberId` below.
      * 
      */
     private GetGroupMembershipsGroupMembershipMemberId memberId;
@@ -44,7 +44,7 @@ public final class GetGroupMembershipsGroupMembership {
         return this.identityStoreId;
     }
     /**
-     * @return An object containing the identifier of a group member. See `member_id` below.
+     * @return An object containing the identifier of a group member. See `memberId` below.
      * 
      */
     public GetGroupMembershipsGroupMembershipMemberId memberId() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable VPN tunnel logging feature. The default is `false`.
+        /// Enable or disable VPN tunnel logging feature. The default is `False`.
         /// </summary>
         [Input("logEnabled")]
         public Input<bool>? LogEnabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? LogGroupArn { get; set; }
 
         /// <summary>
-        /// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        /// Set log format. Default format is json. Possible values are: `Json` and `Text`. The default is `Json`.
         /// </summary>
         [Input("logOutputFormat")]
         public Input<string>? LogOutputFormat { get; set; }

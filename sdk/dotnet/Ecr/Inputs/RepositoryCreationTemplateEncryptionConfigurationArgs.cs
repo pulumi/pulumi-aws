@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecr.Inputs
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        /// The ARN of the KMS key to use when `EncryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }

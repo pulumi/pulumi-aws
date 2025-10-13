@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Alb.Inputs
         public Input<int> Duration { get; set; } = null!;
 
         /// <summary>
-        /// Whether target group stickiness is enabled. Default is `false`.
+        /// Whether target group stickiness is enabled. Default is `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

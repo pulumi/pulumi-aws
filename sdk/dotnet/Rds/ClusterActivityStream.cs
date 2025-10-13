@@ -14,9 +14,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// Database Activity Streams have some limits and requirements, refer to the [Monitoring Amazon Aurora using Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html) documentation for detailed limitations and requirements.
     /// 
-    /// &gt; **Note:** This resource always calls the RDS [`StartActivityStream`][2] API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
+    /// &gt; **Note:** This resource always calls the RDS [`StartActivityStream`][2] API with the `ApplyImmediately` parameter set to `True`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
     /// 
-    /// &gt; **Note:** This resource depends on having at least one `aws.rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `depends_on` meta-argument.
+    /// &gt; **Note:** This resource depends on having at least one `aws.rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `DependsOn` meta-argument.
     /// 
     /// &gt; **Note:** This resource is available in all regions except the following: `cn-north-1`, `cn-northwest-1`, `us-gov-east-1`, `us-gov-west-1`
     /// 
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Rds
     public partial class ClusterActivityStream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `False`.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `Sync`, `Async`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterActivityStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `False`.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> KmsKeyId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `Sync`, `Async`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterActivityStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `False`.
         /// 
         /// For more detailed documentation about each argument, refer to
         /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `Sync`, `Async`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

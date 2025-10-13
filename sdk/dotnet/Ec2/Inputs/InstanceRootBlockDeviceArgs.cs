@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceRootBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        /// Whether the volume should be destroyed on instance termination. Defaults to `True`.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
         /// <summary>
-        /// Device name, e.g., `/dev/sdh` or `xvdh`.
+        /// Device name, e.g., `/dev/sdh` or `Xvdh`.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
+        /// Whether to enable volume encryption. Defaults to `False`. Must be configured to perform drift detection.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        /// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for VolumeType of `Io1`, `Io2` or `Gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        /// Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `VolumeType` of `Gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -85,9 +85,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         /// <summary>
-        /// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+        /// Type of volume. Valid values include `Standard`, `Gp2`, `Gp3`, `Io1`, `Io2`, `Sc1`, or `St1`. Defaults to the volume type that the AMI uses.
         /// 
-        /// Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+        /// Modifying the `Encrypted` or `KmsKeyId` settings of the `RootBlockDevice` requires resource replacement.
         /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

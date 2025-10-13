@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/routeTableAssociation:RouteTableAssociation")
 public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The gateway ID to create an association. Conflicts with `subnet_id`.
+     * The gateway ID to create an association. Conflicts with `subnetId`.
      * 
      */
     @Export(name="gatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayId;
 
     /**
-     * @return The gateway ID to create an association. Conflicts with `subnet_id`.
+     * @return The gateway ID to create an association. Conflicts with `subnetId`.
      * 
      */
     public Output<Optional<String>> gatewayId() {
@@ -135,7 +135,7 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the routing table to associate with.
      * 
-     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
@@ -144,21 +144,21 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the routing table to associate with.
      * 
-     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+     * &gt; **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      * 
      */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
     /**
-     * The subnet ID to create an association. Conflicts with `gateway_id`.
+     * The subnet ID to create an association. Conflicts with `gatewayId`.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return The subnet ID to create an association. Conflicts with `gateway_id`.
+     * @return The subnet ID to create an association. Conflicts with `gatewayId`.
      * 
      */
     public Output<Optional<String>> subnetId() {

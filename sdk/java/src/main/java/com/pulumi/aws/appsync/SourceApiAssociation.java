@@ -111,28 +111,28 @@ public class SourceApiAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+     * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      * 
      */
     @Export(name="mergedApiArn", refs={String.class}, tree="[0]")
     private Output<String> mergedApiArn;
 
     /**
-     * @return ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+     * @return ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      * 
      */
     public Output<String> mergedApiArn() {
         return this.mergedApiArn;
     }
     /**
-     * ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+     * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      * 
      */
     @Export(name="mergedApiId", refs={String.class}, tree="[0]")
     private Output<String> mergedApiId;
 
     /**
-     * @return ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+     * @return ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      * 
      */
     public Output<String> mergedApiId() {
@@ -153,14 +153,14 @@ public class SourceApiAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+     * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      * 
      */
     @Export(name="sourceApiArn", refs={String.class}, tree="[0]")
     private Output<String> sourceApiArn;
 
     /**
-     * @return ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+     * @return ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      * 
      */
     public Output<String> sourceApiArn() {
@@ -173,14 +173,14 @@ public class SourceApiAssociation extends com.pulumi.resources.CustomResource {
         return this.sourceApiAssociationConfigs;
     }
     /**
-     * ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+     * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      * 
      */
     @Export(name="sourceApiId", refs={String.class}, tree="[0]")
     private Output<String> sourceApiId;
 
     /**
-     * @return ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+     * @return ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      * 
      */
     public Output<String> sourceApiId() {

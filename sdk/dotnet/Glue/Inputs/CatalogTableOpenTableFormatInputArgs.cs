@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOpenTableFormatInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for iceberg table config. See `iceberg_input` below.
+        /// Configuration block for iceberg table config. See `IcebergInput` below.
         /// </summary>
         [Input("icebergInput", required: true)]
         public Input<Inputs.CatalogTableOpenTableFormatInputIcebergInputArgs> IcebergInput { get; set; } = null!;

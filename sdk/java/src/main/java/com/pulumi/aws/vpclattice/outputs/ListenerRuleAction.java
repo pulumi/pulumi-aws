@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class ListenerRuleAction {
     /**
      * @return Describes the rule action that returns a custom HTTP response.
-     * See `fixed_response` Block for details.
+     * See `fixedResponse` Block for details.
      * 
      */
     private @Nullable ListenerRuleActionFixedResponse fixedResponse;
@@ -28,7 +28,7 @@ public final class ListenerRuleAction {
     private ListenerRuleAction() {}
     /**
      * @return Describes the rule action that returns a custom HTTP response.
-     * See `fixed_response` Block for details.
+     * See `fixedResponse` Block for details.
      * 
      */
     public Optional<ListenerRuleActionFixedResponse> fixedResponse() {

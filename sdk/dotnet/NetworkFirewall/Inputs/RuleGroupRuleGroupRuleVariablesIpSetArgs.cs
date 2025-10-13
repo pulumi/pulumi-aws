@@ -19,7 +19,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public Input<Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs> IpSet { get; set; } = null!;
 
         /// <summary>
-        /// A unique alphanumeric string to identify the `ip_set`.
+        /// A unique alphanumeric string to identify the `IpSet`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

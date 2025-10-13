@@ -74,13 +74,13 @@ public final class GetLayerVersionResult {
      */
     private String signingProfileVersionArn;
     /**
-     * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      * @deprecated
-     * source_code_hash is deprecated. Use code_sha256 instead.
+     * source_code_hash is deprecated. Use codeSha256 instead.
      * 
      */
-    @Deprecated /* source_code_hash is deprecated. Use code_sha256 instead. */
+    @Deprecated /* source_code_hash is deprecated. Use codeSha256 instead. */
     private String sourceCodeHash;
     /**
      * @return Size in bytes of the function .zip file.
@@ -184,13 +184,13 @@ public final class GetLayerVersionResult {
         return this.signingProfileVersionArn;
     }
     /**
-     * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      * @deprecated
-     * source_code_hash is deprecated. Use code_sha256 instead.
+     * source_code_hash is deprecated. Use codeSha256 instead.
      * 
      */
-    @Deprecated /* source_code_hash is deprecated. Use code_sha256 instead. */
+    @Deprecated /* source_code_hash is deprecated. Use codeSha256 instead. */
     public String sourceCodeHash() {
         return this.sourceCodeHash;
     }

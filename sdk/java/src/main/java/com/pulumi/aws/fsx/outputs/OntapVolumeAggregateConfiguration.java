@@ -24,7 +24,7 @@ public final class OntapVolumeAggregateConfiguration {
      */
     private @Nullable Integer constituentsPerAggregate;
     /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     private @Nullable Integer totalConstituents;
@@ -45,7 +45,7 @@ public final class OntapVolumeAggregateConfiguration {
         return Optional.ofNullable(this.constituentsPerAggregate);
     }
     /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     public Optional<Integer> totalConstituents() {

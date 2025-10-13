@@ -356,14 +356,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceRole;
 
     /**
-     * @return ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+     * @return ARN of the service role used by DataZone. Required when `domainVersion` is set to `V2`.
      * 
      */
     public Output<Optional<String>> serviceRole() {
@@ -404,14 +404,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -69,7 +69,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -77,7 +77,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * @return Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -161,14 +161,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -308,7 +308,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * @param forceDestroy Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
          * Default value is `false`.
          * 
          * @return builder
@@ -320,7 +320,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+         * @param forceDestroy Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
          * Default value is `false`.
          * 
          * @return builder
@@ -436,7 +436,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

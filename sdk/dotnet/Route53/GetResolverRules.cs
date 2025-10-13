@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Retrieving rules by name regex
         /// 
-        /// Resolver rules whose name contains `abc`.
+        /// Resolver rules whose name contains `Abc`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Retrieving rules by name regex
         /// 
-        /// Resolver rules whose name contains `abc`.
+        /// Resolver rules whose name contains `Abc`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ### Retrieving rules by name regex
         /// 
-        /// Resolver rules whose name contains `abc`.
+        /// Resolver rules whose name contains `Abc`.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

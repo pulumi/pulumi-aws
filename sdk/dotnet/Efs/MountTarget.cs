@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// IPv6 address to use. Valid only when `IpAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
         /// </summary>
         [Output("ipv6Address")]
         public Output<string> Ipv6Address { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// IPv6 address to use. Valid only when `IpAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
         /// </summary>
         [Input("ipv6Address")]
         public Input<string>? Ipv6Address { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// IPv6 address to use. Valid only when `ip_address_type` is set to `IPV6_ONLY` or `DUAL_STACK`.
+        /// IPv6 address to use. Valid only when `IpAddressType` is set to `IPV6_ONLY` or `DUAL_STACK`.
         /// </summary>
         [Input("ipv6Address")]
         public Input<string>? Ipv6Address { get; set; }

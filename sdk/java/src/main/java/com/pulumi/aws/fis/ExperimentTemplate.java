@@ -275,14 +275,14 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * The experiment options for the experiment template. See experiment_options below for more details!
+     * The experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     @Export(name="experimentOptions", refs={ExperimentTemplateExperimentOptions.class}, tree="[0]")
     private Output<ExperimentTemplateExperimentOptions> experimentOptions;
 
     /**
-     * @return The experiment options for the experiment template. See experiment_options below for more details!
+     * @return The experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     public Output<ExperimentTemplateExperimentOptions> experimentOptions() {
@@ -363,14 +363,14 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.stopConditions;
     }
     /**
-     * Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

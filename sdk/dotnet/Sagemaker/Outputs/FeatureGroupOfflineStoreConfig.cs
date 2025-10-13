@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.FeatureGroupOfflineStoreConfigDataCatalogConfig? DataCatalogConfig;
         /// <summary>
-        /// Set to `true` to turn Online Store On.
+        /// Set to `True` to turn Online Store On.
         /// </summary>
         public readonly bool? DisableGlueTableCreation;
         /// <summary>

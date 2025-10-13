@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Athena
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `Primary`
         /// </summary>
         [Output("workgroup")]
         public Output<string?> Workgroup { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `Primary`
         /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Athena
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
+        /// Workgroup to which the query belongs. Defaults to `Primary`
         /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }

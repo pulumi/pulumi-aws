@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsIntentInitialResponseSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
+        /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `CodeHook`.
         /// </summary>
         [Input("codeHook")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingCodeHookGetArgs>? CodeHook { get; set; }
 
         /// <summary>
-        /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
+        /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `Conditional`.
         /// </summary>
         [Input("conditional")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingConditionalGetArgs>? Conditional { get; set; }
 
         /// <summary>
-        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
+        /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `InitialResponse`.
         /// </summary>
         [Input("initialResponse")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingInitialResponseGetArgs>? InitialResponse { get; set; }
 
         /// <summary>
-        /// Configuration block for the next step in the conversation. See `next_step`.
+        /// Configuration block for the next step in the conversation. See `NextStep`.
         /// </summary>
         [Input("nextStep")]
         public Input<Inputs.V2modelsIntentInitialResponseSettingNextStepGetArgs>? NextStep { get; set; }

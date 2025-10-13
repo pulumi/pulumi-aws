@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<string>? _includeExecutionDatas;
 
         /// <summary>
-        /// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+        /// String list that specifies whether the execution data (specifically, the `Payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
         /// </summary>
         public InputList<string> IncludeExecutionDatas
         {

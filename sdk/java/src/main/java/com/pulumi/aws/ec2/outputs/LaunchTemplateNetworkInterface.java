@@ -56,42 +56,42 @@ public final class LaunchTemplateNetworkInterface {
      */
     private @Nullable String interfaceType;
     /**
-     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
      * 
      */
     private @Nullable Integer ipv4AddressCount;
     /**
-     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
      * 
      */
     private @Nullable List<String> ipv4Addresses;
     /**
-     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
      * 
      */
     private @Nullable Integer ipv4PrefixCount;
     /**
-     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
      * 
      */
     private @Nullable List<String> ipv4Prefixes;
     /**
-     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
      * 
      */
     private @Nullable Integer ipv6AddressCount;
     /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
      * 
      */
     private @Nullable List<String> ipv6Addresses;
     /**
-     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
      * 
      */
     private @Nullable Integer ipv6PrefixCount;
     /**
-     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
      * 
      */
     private @Nullable List<String> ipv6Prefixes;
@@ -184,56 +184,56 @@ public final class LaunchTemplateNetworkInterface {
         return Optional.ofNullable(this.interfaceType);
     }
     /**
-     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+     * @return The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
      * 
      */
     public Optional<Integer> ipv4AddressCount() {
         return Optional.ofNullable(this.ipv4AddressCount);
     }
     /**
-     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+     * @return One or more private IPv4 addresses to associate. Conflicts with `ipv4AddressCount`
      * 
      */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses == null ? List.of() : this.ipv4Addresses;
     }
     /**
-     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+     * @return The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4Prefixes`
      * 
      */
     public Optional<Integer> ipv4PrefixCount() {
         return Optional.ofNullable(this.ipv4PrefixCount);
     }
     /**
-     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+     * @return One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4PrefixCount`
      * 
      */
     public List<String> ipv4Prefixes() {
         return this.ipv4Prefixes == null ? List.of() : this.ipv4Prefixes;
     }
     /**
-     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+     * @return The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6Addresses`
      * 
      */
     public Optional<Integer> ipv6AddressCount() {
         return Optional.ofNullable(this.ipv6AddressCount);
     }
     /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
      * 
      */
     public List<String> ipv6Addresses() {
         return this.ipv6Addresses == null ? List.of() : this.ipv6Addresses;
     }
     /**
-     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+     * @return The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6Prefixes`
      * 
      */
     public Optional<Integer> ipv6PrefixCount() {
         return Optional.ofNullable(this.ipv6PrefixCount);
     }
     /**
-     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+     * @return One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6PrefixCount`
      * 
      */
     public List<String> ipv6Prefixes() {

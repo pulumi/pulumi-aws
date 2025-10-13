@@ -65,14 +65,14 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     @Import(name="cacheControl")
     private @Nullable Output<String> cacheControl;
 
     /**
-     * @return Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * @return Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     public Optional<Output<String>> cacheControl() {
@@ -110,14 +110,14 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     @Import(name="contentDisposition")
     private @Nullable Output<String> contentDisposition;
 
     /**
-     * @return Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * @return Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     public Optional<Output<String>> contentDisposition() {
@@ -170,14 +170,14 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+     * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;` (see `sourceHash` instead).
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+     * @return Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;` (see `sourceHash` instead).
      * 
      */
     public Optional<Output<String>> etag() {
@@ -219,14 +219,14 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+     * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+     * @return ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -369,14 +369,14 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -386,9 +386,9 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
-     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
      */
     @Import(name="websiteRedirect")
@@ -397,9 +397,9 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
-     * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+     * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
      */
     public Optional<Output<String>> websiteRedirect() {
@@ -518,7 +518,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheControl Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+         * @param cacheControl Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheControl Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+         * @param cacheControl Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentDisposition Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+         * @param contentDisposition Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentDisposition Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+         * @param contentDisposition Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+         * @param etag Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;` (see `sourceHash` instead).
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;` (see `source_hash` instead).
+         * @param etag Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = &#34;aws:kms&#34;` (see `sourceHash` instead).
          * 
          * @return builder
          * 
@@ -732,7 +732,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+         * @param kmsKeyId ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
+         * @param kmsKeyId ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -942,7 +942,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -953,7 +953,7 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -965,9 +965,9 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
-         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+         * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 
          * @return builder
          * 
@@ -980,9 +980,9 @@ public final class BucketObjectArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
-         * &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+         * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 
          * @return builder
          * 

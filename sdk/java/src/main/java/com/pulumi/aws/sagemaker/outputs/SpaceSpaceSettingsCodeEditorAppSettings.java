@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsCodeEditorAppSettings {
     /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsCodeEditorAppSettings() {}
     /**
-     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
      * 
      */
     public Optional<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement> appLifecycleManagement() {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec() {

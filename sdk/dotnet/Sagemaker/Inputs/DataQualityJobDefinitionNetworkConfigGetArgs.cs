@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DataQualityJobDefinitionNetworkConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
+        /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `True` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
         /// </summary>
         [Input("enableInterContainerTrafficEncryption")]
         public Input<bool>? EnableInterContainerTrafficEncryption { get; set; }

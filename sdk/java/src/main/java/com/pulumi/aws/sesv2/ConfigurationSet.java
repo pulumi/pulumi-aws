@@ -123,14 +123,14 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
         return this.configurationSetName;
     }
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      * 
      */
     @Export(name="deliveryOptions", refs={ConfigurationSetDeliveryOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetDeliveryOptions> deliveryOptions;
 
     /**
-     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      * 
      */
     public Output<Optional<ConfigurationSetDeliveryOptions>> deliveryOptions() {
@@ -151,56 +151,56 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      * 
      */
     @Export(name="reputationOptions", refs={ConfigurationSetReputationOptions.class}, tree="[0]")
     private Output<ConfigurationSetReputationOptions> reputationOptions;
 
     /**
-     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      * 
      */
     public Output<ConfigurationSetReputationOptions> reputationOptions() {
         return this.reputationOptions;
     }
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      * 
      */
     @Export(name="sendingOptions", refs={ConfigurationSetSendingOptions.class}, tree="[0]")
     private Output<ConfigurationSetSendingOptions> sendingOptions;
 
     /**
-     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      * 
      */
     public Output<ConfigurationSetSendingOptions> sendingOptions() {
         return this.sendingOptions;
     }
     /**
-     * An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+     * An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      * 
      */
     @Export(name="suppressionOptions", refs={ConfigurationSetSuppressionOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetSuppressionOptions> suppressionOptions;
 
     /**
-     * @return An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+     * @return An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      * 
      */
     public Output<Optional<ConfigurationSetSuppressionOptions>> suppressionOptions() {
         return Codegen.optional(this.suppressionOptions);
     }
     /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -213,28 +213,28 @@ public class ConfigurationSet extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      * 
      */
     @Export(name="trackingOptions", refs={ConfigurationSetTrackingOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetTrackingOptions> trackingOptions;
 
     /**
-     * @return An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+     * @return An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      * 
      */
     public Output<Optional<ConfigurationSetTrackingOptions>> trackingOptions() {
         return Codegen.optional(this.trackingOptions);
     }
     /**
-     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      * 
      */
     @Export(name="vdmOptions", refs={ConfigurationSetVdmOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationSetVdmOptions> vdmOptions;
 
     /**
-     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      * 
      */
     public Output<Optional<ConfigurationSetVdmOptions>> vdmOptions() {

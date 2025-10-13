@@ -60,7 +60,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `VpcEndpointDnsName`.
         /// </summary>
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> DefaultStorageClass { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `LocationArn`.
         /// </summary>
         [Output("fileShareName")]
         public Output<string> FileShareName { get; private set; } = null!;
@@ -102,19 +102,19 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> GatewayArn { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `True`.
         /// </summary>
         [Output("guessMimeTypeEnabled")]
         public Output<bool?> GuessMimeTypeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        /// Boolean value if `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Defaults to `False`.
         /// </summary>
         [Output("kmsEncrypted")]
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> NotificationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Access Control List permission for S3 objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `Private`.
         /// </summary>
         [Output("objectAcl")]
         public Output<string?> ObjectAcl { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        /// Boolean to indicate write status of file share. File share does not accept writes if `True`. Defaults to `False`.
         /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `True` if you want the requester to pay instead of the bucket owner. Defaults to `False`.
         /// </summary>
         [Output("requesterPays")]
         public Output<bool?> RequesterPays { get; private set; } = null!;
@@ -180,13 +180,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> Squash { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `VpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `LocationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -292,19 +292,19 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> GatewayArn { get; set; } = null!;
 
         /// <summary>
-        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `True`.
         /// </summary>
         [Input("guessMimeTypeEnabled")]
         public Input<bool>? GuessMimeTypeEnabled { get; set; }
 
         /// <summary>
-        /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        /// Boolean value if `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Defaults to `False`.
         /// </summary>
         [Input("kmsEncrypted")]
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -328,13 +328,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
-        /// Access Control List permission for S3 objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `Private`.
         /// </summary>
         [Input("objectAcl")]
         public Input<string>? ObjectAcl { get; set; }
 
         /// <summary>
-        /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        /// Boolean to indicate write status of file share. File share does not accept writes if `True`. Defaults to `False`.
         /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `True` if you want the requester to pay instead of the bucket owner. Defaults to `False`.
         /// </summary>
         [Input("requesterPays")]
         public Input<bool>? RequesterPays { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
-        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// The region of the S3 bucket used by the file share. Required when specifying `VpcEndpointDnsName`.
         /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DefaultStorageClass { get; set; }
 
         /// <summary>
-        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// The name of the file share. Must be set if an S3 prefix name is set in `LocationArn`.
         /// </summary>
         [Input("fileShareName")]
         public Input<string>? FileShareName { get; set; }
@@ -450,19 +450,19 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayArn { get; set; }
 
         /// <summary>
-        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `True`.
         /// </summary>
         [Input("guessMimeTypeEnabled")]
         public Input<bool>? GuessMimeTypeEnabled { get; set; }
 
         /// <summary>
-        /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        /// Boolean value if `True` to use Amazon S3 server side encryption with your own AWS KMS key, or `False` to use a key managed by Amazon S3. Defaults to `False`.
         /// </summary>
         [Input("kmsEncrypted")]
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? NotificationPolicy { get; set; }
 
         /// <summary>
-        /// Access Control List permission for S3 objects. Defaults to `private`.
+        /// Access Control List permission for S3 objects. Defaults to `Private`.
         /// </summary>
         [Input("objectAcl")]
         public Input<string>? ObjectAcl { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        /// Boolean to indicate write status of file share. File share does not accept writes if `True`. Defaults to `False`.
         /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `True` if you want the requester to pay instead of the bucket owner. Defaults to `False`.
         /// </summary>
         [Input("requesterPays")]
         public Input<bool>? RequesterPays { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

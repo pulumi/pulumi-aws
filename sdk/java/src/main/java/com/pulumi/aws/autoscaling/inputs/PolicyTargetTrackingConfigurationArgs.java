@@ -20,14 +20,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     public static final PolicyTargetTrackingConfigurationArgs Empty = new PolicyTargetTrackingConfigurationArgs();
 
     /**
-     * Customized metric. Conflicts with `predefined_metric_specification`.
+     * Customized metric. Conflicts with `predefinedMetricSpecification`.
      * 
      */
     @Import(name="customizedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs> customizedMetricSpecification;
 
     /**
-     * @return Customized metric. Conflicts with `predefined_metric_specification`.
+     * @return Customized metric. Conflicts with `predefinedMetricSpecification`.
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs>> customizedMetricSpecification() {
@@ -50,14 +50,14 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Predefined metric. Conflicts with `customized_metric_specification`.
+     * Predefined metric. Conflicts with `customizedMetricSpecification`.
      * 
      */
     @Import(name="predefinedMetricSpecification")
     private @Nullable Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs> predefinedMetricSpecification;
 
     /**
-     * @return Predefined metric. Conflicts with `customized_metric_specification`.
+     * @return Predefined metric. Conflicts with `customizedMetricSpecification`.
      * 
      */
     public Optional<Output<PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs>> predefinedMetricSpecification() {
@@ -107,7 +107,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customizedMetricSpecification Customized metric. Conflicts with `predefined_metric_specification`.
+         * @param customizedMetricSpecification Customized metric. Conflicts with `predefinedMetricSpecification`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customizedMetricSpecification Customized metric. Conflicts with `predefined_metric_specification`.
+         * @param customizedMetricSpecification Customized metric. Conflicts with `predefinedMetricSpecification`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customized_metric_specification`.
+         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customizedMetricSpecification`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class PolicyTargetTrackingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customized_metric_specification`.
+         * @param predefinedMetricSpecification Predefined metric. Conflicts with `customizedMetricSpecification`.
          * 
          * @return builder
          * 

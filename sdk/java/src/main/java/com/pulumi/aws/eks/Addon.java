@@ -55,9 +55,9 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
+ * ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
  * 
- * `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+ * `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  * 
  * <pre>
  * {@code
@@ -93,16 +93,16 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example add-on usage with custom configuration_values
+ * ## Example add-on usage with custom configurationValues
  * 
- * Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+ * Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
  * 
- * &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+ * &gt; **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
  * 
  * You can use [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) to extract each add-on&#39;s JSON schema.
- * Here&#39;s an example command to extract the `configuration_values` schema for `coredns`.
+ * Here&#39;s an example command to extract the `configurationValues` schema for `coredns`.
  * 
- * Example to create a `coredns` managed addon with custom `configuration_values`.
+ * Example to create a `coredns` managed addon with custom `configurationValues`.
  * 
  * <pre>
  * {@code
@@ -271,14 +271,14 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return this.modifiedAt;
     }
     /**
-     * Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      * 
      */
     @Export(name="podIdentityAssociations", refs={List.class,AddonPodIdentityAssociation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AddonPodIdentityAssociation>> podIdentityAssociations;
 
     /**
-     * @return Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * @return Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
      * 
      */
     public Output<Optional<List<AddonPodIdentityAssociation>>> podIdentityAssociations() {
@@ -375,28 +375,28 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceAccountRoleArn);
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

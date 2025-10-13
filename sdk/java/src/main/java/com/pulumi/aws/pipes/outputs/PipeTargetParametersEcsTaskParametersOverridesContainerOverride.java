@@ -47,7 +47,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      */
     private @Nullable Integer memoryReservation;
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     private @Nullable String name;
@@ -101,7 +101,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return Optional.ofNullable(this.memoryReservation);
     }
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<String> name() {

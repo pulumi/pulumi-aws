@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Route53
     /// to understand differences between alias and non-alias records.
     /// 
     /// TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
-    /// you cannot change this, therefore `ttl` has to be omitted in alias records.
+    /// you cannot change this, therefore `Ttl` has to be omitted in alias records.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ### NS and SOA Record Management
     /// 
-    /// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+    /// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `AllowOverwrite` argument will allow managing these records in a single deployment without the requirement for `Import`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -317,16 +317,16 @@ namespace Pulumi.Aws.Route53
     public partial class Record : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An alias block. Conflicts with `ttl` &amp; `records`.
+        /// An alias block. Conflicts with `Ttl` &amp; `Records`.
         /// Documented below.
         /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<Outputs.RecordAlias>> Aliases { get; private set; } = null!;
 
         /// <summary>
-        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `False` by default. This configuration is not recommended for most environments.
         /// 
-        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
+        /// Exactly one of `Records` or `Alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Output("allowOverwrite")]
         public Output<bool> AllowOverwrite { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<Outputs.RecordFailoverRoutingPolicy>> FailoverRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`.
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<Outputs.RecordLatencyRoutingPolicy>> LatencyRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+        /// Set to `True` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         /// </summary>
         [Output("multivalueAnswerRoutingPolicy")]
         public Output<bool?> MultivalueAnswerRoutingPolicy { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `CidrRoutingPolicy`, `FailoverRoutingPolicy`, `GeolocationRoutingPolicy`,`GeoproximityRoutingPolicy`, `LatencyRoutingPolicy`, `MultivalueAnswerRoutingPolicy`, or `WeightedRoutingPolicy`.
         /// </summary>
         [Output("setIdentifier")]
         public Output<string?> SetIdentifier { get; private set; } = null!;
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.RecordAliasArgs>? _aliases;
 
         /// <summary>
-        /// An alias block. Conflicts with `ttl` &amp; `records`.
+        /// An alias block. Conflicts with `Ttl` &amp; `Records`.
         /// Documented below.
         /// </summary>
         public InputList<Inputs.RecordAliasArgs> Aliases
@@ -481,9 +481,9 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `False` by default. This configuration is not recommended for most environments.
         /// 
-        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
+        /// Exactly one of `Records` or `Alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }
@@ -543,7 +543,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+        /// Set to `True` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         /// </summary>
         [Input("multivalueAnswerRoutingPolicy")]
         public Input<bool>? MultivalueAnswerRoutingPolicy { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `CidrRoutingPolicy`, `FailoverRoutingPolicy`, `GeolocationRoutingPolicy`,`GeoproximityRoutingPolicy`, `LatencyRoutingPolicy`, `MultivalueAnswerRoutingPolicy`, or `WeightedRoutingPolicy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.RecordAliasGetArgs>? _aliases;
 
         /// <summary>
-        /// An alias block. Conflicts with `ttl` &amp; `records`.
+        /// An alias block. Conflicts with `Ttl` &amp; `Records`.
         /// Documented below.
         /// </summary>
         public InputList<Inputs.RecordAliasGetArgs> Aliases
@@ -624,9 +624,9 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `False` by default. This configuration is not recommended for most environments.
         /// 
-        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
+        /// Exactly one of `Records` or `Alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
+        /// Set to `True` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         /// </summary>
         [Input("multivalueAnswerRoutingPolicy")]
         public Input<bool>? MultivalueAnswerRoutingPolicy { get; set; }
@@ -716,7 +716,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+        /// Unique identifier to differentiate records with routing policies from one another. Required if using `CidrRoutingPolicy`, `FailoverRoutingPolicy`, `GeolocationRoutingPolicy`,`GeoproximityRoutingPolicy`, `LatencyRoutingPolicy`, `MultivalueAnswerRoutingPolicy`, or `WeightedRoutingPolicy`.
         /// </summary>
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }

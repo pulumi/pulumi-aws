@@ -37,14 +37,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS options for the endpoint. See dns_options below.
+     * The DNS options for the endpoint. See dnsOptions below.
      * 
      */
     @Import(name="dnsOptions")
     private @Nullable Output<VpcEndpointDnsOptionsArgs> dnsOptions;
 
     /**
-     * @return The DNS options for the endpoint. See dns_options below.
+     * @return The DNS options for the endpoint. See dnsOptions below.
      * 
      */
     public Optional<Output<VpcEndpointDnsOptionsArgs>> dnsOptions() {
@@ -114,14 +114,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="resourceConfigurationArn")
     private @Nullable Output<String> resourceConfigurationArn;
 
     /**
-     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> resourceConfigurationArn() {
@@ -161,14 +161,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
     /**
-     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> serviceName() {
@@ -176,14 +176,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="serviceNetworkArn")
     private @Nullable Output<String> serviceNetworkArn;
 
     /**
-     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> serviceNetworkArn() {
@@ -206,14 +206,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      * 
      */
     @Import(name="subnetConfigurations")
     private @Nullable Output<List<VpcEndpointSubnetConfigurationArgs>> subnetConfigurations;
 
     /**
-     * @return Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * @return Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      * 
      */
     public Optional<Output<List<VpcEndpointSubnetConfigurationArgs>>> subnetConfigurations() {
@@ -236,14 +236,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -342,7 +342,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsOptions The DNS options for the endpoint. See dns_options below.
+         * @param dnsOptions The DNS options for the endpoint. See dnsOptions below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsOptions The DNS options for the endpoint. See dns_options below.
+         * @param dnsOptions The DNS options for the endpoint. See dnsOptions below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+         * @param subnetConfigurations Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

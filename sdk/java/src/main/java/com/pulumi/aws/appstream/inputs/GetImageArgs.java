@@ -17,14 +17,14 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImageArgs Empty = new GetImageArgs();
 
     /**
-     * Arn of the image being searched for. Cannot be used with name_regex or name.
+     * Arn of the image being searched for. Cannot be used with nameRegex or name.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Arn of the image being searched for. Cannot be used with name_regex or name.
+     * @return Arn of the image being searched for. Cannot be used with nameRegex or name.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the image being searched for. Cannot be used with name_regex or arn.
+     * Name of the image being searched for. Cannot be used with nameRegex or arn.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the image being searched for. Cannot be used with name_regex or arn.
+     * @return Name of the image being searched for. Cannot be used with nameRegex or arn.
      * 
      */
     public Optional<Output<String>> name() {
@@ -136,7 +136,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Arn of the image being searched for. Cannot be used with name_regex or name.
+         * @param arn Arn of the image being searched for. Cannot be used with nameRegex or name.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Arn of the image being searched for. Cannot be used with name_regex or name.
+         * @param arn Arn of the image being searched for. Cannot be used with nameRegex or name.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the image being searched for. Cannot be used with name_regex or arn.
+         * @param name Name of the image being searched for. Cannot be used with nameRegex or arn.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the image being searched for. Cannot be used with name_regex or arn.
+         * @param name Name of the image being searched for. Cannot be used with nameRegex or arn.
          * 
          * @return builder
          * 

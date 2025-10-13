@@ -43,14 +43,14 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
      * 
      */
     @Import(name="metadataConfigurations", required=true)
     private Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations;
 
     /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
      * 
      */
     public Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations() {
@@ -158,7 +158,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
          * 
          * @return builder
          * 

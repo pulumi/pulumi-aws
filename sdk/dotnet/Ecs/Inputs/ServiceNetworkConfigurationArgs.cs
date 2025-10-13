@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `True` or `False`. Default `False`.
         /// 
         /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         /// </summary>

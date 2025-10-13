@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tags`
+        /// ### Filter by `Tags`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tier`
+        /// ### Filter by `Tier`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tags`
+        /// ### Filter by `Tags`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tier`
+        /// ### Filter by `Tier`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tags`
+        /// ### Filter by `Tags`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// 
-        /// ### Filter by `tier`
+        /// ### Filter by `Tier`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

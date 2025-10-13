@@ -35,14 +35,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+     * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
      * 
      */
     @Import(name="autoRollback")
     private @Nullable Output<Boolean> autoRollback;
 
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
      * 
      */
     public Optional<Output<Boolean>> autoRollback() {
@@ -224,7 +224,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
          * 
          * @return builder
          * 

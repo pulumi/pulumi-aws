@@ -122,7 +122,7 @@ public class InferenceProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The source of the model this inference profile will track metrics and cost for. See `model_source`.
+     * The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      * The following arguments are optional:
      * 
@@ -131,7 +131,7 @@ public class InferenceProfile extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ InferenceProfileModelSource> modelSource;
 
     /**
-     * @return The source of the model this inference profile will track metrics and cost for. See `model_source`.
+     * @return The source of the model this inference profile will track metrics and cost for. See `modelSource`.
      * 
      * The following arguments are optional:
      * 

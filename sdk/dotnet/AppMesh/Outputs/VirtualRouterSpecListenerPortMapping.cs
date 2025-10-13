@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
+        /// Protocol used for the port mapping. Valid values are `Http`,`Http2`, `Tcp` and `Grpc`.
         /// </summary>
         public readonly string Protocol;
 

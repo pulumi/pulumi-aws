@@ -24,7 +24,7 @@ public final class PipelineTriggerAllGitConfigurationPullRequest {
      */
     private @Nullable List<String> events;
     /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
      * 
      */
     private @Nullable List<PipelineTriggerAllGitConfigurationPullRequestFilePath> filePaths;
@@ -45,7 +45,7 @@ public final class PipelineTriggerAllGitConfigurationPullRequest {
         return this.events == null ? List.of() : this.events;
     }
     /**
-     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+     * @return The field that specifies to filter on file paths for the pull request trigger configuration. A `filePaths` block is documented below.
      * 
      */
     public List<PipelineTriggerAllGitConfigurationPullRequestFilePath> filePaths() {

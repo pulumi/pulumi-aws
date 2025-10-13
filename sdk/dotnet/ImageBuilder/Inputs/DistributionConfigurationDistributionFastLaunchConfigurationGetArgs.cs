@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `True` to start using Windows faster launching, or `False` to stop using it.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

@@ -115,7 +115,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.encryptionDetails;
     }
     /**
-     * Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -123,7 +123,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output<Boolean> forceDestroy;
 
     /**
-     * @return Destroys cluster even if `deletion_protection_enabled` is set to `true`.
+     * @return Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      * 
      */
@@ -201,14 +201,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

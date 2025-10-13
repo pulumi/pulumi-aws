@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Route53.Inputs
     public sealed class RecordGeolocationRoutingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `Continent` or `Country` must be specified.
         /// </summary>
         [Input("continent")]
         public Input<string>? Continent { get; set; }

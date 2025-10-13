@@ -47,14 +47,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
      * 
      */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
     /**
-     * @return The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+     * @return The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
      * 
      */
     public Optional<Output<String>> customDomainName() {
@@ -121,14 +121,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -234,7 +234,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+         * @param customDomainName The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
+         * @param customDomainName The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -26,17 +26,17 @@ import javax.annotation.Nullable;
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
  * 
- * &gt; **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
+ * &gt; **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
  * attributes and the `aws.ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
  * This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
  * parameters in the returned route table. If you&#39;re experiencing constant diffs in your `aws.ec2.RouteTable` resources,
  * the first thing to check is whether or not you&#39;re specifying a NAT ID instead of a Gateway ID, or vice-versa.
  * 
- * &gt; **NOTE on `propagating_vgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
- * If the `propagating_vgws` argument is present, it&#39;s not supported to _also_
+ * &gt; **NOTE on `propagatingVgws` and the `aws.ec2.VpnGatewayRoutePropagation` resource:**
+ * If the `propagatingVgws` argument is present, it&#39;s not supported to _also_
  * define route propagations using `aws.ec2.VpnGatewayRoutePropagation`, since
  * this resource will delete any propagating gateways not explicitly listed in
- * `propagating_vgws`. Omit this argument when defining route propagation using
+ * `propagatingVgws`. Omit this argument when defining route propagation using
  * the separate resource.
  * 
  * ## Example Usage
@@ -323,28 +323,28 @@ public class RouteTable extends com.pulumi.resources.CustomResource {
         return this.routes;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

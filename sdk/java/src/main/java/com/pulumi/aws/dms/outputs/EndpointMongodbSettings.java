@@ -17,7 +17,7 @@ public final class EndpointMongodbSettings {
      */
     private @Nullable String authMechanism;
     /**
-     * @return Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+     * @return Authentication database name. Not used when `authType` is `no`. Default is `admin`.
      * 
      */
     private @Nullable String authSource;
@@ -27,12 +27,12 @@ public final class EndpointMongodbSettings {
      */
     private @Nullable String authType;
     /**
-     * @return Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+     * @return Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
      * 
      */
     private @Nullable String docsToInvestigate;
     /**
-     * @return Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+     * @return Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
      * 
      */
     private @Nullable String extractDocId;
@@ -51,7 +51,7 @@ public final class EndpointMongodbSettings {
         return Optional.ofNullable(this.authMechanism);
     }
     /**
-     * @return Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+     * @return Authentication database name. Not used when `authType` is `no`. Default is `admin`.
      * 
      */
     public Optional<String> authSource() {
@@ -65,14 +65,14 @@ public final class EndpointMongodbSettings {
         return Optional.ofNullable(this.authType);
     }
     /**
-     * @return Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+     * @return Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
      * 
      */
     public Optional<String> docsToInvestigate() {
         return Optional.ofNullable(this.docsToInvestigate);
     }
     /**
-     * @return Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+     * @return Document ID. Use this setting when `nestingLevel` is set to `none`. Default is `false`.
      * 
      */
     public Optional<String> extractDocId() {

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketAclAccessControlPolicyGrantArgs>? _grants;
 
         /// <summary>
-        /// Set of `grant` configuration blocks. See below.
+        /// Set of `Grant` configuration blocks. See below.
         /// </summary>
         public InputList<Inputs.BucketAclAccessControlPolicyGrantArgs> Grants
         {

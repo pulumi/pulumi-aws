@@ -13,37 +13,37 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointMongodbSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
+        /// Authentication mechanism to access the MongoDB source endpoint. Default is `Default`.
         /// </summary>
         [Input("authMechanism")]
         public Input<string>? AuthMechanism { get; set; }
 
         /// <summary>
-        /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+        /// Authentication database name. Not used when `AuthType` is `No`. Default is `Admin`.
         /// </summary>
         [Input("authSource")]
         public Input<string>? AuthSource { get; set; }
 
         /// <summary>
-        /// Authentication type to access the MongoDB source endpoint. Default is `password`.
+        /// Authentication type to access the MongoDB source endpoint. Default is `Password`.
         /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
-        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+        /// Number of documents to preview to determine the document organization. Use this setting when `NestingLevel` is set to `One`. Default is `1000`.
         /// </summary>
         [Input("docsToInvestigate")]
         public Input<string>? DocsToInvestigate { get; set; }
 
         /// <summary>
-        /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+        /// Document ID. Use this setting when `NestingLevel` is set to `None`. Default is `False`.
         /// </summary>
         [Input("extractDocId")]
         public Input<string>? ExtractDocId { get; set; }
 
         /// <summary>
-        /// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
+        /// Specifies either document or table mode. Default is `None`. Valid values are `One` (table mode) and `None` (document mode).
         /// </summary>
         [Input("nestingLevel")]
         public Input<string>? NestingLevel { get; set; }

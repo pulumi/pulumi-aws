@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * ### Configure encryption mode for MACsec-capable connections
  * 
- * &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+ * &gt; **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
  * 
  * <pre>
  * {@code
@@ -186,14 +186,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.bandwidth;
     }
     /**
-     * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      * 
      */
     @Export(name="encryptionMode", refs={String.class}, tree="[0]")
     private Output<String> encryptionMode;
 
     /**
-     * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
+     * @return The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      * 
      */
     public Output<String> encryptionMode() {
@@ -342,7 +342,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      * 
-     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+     * &gt; **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      * 
      */
     @Export(name="requestMacsec", refs={Boolean.class}, tree="[0]")
@@ -351,7 +351,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      * 
-     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+     * &gt; **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      * 
      */
     public Output<Optional<Boolean>> requestMacsec() {
@@ -372,28 +372,28 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

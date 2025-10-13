@@ -990,42 +990,42 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.httpTarget);
     }
     /**
-     * Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+     * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      * 
      */
     @Export(name="input", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> input;
 
     /**
-     * @return Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+     * @return Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      * 
      */
     public Output<Optional<String>> input() {
         return Codegen.optional(this.input);
     }
     /**
-     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+     * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      * 
      */
     @Export(name="inputPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputPath;
 
     /**
-     * @return The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+     * @return The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      * 
      */
     public Output<Optional<String>> inputPath() {
         return Codegen.optional(this.inputPath);
     }
     /**
-     * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+     * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      * 
      */
     @Export(name="inputTransformer", refs={EventTargetInputTransformer.class}, tree="[0]")
     private Output</* @Nullable */ EventTargetInputTransformer> inputTransformer;
 
     /**
-     * @return Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+     * @return Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      * 
      */
     public Output<Optional<EventTargetInputTransformer>> inputTransformer() {
@@ -1088,14 +1088,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retryPolicy);
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * @return The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
     public Output<Optional<String>> roleArn() {

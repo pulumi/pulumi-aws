@@ -33,12 +33,16 @@ public final class RedshiftFunctions {
     /**
      * Provides details about a specific redshift cluster.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -47,6 +51,8 @@ public final class RedshiftFunctions {
     /**
      * Provides details about a specific redshift cluster.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
@@ -54,12 +60,16 @@ public final class RedshiftFunctions {
     /**
      * Provides details about a specific redshift cluster.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific redshift cluster.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     public sealed class PipelineStageOnSuccess
     {
         /// <summary>
-        /// The conditions that are success conditions. Defined as a `condition` block below.
+        /// The conditions that are success conditions. Defined as a `Condition` block below.
         /// </summary>
         public readonly Outputs.PipelineStageOnSuccessCondition Condition;
 

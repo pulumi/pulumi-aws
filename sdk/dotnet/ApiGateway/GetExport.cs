@@ -88,13 +88,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `ExportType` `Ofoas30` and `Swagger`.
         /// </summary>
         [Input("accepts")]
         public string? Accepts { get; set; }
 
         /// <summary>
-        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// Type of export. Acceptable values are `Oas30` for OpenAPI 3.0.x and `Swagger` for Swagger/OpenAPI 2.0.
         /// </summary>
         [Input("exportType", required: true)]
         public string ExportType { get; set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetExportInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
+        /// Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `ExportType` `Ofoas30` and `Swagger`.
         /// </summary>
         [Input("accepts")]
         public Input<string>? Accepts { get; set; }
 
         /// <summary>
-        /// Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
+        /// Type of export. Acceptable values are `Oas30` for OpenAPI 3.0.x and `Swagger` for Swagger/OpenAPI 2.0.
         /// </summary>
         [Input("exportType", required: true)]
         public Input<string> ExportType { get; set; } = null!;

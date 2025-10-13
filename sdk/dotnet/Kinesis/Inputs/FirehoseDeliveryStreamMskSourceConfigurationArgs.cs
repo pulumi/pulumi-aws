@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamMskSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
+        /// The authentication configuration of the Amazon MSK cluster. See `AuthenticationConfiguration` block below for details.
         /// </summary>
         [Input("authenticationConfiguration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> MskClusterArn { get; set; } = null!;
 
         /// <summary>
-        /// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+        /// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
         /// </summary>
         [Input("readFromTimestamp")]
         public Input<string>? ReadFromTimestamp { get; set; }

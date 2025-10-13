@@ -35,14 +35,14 @@ public final class GetSubnetArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+     * ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      * 
      */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
     /**
-     * @return ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+     * @return ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
      * 
      */
     public Optional<Output<String>> availabilityZoneId() {
@@ -240,7 +240,7 @@ public final class GetSubnetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param availabilityZoneId ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+         * @param availabilityZoneId ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class GetSubnetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param availabilityZoneId ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+         * @param availabilityZoneId ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
          * 
          * @return builder
          * 

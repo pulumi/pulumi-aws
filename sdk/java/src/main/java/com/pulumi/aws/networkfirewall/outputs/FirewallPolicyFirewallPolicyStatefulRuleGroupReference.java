@@ -27,7 +27,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
      */
     private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
     /**
-     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
      */
     private @Nullable Integer priority;
@@ -55,7 +55,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         return Optional.ofNullable(this.override);
     }
     /**
-     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+     * @return An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
      */
     public Optional<Integer> priority() {

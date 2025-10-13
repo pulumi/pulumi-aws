@@ -286,28 +286,28 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceMarketOptions);
     }
     /**
-     * The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+     * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      * 
      */
     @Export(name="instanceRequirements", refs={LaunchTemplateInstanceRequirements.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateInstanceRequirements> instanceRequirements;
 
     /**
-     * @return The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+     * @return The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      * 
      */
     public Output<Optional<LaunchTemplateInstanceRequirements>> instanceRequirements() {
         return Codegen.optional(this.instanceRequirements);
     }
     /**
-     * The type of the instance. If present then `instance_requirements` cannot be present.
+     * The type of the instance. If present then `instanceRequirements` cannot be present.
      * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceType;
 
     /**
-     * @return The type of the instance. If present then `instance_requirements` cannot be present.
+     * @return The type of the instance. If present then `instanceRequirements` cannot be present.
      * 
      */
     public Output<Optional<String>> instanceType() {
@@ -513,7 +513,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     }
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      * 
      */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
@@ -521,7 +521,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A list of security group names to associate with. If you are creating Instances in a VPC, use
-     * `vpc_security_group_ids` instead.
+     * `vpcSecurityGroupIds` instead.
      * 
      */
     public Output<Optional<List<String>>> securityGroupNames() {
@@ -542,42 +542,42 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tagSpecifications);
     }
     /**
-     * A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Whether to update Default Version each update. Conflicts with `default_version`.
+     * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      * 
      */
     @Export(name="updateDefaultVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> updateDefaultVersion;
 
     /**
-     * @return Whether to update Default Version each update. Conflicts with `default_version`.
+     * @return Whether to update Default Version each update. Conflicts with `defaultVersion`.
      * 
      */
     public Output<Optional<Boolean>> updateDefaultVersion() {

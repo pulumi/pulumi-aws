@@ -30,27 +30,27 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? BucketOwnerAccess { get; set; }
 
         /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
-        /// this value is ignored. Defaults to `false`.
+        /// Whether to disable encrypting output artifacts. If `Type` is set to `NO_ARTIFACTS`,
+        /// this value is ignored. Defaults to `False`.
         /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
-        /// `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        /// Information about the build output artifact location. If `Type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored. If `Type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Name of the project. If `Type` is set to `S3`, this is the name of the output artifact object
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+        /// Namespace to use in storing build artifacts. If `Type` is set to `S3`, then valid values
         /// are `BUILD_ID`, `NONE`.
         /// </summary>
         [Input("namespaceType")]
@@ -63,14 +63,14 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? OverrideArtifactName { get; set; }
 
         /// <summary>
-        /// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+        /// Type of build output artifact to create. If `Type` is set to `S3`, valid values are `NONE`,
         /// `ZIP`
         /// </summary>
         [Input("packaging")]
         public Input<string>? Packaging { get; set; }
 
         /// <summary>
-        /// If `type` is set to `S3`, this is the path to the output artifact.
+        /// If `Type` is set to `S3`, this is the path to the output artifact.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

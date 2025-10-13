@@ -18,14 +18,14 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
     public static final ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs Empty = new ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs();
 
     /**
-     * Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+     * Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
      * 
      */
     @Import(name="sessionStickinessConfig")
     private @Nullable Output<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs> sessionStickinessConfig;
 
     /**
-     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+     * @return Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
      * 
      */
     public Optional<Output<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs>> sessionStickinessConfig() {
@@ -73,7 +73,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
         }
 
         /**
-         * @param sessionStickinessConfig Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+         * @param sessionStickinessConfig Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
         }
 
         /**
-         * @param sessionStickinessConfig Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+         * @param sessionStickinessConfig Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
          * 
          * @return builder
          * 

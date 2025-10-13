@@ -15,11 +15,11 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     {
         public readonly int? PasswordCount;
         /// <summary>
-        /// Specifies the passwords to use for authentication if `type` is set to `password`.
+        /// Specifies the passwords to use for authentication if `Type` is set to `Password`.
         /// </summary>
         public readonly ImmutableArray<string> Passwords;
         /// <summary>
-        /// Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+        /// Specifies the authentication type. Possible options are: `Password`, `no-password-required` or `Iam`.
         /// </summary>
         public readonly string Type;
 

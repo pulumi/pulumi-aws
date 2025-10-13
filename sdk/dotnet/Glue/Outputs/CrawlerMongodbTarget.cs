@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `True`.
         /// </summary>
         public readonly bool? ScanAll;
 

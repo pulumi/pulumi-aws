@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AwsRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
         /// </summary>
         [Output("internetGatewayBlockMode")]
         public Output<string> InternetGatewayBlockMode { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcBlockPublicAccessOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
         /// </summary>
         [Input("internetGatewayBlockMode", required: true)]
         public Input<string> InternetGatewayBlockMode { get; set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
-        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `Off`. If this resource is deleted, then this value will be set to `Off` in the AWS account and region.
         /// </summary>
         [Input("internetGatewayBlockMode")]
         public Input<string>? InternetGatewayBlockMode { get; set; }

@@ -26,7 +26,7 @@ public final class GetLifecyclePolicyDocumentRule {
      */
     private @Nullable String description;
     /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
+     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
      * 
      */
     private Integer priority;
@@ -52,7 +52,7 @@ public final class GetLifecyclePolicyDocumentRule {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
+     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
      * 
      */
     public Integer priority() {

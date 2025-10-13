@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        /// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `QueryStringBehavior` are `None`, `Whitelist`, `allExcept`, and `All`.
         /// </summary>
         [Input("queryStringBehavior", required: true)]
         public Input<string> QueryStringBehavior { get; set; } = null!;

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `quick_connect_id`
+        /// By `QuickConnectId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `quick_connect_id`
+        /// By `QuickConnectId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// By `name`
+        /// By `Name`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By `quick_connect_id`
+        /// By `QuickConnectId`
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Quick Connect by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QuickConnectId` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Quick Connect by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `QuickConnectId` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Connect
         public readonly string InstanceId;
         public readonly string Name;
         /// <summary>
-        /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
+        /// A block that defines the configuration information for the Quick Connect: `QuickConnectType` and one of `PhoneConfig`, `QueueConfig`, `UserConfig` . The Quick Connect Config block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetQuickConnectQuickConnectConfigResult> QuickConnectConfigs;
         /// <summary>

@@ -30,7 +30,7 @@ public final class RuleGroupRuleStatement {
      */
     private @Nullable RuleGroupRuleStatementAndStatement andStatement;
     /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementAsnMatchStatement asnMatchStatement;
@@ -104,7 +104,7 @@ public final class RuleGroupRuleStatement {
         return Optional.ofNullable(this.andStatement);
     }
     /**
-     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asn_match_statement` below for details.
+     * @return Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request&#39;s IP address. See `asnMatchStatement` below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementAsnMatchStatement> asnMatchStatement() {

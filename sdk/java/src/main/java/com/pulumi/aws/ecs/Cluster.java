@@ -302,14 +302,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Default Service Connect namespace. See `service_connect_defaults` Block for details.
+     * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      * 
      */
     @Export(name="serviceConnectDefaults", refs={ClusterServiceConnectDefaults.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServiceConnectDefaults> serviceConnectDefaults;
 
     /**
-     * @return Default Service Connect namespace. See `service_connect_defaults` Block for details.
+     * @return Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      * 
      */
     public Output<Optional<ClusterServiceConnectDefaults>> serviceConnectDefaults() {
@@ -330,28 +330,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.settings;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

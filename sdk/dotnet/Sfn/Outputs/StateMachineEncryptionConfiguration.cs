@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sfn.Outputs
     public sealed class StateMachineEncryptionConfiguration
     {
         /// <summary>
-        /// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+        /// Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `Type` is `AWS_OWNED_KEY`.
         /// </summary>
         public readonly int? KmsDataKeyReusePeriodSeconds;
         /// <summary>

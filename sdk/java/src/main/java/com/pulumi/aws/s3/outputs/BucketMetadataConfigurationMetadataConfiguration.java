@@ -20,12 +20,12 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
      */
     private @Nullable List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations;
     /**
-     * @return Inventory table configuration. See `inventory_table_configuration` Block for details.
+     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration;
     /**
-     * @return Journal table configuration. See `journal_table_configuration` Block for details.
+     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration;
@@ -39,14 +39,14 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return Inventory table configuration. See `inventory_table_configuration` Block for details.
+     * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
     public Optional<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration> inventoryTableConfiguration() {
         return Optional.ofNullable(this.inventoryTableConfiguration);
     }
     /**
-     * @return Journal table configuration. See `journal_table_configuration` Block for details.
+     * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
     public Optional<BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration> journalTableConfiguration() {

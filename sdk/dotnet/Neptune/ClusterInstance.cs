@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Neptune
     /// A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
     /// 
     /// You can simply add neptune instances and Neptune manages the replication. You can use the count
-    /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
+    /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `InstanceClass` sizes.
     /// 
     /// ## Example Usage
     /// 
@@ -65,14 +65,14 @@ namespace Pulumi.Aws.Neptune
     public partial class ClusterInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The hostname of the instance. See also `endpoint` and `port`.
+        /// The hostname of the instance. See also `Endpoint` and `Port`.
         /// </summary>
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether any instance modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `True`.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+        /// The name of the database engine to be used for the neptune instance. Defaults to `Neptune`. Valid Values: `Neptune`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Output("identifierPrefix")]
         public Output<string> IdentifierPrefix { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> NeptuneParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `NeptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Neptune
         public Output<int?> PromotionTier { get; private set; } = null!;
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default is `false`.
+        /// Bool to control if instance is publicly accessible. Default is `False`.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
@@ -217,13 +217,13 @@ namespace Pulumi.Aws.Neptune
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -282,13 +282,13 @@ namespace Pulumi.Aws.Neptune
     {
         /// <summary>
         /// Specifies whether any instance modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+        /// The name of the database engine to be used for the neptune instance. Defaults to `Neptune`. Valid Values: `Neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `NeptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Neptune
         public Input<int>? PromotionTier { get; set; }
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default is `false`.
+        /// Bool to control if instance is publicly accessible. Default is `False`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -411,14 +411,14 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The hostname of the instance. See also `endpoint` and `port`.
+        /// The hostname of the instance. See also `Endpoint` and `Port`.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
         /// <summary>
         /// Specifies whether any instance modifications
-        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// are applied immediately, or during the next maintenance window. Default is`False`.
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `True`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+        /// The name of the database engine to be used for the neptune instance. Defaults to `Neptune`. Valid Values: `Neptune`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `Identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `NeptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -533,7 +533,7 @@ namespace Pulumi.Aws.Neptune
         public Input<int>? PromotionTier { get; set; }
 
         /// <summary>
-        /// Bool to control if instance is publicly accessible. Default is `false`.
+        /// Bool to control if instance is publicly accessible. Default is `False`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

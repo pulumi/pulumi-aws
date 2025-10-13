@@ -112,7 +112,7 @@ namespace Pulumi.Aws
         public string? Id { get; set; }
 
         /// <summary>
-        /// Full name of the region to select. Use `region` instead.
+        /// Full name of the region to select. Use `Region` instead.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -141,7 +141,7 @@ namespace Pulumi.Aws
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Full name of the region to select. Use `region` instead.
+        /// Full name of the region to select. Use `Region` instead.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

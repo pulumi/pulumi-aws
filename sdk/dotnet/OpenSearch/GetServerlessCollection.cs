@@ -102,7 +102,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the collection.
         /// 
-        /// &gt; Exactly one of `id` or `name` is required.
+        /// &gt; Exactly one of `Id` or `Name` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the collection.
         /// 
-        /// &gt; Exactly one of `id` or `name` is required.
+        /// &gt; Exactly one of `Id` or `Name` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

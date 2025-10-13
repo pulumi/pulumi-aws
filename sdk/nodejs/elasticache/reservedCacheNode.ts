@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:

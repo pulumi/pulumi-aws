@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainEncryptAtRest {
     /**
-     * @return Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
+     * @return Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
      * 
      */
     private Boolean enabled;
@@ -26,7 +26,7 @@ public final class DomainEncryptAtRest {
 
     private DomainEncryptAtRest() {}
     /**
-     * @return Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
+     * @return Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
      * 
      */
     public Boolean enabled() {

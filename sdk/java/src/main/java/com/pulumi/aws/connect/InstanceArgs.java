@@ -64,14 +64,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+     * The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      * 
      */
     @Import(name="directoryId")
     private @Nullable Output<String> directoryId;
 
     /**
-     * @return The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+     * @return The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
      * 
      */
     public Optional<Output<String>> directoryId() {
@@ -124,14 +124,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the instance. Required if `directory_id` not specified.
+     * Specifies the name of the instance. Required if `directoryId` not specified.
      * 
      */
     @Import(name="instanceAlias")
     private @Nullable Output<String> instanceAlias;
 
     /**
-     * @return Specifies the name of the instance. Required if `directory_id` not specified.
+     * @return Specifies the name of the instance. Required if `directoryId` not specified.
      * 
      */
     public Optional<Output<String>> instanceAlias() {
@@ -184,16 +184,16 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * @return Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -299,7 +299,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+         * @param directoryId The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryId The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+         * @param directoryId The identifier for the directory if identityManagementType is `EXISTING_DIRECTORY`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceAlias Specifies the name of the instance. Required if `directory_id` not specified.
+         * @param instanceAlias Specifies the name of the instance. Required if `directoryId` not specified.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceAlias Specifies the name of the instance. Required if `directory_id` not specified.
+         * @param instanceAlias Specifies the name of the instance. Required if `directoryId` not specified.
          * 
          * @return builder
          * 
@@ -467,8 +467,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+         * @param tags Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
          * 
          * @return builder
          * 
@@ -479,8 +479,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+         * @param tags Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &lt;!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<bool> Override { get; set; } = null!;
 
         /// <summary>
-        /// Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        /// Whether CloudFront includes the `Preload` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         [Input("preload")]
         public Input<bool>? Preload { get; set; }

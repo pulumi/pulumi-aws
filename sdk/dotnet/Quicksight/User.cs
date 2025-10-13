@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> IdentityType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> IdentityType { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IdentityType { get; set; }
 
         /// <summary>
-        /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        /// The Amazon Quicksight namespace to create the user in. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

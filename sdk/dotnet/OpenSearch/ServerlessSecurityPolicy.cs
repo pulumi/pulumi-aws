@@ -337,7 +337,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Type of security policy. One of `encryption` or `network`.
+        /// Type of security policy. One of `Encryption` or `Network`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of security policy. One of `encryption` or `network`.
+        /// Type of security policy. One of `Encryption` or `Network`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of security policy. One of `encryption` or `network`.
+        /// Type of security policy. One of `Encryption` or `Network`.
         /// 
         /// The following arguments are optional:
         /// </summary>

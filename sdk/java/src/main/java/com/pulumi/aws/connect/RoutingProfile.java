@@ -139,14 +139,14 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
         return this.instanceId;
     }
     /**
-     * One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      * 
      */
     @Export(name="mediaConcurrencies", refs={List.class,RoutingProfileMediaConcurrency.class}, tree="[0,1]")
     private Output<List<RoutingProfileMediaConcurrency>> mediaConcurrencies;
 
     /**
-     * @return One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+     * @return One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      * 
      */
     public Output<List<RoutingProfileMediaConcurrency>> mediaConcurrencies() {
@@ -167,14 +167,14 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      * 
      */
     @Export(name="queueConfigs", refs={List.class,RoutingProfileQueueConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RoutingProfileQueueConfig>> queueConfigs;
 
     /**
-     * @return One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+     * @return One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      * 
      */
     public Output<Optional<List<RoutingProfileQueueConfig>>> queueConfigs() {
@@ -210,7 +210,7 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
     }
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -218,21 +218,21 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Tags to apply to the Routing Profile. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

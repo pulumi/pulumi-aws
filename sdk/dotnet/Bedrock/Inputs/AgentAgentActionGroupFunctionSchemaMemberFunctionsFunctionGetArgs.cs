@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        /// Parameters that the agent elicits from the user to fulfill the function. See `Parameters` Block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterGetArgs> Parameters
         {

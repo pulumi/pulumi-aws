@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> ChangeDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// Inline YAML string with data of the component. Exactly one of `Data` and `Uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `False`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<string>> SupportedOsVersions { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -144,9 +144,9 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the component. Exactly one of `Data` and `Uri` can be specified.
         /// 
-        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+        /// &gt; **NOTE:** Updating `Data` or `Uri` requires specifying a new `Version`. This causes replacement of the resource. The `SkipDestroy` argument can be used to retain the old version.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ChangeDescription { get; set; }
 
         /// <summary>
-        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// Inline YAML string with data of the component. Exactly one of `Data` and `Uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -278,9 +278,9 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the component. Exactly one of `Data` and `Uri` can be specified.
         /// 
-        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+        /// &gt; **NOTE:** Updating `Data` or `Uri` requires specifying a new `Version`. This causes replacement of the resource. The `SkipDestroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ChangeDescription { get; set; }
 
         /// <summary>
-        /// Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
+        /// Inline YAML string with data of the component. Exactly one of `Data` and `Uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `False`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the component. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -416,9 +416,9 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// S3 URI with data of the component. Exactly one of `Data` and `Uri` can be specified.
         /// 
-        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+        /// &gt; **NOTE:** Updating `Data` or `Uri` requires specifying a new `Version`. This causes replacement of the resource. The `SkipDestroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

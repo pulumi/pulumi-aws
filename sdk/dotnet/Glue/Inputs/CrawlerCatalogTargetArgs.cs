@@ -27,9 +27,9 @@ namespace Pulumi.Aws.Glue.Inputs
         /// <summary>
         /// A valid Amazon SQS ARN.
         /// 
-        /// &gt; **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+        /// &gt; **Note:** `DeletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
         /// 
-        /// &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+        /// &gt; **Note:** `Configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }

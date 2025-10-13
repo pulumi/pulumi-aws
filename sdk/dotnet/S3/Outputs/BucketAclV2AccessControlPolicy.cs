@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketAclV2AccessControlPolicy
     {
         /// <summary>
-        /// Set of `grant` configuration blocks. See below.
+        /// Set of `Grant` configuration blocks. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketAclV2AccessControlPolicyGrant> Grants;
         /// <summary>

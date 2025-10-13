@@ -33,14 +33,14 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
     }
 
     /**
-     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
      * 
      */
     @Import(name="policyOption")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption;
 
     /**
-     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionArgs>> policyOption() {
@@ -110,7 +110,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
          * 
          * @return builder
          * 

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Connect.Outputs
         /// <summary>
         /// Returns information on a specific hierarchy group by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `HierarchyGroupId` is required.
         /// </summary>
         public readonly string Name;
 

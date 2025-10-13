@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Definition
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:

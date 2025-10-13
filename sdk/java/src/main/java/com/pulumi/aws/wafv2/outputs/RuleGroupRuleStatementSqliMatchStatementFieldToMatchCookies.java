@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     private List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns;
@@ -30,7 +30,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
 
     private RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies() {}
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     public List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        /// Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `True` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
         /// </summary>
         [Input("acceptEula", required: true)]
         public Input<bool> AcceptEula { get; set; } = null!;

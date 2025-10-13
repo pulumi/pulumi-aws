@@ -93,14 +93,14 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     public Output<String> type() {
@@ -242,7 +242,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
          * 
          * @return builder
          * 

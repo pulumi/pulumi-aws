@@ -39,7 +39,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+     * The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
@@ -47,7 +47,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     private @Nullable Output<AnalyticsApplicationInputsKinesisFirehoseArgs> kinesisFirehose;
 
     /**
-     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+     * @return The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
      * See Kinesis Firehose below for more details.
      * 
      */
@@ -56,7 +56,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+     * The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */
@@ -64,7 +64,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
     private @Nullable Output<AnalyticsApplicationInputsKinesisStreamArgs> kinesisStream;
 
     /**
-     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+     * @return The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
      * See Kinesis Stream below for more details.
      * 
      */
@@ -214,7 +214,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
          * See Kinesis Firehose below for more details.
          * 
          * @return builder
@@ -226,7 +226,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
+         * @param kinesisFirehose The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
          * See Kinesis Firehose below for more details.
          * 
          * @return builder
@@ -237,7 +237,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
          * See Kinesis Stream below for more details.
          * 
          * @return builder
@@ -249,7 +249,7 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
+         * @param kinesisStream The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
          * See Kinesis Stream below for more details.
          * 
          * @return builder

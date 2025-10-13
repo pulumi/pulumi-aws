@@ -19,25 +19,25 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<bool> AccessControlAllowCredentials { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+        /// Object that contains an attribute `Items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
         /// </summary>
         [Input("accessControlAllowHeaders", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersGetArgs> AccessControlAllowHeaders { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        /// Object that contains an attribute `Items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
         /// </summary>
         [Input("accessControlAllowMethods", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsGetArgs> AccessControlAllowMethods { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+        /// Object that contains an attribute `Items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
         /// </summary>
         [Input("accessControlAllowOrigins", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsGetArgs> AccessControlAllowOrigins { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+        /// Object that contains an attribute `Items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         /// </summary>
         [Input("accessControlExposeHeaders")]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersGetArgs>? AccessControlExposeHeaders { get; set; }

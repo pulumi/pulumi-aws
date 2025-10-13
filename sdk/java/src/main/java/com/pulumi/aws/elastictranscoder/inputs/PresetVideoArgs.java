@@ -16,14 +16,14 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
     public static final PresetVideoArgs Empty = new PresetVideoArgs();
 
     /**
-     * The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+     * The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
      * 
      */
     @Import(name="aspectRatio")
     private @Nullable Output<String> aspectRatio;
 
     /**
-     * @return The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+     * @return The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
      * 
      */
     public Optional<Output<String>> aspectRatio() {
@@ -166,14 +166,14 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+     * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
      * 
      */
     @Import(name="paddingPolicy")
     private @Nullable Output<String> paddingPolicy;
 
     /**
-     * @return When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+     * @return When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
      * 
      */
     public Optional<Output<String>> paddingPolicy() {
@@ -181,14 +181,14 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+     * The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
      * 
      */
     @Import(name="resolution")
     private @Nullable Output<String> resolution;
 
     /**
-     * @return The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+     * @return The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
      * 
      */
     public Optional<Output<String>> resolution() {
@@ -247,7 +247,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aspectRatio The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+         * @param aspectRatio The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aspectRatio The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
+         * @param aspectRatio The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param paddingPolicy When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+         * @param paddingPolicy When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param paddingPolicy When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
+         * @param paddingPolicy When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `maxWidth` and `maxHeight`.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolution The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+         * @param resolution The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class PresetVideoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolution The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
+         * @param resolution The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspectRatio`)
          * 
          * @return builder
          * 

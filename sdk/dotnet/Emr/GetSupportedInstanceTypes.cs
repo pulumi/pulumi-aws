@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Emr
         public readonly string Region;
         public readonly string ReleaseLabel;
         /// <summary>
-        /// List of supported instance types. See `supported_instance_types` below.
+        /// List of supported instance types. See `SupportedInstanceTypes` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult> SupportedInstanceTypes;
 

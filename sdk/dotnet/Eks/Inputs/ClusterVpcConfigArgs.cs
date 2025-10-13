@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? ClusterSecurityGroupId { get; set; }
 
         /// <summary>
-        /// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        /// Whether the Amazon EKS private API server endpoint is enabled. Default is `False`.
         /// </summary>
         [Input("endpointPrivateAccess")]
         public Input<bool>? EndpointPrivateAccess { get; set; }
 
         /// <summary>
-        /// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        /// Whether the Amazon EKS public API server endpoint is enabled. Default is `True`.
         /// </summary>
         [Input("endpointPublicAccess")]
         public Input<bool>? EndpointPublicAccess { get; set; }

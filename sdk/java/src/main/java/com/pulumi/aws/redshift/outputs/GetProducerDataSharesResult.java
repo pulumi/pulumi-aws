@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetProducerDataSharesResult {
     /**
-     * @return An array of all data shares in the producer. See `data_shares` below.
+     * @return An array of all data shares in the producer. See `dataShares` below.
      * 
      */
     private List<GetProducerDataSharesDataShare> dataShares;
@@ -34,7 +34,7 @@ public final class GetProducerDataSharesResult {
 
     private GetProducerDataSharesResult() {}
     /**
-     * @return An array of all data shares in the producer. See `data_shares` below.
+     * @return An array of all data shares in the producer. See `dataShares` below.
      * 
      */
     public List<GetProducerDataSharesDataShare> dataShares() {

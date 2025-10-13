@@ -81,14 +81,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+     * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      * 
      */
     @Import(name="interfaceType")
     private @Nullable Output<String> interfaceType;
 
     /**
-     * @return Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+     * @return Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      * 
      */
     public Optional<Output<String>> interfaceType() {
@@ -126,14 +126,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     * Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
     @Import(name="ipv6AddressCount")
     private @Nullable Output<Integer> ipv6AddressCount;
 
     /**
-     * @return Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+     * @return Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
     public Optional<Output<Integer>> ipv6AddressCount() {
@@ -141,14 +141,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      * 
      */
     @Import(name="ipv6AddressListEnabled")
     private @Nullable Output<Boolean> ipv6AddressListEnabled;
 
     /**
-     * @return Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+     * @return Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> ipv6AddressListEnabled() {
@@ -171,14 +171,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
+     * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6AddressCount`.
      * 
      */
     @Import(name="ipv6Addresses")
     private @Nullable Output<List<String>> ipv6Addresses;
 
     /**
-     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
+     * @return One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6AddressCount`.
      * 
      */
     public Optional<Output<List<String>>> ipv6Addresses() {
@@ -275,14 +275,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      * 
      */
     @Import(name="privateIpListEnabled")
     private @Nullable Output<Boolean> privateIpListEnabled;
 
     /**
-     * @return Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+     * @return Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> privateIpListEnabled() {
@@ -290,14 +290,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      * 
      */
     @Import(name="privateIpLists")
     private @Nullable Output<List<String>> privateIpLists;
 
     /**
-     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      * 
      */
     public Optional<Output<List<String>>> privateIpLists() {
@@ -320,14 +320,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
     @Import(name="privateIpsCount")
     private @Nullable Output<Integer> privateIpsCount;
 
     /**
-     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
     public Optional<Output<Integer>> privateIpsCount() {
@@ -399,14 +399,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -414,14 +414,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -574,7 +574,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param interfaceType Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+         * @param interfaceType Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param interfaceType Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+         * @param interfaceType Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AddressCount Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+         * @param ipv6AddressCount Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AddressCount Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+         * @param ipv6AddressCount Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+         * @param ipv6AddressListEnabled Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+         * @param ipv6AddressListEnabled Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6AddressCount`.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6AddressCount`.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
+         * @param ipv6Addresses One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6AddressCount`.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+         * @param privateIpListEnabled Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -895,7 +895,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+         * @param privateIpListEnabled Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -905,7 +905,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
          * 
          * @return builder
          * 
@@ -916,7 +916,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
          * 
          * @return builder
          * 
@@ -967,7 +967,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
          * 
          * @return builder
          * 
@@ -978,7 +978,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
          * 
          * @return builder
          * 
@@ -1086,7 +1086,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1097,7 +1097,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1107,7 +1107,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1118,7 +1118,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

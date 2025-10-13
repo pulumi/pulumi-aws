@@ -77,7 +77,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata configuration. See `metadata_configuration` Block for details.
+        /// Metadata configuration. See `MetadataConfiguration` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Metadata configuration. See `metadata_configuration` Block for details.
+        /// Metadata configuration. See `MetadataConfiguration` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Metadata configuration. See `metadata_configuration` Block for details.
+        /// Metadata configuration. See `MetadataConfiguration` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>

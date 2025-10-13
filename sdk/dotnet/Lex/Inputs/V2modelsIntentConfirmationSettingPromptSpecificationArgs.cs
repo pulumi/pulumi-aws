@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>? _messageGroups;
 
         /// <summary>
-        /// Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
+        /// Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `MessageGroup`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs> MessageGroups
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>? _promptAttemptsSpecifications;
 
         /// <summary>
-        /// Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
+        /// Configuration block for advanced settings on each attempt of the prompt. See `PromptAttemptsSpecification`.
         /// </summary>
         public InputList<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs> PromptAttemptsSpecifications
         {

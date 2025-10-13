@@ -65,7 +65,7 @@ namespace Pulumi.Aws.DataExchange
     {
         /// <summary>
         /// Describes the action to take.
-        /// Described in `action` Configuration Block below.
+        /// Described in `Action` Configuration Block below.
         /// </summary>
         [Output("action")]
         public Output<Outputs.EventActionAction?> Action { get; private set; } = null!;
@@ -83,8 +83,8 @@ namespace Pulumi.Aws.DataExchange
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the event that triggers the `action`.
-        /// Described in `event` Configuration Block below.
+        /// Describes the event that triggers the `Action`.
+        /// Described in `Event` Configuration Block below.
         /// </summary>
         [Output("event")]
         public Output<Outputs.EventActionEvent?> Event { get; private set; } = null!;
@@ -149,14 +149,14 @@ namespace Pulumi.Aws.DataExchange
     {
         /// <summary>
         /// Describes the action to take.
-        /// Described in `action` Configuration Block below.
+        /// Described in `Action` Configuration Block below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.EventActionActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// Describes the event that triggers the `action`.
-        /// Described in `event` Configuration Block below.
+        /// Describes the event that triggers the `Action`.
+        /// Described in `Event` Configuration Block below.
         /// </summary>
         [Input("event")]
         public Input<Inputs.EventActionEventArgs>? Event { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.DataExchange
     {
         /// <summary>
         /// Describes the action to take.
-        /// Described in `action` Configuration Block below.
+        /// Described in `Action` Configuration Block below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.EventActionActionGetArgs>? Action { get; set; }
@@ -195,8 +195,8 @@ namespace Pulumi.Aws.DataExchange
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Describes the event that triggers the `action`.
-        /// Described in `event` Configuration Block below.
+        /// Describes the event that triggers the `Action`.
+        /// Described in `Event` Configuration Block below.
         /// </summary>
         [Input("event")]
         public Input<Inputs.EventActionEventGetArgs>? Event { get; set; }

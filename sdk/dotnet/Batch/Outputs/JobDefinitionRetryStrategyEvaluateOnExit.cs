@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionRetryStrategyEvaluateOnExit
     {
         /// <summary>
-        /// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        /// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `Retry`, `Exit`.
         /// </summary>
         public readonly string Action;
         /// <summary>

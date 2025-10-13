@@ -19,14 +19,14 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
     public static final GetPrincipalApplicationAssignmentsArgs Empty = new GetPrincipalApplicationAssignmentsArgs();
 
     /**
-     * List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     @Import(name="applicationAssignments")
     private @Nullable Output<List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>> applicationAssignments;
 
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     public Optional<Output<List<GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>>> applicationAssignments() {
@@ -122,7 +122,7 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class GetPrincipalApplicationAssignmentsArgs extends com.pulumi.res
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
          * 
          * @return builder
          * 
