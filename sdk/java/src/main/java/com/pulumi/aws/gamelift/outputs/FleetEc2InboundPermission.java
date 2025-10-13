@@ -27,7 +27,7 @@ public final class FleetEc2InboundPermission {
      */
     private String protocol;
     /**
-     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
      * 
      */
     private Integer toPort;
@@ -55,7 +55,7 @@ public final class FleetEc2InboundPermission {
         return this.protocol;
     }
     /**
-     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
      * 
      */
     public Integer toPort() {

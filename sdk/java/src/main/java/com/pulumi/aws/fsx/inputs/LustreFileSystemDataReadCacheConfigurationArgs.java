@@ -18,14 +18,14 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
     public static final LustreFileSystemDataReadCacheConfigurationArgs Empty = new LustreFileSystemDataReadCacheConfigurationArgs();
 
     /**
-     * Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+     * Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+     * @return Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -73,7 +73,7 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
         }
 
         /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
         }
 
         /**
-         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
+         * @param size Size of the file system&#39;s SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
          * 
          * @return builder
          * 

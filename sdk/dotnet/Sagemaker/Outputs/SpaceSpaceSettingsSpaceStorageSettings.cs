@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsSpaceStorageSettings
     {
         /// <summary>
-        /// A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
+        /// A collection of EBS storage settings for a space. See `EbsStorageSettings` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings EbsStorageSettings;
 

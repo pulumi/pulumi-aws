@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+        /// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `True`.
         /// </summary>
         [Input("default")]
         public Input<bool>? Default { get; set; }

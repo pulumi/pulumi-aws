@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetFirehoseDeliveryStreamResult
     {
         /// <summary>
-        /// ARN of the Kinesis Firehose Delivery Stream (same as `id`).
+        /// ARN of the Kinesis Firehose Delivery Stream (same as `Id`).
         /// </summary>
         public readonly string Arn;
         /// <summary>

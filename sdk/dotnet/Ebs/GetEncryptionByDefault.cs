@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetEncryptionByDefaultResult
     {
         /// <summary>
-        /// Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
+        /// Whether or not default EBS encryption is enabled. Returns as `True` or `False`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

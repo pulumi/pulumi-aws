@@ -11,6 +11,22 @@ namespace Pulumi.Aws.CodePipeline
 {
     /// <summary>
     /// Provides a CodePipeline Webhook.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+    /// 
+    /// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+    /// 
+    /// console
+    /// 
+    /// % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
     /// </summary>
     [AwsResourceType("aws:codepipeline/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
@@ -28,13 +44,13 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Authentication { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        /// An `Auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
         [Output("authenticationConfiguration")]
         public Output<Outputs.WebhookAuthenticationConfiguration?> AuthenticationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `filter` blocks. Filter blocks are documented below.
+        /// One or more `Filter` blocks. Filter blocks are documented below.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.WebhookFilter>> Filters { get; private set; } = null!;
@@ -52,13 +68,13 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -134,7 +150,7 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string> Authentication { get; set; } = null!;
 
         /// <summary>
-        /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        /// An `Auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.WebhookAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
@@ -143,7 +159,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.WebhookFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks. Filter blocks are documented below.
+        /// One or more `Filter` blocks. Filter blocks are documented below.
         /// </summary>
         public InputList<Inputs.WebhookFilterArgs> Filters
         {
@@ -167,7 +183,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -208,7 +224,7 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string>? Authentication { get; set; }
 
         /// <summary>
-        /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        /// An `Auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.WebhookAuthenticationConfigurationGetArgs>? AuthenticationConfiguration { get; set; }
@@ -217,7 +233,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputList<Inputs.WebhookFilterGetArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks. Filter blocks are documented below.
+        /// One or more `Filter` blocks. Filter blocks are documented below.
         /// </summary>
         public InputList<Inputs.WebhookFilterGetArgs> Filters
         {
@@ -241,7 +257,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -253,7 +269,7 @@ namespace Pulumi.Aws.CodePipeline
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

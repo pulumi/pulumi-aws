@@ -133,6 +133,10 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
     an input variable and needs to, for example, determine the CIDR block of that
     COIP Pool.
 
+    ## Example Usage
+
+    The following example returns a specific coip pool ID
+
 
     :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param _builtins.str pool_id: ID of the specific COIP Pool to retrieve.
@@ -173,6 +177,10 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     This data source can prove useful when a module accepts a coip pool id as
     an input variable and needs to, for example, determine the CIDR block of that
     COIP Pool.
+
+    ## Example Usage
+
+    The following example returns a specific coip pool ID
 
 
     :param _builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool

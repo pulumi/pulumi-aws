@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// The request configuration.  See `request_configuration` block below for details.
+        /// The request configuration.  See `RequestConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration? RequestConfiguration;
         /// <summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        /// The Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>

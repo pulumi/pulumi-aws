@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride
     {
         /// <summary>
-        /// Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+        /// Override action to use, in place of the configured action of the rule in the rule group. See `Action` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse ActionToUse;
         /// <summary>

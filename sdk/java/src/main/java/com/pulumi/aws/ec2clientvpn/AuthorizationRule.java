@@ -75,28 +75,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2clientvpn/authorizationRule:AuthorizationRule")
 public class AuthorizationRule extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     @Export(name="accessGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessGroupId;
 
     /**
-     * @return The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+     * @return The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     public Output<Optional<String>> accessGroupId() {
         return Codegen.optional(this.accessGroupId);
     }
     /**
-     * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     @Export(name="authorizeAllGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> authorizeAllGroups;
 
     /**
-     * @return Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+     * @return Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      * 
      */
     public Output<Optional<Boolean>> authorizeAllGroups() {

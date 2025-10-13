@@ -355,56 +355,56 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.labels);
     }
     /**
-     * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+     * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      * 
      */
     @Export(name="launchTemplate", refs={NodeGroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+     * @return Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      * 
      */
     public Output<Optional<NodeGroupLaunchTemplate>> launchTemplate() {
         return Codegen.optional(this.launchTemplate);
     }
     /**
-     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+     * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
     @Export(name="nodeGroupName", refs={String.class}, tree="[0]")
     private Output<String> nodeGroupName;
 
     /**
-     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+     * @return Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
     public Output<String> nodeGroupName() {
         return this.nodeGroupName;
     }
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      * 
      */
     @Export(name="nodeGroupNamePrefix", refs={String.class}, tree="[0]")
     private Output<String> nodeGroupNamePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      * 
      */
     public Output<String> nodeGroupNamePrefix() {
         return this.nodeGroupNamePrefix;
     }
     /**
-     * The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
      * 
      */
     @Export(name="nodeRepairConfig", refs={NodeGroupNodeRepairConfig.class}, tree="[0]")
     private Output<NodeGroupNodeRepairConfig> nodeRepairConfig;
 
     /**
-     * @return The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * @return The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
      * 
      */
     public Output<NodeGroupNodeRepairConfig> nodeRepairConfig() {
@@ -453,14 +453,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.releaseVersion;
     }
     /**
-     * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+     * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      * 
      */
     @Export(name="remoteAccess", refs={NodeGroupRemoteAccess.class}, tree="[0]")
     private Output</* @Nullable */ NodeGroupRemoteAccess> remoteAccess;
 
     /**
-     * @return Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+     * @return Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      * 
      */
     public Output<Optional<NodeGroupRemoteAccess>> remoteAccess() {
@@ -481,14 +481,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.resources;
     }
     /**
-     * Configuration block with scaling settings. See `scaling_config` below for details.
+     * Configuration block with scaling settings. See `scalingConfig` below for details.
      * 
      */
     @Export(name="scalingConfig", refs={NodeGroupScalingConfig.class}, tree="[0]")
     private Output<NodeGroupScalingConfig> scalingConfig;
 
     /**
-     * @return Configuration block with scaling settings. See `scaling_config` below for details.
+     * @return Configuration block with scaling settings. See `scalingConfig` below for details.
      * 
      */
     public Output<NodeGroupScalingConfig> scalingConfig() {
@@ -527,28 +527,28 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -569,14 +569,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taints);
     }
     /**
-     * Configuration block with update settings. See `update_config` below for details.
+     * Configuration block with update settings. See `updateConfig` below for details.
      * 
      */
     @Export(name="updateConfig", refs={NodeGroupUpdateConfig.class}, tree="[0]")
     private Output<NodeGroupUpdateConfig> updateConfig;
 
     /**
-     * @return Configuration block with update settings. See `update_config` below for details.
+     * @return Configuration block with update settings. See `updateConfig` below for details.
      * 
      */
     public Output<NodeGroupUpdateConfig> updateConfig() {

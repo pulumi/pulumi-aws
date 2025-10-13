@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Fsx
     /// <summary>
     /// Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
     /// 
-    /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
+    /// &gt; **NOTE:** Either the `ActiveDirectoryId` argument or `SelfManagedActiveDirectory` configuration block must be specified.
     /// 
     /// ## Example Usage
     /// 
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Fsx
     public partial class WindowsFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `SelfManagedActiveDirectory`.
         /// </summary>
         [Output("activeDirectoryId")]
         public Output<string?> ActiveDirectoryId { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `AuditLogConfiguration` Block for details.
         /// </summary>
         [Output("auditLogConfiguration")]
         public Output<Outputs.WindowsFileSystemAuditLogConfiguration> AuditLogConfiguration { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> BackupId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `False`.
         /// </summary>
         [Output("copyTagsToBackups")]
         public Output<bool?> CopyTagsToBackups { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.WindowsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -213,13 +213,13 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `ActiveDirectoryId`. See `SelfManagedActiveDirectory` Block for details.
         /// </summary>
         [Output("selfManagedActiveDirectory")]
         public Output<Outputs.WindowsFileSystemSelfManagedActiveDirectory?> SelfManagedActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Output("skipFinalBackup")]
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
@@ -237,19 +237,19 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `DeploymentType` to `MULTI_AZ_1`.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class WindowsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `SelfManagedActiveDirectory`.
         /// </summary>
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `AuditLogConfiguration` Block for details.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationArgs>? AuditLogConfiguration { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `False`.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.WindowsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
@@ -423,13 +423,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `ActiveDirectoryId`. See `SelfManagedActiveDirectory` Block for details.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs>? SelfManagedActiveDirectory { get; set; }
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Input("skipFinalBackup")]
         public Input<bool>? SkipFinalBackup { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `DeploymentType` to `MULTI_AZ_1`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class WindowsFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `SelfManagedActiveDirectory`.
         /// </summary>
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `AuditLogConfiguration` Block for details.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationGetArgs>? AuditLogConfiguration { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `False`.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.WindowsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -637,13 +637,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `ActiveDirectoryId`. See `SelfManagedActiveDirectory` Block for details.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryGetArgs>? SelfManagedActiveDirectory { get; set; }
 
         /// <summary>
-        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `False`.
         /// </summary>
         [Input("skipFinalBackup")]
         public Input<bool>? SkipFinalBackup { get; set; }
@@ -664,7 +664,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `DeploymentType` to `MULTI_AZ_1`.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -676,7 +676,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -688,7 +688,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

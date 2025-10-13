@@ -303,7 +303,7 @@ namespace Pulumi.Aws.DataZone
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// ARN of the service role used by DataZone. Required when `DomainVersion` is set to `V2`.
         /// </summary>
         [Output("serviceRole")]
         public Output<string?> ServiceRole { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.DataZone
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// ARN of the service role used by DataZone. Required when `DomainVersion` is set to `V2`.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN of the service role used by DataZone. Required when `domain_version` is set to `V2`.
+        /// ARN of the service role used by DataZone. Required when `DomainVersion` is set to `V2`.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -533,7 +533,7 @@ namespace Pulumi.Aws.DataZone
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

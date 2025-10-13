@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class StreamProcessorRegionsOfInterest {
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
     private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
@@ -25,7 +25,7 @@ public final class StreamProcessorRegionsOfInterest {
 
     private StreamProcessorRegionsOfInterest() {}
     /**
-     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+     * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
     public StreamProcessorRegionsOfInterestBoundingBox boundingBox() {

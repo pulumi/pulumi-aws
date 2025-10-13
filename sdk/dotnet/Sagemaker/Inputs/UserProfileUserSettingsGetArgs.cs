@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? StudioWebPortal { get; set; }
 
         /// <summary>
-        /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        /// The Studio Web Portal settings. See `StudioWebPortalSettings` Block below.
         /// </summary>
         [Input("studioWebPortalSettings")]
         public Input<Inputs.UserProfileUserSettingsStudioWebPortalSettingsGetArgs>? StudioWebPortalSettings { get; set; }

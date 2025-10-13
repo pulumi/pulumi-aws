@@ -20,7 +20,7 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String createAuthChallenge;
     /**
-     * @return A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+     * @return A custom email sender AWS Lambda trigger. See customEmailSender Below.
      * 
      */
     private @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender;
@@ -30,7 +30,7 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String customMessage;
     /**
-     * @return A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+     * @return A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
      * 
      */
     private @Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender;
@@ -65,7 +65,7 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String preSignUp;
     /**
-     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
      * 
      */
     private @Nullable String preTokenGeneration;
@@ -94,7 +94,7 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.createAuthChallenge);
     }
     /**
-     * @return A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+     * @return A custom email sender AWS Lambda trigger. See customEmailSender Below.
      * 
      */
     public Optional<UserPoolLambdaConfigCustomEmailSender> customEmailSender() {
@@ -108,7 +108,7 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.customMessage);
     }
     /**
-     * @return A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+     * @return A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
      * 
      */
     public Optional<UserPoolLambdaConfigCustomSmsSender> customSmsSender() {
@@ -157,7 +157,7 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.preSignUp);
     }
     /**
-     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
      * 
      */
     public Optional<String> preTokenGeneration() {

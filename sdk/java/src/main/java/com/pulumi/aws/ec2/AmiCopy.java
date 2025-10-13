@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/amiCopy:AmiCopy")
 public class AmiCopy extends com.pulumi.resources.CustomResource {
     /**
-     * Machine architecture for created instances. Defaults to `x86_64`.
+     * Machine architecture for created instances. Defaults to `x8664`.
      * 
      */
     @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output<String> architecture;
 
     /**
-     * @return Machine architecture for created instances. Defaults to `x86_64`.
+     * @return Machine architecture for created instances. Defaults to `x8664`.
      * 
      */
     public Output<String> architecture() {
@@ -405,7 +405,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     }
     /**
      * Id of the AMI to copy. This id must be valid in the region
-     * given by `source_ami_region`.
+     * given by `sourceAmiRegion`.
      * 
      */
     @Export(name="sourceAmiId", refs={String.class}, tree="[0]")
@@ -413,7 +413,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Id of the AMI to copy. This id must be valid in the region
-     * given by `source_ami_region`.
+     * given by `sourceAmiRegion`.
      * 
      */
     public Output<String> sourceAmiId() {
@@ -452,14 +452,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.sriovNetSupport;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

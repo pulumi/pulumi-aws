@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public Input<string>? BannerText { get; set; }
 
         /// <summary>
-        /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
+        /// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `False` (not enabled).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

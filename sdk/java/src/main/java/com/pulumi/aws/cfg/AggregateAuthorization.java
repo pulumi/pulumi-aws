@@ -106,46 +106,46 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.authorizedAwsRegion);
     }
     /**
-     * The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use authorized_aws_region instead.
+     * region is deprecated. Use authorizedAwsRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use authorized_aws_region instead. */
+    @Deprecated /* region is deprecated. Use authorizedAwsRegion instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
-     * @return The region authorized to collect aggregated data. Use `authorized_aws_region` instead.
+     * @return The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      * 
      */
     public Output<Optional<String>> region() {
         return Codegen.optional(this.region);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

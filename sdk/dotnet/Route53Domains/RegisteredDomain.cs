@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Route53Domains
         public Output<Outputs.RegisteredDomainAdminContact> AdminContact { get; private set; } = null!;
 
         /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Output("adminPrivacy")]
         public Output<bool?> AdminPrivacy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `true`.
+        /// Whether the domain registration is set to renew automatically. Default: `True`.
         /// </summary>
         [Output("autoRenew")]
         public Output<bool?> AutoRenew { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<Outputs.RegisteredDomainBillingContact> BillingContact { get; private set; } = null!;
 
         /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Output("billingPrivacy")]
         public Output<bool?> BillingPrivacy { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
         /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<Outputs.RegisteredDomainNameServer>> NameServers { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Route53Domains
         public Output<Outputs.RegisteredDomainRegistrantContact> RegistrantContact { get; private set; } = null!;
 
         /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Output("registrantPrivacy")]
         public Output<bool?> RegistrantPrivacy { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Aws.Route53Domains
         public Output<ImmutableArray<string>> StatusLists { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -181,15 +181,15 @@ namespace Pulumi.Aws.Route53Domains
         public Output<Outputs.RegisteredDomainTechContact> TechContact { get; private set; } = null!;
 
         /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Output("techPrivacy")]
         public Output<bool?> TechPrivacy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the domain is locked for transfer. Default: `true`.
+        /// Whether the domain is locked for transfer. Default: `True`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
         /// </summary>
         [Output("transferLock")]
         public Output<bool?> TransferLock { get; private set; } = null!;
@@ -259,13 +259,13 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainAdminContactArgs>? AdminContact { get; set; }
 
         /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("adminPrivacy")]
         public Input<bool>? AdminPrivacy { get; set; }
 
         /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `true`.
+        /// Whether the domain registration is set to renew automatically. Default: `True`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainBillingContactArgs>? BillingContact { get; set; }
 
         /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("billingPrivacy")]
         public Input<bool>? BillingPrivacy { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.RegisteredDomainNameServerArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
         /// </summary>
         public InputList<Inputs.RegisteredDomainNameServerArgs> NameServers
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainRegistrantContactArgs>? RegistrantContact { get; set; }
 
         /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("registrantPrivacy")]
         public Input<bool>? RegistrantPrivacy { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -331,15 +331,15 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainTechContactArgs>? TechContact { get; set; }
 
         /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("techPrivacy")]
         public Input<bool>? TechPrivacy { get; set; }
 
         /// <summary>
-        /// Whether the domain is locked for transfer. Default: `true`.
+        /// Whether the domain is locked for transfer. Default: `True`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }
@@ -371,13 +371,13 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainAdminContactGetArgs>? AdminContact { get; set; }
 
         /// <summary>
-        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("adminPrivacy")]
         public Input<bool>? AdminPrivacy { get; set; }
 
         /// <summary>
-        /// Whether the domain registration is set to renew automatically. Default: `true`.
+        /// Whether the domain registration is set to renew automatically. Default: `True`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainBillingContactGetArgs>? BillingContact { get; set; }
 
         /// <summary>
-        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("billingPrivacy")]
         public Input<bool>? BillingPrivacy { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputList<Inputs.RegisteredDomainNameServerGetArgs>? _nameServers;
 
         /// <summary>
-        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// The list of nameservers for the domain. See `NameServer` Blocks for more details.
         /// </summary>
         public InputList<Inputs.RegisteredDomainNameServerGetArgs> NameServers
         {
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainRegistrantContactGetArgs>? RegistrantContact { get; set; }
 
         /// <summary>
-        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("registrantPrivacy")]
         public Input<bool>? RegistrantPrivacy { get; set; }
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.Route53Domains
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -497,15 +497,15 @@ namespace Pulumi.Aws.Route53Domains
         public Input<Inputs.RegisteredDomainTechContactGetArgs>? TechContact { get; set; }
 
         /// <summary>
-        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
+        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `True`.
         /// </summary>
         [Input("techPrivacy")]
         public Input<bool>? TechPrivacy { get; set; }
 
         /// <summary>
-        /// Whether the domain is locked for transfer. Default: `true`.
+        /// Whether the domain is locked for transfer. Default: `True`.
         /// 
-        /// &gt; **NOTE:** You must specify the same privacy setting for `admin_privacy`, `registrant_privacy` and `tech_privacy`.
+        /// &gt; **NOTE:** You must specify the same privacy setting for `AdminPrivacy`, `RegistrantPrivacy` and `TechPrivacy`.
         /// </summary>
         [Input("transferLock")]
         public Input<bool>? TransferLock { get; set; }

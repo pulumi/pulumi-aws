@@ -94,19 +94,19 @@ namespace Pulumi.Aws.Efs
     public sealed class GetMountTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `FileSystemId` and `MountTargetId` are not included.
         /// </summary>
         [Input("accessPointId")]
         public string? AccessPointId { get; set; }
 
         /// <summary>
-        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `AccessPointId` and `MountTargetId` are not included.
         /// </summary>
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
 
         /// <summary>
-        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `AccessPointId` and `FileSystemId` are not included.
         /// </summary>
         [Input("mountTargetId")]
         public string? MountTargetId { get; set; }
@@ -126,19 +126,19 @@ namespace Pulumi.Aws.Efs
     public sealed class GetMountTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `FileSystemId` and `MountTargetId` are not included.
         /// </summary>
         [Input("accessPointId")]
         public Input<string>? AccessPointId { get; set; }
 
         /// <summary>
-        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `AccessPointId` and `MountTargetId` are not included.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
         /// <summary>
-        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `AccessPointId` and `FileSystemId` are not included.
         /// </summary>
         [Input("mountTargetId")]
         public Input<string>? MountTargetId { get; set; }

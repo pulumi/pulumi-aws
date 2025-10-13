@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecification {
     /**
-     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
      * 
      */
     private @Nullable PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
@@ -56,7 +56,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecification {
 
     private PolicyPredictiveScalingConfigurationMetricSpecification() {}
     /**
-     * @return Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+     * @return Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
      * 
      */
     public Optional<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification> customizedCapacityMetricSpecification() {

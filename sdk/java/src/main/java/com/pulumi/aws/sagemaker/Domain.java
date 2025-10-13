@@ -226,28 +226,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.authMode;
     }
     /**
-     * The default space settings. See `default_space_settings` Block below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      * 
      */
     @Export(name="defaultSpaceSettings", refs={DomainDefaultSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDefaultSpaceSettings> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See `default_space_settings` Block below.
+     * @return The default space settings. See `defaultSpaceSettings` Block below.
      * 
      */
     public Output<Optional<DomainDefaultSpaceSettings>> defaultSpaceSettings() {
         return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
-     * The default user settings. See `default_user_settings` Block below.
+     * The default user settings. See `defaultUserSettings` Block below.
      * 
      */
     @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
-     * @return The default user settings. See `default_user_settings` Block below.
+     * @return The default user settings. See `defaultUserSettings` Block below.
      * 
      */
     public Output<DomainDefaultUserSettings> defaultUserSettings() {
@@ -268,14 +268,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The domain settings. See `domain_settings` Block below.
+     * The domain settings. See `domainSettings` Block below.
      * 
      */
     @Export(name="domainSettings", refs={DomainDomainSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDomainSettings> domainSettings;
 
     /**
-     * @return The domain settings. See `domain_settings` Block below.
+     * @return The domain settings. See `domainSettings` Block below.
      * 
      */
     public Output<Optional<DomainDomainSettings>> domainSettings() {
@@ -324,14 +324,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      * 
      */
     @Export(name="retentionPolicy", refs={DomainRetentionPolicy.class}, tree="[0]")
     private Output</* @Nullable */ DomainRetentionPolicy> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      * 
      */
     public Output<Optional<DomainRetentionPolicy>> retentionPolicy() {
@@ -408,28 +408,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tagPropagation);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

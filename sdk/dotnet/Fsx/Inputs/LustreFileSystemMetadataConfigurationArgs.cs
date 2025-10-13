@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         /// <summary>
         /// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
         /// 
-        /// !&gt; **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+        /// !&gt; **WARNING:** Updating the value of `Iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

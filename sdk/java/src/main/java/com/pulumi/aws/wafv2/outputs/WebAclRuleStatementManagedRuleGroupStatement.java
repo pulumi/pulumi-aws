@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
@@ -27,7 +27,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
      */
     private String name;
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
@@ -49,7 +49,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs() {
@@ -63,7 +63,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         return this.name;
     }
     /**
-     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+     * @return Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides() {

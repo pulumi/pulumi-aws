@@ -73,7 +73,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> AvailablePackageVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// Engine version that the package is compatible with. This argument is required and only valid when `PackageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         /// </summary>
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class PackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// Engine version that the package is compatible with. This argument is required and only valid when `PackageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? AvailablePackageVersion { get; set; }
 
         /// <summary>
-        /// Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
+        /// Engine version that the package is compatible with. This argument is required and only valid when `PackageType` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

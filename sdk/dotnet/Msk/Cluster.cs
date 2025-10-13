@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Msk
     /// });
     /// ```
     /// 
-    /// ### With volume_throughput argument
+    /// ### With VolumeThroughput argument
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -280,13 +280,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `True` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersPublicSaslIam")]
         public Output<string> BootstrapBrokersPublicSaslIam { get; private set; } = null!;
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `True` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersPublicSaslScram")]
         public Output<string> BootstrapBrokersPublicSaslScram { get; private set; } = null!;
@@ -298,13 +298,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokersPublicTls { get; private set; } = null!;
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `True`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersSaslIam")]
         public Output<string> BootstrapBrokersSaslIam { get; private set; } = null!;
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `True`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersSaslScram")]
         public Output<string> BootstrapBrokersSaslScram { get; private set; } = null!;
@@ -334,13 +334,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
         /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterUuid { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
         /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
         /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> KafkaVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
         /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Msk
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
         /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
@@ -418,13 +418,13 @@ namespace Pulumi.Aws.Msk
         public Output<string> StorageMode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -488,13 +488,13 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
@@ -506,13 +506,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.Msk
         public Input<string> KafkaVersion { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Msk
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -592,13 +592,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? BootstrapBrokers { get; set; }
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `True` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersPublicSaslIam")]
         public Input<string>? BootstrapBrokersPublicSaslIam { get; set; }
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `True` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersPublicSaslScram")]
         public Input<string>? BootstrapBrokersPublicSaslScram { get; set; }
@@ -610,13 +610,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? BootstrapBrokersPublicTls { get; set; }
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `True`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersSaslIam")]
         public Input<string>? BootstrapBrokersSaslIam { get; set; }
 
         /// <summary>
-        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `True`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersSaslScram")]
         public Input<string>? BootstrapBrokersSaslScram { get; set; }
@@ -646,13 +646,13 @@ namespace Pulumi.Aws.Msk
         public Input<string>? BootstrapBrokersVpcConnectivityTls { get; set; }
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
         /// </summary>
         [Input("brokerNodeGroupInfo")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoGetArgs>? BrokerNodeGroupInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterUuid { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoGetArgs>? ConfigurationInfo { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? CurrentVersion { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoGetArgs>? EncryptionInfo { get; set; }
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? KafkaVersion { get; set; }
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoGetArgs>? LoggingInfo { get; set; }
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.Msk
         public Input<int>? NumberOfBrokerNodes { get; set; }
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -745,7 +745,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

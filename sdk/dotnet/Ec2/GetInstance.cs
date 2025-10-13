@@ -149,9 +149,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more filters to apply to the search.
-        /// If multiple `filter` blocks are provided, they all must be true.
+        /// If multiple `Filter` blocks are provided, they all must be true.
         /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-        /// See `filter` Block below.
+        /// See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetInstanceFilterArgs> Filters
         {
@@ -160,15 +160,15 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `PasswordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
         public bool? GetPasswordData { get; set; }
 
         /// <summary>
-        /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+        /// Retrieve Base64 encoded User Data contents into the `UserDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `UserData` attribute. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+        /// &gt; **NOTE:** At least one of `Filter`, `InstanceTags`, or `InstanceId` must be specified.
         /// 
         /// &gt; **NOTE:** If anything other than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
@@ -227,9 +227,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more filters to apply to the search.
-        /// If multiple `filter` blocks are provided, they all must be true.
+        /// If multiple `Filter` blocks are provided, they all must be true.
         /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
-        /// See `filter` Block below.
+        /// See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetInstanceFilterInputArgs> Filters
         {
@@ -238,15 +238,15 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `PasswordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
         public Input<bool>? GetPasswordData { get; set; }
 
         /// <summary>
-        /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+        /// Retrieve Base64 encoded User Data contents into the `UserDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `UserData` attribute. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+        /// &gt; **NOTE:** At least one of `Filter`, `InstanceTags`, or `InstanceId` must be specified.
         /// 
         /// &gt; **NOTE:** If anything other than a single match is returned by the search,
         /// this call will fail. Ensure that your search is specific enough to return
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Id;
         public readonly string? InstanceId;
         /// <summary>
-        /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
+        /// State of the instance. One of: `Pending`, `Running`, `shutting-down`, `Terminated`, `Stopping`, `Stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         public readonly string InstanceState;
         public readonly ImmutableDictionary<string, string> InstanceTags;
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `GetPasswordData` is true. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         public readonly string PasswordData;
         /// <summary>
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PublicDns;
         /// <summary>
-        /// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `PublicIp`, as this field will change after the EIP is attached.
         /// </summary>
         public readonly string PublicIp;
         public readonly string Region;
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Tenancy of the instance: `dedicated`, `default`, `host`.
+        /// Tenancy of the instance: `Dedicated`, `Default`, `Host`.
         /// </summary>
         public readonly string Tenancy;
         /// <summary>
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string UserData;
         /// <summary>
-        /// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `get_user_data` is true.
+        /// Base64 encoded contents of User Data supplied to the Instance. This attribute is only exported if `GetUserData` is true.
         /// </summary>
         public readonly string UserDataBase64;
         /// <summary>

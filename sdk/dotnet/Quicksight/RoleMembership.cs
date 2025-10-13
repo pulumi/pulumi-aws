@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> MemberName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the namespace. Defaults to `default`.
+        /// Name of the namespace. Defaults to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the namespace. Defaults to `default`.
+        /// Name of the namespace. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? MemberName { get; set; }
 
         /// <summary>
-        /// Name of the namespace. Defaults to `default`.
+        /// Name of the namespace. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

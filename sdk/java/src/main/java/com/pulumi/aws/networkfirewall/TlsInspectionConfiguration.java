@@ -234,6 +234,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Outbound with encryption configuration
+ * 
  * ### Combined inbound and outbound
  * 
  * <pre>

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that the CachePointBlock is of the default type. Valid values: `default`.
+        /// Indicates that the CachePointBlock is of the default type. Valid values: `Default`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

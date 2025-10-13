@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination
     {
         /// <summary>
-        /// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
+        /// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `DimensionConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration> DimensionConfigurations;
 

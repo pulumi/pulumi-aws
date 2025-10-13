@@ -52,14 +52,14 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      * 
      */
     @Import(name="deploymentTargets")
     private @Nullable Output<StackSetInstanceDeploymentTargetsArgs> deploymentTargets;
 
     /**
-     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      * 
      */
     public Optional<Output<StackSetInstanceDeploymentTargetsArgs>> deploymentTargets() {
@@ -112,24 +112,24 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use stack_set_instance_region instead.
+     * region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
+    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use stack_set_instance_region instead.
+     * region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
+    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -165,14 +165,14 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      * 
      */
     @Import(name="stackInstanceSummaries")
     private @Nullable Output<List<StackSetInstanceStackInstanceSummaryArgs>> stackInstanceSummaries;
 
     /**
-     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      * 
      */
     public Optional<Output<List<StackSetInstanceStackInstanceSummaryArgs>>> stackInstanceSummaries() {
@@ -287,7 +287,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
          * 
          * @return builder
          * 
@@ -371,30 +371,30 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use stack_set_instance_region instead.
+         * region is deprecated. Use stackSetInstanceRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
+        @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * region is deprecated. Use stack_set_instance_region instead.
+         * region is deprecated. Use stackSetInstanceRegion instead.
          * 
          */
-        @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
+        @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -442,7 +442,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
          * 
          * @return builder
          * 

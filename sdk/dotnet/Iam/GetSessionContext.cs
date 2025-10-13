@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Iam
     public static class GetSessionContext
     {
         /// <summary>
-        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `IssuerArn`.
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
         /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Find the Runner's Source Role
         /// 
-        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`IssuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Iam
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `IssuerArn`.
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
         /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Find the Runner's Source Role
         /// 
-        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`IssuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Iam
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `IssuerArn`.
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
         /// 
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Find the Runner's Source Role
         /// 
-        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`IssuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN for an assumed role.
         /// 
-        /// &gt; If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
+        /// &gt; If `Arn` is a non-role ARN, Pulumi gives no error and `IssuerArn` will be equal to the `Arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// ARN for an assumed role.
         /// 
-        /// &gt; If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
+        /// &gt; If `Arn` is a non-role ARN, Pulumi gives no error and `IssuerArn` will be equal to the `Arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuer_arn` is equal to `arn`.
+        /// IAM source role ARN if `Arn` corresponds to an STS assumed role. Otherwise, `IssuerArn` is equal to `Arn`.
         /// </summary>
         public readonly string IssuerArn;
         /// <summary>
@@ -213,11 +213,11 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string IssuerId;
         /// <summary>
-        /// Name of the source role. Only available if `arn` corresponds to an STS assumed role.
+        /// Name of the source role. Only available if `Arn` corresponds to an STS assumed role.
         /// </summary>
         public readonly string IssuerName;
         /// <summary>
-        /// Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
+        /// Name of the STS session. Only available if `Arn` corresponds to an STS assumed role.
         /// </summary>
         public readonly string SessionName;
 

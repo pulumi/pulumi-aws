@@ -104,14 +104,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Assessment report storage destination configuration. See `assessment_reports_destination` below.
+     * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      * 
      */
     @Export(name="assessmentReportsDestination", refs={AssessmentAssessmentReportsDestination.class}, tree="[0]")
     private Output</* @Nullable */ AssessmentAssessmentReportsDestination> assessmentReportsDestination;
 
     /**
-     * @return Assessment report storage destination configuration. See `assessment_reports_destination` below.
+     * @return Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      * 
      */
     public Output<Optional<AssessmentAssessmentReportsDestination>> assessmentReportsDestination() {
@@ -234,14 +234,14 @@ public class Assessment extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

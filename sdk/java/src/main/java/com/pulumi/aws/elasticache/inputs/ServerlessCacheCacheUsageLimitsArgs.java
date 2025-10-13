@@ -18,14 +18,14 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
     public static final ServerlessCacheCacheUsageLimitsArgs Empty = new ServerlessCacheCacheUsageLimitsArgs();
 
     /**
-     * The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+     * The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
      * 
      */
     @Import(name="dataStorage")
     private @Nullable Output<ServerlessCacheCacheUsageLimitsDataStorageArgs> dataStorage;
 
     /**
-     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
      * 
      */
     public Optional<Output<ServerlessCacheCacheUsageLimitsDataStorageArgs>> dataStorage() {
@@ -33,14 +33,14 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
     }
 
     /**
-     * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+     * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
      * 
      */
     @Import(name="ecpuPerSeconds")
     private @Nullable Output<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>> ecpuPerSeconds;
 
     /**
-     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
      * 
      */
     public Optional<Output<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>>> ecpuPerSeconds() {
@@ -73,7 +73,7 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
          * 
          * @return builder
          * 

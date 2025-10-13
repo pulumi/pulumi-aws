@@ -18,7 +18,7 @@ namespace Pulumi.Aws.EcrPublic.Outputs
         /// </summary>
         public readonly string? AboutText;
         /// <summary>
-        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
+        /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `X86`, `x86-64`
         /// </summary>
         public readonly ImmutableArray<string> Architectures;
         /// <summary>

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
     /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
      * 
      */
     private @Nullable List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters;
@@ -26,7 +26,7 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
 
     private AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration() {}
     /**
-     * @return The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+     * @return The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
      * 
      */
     public List<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters() {

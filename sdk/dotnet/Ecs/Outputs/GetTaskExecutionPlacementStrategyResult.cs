@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? Field;
         /// <summary>
-        /// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+        /// The type of placement strategy. Valid values are `Random`, `Spread`, and `Binpack`.
         /// 
         /// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         /// </summary>

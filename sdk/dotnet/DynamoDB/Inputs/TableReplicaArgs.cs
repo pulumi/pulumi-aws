@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string>? ConsistencyMode { get; set; }
 
         /// <summary>
-        /// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+        /// Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `False`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
@@ -40,18 +40,18 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the replica. Default is `False`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
 
         /// <summary>
         /// Whether to propagate the global table's tags to a replica.
-        /// Default is `false`.
+        /// Default is `False`.
         /// Changes to tags only move in one direction: from global (source) to replica.
         /// Tag drift on a replica will not trigger an update.
         /// Tag changes on the global table are propagated to replicas.
-        /// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
+        /// Changing from `True` to `False` on a subsequent `Apply` leaves replica tags as-is and no longer manages them.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string> RegionName { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the Table Stream. Only available when `stream_enabled = true`
+        /// ARN of the Table Stream. Only available when `StreamEnabled = true`
         /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 
         /// <summary>
-        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `StreamEnabled = true`.
         /// </summary>
         [Input("streamLabel")]
         public Input<string>? StreamLabel { get; set; }

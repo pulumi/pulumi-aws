@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string Region;
         public readonly string StartDateRange;
         /// <summary>
-        /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+        /// Indicates the tenancy of the Capacity Reservation. Specify either `Default` or `Dedicated`.
         /// </summary>
         public readonly string Tenancy;
         /// <summary>

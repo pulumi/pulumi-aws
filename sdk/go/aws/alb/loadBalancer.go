@@ -17,6 +17,10 @@ import (
 //
 // ## Example Usage
 //
+// ### Application Load Balancer
+//
+// ### Network Load Balancer
+//
 // ### Specifying Elastic IPs
 //
 // ```go

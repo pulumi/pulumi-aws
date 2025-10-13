@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class LaunchTemplateMonitoringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        /// If `True`, the launched EC2 instance will have detailed monitoring enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

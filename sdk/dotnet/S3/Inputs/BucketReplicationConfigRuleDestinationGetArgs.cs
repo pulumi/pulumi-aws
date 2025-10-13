@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigRuleDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+        /// Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `Account` owner override configuration.
         /// </summary>
         [Input("accessControlTranslation")]
         public Input<Inputs.BucketReplicationConfigRuleDestinationAccessControlTranslationGetArgs>? AccessControlTranslation { get; set; }
 
         /// <summary>
-        /// Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+        /// Account ID to specify the replica ownership. Must be used in conjunction with `AccessControlTranslation` override configuration.
         /// </summary>
         [Input("account")]
         public Input<string>? Account { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
+        /// Configuration block that provides information about encryption. See below. If `SourceSelectionCriteria` is specified, you must specify this element.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketReplicationConfigRuleDestinationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketReplicationConfigRuleDestinationMetricsGetArgs>? Metrics { get; set; }
 
         /// <summary>
-        /// Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
+        /// Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `Metrics`.
         /// </summary>
         [Input("replicationTime")]
         public Input<Inputs.BucketReplicationConfigRuleDestinationReplicationTimeGetArgs>? ReplicationTime { get; set; }

@@ -73,7 +73,7 @@ public final class GetNetworkInsightsAnalysisResult {
      */
     private String startDate;
     /**
-     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      * 
      */
     private String status;
@@ -170,7 +170,7 @@ public final class GetNetworkInsightsAnalysisResult {
         return this.startDate;
     }
     /**
-     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
+     * @return Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `pathFound`.
      * 
      */
     public String status() {

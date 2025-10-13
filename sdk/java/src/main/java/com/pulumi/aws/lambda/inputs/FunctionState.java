@@ -32,14 +32,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     public static final FunctionState Empty = new FunctionState();
 
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     @Import(name="architectures")
     private @Nullable Output<List<String>> architectures;
 
     /**
-     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     public Optional<Output<List<String>>> architectures() {
@@ -62,14 +62,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Import(name="code")
     private @Nullable Output<Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Optional<Output<Archive>> code() {
@@ -182,14 +182,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Function entry point in your code. Required if `package_type` is `Zip`.
+     * Function entry point in your code. Required if `packageType` is `Zip`.
      * 
      */
     @Import(name="handler")
     private @Nullable Output<String> handler;
 
     /**
-     * @return Function entry point in your code. Required if `package_type` is `Zip`.
+     * @return Function entry point in your code. Required if `packageType` is `Zip`.
      * 
      */
     public Optional<Output<String>> handler() {
@@ -212,14 +212,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Import(name="imageUri")
     private @Nullable Output<String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Optional<Output<String>> imageUri() {
@@ -422,14 +422,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      * 
      */
     @Import(name="replacementSecurityGroupIds")
     private @Nullable Output<List<String>> replacementSecurityGroupIds;
 
     /**
-     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      * 
      */
     public Optional<Output<List<String>>> replacementSecurityGroupIds() {
@@ -471,14 +471,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     @Import(name="runtime")
     private @Nullable Output<Either<String,Runtime>> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * @return Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     public Optional<Output<Either<String,Runtime>>> runtime() {
@@ -486,14 +486,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     @Import(name="s3Bucket")
     private @Nullable Output<String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      * 
      */
     public Optional<Output<String>> s3Bucket() {
@@ -501,14 +501,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+     * S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
      * 
      */
     @Import(name="s3Key")
     private @Nullable Output<String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
      * 
      */
     public Optional<Output<String>> s3Key() {
@@ -516,14 +516,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
      * 
      */
     @Import(name="s3ObjectVersion")
     private @Nullable Output<String> s3ObjectVersion;
 
     /**
-     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+     * @return Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
      * 
      */
     public Optional<Output<String>> s3ObjectVersion() {
@@ -621,14 +621,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     @Import(name="sourceKmsKeyArn")
     private @Nullable Output<String> sourceKmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     public Optional<Output<String>> sourceKmsKeyArn() {
@@ -636,14 +636,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -651,14 +651,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -795,7 +795,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -806,7 +806,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -816,7 +816,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x8664&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -847,7 +847,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -858,7 +858,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1015,7 +1015,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler Function entry point in your code. Required if `package_type` is `Zip`.
+         * @param handler Function entry point in your code. Required if `packageType` is `Zip`.
          * 
          * @return builder
          * 
@@ -1026,7 +1026,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler Function entry point in your code. Required if `package_type` is `Zip`.
+         * @param handler Function entry point in your code. Required if `packageType` is `Zip`.
          * 
          * @return builder
          * 
@@ -1057,7 +1057,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1068,7 +1068,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1361,7 +1361,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
          * 
          * @return builder
          * 
@@ -1382,7 +1382,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
          * 
          * @return builder
          * 
@@ -1438,7 +1438,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1449,7 +1449,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1459,7 +1459,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1469,7 +1469,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1479,7 +1479,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1490,7 +1490,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1500,7 +1500,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
          * 
          * @return builder
          * 
@@ -1511,7 +1511,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3Bucket` is set.
          * 
          * @return builder
          * 
@@ -1521,7 +1521,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
          * 
          * @return builder
          * 
@@ -1532,7 +1532,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
+         * @param s3ObjectVersion Object version containing the function&#39;s deployment package. Conflicts with `filename` and `imageUri`.
          * 
          * @return builder
          * 
@@ -1668,7 +1668,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
          * 
          * @return builder
          * 
@@ -1679,7 +1679,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `image_uri`.
+         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
          * 
          * @return builder
          * 
@@ -1689,7 +1689,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1700,7 +1700,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1710,7 +1710,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1721,7 +1721,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

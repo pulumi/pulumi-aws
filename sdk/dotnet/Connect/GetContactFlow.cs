@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By contact_flow_id
+        /// By ContactFlowId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By contact_flow_id
+        /// By ContactFlowId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Connect
         /// });
         /// ```
         /// 
-        /// By contact_flow_id
+        /// By ContactFlowId
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Contact Flow by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `ContactFlowId` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Returns information on a specific Contact Flow by name
         /// 
-        /// &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+        /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `ContactFlowId` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Rds
         public string OfferingType { get; set; } = null!;
 
         /// <summary>
-        /// Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
+        /// Description of the reserved DB instance. Example values are `Postgresql`, `aurora-postgresql`, `Mysql`, `aurora-mysql`, `Mariadb`.
         /// </summary>
         [Input("productDescription", required: true)]
         public string ProductDescription { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> OfferingType { get; set; } = null!;
 
         /// <summary>
-        /// Description of the reserved DB instance. Example values are `postgresql`, `aurora-postgresql`, `mysql`, `aurora-mysql`, `mariadb`.
+        /// Description of the reserved DB instance. Example values are `Postgresql`, `aurora-postgresql`, `Mysql`, `aurora-mysql`, `Mariadb`.
         /// </summary>
         [Input("productDescription", required: true)]
         public Input<string> ProductDescription { get; set; } = null!;

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitArns;
         /// <summary>
-        /// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+        /// Set of EC2 launch permission user groups to assign. Use `All` to distribute a public AMI.
         /// </summary>
         public readonly ImmutableArray<string> UserGroups;
         /// <summary>

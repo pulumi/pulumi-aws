@@ -31,14 +31,14 @@ public final class ResourceCollectionTagsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     @Import(name="tagValues", required=true)
     private Output<List<String>> tagValues;
 
     /**
-     * @return Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * @return Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     public Output<List<String>> tagValues() {
@@ -92,7 +92,7 @@ public final class ResourceCollectionTagsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ResourceCollectionTagsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ResourceCollectionTagsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param tagValues Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 

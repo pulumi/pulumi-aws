@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
     public sealed class AnalyzerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+        /// Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `InternalAccess` Block for details.
         /// </summary>
         [Input("internalAccess")]
         public Input<Inputs.AnalyzerConfigurationInternalAccessArgs>? InternalAccess { get; set; }
 
         /// <summary>
-        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
+        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. See `UnusedAccess` Block for details.
         /// </summary>
         [Input("unusedAccess")]
         public Input<Inputs.AnalyzerConfigurationUnusedAccessArgs>? UnusedAccess { get; set; }

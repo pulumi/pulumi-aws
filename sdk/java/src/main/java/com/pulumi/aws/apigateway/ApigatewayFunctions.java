@@ -1561,7 +1561,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and root_resource_id of a REST API in
+     * Use this data source to get the id and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1604,7 +1604,7 @@ public final class ApigatewayFunctions {
         return getRestApi(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id and root_resource_id of a REST API in
+     * Use this data source to get the id and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1647,7 +1647,7 @@ public final class ApigatewayFunctions {
         return getRestApiPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get the id and root_resource_id of a REST API in
+     * Use this data source to get the id and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1690,7 +1690,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and root_resource_id of a REST API in
+     * Use this data source to get the id and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.
@@ -1733,7 +1733,7 @@ public final class ApigatewayFunctions {
         return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get the id and root_resource_id of a REST API in
+     * Use this data source to get the id and rootResourceId of a REST API in
      * API Gateway. To fetch the REST API you must provide a name to match against.
      * As there is no unique name constraint on REST APIs this data source will
      * error if there is more than one match.

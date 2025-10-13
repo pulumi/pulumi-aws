@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Synthetics.Inputs
     public sealed class CanaryScheduleRetryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
+        /// Maximum number of retries. The value must be less than or equal to `2`. If `MaxRetries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
         /// </summary>
         [Input("maxRetries", required: true)]
         public Input<int> MaxRetries { get; set; } = null!;

@@ -18,7 +18,7 @@ public final class S3AccessPointAttachmentS3AccessPoint {
      */
     private @Nullable String policy;
     /**
-     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
      * 
      */
     private @Nullable S3AccessPointAttachmentS3AccessPointVpcConfiguration vpcConfiguration;
@@ -32,7 +32,7 @@ public final class S3AccessPointAttachmentS3AccessPoint {
         return Optional.ofNullable(this.policy);
     }
     /**
-     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
+     * @return Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpcConfiguration` Block for details.
      * 
      */
     public Optional<S3AccessPointAttachmentS3AccessPointVpcConfiguration> vpcConfiguration() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     public sealed class DomainClusterConfigColdStorageOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean to enable cold storage for an Elasticsearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
+        /// Boolean to enable cold storage for an Elasticsearch domain. Defaults to `False`. Master and ultrawarm nodes must be enabled for cold storage.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

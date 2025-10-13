@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        /// The ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

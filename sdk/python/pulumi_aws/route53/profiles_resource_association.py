@@ -294,6 +294,8 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ## Import
 
         Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
@@ -320,6 +322,8 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         Resource for managing an AWS Route 53 Profiles Resource Association.
 
         ## Example Usage
+
+        ### Basic Usage
 
         ## Import
 

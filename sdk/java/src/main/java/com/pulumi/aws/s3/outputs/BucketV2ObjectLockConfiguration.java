@@ -17,10 +17,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
     private @Nullable String objectLockEnabled;
     /**
      * @return Object Lock rule in place for this bucket (documented below).
@@ -37,10 +37,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
+     * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
      * 
      */
-    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
     public Optional<String> objectLockEnabled() {
         return Optional.ofNullable(this.objectLockEnabled);
     }

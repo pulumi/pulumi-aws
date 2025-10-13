@@ -96,7 +96,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Output("endTime")]
         public Output<string?> EndTime { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<Outputs.ScheduledActionScalableTargetAction> ScalableTargetAction { get; private set; } = null!;
 
         /// <summary>
-        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
+        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `Timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
         [Output("schedule")]
         public Output<string> Schedule { get; private set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ServiceNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Output("startTime")]
         public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `StartTime` and `EndTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.AppAutoScaling
     public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<Inputs.ScheduledActionScalableTargetActionArgs> ScalableTargetAction { get; set; } = null!;
 
         /// <summary>
-        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
+        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `Timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
         [Input("schedule", required: true)]
         public Input<string> Schedule { get; set; } = null!;
@@ -250,13 +250,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> ServiceNamespace { get; set; } = null!;
 
         /// <summary>
-        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `StartTime` and `EndTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<Inputs.ScheduledActionScalableTargetActionGetArgs>? ScalableTargetAction { get; set; }
 
         /// <summary>
-        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
+        /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `Timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
@@ -324,13 +324,13 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? ServiceNamespace { get; set; }
 
         /// <summary>
-        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
+        /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `Timezone`.
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
+        /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `StartTime` and `EndTime`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

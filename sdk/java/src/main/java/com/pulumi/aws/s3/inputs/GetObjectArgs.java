@@ -33,14 +33,14 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
      * 
      */
     @Import(name="checksumMode")
     private @Nullable Output<String> checksumMode;
 
     /**
-     * @return To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * @return To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
      * 
      */
     public Optional<Output<String>> checksumMode() {
@@ -166,7 +166,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class GetInferenceProfilesResult {
      */
     private String id;
     /**
-     * @return List of inference profile summary objects. See `inference_profile_summaries`.
+     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
      * 
      */
     private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
@@ -40,7 +40,7 @@ public final class GetInferenceProfilesResult {
         return this.id;
     }
     /**
-     * @return List of inference profile summary objects. See `inference_profile_summaries`.
+     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
      * 
      */
     public List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries() {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
-        /// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
+        /// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["VolumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         /// </summary>
         public readonly ImmutableDictionary<string, string> Ebs;
         /// <summary>

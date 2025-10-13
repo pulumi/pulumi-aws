@@ -517,12 +517,16 @@ public final class EcrFunctions {
     /**
      * The ECR Images data source allows the list of images in a specified repository to be retrieved.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
         return getImages(args, InvokeOptions.Empty);
     }
     /**
      * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
@@ -531,6 +535,8 @@ public final class EcrFunctions {
     /**
      * The ECR Images data source allows the list of images in a specified repository to be retrieved.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
@@ -538,12 +544,16 @@ public final class EcrFunctions {
     /**
      * The ECR Images data source allows the list of images in a specified repository to be retrieved.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Images data source allows the list of images in a specified repository to be retrieved.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {

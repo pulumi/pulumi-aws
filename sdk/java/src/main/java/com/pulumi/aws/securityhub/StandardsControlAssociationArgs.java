@@ -81,14 +81,14 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+     * The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      * 
      */
     @Import(name="updatedReason")
     private @Nullable Output<String> updatedReason;
 
     /**
-     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+     * @return The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
      * 
      */
     public Optional<Output<String>> updatedReason() {
@@ -212,7 +212,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
+         * @param updatedReason The reason for updating the control&#39;s enablement status in the standard. Required when `associationStatus` is `DISABLED`.
          * 
          * @return builder
          * 

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class ClusterServerlessv2ScalingConfiguration
     {
         /// <summary>
-        /// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        /// Maximum capacity for an Aurora DB cluster in `Provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
         public readonly double MaxCapacity;
         /// <summary>
-        /// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        /// Minimum capacity for an Aurora DB cluster in `Provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         /// </summary>
         public readonly double MinCapacity;
         /// <summary>
-        /// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+        /// Time, in seconds, before an Aurora DB cluster in `Provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
         /// </summary>
         public readonly int? SecondsUntilAutoPause;
 

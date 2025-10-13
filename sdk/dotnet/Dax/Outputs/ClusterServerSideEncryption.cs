@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dax.Outputs
     public sealed class ClusterServerSideEncryption
     {
         /// <summary>
-        /// Whether to enable encryption at rest. Defaults to `false`.
+        /// Whether to enable encryption at rest. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
 

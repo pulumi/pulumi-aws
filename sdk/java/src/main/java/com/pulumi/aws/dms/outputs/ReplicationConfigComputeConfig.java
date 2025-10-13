@@ -41,7 +41,7 @@ public final class ReplicationConfigComputeConfig {
      */
     private @Nullable Integer minCapacityUnits;
     /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      * 
      */
     private @Nullable Boolean multiAz;
@@ -103,7 +103,7 @@ public final class ReplicationConfigComputeConfig {
         return Optional.ofNullable(this.minCapacityUnits);
     }
     /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      * 
      */
     public Optional<Boolean> multiAz() {

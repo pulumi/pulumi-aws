@@ -15,6 +15,8 @@ import (
 // Profile IDs to another resource.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfilesArgs, opts ...pulumi.InvokeOption) (*GetConfigurationProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConfigurationProfilesResult

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecTcpRouteTimeoutIdle
     {
         /// <summary>
-        /// Unit of time. Valid values: `ms`, `s`.
+        /// Unit of time. Valid values: `Ms`, `S`.
         /// </summary>
         public readonly string Unit;
         /// <summary>

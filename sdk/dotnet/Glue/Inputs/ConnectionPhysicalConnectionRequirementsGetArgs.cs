@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class ConnectionPhysicalConnectionRequirementsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+        /// The availability zone of the connection. This field is redundant and implied by `SubnetId`, but is currently an api requirement.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

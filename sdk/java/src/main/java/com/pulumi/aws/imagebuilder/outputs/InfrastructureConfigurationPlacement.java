@@ -17,12 +17,12 @@ public final class InfrastructureConfigurationPlacement {
      */
     private @Nullable String availabilityZone;
     /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
      * 
      */
     private @Nullable String hostId;
     /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
      * 
      */
     private @Nullable String hostResourceGroupArn;
@@ -41,14 +41,14 @@ public final class InfrastructureConfigurationPlacement {
         return Optional.ofNullable(this.availabilityZone);
     }
     /**
-     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+     * @return ID of the Dedicated Host on which build and test instances run. Conflicts with `hostResourceGroupArn`.
      * 
      */
     public Optional<String> hostId() {
         return Optional.ofNullable(this.hostId);
     }
     /**
-     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+     * @return ARN of the host resource group in which to launch build and test instances. Conflicts with `hostId`.
      * 
      */
     public Optional<String> hostResourceGroupArn() {

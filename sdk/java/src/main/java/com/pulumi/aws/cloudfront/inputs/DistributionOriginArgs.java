@@ -69,14 +69,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
      * 
      */
     @Import(name="customOriginConfig")
     private @Nullable Output<DistributionOriginCustomOriginConfigArgs> customOriginConfig;
 
     /**
-     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+     * @return The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
      * 
      */
     public Optional<Output<DistributionOriginCustomOriginConfigArgs>> customOriginConfig() {
@@ -151,14 +151,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
      * 
      */
     @Import(name="responseCompletionTimeout")
     private @Nullable Output<Integer> responseCompletionTimeout;
 
     /**
-     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+     * @return Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
      * 
      */
     public Optional<Output<Integer>> responseCompletionTimeout() {
@@ -166,14 +166,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
      * 
      */
     @Import(name="s3OriginConfig")
     private @Nullable Output<DistributionOriginS3OriginConfigArgs> s3OriginConfig;
 
     /**
-     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
      * 
      */
     public Optional<Output<DistributionOriginS3OriginConfigArgs>> s3OriginConfig() {
@@ -304,7 +304,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+         * @param customOriginConfig The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
+         * @param responseCompletionTimeout Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `originReadTimeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
          * 
          * @return builder
          * 

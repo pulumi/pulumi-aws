@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventConnectionAuthParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `Basic` and `Oauth`. Documented below.
         /// </summary>
         [Input("apiKey")]
         public Input<Inputs.EventConnectionAuthParametersApiKeyGetArgs>? ApiKey { get; set; }
 
         /// <summary>
-        /// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        /// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `ApiKey` and `Oauth`. Documented below.
         /// </summary>
         [Input("basic")]
         public Input<Inputs.EventConnectionAuthParametersBasicGetArgs>? Basic { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<Inputs.EventConnectionAuthParametersInvocationHttpParametersGetArgs>? InvocationHttpParameters { get; set; }
 
         /// <summary>
-        /// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        /// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `Basic` and `ApiKey`. Documented below.
         /// </summary>
         [Input("oauth")]
         public Input<Inputs.EventConnectionAuthParametersOauthGetArgs>? Oauth { get; set; }

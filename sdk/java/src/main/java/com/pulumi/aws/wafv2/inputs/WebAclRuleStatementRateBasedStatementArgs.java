@@ -37,14 +37,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
      * 
      */
     @Import(name="customKeys")
     private @Nullable Output<List<WebAclRuleStatementRateBasedStatementCustomKeyArgs>> customKeys;
 
     /**
-     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementCustomKeyArgs>>> customKeys() {
@@ -71,14 +71,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
      * 
      */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs> forwardedIpConfig;
 
     /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs>> forwardedIpConfig() {
@@ -101,14 +101,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
      * 
      */
     @Import(name="scopeDownStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement;
 
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>> scopeDownStatement() {
@@ -166,7 +166,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 

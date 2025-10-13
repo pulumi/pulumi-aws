@@ -86,19 +86,19 @@ namespace Pulumi.Aws.Iam
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `ClientId` parameter in OAuth requests.
         /// </summary>
         [Output("clientIdLists")]
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableArray<string>> ThumbprintLists { get; private set; } = null!;
 
         /// <summary>
-        /// URL of the identity provider, corresponding to the `iss` claim.
+        /// URL of the identity provider, corresponding to the `Iss` claim.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _clientIdLists;
 
         /// <summary>
-        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `ClientId` parameter in OAuth requests.
         /// </summary>
         public InputList<string> ClientIdLists
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// URL of the identity provider, corresponding to the `iss` claim.
+        /// URL of the identity provider, corresponding to the `Iss` claim.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _clientIdLists;
 
         /// <summary>
-        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `ClientId` parameter in OAuth requests.
         /// </summary>
         public InputList<string> ClientIdLists
         {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// URL of the identity provider, corresponding to the `iss` claim.
+        /// URL of the identity provider, corresponding to the `Iss` claim.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

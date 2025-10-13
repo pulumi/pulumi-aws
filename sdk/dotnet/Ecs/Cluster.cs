@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Execute command configuration for the cluster. See `configuration` Block for details.
+        /// Execute command configuration for the cluster. See `Configuration` Block for details.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
@@ -245,25 +245,25 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
         /// </summary>
         [Output("serviceConnectDefaults")]
         public Output<Outputs.ClusterServiceConnectDefaults?> ServiceConnectDefaults { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
         /// </summary>
         [Output("settings")]
         public Output<ImmutableArray<Outputs.ClusterSetting>> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Execute command configuration for the cluster. See `configuration` Block for details.
+        /// Execute command configuration for the cluster. See `Configuration` Block for details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
         /// </summary>
         [Input("serviceConnectDefaults")]
         public Input<Inputs.ClusterServiceConnectDefaultsArgs>? ServiceConnectDefaults { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterSettingArgs>? _settings;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
         /// </summary>
         public InputList<Inputs.ClusterSettingArgs> Settings
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Execute command configuration for the cluster. See `configuration` Block for details.
+        /// Execute command configuration for the cluster. See `Configuration` Block for details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationGetArgs>? Configuration { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        /// Default Service Connect namespace. See `ServiceConnectDefaults` Block for details.
         /// </summary>
         [Input("serviceConnectDefaults")]
         public Input<Inputs.ClusterServiceConnectDefaultsGetArgs>? ServiceConnectDefaults { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ClusterSettingGetArgs>? _settings;
 
         /// <summary>
-        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `Setting` Block for details.
         /// </summary>
         public InputList<Inputs.ClusterSettingGetArgs> Settings
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public Input<string> AlarmArn { get; set; } = null!;
 
         /// <summary>
-        /// ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+        /// ARN of an IAM role for AWS AppConfig to monitor `AlarmArn`.
         /// </summary>
         [Input("alarmRoleArn")]
         public Input<string>? AlarmRoleArn { get; set; }

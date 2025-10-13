@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `true`.
+        /// Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails. The default is `True`.
         /// </summary>
         [Input("executeOperationOnScriptFailure")]
         public Input<bool>? ExecuteOperationOnScriptFailure { get; set; }

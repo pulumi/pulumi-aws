@@ -93,14 +93,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema definition using the `data_format` setting for `schema_name`.
+     * The schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     @Import(name="schemaDefinition", required=true)
     private Output<String> schemaDefinition;
 
     /**
-     * @return The schema definition using the `data_format` setting for `schema_name`.
+     * @return The schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     public Output<String> schemaDefinition() {
@@ -123,14 +123,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -274,7 +274,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition The schema definition using the `data_format` setting for `schema_name`.
+         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition The schema definition using the `data_format` setting for `schema_name`.
+         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Polly
     public sealed class GetVoicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
+        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `Standard`, `Neural`, and `long-form`.
         /// </summary>
         [Input("engine")]
         public string? Engine { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Polly
         private List<Inputs.GetVoicesVoiceArgs>? _voices;
 
         /// <summary>
-        /// List of voices with their properties. See `voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Attribute Reference below.
         /// </summary>
         public List<Inputs.GetVoicesVoiceArgs> Voices
         {
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Polly
     public sealed class GetVoicesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
+        /// Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `Standard`, `Neural`, and `long-form`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Polly
         private InputList<Inputs.GetVoicesVoiceInputArgs>? _voices;
 
         /// <summary>
-        /// List of voices with their properties. See `voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Attribute Reference below.
         /// </summary>
         public InputList<Inputs.GetVoicesVoiceInputArgs> Voices
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Polly
         public readonly string? LanguageCode;
         public readonly string Region;
         /// <summary>
-        /// List of voices with their properties. See `voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Attribute Reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVoicesVoiceResult> Voices;
 

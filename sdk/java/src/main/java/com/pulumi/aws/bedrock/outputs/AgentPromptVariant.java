@@ -23,7 +23,7 @@ public final class AgentPromptVariant {
      */
     private @Nullable String additionalModelRequestFields;
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
      * 
      */
     private @Nullable AgentPromptVariantGenAiResource genAiResource;
@@ -38,7 +38,7 @@ public final class AgentPromptVariant {
      */
     private @Nullable List<AgentPromptVariantMetadata> metadatas;
     /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
      * 
      */
     private @Nullable String modelId;
@@ -67,7 +67,7 @@ public final class AgentPromptVariant {
         return Optional.ofNullable(this.additionalModelRequestFields);
     }
     /**
-     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
+     * @return Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `genAiResource` must be defined. See Generative AI Resource for more information.
      * 
      */
     public Optional<AgentPromptVariantGenAiResource> genAiResource() {
@@ -88,7 +88,7 @@ public final class AgentPromptVariant {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
     /**
-     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
+     * @return Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `genAiResource` must be defined.
      * 
      */
     public Optional<String> modelId() {

@@ -34,14 +34,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     @Import(name="autoScalingGroupProvider")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
 
     /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderArgs>> autoScalingGroupProvider() {
@@ -49,14 +49,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
      * 
      */
     @Import(name="cluster")
     private @Nullable Output<String> cluster;
 
     /**
-     * @return Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+     * @return Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
      * 
      */
     public Optional<Output<String>> cluster() {
@@ -64,14 +64,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     @Import(name="managedInstancesProvider")
     private @Nullable Output<CapacityProviderManagedInstancesProviderArgs> managedInstancesProvider;
 
     /**
-     * @return Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+     * @return Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderArgs>> managedInstancesProvider() {
@@ -109,14 +109,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -124,14 +124,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -191,7 +191,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cluster Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+         * @param cluster Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cluster Name of the ECS cluster. Required when using `managed_instances_provider`. Must not be set when using `auto_scaling_group_provider`.
+         * @param cluster Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `auto_scaling_group_provider` or `managed_instances_provider` must be specified.
+         * @param managedInstancesProvider Configuration block for the managed instances provider. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

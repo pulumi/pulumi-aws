@@ -61,6 +61,8 @@ import (
 //
 // ```
 //
+// ### Stateful Inspection for permitting packets from a source IP address
+//
 // ### Stateful Inspection for blocking packets from going to an intended destination
 //
 // ```go

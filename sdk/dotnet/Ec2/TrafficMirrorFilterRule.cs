@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `Accept` and `Reject`
         /// </summary>
         [Output("ruleAction")]
         public Output<string> RuleAction { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.TrafficMirrorFilterRuleSourcePortRange?> SourcePortRange { get; private set; } = null!;
 
         /// <summary>
-        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `Ingress` and `Egress`
         /// 
         /// Traffic mirror port range support following attributes:
         /// </summary>
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `Accept` and `Reject`
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs>? SourcePortRange { get; set; }
 
         /// <summary>
-        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `Ingress` and `Egress`
         /// 
         /// Traffic mirror port range support following attributes:
         /// </summary>
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `Accept` and `Reject`
         /// </summary>
         [Input("ruleAction")]
         public Input<string>? RuleAction { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.TrafficMirrorFilterRuleSourcePortRangeGetArgs>? SourcePortRange { get; set; }
 
         /// <summary>
-        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// Direction of traffic to be captured. Valid values are `Ingress` and `Egress`
         /// 
         /// Traffic mirror port range support following attributes:
         /// </summary>

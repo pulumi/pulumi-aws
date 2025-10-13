@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticBeanstalk.Outputs
     public sealed class ApplicationAppversionLifecycle
     {
         /// <summary>
-        /// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+        /// Set to `True` to delete a version's source bundle from S3 when the application version is deleted.
         /// </summary>
         public readonly bool? DeleteSourceFromS3;
         /// <summary>

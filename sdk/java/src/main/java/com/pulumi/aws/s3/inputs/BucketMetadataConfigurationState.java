@@ -40,7 +40,7 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
     }
 
     /**
-     * Metadata configuration. See `metadata_configuration` Block for details.
+     * Metadata configuration. See `metadataConfiguration` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -49,7 +49,7 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
     private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return Metadata configuration. See `metadata_configuration` Block for details.
+     * @return Metadata configuration. See `metadataConfiguration` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -139,7 +139,7 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfiguration Metadata configuration. See `metadata_configuration` Block for details.
+         * @param metadataConfiguration Metadata configuration. See `metadataConfiguration` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -152,7 +152,7 @@ public final class BucketMetadataConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfiguration Metadata configuration. See `metadata_configuration` Block for details.
+         * @param metadataConfiguration Metadata configuration. See `metadataConfiguration` Block for details.
          * 
          * The following arguments are optional:
          * 

@@ -18,14 +18,14 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
     public static final GetPrincipalApplicationAssignmentsPlainArgs Empty = new GetPrincipalApplicationAssignmentsPlainArgs();
 
     /**
-     * List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     @Import(name="applicationAssignments")
     private @Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments;
 
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     public Optional<List<GetPrincipalApplicationAssignmentsApplicationAssignment>> applicationAssignments() {
@@ -121,7 +121,7 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetPrincipalApplicationAssignmentsPlainArgs extends com.pulum
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param applicationAssignments List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
          * 
          * @return builder
          * 

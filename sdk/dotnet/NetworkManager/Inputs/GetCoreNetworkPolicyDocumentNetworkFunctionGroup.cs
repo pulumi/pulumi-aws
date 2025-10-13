@@ -25,7 +25,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+        /// This will be either `True`, that attachment acceptance is required, or `False`, that it is not required.
         /// </summary>
         [Input("requireAttachmentAcceptance", required: true)]
         public bool RequireAttachmentAcceptance { get; set; }

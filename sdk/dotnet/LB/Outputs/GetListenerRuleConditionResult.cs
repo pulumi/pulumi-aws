@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class GetListenerRuleConditionResult
     {
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of host names.
+        /// Contains a single attribute `Values`, which contains a set of host names.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHostHeaderResult> HostHeaders;
         /// <summary>
@@ -23,11 +23,11 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpHeaderResult> HttpHeaders;
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of HTTP request methods.
+        /// Contains a single attribute `Values`, which contains a set of HTTP request methods.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpRequestMethodResult> HttpRequestMethods;
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+        /// Contains a single attribute `Values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionPathPatternResult> PathPatterns;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringResult> QueryStrings;
         /// <summary>
-        /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+        /// Contains a single attribute `Values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionSourceIpResult> SourceIps;
 

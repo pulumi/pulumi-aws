@@ -107,7 +107,7 @@ public final class UserProfileUserSettings {
      */
     private @Nullable String studioWebPortal;
     /**
-     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * @return The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsStudioWebPortalSettings studioWebPortalSettings;
@@ -231,7 +231,7 @@ public final class UserProfileUserSettings {
         return Optional.ofNullable(this.studioWebPortal);
     }
     /**
-     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * @return The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsStudioWebPortalSettings> studioWebPortalSettings() {

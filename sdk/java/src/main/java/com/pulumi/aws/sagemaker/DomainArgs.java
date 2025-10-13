@@ -68,14 +68,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default space settings. See `default_space_settings` Block below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      * 
      */
     @Import(name="defaultSpaceSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See `default_space_settings` Block below.
+     * @return The default space settings. See `defaultSpaceSettings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultSpaceSettingsArgs>> defaultSpaceSettings() {
@@ -83,14 +83,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See `default_user_settings` Block below.
+     * The default user settings. See `defaultUserSettings` Block below.
      * 
      */
     @Import(name="defaultUserSettings", required=true)
     private Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See `default_user_settings` Block below.
+     * @return The default user settings. See `defaultUserSettings` Block below.
      * 
      */
     public Output<DomainDefaultUserSettingsArgs> defaultUserSettings() {
@@ -113,14 +113,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain settings. See `domain_settings` Block below.
+     * The domain settings. See `domainSettings` Block below.
      * 
      */
     @Import(name="domainSettings")
     private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
 
     /**
-     * @return The domain settings. See `domain_settings` Block below.
+     * @return The domain settings. See `domainSettings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
@@ -158,14 +158,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      * 
      */
     @Import(name="retentionPolicy")
     private @Nullable Output<DomainRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      * 
      */
     public Optional<Output<DomainRetentionPolicyArgs>> retentionPolicy() {
@@ -203,14 +203,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -337,7 +337,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
+         * @param defaultSpaceSettings The default space settings. See `defaultSpaceSettings` Block below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
+         * @param defaultSpaceSettings The default space settings. See `defaultSpaceSettings` Block below.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
+         * @param defaultUserSettings The default user settings. See `defaultUserSettings` Block below.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
+         * @param defaultUserSettings The default user settings. See `defaultUserSettings` Block below.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain settings. See `domain_settings` Block below.
+         * @param domainSettings The domain settings. See `domainSettings` Block below.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain settings. See `domain_settings` Block below.
+         * @param domainSettings The domain settings. See `domainSettings` Block below.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

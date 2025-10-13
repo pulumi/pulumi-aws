@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Route53.Inputs
         public Input<string>? Ipv6 { get; set; }
 
         /// <summary>
-        /// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
+        /// Port at `Ip` that you want to forward DNS queries to. Default value is `53`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

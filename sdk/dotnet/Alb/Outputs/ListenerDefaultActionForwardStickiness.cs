@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly int Duration;
         /// <summary>
-        /// Whether target group stickiness is enabled. Default is `false`.
+        /// Whether target group stickiness is enabled. Default is `False`.
         /// </summary>
         public readonly bool? Enabled;
 

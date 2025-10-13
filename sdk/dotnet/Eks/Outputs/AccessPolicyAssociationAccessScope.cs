@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Namespaces;
         /// <summary>
-        /// Valid values are `namespace` or `cluster`.
+        /// Valid values are `Namespace` or `Cluster`.
         /// </summary>
         public readonly string Type;
 

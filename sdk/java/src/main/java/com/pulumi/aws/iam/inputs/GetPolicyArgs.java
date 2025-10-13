@@ -18,7 +18,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * ARN of the IAM policy.
-     * Conflicts with `name` and `path_prefix`.
+     * Conflicts with `name` and `pathPrefix`.
      * 
      */
     @Import(name="arn")
@@ -26,7 +26,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return ARN of the IAM policy.
-     * Conflicts with `name` and `path_prefix`.
+     * Conflicts with `name` and `pathPrefix`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -113,7 +113,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn ARN of the IAM policy.
-         * Conflicts with `name` and `path_prefix`.
+         * Conflicts with `name` and `pathPrefix`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn ARN of the IAM policy.
-         * Conflicts with `name` and `path_prefix`.
+         * Conflicts with `name` and `pathPrefix`.
          * 
          * @return builder
          * 

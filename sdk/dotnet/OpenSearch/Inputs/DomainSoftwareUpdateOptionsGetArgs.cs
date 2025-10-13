@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainSoftwareUpdateOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        /// Whether automatic service software updates are enabled for the domain. Defaults to `False`.
         /// </summary>
         [Input("autoSoftwareUpdateEnabled")]
         public Input<bool>? AutoSoftwareUpdateEnabled { get; set; }

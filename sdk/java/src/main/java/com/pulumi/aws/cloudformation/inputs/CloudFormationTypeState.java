@@ -18,14 +18,14 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
     public static final CloudFormationTypeState Empty = new CloudFormationTypeState();
 
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -329,7 +329,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
+         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
          * 
          * @return builder
          * 

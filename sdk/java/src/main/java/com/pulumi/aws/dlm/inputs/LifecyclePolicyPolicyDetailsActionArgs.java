@@ -17,14 +17,14 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
     public static final LifecyclePolicyPolicyDetailsActionArgs Empty = new LifecyclePolicyPolicyDetailsActionArgs();
 
     /**
-     * The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+     * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
      * 
      */
     @Import(name="crossRegionCopies", required=true)
     private Output<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies;
 
     /**
-     * @return The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+     * @return The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
      * 
      */
     public Output<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies() {
@@ -64,7 +64,7 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
         }
 
         /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
         }
 
         /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
         }
 
         /**
-         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+         * @param crossRegionCopies The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
          * 
          * @return builder
          * 

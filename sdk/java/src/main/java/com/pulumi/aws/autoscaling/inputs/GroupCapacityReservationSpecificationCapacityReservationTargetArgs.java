@@ -17,14 +17,14 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
     public static final GroupCapacityReservationSpecificationCapacityReservationTargetArgs Empty = new GroupCapacityReservationSpecificationCapacityReservationTargetArgs();
 
     /**
-     * List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+     * List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
      * 
      */
     @Import(name="capacityReservationIds")
     private @Nullable Output<List<String>> capacityReservationIds;
 
     /**
-     * @return List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+     * @return List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
      * 
      */
     public Optional<Output<List<String>>> capacityReservationIds() {
@@ -32,14 +32,14 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
     }
 
     /**
-     * List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+     * List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
      * 
      */
     @Import(name="capacityReservationResourceGroupArns")
     private @Nullable Output<List<String>> capacityReservationResourceGroupArns;
 
     /**
-     * @return List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+     * @return List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
      * 
      */
     public Optional<Output<List<String>>> capacityReservationResourceGroupArns() {
@@ -72,7 +72,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacity_reservation_resource_group_arns`.
+         * @param capacityReservationIds List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
         }
 
         /**
-         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacity_reservation_ids`.
+         * @param capacityReservationResourceGroupArns List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
          * 
          * @return builder
          * 

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class TagOption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether tag option is active. Default is `true`.
+        /// Whether tag option is active. Default is `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class TagOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether tag option is active. Default is `true`.
+        /// Whether tag option is active. Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class TagOptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether tag option is active. Default is `true`.
+        /// Whether tag option is active. Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

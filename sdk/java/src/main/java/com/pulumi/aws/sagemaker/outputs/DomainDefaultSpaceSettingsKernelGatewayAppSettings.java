@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultSpaceSettingsKernelGatewayAppSettings {
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
      * 
      */
     private @Nullable List<DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class DomainDefaultSpaceSettingsKernelGatewayAppSettings {
 
     private DomainDefaultSpaceSettingsKernelGatewayAppSettings() {}
     /**
-     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
      * 
      */
     public List<DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec> defaultResourceSpec() {

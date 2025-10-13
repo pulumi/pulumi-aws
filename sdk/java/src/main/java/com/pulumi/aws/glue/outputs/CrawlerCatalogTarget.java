@@ -26,7 +26,7 @@ public final class CrawlerCatalogTarget {
     /**
      * @return A valid Amazon SQS ARN.
      * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
      * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
      * 
@@ -61,7 +61,7 @@ public final class CrawlerCatalogTarget {
     /**
      * @return A valid Amazon SQS ARN.
      * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
+     * &gt; **Note:** `deletionBehavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
      * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
      * 

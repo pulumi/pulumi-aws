@@ -18,14 +18,14 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
     public static final VpcIpv4CidrBlockAssociationArgs Empty = new VpcIpv4CidrBlockAssociationArgs();
 
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
     /**
-     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     public Optional<Output<String>> cidrBlock() {
@@ -48,14 +48,14 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     @Import(name="ipv4NetmaskLength")
     private @Nullable Output<Integer> ipv4NetmaskLength;
 
     /**
-     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     public Optional<Output<Integer>> ipv4NetmaskLength() {
@@ -121,7 +121,7 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+         * @param cidrBlock The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+         * @param ipv4NetmaskLength The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
          * 
          * @return builder
          * 

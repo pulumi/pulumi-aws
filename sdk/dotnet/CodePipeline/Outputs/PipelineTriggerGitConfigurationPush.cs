@@ -14,15 +14,15 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     public sealed class PipelineTriggerGitConfigurationPush
     {
         /// <summary>
-        /// The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+        /// The field that specifies to filter on branches for the push trigger configuration. A `Branches` block is documented below.
         /// </summary>
         public readonly Outputs.PipelineTriggerGitConfigurationPushBranches? Branches;
         /// <summary>
-        /// The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+        /// The field that specifies to filter on file paths for the push trigger configuration. A `FilePaths` block is documented below.
         /// </summary>
         public readonly Outputs.PipelineTriggerGitConfigurationPushFilePaths? FilePaths;
         /// <summary>
-        /// The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+        /// The field that contains the details for the Git tags trigger configuration. A `Tags` block is documented below.
         /// </summary>
         public readonly Outputs.PipelineTriggerGitConfigurationPushTags? Tags;
 

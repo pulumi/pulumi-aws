@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? PropagateTags;
         /// <summary>
-        /// The type of volume resource. Valid values, `volume`.
+        /// The type of volume resource. Valid values, `Volume`.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

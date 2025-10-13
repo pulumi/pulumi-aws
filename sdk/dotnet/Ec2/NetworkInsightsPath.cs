@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `Destination` argument or the `DestinationAddress` argument in the `FilterAtSource` block must be specified.
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.NetworkInsightsPathFilterAtSource> FilterAtSource { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// Protocol to use for analysis. Valid options are `Tcp` or `Udp`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SourceIp { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `Destination` argument or the `DestinationAddress` argument in the `FilterAtSource` block must be specified.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.NetworkInsightsPathFilterAtSourceArgs>? FilterAtSource { get; set; }
 
         /// <summary>
-        /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// Protocol to use for analysis. Valid options are `Tcp` or `Udp`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `Destination` argument or the `DestinationAddress` argument in the `FilterAtSource` block must be specified.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.NetworkInsightsPathFilterAtSourceGetArgs>? FilterAtSource { get; set; }
 
         /// <summary>
-        /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// Protocol to use for analysis. Valid options are `Tcp` or `Udp`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

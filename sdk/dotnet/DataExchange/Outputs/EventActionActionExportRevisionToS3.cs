@@ -15,12 +15,12 @@ namespace Pulumi.Aws.DataExchange.Outputs
     {
         /// <summary>
         /// Configures server-side encryption of the exported revision.
-        /// Described in `encryption` Configuration Block below.
+        /// Described in `Encryption` Configuration Block below.
         /// </summary>
         public readonly Outputs.EventActionActionExportRevisionToS3Encryption? Encryption;
         /// <summary>
         /// Configures the S3 destination of the exported revision.
-        /// Described in `revision_destination` Configuration Block below.
+        /// Described in `RevisionDestination` Configuration Block below.
         /// </summary>
         public readonly Outputs.EventActionActionExportRevisionToS3RevisionDestination? RevisionDestination;
 

@@ -17,14 +17,14 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
     public static final LinkLinkConfigurationArgs Empty = new LinkLinkConfigurationArgs();
 
     /**
-     * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+     * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
      * 
      */
     @Import(name="logGroupConfiguration")
     private @Nullable Output<LinkLinkConfigurationLogGroupConfigurationArgs> logGroupConfiguration;
 
     /**
-     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+     * @return Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
      * 
      */
     public Optional<Output<LinkLinkConfigurationLogGroupConfigurationArgs>> logGroupConfiguration() {
@@ -32,14 +32,14 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+     * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
      * 
      */
     @Import(name="metricConfiguration")
     private @Nullable Output<LinkLinkConfigurationMetricConfigurationArgs> metricConfiguration;
 
     /**
-     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+     * @return Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
      * 
      */
     public Optional<Output<LinkLinkConfigurationMetricConfigurationArgs>> metricConfiguration() {
@@ -72,7 +72,7 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
+         * @param logGroupConfiguration Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinkLinkConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
+         * @param metricConfiguration Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
          * 
          * @return builder
          * 

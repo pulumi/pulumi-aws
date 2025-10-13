@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra
 {
     /// <summary>
-    /// Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
+    /// Use the `AwsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
     /// 
     /// ## Example Usage
     /// 
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Kendra
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider's DefaultTags configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider's DefaultTags configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
+        /// Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `DefaultCacheBehavior` either `CachePolicyId` or `ForwardedValues` must be set.
         /// </summary>
         [Input("cachePolicyId")]
         public Input<string>? CachePolicyId { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
+        /// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `False`).
         /// </summary>
         [Input("compress")]
         public Input<bool>? Compress { get; set; }

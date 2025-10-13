@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
         /// </summary>
         public readonly string? State;
         /// <summary>

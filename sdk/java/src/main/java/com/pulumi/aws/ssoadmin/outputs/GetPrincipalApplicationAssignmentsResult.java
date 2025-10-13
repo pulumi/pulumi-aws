@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetPrincipalApplicationAssignmentsResult {
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     private @Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments;
@@ -34,7 +34,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
 
     private GetPrincipalApplicationAssignmentsResult() {}
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      * 
      */
     public List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments() {

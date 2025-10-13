@@ -38,14 +38,14 @@ public final class BlockPublicAccessConfigurationState extends com.pulumi.resour
     }
 
     /**
-     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+     * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      * 
      */
     @Import(name="permittedPublicSecurityGroupRuleRanges")
     private @Nullable Output<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>> permittedPublicSecurityGroupRuleRanges;
 
     /**
-     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+     * @return Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      * 
      */
     public Optional<Output<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>>> permittedPublicSecurityGroupRuleRanges() {
@@ -119,7 +119,7 @@ public final class BlockPublicAccessConfigurationState extends com.pulumi.resour
         }
 
         /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BlockPublicAccessConfigurationState extends com.pulumi.resour
         }
 
         /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class BlockPublicAccessConfigurationState extends com.pulumi.resour
         }
 
         /**
-         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+         * @param permittedPublicSecurityGroupRuleRanges Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
          * 
          * @return builder
          * 

@@ -17,7 +17,7 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Configuration for a Revision Published event.
-     * Described in `revision_published` Configuration Block below.
+     * Described in `revisionPublished` Configuration Block below.
      * 
      */
     @Import(name="revisionPublished")
@@ -25,7 +25,7 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Configuration for a Revision Published event.
-     * Described in `revision_published` Configuration Block below.
+     * Described in `revisionPublished` Configuration Block below.
      * 
      */
     public Optional<Output<EventActionEventRevisionPublishedArgs>> revisionPublished() {
@@ -58,7 +58,7 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param revisionPublished Configuration for a Revision Published event.
-         * Described in `revision_published` Configuration Block below.
+         * Described in `revisionPublished` Configuration Block below.
          * 
          * @return builder
          * 
@@ -70,7 +70,7 @@ public final class EventActionEventArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param revisionPublished Configuration for a Revision Published event.
-         * Described in `revision_published` Configuration Block below.
+         * Described in `revisionPublished` Configuration Block below.
          * 
          * @return builder
          * 

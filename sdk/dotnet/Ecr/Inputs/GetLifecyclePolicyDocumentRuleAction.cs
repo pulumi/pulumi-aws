@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecr.Inputs
     public sealed class GetLifecyclePolicyDocumentRuleActionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The supported value is `expire`.
+        /// The supported value is `Expire`.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

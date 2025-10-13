@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class FieldLevelEncryptionConfigContentTypeProfileConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        /// Object that contains an attribute `Items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
         /// </summary>
         [Input("contentTypeProfiles", required: true)]
         public Input<Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs> ContentTypeProfiles { get; set; } = null!;

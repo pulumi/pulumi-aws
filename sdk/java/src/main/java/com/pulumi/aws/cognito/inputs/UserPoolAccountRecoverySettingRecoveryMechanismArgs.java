@@ -16,14 +16,14 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
     public static final UserPoolAccountRecoverySettingRecoveryMechanismArgs Empty = new UserPoolAccountRecoverySettingRecoveryMechanismArgs();
 
     /**
-     * Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+     * Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+     * @return Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
      * 
      */
     public Output<String> name() {
@@ -71,7 +71,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
         }
 
         /**
-         * @param name Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+         * @param name Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
         }
 
         /**
-         * @param name Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+         * @param name Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
          * 
          * @return builder
          * 

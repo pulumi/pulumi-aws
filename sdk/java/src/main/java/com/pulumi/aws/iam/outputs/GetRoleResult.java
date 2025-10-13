@@ -56,7 +56,7 @@ public final class GetRoleResult {
      */
     private String permissionsBoundary;
     /**
-     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+     * @return Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
      * 
      */
     private List<GetRoleRoleLastUsed> roleLastUseds;
@@ -132,7 +132,7 @@ public final class GetRoleResult {
         return this.permissionsBoundary;
     }
     /**
-     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+     * @return Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
      * 
      */
     public List<GetRoleRoleLastUsed> roleLastUseds() {

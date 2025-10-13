@@ -19,13 +19,13 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public string? Key { get; set; }
 
         /// <summary>
-        /// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+        /// Valid values include: `Equals`, `not-equals`, `Contains`, `begins-with`.
         /// </summary>
         [Input("operator")]
         public string? Operator { get; set; }
 
         /// <summary>
-        /// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+        /// Valid values include: `account-id`, `Any`, `tag-value`, `tag-exists`, `resource-id`, `Region`, `attachment-type`.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

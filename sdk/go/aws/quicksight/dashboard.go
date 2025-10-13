@@ -55,6 +55,8 @@ import (
 //
 // ```
 //
+// ### With Definition
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:

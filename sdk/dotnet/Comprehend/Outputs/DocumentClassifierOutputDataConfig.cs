@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         public readonly string? OutputS3Uri;
         /// <summary>
         /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// The full path to the output file will be returned in `OutputS3Uri`.
         /// </summary>
         public readonly string S3Uri;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionResult
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
+        /// Action to take for the chosen segment. Valid values: `create-route`, `Share`, `send-via` and `send-to`.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
         /// <summary>
-        /// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
+        /// String. When `Action` is `Share`, a `Mode` value of `attachment-route` places the attachment and return routes in each of the `ShareWith` segments. When `Action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaResult? Via;
         /// <summary>
-        /// The destination segments for the `send-via` or `send-to` `action`.
+        /// The destination segments for the `send-via` or `send-to` `Action`.
         /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult? WhenSentTo;
 

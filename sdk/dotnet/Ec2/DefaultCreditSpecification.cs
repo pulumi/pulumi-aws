@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Ec2
     public partial class DefaultCreditSpecification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
+        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
         /// </summary>
         [Output("cpuCredits")]
         public Output<string> CpuCredits { get; private set; } = null!;
 
         /// <summary>
-        /// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
         /// </summary>
         [Output("instanceFamily")]
         public Output<string> InstanceFamily { get; private set; } = null!;
@@ -112,13 +112,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class DefaultCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
+        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
         /// </summary>
         [Input("cpuCredits", required: true)]
         public Input<string> CpuCredits { get; set; } = null!;
 
         /// <summary>
-        /// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
         /// </summary>
         [Input("instanceFamily", required: true)]
         public Input<string> InstanceFamily { get; set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class DefaultCreditSpecificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
+        /// Credit option for CPU usage of the instance family. Valid values: `Standard`, `Unlimited`.
         /// </summary>
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
         /// <summary>
-        /// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        /// Instance family. Valid values are `T2`, `T3`, `T3a`, `T4g`.
         /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }

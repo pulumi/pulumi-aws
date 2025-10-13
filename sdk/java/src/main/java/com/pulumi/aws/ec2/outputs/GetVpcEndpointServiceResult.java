@@ -63,13 +63,13 @@ public final class GetVpcEndpointServiceResult {
      */
     private List<String> privateDnsNames;
     /**
-     * @return (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
+     * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use service_region instead.
+     * region is deprecated. Use serviceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use service_region instead. */
+    @Deprecated /* region is deprecated. Use serviceRegion instead. */
     private String region;
     private @Nullable String service;
     /**
@@ -169,13 +169,13 @@ public final class GetVpcEndpointServiceResult {
         return this.privateDnsNames;
     }
     /**
-     * @return (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
+     * @return (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use service_region instead.
+     * region is deprecated. Use serviceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use service_region instead. */
+    @Deprecated /* region is deprecated. Use serviceRegion instead. */
     public String region() {
         return this.region;
     }

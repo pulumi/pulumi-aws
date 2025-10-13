@@ -27,15 +27,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string CatalogArn;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
+        /// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `DestinationTableConfiguration` block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> DestinationTableConfigurations;
         /// <summary>
-        /// The data processing configuration.  See `processing_configuration` block below for details.
+        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly string RoleArn;
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `s3_configuration` block below for details.
+        /// The S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationS3Configuration S3Configuration;
 

@@ -23,9 +23,9 @@ import javax.annotation.Nullable;
 /**
  * Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
  * 
- * &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `execution_role_name` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+ * &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `executionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
  * 
- * &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
+ * &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
  * 
  * ## Example Usage
  * 
@@ -224,14 +224,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.callAs);
     }
     /**
-     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      * 
      */
     @Export(name="deploymentTargets", refs={StackSetInstanceDeploymentTargets.class}, tree="[0]")
     private Output</* @Nullable */ StackSetInstanceDeploymentTargets> deploymentTargets;
 
     /**
-     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      * 
      */
     public Output<Optional<StackSetInstanceDeploymentTargets>> deploymentTargets() {
@@ -280,18 +280,18 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameterOverrides);
     }
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
      * @deprecated
-     * region is deprecated. Use stack_set_instance_region instead.
+     * region is deprecated. Use stackSetInstanceRegion instead.
      * 
      */
-    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
+    @Deprecated /* region is deprecated. Use stackSetInstanceRegion instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
      * 
      */
     public Output<String> region() {
@@ -326,14 +326,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return this.stackId;
     }
     /**
-     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      * 
      */
     @Export(name="stackInstanceSummaries", refs={List.class,StackSetInstanceStackInstanceSummary.class}, tree="[0,1]")
     private Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries;
 
     /**
-     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      * 
      */
     public Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries() {

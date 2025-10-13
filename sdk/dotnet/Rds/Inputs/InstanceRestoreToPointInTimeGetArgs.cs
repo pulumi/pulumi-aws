@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class InstanceRestoreToPointInTimeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `UseLatestRestorableTime`.
         /// </summary>
         [Input("restoreTime")]
         public Input<string>? RestoreTime { get; set; }
 
         /// <summary>
-        /// The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        /// The ARN of the automated backup from which to restore. Required if `SourceDbInstanceIdentifier` or `SourceDbiResourceId` is not specified.
         /// </summary>
         [Input("sourceDbInstanceAutomatedBackupsArn")]
         public Input<string>? SourceDbInstanceAutomatedBackupsArn { get; set; }
 
         /// <summary>
-        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+        /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `SourceDbInstanceAutomatedBackupsArn` or `SourceDbiResourceId` is not specified.
         /// </summary>
         [Input("sourceDbInstanceIdentifier")]
         public Input<string>? SourceDbInstanceIdentifier { get; set; }
 
         /// <summary>
-        /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+        /// The resource ID of the source DB instance from which to restore. Required if `SourceDbInstanceIdentifier` or `SourceDbInstanceAutomatedBackupsArn` is not specified.
         /// </summary>
         [Input("sourceDbiResourceId")]
         public Input<string>? SourceDbiResourceId { get; set; }
 
         /// <summary>
-        /// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+        /// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `False`. Cannot be specified with `RestoreTime`.
         /// </summary>
         [Input("useLatestRestorableTime")]
         public Input<bool>? UseLatestRestorableTime { get; set; }

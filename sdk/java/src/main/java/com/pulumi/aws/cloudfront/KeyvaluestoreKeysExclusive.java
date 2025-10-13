@@ -63,7 +63,7 @@ public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResou
     }
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resource_key_value_pair` below.
+     * See `resourceKeyValuePair` below.
      * 
      */
     @Export(name="resourceKeyValuePairs", refs={List.class,KeyvaluestoreKeysExclusiveResourceKeyValuePair.class}, tree="[0,1]")
@@ -71,7 +71,7 @@ public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResou
 
     /**
      * @return A list of all resource key value pairs associated with the KeyValueStore.
-     * See `resource_key_value_pair` below.
+     * See `resourceKeyValuePair` below.
      * 
      */
     public Output<Optional<List<KeyvaluestoreKeysExclusiveResourceKeyValuePair>>> resourceKeyValuePairs() {

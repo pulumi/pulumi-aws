@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     public sealed class PresetVideoWatermark
     {
         /// <summary>
-        /// The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
+        /// The horizontal position of the watermark unless you specify a nonzero value for `HorzontalOffset`.
         /// </summary>
         public readonly string? HorizontalAlign;
         /// <summary>
-        /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
+        /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `HorizontalAlign`.
         /// </summary>
         public readonly string? HorizontalOffset;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? Target;
         /// <summary>
-        /// The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
+        /// The vertical position of the watermark unless you specify a nonzero value for `VerticalAlign`. Valid values are `Top`, `Bottom`, `Center`.
         /// </summary>
         public readonly string? VerticalAlign;
         /// <summary>
-        /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
+        /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `VerticalAlign`
         /// </summary>
         public readonly string? VerticalOffset;
 

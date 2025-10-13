@@ -48,7 +48,7 @@ public final class GetServerResult {
      */
     private String identityProviderType;
     /**
-     * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     private String invocationRole;
@@ -80,7 +80,7 @@ public final class GetServerResult {
      */
     private Map<String,String> tags;
     /**
-     * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * @return URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     private String url;
@@ -136,7 +136,7 @@ public final class GetServerResult {
         return this.identityProviderType;
     }
     /**
-     * @return ARN of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public String invocationRole() {
@@ -184,7 +184,7 @@ public final class GetServerResult {
         return this.tags;
     }
     /**
-     * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * @return URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public String url() {

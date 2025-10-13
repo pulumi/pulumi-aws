@@ -38,14 +38,14 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
     }
 
     /**
-     * A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+     * A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
      * 
      */
     @Import(name="additionalPoliciesJsons")
     private @Nullable Output<List<String>> additionalPoliciesJsons;
 
     /**
-     * @return A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+     * @return A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
      * 
      */
     public Optional<Output<List<String>>> additionalPoliciesJsons() {
@@ -53,14 +53,14 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
     }
 
     /**
-     * The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+     * The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
      * 
      */
     @Import(name="callerArn")
     private @Nullable Output<String> callerArn;
 
     /**
-     * @return The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+     * @return The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
      * 
      */
     public Optional<Output<String>> callerArn() {
@@ -125,7 +125,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
      * 
      * This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
      * 
-     * The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+     * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
      * 
      */
     @Import(name="resourceArns")
@@ -136,7 +136,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
      * 
      * This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
      * 
-     * The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+     * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
      * 
      */
     public Optional<Output<List<String>>> resourceArns() {
@@ -163,14 +163,14 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
     }
 
     /**
-     * An AWS account ID to use for any resource ARN in `resource_arns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+     * An AWS account ID to use for any resource ARN in `resourceArns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
      * 
      */
     @Import(name="resourceOwnerAccountId")
     private @Nullable Output<String> resourceOwnerAccountId;
 
     /**
-     * @return An AWS account ID to use for any resource ARN in `resource_arns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+     * @return An AWS account ID to use for any resource ARN in `resourceArns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
      * 
      */
     public Optional<Output<String>> resourceOwnerAccountId() {
@@ -178,18 +178,18 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
     }
 
     /**
-     * An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+     * An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
      * 
-     * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+     * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
      * 
      */
     @Import(name="resourcePolicyJson")
     private @Nullable Output<String> resourcePolicyJson;
 
     /**
-     * @return An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+     * @return An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
      * 
-     * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+     * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
      * 
      */
     public Optional<Output<String>> resourcePolicyJson() {
@@ -267,7 +267,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policy_source_arn`, allowing you to test the effect of hypothetical policies not yet created.
+         * @param additionalPoliciesJsons A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param callerArn The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+         * @param callerArn The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param callerArn The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `caller_arn` then the simulation will use the `policy_source_arn` instead, if it contains a user ARN.
+         * @param callerArn The ARN of an user that will appear as the &#34;caller&#34; of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
          * 
          * This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
          * 
-         * The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+         * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
          * 
          * This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
          * 
-         * The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+         * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
          * 
          * This argument is important for actions that have either required or optional resource types listed in [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html), and you must provide ARNs that identify AWS objects of the appropriate types for the chosen actions.
          * 
-         * The policy simulator only automatically loads policies associated with the `policy_source_arn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resource_policy_json` argument to achieve a realistic simulation.
+         * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you&#39;ll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceOwnerAccountId An AWS account ID to use for any resource ARN in `resource_arns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+         * @param resourceOwnerAccountId An AWS account ID to use for any resource ARN in `resourceArns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourceOwnerAccountId An AWS account ID to use for any resource ARN in `resource_arns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `caller_arn` argument as a placeholder.
+         * @param resourceOwnerAccountId An AWS account ID to use for any resource ARN in `resourceArns` that doesn&#39;t include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
          * 
          * @return builder
          * 
@@ -501,9 +501,9 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourcePolicyJson An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+         * @param resourcePolicyJson An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
          * 
-         * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+         * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
          * 
          * @return builder
          * 
@@ -514,9 +514,9 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param resourcePolicyJson An IAM policy document representing the resource-level policy of all of the resources specified in `resource_arns`.
+         * @param resourcePolicyJson An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
          * 
-         * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
+         * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
          * 
          * @return builder
          * 

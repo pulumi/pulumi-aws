@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+        /// Whether to ignore `Value` and keep the previous parameter value. Ignored when initially provisioning a product.
         /// </summary>
         public readonly bool? UsePreviousValue;
         /// <summary>

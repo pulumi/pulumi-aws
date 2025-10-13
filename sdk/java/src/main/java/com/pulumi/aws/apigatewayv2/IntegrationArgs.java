@@ -112,14 +112,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+     * Integration&#39;s HTTP method. Must be specified if `integrationType` is not `MOCK`.
      * 
      */
     @Import(name="integrationMethod")
     private @Nullable Output<String> integrationMethod;
 
     /**
-     * @return Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+     * @return Integration&#39;s HTTP method. Must be specified if `integrationType` is not `MOCK`.
      * 
      */
     public Optional<Output<String>> integrationMethod() {
@@ -127,14 +127,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+     * AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
     @Import(name="integrationSubtype")
     private @Nullable Output<String> integrationSubtype;
 
     /**
-     * @return AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+     * @return AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
     public Optional<Output<String>> integrationSubtype() {
@@ -159,7 +159,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+     * URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
@@ -167,7 +167,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> integrationUri;
 
     /**
-     * @return URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+     * @return URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
@@ -176,7 +176,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+     * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
@@ -184,7 +184,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> passthroughBehavior;
 
     /**
-     * @return Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+     * @return Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
@@ -224,8 +224,8 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-     * For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-     * For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
@@ -234,8 +234,8 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-     * For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-     * For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
@@ -491,7 +491,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integrationType` is not `MOCK`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
+         * @param integrationMethod Integration&#39;s HTTP method. Must be specified if `integrationType` is not `MOCK`.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+         * @param integrationSubtype AWS service action to invoke. Supported only for HTTP APIs when `integrationType` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
          * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
@@ -568,7 +568,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
          * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
@@ -579,7 +579,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
          * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -591,7 +591,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
          * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
@@ -645,8 +645,8 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-         * For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-         * For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+         * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+         * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
          * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
          * 
          * @return builder
@@ -659,8 +659,8 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-         * For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-         * For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+         * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+         * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
          * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
          * 
          * @return builder

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteMatchMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+        /// If `True`, the match is on the opposite of the `Match` criteria. Default is `False`.
         /// </summary>
         [Input("invert")]
         public Input<bool>? Invert { get; set; }

@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string AuthType;
         /// <summary>
-        /// Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+        /// Configuration for Cognito user pool authentication. Required when `AuthType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
         /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderCognitoConfig? CognitoConfig;
         /// <summary>
-        /// Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+        /// Configuration for Lambda authorization. Required when `AuthType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
         /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         /// <summary>
-        /// Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+        /// Configuration for OpenID Connect. Required when `AuthType` is `OPENID_CONNECT`. See OpenID Connect Config below.
         /// </summary>
         public readonly Outputs.ApiEventConfigAuthProviderOpenidConnectConfig? OpenidConnectConfig;
 

@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ivs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, channel is private (enabled for playback authorization).
+        /// If `True`, channel is private (enabled for playback authorization).
         /// </summary>
         [Output("authorized")]
         public Output<bool> Authorized { get; private set; } = null!;
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.Ivs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ivs
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, channel is private (enabled for playback authorization).
+        /// If `True`, channel is private (enabled for playback authorization).
         /// </summary>
         [Input("authorized")]
         public Input<bool>? Authorized { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Ivs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ivs
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// If `true`, channel is private (enabled for playback authorization).
+        /// If `True`, channel is private (enabled for playback authorization).
         /// </summary>
         [Input("authorized")]
         public Input<bool>? Authorized { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Ivs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Ivs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

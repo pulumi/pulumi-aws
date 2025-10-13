@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
  * 
- * &gt; NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the ResponsePlan Resource.
+ * &gt; NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `dependsOn` argument for the ResponsePlan Resource.
  * 
  * ## Example Usage
  * 
@@ -237,14 +237,14 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.engagements);
     }
     /**
-     * The `incident_template` configuration block is required and supports the following arguments:
+     * The `incidentTemplate` configuration block is required and supports the following arguments:
      * 
      */
     @Export(name="incidentTemplate", refs={ResponsePlanIncidentTemplate.class}, tree="[0]")
     private Output<ResponsePlanIncidentTemplate> incidentTemplate;
 
     /**
-     * @return The `incident_template` configuration block is required and supports the following arguments:
+     * @return The `incidentTemplate` configuration block is required and supports the following arguments:
      * 
      */
     public Output<ResponsePlanIncidentTemplate> incidentTemplate() {
@@ -307,14 +307,14 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

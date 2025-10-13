@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly string ActionName;
         /// <summary>
-        /// `true` if `decision` is "allowed", and `false` otherwise.
+        /// `True` if `Decision` is "allowed", and `False` otherwise.
         /// </summary>
         public readonly bool Allowed;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> DecisionDetails;
         /// <summary>
-        /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `SourcePolicyId` and `SourcePolicyType` to identify one of the policies.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult> MatchedStatements;
         /// <summary>
-        /// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+        /// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `Context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         /// </summary>
         public readonly ImmutableArray<string> MissingContextKeys;
         /// <summary>

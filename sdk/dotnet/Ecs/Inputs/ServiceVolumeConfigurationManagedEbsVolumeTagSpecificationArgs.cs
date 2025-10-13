@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The type of volume resource. Valid values, `volume`.
+        /// The type of volume resource. Valid values, `Volume`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about retention period in the Amazon EBS Snapshots Archive. See the `retention_archive_tier` block.
+        /// Information about retention period in the Amazon EBS Snapshots Archive. See the `RetentionArchiveTier` block.
         /// </summary>
         [Input("retentionArchiveTier", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleArchiveRuleArchiveRetainRuleRetentionArchiveTierGetArgs> RetentionArchiveTier { get; set; } = null!;

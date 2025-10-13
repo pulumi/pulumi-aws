@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
         /// 
-        /// &gt; **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
+        /// &gt; **NOTE:** If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
-        /// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        /// Indicate whether bare metal instace types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
         /// </summary>
         public readonly string? BareMetal;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly Outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps? BaselineEbsBandwidthMbps;
         /// <summary>
-        /// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        /// Indicate whether burstable performance instance types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
         /// </summary>
         public readonly string? BurstablePerformance;
         /// <summary>
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
         /// 
-        /// &gt; **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
+        /// &gt; **NOTE:** If you specify `ExcludedInstanceTypes`, you can't specify `AllowedInstanceTypes`.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
         /// <summary>
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
         /// <summary>
-        /// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        /// Indicate whether instance types with local storage volumes are `Included`, `Excluded`, or `Required`. Default is `Included`.
         /// </summary>
         public readonly string? LocalStorage;
         /// <summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         /// <summary>
-        /// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        /// Indicate whether instance types must support On-Demand Instance Hibernation, either `True` or `False`. Default is `False`.
         /// </summary>
         public readonly bool? RequireHibernateSupport;
         /// <summary>

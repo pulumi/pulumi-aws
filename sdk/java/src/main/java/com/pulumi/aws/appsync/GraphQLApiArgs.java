@@ -27,14 +27,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     public static final GraphQLApiArgs Empty = new GraphQLApiArgs();
 
     /**
-     * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      * 
      */
     @Import(name="additionalAuthenticationProviders")
     private @Nullable Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+     * @return One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      * 
      */
     public Optional<Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>>> additionalAuthenticationProviders() {
@@ -42,14 +42,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
      * 
      */
     @Import(name="apiType")
     private @Nullable Output<String> apiType;
 
     /**
-     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
      * 
      */
     public Optional<Output<String>> apiType() {
@@ -72,14 +72,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
      * 
      */
     @Import(name="enhancedMetricsConfig")
     private @Nullable Output<GraphQLApiEnhancedMetricsConfigArgs> enhancedMetricsConfig;
 
     /**
-     * @return Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * @return Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiEnhancedMetricsConfigArgs>> enhancedMetricsConfig() {
@@ -102,14 +102,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+     * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      * 
      */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<GraphQLApiLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
     /**
-     * @return Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+     * @return Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
@@ -117,14 +117,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing logging configuration. See `log_config` Block for details.
+     * Nested argument containing logging configuration. See `logConfig` Block for details.
      * 
      */
     @Import(name="logConfig")
     private @Nullable Output<GraphQLApiLogConfigArgs> logConfig;
 
     /**
-     * @return Nested argument containing logging configuration. See `log_config` Block for details.
+     * @return Nested argument containing logging configuration. See `logConfig` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiLogConfigArgs>> logConfig() {
@@ -132,14 +132,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the execution role when `api_type` is set to `MERGED`.
+     * ARN of the execution role when `apiType` is set to `MERGED`.
      * 
      */
     @Import(name="mergedApiExecutionRoleArn")
     private @Nullable Output<String> mergedApiExecutionRoleArn;
 
     /**
-     * @return ARN of the execution role when `api_type` is set to `MERGED`.
+     * @return ARN of the execution role when `apiType` is set to `MERGED`.
      * 
      */
     public Optional<Output<String>> mergedApiExecutionRoleArn() {
@@ -166,14 +166,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+     * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      * 
      */
     @Import(name="openidConnectConfig")
     private @Nullable Output<GraphQLApiOpenidConnectConfigArgs> openidConnectConfig;
 
     /**
-     * @return Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+     * @return Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiOpenidConnectConfigArgs>> openidConnectConfig() {
@@ -245,14 +245,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -260,14 +260,14 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiUserPoolConfigArgs>> userPoolConfig() {
@@ -346,7 +346,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+         * @param enhancedMetricsConfig Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfig Nested argument containing logging configuration. See `log_config` Block for details.
+         * @param logConfig Nested argument containing logging configuration. See `logConfig` Block for details.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfig Nested argument containing logging configuration. See `log_config` Block for details.
+         * @param logConfig Nested argument containing logging configuration. See `logConfig` Block for details.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergedApiExecutionRoleArn ARN of the execution role when `api_type` is set to `MERGED`.
+         * @param mergedApiExecutionRoleArn ARN of the execution role when `apiType` is set to `MERGED`.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mergedApiExecutionRoleArn ARN of the execution role when `api_type` is set to `MERGED`.
+         * @param mergedApiExecutionRoleArn ARN of the execution role when `apiType` is set to `MERGED`.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
          * 
          * @return builder
          * 

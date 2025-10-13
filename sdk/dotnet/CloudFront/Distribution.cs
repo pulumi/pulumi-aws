@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// For information about CloudFront distributions, see the [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For specific information about creating CloudFront web distributions, see the [POST Distribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html) page in the Amazon CloudFront API Reference.
     /// 
-    /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
+    /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `RetainOnDelete` flag.
     /// 
     /// ## Example Usage
     /// 
@@ -589,7 +589,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableArray<Outputs.DistributionCustomErrorResponse>> CustomErrorResponses { get; private set; } = null!;
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `CachePolicyId` (preferred) or `ForwardedValues` (deprecated) be set.
         /// </summary>
         [Output("defaultCacheBehavior")]
         public Output<Outputs.DistributionDefaultCacheBehavior> DefaultCacheBehavior { get; private set; } = null!;
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `Http2`, `Http2and3` and `Http3`. The default is `Http2`.
         /// </summary>
         [Output("httpVersion")]
         public Output<string?> HttpVersion { get; private set; } = null!;
@@ -661,7 +661,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableArray<Outputs.DistributionOrderedCacheBehavior>> OrderedCacheBehaviors { get; private set; } = null!;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more OriginGroup for this distribution (multiples allowed).
         /// </summary>
         [Output("originGroups")]
         public Output<ImmutableArray<Outputs.DistributionOriginGroup>> OriginGroups { get; private set; } = null!;
@@ -685,13 +685,13 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.DistributionRestrictions> Restrictions { get; private set; } = null!;
 
         /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `False`.
         /// </summary>
         [Output("retainOnDelete")]
         public Output<bool?> RetainOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `False`.
         /// </summary>
         [Output("staging")]
         public Output<bool?> Staging { get; private set; } = null!;
@@ -703,13 +703,13 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -733,7 +733,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.DistributionViewerCertificate> ViewerCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.
         /// </summary>
         [Output("waitForDeployment")]
         public Output<bool?> WaitForDeployment { get; private set; } = null!;
@@ -833,7 +833,7 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `CachePolicyId` (preferred) or `ForwardedValues` (deprecated) be set.
         /// </summary>
         [Input("defaultCacheBehavior", required: true)]
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
@@ -851,7 +851,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `Http2`, `Http2and3` and `Http3`. The default is `Http2`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
@@ -884,7 +884,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionOriginGroupArgs>? _originGroups;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more OriginGroup for this distribution (multiples allowed).
         /// </summary>
         public InputList<Inputs.DistributionOriginGroupArgs> OriginGroups
         {
@@ -917,13 +917,13 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.DistributionRestrictionsArgs> Restrictions { get; set; } = null!;
 
         /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `False`.
         /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
         /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `False`.
         /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
@@ -932,7 +932,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -947,7 +947,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.DistributionViewerCertificateArgs> ViewerCertificate { get; set; } = null!;
 
         /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }
@@ -1021,7 +1021,7 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
+        /// Default cache behavior for this distribution (maximum one). Requires either `CachePolicyId` (preferred) or `ForwardedValues` (deprecated) be set.
         /// </summary>
         [Input("defaultCacheBehavior")]
         public Input<Inputs.DistributionDefaultCacheBehaviorGetArgs>? DefaultCacheBehavior { get; set; }
@@ -1057,7 +1057,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `Http2`, `Http2and3` and `Http3`. The default is `Http2`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
@@ -1102,7 +1102,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionOriginGroupGetArgs>? _originGroups;
 
         /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
+        /// One or more OriginGroup for this distribution (multiples allowed).
         /// </summary>
         public InputList<Inputs.DistributionOriginGroupGetArgs> OriginGroups
         {
@@ -1135,13 +1135,13 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.DistributionRestrictionsGetArgs>? Restrictions { get; set; }
 
         /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `False`.
         /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
         /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `False`.
         /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
@@ -1156,7 +1156,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1168,7 +1168,7 @@ namespace Pulumi.Aws.CloudFront
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1207,7 +1207,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.DistributionViewerCertificateGetArgs>? ViewerCertificate { get; set; }
 
         /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`False` will skip the process. Default: `True`.
         /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }

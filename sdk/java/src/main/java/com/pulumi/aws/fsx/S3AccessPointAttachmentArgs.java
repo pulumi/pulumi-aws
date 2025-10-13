@@ -35,14 +35,14 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+     * Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      * 
      */
     @Import(name="openzfsConfiguration")
     private @Nullable Output<S3AccessPointAttachmentOpenzfsConfigurationArgs> openzfsConfiguration;
 
     /**
-     * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+     * @return Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
      * 
      */
     public Optional<Output<S3AccessPointAttachmentOpenzfsConfigurationArgs>> openzfsConfiguration() {
@@ -65,14 +65,14 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * S3 access point configuration. See `s3_access_point` Block for details.
+     * S3 access point configuration. See `s3AccessPoint` Block for details.
      * 
      */
     @Import(name="s3AccessPoint")
     private @Nullable Output<S3AccessPointAttachmentS3AccessPointArgs> s3AccessPoint;
 
     /**
-     * @return S3 access point configuration. See `s3_access_point` Block for details.
+     * @return S3 access point configuration. See `s3AccessPoint` Block for details.
      * 
      */
     public Optional<Output<S3AccessPointAttachmentS3AccessPointArgs>> s3AccessPoint() {
@@ -156,7 +156,7 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+         * @param openzfsConfiguration Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3AccessPoint S3 access point configuration. See `s3_access_point` Block for details.
+         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class S3AccessPointAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3AccessPoint S3 access point configuration. See `s3_access_point` Block for details.
+         * @param s3AccessPoint S3 access point configuration. See `s3AccessPoint` Block for details.
          * 
          * @return builder
          * 

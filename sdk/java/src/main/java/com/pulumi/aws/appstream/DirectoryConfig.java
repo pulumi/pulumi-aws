@@ -125,14 +125,14 @@ public class DirectoryConfig extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+     * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      * 
      */
     @Export(name="serviceAccountCredentials", refs={DirectoryConfigServiceAccountCredentials.class}, tree="[0]")
     private Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
 
     /**
-     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      * 
      */
     public Output<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials() {

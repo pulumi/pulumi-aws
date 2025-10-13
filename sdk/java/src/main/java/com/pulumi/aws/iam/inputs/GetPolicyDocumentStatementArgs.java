@@ -125,14 +125,14 @@ public final class GetPolicyDocumentStatementArgs extends com.pulumi.resources.R
     }
 
     /**
-     * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+     * @return List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -394,7 +394,7 @@ public final class GetPolicyDocumentStatementArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class GetPolicyDocumentStatementArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class GetPolicyDocumentStatementArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+         * @param resources List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          * 
          * @return builder
          * 

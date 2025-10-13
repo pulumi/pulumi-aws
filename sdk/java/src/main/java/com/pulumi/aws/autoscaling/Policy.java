@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an AutoScaling Scaling Policy resource.
  * 
- * &gt; **NOTE:** You may want to omit `desired_capacity` attribute from attached `aws.autoscaling.Group`
+ * &gt; **NOTE:** You may want to omit `desiredCapacity` attribute from attached `aws.autoscaling.Group`
  * when using autoscaling policies. It&#39;s good practice to pick either
  * [manual](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-manual-scaling.html)
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
@@ -414,7 +414,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.metricAggregationType;
     }
     /**
-     * Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+     * Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      * 
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
@@ -423,7 +423,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> minAdjustmentMagnitude;
 
     /**
-     * @return Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+     * @return Minimum value to scale by when `adjustmentType` is set to `PercentChangeInCapacity`.
      * 
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 

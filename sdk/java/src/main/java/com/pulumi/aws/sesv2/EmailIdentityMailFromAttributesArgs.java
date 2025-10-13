@@ -47,14 +47,14 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
     }
 
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     @Import(name="mailFromDomain")
     private @Nullable Output<String> mailFromDomain;
 
     /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     public Optional<Output<String>> mailFromDomain() {
@@ -146,7 +146,7 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
          * 
          * @return builder
          * 

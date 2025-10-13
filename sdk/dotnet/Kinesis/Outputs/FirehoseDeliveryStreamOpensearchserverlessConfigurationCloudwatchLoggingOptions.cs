@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions
     {
         /// <summary>
-        /// Enables or disables the logging. Defaults to `false`.
+        /// Enables or disables the logging. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The CloudWatch group name for logging. This value is required if `enabled` is true.
+        /// The CloudWatch group name for logging. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+        /// The CloudWatch log stream name for logging. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? LogStreamName;
 

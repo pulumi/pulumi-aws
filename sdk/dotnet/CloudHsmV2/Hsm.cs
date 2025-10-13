@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public partial class Hsm : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `SubnetId`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// 
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        /// &gt; **NOTE:** Either `SubnetId` or `AvailabilityZone` must be specified.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `AvailabilityZone`.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class HsmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `SubnetId`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// 
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        /// &gt; **NOTE:** Either `SubnetId` or `AvailabilityZone` must be specified.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `AvailabilityZone`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class HsmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `SubnetId`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// 
-        /// &gt; **NOTE:** Either `subnet_id` or `availability_zone` must be specified.
+        /// &gt; **NOTE:** Either `SubnetId` or `AvailabilityZone` must be specified.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+        /// The ID of subnet in which HSM module will be located. Conflicts with `AvailabilityZone`.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

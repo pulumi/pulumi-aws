@@ -32,14 +32,14 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+     * A end time block specifies the time that your contact center closes. The `endTime` is documented below.
      * 
      */
     @Import(name="endTime", required=true)
     private Output<HoursOfOperationConfigEndTimeArgs> endTime;
 
     /**
-     * @return A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+     * @return A end time block specifies the time that your contact center closes. The `endTime` is documented below.
      * 
      */
     public Output<HoursOfOperationConfigEndTimeArgs> endTime() {
@@ -47,14 +47,14 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+     * A start time block specifies the time that your contact center opens. The `startTime` is documented below.
      * 
      */
     @Import(name="startTime", required=true)
     private Output<HoursOfOperationConfigStartTimeArgs> startTime;
 
     /**
-     * @return A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+     * @return A start time block specifies the time that your contact center opens. The `startTime` is documented below.
      * 
      */
     public Output<HoursOfOperationConfigStartTimeArgs> startTime() {
@@ -109,7 +109,7 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endTime A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+         * @param endTime A end time block specifies the time that your contact center closes. The `endTime` is documented below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param endTime A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+         * @param endTime A end time block specifies the time that your contact center closes. The `endTime` is documented below.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param startTime A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+         * @param startTime A start time block specifies the time that your contact center opens. The `startTime` is documented below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class HoursOfOperationConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param startTime A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+         * @param startTime A start time block specifies the time that your contact center opens. The `startTime` is documented below.
          * 
          * @return builder
          * 

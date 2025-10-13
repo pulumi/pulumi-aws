@@ -22,11 +22,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? HttpRedirectCode;
         /// <summary>
-        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `Http`, `Https`.
         /// </summary>
         public readonly string? Protocol;
         /// <summary>
-        /// Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
+        /// Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `Condition` block with `KeyPrefixEquals` set to `docs/` and in the `Redirect` set `ReplaceKeyPrefixWith` to `/documents`.
         /// </summary>
         public readonly string? ReplaceKeyPrefixWith;
         /// <summary>

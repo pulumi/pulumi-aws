@@ -18,7 +18,7 @@ public final class GetApplicationProvidersApplicationProvider {
      */
     private String applicationProviderArn;
     /**
-     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
      * 
      */
     private List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
@@ -37,7 +37,7 @@ public final class GetApplicationProvidersApplicationProvider {
         return this.applicationProviderArn;
     }
     /**
-     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+     * @return An object describing how IAM Identity Center represents the application provider in the portal. See `displayData` below.
      * 
      */
     public List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas() {

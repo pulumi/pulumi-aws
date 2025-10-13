@@ -61,14 +61,14 @@ public final class FleetEc2InboundPermissionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+     * Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
      * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
-     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+     * @return Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
      * 
      */
     public Output<Integer> toPort() {
@@ -166,7 +166,7 @@ public final class FleetEc2InboundPermissionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param toPort Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+         * @param toPort Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FleetEc2InboundPermissionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param toPort Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+         * @param toPort Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
          * 
          * @return builder
          * 

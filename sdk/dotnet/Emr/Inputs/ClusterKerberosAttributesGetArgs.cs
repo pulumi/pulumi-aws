@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Emr.Inputs
         private Input<string>? _adDomainJoinPassword;
 
         /// <summary>
-        /// Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+        /// Active Directory password for `AdDomainJoinUser`. This provider cannot perform drift detection of this configuration.
         /// </summary>
         public Input<string>? AdDomainJoinPassword
         {

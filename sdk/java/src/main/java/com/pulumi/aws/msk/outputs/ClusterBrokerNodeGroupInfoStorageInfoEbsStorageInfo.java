@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
     /**
-     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput;
@@ -25,7 +25,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 
     private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo() {}
     /**
-     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebsStorageInfo provisioned_throughput Argument Reference below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput> provisionedThroughput() {

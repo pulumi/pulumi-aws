@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceResult
     {
         /// <summary>
-        /// Hostname of the RDS instance. See also `endpoint` and `port`.
+        /// Hostname of the RDS instance. See also `Endpoint` and `Port`.
         /// </summary>
         public readonly string Address;
         /// <summary>
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string LicenseModel;
         /// <summary>
-        /// Provides the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        /// Provides the master user secret. Only available when `ManageMasterUserPassword` is set to true. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceMasterUserSecretResult> MasterUserSecrets;
         /// <summary>
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> OptionGroupMemberships;
         /// <summary>
-        /// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
+        /// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `DbInstancePort` is typically the preferred choice.
         /// </summary>
         public readonly int Port;
         /// <summary>

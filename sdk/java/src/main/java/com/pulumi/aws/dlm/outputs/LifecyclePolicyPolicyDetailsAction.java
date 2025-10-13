@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsAction {
     /**
-     * @return The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+     * @return The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
      * 
      */
     private List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies;
@@ -21,7 +21,7 @@ public final class LifecyclePolicyPolicyDetailsAction {
 
     private LifecyclePolicyPolicyDetailsAction() {}
     /**
-     * @return The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+     * @return The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
      * 
      */
     public List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies() {

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `False`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `TransitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
         [Output("replaceExistingAssociation")]
         public Output<bool?> ReplaceExistingAssociation { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `False`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `TransitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
         [Input("replaceExistingAssociation")]
         public Input<bool>? ReplaceExistingAssociation { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `False`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `TransitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
         [Input("replaceExistingAssociation")]
         public Input<bool>? ReplaceExistingAssociation { get; set; }

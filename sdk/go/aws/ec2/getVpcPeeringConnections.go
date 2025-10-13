@@ -16,6 +16,8 @@ import (
 //
 // Note: To use this data source in a count, the resources should exist before trying to access
 // the data source.
+//
+// ## Example Usage
 func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetVpcPeeringConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcPeeringConnectionsResult

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfiguration
     {
         /// <summary>
-        /// The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
+        /// The URL of the Snowflake account. Format: https://[AccountIdentifier].snowflakecomputing.com.
         /// </summary>
         public readonly string AccountUrl;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
+        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? MetadataColumnName;
         /// <summary>
-        /// The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        /// The private key for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? PrivateKey;
         /// <summary>
-        /// The processing configuration. See `processing_configuration` block below for details.
+        /// The processing configuration. See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 configuration. See `s3_configuration` block below for details.
+        /// The S3 configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration S3Configuration;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string Schema;
         /// <summary>
-        /// The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        /// The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `User` and `PrivateKey` are not provided.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string Table;
         /// <summary>
-        /// The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        /// The user for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? User;
 

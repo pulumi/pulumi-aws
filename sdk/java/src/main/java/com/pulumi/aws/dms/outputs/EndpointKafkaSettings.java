@@ -40,7 +40,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable Boolean includeTableAlterOperations;
     /**
-     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
+     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
      * 
      */
     private @Nullable Boolean includeTransactionDetails;
@@ -55,7 +55,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable Integer messageMaxBytes;
     /**
-     * @return Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
+     * @return Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
      * 
      */
     private @Nullable Boolean noHexPrefix;
@@ -80,7 +80,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable String saslUsername;
     /**
-     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     private @Nullable String securityProtocol;
@@ -147,7 +147,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.includeTableAlterOperations);
     }
     /**
-     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
+     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
      * 
      */
     public Optional<Boolean> includeTransactionDetails() {
@@ -168,7 +168,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.messageMaxBytes);
     }
     /**
-     * @return Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
+     * @return Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
      * 
      */
     public Optional<Boolean> noHexPrefix() {
@@ -203,7 +203,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.saslUsername);
     }
     /**
-     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     public Optional<String> securityProtocol() {

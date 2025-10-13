@@ -46,7 +46,7 @@ namespace Pulumi.Aws.DirectConnect
     public partial class PrivateVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Output("addressFamily")]
         public Output<string> AddressFamily { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.Aws.DirectConnect
         public Output<bool?> SitelinkEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class PrivateVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Input("addressFamily", required: true)]
         public Input<string> AddressFamily { get; set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class PrivateVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// The address family for the BGP peer. `ipv4 ` or `Ipv6`.
         /// </summary>
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

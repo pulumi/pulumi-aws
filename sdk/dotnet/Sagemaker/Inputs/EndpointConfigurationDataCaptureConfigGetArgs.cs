@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         /// <summary>
         /// The content type headers to capture.
-        /// See `capture_content_type_header` below.
+        /// See `CaptureContentTypeHeader` below.
         /// </summary>
         [Input("captureContentTypeHeader")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs>? CaptureContentTypeHeader { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> DestinationS3Uri { get; set; } = null!;
 
         /// <summary>
-        /// Flag to enable data capture. Defaults to `false`.
+        /// Flag to enable data capture. Defaults to `False`.
         /// </summary>
         [Input("enableCapture")]
         public Input<bool>? EnableCapture { get; set; }

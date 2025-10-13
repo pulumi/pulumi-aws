@@ -91,19 +91,19 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public string? ImageDigest { get; set; }
 
         /// <summary>
-        /// Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Tag associated with this image. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }
 
         /// <summary>
-        /// Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Return the most recently pushed image. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
@@ -135,19 +135,19 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Sha256 digest of the image manifest. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("imageDigest")]
         public Input<string>? ImageDigest { get; set; }
 
         /// <summary>
-        /// Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Tag associated with this image. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("imageTag")]
         public Input<string>? ImageTag { get; set; }
 
         /// <summary>
-        /// Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+        /// Return the most recently pushed image. At least one of `ImageDigest`, `ImageTag`, or `MostRecent` must be specified.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
         /// <summary>
-        /// The URI for the specific image version specified by `image_tag` or `image_digest`.
+        /// The URI for the specific image version specified by `ImageTag` or `ImageDigest`.
         /// </summary>
         public readonly string ImageUri;
         public readonly bool? MostRecent;

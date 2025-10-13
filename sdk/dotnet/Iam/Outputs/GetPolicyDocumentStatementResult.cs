@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableArray<string> NotActions;
         /// <summary>
-        /// Like `principals` except these are principals that the statement does *not* apply to.
+        /// Like `Principals` except these are principals that the statement does *not* apply to.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementNotPrincipalResult> NotPrincipals;
         /// <summary>
-        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
+        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `Resources`.
         /// </summary>
         public readonly ImmutableArray<string> NotResources;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementPrincipalResult> Principals;
         /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `NotResources`.
         /// </summary>
         public readonly ImmutableArray<string> Resources;
         /// <summary>

@@ -176,14 +176,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     @Export(name="dnsConfig", refs={ServiceDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDnsConfig> dnsConfig;
 
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      * 
      */
     public Output<Optional<ServiceDnsConfig>> dnsConfig() {
@@ -204,28 +204,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     @Export(name="healthCheckConfig", refs={ServiceHealthCheckConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckConfig> healthCheckConfig;
 
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      * 
      */
     public Output<Optional<ServiceHealthCheckConfig>> healthCheckConfig() {
         return Codegen.optional(this.healthCheckConfig);
     }
     /**
-     * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     @Export(name="healthCheckCustomConfig", refs={ServiceHealthCheckCustomConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      * 
      */
     public Output<Optional<ServiceHealthCheckCustomConfig>> healthCheckCustomConfig() {
@@ -274,14 +274,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

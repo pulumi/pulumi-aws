@@ -23,7 +23,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
 
     /**
      * The content type headers to capture.
-     * See `capture_content_type_header` below.
+     * See `captureContentTypeHeader` below.
      * 
      */
     @Import(name="captureContentTypeHeader")
@@ -31,7 +31,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
 
     /**
      * @return The content type headers to capture.
-     * See `capture_content_type_header` below.
+     * See `captureContentTypeHeader` below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>> captureContentTypeHeader() {
@@ -144,7 +144,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
 
         /**
          * @param captureContentTypeHeader The content type headers to capture.
-         * See `capture_content_type_header` below.
+         * See `captureContentTypeHeader` below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
 
         /**
          * @param captureContentTypeHeader The content type headers to capture.
-         * See `capture_content_type_header` below.
+         * See `captureContentTypeHeader` below.
          * 
          * @return builder
          * 

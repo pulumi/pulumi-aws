@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventConnectionAuthParameters
     {
         /// <summary>
-        /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `Basic` and `Oauth`. Documented below.
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersApiKey? ApiKey;
         /// <summary>
-        /// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        /// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `ApiKey` and `Oauth`. Documented below.
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersBasic? Basic;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersInvocationHttpParameters? InvocationHttpParameters;
         /// <summary>
-        /// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        /// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `Basic` and `ApiKey`. Documented below.
         /// </summary>
         public readonly Outputs.EventConnectionAuthParametersOauth? Oauth;
 

@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Lex.Outputs
         public readonly string SlotTypeId;
         /// <summary>
         /// Elicitation setting details for constituent sub slots of a composite slot.
-        /// See the `value_elicitation_setting` argument reference below.
+        /// See the `ValueElicitationSetting` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> ValueElicitationSettings;
 

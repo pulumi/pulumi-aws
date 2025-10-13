@@ -18,14 +18,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     public static final FirehoseDeliveryStreamMskSourceConfigurationArgs Empty = new FirehoseDeliveryStreamMskSourceConfigurationArgs();
 
     /**
-     * The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
+     * The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
      * 
      */
     @Import(name="authenticationConfiguration", required=true)
     private Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration() {
@@ -48,14 +48,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     }
 
     /**
-     * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
      * 
      */
     @Import(name="readFromTimestamp")
     private @Nullable Output<String> readFromTimestamp;
 
     /**
-     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
      * 
      */
     public Optional<Output<String>> readFromTimestamp() {
@@ -105,7 +105,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
          * 
          * @return builder
          * 

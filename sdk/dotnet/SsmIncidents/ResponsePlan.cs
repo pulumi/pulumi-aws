@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// <summary>
     /// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
     /// 
-    /// &gt; NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the ResponsePlan Resource.
+    /// &gt; NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `DependsOn` argument for the ResponsePlan Resource.
     /// 
     /// ## Example Usage
     /// 
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
 
         /// <summary>
-        /// The `incident_template` configuration block is required and supports the following arguments:
+        /// The `IncidentTemplate` configuration block is required and supports the following arguments:
         /// </summary>
         [Output("incidentTemplate")]
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.SsmIncidents
         }
 
         /// <summary>
-        /// The `incident_template` configuration block is required and supports the following arguments:
+        /// The `IncidentTemplate` configuration block is required and supports the following arguments:
         /// </summary>
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.SsmIncidents
         }
 
         /// <summary>
-        /// The `incident_template` configuration block is required and supports the following arguments:
+        /// The `IncidentTemplate` configuration block is required and supports the following arguments:
         /// </summary>
         [Input("incidentTemplate")]
         public Input<Inputs.ResponsePlanIncidentTemplateGetArgs>? IncidentTemplate { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

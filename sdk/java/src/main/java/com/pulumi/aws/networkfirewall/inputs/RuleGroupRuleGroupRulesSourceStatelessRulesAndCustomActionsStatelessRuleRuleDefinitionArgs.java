@@ -17,14 +17,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs();
 
     /**
-     * Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+     * Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
      * 
      */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
     /**
-     * @return Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+     * @return Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
      * 
      */
     public Output<List<String>> actions() {
@@ -72,7 +72,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+         * @param actions Set of actions to take on a packet that matches one of the stateless rule definition&#39;s `matchAttributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
          * 
          * @return builder
          * 

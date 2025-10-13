@@ -26,7 +26,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? IncidentTags;
         /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        /// The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `NotificationTarget` configuration block supports the following argument:
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanIncidentTemplateNotificationTarget> NotificationTargets;
         /// <summary>

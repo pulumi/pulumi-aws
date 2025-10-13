@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _endsWiths;
 
         /// <summary>
-        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+        /// A list of values that includes events that match the last few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public InputList<string> EndsWiths
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _equals;
 
         /// <summary>
-        /// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+        /// A list of values that includes events that match the exact value of the event record field specified as the value of `Field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
         /// </summary>
         public InputList<string> Equals
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _notEndsWiths;
 
         /// <summary>
-        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the last few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public InputList<string> NotEndsWiths
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _notEquals;
 
         /// <summary>
-        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the exact value of the event record field specified as the value of `Field`.
         /// </summary>
         public InputList<string> NotEquals
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _notStartsWiths;
 
         /// <summary>
-        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+        /// A list of values that excludes events that match the first few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public InputList<string> NotStartsWiths
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<string>? _startsWiths;
 
         /// <summary>
-        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+        /// A list of values that includes events that match the first few characters of the event record field specified as the value of `Field`.
         /// </summary>
         public InputList<string> StartsWiths
         {

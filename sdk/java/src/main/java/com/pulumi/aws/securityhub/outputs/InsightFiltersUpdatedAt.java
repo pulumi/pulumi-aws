@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InsightFiltersUpdatedAt {
     /**
-     * @return A configuration block of the date range for the date filter. See date_range below for more details.
+     * @return A configuration block of the date range for the date filter. See dateRange below for more details.
      * 
      */
     private @Nullable InsightFiltersUpdatedAtDateRange dateRange;
     /**
-     * @return An end date for the date filter. Required with `start` if `date_range` is not specified.
+     * @return An end date for the date filter. Required with `start` if `dateRange` is not specified.
      * 
      */
     private @Nullable String end;
     /**
-     * @return A start date for the date filter. Required with `end` if `date_range` is not specified.
+     * @return A start date for the date filter. Required with `end` if `dateRange` is not specified.
      * 
      */
     private @Nullable String start;
 
     private InsightFiltersUpdatedAt() {}
     /**
-     * @return A configuration block of the date range for the date filter. See date_range below for more details.
+     * @return A configuration block of the date range for the date filter. See dateRange below for more details.
      * 
      */
     public Optional<InsightFiltersUpdatedAtDateRange> dateRange() {
         return Optional.ofNullable(this.dateRange);
     }
     /**
-     * @return An end date for the date filter. Required with `start` if `date_range` is not specified.
+     * @return An end date for the date filter. Required with `start` if `dateRange` is not specified.
      * 
      */
     public Optional<String> end() {
         return Optional.ofNullable(this.end);
     }
     /**
-     * @return A start date for the date filter. Required with `end` if `date_range` is not specified.
+     * @return A start date for the date filter. Required with `end` if `dateRange` is not specified.
      * 
      */
     public Optional<String> start() {

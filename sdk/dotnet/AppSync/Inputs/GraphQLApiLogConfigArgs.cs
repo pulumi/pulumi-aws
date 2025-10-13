@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> CloudwatchLogsRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+        /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `True`, `False`. Default value: `False`
         /// </summary>
         [Input("excludeVerboseContent")]
         public Input<bool>? ExcludeVerboseContent { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRouteMatchMetadata
     {
         /// <summary>
-        /// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+        /// If `True`, the match is on the opposite of the `Match` criteria. Default is `False`.
         /// </summary>
         public readonly bool? Invert;
         /// <summary>

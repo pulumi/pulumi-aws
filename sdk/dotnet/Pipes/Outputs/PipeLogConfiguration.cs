@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly Outputs.PipeLogConfigurationFirehoseLogDestination? FirehoseLogDestination;
         /// <summary>
-        /// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+        /// String list that specifies whether the execution data (specifically, the `Payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
         /// </summary>
         public readonly ImmutableArray<string> IncludeExecutionDatas;
         /// <summary>

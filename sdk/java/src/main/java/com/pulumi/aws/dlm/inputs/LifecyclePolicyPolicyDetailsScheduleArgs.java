@@ -27,14 +27,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     public static final LifecyclePolicyPolicyDetailsScheduleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArgs();
 
     /**
-     * Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
      * 
      */
     @Import(name="archiveRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs> archiveRule;
 
     /**
-     * @return Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+     * @return Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs>> archiveRule() {
@@ -49,14 +49,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * See the `create_rule` block. Max of 1 per schedule.
+     * See the `createRule` block. Max of 1 per schedule.
      * 
      */
     @Import(name="createRule", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule;
 
     /**
-     * @return See the `create_rule` block. Max of 1 per schedule.
+     * @return See the `createRule` block. Max of 1 per schedule.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule() {
@@ -64,14 +64,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * See the `crossRegionCopyRule` block. Max of 3 per schedule.
      * 
      */
     @Import(name="crossRegionCopyRules")
     private @Nullable Output<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>> crossRegionCopyRules;
 
     /**
-     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
+     * @return See the `crossRegionCopyRule` block. Max of 3 per schedule.
      * 
      */
     public Optional<Output<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>>> crossRegionCopyRules() {
@@ -86,14 +86,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * See the `fast_restore_rule` block. Max of 1 per schedule.
+     * See the `fastRestoreRule` block. Max of 1 per schedule.
      * 
      */
     @Import(name="fastRestoreRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs> fastRestoreRule;
 
     /**
-     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
+     * @return See the `fastRestoreRule` block. Max of 1 per schedule.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs>> fastRestoreRule() {
@@ -115,14 +115,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * See the `share_rule` block. Max of 1 per schedule.
+     * See the `shareRule` block. Max of 1 per schedule.
      * 
      */
     @Import(name="shareRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs> shareRule;
 
     /**
-     * @return See the `share_rule` block. Max of 1 per schedule.
+     * @return See the `shareRule` block. Max of 1 per schedule.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs>> shareRule() {
@@ -145,14 +145,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
      * 
      */
     @Import(name="variableTags")
     private @Nullable Output<Map<String,String>> variableTags;
 
     /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
      * 
      */
     public Optional<Output<Map<String,String>>> variableTags() {
@@ -194,7 +194,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
+         * @param archiveRule Specifies a snapshot archiving rule for a schedule. See `archiveRule` block.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param createRule See the `create_rule` block. Max of 1 per schedule.
+         * @param createRule See the `createRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param createRule See the `create_rule` block. Max of 1 per schedule.
+         * @param createRule See the `createRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * @param crossRegionCopyRules See the `crossRegionCopyRule` block. Max of 3 per schedule.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * @param crossRegionCopyRules See the `crossRegionCopyRule` block. Max of 3 per schedule.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param crossRegionCopyRules See the `cross_region_copy_rule` block. Max of 3 per schedule.
+         * @param crossRegionCopyRules See the `crossRegionCopyRule` block. Max of 3 per schedule.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param fastRestoreRule See the `fast_restore_rule` block. Max of 1 per schedule.
+         * @param fastRestoreRule See the `fastRestoreRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param fastRestoreRule See the `fast_restore_rule` block. Max of 1 per schedule.
+         * @param fastRestoreRule See the `fastRestoreRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param shareRule See the `share_rule` block. Max of 1 per schedule.
+         * @param shareRule See the `shareRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param shareRule See the `share_rule` block. Max of 1 per schedule.
+         * @param shareRule See the `shareRule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+         * @param variableTags A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
          * 
          * @return builder
          * 
