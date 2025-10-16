@@ -25,6 +25,7 @@ class ProjectArgs:
                  environment: pulumi.Input['ProjectEnvironmentArgs'],
                  service_role: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ProjectSourceArgs'],
+                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
                  badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
                  build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -54,6 +55,8 @@ class ProjectArgs:
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] auto_retry_limit: Specify a maximum number of additional automatic retries after a failed build.
+               The default is 0.
         :param pulumi.Input[_builtins.bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as
                `badge_url` attribute when enabled.
         :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
@@ -92,6 +95,8 @@ class ProjectArgs:
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "service_role", service_role)
         pulumi.set(__self__, "source", source)
+        if auto_retry_limit is not None:
+            pulumi.set(__self__, "auto_retry_limit", auto_retry_limit)
         if badge_enabled is not None:
             pulumi.set(__self__, "badge_enabled", badge_enabled)
         if build_batch_config is not None:
@@ -183,6 +188,19 @@ class ProjectArgs:
     @source.setter
     def source(self, value: pulumi.Input['ProjectSourceArgs']):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRetryLimit")
+    def auto_retry_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specify a maximum number of additional automatic retries after a failed build.
+        The default is 0.
+        """
+        return pulumi.get(self, "auto_retry_limit")
+
+    @auto_retry_limit.setter
+    def auto_retry_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "auto_retry_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="badgeEnabled")
@@ -443,6 +461,7 @@ class _ProjectState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  artifacts: Optional[pulumi.Input['ProjectArtifactsArgs']] = None,
+                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
                  badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  badge_url: Optional[pulumi.Input[_builtins.str]] = None,
                  build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
@@ -473,6 +492,8 @@ class _ProjectState:
         Input properties used for looking up and filtering Project resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the CodeBuild project.
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[_builtins.int] auto_retry_limit: Specify a maximum number of additional automatic retries after a failed build.
+               The default is 0.
         :param pulumi.Input[_builtins.bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as
                `badge_url` attribute when enabled.
         :param pulumi.Input[_builtins.str] badge_url: URL of the build badge when `badge_enabled` is enabled.
@@ -521,6 +542,8 @@ class _ProjectState:
             pulumi.set(__self__, "arn", arn)
         if artifacts is not None:
             pulumi.set(__self__, "artifacts", artifacts)
+        if auto_retry_limit is not None:
+            pulumi.set(__self__, "auto_retry_limit", auto_retry_limit)
         if badge_enabled is not None:
             pulumi.set(__self__, "badge_enabled", badge_enabled)
         if badge_url is not None:
@@ -597,6 +620,19 @@ class _ProjectState:
     @artifacts.setter
     def artifacts(self, value: Optional[pulumi.Input['ProjectArtifactsArgs']]):
         pulumi.set(self, "artifacts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRetryLimit")
+    def auto_retry_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specify a maximum number of additional automatic retries after a failed build.
+        The default is 0.
+        """
+        return pulumi.get(self, "auto_retry_limit")
+
+    @auto_retry_limit.setter
+    def auto_retry_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "auto_retry_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="badgeEnabled")
@@ -935,6 +971,7 @@ class Project(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
                  badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
                  build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1195,6 +1232,8 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[_builtins.int] auto_retry_limit: Specify a maximum number of additional automatic retries after a failed build.
+               The default is 0.
         :param pulumi.Input[_builtins.bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as
                `badge_url` attribute when enabled.
         :param pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']] build_batch_config: Defines the batch build options for the project.
@@ -1490,6 +1529,7 @@ class Project(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+                 auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
                  badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
                  build_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1525,6 +1565,7 @@ class Project(pulumi.CustomResource):
             if artifacts is None and not opts.urn:
                 raise TypeError("Missing required property 'artifacts'")
             __props__.__dict__["artifacts"] = artifacts
+            __props__.__dict__["auto_retry_limit"] = auto_retry_limit
             __props__.__dict__["badge_enabled"] = badge_enabled
             __props__.__dict__["build_batch_config"] = build_batch_config
             __props__.__dict__["build_timeout"] = build_timeout
@@ -1570,6 +1611,7 @@ class Project(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
+            auto_retry_limit: Optional[pulumi.Input[_builtins.int]] = None,
             badge_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             badge_url: Optional[pulumi.Input[_builtins.str]] = None,
             build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
@@ -1605,6 +1647,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the CodeBuild project.
         :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[_builtins.int] auto_retry_limit: Specify a maximum number of additional automatic retries after a failed build.
+               The default is 0.
         :param pulumi.Input[_builtins.bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as
                `badge_url` attribute when enabled.
         :param pulumi.Input[_builtins.str] badge_url: URL of the build badge when `badge_enabled` is enabled.
@@ -1655,6 +1699,7 @@ class Project(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["artifacts"] = artifacts
+        __props__.__dict__["auto_retry_limit"] = auto_retry_limit
         __props__.__dict__["badge_enabled"] = badge_enabled
         __props__.__dict__["badge_url"] = badge_url
         __props__.__dict__["build_batch_config"] = build_batch_config
@@ -1698,6 +1743,15 @@ class Project(pulumi.CustomResource):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "artifacts")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRetryLimit")
+    def auto_retry_limit(self) -> pulumi.Output[_builtins.int]:
+        """
+        Specify a maximum number of additional automatic retries after a failed build.
+        The default is 0.
+        """
+        return pulumi.get(self, "auto_retry_limit")
 
     @_builtins.property
     @pulumi.getter(name="badgeEnabled")

@@ -130,6 +130,8 @@ type ResourceGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Ipv4AddressesPerEni pulumi.IntOutput `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,6 +193,8 @@ type resourceGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -217,6 +221,8 @@ type ResourceGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringPtrInput
+	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -245,6 +251,8 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 type resourceGatewayArgs struct {
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -266,6 +274,8 @@ type resourceGatewayArgs struct {
 type ResourceGatewayArgs struct {
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringPtrInput
+	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -378,6 +388,11 @@ func (o ResourceGatewayOutput) Arn() pulumi.StringOutput {
 // IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 func (o ResourceGatewayOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+func (o ResourceGatewayOutput) Ipv4AddressesPerEni() pulumi.IntOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.IntOutput { return v.Ipv4AddressesPerEni }).(pulumi.IntOutput)
 }
 
 // Name of the resource gateway.

@@ -57,6 +57,8 @@ __all__ = [
     'NetworkPeeringConnectionTimeoutsArgsDict',
     'NetworkTimeoutsArgs',
     'NetworkTimeoutsArgsDict',
+    'GetNetworkPeeringConnectionsOdbPeeringConnectionArgs',
+    'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict',
 ]
 
 MYPY = False
@@ -1342,5 +1344,112 @@ class NetworkTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict(TypedDict):
+        arn: _builtins.str
+        """
+        The Amazon Resource Name (ARN) for the  ODB network peering connection.
+        """
+        display_name: _builtins.str
+        """
+        Display name of the ODB network peering connection.
+        """
+        id: _builtins.str
+        """
+        The unique identifier of the  ODB network peering connection.
+        """
+        odb_network_arn: _builtins.str
+        """
+        ARN of the ODB network peering connection.
+        """
+        peer_network_arn: _builtins.str
+        """
+        ARN of the peer network peering connection.
+        """
+elif False:
+    GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetNetworkPeeringConnectionsOdbPeeringConnectionArgs:
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 display_name: _builtins.str,
+                 id: _builtins.str,
+                 odb_network_arn: _builtins.str,
+                 peer_network_arn: _builtins.str):
+        """
+        :param _builtins.str arn: The Amazon Resource Name (ARN) for the  ODB network peering connection.
+        :param _builtins.str display_name: Display name of the ODB network peering connection.
+        :param _builtins.str id: The unique identifier of the  ODB network peering connection.
+        :param _builtins.str odb_network_arn: ARN of the ODB network peering connection.
+        :param _builtins.str peer_network_arn: ARN of the peer network peering connection.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
+        pulumi.set(__self__, "peer_network_arn", peer_network_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) for the  ODB network peering connection.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: _builtins.str):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Display name of the ODB network peering connection.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: _builtins.str):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier of the  ODB network peering connection.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> _builtins.str:
+        """
+        ARN of the ODB network peering connection.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: _builtins.str):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peerNetworkArn")
+    def peer_network_arn(self) -> _builtins.str:
+        """
+        ARN of the peer network peering connection.
+        """
+        return pulumi.get(self, "peer_network_arn")
+
+    @peer_network_arn.setter
+    def peer_network_arn(self, value: _builtins.str):
+        pulumi.set(self, "peer_network_arn", value)
 
 

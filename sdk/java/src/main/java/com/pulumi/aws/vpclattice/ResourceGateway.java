@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -169,6 +170,20 @@ public class ResourceGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
+    }
+    /**
+     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * 
+     */
+    @Export(name="ipv4AddressesPerEni", refs={Integer.class}, tree="[0]")
+    private Output<Integer> ipv4AddressesPerEni;
+
+    /**
+     * @return The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * 
+     */
+    public Output<Integer> ipv4AddressesPerEni() {
+        return this.ipv4AddressesPerEni;
     }
     /**
      * Name of the resource gateway.

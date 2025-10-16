@@ -181,14 +181,18 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user parameters that are used in the environment. See User Parameters for more information.
+     * The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      * 
      */
     @Import(name="userParameters")
     private @Nullable Output<List<EnvironmentUserParameterArgs>> userParameters;
 
     /**
-     * @return The user parameters that are used in the environment. See User Parameters for more information.
+     * @return The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      * 
      */
     public Optional<Output<List<EnvironmentUserParameterArgs>>> userParameters() {
@@ -464,7 +468,9 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userParameters The user parameters that are used in the environment. See User Parameters for more information.
+         * @param userParameters The user parameters that are used in the environment.
+         * See User Parameters for more information.
+         * Changing these values recreates the resource.
          * 
          * @return builder
          * 
@@ -475,7 +481,9 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userParameters The user parameters that are used in the environment. See User Parameters for more information.
+         * @param userParameters The user parameters that are used in the environment.
+         * See User Parameters for more information.
+         * Changing these values recreates the resource.
          * 
          * @return builder
          * 
@@ -485,7 +493,9 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userParameters The user parameters that are used in the environment. See User Parameters for more information.
+         * @param userParameters The user parameters that are used in the environment.
+         * See User Parameters for more information.
+         * Changing these values recreates the resource.
          * 
          * @return builder
          * 

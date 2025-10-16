@@ -328,6 +328,9 @@ type Project struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block. Detailed below.
 	Artifacts ProjectArtifactsOutput `pulumi:"artifacts"`
+	// Specify a maximum number of additional automatic retries after a failed build.
+	// The default is 0.
+	AutoRetryLimit pulumi.IntOutput `pulumi:"autoRetryLimit"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as
 	// `badgeUrl` attribute when enabled.
 	BadgeEnabled pulumi.BoolPtrOutput `pulumi:"badgeEnabled"`
@@ -445,6 +448,9 @@ type projectState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block. Detailed below.
 	Artifacts *ProjectArtifacts `pulumi:"artifacts"`
+	// Specify a maximum number of additional automatic retries after a failed build.
+	// The default is 0.
+	AutoRetryLimit *int `pulumi:"autoRetryLimit"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as
 	// `badgeUrl` attribute when enabled.
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
@@ -521,6 +527,9 @@ type ProjectState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Artifacts ProjectArtifactsPtrInput
+	// Specify a maximum number of additional automatic retries after a failed build.
+	// The default is 0.
+	AutoRetryLimit pulumi.IntPtrInput
 	// Generates a publicly-accessible URL for the projects build badge. Available as
 	// `badgeUrl` attribute when enabled.
 	BadgeEnabled pulumi.BoolPtrInput
@@ -599,6 +608,9 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	// Configuration block. Detailed below.
 	Artifacts ProjectArtifacts `pulumi:"artifacts"`
+	// Specify a maximum number of additional automatic retries after a failed build.
+	// The default is 0.
+	AutoRetryLimit *int `pulumi:"autoRetryLimit"`
 	// Generates a publicly-accessible URL for the projects build badge. Available as
 	// `badgeUrl` attribute when enabled.
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
@@ -667,6 +679,9 @@ type projectArgs struct {
 type ProjectArgs struct {
 	// Configuration block. Detailed below.
 	Artifacts ProjectArtifactsInput
+	// Specify a maximum number of additional automatic retries after a failed build.
+	// The default is 0.
+	AutoRetryLimit pulumi.IntPtrInput
 	// Generates a publicly-accessible URL for the projects build badge. Available as
 	// `badgeUrl` attribute when enabled.
 	BadgeEnabled pulumi.BoolPtrInput
@@ -826,6 +841,12 @@ func (o ProjectOutput) Arn() pulumi.StringOutput {
 // Configuration block. Detailed below.
 func (o ProjectOutput) Artifacts() ProjectArtifactsOutput {
 	return o.ApplyT(func(v *Project) ProjectArtifactsOutput { return v.Artifacts }).(ProjectArtifactsOutput)
+}
+
+// Specify a maximum number of additional automatic retries after a failed build.
+// The default is 0.
+func (o ProjectOutput) AutoRetryLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.AutoRetryLimit }).(pulumi.IntOutput)
 }
 
 // Generates a publicly-accessible URL for the projects build badge. Available as

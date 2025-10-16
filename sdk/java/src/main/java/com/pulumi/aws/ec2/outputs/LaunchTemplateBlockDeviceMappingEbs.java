@@ -31,7 +31,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      */
     private @Nullable Integer iops;
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * @return Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
      * `encrypted` must be set to `true` when this is set.
      * 
      */
@@ -89,7 +89,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * @return Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
      * `encrypted` must be set to `true` when this is set.
      * 
      */

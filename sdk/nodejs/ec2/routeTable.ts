@@ -10,12 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC routing table.
  *
- * > **NOTE on Route Tables and Routes:** This provider currently
- * provides both a standalone Route resource and a Route Table resource with routes
- * defined in-line. At this time you cannot use a Route Table with in-line routes
- * in conjunction with any Route resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
- *
  * > **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
  * attributes and the `aws.ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
  * This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
@@ -180,6 +174,8 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     *
+     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
      */
     declare public readonly routes: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
     /**
@@ -258,6 +254,8 @@ export interface RouteTableState {
     /**
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     *
+     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
@@ -289,6 +287,8 @@ export interface RouteTableArgs {
     /**
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     *
+     * > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**

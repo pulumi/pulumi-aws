@@ -27,9 +27,7 @@ namespace Pulumi.Aws.DataZone
     ///     var example = new Aws.DataZone.Environment("example", new()
     ///     {
     ///         Name = "example",
-    ///         AccountIdentifier = test.AccountId,
-    ///         AccountRegion = testAwsRegion.Name,
-    ///         BlueprintIdentifier = testAwsDatazoneEnvironmentBlueprintConfiguration.EnvironmentBlueprintId,
+    ///         BlueprintIdentifier = test.EnvironmentBlueprintId,
     ///         ProfileIdentifier = testAwsDatazoneEnvironmentProfile.Id,
     ///         ProjectIdentifier = testAwsDatazoneProject.Id,
     ///         DomainIdentifier = testAwsDatazoneDomain.Id,
@@ -160,7 +158,9 @@ namespace Pulumi.Aws.DataZone
         public Output<Outputs.EnvironmentTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The user parameters that are used in the environment. See User Parameters for more information.
+        /// The user parameters that are used in the environment.
+        /// See User Parameters for more information.
+        /// Changing these values recreates the resource.
         /// </summary>
         [Output("userParameters")]
         public Output<ImmutableArray<Outputs.EnvironmentUserParameter>> UserParameters { get; private set; } = null!;
@@ -286,7 +286,9 @@ namespace Pulumi.Aws.DataZone
         private InputList<Inputs.EnvironmentUserParameterArgs>? _userParameters;
 
         /// <summary>
-        /// The user parameters that are used in the environment. See User Parameters for more information.
+        /// The user parameters that are used in the environment.
+        /// See User Parameters for more information.
+        /// Changing these values recreates the resource.
         /// </summary>
         public InputList<Inputs.EnvironmentUserParameterArgs> UserParameters
         {
@@ -415,7 +417,9 @@ namespace Pulumi.Aws.DataZone
         private InputList<Inputs.EnvironmentUserParameterGetArgs>? _userParameters;
 
         /// <summary>
-        /// The user parameters that are used in the environment. See User Parameters for more information.
+        /// The user parameters that are used in the environment.
+        /// See User Parameters for more information.
+        /// Changing these values recreates the resource.
         /// </summary>
         public InputList<Inputs.EnvironmentUserParameterGetArgs> UserParameters
         {

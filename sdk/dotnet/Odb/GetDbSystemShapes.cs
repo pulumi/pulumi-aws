@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Odb
     {
         public readonly string? AvailabilityZoneId;
         /// <summary>
-        /// IThe list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+        /// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> DbSystemShapes;
         /// <summary>

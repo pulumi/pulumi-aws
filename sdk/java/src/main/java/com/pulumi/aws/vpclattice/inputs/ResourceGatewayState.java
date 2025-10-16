@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice.inputs;
 import com.pulumi.aws.vpclattice.inputs.ResourceGatewayTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,21 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
+     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * 
+     */
+    @Import(name="ipv4AddressesPerEni")
+    private @Nullable Output<Integer> ipv4AddressesPerEni;
+
+    /**
+     * @return The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * 
+     */
+    public Optional<Output<Integer>> ipv4AddressesPerEni() {
+        return Optional.ofNullable(this.ipv4AddressesPerEni);
     }
 
     /**
@@ -184,6 +200,7 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
     private ResourceGatewayState(ResourceGatewayState $) {
         this.arn = $.arn;
         this.ipAddressType = $.ipAddressType;
+        this.ipv4AddressesPerEni = $.ipv4AddressesPerEni;
         this.name = $.name;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
@@ -253,6 +270,27 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
          */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipv4AddressesPerEni The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4AddressesPerEni(@Nullable Output<Integer> ipv4AddressesPerEni) {
+            $.ipv4AddressesPerEni = ipv4AddressesPerEni;
+            return this;
+        }
+
+        /**
+         * @param ipv4AddressesPerEni The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4AddressesPerEni(Integer ipv4AddressesPerEni) {
+            return ipv4AddressesPerEni(Output.of(ipv4AddressesPerEni));
         }
 
         /**

@@ -2027,6 +2027,410 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type WebAppIdentityProviderDetails struct {
+	// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+	IdentityCenterConfig *WebAppIdentityProviderDetailsIdentityCenterConfig `pulumi:"identityCenterConfig"`
+}
+
+// WebAppIdentityProviderDetailsInput is an input type that accepts WebAppIdentityProviderDetailsArgs and WebAppIdentityProviderDetailsOutput values.
+// You can construct a concrete instance of `WebAppIdentityProviderDetailsInput` via:
+//
+//	WebAppIdentityProviderDetailsArgs{...}
+type WebAppIdentityProviderDetailsInput interface {
+	pulumi.Input
+
+	ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput
+	ToWebAppIdentityProviderDetailsOutputWithContext(context.Context) WebAppIdentityProviderDetailsOutput
+}
+
+type WebAppIdentityProviderDetailsArgs struct {
+	// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+	IdentityCenterConfig WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput `pulumi:"identityCenterConfig"`
+}
+
+func (WebAppIdentityProviderDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput {
+	return i.ToWebAppIdentityProviderDetailsOutputWithContext(context.Background())
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsOutput)
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput {
+	return i.ToWebAppIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppIdentityProviderDetailsArgs) ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsOutput).ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx)
+}
+
+// WebAppIdentityProviderDetailsPtrInput is an input type that accepts WebAppIdentityProviderDetailsArgs, WebAppIdentityProviderDetailsPtr and WebAppIdentityProviderDetailsPtrOutput values.
+// You can construct a concrete instance of `WebAppIdentityProviderDetailsPtrInput` via:
+//
+//	        WebAppIdentityProviderDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppIdentityProviderDetailsPtrInput interface {
+	pulumi.Input
+
+	ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput
+	ToWebAppIdentityProviderDetailsPtrOutputWithContext(context.Context) WebAppIdentityProviderDetailsPtrOutput
+}
+
+type webAppIdentityProviderDetailsPtrType WebAppIdentityProviderDetailsArgs
+
+func WebAppIdentityProviderDetailsPtr(v *WebAppIdentityProviderDetailsArgs) WebAppIdentityProviderDetailsPtrInput {
+	return (*webAppIdentityProviderDetailsPtrType)(v)
+}
+
+func (*webAppIdentityProviderDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (i *webAppIdentityProviderDetailsPtrType) ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput {
+	return i.ToWebAppIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppIdentityProviderDetailsPtrType) ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsOutput() WebAppIdentityProviderDetailsOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput {
+	return o.ToWebAppIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppIdentityProviderDetailsOutput) ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppIdentityProviderDetails) *WebAppIdentityProviderDetails {
+		return &v
+	}).(WebAppIdentityProviderDetailsPtrOutput)
+}
+
+// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+func (o WebAppIdentityProviderDetailsOutput) IdentityCenterConfig() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetails) *WebAppIdentityProviderDetailsIdentityCenterConfig {
+		return v.IdentityCenterConfig
+	}).(WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) ToWebAppIdentityProviderDetailsPtrOutput() WebAppIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) ToWebAppIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsPtrOutput) Elem() WebAppIdentityProviderDetailsOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) WebAppIdentityProviderDetails {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppIdentityProviderDetails
+		return ret
+	}).(WebAppIdentityProviderDetailsOutput)
+}
+
+// Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+func (o WebAppIdentityProviderDetailsPtrOutput) IdentityCenterConfig() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetails) *WebAppIdentityProviderDetailsIdentityCenterConfig {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterConfig
+	}).(WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsIdentityCenterConfig struct {
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center used for the web app.
+	InstanceArn *string `pulumi:"instanceArn"`
+	// ARN of an identity bearer role for your web app.
+	Role *string `pulumi:"role"`
+}
+
+// WebAppIdentityProviderDetailsIdentityCenterConfigInput is an input type that accepts WebAppIdentityProviderDetailsIdentityCenterConfigArgs and WebAppIdentityProviderDetailsIdentityCenterConfigOutput values.
+// You can construct a concrete instance of `WebAppIdentityProviderDetailsIdentityCenterConfigInput` via:
+//
+//	WebAppIdentityProviderDetailsIdentityCenterConfigArgs{...}
+type WebAppIdentityProviderDetailsIdentityCenterConfigInput interface {
+	pulumi.Input
+
+	ToWebAppIdentityProviderDetailsIdentityCenterConfigOutput() WebAppIdentityProviderDetailsIdentityCenterConfigOutput
+	ToWebAppIdentityProviderDetailsIdentityCenterConfigOutputWithContext(context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigOutput
+}
+
+type WebAppIdentityProviderDetailsIdentityCenterConfigArgs struct {
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center used for the web app.
+	InstanceArn pulumi.StringPtrInput `pulumi:"instanceArn"`
+	// ARN of an identity bearer role for your web app.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (WebAppIdentityProviderDetailsIdentityCenterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetailsIdentityCenterConfig)(nil)).Elem()
+}
+
+func (i WebAppIdentityProviderDetailsIdentityCenterConfigArgs) ToWebAppIdentityProviderDetailsIdentityCenterConfigOutput() WebAppIdentityProviderDetailsIdentityCenterConfigOutput {
+	return i.ToWebAppIdentityProviderDetailsIdentityCenterConfigOutputWithContext(context.Background())
+}
+
+func (i WebAppIdentityProviderDetailsIdentityCenterConfigArgs) ToWebAppIdentityProviderDetailsIdentityCenterConfigOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsIdentityCenterConfigOutput)
+}
+
+func (i WebAppIdentityProviderDetailsIdentityCenterConfigArgs) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return i.ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAppIdentityProviderDetailsIdentityCenterConfigArgs) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsIdentityCenterConfigOutput).ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(ctx)
+}
+
+// WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput is an input type that accepts WebAppIdentityProviderDetailsIdentityCenterConfigArgs, WebAppIdentityProviderDetailsIdentityCenterConfigPtr and WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput values.
+// You can construct a concrete instance of `WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput` via:
+//
+//	        WebAppIdentityProviderDetailsIdentityCenterConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput
+	ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput
+}
+
+type webAppIdentityProviderDetailsIdentityCenterConfigPtrType WebAppIdentityProviderDetailsIdentityCenterConfigArgs
+
+func WebAppIdentityProviderDetailsIdentityCenterConfigPtr(v *WebAppIdentityProviderDetailsIdentityCenterConfigArgs) WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput {
+	return (*webAppIdentityProviderDetailsIdentityCenterConfigPtrType)(v)
+}
+
+func (*webAppIdentityProviderDetailsIdentityCenterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppIdentityProviderDetailsIdentityCenterConfig)(nil)).Elem()
+}
+
+func (i *webAppIdentityProviderDetailsIdentityCenterConfigPtrType) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return i.ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAppIdentityProviderDetailsIdentityCenterConfigPtrType) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsIdentityCenterConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppIdentityProviderDetailsIdentityCenterConfig)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigOutput() WebAppIdentityProviderDetailsIdentityCenterConfigOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o.ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAppIdentityProviderDetailsIdentityCenterConfig) *WebAppIdentityProviderDetailsIdentityCenterConfig {
+		return &v
+	}).(WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput)
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetailsIdentityCenterConfig) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetailsIdentityCenterConfig) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// ARN of an identity bearer role for your web app.
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppIdentityProviderDetailsIdentityCenterConfig) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAppIdentityProviderDetailsIdentityCenterConfig)(nil)).Elem()
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput() WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) ToWebAppIdentityProviderDetailsIdentityCenterConfigPtrOutputWithContext(ctx context.Context) WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput {
+	return o
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) Elem() WebAppIdentityProviderDetailsIdentityCenterConfigOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetailsIdentityCenterConfig) WebAppIdentityProviderDetailsIdentityCenterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAppIdentityProviderDetailsIdentityCenterConfig
+		return ret
+	}).(WebAppIdentityProviderDetailsIdentityCenterConfigOutput)
+}
+
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetailsIdentityCenterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Identity Center used for the web app.
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetailsIdentityCenterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of an identity bearer role for your web app.
+func (o WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppIdentityProviderDetailsIdentityCenterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAppWebAppUnit struct {
+	Provisioned int `pulumi:"provisioned"`
+}
+
+// WebAppWebAppUnitInput is an input type that accepts WebAppWebAppUnitArgs and WebAppWebAppUnitOutput values.
+// You can construct a concrete instance of `WebAppWebAppUnitInput` via:
+//
+//	WebAppWebAppUnitArgs{...}
+type WebAppWebAppUnitInput interface {
+	pulumi.Input
+
+	ToWebAppWebAppUnitOutput() WebAppWebAppUnitOutput
+	ToWebAppWebAppUnitOutputWithContext(context.Context) WebAppWebAppUnitOutput
+}
+
+type WebAppWebAppUnitArgs struct {
+	Provisioned pulumi.IntInput `pulumi:"provisioned"`
+}
+
+func (WebAppWebAppUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppWebAppUnit)(nil)).Elem()
+}
+
+func (i WebAppWebAppUnitArgs) ToWebAppWebAppUnitOutput() WebAppWebAppUnitOutput {
+	return i.ToWebAppWebAppUnitOutputWithContext(context.Background())
+}
+
+func (i WebAppWebAppUnitArgs) ToWebAppWebAppUnitOutputWithContext(ctx context.Context) WebAppWebAppUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppWebAppUnitOutput)
+}
+
+// WebAppWebAppUnitArrayInput is an input type that accepts WebAppWebAppUnitArray and WebAppWebAppUnitArrayOutput values.
+// You can construct a concrete instance of `WebAppWebAppUnitArrayInput` via:
+//
+//	WebAppWebAppUnitArray{ WebAppWebAppUnitArgs{...} }
+type WebAppWebAppUnitArrayInput interface {
+	pulumi.Input
+
+	ToWebAppWebAppUnitArrayOutput() WebAppWebAppUnitArrayOutput
+	ToWebAppWebAppUnitArrayOutputWithContext(context.Context) WebAppWebAppUnitArrayOutput
+}
+
+type WebAppWebAppUnitArray []WebAppWebAppUnitInput
+
+func (WebAppWebAppUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAppWebAppUnit)(nil)).Elem()
+}
+
+func (i WebAppWebAppUnitArray) ToWebAppWebAppUnitArrayOutput() WebAppWebAppUnitArrayOutput {
+	return i.ToWebAppWebAppUnitArrayOutputWithContext(context.Background())
+}
+
+func (i WebAppWebAppUnitArray) ToWebAppWebAppUnitArrayOutputWithContext(ctx context.Context) WebAppWebAppUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppWebAppUnitArrayOutput)
+}
+
+type WebAppWebAppUnitOutput struct{ *pulumi.OutputState }
+
+func (WebAppWebAppUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppWebAppUnit)(nil)).Elem()
+}
+
+func (o WebAppWebAppUnitOutput) ToWebAppWebAppUnitOutput() WebAppWebAppUnitOutput {
+	return o
+}
+
+func (o WebAppWebAppUnitOutput) ToWebAppWebAppUnitOutputWithContext(ctx context.Context) WebAppWebAppUnitOutput {
+	return o
+}
+
+func (o WebAppWebAppUnitOutput) Provisioned() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAppWebAppUnit) int { return v.Provisioned }).(pulumi.IntOutput)
+}
+
+type WebAppWebAppUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAppWebAppUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAppWebAppUnit)(nil)).Elem()
+}
+
+func (o WebAppWebAppUnitArrayOutput) ToWebAppWebAppUnitArrayOutput() WebAppWebAppUnitArrayOutput {
+	return o
+}
+
+func (o WebAppWebAppUnitArrayOutput) ToWebAppWebAppUnitArrayOutputWithContext(ctx context.Context) WebAppWebAppUnitArrayOutput {
+	return o
+}
+
+func (o WebAppWebAppUnitArrayOutput) Index(i pulumi.IntInput) WebAppWebAppUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAppWebAppUnit {
+		return vs[0].([]WebAppWebAppUnit)[vs[1].(int)]
+	}).(WebAppWebAppUnitOutput)
+}
+
 type WorkflowOnExceptionStep struct {
 	// Details for a step that performs a file copy. See Copy Step Details below.
 	CopyStepDetails *WorkflowOnExceptionStepCopyStepDetails `pulumi:"copyStepDetails"`
@@ -6592,6 +6996,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMappingArrayInput)(nil)).Elem(), UserHomeDirectoryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsPtrInput)(nil)).Elem(), WebAppIdentityProviderDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsIdentityCenterConfigInput)(nil)).Elem(), WebAppIdentityProviderDetailsIdentityCenterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppIdentityProviderDetailsIdentityCenterConfigPtrInput)(nil)).Elem(), WebAppIdentityProviderDetailsIdentityCenterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppWebAppUnitInput)(nil)).Elem(), WebAppWebAppUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAppWebAppUnitArrayInput)(nil)).Elem(), WebAppWebAppUnitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepInput)(nil)).Elem(), WorkflowOnExceptionStepArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepArrayInput)(nil)).Elem(), WorkflowOnExceptionStepArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowOnExceptionStepCopyStepDetailsInput)(nil)).Elem(), WorkflowOnExceptionStepCopyStepDetailsArgs{})
@@ -6672,6 +7082,12 @@ func init() {
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(UserPosixProfileOutput{})
 	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsIdentityCenterConfigOutput{})
+	pulumi.RegisterOutputType(WebAppIdentityProviderDetailsIdentityCenterConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAppWebAppUnitOutput{})
+	pulumi.RegisterOutputType(WebAppWebAppUnitArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowOnExceptionStepCopyStepDetailsOutput{})

@@ -104,6 +104,10 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     declare public readonly ipAddressType: pulumi.Output<string>;
     /**
+     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     */
+    declare public readonly ipv4AddressesPerEni: pulumi.Output<number>;
+    /**
      * Name of the resource gateway.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -154,6 +158,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             const state = argsOrState as ResourceGatewayState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["ipAddressType"] = state?.ipAddressType;
+            resourceInputs["ipv4AddressesPerEni"] = state?.ipv4AddressesPerEni;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["securityGroupIds"] = state?.securityGroupIds;
@@ -172,6 +177,7 @@ export class ResourceGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["ipv4AddressesPerEni"] = args?.ipv4AddressesPerEni;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
@@ -200,6 +206,10 @@ export interface ResourceGatewayState {
      * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     */
+    ipv4AddressesPerEni?: pulumi.Input<number>;
     /**
      * Name of the resource gateway.
      */
@@ -245,6 +255,10 @@ export interface ResourceGatewayArgs {
      * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     */
+    ipv4AddressesPerEni?: pulumi.Input<number>;
     /**
      * Name of the resource gateway.
      */

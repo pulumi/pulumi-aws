@@ -37,7 +37,7 @@ class ServiceArgs:
         :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         :param pulumi.Input['ServiceHealthCheckConfigArgs'] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -117,7 +117,7 @@ class ServiceArgs:
     @pulumi.getter(name="healthCheckCustomConfig")
     def health_check_custom_config(self) -> Optional[pulumi.Input['ServiceHealthCheckCustomConfigArgs']]:
         """
-        A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         """
         return pulumi.get(self, "health_check_custom_config")
 
@@ -208,7 +208,7 @@ class _ServiceState:
         :param pulumi.Input['ServiceDnsConfigArgs'] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         :param pulumi.Input['ServiceHealthCheckConfigArgs'] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        :param pulumi.Input['ServiceHealthCheckCustomConfigArgs'] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -304,7 +304,7 @@ class _ServiceState:
     @pulumi.getter(name="healthCheckCustomConfig")
     def health_check_custom_config(self) -> Optional[pulumi.Input['ServiceHealthCheckCustomConfigArgs']]:
         """
-        A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         """
         return pulumi.get(self, "health_check_custom_config")
 
@@ -426,7 +426,7 @@ class Service(pulumi.CustomResource):
                 }],
                 "routing_policy": "MULTIVALUE",
             },
-            health_check_custom_config={
+            health_check_config={
                 "failure_threshold": 1,
             })
         ```
@@ -468,7 +468,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -508,7 +508,7 @@ class Service(pulumi.CustomResource):
                 }],
                 "routing_policy": "MULTIVALUE",
             },
-            health_check_custom_config={
+            health_check_config={
                 "failure_threshold": 1,
             })
         ```
@@ -624,7 +624,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -693,7 +693,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckCustomConfig")
     def health_check_custom_config(self) -> pulumi.Output[Optional['outputs.ServiceHealthCheckCustomConfig']]:
         """
-        A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         """
         return pulumi.get(self, "health_check_custom_config")
 

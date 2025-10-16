@@ -28,9 +28,9 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var avmcWithMinimumParameters = new Aws.Odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters", new()
     ///     {
-    ///         CloudExadataInfrastructureId = "&lt;exadata_infra_id&gt;",
-    ///         OdbNetworkId = "&lt;odb_net_id&gt;",
-    ///         DisplayName = "Ofake-avmc-my_avmc",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
+    ///         DisplayName = "my_autonomous_vm_cluster",
     ///         AutonomousDataStorageSizeInTbs = 5,
     ///         MemoryPerOracleComputeUnitInGbs = 2,
     ///         TotalContainerDatabases = 1,
@@ -52,9 +52,9 @@ namespace Pulumi.Aws.Odb
     ///     {
     ///         Description = "my first avmc",
     ///         TimeZone = "UTC",
-    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure.test.id&gt;",
-    ///         OdbNetworkId = "&lt;aws_odb_network.test.id&gt;",
-    ///         DisplayName = "Ofake_my avmc",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
+    ///         DisplayName = "my_autonomous_vm_cluster",
     ///         AutonomousDataStorageSizeInTbs = 5,
     ///         MemoryPerOracleComputeUnitInGbs = 2,
     ///         TotalContainerDatabases = 1,

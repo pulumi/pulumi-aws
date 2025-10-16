@@ -341,6 +341,22 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.artifacts;
     }
     /**
+     * Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     * 
+     */
+    @Export(name="autoRetryLimit", refs={Integer.class}, tree="[0]")
+    private Output<Integer> autoRetryLimit;
+
+    /**
+     * @return Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     * 
+     */
+    public Output<Integer> autoRetryLimit() {
+        return this.autoRetryLimit;
+    }
+    /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      * 

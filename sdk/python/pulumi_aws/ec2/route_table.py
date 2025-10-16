@@ -33,6 +33,8 @@ class RouteTableArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+               
+               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -87,6 +89,8 @@ class RouteTableArgs:
         """
         A list of route objects. Their keys are documented below.
         This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+
+        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         """
         return pulumi.get(self, "routes")
 
@@ -126,6 +130,8 @@ class _RouteTableState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+               
+               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
@@ -201,6 +207,8 @@ class _RouteTableState:
         """
         A list of route objects. Their keys are documented below.
         This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+
+        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         """
         return pulumi.get(self, "routes")
 
@@ -259,12 +267,6 @@ class RouteTable(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a resource to create a VPC routing table.
-
-        > **NOTE on Route Tables and Routes:** This provider currently
-        provides both a standalone Route resource and a Route Table resource with routes
-        defined in-line. At this time you cannot use a Route Table with in-line routes
-        in conjunction with any Route resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
 
         > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
         attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
@@ -384,6 +386,8 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+               
+               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
         """
@@ -395,12 +399,6 @@ class RouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a VPC routing table.
-
-        > **NOTE on Route Tables and Routes:** This provider currently
-        provides both a standalone Route resource and a Route Table resource with routes
-        defined in-line. At this time you cannot use a Route Table with in-line routes
-        in conjunction with any Route resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
 
         > **NOTE on `gateway_id` and `nat_gateway_id`:** The AWS API is very forgiving with these two
         attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
@@ -584,6 +582,8 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+               
+               > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID.
@@ -640,6 +640,8 @@ class RouteTable(pulumi.CustomResource):
         """
         A list of route objects. Their keys are documented below.
         This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+
+        > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         """
         return pulumi.get(self, "routes")
 

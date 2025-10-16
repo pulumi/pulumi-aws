@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lambda.inputs;
 
+import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -30,10 +31,26 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs exten
         return Optional.ofNullable(this.consumerGroupId);
     }
 
+    /**
+     * Block for a Kafka schema registry setting. See below.
+     * 
+     */
+    @Import(name="schemaRegistryConfig")
+    private @Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs> schemaRegistryConfig;
+
+    /**
+     * @return Block for a Kafka schema registry setting. See below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs>> schemaRegistryConfig() {
+        return Optional.ofNullable(this.schemaRegistryConfig);
+    }
+
     private EventSourceMappingSelfManagedKafkaEventSourceConfigArgs() {}
 
     private EventSourceMappingSelfManagedKafkaEventSourceConfigArgs(EventSourceMappingSelfManagedKafkaEventSourceConfigArgs $) {
         this.consumerGroupId = $.consumerGroupId;
+        this.schemaRegistryConfig = $.schemaRegistryConfig;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs exten
          */
         public Builder consumerGroupId(String consumerGroupId) {
             return consumerGroupId(Output.of(consumerGroupId));
+        }
+
+        /**
+         * @param schemaRegistryConfig Block for a Kafka schema registry setting. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryConfig(@Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs> schemaRegistryConfig) {
+            $.schemaRegistryConfig = schemaRegistryConfig;
+            return this;
+        }
+
+        /**
+         * @param schemaRegistryConfig Block for a Kafka schema registry setting. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryConfig(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs schemaRegistryConfig) {
+            return schemaRegistryConfig(Output.of(schemaRegistryConfig));
         }
 
         public EventSourceMappingSelfManagedKafkaEventSourceConfigArgs build() {

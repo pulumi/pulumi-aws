@@ -73,11 +73,17 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `arn` (String) Amazon Resource Name (ARN) of the contact.
+    /// 
     /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
-    /// ```sh
-    /// $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
-    /// ```
+    /// console
+    /// 
+    /// % pulumi import aws_ssmcontacts_contact.example {ARNValue}
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contact:Contact")]
     public partial class Contact : global::Pulumi.CustomResource

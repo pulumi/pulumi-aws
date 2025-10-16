@@ -10,6 +10,7 @@ import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInteractiveConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationNetworkConfigurationArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationSchedulerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -191,6 +192,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     * 
+     */
+    @Import(name="schedulerConfiguration")
+    private @Nullable Output<ApplicationSchedulerConfigurationArgs> schedulerConfiguration;
+
+    /**
+     * @return Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     * 
+     */
+    public Optional<Output<ApplicationSchedulerConfigurationArgs>> schedulerConfiguration() {
+        return Optional.ofNullable(this.schedulerConfiguration);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -234,6 +250,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         this.networkConfiguration = $.networkConfiguration;
         this.region = $.region;
         this.releaseLabel = $.releaseLabel;
+        this.schedulerConfiguration = $.schedulerConfiguration;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -495,6 +512,27 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder releaseLabel(String releaseLabel) {
             return releaseLabel(Output.of(releaseLabel));
+        }
+
+        /**
+         * @param schedulerConfiguration Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulerConfiguration(@Nullable Output<ApplicationSchedulerConfigurationArgs> schedulerConfiguration) {
+            $.schedulerConfiguration = schedulerConfiguration;
+            return this;
+        }
+
+        /**
+         * @param schedulerConfiguration Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulerConfiguration(ApplicationSchedulerConfigurationArgs schedulerConfiguration) {
+            return schedulerConfiguration(Output.of(schedulerConfiguration));
         }
 
         /**

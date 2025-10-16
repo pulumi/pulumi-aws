@@ -56,7 +56,7 @@ import (
 //					},
 //					RoutingPolicy: pulumi.String("MULTIVALUE"),
 //				},
-//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
+//				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
 //					FailureThreshold: pulumi.Int(1),
 //				},
 //			})
@@ -134,7 +134,7 @@ type Service struct {
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfig ServiceHealthCheckConfigPtrOutput `pulumi:"healthCheckConfig"`
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrOutput `pulumi:"healthCheckCustomConfig"`
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -189,7 +189,7 @@ type serviceState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
@@ -215,7 +215,7 @@ type ServiceState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfig ServiceHealthCheckConfigPtrInput
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
@@ -243,7 +243,7 @@ type serviceArgs struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
@@ -267,7 +267,7 @@ type ServiceArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfig ServiceHealthCheckConfigPtrInput
-	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+	// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o ServiceOutput) HealthCheckConfig() ServiceHealthCheckConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigPtrOutput { return v.HealthCheckConfig }).(ServiceHealthCheckConfigPtrOutput)
 }
 
-// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+// Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
 func (o ServiceOutput) HealthCheckCustomConfig() ServiceHealthCheckCustomConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckCustomConfigPtrOutput { return v.HealthCheckCustomConfig }).(ServiceHealthCheckCustomConfigPtrOutput)
 }

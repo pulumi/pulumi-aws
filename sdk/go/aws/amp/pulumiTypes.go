@@ -572,6 +572,181 @@ func (o QueryLoggingConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourcePolicyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ResourcePolicyTimeoutsInput is an input type that accepts ResourcePolicyTimeoutsArgs and ResourcePolicyTimeoutsOutput values.
+// You can construct a concrete instance of `ResourcePolicyTimeoutsInput` via:
+//
+//	ResourcePolicyTimeoutsArgs{...}
+type ResourcePolicyTimeoutsInput interface {
+	pulumi.Input
+
+	ToResourcePolicyTimeoutsOutput() ResourcePolicyTimeoutsOutput
+	ToResourcePolicyTimeoutsOutputWithContext(context.Context) ResourcePolicyTimeoutsOutput
+}
+
+type ResourcePolicyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ResourcePolicyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyTimeouts)(nil)).Elem()
+}
+
+func (i ResourcePolicyTimeoutsArgs) ToResourcePolicyTimeoutsOutput() ResourcePolicyTimeoutsOutput {
+	return i.ToResourcePolicyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyTimeoutsArgs) ToResourcePolicyTimeoutsOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTimeoutsOutput)
+}
+
+func (i ResourcePolicyTimeoutsArgs) ToResourcePolicyTimeoutsPtrOutput() ResourcePolicyTimeoutsPtrOutput {
+	return i.ToResourcePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyTimeoutsArgs) ToResourcePolicyTimeoutsPtrOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTimeoutsOutput).ToResourcePolicyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ResourcePolicyTimeoutsPtrInput is an input type that accepts ResourcePolicyTimeoutsArgs, ResourcePolicyTimeoutsPtr and ResourcePolicyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ResourcePolicyTimeoutsPtrInput` via:
+//
+//	        ResourcePolicyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourcePolicyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToResourcePolicyTimeoutsPtrOutput() ResourcePolicyTimeoutsPtrOutput
+	ToResourcePolicyTimeoutsPtrOutputWithContext(context.Context) ResourcePolicyTimeoutsPtrOutput
+}
+
+type resourcePolicyTimeoutsPtrType ResourcePolicyTimeoutsArgs
+
+func ResourcePolicyTimeoutsPtr(v *ResourcePolicyTimeoutsArgs) ResourcePolicyTimeoutsPtrInput {
+	return (*resourcePolicyTimeoutsPtrType)(v)
+}
+
+func (*resourcePolicyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicyTimeouts)(nil)).Elem()
+}
+
+func (i *resourcePolicyTimeoutsPtrType) ToResourcePolicyTimeoutsPtrOutput() ResourcePolicyTimeoutsPtrOutput {
+	return i.ToResourcePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourcePolicyTimeoutsPtrType) ToResourcePolicyTimeoutsPtrOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTimeoutsPtrOutput)
+}
+
+type ResourcePolicyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyTimeouts)(nil)).Elem()
+}
+
+func (o ResourcePolicyTimeoutsOutput) ToResourcePolicyTimeoutsOutput() ResourcePolicyTimeoutsOutput {
+	return o
+}
+
+func (o ResourcePolicyTimeoutsOutput) ToResourcePolicyTimeoutsOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsOutput {
+	return o
+}
+
+func (o ResourcePolicyTimeoutsOutput) ToResourcePolicyTimeoutsPtrOutput() ResourcePolicyTimeoutsPtrOutput {
+	return o.ToResourcePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourcePolicyTimeoutsOutput) ToResourcePolicyTimeoutsPtrOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicyTimeouts) *ResourcePolicyTimeouts {
+		return &v
+	}).(ResourcePolicyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourcePolicyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourcePolicyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourcePolicyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ResourcePolicyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourcePolicyTimeouts)(nil)).Elem()
+}
+
+func (o ResourcePolicyTimeoutsPtrOutput) ToResourcePolicyTimeoutsPtrOutput() ResourcePolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyTimeoutsPtrOutput) ToResourcePolicyTimeoutsPtrOutputWithContext(ctx context.Context) ResourcePolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourcePolicyTimeoutsPtrOutput) Elem() ResourcePolicyTimeoutsOutput {
+	return o.ApplyT(func(v *ResourcePolicyTimeouts) ResourcePolicyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ResourcePolicyTimeouts
+		return ret
+	}).(ResourcePolicyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourcePolicyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourcePolicyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourcePolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScraperDestination struct {
 	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
 	Amp *ScraperDestinationAmp `pulumi:"amp"`
@@ -2032,6 +2207,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationFiltersPtrInput)(nil)).Elem(), QueryLoggingConfigurationDestinationFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsPtrInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyTimeoutsInput)(nil)).Elem(), ResourcePolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyTimeoutsPtrInput)(nil)).Elem(), ResourcePolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationPtrInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
@@ -2060,6 +2237,8 @@ func init() {
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationFiltersPtrOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyTimeoutsOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpOutput{})

@@ -4988,7 +4988,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                Cannot be used with `snapshot_id`.
         :param _builtins.int iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
                This must be set with a `volume_type` of `"io1/io2/gp3"`.
-        :param _builtins.str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        :param _builtins.str kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
                `encrypted` must be set to `true` when this is set.
         :param _builtins.str snapshot_id: The Snapshot ID to mount.
         :param _builtins.int throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
@@ -5047,7 +5047,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         `encrypted` must be set to `true` when this is set.
         """
         return pulumi.get(self, "kms_key_id")

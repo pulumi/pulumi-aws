@@ -150,6 +150,8 @@ type Application struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
+	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+	SchedulerConfiguration ApplicationSchedulerConfigurationPtrOutput `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -218,6 +220,8 @@ type applicationState struct {
 	Region *string `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
+	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -251,6 +255,8 @@ type ApplicationState struct {
 	Region pulumi.StringPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringPtrInput
+	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -286,6 +292,8 @@ type applicationArgs struct {
 	Region *string `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel string `pulumi:"releaseLabel"`
+	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of application you want to start, such as `spark` or `hive`.
@@ -316,6 +324,8 @@ type ApplicationArgs struct {
 	Region pulumi.StringPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringInput
+	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of application you want to start, such as `spark` or `hive`.
@@ -467,6 +477,11 @@ func (o ApplicationOutput) Region() pulumi.StringOutput {
 // The EMR release version associated with the application.
 func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
+}
+
+// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+func (o ApplicationOutput) SchedulerConfiguration() ApplicationSchedulerConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationSchedulerConfigurationPtrOutput { return v.SchedulerConfiguration }).(ApplicationSchedulerConfigurationPtrOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

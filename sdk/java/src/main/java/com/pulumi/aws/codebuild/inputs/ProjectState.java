@@ -61,6 +61,23 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     * 
+     */
+    @Import(name="autoRetryLimit")
+    private @Nullable Output<Integer> autoRetryLimit;
+
+    /**
+     * @return Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     * 
+     */
+    public Optional<Output<Integer>> autoRetryLimit() {
+        return Optional.ofNullable(this.autoRetryLimit);
+    }
+
+    /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      * 
@@ -489,6 +506,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     private ProjectState(ProjectState $) {
         this.arn = $.arn;
         this.artifacts = $.artifacts;
+        this.autoRetryLimit = $.autoRetryLimit;
         this.badgeEnabled = $.badgeEnabled;
         this.badgeUrl = $.badgeUrl;
         this.buildBatchConfig = $.buildBatchConfig;
@@ -575,6 +593,29 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder artifacts(ProjectArtifactsArgs artifacts) {
             return artifacts(Output.of(artifacts));
+        }
+
+        /**
+         * @param autoRetryLimit Specify a maximum number of additional automatic retries after a failed build.
+         * The default is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRetryLimit(@Nullable Output<Integer> autoRetryLimit) {
+            $.autoRetryLimit = autoRetryLimit;
+            return this;
+        }
+
+        /**
+         * @param autoRetryLimit Specify a maximum number of additional automatic retries after a failed build.
+         * The default is 0.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRetryLimit(Integer autoRetryLimit) {
+            return autoRetryLimit(Output.of(autoRetryLimit));
         }
 
         /**

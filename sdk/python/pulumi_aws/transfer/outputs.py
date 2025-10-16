@@ -28,6 +28,9 @@ __all__ = [
     'ServerWorkflowDetailsOnUpload',
     'UserHomeDirectoryMapping',
     'UserPosixProfile',
+    'WebAppIdentityProviderDetails',
+    'WebAppIdentityProviderDetailsIdentityCenterConfig',
+    'WebAppWebAppUnit',
     'WorkflowOnExceptionStep',
     'WorkflowOnExceptionStepCopyStepDetails',
     'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation',
@@ -780,6 +783,112 @@ class UserPosixProfile(dict):
         The secondary POSIX group IDs used for all EFS operations by this user.
         """
         return pulumi.get(self, "secondary_gids")
+
+
+@pulumi.output_type
+class WebAppIdentityProviderDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenterConfig":
+            suggest = "identity_center_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppIdentityProviderDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppIdentityProviderDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppIdentityProviderDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center_config: Optional['outputs.WebAppIdentityProviderDetailsIdentityCenterConfig'] = None):
+        """
+        :param 'WebAppIdentityProviderDetailsIdentityCenterConfigArgs' identity_center_config: Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        """
+        if identity_center_config is not None:
+            pulumi.set(__self__, "identity_center_config", identity_center_config)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfig")
+    def identity_center_config(self) -> Optional['outputs.WebAppIdentityProviderDetailsIdentityCenterConfig']:
+        """
+        Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        """
+        return pulumi.get(self, "identity_center_config")
+
+
+@pulumi.output_type
+class WebAppIdentityProviderDetailsIdentityCenterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "instanceArn":
+            suggest = "instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAppIdentityProviderDetailsIdentityCenterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAppIdentityProviderDetailsIdentityCenterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAppIdentityProviderDetailsIdentityCenterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_arn: Optional[_builtins.str] = None,
+                 instance_arn: Optional[_builtins.str] = None,
+                 role: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str instance_arn: ARN of the IAM Identity Center used for the web app.
+        :param _builtins.str role: ARN of an identity bearer role for your web app.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "application_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> Optional[_builtins.str]:
+        """
+        ARN of an identity bearer role for your web app.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class WebAppWebAppUnit(dict):
+    def __init__(__self__, *,
+                 provisioned: _builtins.int):
+        pulumi.set(__self__, "provisioned", provisioned)
+
+    @_builtins.property
+    @pulumi.getter
+    def provisioned(self) -> _builtins.int:
+        return pulumi.get(self, "provisioned")
 
 
 @pulumi.output_type

@@ -861,6 +861,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "amp/resourcePolicy",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "amp/ruleGroupNamespace",
   "fqn": "pulumi_aws.amp",
   "classes": {
@@ -12341,6 +12349,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "transfer/hostKey",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/hostKey:HostKey": "HostKey"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "transfer/profile",
   "fqn": "pulumi_aws.transfer",
   "classes": {
@@ -12377,6 +12393,22 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/webApp",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/webApp:WebApp": "WebApp"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/webAppCustomization",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/webAppCustomization:WebAppCustomization": "WebAppCustomization"
   }
  },
  {

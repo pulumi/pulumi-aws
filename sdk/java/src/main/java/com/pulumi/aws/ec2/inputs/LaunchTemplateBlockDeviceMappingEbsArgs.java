@@ -68,7 +68,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     }
 
     /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
      * `encrypted` must be set to `true` when this is set.
      * 
      */
@@ -76,7 +76,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+     * @return Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
      * `encrypted` must be set to `true` when this is set.
      * 
      */
@@ -263,7 +263,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * @param kmsKeyId Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
          * `encrypted` must be set to `true` when this is set.
          * 
          * @return builder
@@ -275,7 +275,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+         * @param kmsKeyId Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
          * `encrypted` must be set to `true` when this is set.
          * 
          * @return builder

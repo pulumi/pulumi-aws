@@ -13,27 +13,93 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetDbSystemShapesDbSystemShapeResult
     {
+        /// <summary>
+        /// The maximum number of CPU cores that can be enabled for the shape.
+        /// </summary>
         public readonly int AvailableCoreCount;
+        /// <summary>
+        /// The maximum number of CPU cores per DB node that can be enabled for the shape.
+        /// </summary>
         public readonly int AvailableCoreCountPerNode;
+        /// <summary>
+        /// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+        /// </summary>
         public readonly int AvailableDataStorageInTbs;
+        /// <summary>
+        /// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+        /// </summary>
         public readonly int AvailableDataStoragePerServerInTbs;
+        /// <summary>
+        /// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+        /// </summary>
         public readonly int AvailableDbNodePerNodeInGbs;
+        /// <summary>
+        /// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+        /// </summary>
         public readonly int AvailableDbNodeStorageInGbs;
+        /// <summary>
+        /// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+        /// </summary>
         public readonly int AvailableMemoryInGbs;
+        /// <summary>
+        /// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+        /// </summary>
         public readonly int AvailableMemoryPerNodeInGbs;
+        /// <summary>
+        /// The discrete number by which the CPU core count for the shape can be increased or decreased.
+        /// </summary>
         public readonly int CoreCountIncrement;
+        /// <summary>
+        /// The maximum number of Exadata storage servers available for the shape.
+        /// </summary>
         public readonly int MaxStorageCount;
+        /// <summary>
+        /// The maximum number of compute servers available for the shape.
+        /// </summary>
         public readonly int MaximumNodeCount;
+        /// <summary>
+        /// The minimum number of CPU cores that can be enabled per node for the shape.
+        /// </summary>
         public readonly int MinCoreCountPerNode;
+        /// <summary>
+        /// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+        /// </summary>
         public readonly int MinDataStorageInTbs;
+        /// <summary>
+        /// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+        /// </summary>
         public readonly int MinDbNodeStoragePerNodeInGbs;
+        /// <summary>
+        /// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+        /// </summary>
         public readonly int MinMemoryPerNodeInGbs;
+        /// <summary>
+        /// The minimum number of Exadata storage servers available for the shape.
+        /// </summary>
         public readonly int MinStorageCount;
+        /// <summary>
+        /// The minimum number of CPU cores that can be enabled for the shape.
+        /// </summary>
         public readonly int MinimumCoreCount;
+        /// <summary>
+        /// The minimum number of compute servers available for the shape.
+        /// </summary>
         public readonly int MinimumNodeCount;
+        /// <summary>
+        /// The name of the shape.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The runtime minimum number of CPU cores that can be enabled for the shape.
+        /// </summary>
         public readonly int RuntimeMinimumCoreCount;
+        /// <summary>
+        /// The family of the shape.
+        /// </summary>
         public readonly string ShapeFamily;
+        /// <summary>
+        /// The shape type, determined by the CPU hardware.
+        /// </summary>
         public readonly string ShapeType;
 
         [OutputConstructor]

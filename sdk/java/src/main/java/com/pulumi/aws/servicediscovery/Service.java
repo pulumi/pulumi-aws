@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.servicediscovery.Service;
  * import com.pulumi.aws.servicediscovery.ServiceArgs;
  * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .routingPolicy("MULTIVALUE")
  *                 .build())
- *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
+ *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
  *                 .failureThreshold(1)
  *                 .build())
  *             .build());
@@ -218,14 +218,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.healthCheckConfig);
     }
     /**
-     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      * 
      */
     @Export(name="healthCheckCustomConfig", refs={ServiceHealthCheckCustomConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * @return Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      * 
      */
     public Output<Optional<ServiceHealthCheckCustomConfig>> healthCheckCustomConfig() {

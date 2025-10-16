@@ -568,16 +568,19 @@ class Permissions(pulumi.CustomResource):
 
         AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
 
-        resource "lakeformation.Permissions" "example" {
-          permissions = ["SELECT"]
-          principal   = "123456789012:IAMPrincipals"
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-          table_with_columns {
-            database_name = aws_glue_catalog_table.example.database_name
-            name          = aws_glue_catalog_table.example.name
-            column_names  = ["event"]
-          }
-        }
+        example = aws.lakeformation.Permissions("example",
+            permissions=["SELECT"],
+            principal="123456789012:IAMPrincipals",
+            table_with_columns={
+                "database_name": example_aws_glue_catalog_table["databaseName"],
+                "name": example_aws_glue_catalog_table["name"],
+                "column_names": ["event"],
+            })
+        ```
 
         ## Using Lake Formation Permissions
 
@@ -757,16 +760,19 @@ class Permissions(pulumi.CustomResource):
 
         AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
 
-        resource "lakeformation.Permissions" "example" {
-          permissions = ["SELECT"]
-          principal   = "123456789012:IAMPrincipals"
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-          table_with_columns {
-            database_name = aws_glue_catalog_table.example.database_name
-            name          = aws_glue_catalog_table.example.name
-            column_names  = ["event"]
-          }
-        }
+        example = aws.lakeformation.Permissions("example",
+            permissions=["SELECT"],
+            principal="123456789012:IAMPrincipals",
+            table_with_columns={
+                "database_name": example_aws_glue_catalog_table["databaseName"],
+                "name": example_aws_glue_catalog_table["name"],
+                "column_names": ["event"],
+            })
+        ```
 
         ## Using Lake Formation Permissions
 

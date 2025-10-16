@@ -283,6 +283,11 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly artifacts: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
     /**
+     * Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     */
+    declare public readonly autoRetryLimit: pulumi.Output<number>;
+    /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      */
@@ -419,6 +424,7 @@ export class Project extends pulumi.CustomResource {
             const state = argsOrState as ProjectState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["artifacts"] = state?.artifacts;
+            resourceInputs["autoRetryLimit"] = state?.autoRetryLimit;
             resourceInputs["badgeEnabled"] = state?.badgeEnabled;
             resourceInputs["badgeUrl"] = state?.badgeUrl;
             resourceInputs["buildBatchConfig"] = state?.buildBatchConfig;
@@ -460,6 +466,7 @@ export class Project extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             resourceInputs["artifacts"] = args?.artifacts;
+            resourceInputs["autoRetryLimit"] = args?.autoRetryLimit;
             resourceInputs["badgeEnabled"] = args?.badgeEnabled;
             resourceInputs["buildBatchConfig"] = args?.buildBatchConfig;
             resourceInputs["buildTimeout"] = args?.buildTimeout;
@@ -505,6 +512,11 @@ export interface ProjectState {
      * Configuration block. Detailed below.
      */
     artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    /**
+     * Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     */
+    autoRetryLimit?: pulumi.Input<number>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
@@ -636,6 +648,11 @@ export interface ProjectArgs {
      * Configuration block. Detailed below.
      */
     artifacts: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    /**
+     * Specify a maximum number of additional automatic retries after a failed build.
+     * The default is 0.
+     */
+    autoRetryLimit?: pulumi.Input<number>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.

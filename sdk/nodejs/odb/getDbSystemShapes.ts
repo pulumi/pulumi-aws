@@ -52,7 +52,7 @@ export interface GetDbSystemShapesArgs {
 export interface GetDbSystemShapesResult {
     readonly availabilityZoneId?: string;
     /**
-     * IThe list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+     * The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
      */
     readonly dbSystemShapes: outputs.odb.GetDbSystemShapesDbSystemShape[];
     /**

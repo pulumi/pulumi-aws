@@ -3254,6 +3254,168 @@ func (o GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput) Index(i pu
 	}).(GetCloudAutonomousVmClusterMaintenanceWindowMonthOutput)
 }
 
+type GetCloudAutonomousVmClustersCloudAutonomousVmCluster struct {
+	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	Arn string `pulumi:"arn"`
+	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
+	// The display name of the Autonomous VM cluster.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier of the cloud autonomous vm cluster.
+	Id string `pulumi:"id"`
+	// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
+	// The URL for accessing the OCI console page for this Autonomous VM cluster.
+	OciUrl string `pulumi:"ociUrl"`
+	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+	Ocid string `pulumi:"ocid"`
+	// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+	OdbNetworkId string `pulumi:"odbNetworkId"`
+}
+
+// GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput is an input type that accepts GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs and GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput values.
+// You can construct a concrete instance of `GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput` via:
+//
+//	GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs{...}
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput interface {
+	pulumi.Input
+
+	ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput
+	ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutputWithContext(context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput
+}
+
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs struct {
+	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
+	// The display name of the Autonomous VM cluster.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The unique identifier of the cloud autonomous vm cluster.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
+	// The URL for accessing the OCI console page for this Autonomous VM cluster.
+	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
+	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+	Ocid pulumi.StringInput `pulumi:"ocid"`
+	// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+	OdbNetworkId pulumi.StringInput `pulumi:"odbNetworkId"`
+}
+
+func (GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudAutonomousVmClustersCloudAutonomousVmCluster)(nil)).Elem()
+}
+
+func (i GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput {
+	return i.ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutputWithContext(context.Background())
+}
+
+func (i GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutputWithContext(ctx context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput)
+}
+
+// GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayInput is an input type that accepts GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray and GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput values.
+// You can construct a concrete instance of `GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayInput` via:
+//
+//	GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray{ GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs{...} }
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput
+	ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutputWithContext(context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput
+}
+
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray []GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput
+
+func (GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudAutonomousVmClustersCloudAutonomousVmCluster)(nil)).Elem()
+}
+
+func (i GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput {
+	return i.ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutputWithContext(ctx context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput)
+}
+
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput struct{ *pulumi.OutputState }
+
+func (GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudAutonomousVmClustersCloudAutonomousVmCluster)(nil)).Elem()
+}
+
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput {
+	return o
+}
+
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterOutputWithContext(ctx context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string {
+		return v.CloudExadataInfrastructureId
+	}).(pulumi.StringOutput)
+}
+
+// The display name of the Autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the cloud autonomous vm cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OciResourceAnchorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
+}
+
+// The URL for accessing the OCI console page for this Autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OciUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OciUrl }).(pulumi.StringOutput)
+}
+
+// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OdbNetworkId }).(pulumi.StringOutput)
+}
+
+type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudAutonomousVmClustersCloudAutonomousVmCluster)(nil)).Elem()
+}
+
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput() GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput {
+	return o
+}
+
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput) ToGetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutputWithContext(ctx context.Context) GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput {
+	return o
+}
+
+func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput) Index(i pulumi.IntInput) GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
+		return vs[0].([]GetCloudAutonomousVmClustersCloudAutonomousVmCluster)[vs[1].(int)]
+	}).(GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput)
+}
+
 type GetCloudExadataInfrastructureCustomerContactsToSendToOci struct {
 	Email string `pulumi:"email"`
 }
@@ -3682,6 +3844,150 @@ func (o GetCloudExadataInfrastructureMaintenanceWindowMonthArrayOutput) Index(i 
 	}).(GetCloudExadataInfrastructureMaintenanceWindowMonthOutput)
 }
 
+type GetCloudExadataInfrastructuresCloudExadataInfrastructure struct {
+	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	Arn string `pulumi:"arn"`
+	// The display name of the Exadata infrastructure.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier of the Exadata infrastructure.
+	Id string `pulumi:"id"`
+	// The name of the OCI resource anchor for the Exadata infrastructure.
+	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
+	// The HTTPS link to the Exadata infrastructure in OCI.
+	OciUrl string `pulumi:"ociUrl"`
+	// The OCID of the Exadata infrastructure in OCI.
+	Ocid string `pulumi:"ocid"`
+}
+
+// GetCloudExadataInfrastructuresCloudExadataInfrastructureInput is an input type that accepts GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs and GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput values.
+// You can construct a concrete instance of `GetCloudExadataInfrastructuresCloudExadataInfrastructureInput` via:
+//
+//	GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs{...}
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureInput interface {
+	pulumi.Input
+
+	ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput
+	ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutputWithContext(context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput
+}
+
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs struct {
+	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The display name of the Exadata infrastructure.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The unique identifier of the Exadata infrastructure.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the OCI resource anchor for the Exadata infrastructure.
+	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
+	// The HTTPS link to the Exadata infrastructure in OCI.
+	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
+	// The OCID of the Exadata infrastructure in OCI.
+	Ocid pulumi.StringInput `pulumi:"ocid"`
+}
+
+func (GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudExadataInfrastructuresCloudExadataInfrastructure)(nil)).Elem()
+}
+
+func (i GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput {
+	return i.ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutputWithContext(context.Background())
+}
+
+func (i GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutputWithContext(ctx context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput)
+}
+
+// GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayInput is an input type that accepts GetCloudExadataInfrastructuresCloudExadataInfrastructureArray and GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput values.
+// You can construct a concrete instance of `GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayInput` via:
+//
+//	GetCloudExadataInfrastructuresCloudExadataInfrastructureArray{ GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs{...} }
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput
+	ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutputWithContext(context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput
+}
+
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureArray []GetCloudExadataInfrastructuresCloudExadataInfrastructureInput
+
+func (GetCloudExadataInfrastructuresCloudExadataInfrastructureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudExadataInfrastructuresCloudExadataInfrastructure)(nil)).Elem()
+}
+
+func (i GetCloudExadataInfrastructuresCloudExadataInfrastructureArray) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput {
+	return i.ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudExadataInfrastructuresCloudExadataInfrastructureArray) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutputWithContext(ctx context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput)
+}
+
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput struct{ *pulumi.OutputState }
+
+func (GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudExadataInfrastructuresCloudExadataInfrastructure)(nil)).Elem()
+}
+
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput {
+	return o
+}
+
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureOutputWithContext(ctx context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The display name of the Exadata infrastructure.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the Exadata infrastructure.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the OCI resource anchor for the Exadata infrastructure.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) OciResourceAnchorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string {
+		return v.OciResourceAnchorName
+	}).(pulumi.StringOutput)
+}
+
+// The HTTPS link to the Exadata infrastructure in OCI.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) OciUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.OciUrl }).(pulumi.StringOutput)
+}
+
+// The OCID of the Exadata infrastructure in OCI.
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+type GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudExadataInfrastructuresCloudExadataInfrastructure)(nil)).Elem()
+}
+
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput() GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput {
+	return o
+}
+
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput) ToGetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutputWithContext(ctx context.Context) GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput {
+	return o
+}
+
+func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput) Index(i pulumi.IntInput) GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudExadataInfrastructuresCloudExadataInfrastructure {
+		return vs[0].([]GetCloudExadataInfrastructuresCloudExadataInfrastructure)[vs[1].(int)]
+	}).(GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput)
+}
+
 type GetCloudVmClusterDataCollectionOption struct {
 	IsDiagnosticsEventsEnabled bool `pulumi:"isDiagnosticsEventsEnabled"`
 	IsHealthMonitoringEnabled  bool `pulumi:"isHealthMonitoringEnabled"`
@@ -4004,6 +4310,166 @@ func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterIormConfigCachDbPlan {
 		return vs[0].([]GetCloudVmClusterIormConfigCachDbPlan)[vs[1].(int)]
 	}).(GetCloudVmClusterIormConfigCachDbPlanOutput)
+}
+
+type GetCloudVmClustersCloudVmCluster struct {
+	// The Amazon Resource Name (ARN) for the cloud vm cluster.
+	Arn string `pulumi:"arn"`
+	// The ID of the Cloud Exadata Infrastructure.
+	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
+	// The display name of the VM cluster.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier of the cloud vm cluster.
+	Id string `pulumi:"id"`
+	// The name of the OCI Resource Anchor.
+	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
+	// The HTTPS link to the VM cluster in OCI.
+	OciUrl string `pulumi:"ociUrl"`
+	// The OCID of the VM cluster.
+	Ocid string `pulumi:"ocid"`
+	// The ID of the ODB network.
+	OdbNetworkId string `pulumi:"odbNetworkId"`
+}
+
+// GetCloudVmClustersCloudVmClusterInput is an input type that accepts GetCloudVmClustersCloudVmClusterArgs and GetCloudVmClustersCloudVmClusterOutput values.
+// You can construct a concrete instance of `GetCloudVmClustersCloudVmClusterInput` via:
+//
+//	GetCloudVmClustersCloudVmClusterArgs{...}
+type GetCloudVmClustersCloudVmClusterInput interface {
+	pulumi.Input
+
+	ToGetCloudVmClustersCloudVmClusterOutput() GetCloudVmClustersCloudVmClusterOutput
+	ToGetCloudVmClustersCloudVmClusterOutputWithContext(context.Context) GetCloudVmClustersCloudVmClusterOutput
+}
+
+type GetCloudVmClustersCloudVmClusterArgs struct {
+	// The Amazon Resource Name (ARN) for the cloud vm cluster.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The ID of the Cloud Exadata Infrastructure.
+	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
+	// The display name of the VM cluster.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The unique identifier of the cloud vm cluster.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the OCI Resource Anchor.
+	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
+	// The HTTPS link to the VM cluster in OCI.
+	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
+	// The OCID of the VM cluster.
+	Ocid pulumi.StringInput `pulumi:"ocid"`
+	// The ID of the ODB network.
+	OdbNetworkId pulumi.StringInput `pulumi:"odbNetworkId"`
+}
+
+func (GetCloudVmClustersCloudVmClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClustersCloudVmCluster)(nil)).Elem()
+}
+
+func (i GetCloudVmClustersCloudVmClusterArgs) ToGetCloudVmClustersCloudVmClusterOutput() GetCloudVmClustersCloudVmClusterOutput {
+	return i.ToGetCloudVmClustersCloudVmClusterOutputWithContext(context.Background())
+}
+
+func (i GetCloudVmClustersCloudVmClusterArgs) ToGetCloudVmClustersCloudVmClusterOutputWithContext(ctx context.Context) GetCloudVmClustersCloudVmClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClustersCloudVmClusterOutput)
+}
+
+// GetCloudVmClustersCloudVmClusterArrayInput is an input type that accepts GetCloudVmClustersCloudVmClusterArray and GetCloudVmClustersCloudVmClusterArrayOutput values.
+// You can construct a concrete instance of `GetCloudVmClustersCloudVmClusterArrayInput` via:
+//
+//	GetCloudVmClustersCloudVmClusterArray{ GetCloudVmClustersCloudVmClusterArgs{...} }
+type GetCloudVmClustersCloudVmClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudVmClustersCloudVmClusterArrayOutput() GetCloudVmClustersCloudVmClusterArrayOutput
+	ToGetCloudVmClustersCloudVmClusterArrayOutputWithContext(context.Context) GetCloudVmClustersCloudVmClusterArrayOutput
+}
+
+type GetCloudVmClustersCloudVmClusterArray []GetCloudVmClustersCloudVmClusterInput
+
+func (GetCloudVmClustersCloudVmClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClustersCloudVmCluster)(nil)).Elem()
+}
+
+func (i GetCloudVmClustersCloudVmClusterArray) ToGetCloudVmClustersCloudVmClusterArrayOutput() GetCloudVmClustersCloudVmClusterArrayOutput {
+	return i.ToGetCloudVmClustersCloudVmClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudVmClustersCloudVmClusterArray) ToGetCloudVmClustersCloudVmClusterArrayOutputWithContext(ctx context.Context) GetCloudVmClustersCloudVmClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClustersCloudVmClusterArrayOutput)
+}
+
+type GetCloudVmClustersCloudVmClusterOutput struct{ *pulumi.OutputState }
+
+func (GetCloudVmClustersCloudVmClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClustersCloudVmCluster)(nil)).Elem()
+}
+
+func (o GetCloudVmClustersCloudVmClusterOutput) ToGetCloudVmClustersCloudVmClusterOutput() GetCloudVmClustersCloudVmClusterOutput {
+	return o
+}
+
+func (o GetCloudVmClustersCloudVmClusterOutput) ToGetCloudVmClustersCloudVmClusterOutputWithContext(ctx context.Context) GetCloudVmClustersCloudVmClusterOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for the cloud vm cluster.
+func (o GetCloudVmClustersCloudVmClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the Cloud Exadata Infrastructure.
+func (o GetCloudVmClustersCloudVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
+}
+
+// The display name of the VM cluster.
+func (o GetCloudVmClustersCloudVmClusterOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the cloud vm cluster.
+func (o GetCloudVmClustersCloudVmClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the OCI Resource Anchor.
+func (o GetCloudVmClustersCloudVmClusterOutput) OciResourceAnchorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
+}
+
+// The HTTPS link to the VM cluster in OCI.
+func (o GetCloudVmClustersCloudVmClusterOutput) OciUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OciUrl }).(pulumi.StringOutput)
+}
+
+// The OCID of the VM cluster.
+func (o GetCloudVmClustersCloudVmClusterOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The ID of the ODB network.
+func (o GetCloudVmClustersCloudVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OdbNetworkId }).(pulumi.StringOutput)
+}
+
+type GetCloudVmClustersCloudVmClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudVmClustersCloudVmClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClustersCloudVmCluster)(nil)).Elem()
+}
+
+func (o GetCloudVmClustersCloudVmClusterArrayOutput) ToGetCloudVmClustersCloudVmClusterArrayOutput() GetCloudVmClustersCloudVmClusterArrayOutput {
+	return o
+}
+
+func (o GetCloudVmClustersCloudVmClusterArrayOutput) ToGetCloudVmClustersCloudVmClusterArrayOutputWithContext(ctx context.Context) GetCloudVmClustersCloudVmClusterArrayOutput {
+	return o
+}
+
+func (o GetCloudVmClustersCloudVmClusterArrayOutput) Index(i pulumi.IntInput) GetCloudVmClustersCloudVmClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClustersCloudVmCluster {
+		return vs[0].([]GetCloudVmClustersCloudVmCluster)[vs[1].(int)]
+	}).(GetCloudVmClustersCloudVmClusterOutput)
 }
 
 type GetDbNodesDbNode struct {
@@ -4799,28 +5265,50 @@ func (o GetDbServersDbServerDbServerPatchingDetailArrayOutput) Index(i pulumi.In
 }
 
 type GetDbSystemShapesDbSystemShape struct {
-	AvailableCoreCount                 int    `pulumi:"availableCoreCount"`
-	AvailableCoreCountPerNode          int    `pulumi:"availableCoreCountPerNode"`
-	AvailableDataStorageInTbs          int    `pulumi:"availableDataStorageInTbs"`
-	AvailableDataStoragePerServerInTbs int    `pulumi:"availableDataStoragePerServerInTbs"`
-	AvailableDbNodePerNodeInGbs        int    `pulumi:"availableDbNodePerNodeInGbs"`
-	AvailableDbNodeStorageInGbs        int    `pulumi:"availableDbNodeStorageInGbs"`
-	AvailableMemoryInGbs               int    `pulumi:"availableMemoryInGbs"`
-	AvailableMemoryPerNodeInGbs        int    `pulumi:"availableMemoryPerNodeInGbs"`
-	CoreCountIncrement                 int    `pulumi:"coreCountIncrement"`
-	MaxStorageCount                    int    `pulumi:"maxStorageCount"`
-	MaximumNodeCount                   int    `pulumi:"maximumNodeCount"`
-	MinCoreCountPerNode                int    `pulumi:"minCoreCountPerNode"`
-	MinDataStorageInTbs                int    `pulumi:"minDataStorageInTbs"`
-	MinDbNodeStoragePerNodeInGbs       int    `pulumi:"minDbNodeStoragePerNodeInGbs"`
-	MinMemoryPerNodeInGbs              int    `pulumi:"minMemoryPerNodeInGbs"`
-	MinStorageCount                    int    `pulumi:"minStorageCount"`
-	MinimumCoreCount                   int    `pulumi:"minimumCoreCount"`
-	MinimumNodeCount                   int    `pulumi:"minimumNodeCount"`
-	Name                               string `pulumi:"name"`
-	RuntimeMinimumCoreCount            int    `pulumi:"runtimeMinimumCoreCount"`
-	ShapeFamily                        string `pulumi:"shapeFamily"`
-	ShapeType                          string `pulumi:"shapeType"`
+	// The maximum number of CPU cores that can be enabled for the shape.
+	AvailableCoreCount int `pulumi:"availableCoreCount"`
+	// The maximum number of CPU cores per DB node that can be enabled for the shape.
+	AvailableCoreCountPerNode int `pulumi:"availableCoreCountPerNode"`
+	// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+	AvailableDataStorageInTbs int `pulumi:"availableDataStorageInTbs"`
+	// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+	AvailableDataStoragePerServerInTbs int `pulumi:"availableDataStoragePerServerInTbs"`
+	// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+	AvailableDbNodePerNodeInGbs int `pulumi:"availableDbNodePerNodeInGbs"`
+	// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+	AvailableDbNodeStorageInGbs int `pulumi:"availableDbNodeStorageInGbs"`
+	// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+	AvailableMemoryInGbs int `pulumi:"availableMemoryInGbs"`
+	// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+	AvailableMemoryPerNodeInGbs int `pulumi:"availableMemoryPerNodeInGbs"`
+	// The discrete number by which the CPU core count for the shape can be increased or decreased.
+	CoreCountIncrement int `pulumi:"coreCountIncrement"`
+	// The maximum number of Exadata storage servers available for the shape.
+	MaxStorageCount int `pulumi:"maxStorageCount"`
+	// The maximum number of compute servers available for the shape.
+	MaximumNodeCount int `pulumi:"maximumNodeCount"`
+	// The minimum number of CPU cores that can be enabled per node for the shape.
+	MinCoreCountPerNode int `pulumi:"minCoreCountPerNode"`
+	// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+	MinDataStorageInTbs int `pulumi:"minDataStorageInTbs"`
+	// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+	MinDbNodeStoragePerNodeInGbs int `pulumi:"minDbNodeStoragePerNodeInGbs"`
+	// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+	MinMemoryPerNodeInGbs int `pulumi:"minMemoryPerNodeInGbs"`
+	// The minimum number of Exadata storage servers available for the shape.
+	MinStorageCount int `pulumi:"minStorageCount"`
+	// The minimum number of CPU cores that can be enabled for the shape.
+	MinimumCoreCount int `pulumi:"minimumCoreCount"`
+	// The minimum number of compute servers available for the shape.
+	MinimumNodeCount int `pulumi:"minimumNodeCount"`
+	// The name of the shape.
+	Name string `pulumi:"name"`
+	// The runtime minimum number of CPU cores that can be enabled for the shape.
+	RuntimeMinimumCoreCount int `pulumi:"runtimeMinimumCoreCount"`
+	// The family of the shape.
+	ShapeFamily string `pulumi:"shapeFamily"`
+	// The shape type, determined by the CPU hardware.
+	ShapeType string `pulumi:"shapeType"`
 }
 
 // GetDbSystemShapesDbSystemShapeInput is an input type that accepts GetDbSystemShapesDbSystemShapeArgs and GetDbSystemShapesDbSystemShapeOutput values.
@@ -4835,28 +5323,50 @@ type GetDbSystemShapesDbSystemShapeInput interface {
 }
 
 type GetDbSystemShapesDbSystemShapeArgs struct {
-	AvailableCoreCount                 pulumi.IntInput    `pulumi:"availableCoreCount"`
-	AvailableCoreCountPerNode          pulumi.IntInput    `pulumi:"availableCoreCountPerNode"`
-	AvailableDataStorageInTbs          pulumi.IntInput    `pulumi:"availableDataStorageInTbs"`
-	AvailableDataStoragePerServerInTbs pulumi.IntInput    `pulumi:"availableDataStoragePerServerInTbs"`
-	AvailableDbNodePerNodeInGbs        pulumi.IntInput    `pulumi:"availableDbNodePerNodeInGbs"`
-	AvailableDbNodeStorageInGbs        pulumi.IntInput    `pulumi:"availableDbNodeStorageInGbs"`
-	AvailableMemoryInGbs               pulumi.IntInput    `pulumi:"availableMemoryInGbs"`
-	AvailableMemoryPerNodeInGbs        pulumi.IntInput    `pulumi:"availableMemoryPerNodeInGbs"`
-	CoreCountIncrement                 pulumi.IntInput    `pulumi:"coreCountIncrement"`
-	MaxStorageCount                    pulumi.IntInput    `pulumi:"maxStorageCount"`
-	MaximumNodeCount                   pulumi.IntInput    `pulumi:"maximumNodeCount"`
-	MinCoreCountPerNode                pulumi.IntInput    `pulumi:"minCoreCountPerNode"`
-	MinDataStorageInTbs                pulumi.IntInput    `pulumi:"minDataStorageInTbs"`
-	MinDbNodeStoragePerNodeInGbs       pulumi.IntInput    `pulumi:"minDbNodeStoragePerNodeInGbs"`
-	MinMemoryPerNodeInGbs              pulumi.IntInput    `pulumi:"minMemoryPerNodeInGbs"`
-	MinStorageCount                    pulumi.IntInput    `pulumi:"minStorageCount"`
-	MinimumCoreCount                   pulumi.IntInput    `pulumi:"minimumCoreCount"`
-	MinimumNodeCount                   pulumi.IntInput    `pulumi:"minimumNodeCount"`
-	Name                               pulumi.StringInput `pulumi:"name"`
-	RuntimeMinimumCoreCount            pulumi.IntInput    `pulumi:"runtimeMinimumCoreCount"`
-	ShapeFamily                        pulumi.StringInput `pulumi:"shapeFamily"`
-	ShapeType                          pulumi.StringInput `pulumi:"shapeType"`
+	// The maximum number of CPU cores that can be enabled for the shape.
+	AvailableCoreCount pulumi.IntInput `pulumi:"availableCoreCount"`
+	// The maximum number of CPU cores per DB node that can be enabled for the shape.
+	AvailableCoreCountPerNode pulumi.IntInput `pulumi:"availableCoreCountPerNode"`
+	// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+	AvailableDataStorageInTbs pulumi.IntInput `pulumi:"availableDataStorageInTbs"`
+	// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+	AvailableDataStoragePerServerInTbs pulumi.IntInput `pulumi:"availableDataStoragePerServerInTbs"`
+	// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+	AvailableDbNodePerNodeInGbs pulumi.IntInput `pulumi:"availableDbNodePerNodeInGbs"`
+	// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+	AvailableDbNodeStorageInGbs pulumi.IntInput `pulumi:"availableDbNodeStorageInGbs"`
+	// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+	AvailableMemoryInGbs pulumi.IntInput `pulumi:"availableMemoryInGbs"`
+	// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+	AvailableMemoryPerNodeInGbs pulumi.IntInput `pulumi:"availableMemoryPerNodeInGbs"`
+	// The discrete number by which the CPU core count for the shape can be increased or decreased.
+	CoreCountIncrement pulumi.IntInput `pulumi:"coreCountIncrement"`
+	// The maximum number of Exadata storage servers available for the shape.
+	MaxStorageCount pulumi.IntInput `pulumi:"maxStorageCount"`
+	// The maximum number of compute servers available for the shape.
+	MaximumNodeCount pulumi.IntInput `pulumi:"maximumNodeCount"`
+	// The minimum number of CPU cores that can be enabled per node for the shape.
+	MinCoreCountPerNode pulumi.IntInput `pulumi:"minCoreCountPerNode"`
+	// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+	MinDataStorageInTbs pulumi.IntInput `pulumi:"minDataStorageInTbs"`
+	// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+	MinDbNodeStoragePerNodeInGbs pulumi.IntInput `pulumi:"minDbNodeStoragePerNodeInGbs"`
+	// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+	MinMemoryPerNodeInGbs pulumi.IntInput `pulumi:"minMemoryPerNodeInGbs"`
+	// The minimum number of Exadata storage servers available for the shape.
+	MinStorageCount pulumi.IntInput `pulumi:"minStorageCount"`
+	// The minimum number of CPU cores that can be enabled for the shape.
+	MinimumCoreCount pulumi.IntInput `pulumi:"minimumCoreCount"`
+	// The minimum number of compute servers available for the shape.
+	MinimumNodeCount pulumi.IntInput `pulumi:"minimumNodeCount"`
+	// The name of the shape.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The runtime minimum number of CPU cores that can be enabled for the shape.
+	RuntimeMinimumCoreCount pulumi.IntInput `pulumi:"runtimeMinimumCoreCount"`
+	// The family of the shape.
+	ShapeFamily pulumi.StringInput `pulumi:"shapeFamily"`
+	// The shape type, determined by the CPU hardware.
+	ShapeType pulumi.StringInput `pulumi:"shapeType"`
 }
 
 func (GetDbSystemShapesDbSystemShapeArgs) ElementType() reflect.Type {
@@ -4910,90 +5420,112 @@ func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOu
 	return o
 }
 
+// The maximum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCount }).(pulumi.IntOutput)
 }
 
+// The maximum number of CPU cores per DB node that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCountPerNode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCountPerNode }).(pulumi.IntOutput)
 }
 
+// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStorageInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStorageInTbs }).(pulumi.IntOutput)
 }
 
+// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStoragePerServerInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStoragePerServerInTbs }).(pulumi.IntOutput)
 }
 
+// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodePerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodePerNodeInGbs }).(pulumi.IntOutput)
 }
 
+// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodeStorageInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodeStorageInGbs }).(pulumi.IntOutput)
 }
 
+// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryInGbs }).(pulumi.IntOutput)
 }
 
+// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryPerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryPerNodeInGbs }).(pulumi.IntOutput)
 }
 
+// The discrete number by which the CPU core count for the shape can be increased or decreased.
 func (o GetDbSystemShapesDbSystemShapeOutput) CoreCountIncrement() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.CoreCountIncrement }).(pulumi.IntOutput)
 }
 
+// The maximum number of Exadata storage servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MaxStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaxStorageCount }).(pulumi.IntOutput)
 }
 
+// The maximum number of compute servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MaximumNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaximumNodeCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of CPU cores that can be enabled per node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinCoreCountPerNode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinCoreCountPerNode }).(pulumi.IntOutput)
 }
 
+// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinDataStorageInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDataStorageInTbs }).(pulumi.IntOutput)
 }
 
+// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinDbNodeStoragePerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDbNodeStoragePerNodeInGbs }).(pulumi.IntOutput)
 }
 
+// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinMemoryPerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinMemoryPerNodeInGbs }).(pulumi.IntOutput)
 }
 
+// The minimum number of Exadata storage servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinStorageCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinimumCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumCoreCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of compute servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinimumNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumNodeCount }).(pulumi.IntOutput)
 }
 
+// The name of the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The runtime minimum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) RuntimeMinimumCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.RuntimeMinimumCoreCount }).(pulumi.IntOutput)
 }
 
+// The family of the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) ShapeFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeFamily }).(pulumi.StringOutput)
 }
 
+// The shape type, determined by the CPU hardware.
 func (o GetDbSystemShapesDbSystemShapeOutput) ShapeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeType }).(pulumi.StringOutput)
 }
@@ -5019,6 +5551,7 @@ func (o GetDbSystemShapesDbSystemShapeArrayOutput) Index(i pulumi.IntInput) GetD
 }
 
 type GetGiVersionsGiVersion struct {
+	// The GI software version.
 	Version string `pulumi:"version"`
 }
 
@@ -5034,6 +5567,7 @@ type GetGiVersionsGiVersionInput interface {
 }
 
 type GetGiVersionsGiVersionArgs struct {
+	// The GI software version.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -5088,6 +5622,7 @@ func (o GetGiVersionsGiVersionOutput) ToGetGiVersionsGiVersionOutputWithContext(
 	return o
 }
 
+// The GI software version.
 func (o GetGiVersionsGiVersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGiVersionsGiVersion) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -5767,6 +6302,281 @@ func (o GetNetworkOciDnsForwardingConfigArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetNetworkOciDnsForwardingConfigOutput)
 }
 
+type GetNetworkPeeringConnectionsOdbPeeringConnection struct {
+	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+	Arn string `pulumi:"arn"`
+	// Display name of the ODB network peering connection.
+	DisplayName string `pulumi:"displayName"`
+	// The unique identifier of the  ODB network peering connection.
+	Id string `pulumi:"id"`
+	// ARN of the ODB network peering connection.
+	OdbNetworkArn string `pulumi:"odbNetworkArn"`
+	// ARN of the peer network peering connection.
+	PeerNetworkArn string `pulumi:"peerNetworkArn"`
+}
+
+// GetNetworkPeeringConnectionsOdbPeeringConnectionInput is an input type that accepts GetNetworkPeeringConnectionsOdbPeeringConnectionArgs and GetNetworkPeeringConnectionsOdbPeeringConnectionOutput values.
+// You can construct a concrete instance of `GetNetworkPeeringConnectionsOdbPeeringConnectionInput` via:
+//
+//	GetNetworkPeeringConnectionsOdbPeeringConnectionArgs{...}
+type GetNetworkPeeringConnectionsOdbPeeringConnectionInput interface {
+	pulumi.Input
+
+	ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionOutput
+	ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutputWithContext(context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionOutput
+}
+
+type GetNetworkPeeringConnectionsOdbPeeringConnectionArgs struct {
+	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Display name of the ODB network peering connection.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The unique identifier of the  ODB network peering connection.
+	Id pulumi.StringInput `pulumi:"id"`
+	// ARN of the ODB network peering connection.
+	OdbNetworkArn pulumi.StringInput `pulumi:"odbNetworkArn"`
+	// ARN of the peer network peering connection.
+	PeerNetworkArn pulumi.StringInput `pulumi:"peerNetworkArn"`
+}
+
+func (GetNetworkPeeringConnectionsOdbPeeringConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPeeringConnectionsOdbPeeringConnection)(nil)).Elem()
+}
+
+func (i GetNetworkPeeringConnectionsOdbPeeringConnectionArgs) ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionOutput {
+	return i.ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPeeringConnectionsOdbPeeringConnectionArgs) ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutputWithContext(ctx context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPeeringConnectionsOdbPeeringConnectionOutput)
+}
+
+// GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput is an input type that accepts GetNetworkPeeringConnectionsOdbPeeringConnectionArray and GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput values.
+// You can construct a concrete instance of `GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput` via:
+//
+//	GetNetworkPeeringConnectionsOdbPeeringConnectionArray{ GetNetworkPeeringConnectionsOdbPeeringConnectionArgs{...} }
+type GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput
+	ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutputWithContext(context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput
+}
+
+type GetNetworkPeeringConnectionsOdbPeeringConnectionArray []GetNetworkPeeringConnectionsOdbPeeringConnectionInput
+
+func (GetNetworkPeeringConnectionsOdbPeeringConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPeeringConnectionsOdbPeeringConnection)(nil)).Elem()
+}
+
+func (i GetNetworkPeeringConnectionsOdbPeeringConnectionArray) ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
+	return i.ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkPeeringConnectionsOdbPeeringConnectionArray) ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutputWithContext(ctx context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput)
+}
+
+type GetNetworkPeeringConnectionsOdbPeeringConnectionOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkPeeringConnectionsOdbPeeringConnection)(nil)).Elem()
+}
+
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionOutput {
+	return o
+}
+
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) ToGetNetworkPeeringConnectionsOdbPeeringConnectionOutputWithContext(ctx context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Display name of the ODB network peering connection.
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the  ODB network peering connection.
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the ODB network peering connection.
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) OdbNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.OdbNetworkArn }).(pulumi.StringOutput)
+}
+
+// ARN of the peer network peering connection.
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) PeerNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.PeerNetworkArn }).(pulumi.StringOutput)
+}
+
+type GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkPeeringConnectionsOdbPeeringConnection)(nil)).Elem()
+}
+
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput) ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput() GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
+	return o
+}
+
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput) ToGetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutputWithContext(ctx context.Context) GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
+	return o
+}
+
+func (o GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput) Index(i pulumi.IntInput) GetNetworkPeeringConnectionsOdbPeeringConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkPeeringConnectionsOdbPeeringConnection {
+		return vs[0].([]GetNetworkPeeringConnectionsOdbPeeringConnection)[vs[1].(int)]
+	}).(GetNetworkPeeringConnectionsOdbPeeringConnectionOutput)
+}
+
+type GetNetworksOdbNetwork struct {
+	// Amazon Resource Name (ARN) of the odb network resource.
+	Arn string `pulumi:"arn"`
+	// Display name for the network resource.
+	DisplayName string `pulumi:"displayName"`
+	// Unique identifier of the odb network resource.
+	Id string `pulumi:"id"`
+	// The unique identifier of the OCI network anchor for the ODB network.
+	OciNetworkAnchorId string `pulumi:"ociNetworkAnchorId"`
+	// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+	OciVcnId string `pulumi:"ociVcnId"`
+	// The URL of the OCI VCN for the ODB network.
+	OciVcnUrl string `pulumi:"ociVcnUrl"`
+}
+
+// GetNetworksOdbNetworkInput is an input type that accepts GetNetworksOdbNetworkArgs and GetNetworksOdbNetworkOutput values.
+// You can construct a concrete instance of `GetNetworksOdbNetworkInput` via:
+//
+//	GetNetworksOdbNetworkArgs{...}
+type GetNetworksOdbNetworkInput interface {
+	pulumi.Input
+
+	ToGetNetworksOdbNetworkOutput() GetNetworksOdbNetworkOutput
+	ToGetNetworksOdbNetworkOutputWithContext(context.Context) GetNetworksOdbNetworkOutput
+}
+
+type GetNetworksOdbNetworkArgs struct {
+	// Amazon Resource Name (ARN) of the odb network resource.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Display name for the network resource.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Unique identifier of the odb network resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The unique identifier of the OCI network anchor for the ODB network.
+	OciNetworkAnchorId pulumi.StringInput `pulumi:"ociNetworkAnchorId"`
+	// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+	OciVcnId pulumi.StringInput `pulumi:"ociVcnId"`
+	// The URL of the OCI VCN for the ODB network.
+	OciVcnUrl pulumi.StringInput `pulumi:"ociVcnUrl"`
+}
+
+func (GetNetworksOdbNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksOdbNetwork)(nil)).Elem()
+}
+
+func (i GetNetworksOdbNetworkArgs) ToGetNetworksOdbNetworkOutput() GetNetworksOdbNetworkOutput {
+	return i.ToGetNetworksOdbNetworkOutputWithContext(context.Background())
+}
+
+func (i GetNetworksOdbNetworkArgs) ToGetNetworksOdbNetworkOutputWithContext(ctx context.Context) GetNetworksOdbNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksOdbNetworkOutput)
+}
+
+// GetNetworksOdbNetworkArrayInput is an input type that accepts GetNetworksOdbNetworkArray and GetNetworksOdbNetworkArrayOutput values.
+// You can construct a concrete instance of `GetNetworksOdbNetworkArrayInput` via:
+//
+//	GetNetworksOdbNetworkArray{ GetNetworksOdbNetworkArgs{...} }
+type GetNetworksOdbNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworksOdbNetworkArrayOutput() GetNetworksOdbNetworkArrayOutput
+	ToGetNetworksOdbNetworkArrayOutputWithContext(context.Context) GetNetworksOdbNetworkArrayOutput
+}
+
+type GetNetworksOdbNetworkArray []GetNetworksOdbNetworkInput
+
+func (GetNetworksOdbNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworksOdbNetwork)(nil)).Elem()
+}
+
+func (i GetNetworksOdbNetworkArray) ToGetNetworksOdbNetworkArrayOutput() GetNetworksOdbNetworkArrayOutput {
+	return i.ToGetNetworksOdbNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworksOdbNetworkArray) ToGetNetworksOdbNetworkArrayOutputWithContext(ctx context.Context) GetNetworksOdbNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworksOdbNetworkArrayOutput)
+}
+
+type GetNetworksOdbNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksOdbNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworksOdbNetwork)(nil)).Elem()
+}
+
+func (o GetNetworksOdbNetworkOutput) ToGetNetworksOdbNetworkOutput() GetNetworksOdbNetworkOutput {
+	return o
+}
+
+func (o GetNetworksOdbNetworkOutput) ToGetNetworksOdbNetworkOutputWithContext(ctx context.Context) GetNetworksOdbNetworkOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the odb network resource.
+func (o GetNetworksOdbNetworkOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Display name for the network resource.
+func (o GetNetworksOdbNetworkOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the odb network resource.
+func (o GetNetworksOdbNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the OCI network anchor for the ODB network.
+func (o GetNetworksOdbNetworkOutput) OciNetworkAnchorId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciNetworkAnchorId }).(pulumi.StringOutput)
+}
+
+// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+func (o GetNetworksOdbNetworkOutput) OciVcnId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciVcnId }).(pulumi.StringOutput)
+}
+
+// The URL of the OCI VCN for the ODB network.
+func (o GetNetworksOdbNetworkOutput) OciVcnUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciVcnUrl }).(pulumi.StringOutput)
+}
+
+type GetNetworksOdbNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworksOdbNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworksOdbNetwork)(nil)).Elem()
+}
+
+func (o GetNetworksOdbNetworkArrayOutput) ToGetNetworksOdbNetworkArrayOutput() GetNetworksOdbNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworksOdbNetworkArrayOutput) ToGetNetworksOdbNetworkArrayOutputWithContext(ctx context.Context) GetNetworksOdbNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworksOdbNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksOdbNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworksOdbNetwork {
+		return vs[0].([]GetNetworksOdbNetwork)[vs[1].(int)]
+	}).(GetNetworksOdbNetworkOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowPtrInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
@@ -5816,6 +6626,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowMonthInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowMonthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowMonthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput)(nil)).Elem(), GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayInput)(nil)).Elem(), GetCloudAutonomousVmClustersCloudAutonomousVmClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureCustomerContactsToSendToOciInput)(nil)).Elem(), GetCloudExadataInfrastructureCustomerContactsToSendToOciArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureCustomerContactsToSendToOciArrayInput)(nil)).Elem(), GetCloudExadataInfrastructureCustomerContactsToSendToOciArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), GetCloudExadataInfrastructureMaintenanceWindowArgs{})
@@ -5824,12 +6636,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayInput)(nil)).Elem(), GetCloudExadataInfrastructureMaintenanceWindowDaysOfWeekArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureMaintenanceWindowMonthInput)(nil)).Elem(), GetCloudExadataInfrastructureMaintenanceWindowMonthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructureMaintenanceWindowMonthArrayInput)(nil)).Elem(), GetCloudExadataInfrastructureMaintenanceWindowMonthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructuresCloudExadataInfrastructureInput)(nil)).Elem(), GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayInput)(nil)).Elem(), GetCloudExadataInfrastructuresCloudExadataInfrastructureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionArrayInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClustersCloudVmClusterInput)(nil)).Elem(), GetCloudVmClustersCloudVmClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClustersCloudVmClusterArrayInput)(nil)).Elem(), GetCloudVmClustersCloudVmClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeInput)(nil)).Elem(), GetDbNodesDbNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeArrayInput)(nil)).Elem(), GetDbNodesDbNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServerDbServerPatchingDetailInput)(nil)).Elem(), GetDbServerDbServerPatchingDetailArgs{})
@@ -5854,6 +6670,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceZeroTlAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceZeroTlAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkOciDnsForwardingConfigInput)(nil)).Elem(), GetNetworkOciDnsForwardingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkOciDnsForwardingConfigArrayInput)(nil)).Elem(), GetNetworkOciDnsForwardingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPeeringConnectionsOdbPeeringConnectionInput)(nil)).Elem(), GetNetworkPeeringConnectionsOdbPeeringConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput)(nil)).Elem(), GetNetworkPeeringConnectionsOdbPeeringConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksOdbNetworkInput)(nil)).Elem(), GetNetworksOdbNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksOdbNetworkArrayInput)(nil)).Elem(), GetNetworksOdbNetworkArray{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekOutput{})
@@ -5902,6 +6722,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowMonthOutput{})
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput{})
+	pulumi.RegisterOutputType(GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureCustomerContactsToSendToOciOutput{})
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureMaintenanceWindowOutput{})
@@ -5910,12 +6732,16 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureMaintenanceWindowMonthOutput{})
 	pulumi.RegisterOutputType(GetCloudExadataInfrastructureMaintenanceWindowMonthArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput{})
+	pulumi.RegisterOutputType(GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClustersCloudVmClusterOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClustersCloudVmClusterArrayOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeArrayOutput{})
 	pulumi.RegisterOutputType(GetDbServerDbServerPatchingDetailOutput{})
@@ -5940,4 +6766,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkManagedServiceZeroTlAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkOciDnsForwardingConfigOutput{})
 	pulumi.RegisterOutputType(GetNetworkOciDnsForwardingConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkPeeringConnectionsOdbPeeringConnectionOutput{})
+	pulumi.RegisterOutputType(GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworksOdbNetworkOutput{})
+	pulumi.RegisterOutputType(GetNetworksOdbNetworkArrayOutput{})
 }

@@ -50,7 +50,7 @@ class GetDbSystemShapesResult:
     @pulumi.getter(name="dbSystemShapes")
     def db_system_shapes(self) -> Sequence['outputs.GetDbSystemShapesDbSystemShapeResult']:
         """
-        IThe list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+        The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
         """
         return pulumi.get(self, "db_system_shapes")
 

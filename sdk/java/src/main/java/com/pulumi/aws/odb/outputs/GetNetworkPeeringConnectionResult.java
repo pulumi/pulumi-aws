@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkPeeringConnectionResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return The Amazon Resource Name (ARN) for the  ODB network peering connection.
      * 
      */
     private String arn;
@@ -67,7 +67,7 @@ public final class GetNetworkPeeringConnectionResult {
 
     private GetNetworkPeeringConnectionResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return The Amazon Resource Name (ARN) for the  ODB network peering connection.
      * 
      */
     public String arn() {

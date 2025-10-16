@@ -179,6 +179,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
+        /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.
+        /// </summary>
+        [Output("schedulerConfiguration")]
+        public Output<Outputs.ApplicationSchedulerConfiguration?> SchedulerConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -314,6 +320,12 @@ namespace Pulumi.Aws.EmrServerless
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
 
+        /// <summary>
+        /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.
+        /// </summary>
+        [Input("schedulerConfiguration")]
+        public Input<Inputs.ApplicationSchedulerConfigurationArgs>? SchedulerConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -417,6 +429,12 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }
+
+        /// <summary>
+        /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.
+        /// </summary>
+        [Input("schedulerConfiguration")]
+        public Input<Inputs.ApplicationSchedulerConfigurationGetArgs>? SchedulerConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

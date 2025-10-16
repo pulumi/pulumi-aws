@@ -367,6 +367,13 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectArtifacts> Artifacts { get; private set; } = null!;
 
         /// <summary>
+        /// Specify a maximum number of additional automatic retries after a failed build.
+        /// The default is 0.
+        /// </summary>
+        [Output("autoRetryLimit")]
+        public Output<int> AutoRetryLimit { get; private set; } = null!;
+
+        /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
         /// `BadgeUrl` attribute when enabled.
         /// </summary>
@@ -592,6 +599,13 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectArtifactsArgs> Artifacts { get; set; } = null!;
 
         /// <summary>
+        /// Specify a maximum number of additional automatic retries after a failed build.
+        /// The default is 0.
+        /// </summary>
+        [Input("autoRetryLimit")]
+        public Input<int>? AutoRetryLimit { get; set; }
+
+        /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
         /// `BadgeUrl` attribute when enabled.
         /// </summary>
@@ -794,6 +808,13 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("artifacts")]
         public Input<Inputs.ProjectArtifactsGetArgs>? Artifacts { get; set; }
+
+        /// <summary>
+        /// Specify a maximum number of additional automatic retries after a failed build.
+        /// The default is 0.
+        /// </summary>
+        [Input("autoRetryLimit")]
+        public Input<int>? AutoRetryLimit { get; set; }
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
