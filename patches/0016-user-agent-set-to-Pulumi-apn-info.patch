@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
 Date: Thu, 11 Apr 2024 08:06:27 -0400
-Subject: [PATCH] update apn info
+Subject: [PATCH] user agent set to Pulumi apn info
 
 
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index 6c47241c115..c983abba23f 100644
+index 6c47241c11..62cb44fb88 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
 @@ -22,7 +22,6 @@ import (
@@ -16,17 +16,18 @@ index 6c47241c115..c983abba23f 100644
  )
  
  type Config struct {
-@@ -76,10 +75,10 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+@@ -75,12 +74,8 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+ 	awsbaseConfig := awsbase.Config{
  		AccessKey:         c.AccessKey,
  		AllowedAccountIds: c.AllowedAccountIds,
- 		APNInfo: &awsbase.APNInfo{
+-		APNInfo: &awsbase.APNInfo{
 -			PartnerName: "HashiCorp",
-+			PartnerName: "Pulumi",
- 			Products: []awsbase.UserAgentProduct{
+-			Products: []awsbase.UserAgentProduct{
 -				{Name: "Terraform", Version: c.TerraformVersion, Comment: "+https://www.terraform.io"},
 -				{Name: "terraform-provider-aws", Version: version.ProviderVersion, Comment: "+https://registry.terraform.io/providers/hashicorp/aws"},
-+				{Name: "Pulumi", Version: "1.0"},
-+				{Name: "Pulumi-Aws", Version: c.TerraformVersion, Comment: "+https://pulumi.com"},
- 			},
+-			},
++		UserAgent: awsbase.UserAgentProducts{
++			{Name: "APN", Version: "1.1", Comment: "c7qiae2l6usvzoynupds6v7hf"},
  		},
  		AssumeRole:                     c.AssumeRole,
+ 		AssumeRoleWithWebIdentity:      c.AssumeRoleWithWebIdentity,

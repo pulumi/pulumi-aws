@@ -10,7 +10,7 @@ Beyond a mechanical revert, during v5.74.0 release resolution there were some co
 resolved in favor of upstream.
 
 diff --git a/internal/service/rds/proxy.go b/internal/service/rds/proxy.go
-index 07db1160be0..2f0f7076d4e 100644
+index 07db1160be..2f0f7076d4 100644
 --- a/internal/service/rds/proxy.go
 +++ b/internal/service/rds/proxy.go
 @@ -19,7 +19,6 @@ import (
@@ -39,7 +39,7 @@ index 07db1160be0..2f0f7076d4e 100644
  			"debug_logging": {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/proxy_test.go b/internal/service/rds/proxy_test.go
-index 81262141b61..f649b4623a4 100644
+index 81262141b6..f649b4623a 100644
 --- a/internal/service/rds/proxy_test.go
 +++ b/internal/service/rds/proxy_test.go
 @@ -40,12 +40,13 @@ func TestAccRDSProxy_basic(t *testing.T) {

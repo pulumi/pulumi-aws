@@ -9,7 +9,7 @@ https://github.com/pulumi/pulumi-terraform-bridge/issues/2281. TF sets
 not exist at all in `RawState` or it could be `nil`.
 
 diff --git a/internal/provider/sdkv2/provider.go b/internal/provider/sdkv2/provider.go
-index f6b44b7c2bc..79fdfb07e03 100644
+index f6b44b7c2b..79fdfb07e0 100644
 --- a/internal/provider/sdkv2/provider.go
 +++ b/internal/provider/sdkv2/provider.go
 @@ -745,7 +745,9 @@ func (p *sdkProvider) initialize(ctx context.Context) (map[string]conns.ServiceP
