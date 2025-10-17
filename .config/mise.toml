@@ -9,9 +9,9 @@ _.source = "{{config_root}}/scripts/get-versions.sh"
 # Runtimes
 # TODO: we may not need `get_env` once https://github.com/jdx/mise/discussions/6339 is fixed
 go = "{{ get_env(name='GO_VERSION_MISE', default='latest') }}"
-node = '20'
+node = '20.19.5'
 python = '3.11.8'
-dotnet = '8.0'
+dotnet = '8.0.414'
 # Corretto version used as Java SE/OpenJDK version no longer offered
 java = 'corretto-11'
 

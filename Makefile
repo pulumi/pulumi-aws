@@ -169,6 +169,7 @@ clean:
 	rm -rf sdk/{dotnet,nodejs,go,python}
 	rm -rf bin/*
 	rm -rf .make/*
+	rm -rf "$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR)"
 	if dotnet nuget list source | grep "$(WORKING_DIR)/nuget"; then \
 		dotnet nuget remove source "$(WORKING_DIR)/nuget" \
 	; fi

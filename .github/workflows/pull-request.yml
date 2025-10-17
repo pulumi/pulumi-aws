@@ -8,26 +8,18 @@ env:
   PULUMI_MISSING_DOCS_ERROR: "true"
   TF_APPEND_USER_AGENT: pulumi
 
+name: Comment on community PRs
+on:
+  pull_request_target: {}
+
 jobs:
   comment-on-pr:
     if: github.event.pull_request.head.repo.full_name != github.repository
     name: comment-on-pr
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      with:
-        submodules: true
-        persist-credentials: false    
-    - env:
-        ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
-        ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
-        ESC_ACTION_OIDC_AUTH: "true"
-        ESC_ACTION_OIDC_ORGANIZATION: pulumi
-        ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
-      id: esc-secrets
-      name: Fetch secrets from ESC
-      uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
     - name: Comment PR
       uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
@@ -36,6 +28,3 @@ jobs:
           PR is now waiting for a maintainer to run the acceptance tests.
 
           **Note for the maintainer:** To run the acceptance tests, please comment */run-acceptance-tests* on the PR
-name: pull-request
-on:
-  pull_request_target: {}
