@@ -1,0 +1,73 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Thu, 11 Apr 2024 08:06:27 -0400
+Subject: [PATCH] user agent set to Pulumi apn 1.1 info
+
+
+diff --git a/internal/conns/user_agent_round_tripper.go b/internal/conns/user_agent_round_tripper.go
+new file mode 100644
+index 0000000000..ddf3aed4ba
+--- /dev/null
++++ b/internal/conns/user_agent_round_tripper.go
+@@ -0,0 +1,24 @@
++package conns
++
++import (
++	"fmt"
++	"net/http"
++)
++
++type roundTripperFunc func(*http.Request) (*http.Response, error)
++
++func (rt roundTripperFunc) RoundTrip(r *http.Request) (*http.Response, error) {
++	if rt == nil {
++		return http.DefaultTransport.RoundTrip(r)
++	}
++	return rt(r)
++}
++
++func UserAgentHeaderRoundTripper(next http.RoundTripper) http.RoundTripper {
++	return roundTripperFunc(func(r *http.Request) (*http.Response, error) {
++		fmt.Println("Adding header")
++		r.Header.Set("User-Agent", "APN/1.1 (c7qiae2l6usvzoynupds6v7hf)")
++		resp, err := next.RoundTrip(r)
++		return resp, err
++	})
++}
+diff --git a/internal/provider/sdkv2/provider.go b/internal/provider/sdkv2/provider.go
+index f6b44b7c2b..cda8647dec 100644
+--- a/internal/provider/sdkv2/provider.go
++++ b/internal/provider/sdkv2/provider.go
+@@ -19,6 +19,7 @@ import (
+ 	"github.com/aws/aws-sdk-go-v2/aws"
+ 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
+ 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
++	"github.com/hashicorp/go-cleanhttp"
+ 	"github.com/hashicorp/go-cty/cty"
+ 	"github.com/hashicorp/terraform-plugin-log/tflog"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+@@ -316,6 +317,13 @@ func NewProvider(ctx context.Context) (*schema.Provider, error) {
+ 	} else {
+ 		c = new(conns.AWSClient)
+ 	}
++	httpClient := c.HTTPClient(ctx)
++	// This scenario happens when conns.AWSClient is new'ed since httpClient is nil by default
++	if httpClient == nil {
++		httpClient = cleanhttp.DefaultPooledClient()
++		c.SetHTTPClient(ctx, httpClient)
++	}
++	httpClient.Transport = conns.UserAgentHeaderRoundTripper(httpClient.Transport)
+ 	c.SetServicePackages(ctx, servicePackageMap)
+ 	sdkProvider.provider.SetMeta(c)
+ 
+@@ -745,7 +753,9 @@ func (p *sdkProvider) initialize(ctx context.Context) (map[string]conns.ServiceP
+ 
+ 					if isRegionOverrideEnabled && getAttribute != nil {
+ 						if region, ok := getAttribute(names.AttrRegion); ok {
+-							overrideRegion = region.(string)
++							if val, ok := region.(string); ok {
++								overrideRegion = val
++							}
+ 						}
+ 					}
+ 
