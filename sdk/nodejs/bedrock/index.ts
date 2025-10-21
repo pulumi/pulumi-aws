@@ -50,6 +50,41 @@ export type AgentPrompt = import("./agentPrompt").AgentPrompt;
 export const AgentPrompt: typeof import("./agentPrompt").AgentPrompt = null as any;
 utilities.lazyLoad(exports, ["AgentPrompt"], () => require("./agentPrompt"));
 
+export { AgentcoreAgentRuntimeArgs, AgentcoreAgentRuntimeState } from "./agentcoreAgentRuntime";
+export type AgentcoreAgentRuntime = import("./agentcoreAgentRuntime").AgentcoreAgentRuntime;
+export const AgentcoreAgentRuntime: typeof import("./agentcoreAgentRuntime").AgentcoreAgentRuntime = null as any;
+utilities.lazyLoad(exports, ["AgentcoreAgentRuntime"], () => require("./agentcoreAgentRuntime"));
+
+export { AgentcoreAgentRuntimeEndpointArgs, AgentcoreAgentRuntimeEndpointState } from "./agentcoreAgentRuntimeEndpoint";
+export type AgentcoreAgentRuntimeEndpoint = import("./agentcoreAgentRuntimeEndpoint").AgentcoreAgentRuntimeEndpoint;
+export const AgentcoreAgentRuntimeEndpoint: typeof import("./agentcoreAgentRuntimeEndpoint").AgentcoreAgentRuntimeEndpoint = null as any;
+utilities.lazyLoad(exports, ["AgentcoreAgentRuntimeEndpoint"], () => require("./agentcoreAgentRuntimeEndpoint"));
+
+export { AgentcoreApiKeyCredentialProviderArgs, AgentcoreApiKeyCredentialProviderState } from "./agentcoreApiKeyCredentialProvider";
+export type AgentcoreApiKeyCredentialProvider = import("./agentcoreApiKeyCredentialProvider").AgentcoreApiKeyCredentialProvider;
+export const AgentcoreApiKeyCredentialProvider: typeof import("./agentcoreApiKeyCredentialProvider").AgentcoreApiKeyCredentialProvider = null as any;
+utilities.lazyLoad(exports, ["AgentcoreApiKeyCredentialProvider"], () => require("./agentcoreApiKeyCredentialProvider"));
+
+export { AgentcoreBrowserArgs, AgentcoreBrowserState } from "./agentcoreBrowser";
+export type AgentcoreBrowser = import("./agentcoreBrowser").AgentcoreBrowser;
+export const AgentcoreBrowser: typeof import("./agentcoreBrowser").AgentcoreBrowser = null as any;
+utilities.lazyLoad(exports, ["AgentcoreBrowser"], () => require("./agentcoreBrowser"));
+
+export { AgentcoreCodeInterpreterArgs, AgentcoreCodeInterpreterState } from "./agentcoreCodeInterpreter";
+export type AgentcoreCodeInterpreter = import("./agentcoreCodeInterpreter").AgentcoreCodeInterpreter;
+export const AgentcoreCodeInterpreter: typeof import("./agentcoreCodeInterpreter").AgentcoreCodeInterpreter = null as any;
+utilities.lazyLoad(exports, ["AgentcoreCodeInterpreter"], () => require("./agentcoreCodeInterpreter"));
+
+export { AgentcoreGatewayArgs, AgentcoreGatewayState } from "./agentcoreGateway";
+export type AgentcoreGateway = import("./agentcoreGateway").AgentcoreGateway;
+export const AgentcoreGateway: typeof import("./agentcoreGateway").AgentcoreGateway = null as any;
+utilities.lazyLoad(exports, ["AgentcoreGateway"], () => require("./agentcoreGateway"));
+
+export { AgentcoreGatewayTargetArgs, AgentcoreGatewayTargetState } from "./agentcoreGatewayTarget";
+export type AgentcoreGatewayTarget = import("./agentcoreGatewayTarget").AgentcoreGatewayTarget;
+export const AgentcoreGatewayTarget: typeof import("./agentcoreGatewayTarget").AgentcoreGatewayTarget = null as any;
+utilities.lazyLoad(exports, ["AgentcoreGatewayTarget"], () => require("./agentcoreGatewayTarget"));
+
 export { CustomModelArgs, CustomModelState } from "./customModel";
 export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
@@ -123,6 +158,20 @@ const _module = {
                 return new AgentKnowledgeBase(name, <any>undefined, { urn })
             case "aws:bedrock/agentPrompt:AgentPrompt":
                 return new AgentPrompt(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime":
+                return new AgentcoreAgentRuntime(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint":
+                return new AgentcoreAgentRuntimeEndpoint(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider":
+                return new AgentcoreApiKeyCredentialProvider(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreBrowser:AgentcoreBrowser":
+                return new AgentcoreBrowser(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
+                return new AgentcoreCodeInterpreter(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreGateway:AgentcoreGateway":
+                return new AgentcoreGateway(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
+                return new AgentcoreGatewayTarget(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
@@ -147,6 +196,13 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentDataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentFlow", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentPrompt", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreAgentRuntime", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreAgentRuntimeEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreApiKeyCredentialProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowser", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreCodeInterpreter", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGateway", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGatewayTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)

@@ -39,6 +39,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentKnowledgeBase{}
 	case "aws:bedrock/agentPrompt:AgentPrompt":
 		r = &AgentPrompt{}
+	case "aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime":
+		r = &AgentcoreAgentRuntime{}
+	case "aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint":
+		r = &AgentcoreAgentRuntimeEndpoint{}
+	case "aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider":
+		r = &AgentcoreApiKeyCredentialProvider{}
+	case "aws:bedrock/agentcoreBrowser:AgentcoreBrowser":
+		r = &AgentcoreBrowser{}
+	case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
+		r = &AgentcoreCodeInterpreter{}
+	case "aws:bedrock/agentcoreGateway:AgentcoreGateway":
+		r = &AgentcoreGateway{}
+	case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
+		r = &AgentcoreGatewayTarget{}
 	case "aws:bedrock/customModel:CustomModel":
 		r = &CustomModel{}
 	case "aws:bedrock/guardrail:Guardrail":
@@ -105,6 +119,41 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentPrompt",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreAgentRuntime",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreAgentRuntimeEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreApiKeyCredentialProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreBrowser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreCodeInterpreter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreGatewayTarget",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

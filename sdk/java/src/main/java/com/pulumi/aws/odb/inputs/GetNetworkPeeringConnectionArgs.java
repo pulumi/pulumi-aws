@@ -17,7 +17,7 @@ public final class GetNetworkPeeringConnectionArgs extends com.pulumi.resources.
     public static final GetNetworkPeeringConnectionArgs Empty = new GetNetworkPeeringConnectionArgs();
 
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * The unique identifier of the ODB network peering connection.
      * 
      * The following arguments are optional:
      * 
@@ -26,7 +26,7 @@ public final class GetNetworkPeeringConnectionArgs extends com.pulumi.resources.
     private Output<String> id;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure.
+     * @return The unique identifier of the ODB network peering connection.
      * 
      * The following arguments are optional:
      * 
@@ -76,7 +76,7 @@ public final class GetNetworkPeeringConnectionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The unique identifier of the Exadata infrastructure.
+         * @param id The unique identifier of the ODB network peering connection.
          * 
          * The following arguments are optional:
          * 
@@ -89,7 +89,7 @@ public final class GetNetworkPeeringConnectionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The unique identifier of the Exadata infrastructure.
+         * @param id The unique identifier of the ODB network peering connection.
          * 
          * The following arguments are optional:
          * 

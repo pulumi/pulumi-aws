@@ -255,7 +255,7 @@ class _CloudExadataInfrastructureState:
         Input properties used for looking up and filtering CloudExadataInfrastructure resources.
         :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the pipeline.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
         :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
@@ -399,7 +399,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the pipeline.
+        Amazon Resource Name (ARN) of the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -1049,7 +1049,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the pipeline.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
         :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
@@ -1149,7 +1149,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the pipeline.
+        Amazon Resource Name (ARN) of the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 

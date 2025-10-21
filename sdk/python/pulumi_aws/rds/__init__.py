@@ -26,6 +26,7 @@ from .get_cluster_snapshot import *
 from .get_clusters import *
 from .get_engine_version import *
 from .get_event_categories import *
+from .get_global_cluster import *
 from .get_instance import *
 from .get_instances import *
 from .get_orderable_db_instance import *

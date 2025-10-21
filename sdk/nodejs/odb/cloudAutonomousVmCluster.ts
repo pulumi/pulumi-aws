@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const avmcWithMinimumParameters = new aws.odb.CloudAutonomousVmCluster("avmc_with_minimum_parameters", {
- *     cloudExadataInfrastructureId: "<exadata_infra_id>",
- *     odbNetworkId: "<odb_net_id>",
- *     displayName: "Ofake-avmc-my_avmc",
+ *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
+ *     odbNetworkId: "<aws_odb_network_id>",
+ *     displayName: "my_autonomous_vm_cluster",
  *     autonomousDataStorageSizeInTbs: 5,
  *     memoryPerOracleComputeUnitInGbs: 2,
  *     totalContainerDatabases: 1,
@@ -39,9 +39,9 @@ import * as utilities from "../utilities";
  * const avmcWithAllParams = new aws.odb.CloudAutonomousVmCluster("avmc_with_all_params", {
  *     description: "my first avmc",
  *     timeZone: "UTC",
- *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure.test.id>",
- *     odbNetworkId: "<aws_odb_network.test.id>",
- *     displayName: "Ofake_my avmc",
+ *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
+ *     odbNetworkId: "<aws_odb_network_id>",
+ *     displayName: "my_autonomous_vm_cluster",
  *     autonomousDataStorageSizeInTbs: 5,
  *     memoryPerOracleComputeUnitInGbs: 2,
  *     totalContainerDatabases: 1,

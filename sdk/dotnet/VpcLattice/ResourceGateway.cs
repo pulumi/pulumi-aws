@@ -120,6 +120,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// </summary>
+        [Output("ipv4AddressesPerEni")]
+        public Output<int> Ipv4AddressesPerEni { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource gateway.
         /// </summary>
         [Output("name")]
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
+        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// </summary>
+        [Input("ipv4AddressesPerEni")]
+        public Input<int>? Ipv4AddressesPerEni { get; set; }
+
+        /// <summary>
         /// Name of the resource gateway.
         /// </summary>
         [Input("name")]
@@ -302,6 +314,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// </summary>
+        [Input("ipv4AddressesPerEni")]
+        public Input<int>? Ipv4AddressesPerEni { get; set; }
 
         /// <summary>
         /// Name of the resource gateway.

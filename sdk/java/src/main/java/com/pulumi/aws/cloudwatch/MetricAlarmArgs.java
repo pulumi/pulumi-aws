@@ -83,14 +83,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of data points that must be breaching to trigger the alarm.
      * 
      */
     @Import(name="datapointsToAlarm")
     private @Nullable Output<Integer> datapointsToAlarm;
 
     /**
-     * @return The number of datapoints that must be breaching to trigger the alarm.
+     * @return The number of data points that must be breaching to trigger the alarm.
      * 
      */
     public Optional<Output<Integer>> datapointsToAlarm() {
@@ -532,7 +532,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datapointsToAlarm The number of datapoints that must be breaching to trigger the alarm.
+         * @param datapointsToAlarm The number of data points that must be breaching to trigger the alarm.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datapointsToAlarm The number of datapoints that must be breaching to trigger the alarm.
+         * @param datapointsToAlarm The number of data points that must be breaching to trigger the alarm.
          * 
          * @return builder
          * 

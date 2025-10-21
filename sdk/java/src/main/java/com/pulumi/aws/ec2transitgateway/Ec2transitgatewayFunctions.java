@@ -1568,6 +1568,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+     * 
      * ## Example Usage
      * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
@@ -1610,6 +1612,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
      * 
      * ## Example Usage
      * 
@@ -1654,6 +1658,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+     * 
      * ## Example Usage
      * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
@@ -1696,6 +1702,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
      * 
      * ## Example Usage
      * 
@@ -1740,6 +1748,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+     * 
      * ## Example Usage
      * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
@@ -1783,6 +1793,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+     * 
      * ## Example Usage
      * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
@@ -1825,6 +1837,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
      * 
      * ## Example Usage
      * 
@@ -5029,6 +5043,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+     * 
      * ## Example Usage
      * 
      * ### By Filter
@@ -5106,6 +5122,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
      * 
      * ## Example Usage
      * 
@@ -5185,6 +5203,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+     * 
      * ## Example Usage
      * 
      * ### By Filter
@@ -5262,6 +5282,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
      * 
      * ## Example Usage
      * 
@@ -5341,6 +5363,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+     * 
      * ## Example Usage
      * 
      * ### By Filter
@@ -5419,6 +5443,8 @@ public final class Ec2transitgatewayFunctions {
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+     * 
      * ## Example Usage
      * 
      * ### By Filter
@@ -5496,6 +5522,8 @@ public final class Ec2transitgatewayFunctions {
     }
     /**
      * Get information on an EC2 Transit Gateway VPC Attachment.
+     * 
+     * !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `transitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
      * 
      * ## Example Usage
      * 

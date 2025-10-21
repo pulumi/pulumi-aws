@@ -33,6 +33,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_configuration: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -48,6 +49,7 @@ class ApplicationArgs:
         :param pulumi.Input[_builtins.str] name: The name of the application.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['ApplicationSchedulerConfigurationArgs'] scheduler_configuration: Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "release_label", release_label)
@@ -72,6 +74,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if scheduler_configuration is not None:
+            pulumi.set(__self__, "scheduler_configuration", scheduler_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -220,6 +224,18 @@ class ApplicationArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]:
+        """
+        Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
+        """
+        return pulumi.get(self, "scheduler_configuration")
+
+    @scheduler_configuration.setter
+    def scheduler_configuration(self, value: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]):
+        pulumi.set(self, "scheduler_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -247,6 +263,7 @@ class _ApplicationState:
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  release_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_configuration: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
@@ -264,6 +281,7 @@ class _ApplicationState:
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_label: The EMR release version associated with the application.
+        :param pulumi.Input['ApplicationSchedulerConfigurationArgs'] scheduler_configuration: Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: The type of application you want to start, such as `spark` or `hive`.
@@ -292,6 +310,8 @@ class _ApplicationState:
             pulumi.set(__self__, "region", region)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
+        if scheduler_configuration is not None:
+            pulumi.set(__self__, "scheduler_configuration", scheduler_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -444,6 +464,18 @@ class _ApplicationState:
         pulumi.set(self, "release_label", value)
 
     @_builtins.property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]:
+        """
+        Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
+        """
+        return pulumi.get(self, "scheduler_configuration")
+
+    @scheduler_configuration.setter
+    def scheduler_configuration(self, value: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]):
+        pulumi.set(self, "scheduler_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -497,6 +529,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  release_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -576,6 +609,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: The network configuration for customer VPC connectivity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_label: The EMR release version associated with the application.
+        :param pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']] scheduler_configuration: Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: The type of application you want to start, such as `spark` or `hive`.
         """
@@ -674,6 +708,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  release_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -698,6 +733,7 @@ class Application(pulumi.CustomResource):
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
+            __props__.__dict__["scheduler_configuration"] = scheduler_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -726,6 +762,7 @@ class Application(pulumi.CustomResource):
             network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             release_label: Optional[pulumi.Input[_builtins.str]] = None,
+            scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Application':
@@ -748,6 +785,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: The network configuration for customer VPC connectivity.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_label: The EMR release version associated with the application.
+        :param pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']] scheduler_configuration: Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: The type of application you want to start, such as `spark` or `hive`.
@@ -768,6 +806,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["network_configuration"] = network_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["release_label"] = release_label
+        __props__.__dict__["scheduler_configuration"] = scheduler_configuration
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -868,6 +907,14 @@ class Application(pulumi.CustomResource):
         The EMR release version associated with the application.
         """
         return pulumi.get(self, "release_label")
+
+    @_builtins.property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationSchedulerConfiguration']]:
+        """
+        Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
+        """
+        return pulumi.get(self, "scheduler_configuration")
 
     @_builtins.property
     @pulumi.getter

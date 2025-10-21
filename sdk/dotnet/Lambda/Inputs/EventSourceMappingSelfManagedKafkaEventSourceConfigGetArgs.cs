@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Lambda.Inputs
         [Input("consumerGroupId")]
         public Input<string>? ConsumerGroupId { get; set; }
 
+        /// <summary>
+        /// Block for a Kafka schema registry setting. See below.
+        /// </summary>
+        [Input("schemaRegistryConfig")]
+        public Input<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigGetArgs>? SchemaRegistryConfig { get; set; }
+
         public EventSourceMappingSelfManagedKafkaEventSourceConfigGetArgs()
         {
         }

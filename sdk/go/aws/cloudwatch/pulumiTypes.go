@@ -7306,7 +7306,9 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOu
 type MetricAlarmMetricQuery struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
-	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	// A Metrics Insights query or a metric math expression to be evaluated on the returned data.
+	// For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
+	// For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
 	Expression *string `pulumi:"expression"`
 	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 	Id string `pulumi:"id"`
@@ -7338,7 +7340,9 @@ type MetricAlarmMetricQueryInput interface {
 type MetricAlarmMetricQueryArgs struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+	// A Metrics Insights query or a metric math expression to be evaluated on the returned data.
+	// For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
+	// For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
 	// A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -7412,7 +7416,9 @@ func (o MetricAlarmMetricQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+// A Metrics Insights query or a metric math expression to be evaluated on the returned data.
+// For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
+// For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
 func (o MetricAlarmMetricQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }

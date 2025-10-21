@@ -598,6 +598,8 @@ __all__ = [
     'GetVpcPeeringConnectionsFilterArgsDict',
     'GetVpcsFilterArgs',
     'GetVpcsFilterArgsDict',
+    'GetVpnConnectionFilterArgs',
+    'GetVpnConnectionFilterArgsDict',
     'GetVpnGatewayFilterArgs',
     'GetVpnGatewayFilterArgsDict',
 ]
@@ -6421,7 +6423,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         `encrypted` must be set to `true` when this is set.
         """
         snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -6467,7 +6469,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
                Cannot be used with `snapshot_id`.
         :param pulumi.Input[_builtins.int] iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
                This must be set with a `volume_type` of `"io1/io2/gp3"`.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        :param pulumi.Input[_builtins.str] kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[_builtins.str] snapshot_id: The Snapshot ID to mount.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
@@ -6538,7 +6540,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         `encrypted` must be set to `true` when this is set.
         """
         return pulumi.get(self, "kms_key_id")
@@ -24354,6 +24356,56 @@ class GetVpcsFilterArgs:
         """
         Set of values that are accepted for the given field.
         A VPC will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetVpnConnectionFilterArgsDict(TypedDict):
+        name: _builtins.str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+        """
+        values: Sequence[_builtins.str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetVpnConnectionFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetVpnConnectionFilterArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
 

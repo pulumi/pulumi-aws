@@ -35,6 +35,11 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
+export { HostKeyArgs, HostKeyState } from "./hostKey";
+export type HostKey = import("./hostKey").HostKey;
+export const HostKey: typeof import("./hostKey").HostKey = null as any;
+utilities.lazyLoad(exports, ["HostKey"], () => require("./hostKey"));
+
 export { ProfileArgs, ProfileState } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
@@ -60,6 +65,16 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
+export { WebAppArgs, WebAppState } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+
+export { WebAppCustomizationArgs, WebAppCustomizationState } from "./webAppCustomization";
+export type WebAppCustomization = import("./webAppCustomization").WebAppCustomization;
+export const WebAppCustomization: typeof import("./webAppCustomization").WebAppCustomization = null as any;
+utilities.lazyLoad(exports, ["WebAppCustomization"], () => require("./webAppCustomization"));
+
 export { WorkflowArgs, WorkflowState } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
@@ -78,6 +93,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:transfer/connector:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "aws:transfer/hostKey:HostKey":
+                return new HostKey(name, <any>undefined, { urn })
             case "aws:transfer/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             case "aws:transfer/server:Server":
@@ -88,6 +105,10 @@ const _module = {
                 return new Tag(name, <any>undefined, { urn })
             case "aws:transfer/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws:transfer/webApp:WebApp":
+                return new WebApp(name, <any>undefined, { urn })
+            case "aws:transfer/webAppCustomization:WebAppCustomization":
+                return new WebAppCustomization(name, <any>undefined, { urn })
             case "aws:transfer/workflow:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
@@ -99,9 +120,12 @@ pulumi.runtime.registerResourceModule("aws", "transfer/access", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/agreement", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/connector", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/hostKey", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/profile", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/server", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/user", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/webApp", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/webAppCustomization", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/workflow", _module)

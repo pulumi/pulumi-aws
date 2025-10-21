@@ -25,15 +25,30 @@ export const getCloudAutonomousVmCluster: typeof import("./getCloudAutonomousVmC
 export const getCloudAutonomousVmClusterOutput: typeof import("./getCloudAutonomousVmCluster").getCloudAutonomousVmClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudAutonomousVmCluster","getCloudAutonomousVmClusterOutput"], () => require("./getCloudAutonomousVmCluster"));
 
+export { GetCloudAutonomousVmClustersArgs, GetCloudAutonomousVmClustersResult, GetCloudAutonomousVmClustersOutputArgs } from "./getCloudAutonomousVmClusters";
+export const getCloudAutonomousVmClusters: typeof import("./getCloudAutonomousVmClusters").getCloudAutonomousVmClusters = null as any;
+export const getCloudAutonomousVmClustersOutput: typeof import("./getCloudAutonomousVmClusters").getCloudAutonomousVmClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudAutonomousVmClusters","getCloudAutonomousVmClustersOutput"], () => require("./getCloudAutonomousVmClusters"));
+
 export { GetCloudExadataInfrastructureArgs, GetCloudExadataInfrastructureResult, GetCloudExadataInfrastructureOutputArgs } from "./getCloudExadataInfrastructure";
 export const getCloudExadataInfrastructure: typeof import("./getCloudExadataInfrastructure").getCloudExadataInfrastructure = null as any;
 export const getCloudExadataInfrastructureOutput: typeof import("./getCloudExadataInfrastructure").getCloudExadataInfrastructureOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudExadataInfrastructure","getCloudExadataInfrastructureOutput"], () => require("./getCloudExadataInfrastructure"));
 
+export { GetCloudExadataInfrastructuresArgs, GetCloudExadataInfrastructuresResult, GetCloudExadataInfrastructuresOutputArgs } from "./getCloudExadataInfrastructures";
+export const getCloudExadataInfrastructures: typeof import("./getCloudExadataInfrastructures").getCloudExadataInfrastructures = null as any;
+export const getCloudExadataInfrastructuresOutput: typeof import("./getCloudExadataInfrastructures").getCloudExadataInfrastructuresOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudExadataInfrastructures","getCloudExadataInfrastructuresOutput"], () => require("./getCloudExadataInfrastructures"));
+
 export { GetCloudVmClusterArgs, GetCloudVmClusterResult, GetCloudVmClusterOutputArgs } from "./getCloudVmCluster";
 export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmCluster = null as any;
 export const getCloudVmClusterOutput: typeof import("./getCloudVmCluster").getCloudVmClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudVmCluster","getCloudVmClusterOutput"], () => require("./getCloudVmCluster"));
+
+export { GetCloudVmClustersArgs, GetCloudVmClustersResult, GetCloudVmClustersOutputArgs } from "./getCloudVmClusters";
+export const getCloudVmClusters: typeof import("./getCloudVmClusters").getCloudVmClusters = null as any;
+export const getCloudVmClustersOutput: typeof import("./getCloudVmClusters").getCloudVmClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudVmClusters","getCloudVmClustersOutput"], () => require("./getCloudVmClusters"));
 
 export { GetDbNodeArgs, GetDbNodeResult, GetDbNodeOutputArgs } from "./getDbNode";
 export const getDbNode: typeof import("./getDbNode").getDbNode = null as any;
@@ -74,6 +89,16 @@ export { GetNetworkPeeringConnectionArgs, GetNetworkPeeringConnectionResult, Get
 export const getNetworkPeeringConnection: typeof import("./getNetworkPeeringConnection").getNetworkPeeringConnection = null as any;
 export const getNetworkPeeringConnectionOutput: typeof import("./getNetworkPeeringConnection").getNetworkPeeringConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkPeeringConnection","getNetworkPeeringConnectionOutput"], () => require("./getNetworkPeeringConnection"));
+
+export { GetNetworkPeeringConnectionsArgs, GetNetworkPeeringConnectionsResult, GetNetworkPeeringConnectionsOutputArgs } from "./getNetworkPeeringConnections";
+export const getNetworkPeeringConnections: typeof import("./getNetworkPeeringConnections").getNetworkPeeringConnections = null as any;
+export const getNetworkPeeringConnectionsOutput: typeof import("./getNetworkPeeringConnections").getNetworkPeeringConnectionsOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkPeeringConnections","getNetworkPeeringConnectionsOutput"], () => require("./getNetworkPeeringConnections"));
+
+export { GetNetworksArgs, GetNetworksResult, GetNetworksOutputArgs } from "./getNetworks";
+export const getNetworks: typeof import("./getNetworks").getNetworks = null as any;
+export const getNetworksOutput: typeof import("./getNetworks").getNetworksOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworks","getNetworksOutput"], () => require("./getNetworks"));
 
 export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;

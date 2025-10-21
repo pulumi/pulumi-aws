@@ -50,6 +50,144 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Direct Connect Gateway Propagation
+ * 
+ * When propagating routes from a Direct Connect Gateway attachment, reference the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource (available in v6.5.0+):
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Gateway;
+ * import com.pulumi.aws.directconnect.GatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.directconnect.GatewayAssociation;
+ * import com.pulumi.aws.directconnect.GatewayAssociationArgs;
+ * import com.pulumi.aws.ec2transitgateway.RouteTable;
+ * import com.pulumi.aws.ec2transitgateway.RouteTableArgs;
+ * import com.pulumi.aws.ec2transitgateway.RouteTablePropagation;
+ * import com.pulumi.aws.ec2transitgateway.RouteTablePropagationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Gateway("example", GatewayArgs.builder()
+ *             .name("example")
+ *             .amazonSideAsn("64512")
+ *             .build());
+ * 
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
+ *             .description("example")
+ *             .build());
+ * 
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()
+ *             .dxGatewayId(example.id())
+ *             .associatedGatewayId(exampleTransitGateway.id())
+ *             .allowedPrefixes("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
+ *             .transitGatewayId(exampleTransitGateway.id())
+ *             .build());
+ * 
+ *         // Correct: Reference the attachment ID directly from the association resource
+ *         var exampleRouteTablePropagation = new RouteTablePropagation("exampleRouteTablePropagation", RouteTablePropagationArgs.builder()
+ *             .transitGatewayAttachmentId(exampleGatewayAssociation.transitGatewayAttachmentId())
+ *             .transitGatewayRouteTableId(exampleRouteTable.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **NOTE:** Avoid using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowedPrefixes`). Always reference the `transitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource when available.
+ * 
+ * ### VPC Attachment Propagation
+ * 
+ * For VPC attachments, always reference the attachment resource&#39;s `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachment;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachmentArgs;
+ * import com.pulumi.aws.ec2transitgateway.RouteTable;
+ * import com.pulumi.aws.ec2transitgateway.RouteTableArgs;
+ * import com.pulumi.aws.ec2transitgateway.RouteTablePropagation;
+ * import com.pulumi.aws.ec2transitgateway.RouteTablePropagationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Vpc("example", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .vpcId(example.id())
+ *             .cidrBlock("10.0.1.0/24")
+ *             .build());
+ * 
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
+ *             .description("example")
+ *             .build());
+ * 
+ *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
+ *             .subnetIds(exampleSubnet.id())
+ *             .transitGatewayId(exampleTransitGateway.id())
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
+ *             .transitGatewayId(exampleTransitGateway.id())
+ *             .build());
+ * 
+ *         // Correct: Reference the VPC attachment ID directly
+ *         var exampleRouteTablePropagation = new RouteTablePropagation("exampleRouteTablePropagation", RouteTablePropagationArgs.builder()
+ *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
+ *             .transitGatewayRouteTableId(exampleRouteTable.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **NOTE:** When the `transitGatewayAttachmentId` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:

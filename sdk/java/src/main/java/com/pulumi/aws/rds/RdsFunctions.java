@@ -18,6 +18,8 @@ import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionPlainArgs;
 import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
 import com.pulumi.aws.rds.inputs.GetEventCategoriesPlainArgs;
+import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+import com.pulumi.aws.rds.inputs.GetGlobalClusterPlainArgs;
 import com.pulumi.aws.rds.inputs.GetInstanceArgs;
 import com.pulumi.aws.rds.inputs.GetInstancePlainArgs;
 import com.pulumi.aws.rds.inputs.GetInstancesArgs;
@@ -41,6 +43,7 @@ import com.pulumi.aws.rds.outputs.GetClusterSnapshotResult;
 import com.pulumi.aws.rds.outputs.GetClustersResult;
 import com.pulumi.aws.rds.outputs.GetEngineVersionResult;
 import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
+import com.pulumi.aws.rds.outputs.GetGlobalClusterResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
 import com.pulumi.aws.rds.outputs.GetInstancesResult;
 import com.pulumi.aws.rds.outputs.GetOrderableDbInstanceResult;
@@ -2423,6 +2426,216 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetEventCategoriesResult> getEventCategoriesPlain(GetEventCategoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getEventCategories:getEventCategories", TypeShape.of(GetEventCategoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Global Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
+     *             .identifier(test.globalClusterIdentifier())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGlobalClusterResult> getGlobalCluster(GetGlobalClusterArgs args) {
+        return getGlobalCluster(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Global Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
+     *             .identifier(test.globalClusterIdentifier())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetGlobalClusterResult> getGlobalClusterPlain(GetGlobalClusterPlainArgs args) {
+        return getGlobalClusterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Global Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
+     *             .identifier(test.globalClusterIdentifier())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGlobalClusterResult> getGlobalCluster(GetGlobalClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getGlobalCluster:getGlobalCluster", TypeShape.of(GetGlobalClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Global Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
+     *             .identifier(test.globalClusterIdentifier())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGlobalClusterResult> getGlobalCluster(GetGlobalClusterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getGlobalCluster:getGlobalCluster", TypeShape.of(GetGlobalClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS RDS (Relational Database) Global Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getGlobalCluster(GetGlobalClusterArgs.builder()
+     *             .identifier(test.globalClusterIdentifier())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetGlobalClusterResult> getGlobalClusterPlain(GetGlobalClusterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getGlobalCluster:getGlobalCluster", TypeShape.of(GetGlobalClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an RDS instance

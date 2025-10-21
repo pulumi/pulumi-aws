@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const withMinimumParameter = new aws.odb.CloudVmCluster("with_minimum_parameter", {
- *     displayName: "my-exa-infra",
- *     cloudExadataInfrastructureId: "exa_gjrmtxl4qk",
+ *     displayName: "my_vm_cluster",
+ *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     cpuCoreCount: 6,
  *     giVersion: "23.0.0.0",
  *     hostnamePrefix: "apollo12",
  *     sshPublicKeys: ["public-ssh-key"],
- *     odbNetworkId: "odbnet_3l9st3litg",
+ *     odbNetworkId: "<aws_odb_network_id>",
  *     isLocalBackupEnabled: true,
  *     isSparseDiskgroupEnabled: true,
  *     licenseModel: "LICENSE_INCLUDED",
@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const withAllParameters = new aws.odb.CloudVmCluster("with_all_parameters", {
- *     displayName: "my-vmc",
- *     cloudExadataInfrastructureId: "exa_gjrmtxl4qk",
+ *     displayName: "my_vm_cluster",
+ *     cloudExadataInfrastructureId: "<aws_odb_cloud_exadata_infrastructure_id>",
  *     cpuCoreCount: 6,
  *     giVersion: "23.0.0.0",
  *     hostnamePrefix: "apollo12",
  *     sshPublicKeys: ["my-ssh-key"],
- *     odbNetworkId: "odbnet_3l9st3litg",
+ *     odbNetworkId: "<aws_odb_network_id>",
  *     isLocalBackupEnabled: true,
  *     isSparseDiskgroupEnabled: true,
  *     licenseModel: "LICENSE_INCLUDED",

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGiVersionsGiVersion {
+    /**
+     * @return The GI software version.
+     * 
+     */
     private String version;
 
     private GetGiVersionsGiVersion() {}
+    /**
+     * @return The GI software version.
+     * 
+     */
     public String version() {
         return this.version;
     }

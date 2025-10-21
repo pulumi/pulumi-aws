@@ -47,7 +47,9 @@ class EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment.
+               See User Parameters for more information.
+               Changing these values recreates the resource.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "profile_identifier", profile_identifier)
@@ -206,7 +208,9 @@ class EnvironmentArgs:
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]]:
         """
-        The user parameters that are used in the environment. See User Parameters for more information.
+        The user parameters that are used in the environment.
+        See User Parameters for more information.
+        Changing these values recreates the resource.
         """
         return pulumi.get(self, "user_parameters")
 
@@ -253,7 +257,9 @@ class _EnvironmentState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] provider_environment: The provider of the environment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment.
+               See User Parameters for more information.
+               Changing these values recreates the resource.
         """
         if account_identifier is not None:
             pulumi.set(__self__, "account_identifier", account_identifier)
@@ -482,7 +488,9 @@ class _EnvironmentState:
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]]:
         """
-        The user parameters that are used in the environment. See User Parameters for more information.
+        The user parameters that are used in the environment.
+        See User Parameters for more information.
+        Changing these values recreates the resource.
         """
         return pulumi.get(self, "user_parameters")
 
@@ -523,9 +531,7 @@ class Environment(pulumi.CustomResource):
 
         example = aws.datazone.Environment("example",
             name="example",
-            account_identifier=test["accountId"],
-            account_region=test_aws_region["name"],
-            blueprint_identifier=test_aws_datazone_environment_blueprint_configuration["environmentBlueprintId"],
+            blueprint_identifier=test["environmentBlueprintId"],
             profile_identifier=test_aws_datazone_environment_profile["id"],
             project_identifier=test_aws_datazone_project["id"],
             domain_identifier=test_aws_datazone_domain["id"],
@@ -567,7 +573,9 @@ class Environment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
+               See User Parameters for more information.
+               Changing these values recreates the resource.
         """
         ...
     @overload
@@ -588,9 +596,7 @@ class Environment(pulumi.CustomResource):
 
         example = aws.datazone.Environment("example",
             name="example",
-            account_identifier=test["accountId"],
-            account_region=test_aws_region["name"],
-            blueprint_identifier=test_aws_datazone_environment_blueprint_configuration["environmentBlueprintId"],
+            blueprint_identifier=test["environmentBlueprintId"],
             profile_identifier=test_aws_datazone_environment_profile["id"],
             project_identifier=test_aws_datazone_project["id"],
             domain_identifier=test_aws_datazone_domain["id"],
@@ -727,7 +733,9 @@ class Environment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] provider_environment: The provider of the environment.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment.
+               See User Parameters for more information.
+               Changing these values recreates the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -880,7 +888,9 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentUserParameter']]]:
         """
-        The user parameters that are used in the environment. See User Parameters for more information.
+        The user parameters that are used in the environment.
+        See User Parameters for more information.
+        Changing these values recreates the resource.
         """
         return pulumi.get(self, "user_parameters")
 

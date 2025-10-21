@@ -63,6 +63,21 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Import(name="adminProGroups")
+    private @Nullable Output<List<String>> adminProGroups;
+
+    /**
+     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Optional<Output<List<String>>> adminProGroups() {
+        return Optional.ofNullable(this.adminProGroups);
+    }
+
+    /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
@@ -90,6 +105,21 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<String>>> authorGroups() {
         return Optional.ofNullable(this.authorGroups);
+    }
+
+    /**
+     * Author PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Import(name="authorProGroups")
+    private @Nullable Output<List<String>> authorProGroups;
+
+    /**
+     * @return Author PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Optional<Output<List<String>>> authorProGroups() {
+        return Optional.ofNullable(this.authorProGroups);
     }
 
     /**
@@ -247,6 +277,21 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Import(name="readerProGroups")
+    private @Nullable Output<List<String>> readerProGroups;
+
+    /**
+     * @return Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Optional<Output<List<String>>> readerProGroups() {
+        return Optional.ofNullable(this.readerProGroups);
+    }
+
+    /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      * 
      */
@@ -282,8 +327,10 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         this.accountName = $.accountName;
         this.activeDirectoryName = $.activeDirectoryName;
         this.adminGroups = $.adminGroups;
+        this.adminProGroups = $.adminProGroups;
         this.authenticationMethod = $.authenticationMethod;
         this.authorGroups = $.authorGroups;
+        this.authorProGroups = $.authorProGroups;
         this.awsAccountId = $.awsAccountId;
         this.contactNumber = $.contactNumber;
         this.directoryId = $.directoryId;
@@ -294,6 +341,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         this.lastName = $.lastName;
         this.notificationEmail = $.notificationEmail;
         this.readerGroups = $.readerGroups;
+        this.readerProGroups = $.readerProGroups;
         this.realm = $.realm;
         this.region = $.region;
     }
@@ -390,6 +438,37 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminProGroups(@Nullable Output<List<String>> adminProGroups) {
+            $.adminProGroups = adminProGroups;
+            return this;
+        }
+
+        /**
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminProGroups(List<String> adminProGroups) {
+            return adminProGroups(Output.of(adminProGroups));
+        }
+
+        /**
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminProGroups(String... adminProGroups) {
+            return adminProGroups(List.of(adminProGroups));
+        }
+
+        /**
          * @param authenticationMethod Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
          * 
          * @return builder
@@ -439,6 +518,37 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
          */
         public Builder authorGroups(String... authorGroups) {
             return authorGroups(List.of(authorGroups));
+        }
+
+        /**
+         * @param authorProGroups Author PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorProGroups(@Nullable Output<List<String>> authorProGroups) {
+            $.authorProGroups = authorProGroups;
+            return this;
+        }
+
+        /**
+         * @param authorProGroups Author PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorProGroups(List<String> authorProGroups) {
+            return authorProGroups(Output.of(authorProGroups));
+        }
+
+        /**
+         * @param authorProGroups Author PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorProGroups(String... authorProGroups) {
+            return authorProGroups(List.of(authorProGroups));
         }
 
         /**
@@ -663,6 +773,37 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
          */
         public Builder readerGroups(String... readerGroups) {
             return readerGroups(List.of(readerGroups));
+        }
+
+        /**
+         * @param readerProGroups Reader PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readerProGroups(@Nullable Output<List<String>> readerProGroups) {
+            $.readerProGroups = readerProGroups;
+            return this;
+        }
+
+        /**
+         * @param readerProGroups Reader PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readerProGroups(List<String> readerProGroups) {
+            return readerProGroups(Output.of(readerProGroups));
+        }
+
+        /**
+         * @param readerProGroups Reader PRO group associated with your Active Directory or IAM Identity Center account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readerProGroups(String... readerProGroups) {
+            return readerProGroups(List.of(readerProGroups));
         }
 
         /**

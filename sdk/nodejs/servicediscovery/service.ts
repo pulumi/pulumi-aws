@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         }],
  *         routingPolicy: "MULTIVALUE",
  *     },
- *     healthCheckCustomConfig: {
+ *     healthCheckConfig: {
  *         failureThreshold: 1,
  *     },
  * });
@@ -124,7 +124,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly healthCheckConfig: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
     /**
-     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      */
     declare public readonly healthCheckCustomConfig: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface ServiceState {
      */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
-     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
@@ -266,7 +266,7 @@ export interface ServiceArgs {
      */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
-     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**

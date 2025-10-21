@@ -14,12 +14,6 @@ import (
 
 // Provides a resource to create a VPC routing table.
 //
-// > **NOTE on Route Tables and Routes:** This provider currently
-// provides both a standalone Route resource and a Route Table resource with routes
-// defined in-line. At this time you cannot use a Route Table with in-line routes
-// in conjunction with any Route resources. Doing so will cause
-// a conflict of rule settings and will overwrite rules.
-//
 // > **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
 // attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
 // This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
@@ -231,6 +225,8 @@ type RouteTable struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+	//
+	// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -283,6 +279,8 @@ type routeTableState struct {
 	Region *string `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+	//
+	// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -303,6 +301,8 @@ type RouteTableState struct {
 	Region pulumi.StringPtrInput
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+	//
+	// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 	Routes RouteTableRouteArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -323,6 +323,8 @@ type routeTableArgs struct {
 	Region *string `pulumi:"region"`
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+	//
+	// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -338,6 +340,8 @@ type RouteTableArgs struct {
 	Region pulumi.StringPtrInput
 	// A list of route objects. Their keys are documented below.
 	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+	//
+	// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 	Routes RouteTableRouteArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -454,6 +458,8 @@ func (o RouteTableOutput) Region() pulumi.StringOutput {
 
 // A list of route objects. Their keys are documented below.
 // This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+//
+// > **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`ec2.Route`) and a Route Table resource with routes defined in-line (`ec2.RouteTable`). At this time you cannot use a `ec2.RouteTable` inline `route` blocks in conjunction with any `ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 func (o RouteTableOutput) Routes() RouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *RouteTable) RouteTableRouteArrayOutput { return v.Routes }).(RouteTableRouteArrayOutput)
 }

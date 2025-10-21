@@ -166,16 +166,43 @@ import javax.annotation.Nullable;
  * 
  * AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
  * 
- * resource &#34;aws.lakeformation.Permissions&#34; &#34;example&#34; {
- *   permissions = [&#34;SELECT&#34;]
- *   principal   = &#34;123456789012:IAMPrincipals&#34;
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- *   tableWithColumns {
- *     databaseName = aws_glue_catalog_table.example.database_name
- *     name          = aws_glue_catalog_table.example.name
- *     columnNames  = [&#34;event&#34;]
- *   }
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.Permissions;
+ * import com.pulumi.aws.lakeformation.PermissionsArgs;
+ * import com.pulumi.aws.lakeformation.inputs.PermissionsTableWithColumnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Permissions("example", PermissionsArgs.builder()
+ *             .permissions("SELECT")
+ *             .principal("123456789012:IAMPrincipals")
+ *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
+ *                 .databaseName(exampleAwsGlueCatalogTable.databaseName())
+ *                 .name(exampleAwsGlueCatalogTable.name())
+ *                 .columnNames("event")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
  * }
+ * }
+ * </pre>
  * 
  * ## Using Lake Formation Permissions
  * 

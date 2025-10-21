@@ -25,6 +25,7 @@ __all__ = [
     'ApplicationInteractiveConfiguration',
     'ApplicationMaximumCapacity',
     'ApplicationNetworkConfiguration',
+    'ApplicationSchedulerConfiguration',
 ]
 
 @pulumi.output_type
@@ -407,5 +408,55 @@ class ApplicationNetworkConfiguration(dict):
         The array of subnet Ids for customer VPC connectivity.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class ApplicationSchedulerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentRuns":
+            suggest = "max_concurrent_runs"
+        elif key == "queueTimeoutMinutes":
+            suggest = "queue_timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSchedulerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSchedulerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSchedulerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[_builtins.int] = None,
+                 queue_timeout_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_concurrent_runs: Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+        :param _builtins.int queue_timeout_minutes: Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+        if queue_timeout_minutes is not None:
+            pulumi.set(__self__, "queue_timeout_minutes", queue_timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[_builtins.int]:
+        """
+        Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @_builtins.property
+    @pulumi.getter(name="queueTimeoutMinutes")
+    def queue_timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+        """
+        return pulumi.get(self, "queue_timeout_minutes")
 
 

@@ -13,6 +13,8 @@ import (
 
 // Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 //
+// !> **Warning:** Using the `ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transitGatewayAttachmentId` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+//
 // ## Example Usage
 //
 // ### By Transit Gateway and Direct Connect Gateway Identifiers

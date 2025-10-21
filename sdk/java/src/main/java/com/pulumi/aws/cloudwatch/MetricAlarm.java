@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -65,7 +67,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example in Conjunction with Scaling Policies
+ * ### With Scaling Policies
  * 
  * <pre>
  * {@code
@@ -118,7 +120,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example with an Expression
+ * ### With a Metrics Math Expression
  * 
  * <pre>
  * {@code
@@ -244,7 +246,61 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+ * ### With a Metrics Insights Query
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
+ *             .name("example-alarm")
+ *             .alarmDescription("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(1)
+ *             .threshold(0.6)
+ *             .treatMissingData("notBreaching")
+ *             .metricQueries(MetricAlarmMetricQueryArgs.builder()
+ *                 .id("q1")
+ *                 .expression("""
+ * SELECT
+ *   MAX(DBLoadRelativeToNumVCPUs)
+ * FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+ * WHERE DBInstanceIdentifier != 'example-rds-instance'
+ * GROUP BY DBInstanceIdentifier
+ * ORDER BY MIN() ASC
+ * LIMIT 1
+ *                 """)
+ *                 .period(60)
+ *                 .returnData(true)
+ *                 .label("Max DB Load of the Least-Loaded RDS Instance")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Monitoring Healthy NLB Hosts with Target Group and NLB
  * 
  * <pre>
  * {@code
@@ -293,7 +349,7 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
- * You must choose one or the other
+ * You must choose one or the other.
  * 
  * ## Import
  * 
@@ -389,14 +445,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return this.comparisonOperator;
     }
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of data points that must be breaching to trigger the alarm.
      * 
      */
     @Export(name="datapointsToAlarm", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> datapointsToAlarm;
 
     /**
-     * @return The number of datapoints that must be breaching to trigger the alarm.
+     * @return The number of data points that must be breaching to trigger the alarm.
      * 
      */
     public Output<Optional<Integer>> datapointsToAlarm() {

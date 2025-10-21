@@ -32,9 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datazone.NewEnvironment(ctx, "example", &datazone.EnvironmentArgs{
 //				Name:                pulumi.String("example"),
-//				AccountIdentifier:   pulumi.Any(test.AccountId),
-//				AccountRegion:       pulumi.Any(testAwsRegion.Name),
-//				BlueprintIdentifier: pulumi.Any(testAwsDatazoneEnvironmentBlueprintConfiguration.EnvironmentBlueprintId),
+//				BlueprintIdentifier: pulumi.Any(test.EnvironmentBlueprintId),
 //				ProfileIdentifier:   pulumi.Any(testAwsDatazoneEnvironmentProfile.Id),
 //				ProjectIdentifier:   pulumi.Any(testAwsDatazoneProject.Id),
 //				DomainIdentifier:    pulumi.Any(testAwsDatazoneDomain.Id),
@@ -104,7 +102,9 @@ type Environment struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput          `pulumi:"region"`
 	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The user parameters that are used in the environment. See User Parameters for more information.
+	// The user parameters that are used in the environment.
+	// See User Parameters for more information.
+	// Changing these values recreates the resource.
 	UserParameters EnvironmentUserParameterArrayOutput `pulumi:"userParameters"`
 }
 
@@ -179,7 +179,9 @@ type environmentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string              `pulumi:"region"`
 	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
-	// The user parameters that are used in the environment. See User Parameters for more information.
+	// The user parameters that are used in the environment.
+	// See User Parameters for more information.
+	// Changing these values recreates the resource.
 	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
 }
 
@@ -216,7 +218,9 @@ type EnvironmentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EnvironmentTimeoutsPtrInput
-	// The user parameters that are used in the environment. See User Parameters for more information.
+	// The user parameters that are used in the environment.
+	// See User Parameters for more information.
+	// Changing these values recreates the resource.
 	UserParameters EnvironmentUserParameterArrayInput
 }
 
@@ -248,7 +252,9 @@ type environmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string              `pulumi:"region"`
 	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
-	// The user parameters that are used in the environment. See User Parameters for more information.
+	// The user parameters that are used in the environment.
+	// See User Parameters for more information.
+	// Changing these values recreates the resource.
 	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
 }
 
@@ -277,7 +283,9 @@ type EnvironmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts EnvironmentTimeoutsPtrInput
-	// The user parameters that are used in the environment. See User Parameters for more information.
+	// The user parameters that are used in the environment.
+	// See User Parameters for more information.
+	// Changing these values recreates the resource.
 	UserParameters EnvironmentUserParameterArrayInput
 }
 
@@ -448,7 +456,9 @@ func (o EnvironmentOutput) Timeouts() EnvironmentTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentTimeoutsPtrOutput { return v.Timeouts }).(EnvironmentTimeoutsPtrOutput)
 }
 
-// The user parameters that are used in the environment. See User Parameters for more information.
+// The user parameters that are used in the environment.
+// See User Parameters for more information.
+// Changing these values recreates the resource.
 func (o EnvironmentOutput) UserParameters() EnvironmentUserParameterArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentUserParameterArrayOutput { return v.UserParameters }).(EnvironmentUserParameterArrayOutput)
 }

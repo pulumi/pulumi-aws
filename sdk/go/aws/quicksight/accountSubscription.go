@@ -14,7 +14,7 @@ import (
 
 // Resource for managing an AWS QuickSight Account Subscription.
 //
-// > Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+// > Due to the absence of the `adminGroup`, `authorGroup`, `readerGroup`, `adminProGroup`, `authorProGroup`, and `readerProGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
 //
 // ## Example Usage
 //
@@ -63,10 +63,14 @@ type AccountSubscription struct {
 	ActiveDirectoryName pulumi.StringPtrOutput `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayOutput `pulumi:"adminGroups"`
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	AdminProGroups pulumi.StringArrayOutput `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringOutput `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayOutput `pulumi:"authorGroups"`
+	// Author PRO group associated with your Active Directory or IAM Identity Center account.
+	AuthorProGroups pulumi.StringArrayOutput `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -89,6 +93,8 @@ type AccountSubscription struct {
 	NotificationEmail pulumi.StringOutput `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Directory or IAM Identity Center account.
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
+	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+	ReaderProGroups pulumi.StringArrayOutput `pulumi:"readerProGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrOutput `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -145,10 +151,14 @@ type accountSubscriptionState struct {
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	AdminProGroups []string `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups []string `pulumi:"authorGroups"`
+	// Author PRO group associated with your Active Directory or IAM Identity Center account.
+	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -171,6 +181,8 @@ type accountSubscriptionState struct {
 	NotificationEmail *string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Directory or IAM Identity Center account.
 	ReaderGroups []string `pulumi:"readerGroups"`
+	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+	ReaderProGroups []string `pulumi:"readerProGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -186,10 +198,14 @@ type AccountSubscriptionState struct {
 	ActiveDirectoryName pulumi.StringPtrInput
 	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	AdminProGroups pulumi.StringArrayInput
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringPtrInput
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayInput
+	// Author PRO group associated with your Active Directory or IAM Identity Center account.
+	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -212,6 +228,8 @@ type AccountSubscriptionState struct {
 	NotificationEmail pulumi.StringPtrInput
 	// Reader group associated with your Active Directory or IAM Identity Center account.
 	ReaderGroups pulumi.StringArrayInput
+	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+	ReaderProGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -229,10 +247,14 @@ type accountSubscriptionArgs struct {
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	AdminProGroups []string `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups []string `pulumi:"authorGroups"`
+	// Author PRO group associated with your Active Directory or IAM Identity Center account.
+	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -255,6 +277,8 @@ type accountSubscriptionArgs struct {
 	NotificationEmail string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Directory or IAM Identity Center account.
 	ReaderGroups []string `pulumi:"readerGroups"`
+	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+	ReaderProGroups []string `pulumi:"readerProGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -269,10 +293,14 @@ type AccountSubscriptionArgs struct {
 	ActiveDirectoryName pulumi.StringPtrInput
 	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	AdminProGroups pulumi.StringArrayInput
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringInput
 	// Author group associated with your Active Directory or IAM Identity Center account.
 	AuthorGroups pulumi.StringArrayInput
+	// Author PRO group associated with your Active Directory or IAM Identity Center account.
+	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
@@ -295,6 +323,8 @@ type AccountSubscriptionArgs struct {
 	NotificationEmail pulumi.StringInput
 	// Reader group associated with your Active Directory or IAM Identity Center account.
 	ReaderGroups pulumi.StringArrayInput
+	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+	ReaderProGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -408,6 +438,11 @@ func (o AccountSubscriptionOutput) AdminGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AdminGroups }).(pulumi.StringArrayOutput)
 }
 
+// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+func (o AccountSubscriptionOutput) AdminProGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AdminProGroups }).(pulumi.StringArrayOutput)
+}
+
 // Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 func (o AccountSubscriptionOutput) AuthenticationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AuthenticationMethod }).(pulumi.StringOutput)
@@ -416,6 +451,11 @@ func (o AccountSubscriptionOutput) AuthenticationMethod() pulumi.StringOutput {
 // Author group associated with your Active Directory or IAM Identity Center account.
 func (o AccountSubscriptionOutput) AuthorGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AuthorGroups }).(pulumi.StringArrayOutput)
+}
+
+// Author PRO group associated with your Active Directory or IAM Identity Center account.
+func (o AccountSubscriptionOutput) AuthorProGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AuthorProGroups }).(pulumi.StringArrayOutput)
 }
 
 // AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
@@ -468,6 +508,11 @@ func (o AccountSubscriptionOutput) NotificationEmail() pulumi.StringOutput {
 // Reader group associated with your Active Directory or IAM Identity Center account.
 func (o AccountSubscriptionOutput) ReaderGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.ReaderGroups }).(pulumi.StringArrayOutput)
+}
+
+// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+func (o AccountSubscriptionOutput) ReaderProGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.ReaderProGroups }).(pulumi.StringArrayOutput)
 }
 
 // Realm of the Active Directory that is associated with your Amazon QuickSight account.

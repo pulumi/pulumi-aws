@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `S3`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
+        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `S3`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
+        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `S3`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
+        /// Type of engine for the endpoint. Valid values are `Aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`Azuredb`, `azure-sql-managed-instance`, `Babelfish`, `Db2`, `db2-zos`, `Docdb`, `Dynamodb`, `Elasticsearch`, `Kafka`, `Kinesis`, `Mariadb`, `Mongodb`, `Mysql`, `Opensearch`, `Oracle`, `Postgres`, `Redshift`,`redshift-serverless`, `Sqlserver`, `Neptune` ,`Sybase`. Please note that some of engine names are available only for `Target` endpoint type (e.g. `Redshift`).
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }

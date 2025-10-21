@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  *
- * > Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+ * > Due to the absence of the `adminGroup`, `authorGroup`, `readerGroup`, `adminProGroup`, `authorProGroup`, and `readerProGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
  *
  * ## Example Usage
  *
@@ -76,6 +76,10 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly adminGroups: pulumi.Output<string[] | undefined>;
     /**
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    declare public readonly adminProGroups: pulumi.Output<string[] | undefined>;
+    /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
     declare public readonly authenticationMethod: pulumi.Output<string>;
@@ -83,6 +87,10 @@ export class AccountSubscription extends pulumi.CustomResource {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     declare public readonly authorGroups: pulumi.Output<string[] | undefined>;
+    /**
+     * Author PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    declare public readonly authorProGroups: pulumi.Output<string[] | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
@@ -126,6 +134,10 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly readerGroups: pulumi.Output<string[] | undefined>;
     /**
+     * Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    declare public readonly readerProGroups: pulumi.Output<string[] | undefined>;
+    /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
     declare public readonly realm: pulumi.Output<string | undefined>;
@@ -151,8 +163,10 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["accountSubscriptionStatus"] = state?.accountSubscriptionStatus;
             resourceInputs["activeDirectoryName"] = state?.activeDirectoryName;
             resourceInputs["adminGroups"] = state?.adminGroups;
+            resourceInputs["adminProGroups"] = state?.adminProGroups;
             resourceInputs["authenticationMethod"] = state?.authenticationMethod;
             resourceInputs["authorGroups"] = state?.authorGroups;
+            resourceInputs["authorProGroups"] = state?.authorProGroups;
             resourceInputs["awsAccountId"] = state?.awsAccountId;
             resourceInputs["contactNumber"] = state?.contactNumber;
             resourceInputs["directoryId"] = state?.directoryId;
@@ -163,6 +177,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["lastName"] = state?.lastName;
             resourceInputs["notificationEmail"] = state?.notificationEmail;
             resourceInputs["readerGroups"] = state?.readerGroups;
+            resourceInputs["readerProGroups"] = state?.readerProGroups;
             resourceInputs["realm"] = state?.realm;
             resourceInputs["region"] = state?.region;
         } else {
@@ -182,8 +197,10 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["activeDirectoryName"] = args?.activeDirectoryName;
             resourceInputs["adminGroups"] = args?.adminGroups;
+            resourceInputs["adminProGroups"] = args?.adminProGroups;
             resourceInputs["authenticationMethod"] = args?.authenticationMethod;
             resourceInputs["authorGroups"] = args?.authorGroups;
+            resourceInputs["authorProGroups"] = args?.authorProGroups;
             resourceInputs["awsAccountId"] = args?.awsAccountId;
             resourceInputs["contactNumber"] = args?.contactNumber;
             resourceInputs["directoryId"] = args?.directoryId;
@@ -194,6 +211,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["lastName"] = args?.lastName;
             resourceInputs["notificationEmail"] = args?.notificationEmail;
             resourceInputs["readerGroups"] = args?.readerGroups;
+            resourceInputs["readerProGroups"] = args?.readerProGroups;
             resourceInputs["realm"] = args?.realm;
             resourceInputs["region"] = args?.region;
             resourceInputs["accountSubscriptionStatus"] = undefined /*out*/;
@@ -224,6 +242,10 @@ export interface AccountSubscriptionState {
      */
     adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    adminProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
     authenticationMethod?: pulumi.Input<string>;
@@ -231,6 +253,10 @@ export interface AccountSubscriptionState {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Author PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    authorProGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
@@ -274,6 +300,10 @@ export interface AccountSubscriptionState {
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    readerProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
     realm?: pulumi.Input<string>;
@@ -300,6 +330,10 @@ export interface AccountSubscriptionArgs {
      */
     adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    adminProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
     authenticationMethod: pulumi.Input<string>;
@@ -307,6 +341,10 @@ export interface AccountSubscriptionArgs {
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
     authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Author PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    authorProGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
@@ -349,6 +387,10 @@ export interface AccountSubscriptionArgs {
      * Reader group associated with your Active Directory or IAM Identity Center account.
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     */
+    readerProGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */

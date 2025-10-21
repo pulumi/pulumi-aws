@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkPeeringConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// The unique identifier of the ODB network peering connection.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkPeeringConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// The unique identifier of the ODB network peering connection.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkPeeringConnectionResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// The Amazon Resource Name (ARN) for the  ODB network peering connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>

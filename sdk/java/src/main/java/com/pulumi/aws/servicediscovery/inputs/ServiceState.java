@@ -96,14 +96,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      * 
      */
     @Import(name="healthCheckCustomConfig")
     private @Nullable Output<ServiceHealthCheckCustomConfigArgs> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+     * @return Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
      * 
      */
     public Optional<Output<ServiceHealthCheckCustomConfigArgs>> healthCheckCustomConfig() {
@@ -333,7 +333,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+         * @param healthCheckCustomConfig Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
+         * @param healthCheckCustomConfig Please use `healthCheckConfig` instead. See `healthCheckCustomConfig` Block for details.
          * 
          * @return builder
          * 

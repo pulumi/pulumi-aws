@@ -21,6 +21,9 @@ __all__ = [
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigPolicies',
     'EventSourceMappingAmazonManagedKafkaEventSourceConfig',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingDestinationConfigOnFailure',
     'EventSourceMappingDocumentDbEventSourceConfig',
@@ -31,6 +34,9 @@ __all__ = [
     'EventSourceMappingScalingConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig',
     'EventSourceMappingSourceAccessConfiguration',
     'FunctionDeadLetterConfig',
     'FunctionEnvironment',
@@ -170,6 +176,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         suggest = None
         if key == "consumerGroupId":
             suggest = "consumer_group_id"
+        elif key == "schemaRegistryConfig":
+            suggest = "schema_registry_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingAmazonManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
@@ -183,12 +191,16 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 consumer_group_id: Optional[_builtins.str] = None):
+                 consumer_group_id: Optional[_builtins.str] = None,
+                 schema_registry_config: Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig'] = None):
         """
         :param _builtins.str consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
+        :param 'EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs' schema_registry_config: Block for a Kafka schema registry setting. See below.
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+        if schema_registry_config is not None:
+            pulumi.set(__self__, "schema_registry_config", schema_registry_config)
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
@@ -197,6 +209,142 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
         """
         return pulumi.get(self, "consumer_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaRegistryConfig")
+    def schema_registry_config(self) -> Optional['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig']:
+        """
+        Block for a Kafka schema registry setting. See below.
+        """
+        return pulumi.get(self, "schema_registry_config")
+
+
+@pulumi.output_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessConfigs":
+            suggest = "access_configs"
+        elif key == "eventRecordFormat":
+            suggest = "event_record_format"
+        elif key == "schemaRegistryUri":
+            suggest = "schema_registry_uri"
+        elif key == "schemaValidationConfigs":
+            suggest = "schema_validation_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_configs: Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']] = None,
+                 event_record_format: Optional[_builtins.str] = None,
+                 schema_registry_uri: Optional[_builtins.str] = None,
+                 schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']] = None):
+        """
+        :param Sequence['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs'] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
+        :param _builtins.str event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+        :param _builtins.str schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+        :param Sequence['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs'] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        """
+        if access_configs is not None:
+            pulumi.set(__self__, "access_configs", access_configs)
+        if event_record_format is not None:
+            pulumi.set(__self__, "event_record_format", event_record_format)
+        if schema_registry_uri is not None:
+            pulumi.set(__self__, "schema_registry_uri", schema_registry_uri)
+        if schema_validation_configs is not None:
+            pulumi.set(__self__, "schema_validation_configs", schema_validation_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="accessConfigs")
+    def access_configs(self) -> Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']]:
+        """
+        Configuration block for authentication Lambda uses to access the schema registry.
+        """
+        return pulumi.get(self, "access_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="eventRecordFormat")
+    def event_record_format(self) -> Optional[_builtins.str]:
+        """
+        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+        """
+        return pulumi.get(self, "event_record_format")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaRegistryUri")
+    def schema_registry_uri(self) -> Optional[_builtins.str]:
+        """
+        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+        """
+        return pulumi.get(self, "schema_registry_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaValidationConfigs")
+    def schema_validation_configs(self) -> Optional[Sequence['outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']]:
+        """
+        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        """
+        return pulumi.get(self, "schema_validation_configs")
+
+
+@pulumi.output_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig(dict):
+    def __init__(__self__, *,
+                 type: Optional[_builtins.str] = None,
+                 uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: Authentication type Lambda uses to access the schema registry.
+        :param _builtins.str uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Authentication type Lambda uses to access the schema registry.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[_builtins.str]:
+        """
+        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig(dict):
+    def __init__(__self__, *,
+                 attribute: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
+        """
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Message attribute to validate. Valid values: `KEY`, `VALUE`.
+        """
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type
@@ -500,6 +648,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         suggest = None
         if key == "consumerGroupId":
             suggest = "consumer_group_id"
+        elif key == "schemaRegistryConfig":
+            suggest = "schema_registry_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSelfManagedKafkaEventSourceConfig. Access the value via the '{suggest}' property getter instead.")
@@ -513,12 +663,16 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 consumer_group_id: Optional[_builtins.str] = None):
+                 consumer_group_id: Optional[_builtins.str] = None,
+                 schema_registry_config: Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig'] = None):
         """
         :param _builtins.str consumer_group_id: Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+        :param 'EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs' schema_registry_config: Block for a Kafka schema registry setting. See below.
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+        if schema_registry_config is not None:
+            pulumi.set(__self__, "schema_registry_config", schema_registry_config)
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
@@ -527,6 +681,142 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
         """
         return pulumi.get(self, "consumer_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaRegistryConfig")
+    def schema_registry_config(self) -> Optional['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig']:
+        """
+        Block for a Kafka schema registry setting. See below.
+        """
+        return pulumi.get(self, "schema_registry_config")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessConfigs":
+            suggest = "access_configs"
+        elif key == "eventRecordFormat":
+            suggest = "event_record_format"
+        elif key == "schemaRegistryUri":
+            suggest = "schema_registry_uri"
+        elif key == "schemaValidationConfigs":
+            suggest = "schema_validation_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_configs: Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']] = None,
+                 event_record_format: Optional[_builtins.str] = None,
+                 schema_registry_uri: Optional[_builtins.str] = None,
+                 schema_validation_configs: Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']] = None):
+        """
+        :param Sequence['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs'] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
+        :param _builtins.str event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+        :param _builtins.str schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+        :param Sequence['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs'] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        """
+        if access_configs is not None:
+            pulumi.set(__self__, "access_configs", access_configs)
+        if event_record_format is not None:
+            pulumi.set(__self__, "event_record_format", event_record_format)
+        if schema_registry_uri is not None:
+            pulumi.set(__self__, "schema_registry_uri", schema_registry_uri)
+        if schema_validation_configs is not None:
+            pulumi.set(__self__, "schema_validation_configs", schema_validation_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="accessConfigs")
+    def access_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig']]:
+        """
+        Configuration block for authentication Lambda uses to access the schema registry.
+        """
+        return pulumi.get(self, "access_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="eventRecordFormat")
+    def event_record_format(self) -> Optional[_builtins.str]:
+        """
+        Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+        """
+        return pulumi.get(self, "event_record_format")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaRegistryUri")
+    def schema_registry_uri(self) -> Optional[_builtins.str]:
+        """
+        URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+        """
+        return pulumi.get(self, "schema_registry_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaValidationConfigs")
+    def schema_validation_configs(self) -> Optional[Sequence['outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig']]:
+        """
+        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        """
+        return pulumi.get(self, "schema_validation_configs")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig(dict):
+    def __init__(__self__, *,
+                 type: Optional[_builtins.str] = None,
+                 uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: Authentication type Lambda uses to access the schema registry.
+        :param _builtins.str uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Authentication type Lambda uses to access the schema registry.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[_builtins.str]:
+        """
+        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig(dict):
+    def __init__(__self__, *,
+                 attribute: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str attribute: Message attribute to validate. Valid values: `KEY`, `VALUE`.
+        """
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Message attribute to validate. Valid values: `KEY`, `VALUE`.
+        """
+        return pulumi.get(self, "attribute")
 
 
 @pulumi.output_type

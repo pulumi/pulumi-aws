@@ -30,7 +30,7 @@ type CloudExadataInfrastructure struct {
 	ActivatedStorageCount pulumi.IntOutput `pulumi:"activatedStorageCount"`
 	// The number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount pulumi.IntOutput `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) of the pipeline.
+	// Amazon Resource Name (ARN) of the Exadata infrastructure.
 	Arn                pulumi.StringOutput `pulumi:"arn"`
 	AvailabilityZone   pulumi.StringOutput `pulumi:"availabilityZone"`
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -146,7 +146,7 @@ type cloudExadataInfrastructureState struct {
 	ActivatedStorageCount *int `pulumi:"activatedStorageCount"`
 	// The number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount *int `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) of the pipeline.
+	// Amazon Resource Name (ARN) of the Exadata infrastructure.
 	Arn                *string `pulumi:"arn"`
 	AvailabilityZone   *string `pulumi:"availabilityZone"`
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -224,7 +224,7 @@ type CloudExadataInfrastructureState struct {
 	ActivatedStorageCount pulumi.IntPtrInput
 	// The number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the pipeline.
+	// Amazon Resource Name (ARN) of the Exadata infrastructure.
 	Arn                pulumi.StringPtrInput
 	AvailabilityZone   pulumi.StringPtrInput
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -445,7 +445,7 @@ func (o CloudExadataInfrastructureOutput) AdditionalStorageCount() pulumi.IntOut
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.IntOutput { return v.AdditionalStorageCount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the pipeline.
+// Amazon Resource Name (ARN) of the Exadata infrastructure.
 func (o CloudExadataInfrastructureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

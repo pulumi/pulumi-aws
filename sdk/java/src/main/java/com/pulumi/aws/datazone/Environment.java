@@ -51,9 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .name("example")
- *             .accountIdentifier(test.accountId())
- *             .accountRegion(testAwsRegion.name())
- *             .blueprintIdentifier(testAwsDatazoneEnvironmentBlueprintConfiguration.environmentBlueprintId())
+ *             .blueprintIdentifier(test.environmentBlueprintId())
  *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.id())
  *             .projectIdentifier(testAwsDatazoneProject.id())
  *             .domainIdentifier(testAwsDatazoneDomain.id())
@@ -301,14 +299,18 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The user parameters that are used in the environment. See User Parameters for more information.
+     * The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      * 
      */
     @Export(name="userParameters", refs={List.class,EnvironmentUserParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentUserParameter>> userParameters;
 
     /**
-     * @return The user parameters that are used in the environment. See User Parameters for more information.
+     * @return The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      * 
      */
     public Output<Optional<List<EnvironmentUserParameter>>> userParameters() {

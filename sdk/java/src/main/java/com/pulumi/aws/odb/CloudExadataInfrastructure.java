@@ -66,14 +66,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.additionalStorageCount;
     }
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * Amazon Resource Name (ARN) of the Exadata infrastructure.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the pipeline.
+     * @return Amazon Resource Name (ARN) of the Exadata infrastructure.
      * 
      */
     public Output<String> arn() {

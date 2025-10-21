@@ -24333,6 +24333,9877 @@ func (o AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput) Ind
 	}).(AgentPromptVariantTemplateConfigurationTextInputVariableOutput)
 }
 
+type AgentcoreAgentRuntimeAgentRuntimeArtifact struct {
+	// Container configuration block. See `containerConfiguration` below.
+	ContainerConfiguration *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration `pulumi:"containerConfiguration"`
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactArgs and AgentcoreAgentRuntimeAgentRuntimeArtifactOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactInput` via:
+//
+//	AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{...}
+type AgentcoreAgentRuntimeAgentRuntimeArtifactInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactOutput
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactArgs struct {
+	// Container configuration block. See `containerConfiguration` below.
+	ContainerConfiguration AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
+}
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifact)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput)
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput).ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactArgs, AgentcoreAgentRuntimeAgentRuntimeArtifactPtr and AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput
+}
+
+type agentcoreAgentRuntimeAgentRuntimeArtifactPtrType AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
+
+func AgentcoreAgentRuntimeAgentRuntimeArtifactPtr(v *AgentcoreAgentRuntimeAgentRuntimeArtifactArgs) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput {
+	return (*agentcoreAgentRuntimeAgentRuntimeArtifactPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAgentRuntimeArtifactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifact)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifact)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return o.ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifact {
+		return &v
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput)
+}
+
+// Container configuration block. See `containerConfiguration` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactOutput) ContainerConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
+		return v.ContainerConfiguration
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifact)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) Elem() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifact) AgentcoreAgentRuntimeAgentRuntimeArtifact {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAgentRuntimeArtifact
+		return ret
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput)
+}
+
+// Container configuration block. See `containerConfiguration` below.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput) ContainerConfiguration() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifact) *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerConfiguration
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration struct {
+	// URI of the container image in Amazon ECR.
+	ContainerUri string `pulumi:"containerUri"`
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs and AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{...}
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs struct {
+	// URI of the container image in Amazon ECR.
+	ContainerUri pulumi.StringInput `pulumi:"containerUri"`
+}
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput).ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs, AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtr and AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrType AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
+
+func AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtr(v *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrType) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration) *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput)
+}
+
+// URI of the container image in Amazon ECR.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput) ContainerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration) string { return v.ContainerUri }).(pulumi.StringOutput)
+}
+
+type AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput) ToAgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration) AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput)
+}
+
+// URI of the container image in Amazon ECR.
+func (o AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput) ContainerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfiguration struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+	CustomJwtAuthorizer *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationArgs and AgentcoreAgentRuntimeAuthorizerConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationArgs{...}
+type AgentcoreAgentRuntimeAuthorizerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationOutput() AgentcoreAgentRuntimeAuthorizerConfigurationOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationArgs struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+	CustomJwtAuthorizer AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput `pulumi:"customJwtAuthorizer"`
+}
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationOutput() AgentcoreAgentRuntimeAuthorizerConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationOutput).ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationArgs, AgentcoreAgentRuntimeAuthorizerConfigurationPtr and AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAuthorizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeAuthorizerConfigurationPtrType AgentcoreAgentRuntimeAuthorizerConfigurationArgs
+
+func AgentcoreAgentRuntimeAuthorizerConfigurationPtr(v *AgentcoreAgentRuntimeAuthorizerConfigurationArgs) AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeAuthorizerConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAuthorizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAuthorizerConfigurationPtrType) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAuthorizerConfigurationPtrType) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationOutput() AgentcoreAgentRuntimeAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAuthorizerConfiguration) *AgentcoreAgentRuntimeAuthorizerConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput)
+}
+
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationOutput) CustomJwtAuthorizer() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfiguration) *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer {
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfiguration) AgentcoreAgentRuntimeAuthorizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAuthorizerConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationOutput)
+}
+
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfiguration) *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer {
+		if v == nil {
+			return nil
+		}
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer struct {
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients []string `pulumi:"allowedClients"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerInput` via:
+//
+//	AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput).ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput is an input type that accepts AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs, AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtr and AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+	ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+}
+
+type agentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrType AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs
+
+func AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtr(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput {
+	return (*agentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer {
+		return &v
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+// Set of allowed audience values for JWT token validation.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of allowed client IDs for JWT token validation.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+type AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Elem() AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer
+		return ret
+	}).(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+// Set of allowed audience values for JWT token validation.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of allowed client IDs for JWT token validation.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+func (o AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreAgentRuntimeEndpointTimeoutsInput is an input type that accepts AgentcoreAgentRuntimeEndpointTimeoutsArgs and AgentcoreAgentRuntimeEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeEndpointTimeoutsInput` via:
+//
+//	AgentcoreAgentRuntimeEndpointTimeoutsArgs{...}
+type AgentcoreAgentRuntimeEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeEndpointTimeoutsOutput() AgentcoreAgentRuntimeEndpointTimeoutsOutput
+	ToAgentcoreAgentRuntimeEndpointTimeoutsOutputWithContext(context.Context) AgentcoreAgentRuntimeEndpointTimeoutsOutput
+}
+
+type AgentcoreAgentRuntimeEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreAgentRuntimeEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeEndpointTimeoutsArgs) ToAgentcoreAgentRuntimeEndpointTimeoutsOutput() AgentcoreAgentRuntimeEndpointTimeoutsOutput {
+	return i.ToAgentcoreAgentRuntimeEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeEndpointTimeoutsArgs) ToAgentcoreAgentRuntimeEndpointTimeoutsOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeEndpointTimeoutsOutput)
+}
+
+func (i AgentcoreAgentRuntimeEndpointTimeoutsArgs) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutput() AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return i.ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeEndpointTimeoutsArgs) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeEndpointTimeoutsOutput).ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeEndpointTimeoutsPtrInput is an input type that accepts AgentcoreAgentRuntimeEndpointTimeoutsArgs, AgentcoreAgentRuntimeEndpointTimeoutsPtr and AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeEndpointTimeoutsPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutput() AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput
+	ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput
+}
+
+type agentcoreAgentRuntimeEndpointTimeoutsPtrType AgentcoreAgentRuntimeEndpointTimeoutsArgs
+
+func AgentcoreAgentRuntimeEndpointTimeoutsPtr(v *AgentcoreAgentRuntimeEndpointTimeoutsArgs) AgentcoreAgentRuntimeEndpointTimeoutsPtrInput {
+	return (*agentcoreAgentRuntimeEndpointTimeoutsPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeEndpointTimeoutsPtrType) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutput() AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return i.ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeEndpointTimeoutsPtrType) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput)
+}
+
+type AgentcoreAgentRuntimeEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsOutput() AgentcoreAgentRuntimeEndpointTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutput() AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return o.ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeEndpointTimeouts) *AgentcoreAgentRuntimeEndpointTimeouts {
+		return &v
+	}).(AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeEndpointTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeEndpointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeEndpointTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutput() AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) ToAgentcoreAgentRuntimeEndpointTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) Elem() AgentcoreAgentRuntimeEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpointTimeouts) AgentcoreAgentRuntimeEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeEndpointTimeouts
+		return ret
+	}).(AgentcoreAgentRuntimeEndpointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeLifecycleConfiguration struct {
+	// Timeout in seconds for idle runtime sessions.
+	IdleRuntimeSessionTimeout int `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime for the instance in seconds.
+	MaxLifetime int `pulumi:"maxLifetime"`
+}
+
+// AgentcoreAgentRuntimeLifecycleConfigurationInput is an input type that accepts AgentcoreAgentRuntimeLifecycleConfigurationArgs and AgentcoreAgentRuntimeLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeLifecycleConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeLifecycleConfigurationArgs{...}
+type AgentcoreAgentRuntimeLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeLifecycleConfigurationOutput() AgentcoreAgentRuntimeLifecycleConfigurationOutput
+	ToAgentcoreAgentRuntimeLifecycleConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeLifecycleConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeLifecycleConfigurationArgs struct {
+	// Timeout in seconds for idle runtime sessions.
+	IdleRuntimeSessionTimeout pulumi.IntInput `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime for the instance in seconds.
+	MaxLifetime pulumi.IntInput `pulumi:"maxLifetime"`
+}
+
+func (AgentcoreAgentRuntimeLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeLifecycleConfigurationArgs) ToAgentcoreAgentRuntimeLifecycleConfigurationOutput() AgentcoreAgentRuntimeLifecycleConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeLifecycleConfigurationArgs) ToAgentcoreAgentRuntimeLifecycleConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeLifecycleConfigurationOutput)
+}
+
+// AgentcoreAgentRuntimeLifecycleConfigurationArrayInput is an input type that accepts AgentcoreAgentRuntimeLifecycleConfigurationArray and AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeLifecycleConfigurationArrayInput` via:
+//
+//	AgentcoreAgentRuntimeLifecycleConfigurationArray{ AgentcoreAgentRuntimeLifecycleConfigurationArgs{...} }
+type AgentcoreAgentRuntimeLifecycleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutput() AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput
+	ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutputWithContext(context.Context) AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput
+}
+
+type AgentcoreAgentRuntimeLifecycleConfigurationArray []AgentcoreAgentRuntimeLifecycleConfigurationInput
+
+func (AgentcoreAgentRuntimeLifecycleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeLifecycleConfigurationArray) ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutput() AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput {
+	return i.ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeLifecycleConfigurationArray) ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput)
+}
+
+type AgentcoreAgentRuntimeLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeLifecycleConfigurationOutput) ToAgentcoreAgentRuntimeLifecycleConfigurationOutput() AgentcoreAgentRuntimeLifecycleConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeLifecycleConfigurationOutput) ToAgentcoreAgentRuntimeLifecycleConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeLifecycleConfigurationOutput {
+	return o
+}
+
+// Timeout in seconds for idle runtime sessions.
+func (o AgentcoreAgentRuntimeLifecycleConfigurationOutput) IdleRuntimeSessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeLifecycleConfiguration) int { return v.IdleRuntimeSessionTimeout }).(pulumi.IntOutput)
+}
+
+// Maximum lifetime for the instance in seconds.
+func (o AgentcoreAgentRuntimeLifecycleConfigurationOutput) MaxLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeLifecycleConfiguration) int { return v.MaxLifetime }).(pulumi.IntOutput)
+}
+
+type AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput) ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutput() AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput) ToAgentcoreAgentRuntimeLifecycleConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput) Index(i pulumi.IntInput) AgentcoreAgentRuntimeLifecycleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreAgentRuntimeLifecycleConfiguration {
+		return vs[0].([]AgentcoreAgentRuntimeLifecycleConfiguration)[vs[1].(int)]
+	}).(AgentcoreAgentRuntimeLifecycleConfigurationOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfiguration struct {
+	// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode string `pulumi:"networkMode"`
+	// Network mode configuration. See `networkModeConfig` below.
+	NetworkModeConfig *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfig"`
+}
+
+// AgentcoreAgentRuntimeNetworkConfigurationInput is an input type that accepts AgentcoreAgentRuntimeNetworkConfigurationArgs and AgentcoreAgentRuntimeNetworkConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeNetworkConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeNetworkConfigurationArgs{...}
+type AgentcoreAgentRuntimeNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeNetworkConfigurationOutput() AgentcoreAgentRuntimeNetworkConfigurationOutput
+	ToAgentcoreAgentRuntimeNetworkConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeNetworkConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationArgs struct {
+	// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
+	// Network mode configuration. See `networkModeConfig` below.
+	NetworkModeConfig AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput `pulumi:"networkModeConfig"`
+}
+
+func (AgentcoreAgentRuntimeNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationArgs) ToAgentcoreAgentRuntimeNetworkConfigurationOutput() AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationArgs) ToAgentcoreAgentRuntimeNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationArgs) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationArgs) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationOutput).ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeNetworkConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeNetworkConfigurationArgs, AgentcoreAgentRuntimeNetworkConfigurationPtr and AgentcoreAgentRuntimeNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeNetworkConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeNetworkConfigurationPtrType AgentcoreAgentRuntimeNetworkConfigurationArgs
+
+func AgentcoreAgentRuntimeNetworkConfigurationPtr(v *AgentcoreAgentRuntimeNetworkConfigurationArgs) AgentcoreAgentRuntimeNetworkConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeNetworkConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeNetworkConfigurationPtrType) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeNetworkConfigurationPtrType) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) ToAgentcoreAgentRuntimeNetworkConfigurationOutput() AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) ToAgentcoreAgentRuntimeNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeNetworkConfiguration) *AgentcoreAgentRuntimeNetworkConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeNetworkConfigurationPtrOutput)
+}
+
+// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeNetworkConfiguration) string { return v.NetworkMode }).(pulumi.StringOutput)
+}
+
+// Network mode configuration. See `networkModeConfig` below.
+func (o AgentcoreAgentRuntimeNetworkConfigurationOutput) NetworkModeConfig() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeNetworkConfiguration) *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
+		return v.NetworkModeConfig
+	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) ToAgentcoreAgentRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfiguration) AgentcoreAgentRuntimeNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeNetworkConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeNetworkConfigurationOutput)
+}
+
+// Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network mode configuration. See `networkModeConfig` below.
+func (o AgentcoreAgentRuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfiguration) *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkModeConfig
+	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig struct {
+	// Security groups associated with the VPC configuration.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets associated with the VPC configuration.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigInput is an input type that accepts AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs and AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigInput` via:
+//
+//	AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs{...}
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput
+	ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutputWithContext(context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs struct {
+	// Security groups associated with the VPC configuration.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets associated with the VPC configuration.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput)
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput).ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput is an input type that accepts AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs, AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtr and AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput
+	ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput
+}
+
+type agentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrType AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs
+
+func AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtr(v *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput {
+	return (*agentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return i.ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
+		return &v
+	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+// Security groups associated with the VPC configuration.
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the VPC configuration.
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) Elem() AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig
+		return ret
+	}).(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput)
+}
+
+// Security groups associated with the VPC configuration.
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the VPC configuration.
+func (o AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreAgentRuntimeProtocolConfiguration struct {
+	// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+	ServerProtocol *string `pulumi:"serverProtocol"`
+}
+
+// AgentcoreAgentRuntimeProtocolConfigurationInput is an input type that accepts AgentcoreAgentRuntimeProtocolConfigurationArgs and AgentcoreAgentRuntimeProtocolConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeProtocolConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeProtocolConfigurationArgs{...}
+type AgentcoreAgentRuntimeProtocolConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeProtocolConfigurationOutput() AgentcoreAgentRuntimeProtocolConfigurationOutput
+	ToAgentcoreAgentRuntimeProtocolConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeProtocolConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeProtocolConfigurationArgs struct {
+	// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+	ServerProtocol pulumi.StringPtrInput `pulumi:"serverProtocol"`
+}
+
+func (AgentcoreAgentRuntimeProtocolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeProtocolConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeProtocolConfigurationArgs) ToAgentcoreAgentRuntimeProtocolConfigurationOutput() AgentcoreAgentRuntimeProtocolConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeProtocolConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeProtocolConfigurationArgs) ToAgentcoreAgentRuntimeProtocolConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeProtocolConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeProtocolConfigurationArgs) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutput() AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeProtocolConfigurationArgs) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeProtocolConfigurationOutput).ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeProtocolConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeProtocolConfigurationArgs, AgentcoreAgentRuntimeProtocolConfigurationPtr and AgentcoreAgentRuntimeProtocolConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeProtocolConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeProtocolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeProtocolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutput() AgentcoreAgentRuntimeProtocolConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeProtocolConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeProtocolConfigurationPtrType AgentcoreAgentRuntimeProtocolConfigurationArgs
+
+func AgentcoreAgentRuntimeProtocolConfigurationPtr(v *AgentcoreAgentRuntimeProtocolConfigurationArgs) AgentcoreAgentRuntimeProtocolConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeProtocolConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeProtocolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeProtocolConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeProtocolConfigurationPtrType) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutput() AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeProtocolConfigurationPtrType) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeProtocolConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeProtocolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeProtocolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeProtocolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationOutput) ToAgentcoreAgentRuntimeProtocolConfigurationOutput() AgentcoreAgentRuntimeProtocolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationOutput) ToAgentcoreAgentRuntimeProtocolConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationOutput) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutput() AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationOutput) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeProtocolConfiguration) *AgentcoreAgentRuntimeProtocolConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeProtocolConfigurationPtrOutput)
+}
+
+// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+func (o AgentcoreAgentRuntimeProtocolConfigurationOutput) ServerProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeProtocolConfiguration) *string { return v.ServerProtocol }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeProtocolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeProtocolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutput() AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) ToAgentcoreAgentRuntimeProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeProtocolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeProtocolConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeProtocolConfiguration) AgentcoreAgentRuntimeProtocolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeProtocolConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeProtocolConfigurationOutput)
+}
+
+// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+func (o AgentcoreAgentRuntimeProtocolConfigurationPtrOutput) ServerProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeProtocolConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeRequestHeaderConfiguration struct {
+	// A list of HTTP request headers that are allowed to be passed through to the runtime.
+	RequestHeaderAllowlists []string `pulumi:"requestHeaderAllowlists"`
+}
+
+// AgentcoreAgentRuntimeRequestHeaderConfigurationInput is an input type that accepts AgentcoreAgentRuntimeRequestHeaderConfigurationArgs and AgentcoreAgentRuntimeRequestHeaderConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeRequestHeaderConfigurationInput` via:
+//
+//	AgentcoreAgentRuntimeRequestHeaderConfigurationArgs{...}
+type AgentcoreAgentRuntimeRequestHeaderConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationOutput
+	ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutputWithContext(context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationOutput
+}
+
+type AgentcoreAgentRuntimeRequestHeaderConfigurationArgs struct {
+	// A list of HTTP request headers that are allowed to be passed through to the runtime.
+	RequestHeaderAllowlists pulumi.StringArrayInput `pulumi:"requestHeaderAllowlists"`
+}
+
+func (AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationOutput {
+	return i.ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeRequestHeaderConfigurationOutput)
+}
+
+func (i AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeRequestHeaderConfigurationOutput).ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeRequestHeaderConfigurationPtrInput is an input type that accepts AgentcoreAgentRuntimeRequestHeaderConfigurationArgs, AgentcoreAgentRuntimeRequestHeaderConfigurationPtr and AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeRequestHeaderConfigurationPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeRequestHeaderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeRequestHeaderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput
+	ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput
+}
+
+type agentcoreAgentRuntimeRequestHeaderConfigurationPtrType AgentcoreAgentRuntimeRequestHeaderConfigurationArgs
+
+func AgentcoreAgentRuntimeRequestHeaderConfigurationPtr(v *AgentcoreAgentRuntimeRequestHeaderConfigurationArgs) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrInput {
+	return (*agentcoreAgentRuntimeRequestHeaderConfigurationPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeRequestHeaderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeRequestHeaderConfigurationPtrType) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return i.ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeRequestHeaderConfigurationPtrType) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+type AgentcoreAgentRuntimeRequestHeaderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeRequestHeaderConfiguration) *AgentcoreAgentRuntimeRequestHeaderConfiguration {
+		return &v
+	}).(AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+// A list of HTTP request headers that are allowed to be passed through to the runtime.
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationOutput) RequestHeaderAllowlists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeRequestHeaderConfiguration) []string { return v.RequestHeaderAllowlists }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput() AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) ToAgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) Elem() AgentcoreAgentRuntimeRequestHeaderConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeRequestHeaderConfiguration) AgentcoreAgentRuntimeRequestHeaderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeRequestHeaderConfiguration
+		return ret
+	}).(AgentcoreAgentRuntimeRequestHeaderConfigurationOutput)
+}
+
+// A list of HTTP request headers that are allowed to be passed through to the runtime.
+func (o AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput) RequestHeaderAllowlists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeRequestHeaderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaderAllowlists
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreAgentRuntimeTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreAgentRuntimeTimeoutsInput is an input type that accepts AgentcoreAgentRuntimeTimeoutsArgs and AgentcoreAgentRuntimeTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeTimeoutsInput` via:
+//
+//	AgentcoreAgentRuntimeTimeoutsArgs{...}
+type AgentcoreAgentRuntimeTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeTimeoutsOutput() AgentcoreAgentRuntimeTimeoutsOutput
+	ToAgentcoreAgentRuntimeTimeoutsOutputWithContext(context.Context) AgentcoreAgentRuntimeTimeoutsOutput
+}
+
+type AgentcoreAgentRuntimeTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreAgentRuntimeTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeTimeoutsArgs) ToAgentcoreAgentRuntimeTimeoutsOutput() AgentcoreAgentRuntimeTimeoutsOutput {
+	return i.ToAgentcoreAgentRuntimeTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeTimeoutsArgs) ToAgentcoreAgentRuntimeTimeoutsOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeTimeoutsOutput)
+}
+
+func (i AgentcoreAgentRuntimeTimeoutsArgs) ToAgentcoreAgentRuntimeTimeoutsPtrOutput() AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return i.ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeTimeoutsArgs) ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeTimeoutsOutput).ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreAgentRuntimeTimeoutsPtrInput is an input type that accepts AgentcoreAgentRuntimeTimeoutsArgs, AgentcoreAgentRuntimeTimeoutsPtr and AgentcoreAgentRuntimeTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeTimeoutsPtrInput` via:
+//
+//	        AgentcoreAgentRuntimeTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreAgentRuntimeTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeTimeoutsPtrOutput() AgentcoreAgentRuntimeTimeoutsPtrOutput
+	ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(context.Context) AgentcoreAgentRuntimeTimeoutsPtrOutput
+}
+
+type agentcoreAgentRuntimeTimeoutsPtrType AgentcoreAgentRuntimeTimeoutsArgs
+
+func AgentcoreAgentRuntimeTimeoutsPtr(v *AgentcoreAgentRuntimeTimeoutsArgs) AgentcoreAgentRuntimeTimeoutsPtrInput {
+	return (*agentcoreAgentRuntimeTimeoutsPtrType)(v)
+}
+
+func (*agentcoreAgentRuntimeTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreAgentRuntimeTimeoutsPtrType) ToAgentcoreAgentRuntimeTimeoutsPtrOutput() AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return i.ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreAgentRuntimeTimeoutsPtrType) ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeTimeoutsPtrOutput)
+}
+
+type AgentcoreAgentRuntimeTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsOutput) ToAgentcoreAgentRuntimeTimeoutsOutput() AgentcoreAgentRuntimeTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsOutput) ToAgentcoreAgentRuntimeTimeoutsOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsOutput) ToAgentcoreAgentRuntimeTimeoutsPtrOutput() AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return o.ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsOutput) ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreAgentRuntimeTimeouts) *AgentcoreAgentRuntimeTimeouts {
+		return &v
+	}).(AgentcoreAgentRuntimeTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreAgentRuntimeTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreAgentRuntimeTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) ToAgentcoreAgentRuntimeTimeoutsPtrOutput() AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) ToAgentcoreAgentRuntimeTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) Elem() AgentcoreAgentRuntimeTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeTimeouts) AgentcoreAgentRuntimeTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreAgentRuntimeTimeouts
+		return ret
+	}).(AgentcoreAgentRuntimeTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreAgentRuntimeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntimeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreAgentRuntimeWorkloadIdentityDetail struct {
+	// ARN of the workload identity.
+	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
+}
+
+// AgentcoreAgentRuntimeWorkloadIdentityDetailInput is an input type that accepts AgentcoreAgentRuntimeWorkloadIdentityDetailArgs and AgentcoreAgentRuntimeWorkloadIdentityDetailOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeWorkloadIdentityDetailInput` via:
+//
+//	AgentcoreAgentRuntimeWorkloadIdentityDetailArgs{...}
+type AgentcoreAgentRuntimeWorkloadIdentityDetailInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailOutput
+	ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutputWithContext(context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailOutput
+}
+
+type AgentcoreAgentRuntimeWorkloadIdentityDetailArgs struct {
+	// ARN of the workload identity.
+	WorkloadIdentityArn pulumi.StringInput `pulumi:"workloadIdentityArn"`
+}
+
+func (AgentcoreAgentRuntimeWorkloadIdentityDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeWorkloadIdentityDetailArgs) ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailOutput {
+	return i.ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeWorkloadIdentityDetailArgs) ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeWorkloadIdentityDetailOutput)
+}
+
+// AgentcoreAgentRuntimeWorkloadIdentityDetailArrayInput is an input type that accepts AgentcoreAgentRuntimeWorkloadIdentityDetailArray and AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput values.
+// You can construct a concrete instance of `AgentcoreAgentRuntimeWorkloadIdentityDetailArrayInput` via:
+//
+//	AgentcoreAgentRuntimeWorkloadIdentityDetailArray{ AgentcoreAgentRuntimeWorkloadIdentityDetailArgs{...} }
+type AgentcoreAgentRuntimeWorkloadIdentityDetailArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput
+	ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutputWithContext(context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput
+}
+
+type AgentcoreAgentRuntimeWorkloadIdentityDetailArray []AgentcoreAgentRuntimeWorkloadIdentityDetailInput
+
+func (AgentcoreAgentRuntimeWorkloadIdentityDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (i AgentcoreAgentRuntimeWorkloadIdentityDetailArray) ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput {
+	return i.ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreAgentRuntimeWorkloadIdentityDetailArray) ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput)
+}
+
+type AgentcoreAgentRuntimeWorkloadIdentityDetailOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeWorkloadIdentityDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreAgentRuntimeWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailOutput) ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailOutput) ToAgentcoreAgentRuntimeWorkloadIdentityDetailOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailOutput {
+	return o
+}
+
+// ARN of the workload identity.
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailOutput) WorkloadIdentityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreAgentRuntimeWorkloadIdentityDetail) string { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
+}
+
+type AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreAgentRuntimeWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput) ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput() AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput) ToAgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutputWithContext(ctx context.Context) AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput {
+	return o
+}
+
+func (o AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput) Index(i pulumi.IntInput) AgentcoreAgentRuntimeWorkloadIdentityDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreAgentRuntimeWorkloadIdentityDetail {
+		return vs[0].([]AgentcoreAgentRuntimeWorkloadIdentityDetail)[vs[1].(int)]
+	}).(AgentcoreAgentRuntimeWorkloadIdentityDetailOutput)
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretArn struct {
+	// ARN of the secret in AWS Secrets Manager.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// AgentcoreApiKeyCredentialProviderApiKeySecretArnInput is an input type that accepts AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs and AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput values.
+// You can construct a concrete instance of `AgentcoreApiKeyCredentialProviderApiKeySecretArnInput` via:
+//
+//	AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs{...}
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnInput interface {
+	pulumi.Input
+
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutputWithContext(context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs struct {
+	// ARN of the secret in AWS Secrets Manager.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput {
+	return i.ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutputWithContext(context.Background())
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput)
+}
+
+// AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput is an input type that accepts AgentcoreApiKeyCredentialProviderApiKeySecretArnArray and AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput values.
+// You can construct a concrete instance of `AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput` via:
+//
+//	AgentcoreApiKeyCredentialProviderApiKeySecretArnArray{ AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs{...} }
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput
+	ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutputWithContext(context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnArray []AgentcoreApiKeyCredentialProviderApiKeySecretArnInput
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretArnArray) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
+	return i.ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreApiKeyCredentialProviderApiKeySecretArnArray) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput)
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput {
+	return o
+}
+
+// ARN of the secret in AWS Secrets Manager.
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreApiKeyCredentialProviderApiKeySecretArn) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreApiKeyCredentialProviderApiKeySecretArn)(nil)).Elem()
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput() AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) ToAgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutputWithContext(ctx context.Context) AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
+	return o
+}
+
+func (o AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput) Index(i pulumi.IntInput) AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreApiKeyCredentialProviderApiKeySecretArn {
+		return vs[0].([]AgentcoreApiKeyCredentialProviderApiKeySecretArn)[vs[1].(int)]
+	}).(AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput)
+}
+
+type AgentcoreBrowserNetworkConfiguration struct {
+	// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+	NetworkMode       string                                                 `pulumi:"networkMode"`
+	NetworkModeConfig *AgentcoreBrowserNetworkConfigurationNetworkModeConfig `pulumi:"networkModeConfig"`
+}
+
+// AgentcoreBrowserNetworkConfigurationInput is an input type that accepts AgentcoreBrowserNetworkConfigurationArgs and AgentcoreBrowserNetworkConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationInput` via:
+//
+//	AgentcoreBrowserNetworkConfigurationArgs{...}
+type AgentcoreBrowserNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserNetworkConfigurationOutput() AgentcoreBrowserNetworkConfigurationOutput
+	ToAgentcoreBrowserNetworkConfigurationOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationOutput
+}
+
+type AgentcoreBrowserNetworkConfigurationArgs struct {
+	// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+	NetworkMode       pulumi.StringInput                                            `pulumi:"networkMode"`
+	NetworkModeConfig AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput `pulumi:"networkModeConfig"`
+}
+
+func (AgentcoreBrowserNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreBrowserNetworkConfigurationArgs) ToAgentcoreBrowserNetworkConfigurationOutput() AgentcoreBrowserNetworkConfigurationOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserNetworkConfigurationArgs) ToAgentcoreBrowserNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationOutput)
+}
+
+func (i AgentcoreBrowserNetworkConfigurationArgs) ToAgentcoreBrowserNetworkConfigurationPtrOutput() AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserNetworkConfigurationArgs) ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationOutput).ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreBrowserNetworkConfigurationPtrInput is an input type that accepts AgentcoreBrowserNetworkConfigurationArgs, AgentcoreBrowserNetworkConfigurationPtr and AgentcoreBrowserNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationPtrInput` via:
+//
+//	        AgentcoreBrowserNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreBrowserNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserNetworkConfigurationPtrOutput() AgentcoreBrowserNetworkConfigurationPtrOutput
+	ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationPtrOutput
+}
+
+type agentcoreBrowserNetworkConfigurationPtrType AgentcoreBrowserNetworkConfigurationArgs
+
+func AgentcoreBrowserNetworkConfigurationPtr(v *AgentcoreBrowserNetworkConfigurationArgs) AgentcoreBrowserNetworkConfigurationPtrInput {
+	return (*agentcoreBrowserNetworkConfigurationPtrType)(v)
+}
+
+func (*agentcoreBrowserNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreBrowserNetworkConfigurationPtrType) ToAgentcoreBrowserNetworkConfigurationPtrOutput() AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreBrowserNetworkConfigurationPtrType) ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationPtrOutput)
+}
+
+type AgentcoreBrowserNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserNetworkConfigurationOutput) ToAgentcoreBrowserNetworkConfigurationOutput() AgentcoreBrowserNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationOutput) ToAgentcoreBrowserNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationOutput) ToAgentcoreBrowserNetworkConfigurationPtrOutput() AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return o.ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreBrowserNetworkConfigurationOutput) ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfiguration {
+		return &v
+	}).(AgentcoreBrowserNetworkConfigurationPtrOutput)
+}
+
+// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+func (o AgentcoreBrowserNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfiguration) string { return v.NetworkMode }).(pulumi.StringOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationOutput) NetworkModeConfig() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+		return v.NetworkModeConfig
+	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreBrowserNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) ToAgentcoreBrowserNetworkConfigurationPtrOutput() AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) ToAgentcoreBrowserNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) Elem() AgentcoreBrowserNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) AgentcoreBrowserNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreBrowserNetworkConfiguration
+		return ret
+	}).(AgentcoreBrowserNetworkConfigurationOutput)
+}
+
+// Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationPtrOutput) NetworkModeConfig() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfiguration) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkModeConfig
+	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfig struct {
+	SecurityGroups []string `pulumi:"securityGroups"`
+	Subnets        []string `pulumi:"subnets"`
+}
+
+// AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput is an input type that accepts AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs and AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput` via:
+//
+//	AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{...}
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput
+	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput
+}
+
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs struct {
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput)
+}
+
+func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput).ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput is an input type that accepts AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs, AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtr and AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput` via:
+//
+//	        AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput
+	ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput
+}
+
+type agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs
+
+func AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtr(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput {
+	return (*agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType)(v)
+}
+
+func (*agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (i *agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return i.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreBrowserNetworkConfigurationNetworkModeConfigPtrType) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) *AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+		return &v
+	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserNetworkConfigurationNetworkModeConfig)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput() AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) ToAgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutputWithContext(ctx context.Context) AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) Elem() AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) AgentcoreBrowserNetworkConfigurationNetworkModeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreBrowserNetworkConfigurationNetworkModeConfig
+		return ret
+	}).(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserNetworkConfigurationNetworkModeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreBrowserRecording struct {
+	// Whether to enable recording for browser sessions. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// S3 location where browser session recordings are stored. See `s3Location` below.
+	S3Location *AgentcoreBrowserRecordingS3Location `pulumi:"s3Location"`
+}
+
+// AgentcoreBrowserRecordingInput is an input type that accepts AgentcoreBrowserRecordingArgs and AgentcoreBrowserRecordingOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserRecordingInput` via:
+//
+//	AgentcoreBrowserRecordingArgs{...}
+type AgentcoreBrowserRecordingInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserRecordingOutput() AgentcoreBrowserRecordingOutput
+	ToAgentcoreBrowserRecordingOutputWithContext(context.Context) AgentcoreBrowserRecordingOutput
+}
+
+type AgentcoreBrowserRecordingArgs struct {
+	// Whether to enable recording for browser sessions. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// S3 location where browser session recordings are stored. See `s3Location` below.
+	S3Location AgentcoreBrowserRecordingS3LocationPtrInput `pulumi:"s3Location"`
+}
+
+func (AgentcoreBrowserRecordingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserRecording)(nil)).Elem()
+}
+
+func (i AgentcoreBrowserRecordingArgs) ToAgentcoreBrowserRecordingOutput() AgentcoreBrowserRecordingOutput {
+	return i.ToAgentcoreBrowserRecordingOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserRecordingArgs) ToAgentcoreBrowserRecordingOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingOutput)
+}
+
+func (i AgentcoreBrowserRecordingArgs) ToAgentcoreBrowserRecordingPtrOutput() AgentcoreBrowserRecordingPtrOutput {
+	return i.ToAgentcoreBrowserRecordingPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserRecordingArgs) ToAgentcoreBrowserRecordingPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingOutput).ToAgentcoreBrowserRecordingPtrOutputWithContext(ctx)
+}
+
+// AgentcoreBrowserRecordingPtrInput is an input type that accepts AgentcoreBrowserRecordingArgs, AgentcoreBrowserRecordingPtr and AgentcoreBrowserRecordingPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserRecordingPtrInput` via:
+//
+//	        AgentcoreBrowserRecordingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreBrowserRecordingPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserRecordingPtrOutput() AgentcoreBrowserRecordingPtrOutput
+	ToAgentcoreBrowserRecordingPtrOutputWithContext(context.Context) AgentcoreBrowserRecordingPtrOutput
+}
+
+type agentcoreBrowserRecordingPtrType AgentcoreBrowserRecordingArgs
+
+func AgentcoreBrowserRecordingPtr(v *AgentcoreBrowserRecordingArgs) AgentcoreBrowserRecordingPtrInput {
+	return (*agentcoreBrowserRecordingPtrType)(v)
+}
+
+func (*agentcoreBrowserRecordingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserRecording)(nil)).Elem()
+}
+
+func (i *agentcoreBrowserRecordingPtrType) ToAgentcoreBrowserRecordingPtrOutput() AgentcoreBrowserRecordingPtrOutput {
+	return i.ToAgentcoreBrowserRecordingPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreBrowserRecordingPtrType) ToAgentcoreBrowserRecordingPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingPtrOutput)
+}
+
+type AgentcoreBrowserRecordingOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserRecordingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserRecording)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserRecordingOutput) ToAgentcoreBrowserRecordingOutput() AgentcoreBrowserRecordingOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingOutput) ToAgentcoreBrowserRecordingOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingOutput) ToAgentcoreBrowserRecordingPtrOutput() AgentcoreBrowserRecordingPtrOutput {
+	return o.ToAgentcoreBrowserRecordingPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreBrowserRecordingOutput) ToAgentcoreBrowserRecordingPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserRecording) *AgentcoreBrowserRecording {
+		return &v
+	}).(AgentcoreBrowserRecordingPtrOutput)
+}
+
+// Whether to enable recording for browser sessions. Defaults to `false`.
+func (o AgentcoreBrowserRecordingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserRecording) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// S3 location where browser session recordings are stored. See `s3Location` below.
+func (o AgentcoreBrowserRecordingOutput) S3Location() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserRecording) *AgentcoreBrowserRecordingS3Location { return v.S3Location }).(AgentcoreBrowserRecordingS3LocationPtrOutput)
+}
+
+type AgentcoreBrowserRecordingPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserRecordingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserRecording)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserRecordingPtrOutput) ToAgentcoreBrowserRecordingPtrOutput() AgentcoreBrowserRecordingPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingPtrOutput) ToAgentcoreBrowserRecordingPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingPtrOutput) Elem() AgentcoreBrowserRecordingOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecording) AgentcoreBrowserRecording {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreBrowserRecording
+		return ret
+	}).(AgentcoreBrowserRecordingOutput)
+}
+
+// Whether to enable recording for browser sessions. Defaults to `false`.
+func (o AgentcoreBrowserRecordingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecording) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// S3 location where browser session recordings are stored. See `s3Location` below.
+func (o AgentcoreBrowserRecordingPtrOutput) S3Location() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecording) *AgentcoreBrowserRecordingS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3Location
+	}).(AgentcoreBrowserRecordingS3LocationPtrOutput)
+}
+
+type AgentcoreBrowserRecordingS3Location struct {
+	// Name of the S3 bucket where recordings are stored.
+	Bucket string `pulumi:"bucket"`
+	// S3 key prefix for recording files.
+	Prefix string `pulumi:"prefix"`
+}
+
+// AgentcoreBrowserRecordingS3LocationInput is an input type that accepts AgentcoreBrowserRecordingS3LocationArgs and AgentcoreBrowserRecordingS3LocationOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserRecordingS3LocationInput` via:
+//
+//	AgentcoreBrowserRecordingS3LocationArgs{...}
+type AgentcoreBrowserRecordingS3LocationInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserRecordingS3LocationOutput() AgentcoreBrowserRecordingS3LocationOutput
+	ToAgentcoreBrowserRecordingS3LocationOutputWithContext(context.Context) AgentcoreBrowserRecordingS3LocationOutput
+}
+
+type AgentcoreBrowserRecordingS3LocationArgs struct {
+	// Name of the S3 bucket where recordings are stored.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// S3 key prefix for recording files.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (AgentcoreBrowserRecordingS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserRecordingS3Location)(nil)).Elem()
+}
+
+func (i AgentcoreBrowserRecordingS3LocationArgs) ToAgentcoreBrowserRecordingS3LocationOutput() AgentcoreBrowserRecordingS3LocationOutput {
+	return i.ToAgentcoreBrowserRecordingS3LocationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserRecordingS3LocationArgs) ToAgentcoreBrowserRecordingS3LocationOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingS3LocationOutput)
+}
+
+func (i AgentcoreBrowserRecordingS3LocationArgs) ToAgentcoreBrowserRecordingS3LocationPtrOutput() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return i.ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserRecordingS3LocationArgs) ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingS3LocationOutput).ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreBrowserRecordingS3LocationPtrInput is an input type that accepts AgentcoreBrowserRecordingS3LocationArgs, AgentcoreBrowserRecordingS3LocationPtr and AgentcoreBrowserRecordingS3LocationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserRecordingS3LocationPtrInput` via:
+//
+//	        AgentcoreBrowserRecordingS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreBrowserRecordingS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserRecordingS3LocationPtrOutput() AgentcoreBrowserRecordingS3LocationPtrOutput
+	ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(context.Context) AgentcoreBrowserRecordingS3LocationPtrOutput
+}
+
+type agentcoreBrowserRecordingS3LocationPtrType AgentcoreBrowserRecordingS3LocationArgs
+
+func AgentcoreBrowserRecordingS3LocationPtr(v *AgentcoreBrowserRecordingS3LocationArgs) AgentcoreBrowserRecordingS3LocationPtrInput {
+	return (*agentcoreBrowserRecordingS3LocationPtrType)(v)
+}
+
+func (*agentcoreBrowserRecordingS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserRecordingS3Location)(nil)).Elem()
+}
+
+func (i *agentcoreBrowserRecordingS3LocationPtrType) ToAgentcoreBrowserRecordingS3LocationPtrOutput() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return i.ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreBrowserRecordingS3LocationPtrType) ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserRecordingS3LocationPtrOutput)
+}
+
+type AgentcoreBrowserRecordingS3LocationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserRecordingS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserRecordingS3Location)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserRecordingS3LocationOutput) ToAgentcoreBrowserRecordingS3LocationOutput() AgentcoreBrowserRecordingS3LocationOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingS3LocationOutput) ToAgentcoreBrowserRecordingS3LocationOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingS3LocationOutput) ToAgentcoreBrowserRecordingS3LocationPtrOutput() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o.ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreBrowserRecordingS3LocationOutput) ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserRecordingS3Location) *AgentcoreBrowserRecordingS3Location {
+		return &v
+	}).(AgentcoreBrowserRecordingS3LocationPtrOutput)
+}
+
+// Name of the S3 bucket where recordings are stored.
+func (o AgentcoreBrowserRecordingS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreBrowserRecordingS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// S3 key prefix for recording files.
+func (o AgentcoreBrowserRecordingS3LocationOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreBrowserRecordingS3Location) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type AgentcoreBrowserRecordingS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserRecordingS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserRecordingS3Location)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserRecordingS3LocationPtrOutput) ToAgentcoreBrowserRecordingS3LocationPtrOutput() AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingS3LocationPtrOutput) ToAgentcoreBrowserRecordingS3LocationPtrOutputWithContext(ctx context.Context) AgentcoreBrowserRecordingS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserRecordingS3LocationPtrOutput) Elem() AgentcoreBrowserRecordingS3LocationOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecordingS3Location) AgentcoreBrowserRecordingS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreBrowserRecordingS3Location
+		return ret
+	}).(AgentcoreBrowserRecordingS3LocationOutput)
+}
+
+// Name of the S3 bucket where recordings are stored.
+func (o AgentcoreBrowserRecordingS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecordingS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 key prefix for recording files.
+func (o AgentcoreBrowserRecordingS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserRecordingS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreBrowserTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AgentcoreBrowserTimeoutsInput is an input type that accepts AgentcoreBrowserTimeoutsArgs and AgentcoreBrowserTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserTimeoutsInput` via:
+//
+//	AgentcoreBrowserTimeoutsArgs{...}
+type AgentcoreBrowserTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserTimeoutsOutput() AgentcoreBrowserTimeoutsOutput
+	ToAgentcoreBrowserTimeoutsOutputWithContext(context.Context) AgentcoreBrowserTimeoutsOutput
+}
+
+type AgentcoreBrowserTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AgentcoreBrowserTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreBrowserTimeoutsArgs) ToAgentcoreBrowserTimeoutsOutput() AgentcoreBrowserTimeoutsOutput {
+	return i.ToAgentcoreBrowserTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserTimeoutsArgs) ToAgentcoreBrowserTimeoutsOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserTimeoutsOutput)
+}
+
+func (i AgentcoreBrowserTimeoutsArgs) ToAgentcoreBrowserTimeoutsPtrOutput() AgentcoreBrowserTimeoutsPtrOutput {
+	return i.ToAgentcoreBrowserTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreBrowserTimeoutsArgs) ToAgentcoreBrowserTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserTimeoutsOutput).ToAgentcoreBrowserTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreBrowserTimeoutsPtrInput is an input type that accepts AgentcoreBrowserTimeoutsArgs, AgentcoreBrowserTimeoutsPtr and AgentcoreBrowserTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreBrowserTimeoutsPtrInput` via:
+//
+//	        AgentcoreBrowserTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreBrowserTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreBrowserTimeoutsPtrOutput() AgentcoreBrowserTimeoutsPtrOutput
+	ToAgentcoreBrowserTimeoutsPtrOutputWithContext(context.Context) AgentcoreBrowserTimeoutsPtrOutput
+}
+
+type agentcoreBrowserTimeoutsPtrType AgentcoreBrowserTimeoutsArgs
+
+func AgentcoreBrowserTimeoutsPtr(v *AgentcoreBrowserTimeoutsArgs) AgentcoreBrowserTimeoutsPtrInput {
+	return (*agentcoreBrowserTimeoutsPtrType)(v)
+}
+
+func (*agentcoreBrowserTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreBrowserTimeoutsPtrType) ToAgentcoreBrowserTimeoutsPtrOutput() AgentcoreBrowserTimeoutsPtrOutput {
+	return i.ToAgentcoreBrowserTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreBrowserTimeoutsPtrType) ToAgentcoreBrowserTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreBrowserTimeoutsPtrOutput)
+}
+
+type AgentcoreBrowserTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreBrowserTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserTimeoutsOutput) ToAgentcoreBrowserTimeoutsOutput() AgentcoreBrowserTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreBrowserTimeoutsOutput) ToAgentcoreBrowserTimeoutsOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreBrowserTimeoutsOutput) ToAgentcoreBrowserTimeoutsPtrOutput() AgentcoreBrowserTimeoutsPtrOutput {
+	return o.ToAgentcoreBrowserTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreBrowserTimeoutsOutput) ToAgentcoreBrowserTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreBrowserTimeouts) *AgentcoreBrowserTimeouts {
+		return &v
+	}).(AgentcoreBrowserTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreBrowserTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreBrowserTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreBrowserTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreBrowserTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreBrowserTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreBrowserTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreBrowserTimeoutsPtrOutput) ToAgentcoreBrowserTimeoutsPtrOutput() AgentcoreBrowserTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserTimeoutsPtrOutput) ToAgentcoreBrowserTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreBrowserTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreBrowserTimeoutsPtrOutput) Elem() AgentcoreBrowserTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserTimeouts) AgentcoreBrowserTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreBrowserTimeouts
+		return ret
+	}).(AgentcoreBrowserTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreBrowserTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreBrowserTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowserTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfiguration struct {
+	// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+	NetworkMode string `pulumi:"networkMode"`
+	// VPC configuration. See `vpcConfig` below.
+	VpcConfig *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig `pulumi:"vpcConfig"`
+}
+
+// AgentcoreCodeInterpreterNetworkConfigurationInput is an input type that accepts AgentcoreCodeInterpreterNetworkConfigurationArgs and AgentcoreCodeInterpreterNetworkConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterNetworkConfigurationInput` via:
+//
+//	AgentcoreCodeInterpreterNetworkConfigurationArgs{...}
+type AgentcoreCodeInterpreterNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterNetworkConfigurationOutput() AgentcoreCodeInterpreterNetworkConfigurationOutput
+	ToAgentcoreCodeInterpreterNetworkConfigurationOutputWithContext(context.Context) AgentcoreCodeInterpreterNetworkConfigurationOutput
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationArgs struct {
+	// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+	NetworkMode pulumi.StringInput `pulumi:"networkMode"`
+	// VPC configuration. See `vpcConfig` below.
+	VpcConfig AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (AgentcoreCodeInterpreterNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationArgs) ToAgentcoreCodeInterpreterNetworkConfigurationOutput() AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationArgs) ToAgentcoreCodeInterpreterNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationOutput)
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationArgs) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationArgs) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationOutput).ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreCodeInterpreterNetworkConfigurationPtrInput is an input type that accepts AgentcoreCodeInterpreterNetworkConfigurationArgs, AgentcoreCodeInterpreterNetworkConfigurationPtr and AgentcoreCodeInterpreterNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterNetworkConfigurationPtrInput` via:
+//
+//	        AgentcoreCodeInterpreterNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreCodeInterpreterNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput
+	ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(context.Context) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput
+}
+
+type agentcoreCodeInterpreterNetworkConfigurationPtrType AgentcoreCodeInterpreterNetworkConfigurationArgs
+
+func AgentcoreCodeInterpreterNetworkConfigurationPtr(v *AgentcoreCodeInterpreterNetworkConfigurationArgs) AgentcoreCodeInterpreterNetworkConfigurationPtrInput {
+	return (*agentcoreCodeInterpreterNetworkConfigurationPtrType)(v)
+}
+
+func (*agentcoreCodeInterpreterNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreCodeInterpreterNetworkConfigurationPtrType) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreCodeInterpreterNetworkConfigurationPtrType) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationPtrOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) ToAgentcoreCodeInterpreterNetworkConfigurationOutput() AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) ToAgentcoreCodeInterpreterNetworkConfigurationOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return o.ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreCodeInterpreterNetworkConfiguration) *AgentcoreCodeInterpreterNetworkConfiguration {
+		return &v
+	}).(AgentcoreCodeInterpreterNetworkConfigurationPtrOutput)
+}
+
+// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) NetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterNetworkConfiguration) string { return v.NetworkMode }).(pulumi.StringOutput)
+}
+
+// VPC configuration. See `vpcConfig` below.
+func (o AgentcoreCodeInterpreterNetworkConfigurationOutput) VpcConfig() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterNetworkConfiguration) *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig {
+		return v.VpcConfig
+	}).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterNetworkConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) ToAgentcoreCodeInterpreterNetworkConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) Elem() AgentcoreCodeInterpreterNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfiguration) AgentcoreCodeInterpreterNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreCodeInterpreterNetworkConfiguration
+		return ret
+	}).(AgentcoreCodeInterpreterNetworkConfigurationOutput)
+}
+
+// Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+func (o AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetworkMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// VPC configuration. See `vpcConfig` below.
+func (o AgentcoreCodeInterpreterNetworkConfigurationPtrOutput) VpcConfig() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfiguration) *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfig struct {
+	// Security groups associated with the VPC configuration.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets associated with the VPC configuration.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// AgentcoreCodeInterpreterNetworkConfigurationVpcConfigInput is an input type that accepts AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs and AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterNetworkConfigurationVpcConfigInput` via:
+//
+//	AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs{...}
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput
+	ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutputWithContext(context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs struct {
+	// Security groups associated with the VPC configuration.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets associated with the VPC configuration.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput)
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput).ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput is an input type that accepts AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs, AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtr and AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput` via:
+//
+//	        AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput
+	ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput
+}
+
+type agentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrType AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs
+
+func AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtr(v *AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput {
+	return (*agentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrType)(v)
+}
+
+func (*agentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterNetworkConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i *agentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrType) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return i.ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrType) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o.ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig {
+		return &v
+	}).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput)
+}
+
+// Security groups associated with the VPC configuration.
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the VPC configuration.
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterNetworkConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) ToAgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) Elem() AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) AgentcoreCodeInterpreterNetworkConfigurationVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreCodeInterpreterNetworkConfigurationVpcConfig
+		return ret
+	}).(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput)
+}
+
+// Security groups associated with the VPC configuration.
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with the VPC configuration.
+func (o AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterNetworkConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreCodeInterpreterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AgentcoreCodeInterpreterTimeoutsInput is an input type that accepts AgentcoreCodeInterpreterTimeoutsArgs and AgentcoreCodeInterpreterTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterTimeoutsInput` via:
+//
+//	AgentcoreCodeInterpreterTimeoutsArgs{...}
+type AgentcoreCodeInterpreterTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterTimeoutsOutput() AgentcoreCodeInterpreterTimeoutsOutput
+	ToAgentcoreCodeInterpreterTimeoutsOutputWithContext(context.Context) AgentcoreCodeInterpreterTimeoutsOutput
+}
+
+type AgentcoreCodeInterpreterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AgentcoreCodeInterpreterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreCodeInterpreterTimeoutsArgs) ToAgentcoreCodeInterpreterTimeoutsOutput() AgentcoreCodeInterpreterTimeoutsOutput {
+	return i.ToAgentcoreCodeInterpreterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterTimeoutsArgs) ToAgentcoreCodeInterpreterTimeoutsOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterTimeoutsOutput)
+}
+
+func (i AgentcoreCodeInterpreterTimeoutsArgs) ToAgentcoreCodeInterpreterTimeoutsPtrOutput() AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return i.ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreCodeInterpreterTimeoutsArgs) ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterTimeoutsOutput).ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreCodeInterpreterTimeoutsPtrInput is an input type that accepts AgentcoreCodeInterpreterTimeoutsArgs, AgentcoreCodeInterpreterTimeoutsPtr and AgentcoreCodeInterpreterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreCodeInterpreterTimeoutsPtrInput` via:
+//
+//	        AgentcoreCodeInterpreterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreCodeInterpreterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreCodeInterpreterTimeoutsPtrOutput() AgentcoreCodeInterpreterTimeoutsPtrOutput
+	ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(context.Context) AgentcoreCodeInterpreterTimeoutsPtrOutput
+}
+
+type agentcoreCodeInterpreterTimeoutsPtrType AgentcoreCodeInterpreterTimeoutsArgs
+
+func AgentcoreCodeInterpreterTimeoutsPtr(v *AgentcoreCodeInterpreterTimeoutsArgs) AgentcoreCodeInterpreterTimeoutsPtrInput {
+	return (*agentcoreCodeInterpreterTimeoutsPtrType)(v)
+}
+
+func (*agentcoreCodeInterpreterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreCodeInterpreterTimeoutsPtrType) ToAgentcoreCodeInterpreterTimeoutsPtrOutput() AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return i.ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreCodeInterpreterTimeoutsPtrType) ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreCodeInterpreterTimeoutsPtrOutput)
+}
+
+type AgentcoreCodeInterpreterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreCodeInterpreterTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsOutput) ToAgentcoreCodeInterpreterTimeoutsOutput() AgentcoreCodeInterpreterTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsOutput) ToAgentcoreCodeInterpreterTimeoutsOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsOutput) ToAgentcoreCodeInterpreterTimeoutsPtrOutput() AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return o.ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsOutput) ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreCodeInterpreterTimeouts) *AgentcoreCodeInterpreterTimeouts {
+		return &v
+	}).(AgentcoreCodeInterpreterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreCodeInterpreterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreCodeInterpreterTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreCodeInterpreterTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreCodeInterpreterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreCodeInterpreterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreCodeInterpreterTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsPtrOutput) ToAgentcoreCodeInterpreterTimeoutsPtrOutput() AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsPtrOutput) ToAgentcoreCodeInterpreterTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreCodeInterpreterTimeoutsPtrOutput) Elem() AgentcoreCodeInterpreterTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterTimeouts) AgentcoreCodeInterpreterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreCodeInterpreterTimeouts
+		return ret
+	}).(AgentcoreCodeInterpreterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreCodeInterpreterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreCodeInterpreterTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfiguration struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+	CustomJwtAuthorizer *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
+}
+
+// AgentcoreGatewayAuthorizerConfigurationInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationArgs and AgentcoreGatewayAuthorizerConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationArgs{...}
+type AgentcoreGatewayAuthorizerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationOutput() AgentcoreGatewayAuthorizerConfigurationOutput
+	ToAgentcoreGatewayAuthorizerConfigurationOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationArgs struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+	CustomJwtAuthorizer AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput `pulumi:"customJwtAuthorizer"`
+}
+
+func (AgentcoreGatewayAuthorizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationArgs) ToAgentcoreGatewayAuthorizerConfigurationOutput() AgentcoreGatewayAuthorizerConfigurationOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationArgs) ToAgentcoreGatewayAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationOutput)
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationArgs) ToAgentcoreGatewayAuthorizerConfigurationPtrOutput() AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationArgs) ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationOutput).ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayAuthorizerConfigurationPtrInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationArgs, AgentcoreGatewayAuthorizerConfigurationPtr and AgentcoreGatewayAuthorizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayAuthorizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayAuthorizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationPtrOutput() AgentcoreGatewayAuthorizerConfigurationPtrOutput
+	ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationPtrOutput
+}
+
+type agentcoreGatewayAuthorizerConfigurationPtrType AgentcoreGatewayAuthorizerConfigurationArgs
+
+func AgentcoreGatewayAuthorizerConfigurationPtr(v *AgentcoreGatewayAuthorizerConfigurationArgs) AgentcoreGatewayAuthorizerConfigurationPtrInput {
+	return (*agentcoreGatewayAuthorizerConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayAuthorizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayAuthorizerConfigurationPtrType) ToAgentcoreGatewayAuthorizerConfigurationPtrOutput() AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayAuthorizerConfigurationPtrType) ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationOutput) ToAgentcoreGatewayAuthorizerConfigurationOutput() AgentcoreGatewayAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationOutput) ToAgentcoreGatewayAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationOutput) ToAgentcoreGatewayAuthorizerConfigurationPtrOutput() AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationOutput) ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayAuthorizerConfiguration) *AgentcoreGatewayAuthorizerConfiguration {
+		return &v
+	}).(AgentcoreGatewayAuthorizerConfigurationPtrOutput)
+}
+
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+func (o AgentcoreGatewayAuthorizerConfigurationOutput) CustomJwtAuthorizer() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfiguration) *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationPtrOutput) ToAgentcoreGatewayAuthorizerConfigurationPtrOutput() AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationPtrOutput) ToAgentcoreGatewayAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationPtrOutput) Elem() AgentcoreGatewayAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfiguration) AgentcoreGatewayAuthorizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayAuthorizerConfiguration
+		return ret
+	}).(AgentcoreGatewayAuthorizerConfigurationOutput)
+}
+
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+func (o AgentcoreGatewayAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfiguration) *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
+		if v == nil {
+			return nil
+		}
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer struct {
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients []string `pulumi:"allowedClients"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerInput` via:
+//
+//	AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput).ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput is an input type that accepts AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs, AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtr and AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput` via:
+//
+//	        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+	ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+}
+
+type agentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrType AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs
+
+func AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtr(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput {
+	return (*agentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrType)(v)
+}
+
+func (*agentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
+		return &v
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+// Set of allowed audience values for JWT token validation.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// Set of allowed client IDs for JWT token validation.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+}
+
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Elem() AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer
+		return ret
+	}).(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+// Set of allowed audience values for JWT token validation.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of allowed client IDs for JWT token validation.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+func (o AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayProtocolConfiguration struct {
+	// Model Context Protocol (MCP) configuration block. See `mcp` below.
+	Mcp *AgentcoreGatewayProtocolConfigurationMcp `pulumi:"mcp"`
+}
+
+// AgentcoreGatewayProtocolConfigurationInput is an input type that accepts AgentcoreGatewayProtocolConfigurationArgs and AgentcoreGatewayProtocolConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayProtocolConfigurationInput` via:
+//
+//	AgentcoreGatewayProtocolConfigurationArgs{...}
+type AgentcoreGatewayProtocolConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayProtocolConfigurationOutput() AgentcoreGatewayProtocolConfigurationOutput
+	ToAgentcoreGatewayProtocolConfigurationOutputWithContext(context.Context) AgentcoreGatewayProtocolConfigurationOutput
+}
+
+type AgentcoreGatewayProtocolConfigurationArgs struct {
+	// Model Context Protocol (MCP) configuration block. See `mcp` below.
+	Mcp AgentcoreGatewayProtocolConfigurationMcpPtrInput `pulumi:"mcp"`
+}
+
+func (AgentcoreGatewayProtocolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayProtocolConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayProtocolConfigurationArgs) ToAgentcoreGatewayProtocolConfigurationOutput() AgentcoreGatewayProtocolConfigurationOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayProtocolConfigurationArgs) ToAgentcoreGatewayProtocolConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationOutput)
+}
+
+func (i AgentcoreGatewayProtocolConfigurationArgs) ToAgentcoreGatewayProtocolConfigurationPtrOutput() AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayProtocolConfigurationArgs) ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationOutput).ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayProtocolConfigurationPtrInput is an input type that accepts AgentcoreGatewayProtocolConfigurationArgs, AgentcoreGatewayProtocolConfigurationPtr and AgentcoreGatewayProtocolConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayProtocolConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayProtocolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayProtocolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayProtocolConfigurationPtrOutput() AgentcoreGatewayProtocolConfigurationPtrOutput
+	ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayProtocolConfigurationPtrOutput
+}
+
+type agentcoreGatewayProtocolConfigurationPtrType AgentcoreGatewayProtocolConfigurationArgs
+
+func AgentcoreGatewayProtocolConfigurationPtr(v *AgentcoreGatewayProtocolConfigurationArgs) AgentcoreGatewayProtocolConfigurationPtrInput {
+	return (*agentcoreGatewayProtocolConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayProtocolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayProtocolConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayProtocolConfigurationPtrType) ToAgentcoreGatewayProtocolConfigurationPtrOutput() AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayProtocolConfigurationPtrType) ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayProtocolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayProtocolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayProtocolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayProtocolConfigurationOutput) ToAgentcoreGatewayProtocolConfigurationOutput() AgentcoreGatewayProtocolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationOutput) ToAgentcoreGatewayProtocolConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationOutput) ToAgentcoreGatewayProtocolConfigurationPtrOutput() AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayProtocolConfigurationOutput) ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayProtocolConfiguration) *AgentcoreGatewayProtocolConfiguration {
+		return &v
+	}).(AgentcoreGatewayProtocolConfigurationPtrOutput)
+}
+
+// Model Context Protocol (MCP) configuration block. See `mcp` below.
+func (o AgentcoreGatewayProtocolConfigurationOutput) Mcp() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayProtocolConfiguration) *AgentcoreGatewayProtocolConfigurationMcp { return v.Mcp }).(AgentcoreGatewayProtocolConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayProtocolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayProtocolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayProtocolConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayProtocolConfigurationPtrOutput) ToAgentcoreGatewayProtocolConfigurationPtrOutput() AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationPtrOutput) ToAgentcoreGatewayProtocolConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationPtrOutput) Elem() AgentcoreGatewayProtocolConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfiguration) AgentcoreGatewayProtocolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayProtocolConfiguration
+		return ret
+	}).(AgentcoreGatewayProtocolConfigurationOutput)
+}
+
+// Model Context Protocol (MCP) configuration block. See `mcp` below.
+func (o AgentcoreGatewayProtocolConfigurationPtrOutput) Mcp() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfiguration) *AgentcoreGatewayProtocolConfigurationMcp {
+		if v == nil {
+			return nil
+		}
+		return v.Mcp
+	}).(AgentcoreGatewayProtocolConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayProtocolConfigurationMcp struct {
+	// Instructions for the MCP protocol configuration.
+	Instructions *string `pulumi:"instructions"`
+	// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+	SearchType *string `pulumi:"searchType"`
+	// Set of supported MCP protocol versions.
+	SupportedVersions []string `pulumi:"supportedVersions"`
+}
+
+// AgentcoreGatewayProtocolConfigurationMcpInput is an input type that accepts AgentcoreGatewayProtocolConfigurationMcpArgs and AgentcoreGatewayProtocolConfigurationMcpOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayProtocolConfigurationMcpInput` via:
+//
+//	AgentcoreGatewayProtocolConfigurationMcpArgs{...}
+type AgentcoreGatewayProtocolConfigurationMcpInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayProtocolConfigurationMcpOutput() AgentcoreGatewayProtocolConfigurationMcpOutput
+	ToAgentcoreGatewayProtocolConfigurationMcpOutputWithContext(context.Context) AgentcoreGatewayProtocolConfigurationMcpOutput
+}
+
+type AgentcoreGatewayProtocolConfigurationMcpArgs struct {
+	// Instructions for the MCP protocol configuration.
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+	SearchType pulumi.StringPtrInput `pulumi:"searchType"`
+	// Set of supported MCP protocol versions.
+	SupportedVersions pulumi.StringArrayInput `pulumi:"supportedVersions"`
+}
+
+func (AgentcoreGatewayProtocolConfigurationMcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationMcp)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayProtocolConfigurationMcpArgs) ToAgentcoreGatewayProtocolConfigurationMcpOutput() AgentcoreGatewayProtocolConfigurationMcpOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationMcpOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayProtocolConfigurationMcpArgs) ToAgentcoreGatewayProtocolConfigurationMcpOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationMcpOutput)
+}
+
+func (i AgentcoreGatewayProtocolConfigurationMcpArgs) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutput() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayProtocolConfigurationMcpArgs) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationMcpOutput).ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayProtocolConfigurationMcpPtrInput is an input type that accepts AgentcoreGatewayProtocolConfigurationMcpArgs, AgentcoreGatewayProtocolConfigurationMcpPtr and AgentcoreGatewayProtocolConfigurationMcpPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayProtocolConfigurationMcpPtrInput` via:
+//
+//	        AgentcoreGatewayProtocolConfigurationMcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayProtocolConfigurationMcpPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayProtocolConfigurationMcpPtrOutput() AgentcoreGatewayProtocolConfigurationMcpPtrOutput
+	ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(context.Context) AgentcoreGatewayProtocolConfigurationMcpPtrOutput
+}
+
+type agentcoreGatewayProtocolConfigurationMcpPtrType AgentcoreGatewayProtocolConfigurationMcpArgs
+
+func AgentcoreGatewayProtocolConfigurationMcpPtr(v *AgentcoreGatewayProtocolConfigurationMcpArgs) AgentcoreGatewayProtocolConfigurationMcpPtrInput {
+	return (*agentcoreGatewayProtocolConfigurationMcpPtrType)(v)
+}
+
+func (*agentcoreGatewayProtocolConfigurationMcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayProtocolConfigurationMcp)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayProtocolConfigurationMcpPtrType) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutput() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return i.ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayProtocolConfigurationMcpPtrType) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayProtocolConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayProtocolConfigurationMcpOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayProtocolConfigurationMcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationMcp)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) ToAgentcoreGatewayProtocolConfigurationMcpOutput() AgentcoreGatewayProtocolConfigurationMcpOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) ToAgentcoreGatewayProtocolConfigurationMcpOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutput() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o.ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayProtocolConfigurationMcp) *AgentcoreGatewayProtocolConfigurationMcp {
+		return &v
+	}).(AgentcoreGatewayProtocolConfigurationMcpPtrOutput)
+}
+
+// Instructions for the MCP protocol configuration.
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcp) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) SearchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcp) *string { return v.SearchType }).(pulumi.StringPtrOutput)
+}
+
+// Set of supported MCP protocol versions.
+func (o AgentcoreGatewayProtocolConfigurationMcpOutput) SupportedVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayProtocolConfigurationMcp) []string { return v.SupportedVersions }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayProtocolConfigurationMcpPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayProtocolConfigurationMcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayProtocolConfigurationMcp)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutput() AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) ToAgentcoreGatewayProtocolConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayProtocolConfigurationMcpPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) Elem() AgentcoreGatewayProtocolConfigurationMcpOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcp) AgentcoreGatewayProtocolConfigurationMcp {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayProtocolConfigurationMcp
+		return ret
+	}).(AgentcoreGatewayProtocolConfigurationMcpOutput)
+}
+
+// Instructions for the MCP protocol configuration.
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) SearchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of supported MCP protocol versions.
+func (o AgentcoreGatewayProtocolConfigurationMcpPtrOutput) SupportedVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayProtocolConfigurationMcp) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedVersions
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfiguration struct {
+	// API key-based authentication configuration. See `apiKey` below.
+	ApiKey *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey `pulumi:"apiKey"`
+	// Use the gateway's IAM role for authentication. This is an empty configuration block.
+	GatewayIamRole *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole `pulumi:"gatewayIamRole"`
+	// OAuth-based authentication configuration. See `oauth` below.
+	Oauth *AgentcoreGatewayTargetCredentialProviderConfigurationOauth `pulumi:"oauth"`
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationArgs and AgentcoreGatewayTargetCredentialProviderConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationInput` via:
+//
+//	AgentcoreGatewayTargetCredentialProviderConfigurationArgs{...}
+type AgentcoreGatewayTargetCredentialProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOutput
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationArgs struct {
+	// API key-based authentication configuration. See `apiKey` below.
+	ApiKey AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput `pulumi:"apiKey"`
+	// Use the gateway's IAM role for authentication. This is an empty configuration block.
+	GatewayIamRole AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput `pulumi:"gatewayIamRole"`
+	// OAuth-based authentication configuration. See `oauth` below.
+	Oauth AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput `pulumi:"oauth"`
+}
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationOutput)
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationOutput).ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationArgs, AgentcoreGatewayTargetCredentialProviderConfigurationPtr and AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayTargetCredentialProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput
+}
+
+type agentcoreGatewayTargetCredentialProviderConfigurationPtrType AgentcoreGatewayTargetCredentialProviderConfigurationArgs
+
+func AgentcoreGatewayTargetCredentialProviderConfigurationPtr(v *AgentcoreGatewayTargetCredentialProviderConfigurationArgs) AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput {
+	return (*agentcoreGatewayTargetCredentialProviderConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetCredentialProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfiguration {
+		return &v
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput)
+}
+
+// API key-based authentication configuration. See `apiKey` below.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) ApiKey() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
+		return v.ApiKey
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput)
+}
+
+// Use the gateway's IAM role for authentication. This is an empty configuration block.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) GatewayIamRole() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
+		return v.GatewayIamRole
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput)
+}
+
+// OAuth-based authentication configuration. See `oauth` below.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOutput) Oauth() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
+		return v.Oauth
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) Elem() AgentcoreGatewayTargetCredentialProviderConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfiguration) AgentcoreGatewayTargetCredentialProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetCredentialProviderConfiguration
+		return ret
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationOutput)
+}
+
+// API key-based authentication configuration. See `apiKey` below.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) ApiKey() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput)
+}
+
+// Use the gateway's IAM role for authentication. This is an empty configuration block.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) GatewayIamRole() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayIamRole
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput)
+}
+
+// OAuth-based authentication configuration. See `oauth` below.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput) Oauth() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfiguration) *AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKey struct {
+	// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+	CredentialLocation *string `pulumi:"credentialLocation"`
+	// Name of the parameter containing the API key credential.
+	CredentialParameterName *string `pulumi:"credentialParameterName"`
+	// Prefix to add to the API key credential value.
+	CredentialPrefix *string `pulumi:"credentialPrefix"`
+	// ARN of the OIDC provider for API key authentication.
+	ProviderArn string `pulumi:"providerArn"`
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs and AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyInput` via:
+//
+//	AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{...}
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs struct {
+	// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+	CredentialLocation pulumi.StringPtrInput `pulumi:"credentialLocation"`
+	// Name of the parameter containing the API key credential.
+	CredentialParameterName pulumi.StringPtrInput `pulumi:"credentialParameterName"`
+	// Prefix to add to the API key credential value.
+	CredentialPrefix pulumi.StringPtrInput `pulumi:"credentialPrefix"`
+	// ARN of the OIDC provider for API key authentication.
+	ProviderArn pulumi.StringInput `pulumi:"providerArn"`
+}
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationApiKey)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput)
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput).ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs, AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtr and AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput` via:
+//
+//	        AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput
+}
+
+type agentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrType AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs
+
+func AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtr(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput {
+	return (*agentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationApiKey)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationApiKey)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o.ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
+		return &v
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput)
+}
+
+// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) CredentialLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		return v.CredentialLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the parameter containing the API key credential.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) CredentialParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		return v.CredentialParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix to add to the API key credential value.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) CredentialPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string { return v.CredentialPrefix }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the OIDC provider for API key authentication.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput) ProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) string { return v.ProviderArn }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationApiKey)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) Elem() AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetCredentialProviderConfigurationApiKey
+		return ret
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput)
+}
+
+// Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) CredentialLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the parameter containing the API key credential.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) CredentialParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix to add to the API key credential value.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) CredentialPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CredentialPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the OIDC provider for API key authentication.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput) ProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole struct {
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs and AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleInput` via:
+//
+//	AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{...}
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs struct {
+}
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput)
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput).ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs, AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtr and AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput` via:
+//
+//	        AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput
+}
+
+type agentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrType AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs
+
+func AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtr(v *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput {
+	return (*agentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrType)(v)
+}
+
+func (*agentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o.ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole) *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
+		return &v
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput) Elem() AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole) AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole
+		return ret
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauth struct {
+	// Map of custom parameters to include in OAuth requests.
+	CustomParameters map[string]string `pulumi:"customParameters"`
+	// ARN of the OIDC provider for OAuth authentication.
+	ProviderArn string `pulumi:"providerArn"`
+	// Set of OAuth scopes to request.
+	Scopes []string `pulumi:"scopes"`
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs and AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput` via:
+//
+//	AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{...}
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs struct {
+	// Map of custom parameters to include in OAuth requests.
+	CustomParameters pulumi.StringMapInput `pulumi:"customParameters"`
+	// ARN of the OIDC provider for OAuth authentication.
+	ProviderArn pulumi.StringInput `pulumi:"providerArn"`
+	// Set of OAuth scopes to request.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauth)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput)
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput).ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput is an input type that accepts AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs, AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtr and AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput` via:
+//
+//	        AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput
+	ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput
+}
+
+type agentcoreGatewayTargetCredentialProviderConfigurationOauthPtrType AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs
+
+func AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtr(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput {
+	return (*agentcoreGatewayTargetCredentialProviderConfigurationOauthPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetCredentialProviderConfigurationOauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationOauth)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationOauthPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return i.ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetCredentialProviderConfigurationOauthPtrType) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauth)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o.ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
+		return &v
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput)
+}
+
+// Map of custom parameters to include in OAuth requests.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) CustomParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) map[string]string {
+		return v.CustomParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// ARN of the OIDC provider for OAuth authentication.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) ProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) string { return v.ProviderArn }).(pulumi.StringOutput)
+}
+
+// Set of OAuth scopes to request.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetCredentialProviderConfigurationOauth) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetCredentialProviderConfigurationOauth)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput() AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ToAgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Elem() AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetCredentialProviderConfigurationOauth
+		return ret
+	}).(AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput)
+}
+
+// Map of custom parameters to include in OAuth requests.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) CustomParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// ARN of the OIDC provider for OAuth authentication.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) ProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of OAuth scopes to request.
+func (o AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetCredentialProviderConfigurationOauth) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfiguration struct {
+	// Model Context Protocol (MCP) configuration. See `mcp` below.
+	Mcp *AgentcoreGatewayTargetTargetConfigurationMcp `pulumi:"mcp"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationArgs and AgentcoreGatewayTargetTargetConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationOutput
+	ToAgentcoreGatewayTargetTargetConfigurationOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationArgs struct {
+	// Model Context Protocol (MCP) configuration. See `mcp` below.
+	Mcp AgentcoreGatewayTargetTargetConfigurationMcpPtrInput `pulumi:"mcp"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationArgs) ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationOutput).ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationArgs, AgentcoreGatewayTargetTargetConfigurationPtr and AgentcoreGatewayTargetTargetConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationPtrType AgentcoreGatewayTargetTargetConfigurationArgs
+
+func AgentcoreGatewayTargetTargetConfigurationPtr(v *AgentcoreGatewayTargetTargetConfigurationArgs) AgentcoreGatewayTargetTargetConfigurationPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationPtrType) ToAgentcoreGatewayTargetTargetConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationPtrType) ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationOutput() AgentcoreGatewayTargetTargetConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationOutput) ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfiguration) *AgentcoreGatewayTargetTargetConfiguration {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationPtrOutput)
+}
+
+// Model Context Protocol (MCP) configuration. See `mcp` below.
+func (o AgentcoreGatewayTargetTargetConfigurationOutput) Mcp() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfiguration) *AgentcoreGatewayTargetTargetConfigurationMcp {
+		return v.Mcp
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationPtrOutput() AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfiguration) AgentcoreGatewayTargetTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfiguration
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationOutput)
+}
+
+// Model Context Protocol (MCP) configuration. See `mcp` below.
+func (o AgentcoreGatewayTargetTargetConfigurationPtrOutput) Mcp() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfiguration) *AgentcoreGatewayTargetTargetConfigurationMcp {
+		if v == nil {
+			return nil
+		}
+		return v.Mcp
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcp struct {
+	// Lambda function target configuration. See `lambda` below.
+	Lambda *AgentcoreGatewayTargetTargetConfigurationMcpLambda `pulumi:"lambda"`
+	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+	OpenApiSchema *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema `pulumi:"openApiSchema"`
+	// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+	SmithyModel *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel `pulumi:"smithyModel"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpArgs and AgentcoreGatewayTargetTargetConfigurationMcpOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOutput() AgentcoreGatewayTargetTargetConfigurationMcpOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpArgs struct {
+	// Lambda function target configuration. See `lambda` below.
+	Lambda AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput `pulumi:"lambda"`
+	// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+	OpenApiSchema AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput `pulumi:"openApiSchema"`
+	// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+	SmithyModel AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput `pulumi:"smithyModel"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcp)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOutput() AgentcoreGatewayTargetTargetConfigurationMcpOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpArgs, AgentcoreGatewayTargetTargetConfigurationMcpPtr and AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpPtrType AgentcoreGatewayTargetTargetConfigurationMcpArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpArgs) AgentcoreGatewayTargetTargetConfigurationMcpPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcp)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcp)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOutput() AgentcoreGatewayTargetTargetConfigurationMcpOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcp {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput)
+}
+
+// Lambda function target configuration. See `lambda` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) Lambda() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpLambda {
+		return v.Lambda
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
+}
+
+// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
+		return v.OpenApiSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
+}
+
+// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
+		return v.SmithyModel
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcp)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) AgentcoreGatewayTargetTargetConfigurationMcp {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcp
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOutput)
+}
+
+// Lambda function target configuration. See `lambda` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) Lambda() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpLambda {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
+}
+
+// OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
+		if v == nil {
+			return nil
+		}
+		return v.OpenApiSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
+}
+
+// Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
+		if v == nil {
+			return nil
+		}
+		return v.SmithyModel
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambda struct {
+	// ARN of the Lambda function to invoke.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// Schema definition for the tool. See `toolSchema` below.
+	ToolSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema `pulumi:"toolSchema"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs struct {
+	// ARN of the Lambda function to invoke.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// Schema definition for the tool. See `toolSchema` below.
+	ToolSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput `pulumi:"toolSchema"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambda)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambda)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambda)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambda) *AgentcoreGatewayTargetTargetConfigurationMcpLambda {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput)
+}
+
+// ARN of the Lambda function to invoke.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambda) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// Schema definition for the tool. See `toolSchema` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambda) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
+		return v.ToolSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambda)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambda) AgentcoreGatewayTargetTargetConfigurationMcpLambda {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambda
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput)
+}
+
+// ARN of the Lambda function to invoke.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schema definition for the tool. See `toolSchema` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambda) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
+		if v == nil {
+			return nil
+		}
+		return v.ToolSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema struct {
+	// Inline tool definition. See `inlinePayload` below.
+	InlinePayloads []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload `pulumi:"inlinePayloads"`
+	// S3-based tool definition. See `s3` below.
+	S3 *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 `pulumi:"s3"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs struct {
+	// Inline tool definition. See `inlinePayload` below.
+	InlinePayloads AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput `pulumi:"inlinePayloads"`
+	// S3-based tool definition. See `s3` below.
+	S3 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput `pulumi:"s3"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
+}
+
+// Inline tool definition. See `inlinePayload` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) InlinePayloads() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
+		return v.InlinePayloads
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput)
+}
+
+// S3-based tool definition. See `s3` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput)
+}
+
+// Inline tool definition. See `inlinePayload` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) InlinePayloads() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
+		if v == nil {
+			return nil
+		}
+		return v.InlinePayloads
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput)
+}
+
+// S3-based tool definition. See `s3` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload struct {
+	// Description of what the tool does.
+	Description string `pulumi:"description"`
+	// Schema for the tool's input. See `schemaDefinition` below.
+	InputSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema `pulumi:"inputSchema"`
+	// Name of the tool.
+	Name string `pulumi:"name"`
+	// Schema for the tool's output. See `schemaDefinition` below.
+	OutputSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema `pulumi:"outputSchema"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs struct {
+	// Description of what the tool does.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Schema for the tool's input. See `schemaDefinition` below.
+	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput `pulumi:"inputSchema"`
+	// Name of the tool.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Schema for the tool's output. See `schemaDefinition` below.
+	OutputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput `pulumi:"outputSchema"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput {
+	return o
+}
+
+// Description of what the tool does.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+// Schema for the tool's input. See `schemaDefinition` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) InputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
+		return v.InputSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
+}
+
+// Name of the tool.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Schema for the tool's output. See `schemaDefinition` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) OutputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
+		return v.OutputSchema
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema struct {
+	// Description of the gateway target.
+	Description *string                                                                                        `pulumi:"description"`
+	Items       *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems     `pulumi:"items"`
+	Properties  []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty `pulumi:"properties"`
+	Type        string                                                                                         `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs struct {
+	// Description of the gateway target.
+	Description pulumi.StringPtrInput                                                                                  `pulumi:"description"`
+	Items       AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput      `pulumi:"items"`
+	Properties  AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput `pulumi:"properties"`
+	Type        pulumi.StringInput                                                                                     `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
+}
+
+// Description of the gateway target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput)
+}
+
+// Description of the gateway target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty `pulumi:"properties"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput `pulumi:"properties"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// Items definition for array properties. See `items` above.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems `pulumi:"items"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// Set of nested property definitions for object properties.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty `pulumi:"properties"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Items definition for array properties. See `items` above.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput `pulumi:"items"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of nested property definitions for object properties.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Items definition for array properties. See `items` above.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Set of nested property definitions for object properties.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty `pulumi:"properties"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput `pulumi:"properties"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema struct {
+	// Description of the gateway target.
+	Description *string                                                                                         `pulumi:"description"`
+	Items       *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems     `pulumi:"items"`
+	Properties  []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty `pulumi:"properties"`
+	Type        string                                                                                          `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs struct {
+	// Description of the gateway target.
+	Description pulumi.StringPtrInput                                                                                   `pulumi:"description"`
+	Items       AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput      `pulumi:"items"`
+	Properties  AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput `pulumi:"properties"`
+	Type        pulumi.StringInput                                                                                      `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput)
+}
+
+// Description of the gateway target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput)
+}
+
+// Description of the gateway target.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty `pulumi:"properties"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput `pulumi:"properties"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// Items definition for array properties. See `items` above.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems `pulumi:"items"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// Set of nested property definitions for object properties.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty `pulumi:"properties"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Items definition for array properties. See `items` above.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput `pulumi:"items"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of nested property definitions for object properties.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput `pulumi:"properties"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Items definition for array properties. See `items` above.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Set of nested property definitions for object properties.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty `pulumi:"properties"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Nested items definition for arrays of arrays.
+	Items AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput `pulumi:"items"`
+	// Set of property definitions for arrays of objects. See `property` below.
+	Properties AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput `pulumi:"properties"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty {
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Nested items definition for arrays of arrays.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Set of property definitions for arrays of objects. See `property` below.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems struct {
+	// Description of the array items.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs struct {
+	// Description of the array items.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Data type of the array items.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput)
+}
+
+// Description of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data type of the array items.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty struct {
+	// Description of the property.
+	Description *string `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson *string `pulumi:"itemsJson"`
+	// Name of the property.
+	Name string `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson *string `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// Data type of the property.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs struct {
+	// Description of the property.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+	ItemsJson pulumi.StringPtrInput `pulumi:"itemsJson"`
+	// Name of the property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+	PropertiesJson pulumi.StringPtrInput `pulumi:"propertiesJson"`
+	// Whether this property is required. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// Data type of the property.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray{ AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs{...} }
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyInput
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput {
+	return o
+}
+
+// Description of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `propertiesJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) ItemsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) *string {
+		return v.ItemsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `itemsJson`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) PropertiesJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) *string {
+		return v.PropertiesJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this property is required. Defaults to `false`.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) *bool {
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Data type of the property.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty {
+		return vs[0].([]AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty)[vs[1].(int)]
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri *string `pulumi:"uri"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Input is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Input` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Input interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3OutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3OutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Ptr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args
+
+func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Ptr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) *string {
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema struct {
+	InlinePayload *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload `pulumi:"inlinePayload"`
+	S3            *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3            `pulumi:"s3"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs struct {
+	InlinePayload AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput `pulumi:"inlinePayload"`
+	S3            AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput            `pulumi:"s3"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs, AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtr and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrType AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) InlinePayload() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
+		return v.InlinePayload
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3 {
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) InlinePayload() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
+		if v == nil {
+			return nil
+		}
+		return v.InlinePayload
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload struct {
+	// The inline schema payload content.
+	Payload string `pulumi:"payload"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs struct {
+	// The inline schema payload content.
+	Payload pulumi.StringInput `pulumi:"payload"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs, AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtr and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrType AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput)
+}
+
+// The inline schema payload content.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput) Payload() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload) string {
+		return v.Payload
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput)
+}
+
+// The inline schema payload content.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Payload
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3 struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri *string `pulumi:"uri"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Input is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Input` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Input interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3OutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3OutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output).ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args, AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Ptr and AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrType AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args
+
+func AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Ptr(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3 {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) *string {
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel struct {
+	InlinePayload *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload `pulumi:"inlinePayload"`
+	S3            *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3            `pulumi:"s3"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs struct {
+	InlinePayload AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput `pulumi:"inlinePayload"`
+	S3            AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput            `pulumi:"s3"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs, AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtr and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrType AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) InlinePayload() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
+		return v.InlinePayload
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3 {
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) InlinePayload() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
+		if v == nil {
+			return nil
+		}
+		return v.InlinePayload
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput)
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload struct {
+	// The inline schema payload content.
+	Payload string `pulumi:"payload"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadInput` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs struct {
+	// The inline schema payload content.
+	Payload pulumi.StringInput `pulumi:"payload"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs, AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtr and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrType AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs
+
+func AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput)
+}
+
+// The inline schema payload content.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput) Payload() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload) string { return v.Payload }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput)
+}
+
+// The inline schema payload content.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Payload
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3 struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId *string `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri *string `pulumi:"uri"`
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Input is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Input` via:
+//
+//	AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args{...}
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Input interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3OutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwnerAccountId pulumi.StringPtrInput `pulumi:"bucketOwnerAccountId"`
+	// S3 URI where the schema is stored.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3OutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output)
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output).ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args, AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Ptr and AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput` via:
+//
+//	        AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput
+	ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput
+}
+
+type agentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrType AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args
+
+func AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Ptr(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput {
+	return (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3OutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3 {
+		return &v
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) *string {
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3
+		return ret
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output)
+}
+
+// Account ID of the S3 bucket owner.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) BucketOwnerAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwnerAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 URI where the schema is stored.
+func (o AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreGatewayTargetTimeoutsInput is an input type that accepts AgentcoreGatewayTargetTimeoutsArgs and AgentcoreGatewayTargetTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTimeoutsInput` via:
+//
+//	AgentcoreGatewayTargetTimeoutsArgs{...}
+type AgentcoreGatewayTargetTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTimeoutsOutput() AgentcoreGatewayTargetTimeoutsOutput
+	ToAgentcoreGatewayTargetTimeoutsOutputWithContext(context.Context) AgentcoreGatewayTargetTimeoutsOutput
+}
+
+type AgentcoreGatewayTargetTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreGatewayTargetTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTargetTimeoutsArgs) ToAgentcoreGatewayTargetTimeoutsOutput() AgentcoreGatewayTargetTimeoutsOutput {
+	return i.ToAgentcoreGatewayTargetTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTimeoutsArgs) ToAgentcoreGatewayTargetTimeoutsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTimeoutsOutput)
+}
+
+func (i AgentcoreGatewayTargetTimeoutsArgs) ToAgentcoreGatewayTargetTimeoutsPtrOutput() AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTargetTimeoutsArgs) ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTimeoutsOutput).ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTargetTimeoutsPtrInput is an input type that accepts AgentcoreGatewayTargetTimeoutsArgs, AgentcoreGatewayTargetTimeoutsPtr and AgentcoreGatewayTargetTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTargetTimeoutsPtrInput` via:
+//
+//	        AgentcoreGatewayTargetTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTargetTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTargetTimeoutsPtrOutput() AgentcoreGatewayTargetTimeoutsPtrOutput
+	ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTimeoutsPtrOutput
+}
+
+type agentcoreGatewayTargetTimeoutsPtrType AgentcoreGatewayTargetTimeoutsArgs
+
+func AgentcoreGatewayTargetTimeoutsPtr(v *AgentcoreGatewayTargetTimeoutsArgs) AgentcoreGatewayTargetTimeoutsPtrInput {
+	return (*agentcoreGatewayTargetTimeoutsPtrType)(v)
+}
+
+func (*agentcoreGatewayTargetTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTargetTimeoutsPtrType) ToAgentcoreGatewayTargetTimeoutsPtrOutput() AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return i.ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTargetTimeoutsPtrType) ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTimeoutsPtrOutput)
+}
+
+type AgentcoreGatewayTargetTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTargetTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTimeoutsOutput) ToAgentcoreGatewayTargetTimeoutsOutput() AgentcoreGatewayTargetTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTimeoutsOutput) ToAgentcoreGatewayTargetTimeoutsOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTimeoutsOutput) ToAgentcoreGatewayTargetTimeoutsPtrOutput() AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return o.ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTargetTimeoutsOutput) ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTimeouts) *AgentcoreGatewayTargetTimeouts {
+		return &v
+	}).(AgentcoreGatewayTargetTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTargetTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreGatewayTargetTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTargetTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTargetTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTargetTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTargetTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) ToAgentcoreGatewayTargetTimeoutsPtrOutput() AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) ToAgentcoreGatewayTargetTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) Elem() AgentcoreGatewayTargetTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTimeouts) AgentcoreGatewayTargetTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTargetTimeouts
+		return ret
+	}).(AgentcoreGatewayTargetTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTargetTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTargetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreGatewayTimeoutsInput is an input type that accepts AgentcoreGatewayTimeoutsArgs and AgentcoreGatewayTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTimeoutsInput` via:
+//
+//	AgentcoreGatewayTimeoutsArgs{...}
+type AgentcoreGatewayTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTimeoutsOutput() AgentcoreGatewayTimeoutsOutput
+	ToAgentcoreGatewayTimeoutsOutputWithContext(context.Context) AgentcoreGatewayTimeoutsOutput
+}
+
+type AgentcoreGatewayTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreGatewayTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayTimeoutsArgs) ToAgentcoreGatewayTimeoutsOutput() AgentcoreGatewayTimeoutsOutput {
+	return i.ToAgentcoreGatewayTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTimeoutsArgs) ToAgentcoreGatewayTimeoutsOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTimeoutsOutput)
+}
+
+func (i AgentcoreGatewayTimeoutsArgs) ToAgentcoreGatewayTimeoutsPtrOutput() AgentcoreGatewayTimeoutsPtrOutput {
+	return i.ToAgentcoreGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayTimeoutsArgs) ToAgentcoreGatewayTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTimeoutsOutput).ToAgentcoreGatewayTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreGatewayTimeoutsPtrInput is an input type that accepts AgentcoreGatewayTimeoutsArgs, AgentcoreGatewayTimeoutsPtr and AgentcoreGatewayTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayTimeoutsPtrInput` via:
+//
+//	        AgentcoreGatewayTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreGatewayTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayTimeoutsPtrOutput() AgentcoreGatewayTimeoutsPtrOutput
+	ToAgentcoreGatewayTimeoutsPtrOutputWithContext(context.Context) AgentcoreGatewayTimeoutsPtrOutput
+}
+
+type agentcoreGatewayTimeoutsPtrType AgentcoreGatewayTimeoutsArgs
+
+func AgentcoreGatewayTimeoutsPtr(v *AgentcoreGatewayTimeoutsArgs) AgentcoreGatewayTimeoutsPtrInput {
+	return (*agentcoreGatewayTimeoutsPtrType)(v)
+}
+
+func (*agentcoreGatewayTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreGatewayTimeoutsPtrType) ToAgentcoreGatewayTimeoutsPtrOutput() AgentcoreGatewayTimeoutsPtrOutput {
+	return i.ToAgentcoreGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreGatewayTimeoutsPtrType) ToAgentcoreGatewayTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTimeoutsPtrOutput)
+}
+
+type AgentcoreGatewayTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTimeoutsOutput) ToAgentcoreGatewayTimeoutsOutput() AgentcoreGatewayTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTimeoutsOutput) ToAgentcoreGatewayTimeoutsOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTimeoutsOutput) ToAgentcoreGatewayTimeoutsPtrOutput() AgentcoreGatewayTimeoutsPtrOutput {
+	return o.ToAgentcoreGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreGatewayTimeoutsOutput) ToAgentcoreGatewayTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTimeouts) *AgentcoreGatewayTimeouts {
+		return &v
+	}).(AgentcoreGatewayTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreGatewayTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreGatewayTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayTimeoutsPtrOutput) ToAgentcoreGatewayTimeoutsPtrOutput() AgentcoreGatewayTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTimeoutsPtrOutput) ToAgentcoreGatewayTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreGatewayTimeoutsPtrOutput) Elem() AgentcoreGatewayTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTimeouts) AgentcoreGatewayTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreGatewayTimeouts
+		return ret
+	}).(AgentcoreGatewayTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreGatewayTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreGatewayTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreGatewayWorkloadIdentityDetail struct {
+	// ARN of the workload identity.
+	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
+}
+
+// AgentcoreGatewayWorkloadIdentityDetailInput is an input type that accepts AgentcoreGatewayWorkloadIdentityDetailArgs and AgentcoreGatewayWorkloadIdentityDetailOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayWorkloadIdentityDetailInput` via:
+//
+//	AgentcoreGatewayWorkloadIdentityDetailArgs{...}
+type AgentcoreGatewayWorkloadIdentityDetailInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayWorkloadIdentityDetailOutput() AgentcoreGatewayWorkloadIdentityDetailOutput
+	ToAgentcoreGatewayWorkloadIdentityDetailOutputWithContext(context.Context) AgentcoreGatewayWorkloadIdentityDetailOutput
+}
+
+type AgentcoreGatewayWorkloadIdentityDetailArgs struct {
+	// ARN of the workload identity.
+	WorkloadIdentityArn pulumi.StringInput `pulumi:"workloadIdentityArn"`
+}
+
+func (AgentcoreGatewayWorkloadIdentityDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayWorkloadIdentityDetailArgs) ToAgentcoreGatewayWorkloadIdentityDetailOutput() AgentcoreGatewayWorkloadIdentityDetailOutput {
+	return i.ToAgentcoreGatewayWorkloadIdentityDetailOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayWorkloadIdentityDetailArgs) ToAgentcoreGatewayWorkloadIdentityDetailOutputWithContext(ctx context.Context) AgentcoreGatewayWorkloadIdentityDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayWorkloadIdentityDetailOutput)
+}
+
+// AgentcoreGatewayWorkloadIdentityDetailArrayInput is an input type that accepts AgentcoreGatewayWorkloadIdentityDetailArray and AgentcoreGatewayWorkloadIdentityDetailArrayOutput values.
+// You can construct a concrete instance of `AgentcoreGatewayWorkloadIdentityDetailArrayInput` via:
+//
+//	AgentcoreGatewayWorkloadIdentityDetailArray{ AgentcoreGatewayWorkloadIdentityDetailArgs{...} }
+type AgentcoreGatewayWorkloadIdentityDetailArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreGatewayWorkloadIdentityDetailArrayOutput() AgentcoreGatewayWorkloadIdentityDetailArrayOutput
+	ToAgentcoreGatewayWorkloadIdentityDetailArrayOutputWithContext(context.Context) AgentcoreGatewayWorkloadIdentityDetailArrayOutput
+}
+
+type AgentcoreGatewayWorkloadIdentityDetailArray []AgentcoreGatewayWorkloadIdentityDetailInput
+
+func (AgentcoreGatewayWorkloadIdentityDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (i AgentcoreGatewayWorkloadIdentityDetailArray) ToAgentcoreGatewayWorkloadIdentityDetailArrayOutput() AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
+	return i.ToAgentcoreGatewayWorkloadIdentityDetailArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreGatewayWorkloadIdentityDetailArray) ToAgentcoreGatewayWorkloadIdentityDetailArrayOutputWithContext(ctx context.Context) AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayWorkloadIdentityDetailArrayOutput)
+}
+
+type AgentcoreGatewayWorkloadIdentityDetailOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayWorkloadIdentityDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayWorkloadIdentityDetailOutput) ToAgentcoreGatewayWorkloadIdentityDetailOutput() AgentcoreGatewayWorkloadIdentityDetailOutput {
+	return o
+}
+
+func (o AgentcoreGatewayWorkloadIdentityDetailOutput) ToAgentcoreGatewayWorkloadIdentityDetailOutputWithContext(ctx context.Context) AgentcoreGatewayWorkloadIdentityDetailOutput {
+	return o
+}
+
+// ARN of the workload identity.
+func (o AgentcoreGatewayWorkloadIdentityDetailOutput) WorkloadIdentityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreGatewayWorkloadIdentityDetail) string { return v.WorkloadIdentityArn }).(pulumi.StringOutput)
+}
+
+type AgentcoreGatewayWorkloadIdentityDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreGatewayWorkloadIdentityDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreGatewayWorkloadIdentityDetail)(nil)).Elem()
+}
+
+func (o AgentcoreGatewayWorkloadIdentityDetailArrayOutput) ToAgentcoreGatewayWorkloadIdentityDetailArrayOutput() AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayWorkloadIdentityDetailArrayOutput) ToAgentcoreGatewayWorkloadIdentityDetailArrayOutputWithContext(ctx context.Context) AgentcoreGatewayWorkloadIdentityDetailArrayOutput {
+	return o
+}
+
+func (o AgentcoreGatewayWorkloadIdentityDetailArrayOutput) Index(i pulumi.IntInput) AgentcoreGatewayWorkloadIdentityDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreGatewayWorkloadIdentityDetail {
+		return vs[0].([]AgentcoreGatewayWorkloadIdentityDetail)[vs[1].(int)]
+	}).(AgentcoreGatewayWorkloadIdentityDetailOutput)
+}
+
 type CustomModelOutputDataConfig struct {
 	// The S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
@@ -29897,6 +39768,130 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextCachePointPtrInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextCachePointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariableInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextInputVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptVariantTemplateConfigurationTextInputVariableArrayInput)(nil)).Elem(), AgentPromptVariantTemplateConfigurationTextInputVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeoutsInput)(nil)).Elem(), AgentcoreAgentRuntimeEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeEndpointTimeoutsPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeLifecycleConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeLifecycleConfigurationArrayInput)(nil)).Elem(), AgentcoreAgentRuntimeLifecycleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigInput)(nil)).Elem(), AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeProtocolConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeProtocolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeProtocolConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeProtocolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeRequestHeaderConfigurationInput)(nil)).Elem(), AgentcoreAgentRuntimeRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeRequestHeaderConfigurationPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeTimeoutsInput)(nil)).Elem(), AgentcoreAgentRuntimeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeTimeoutsPtrInput)(nil)).Elem(), AgentcoreAgentRuntimeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeWorkloadIdentityDetailInput)(nil)).Elem(), AgentcoreAgentRuntimeWorkloadIdentityDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreAgentRuntimeWorkloadIdentityDetailArrayInput)(nil)).Elem(), AgentcoreAgentRuntimeWorkloadIdentityDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArnInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput)(nil)).Elem(), AgentcoreApiKeyCredentialProviderApiKeySecretArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationPtrInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfigInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrInput)(nil)).Elem(), AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingInput)(nil)).Elem(), AgentcoreBrowserRecordingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingPtrInput)(nil)).Elem(), AgentcoreBrowserRecordingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingS3LocationInput)(nil)).Elem(), AgentcoreBrowserRecordingS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserRecordingS3LocationPtrInput)(nil)).Elem(), AgentcoreBrowserRecordingS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserTimeoutsInput)(nil)).Elem(), AgentcoreBrowserTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreBrowserTimeoutsPtrInput)(nil)).Elem(), AgentcoreBrowserTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationInput)(nil)).Elem(), AgentcoreCodeInterpreterNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationPtrInput)(nil)).Elem(), AgentcoreCodeInterpreterNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationVpcConfigInput)(nil)).Elem(), AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrInput)(nil)).Elem(), AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterTimeoutsInput)(nil)).Elem(), AgentcoreCodeInterpreterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreCodeInterpreterTimeoutsPtrInput)(nil)).Elem(), AgentcoreCodeInterpreterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrInput)(nil)).Elem(), AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationInput)(nil)).Elem(), AgentcoreGatewayProtocolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayProtocolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationMcpInput)(nil)).Elem(), AgentcoreGatewayProtocolConfigurationMcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayProtocolConfigurationMcpPtrInput)(nil)).Elem(), AgentcoreGatewayProtocolConfigurationMcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauthInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrInput)(nil)).Elem(), AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Input)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Input)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Input)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTimeoutsInput)(nil)).Elem(), AgentcoreGatewayTargetTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTimeoutsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTimeoutsInput)(nil)).Elem(), AgentcoreGatewayTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTimeoutsPtrInput)(nil)).Elem(), AgentcoreGatewayTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetailInput)(nil)).Elem(), AgentcoreGatewayWorkloadIdentityDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetailArrayInput)(nil)).Elem(), AgentcoreGatewayWorkloadIdentityDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigPtrInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
@@ -30303,6 +40298,130 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextCachePointPtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextInputVariableOutput{})
 	pulumi.RegisterOutputType(AgentPromptVariantTemplateConfigurationTextInputVariableArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeProtocolConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeProtocolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeRequestHeaderConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeRequestHeaderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeWorkloadIdentityDetailOutput{})
+	pulumi.RegisterOutputType(AgentcoreAgentRuntimeWorkloadIdentityDetailArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretArnOutput{})
+	pulumi.RegisterOutputType(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationNetworkModeConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserNetworkConfigurationNetworkModeConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserRecordingOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserRecordingPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserRecordingS3LocationOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserRecordingS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreBrowserTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterNetworkConfigurationVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreCodeInterpreterTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayProtocolConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayProtocolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayProtocolConfigurationMcpOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayProtocolConfigurationMcpPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRolePtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationOauthOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetCredentialProviderConfigurationOauthPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Output{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Output{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Output{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3PtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTargetTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayWorkloadIdentityDetailOutput{})
+	pulumi.RegisterOutputType(AgentcoreGatewayWorkloadIdentityDetailArrayOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelTimeoutsOutput{})

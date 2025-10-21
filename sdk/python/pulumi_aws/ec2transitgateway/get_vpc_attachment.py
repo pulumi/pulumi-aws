@@ -197,6 +197,8 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
 
+    !> **Warning:** Using the `ec2transitgateway.VpcAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `ec2transitgateway.VpcAttachment` _resource_. For example, `transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+
     ## Example Usage
 
     ### By Filter
@@ -255,6 +257,8 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
+
+    !> **Warning:** Using the `ec2transitgateway.VpcAttachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `id` attribute directly from the `ec2transitgateway.VpcAttachment` _resource_. For example, `transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
 
     ## Example Usage
 

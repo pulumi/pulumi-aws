@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Odb
     /// {
     ///     var withMinimumParameter = new Aws.Odb.CloudVmCluster("with_minimum_parameter", new()
     ///     {
-    ///         DisplayName = "my-exa-infra",
-    ///         CloudExadataInfrastructureId = "exa_gjrmtxl4qk",
+    ///         DisplayName = "my_vm_cluster",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         CpuCoreCount = 6,
     ///         GiVersion = "23.0.0.0",
     ///         HostnamePrefix = "apollo12",
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Odb
     ///         {
     ///             "public-ssh-key",
     ///         },
-    ///         OdbNetworkId = "odbnet_3l9st3litg",
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
     ///         IsLocalBackupEnabled = true,
     ///         IsSparseDiskgroupEnabled = true,
     ///         LicenseModel = "LICENSE_INCLUDED",
@@ -55,8 +55,8 @@ namespace Pulumi.Aws.Odb
     /// 
     ///     var withAllParameters = new Aws.Odb.CloudVmCluster("with_all_parameters", new()
     ///     {
-    ///         DisplayName = "my-vmc",
-    ///         CloudExadataInfrastructureId = "exa_gjrmtxl4qk",
+    ///         DisplayName = "my_vm_cluster",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
     ///         CpuCoreCount = 6,
     ///         GiVersion = "23.0.0.0",
     ///         HostnamePrefix = "apollo12",
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Odb
     ///         {
     ///             "my-ssh-key",
     ///         },
-    ///         OdbNetworkId = "odbnet_3l9st3litg",
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
     ///         IsLocalBackupEnabled = true,
     ///         IsSparseDiskgroupEnabled = true,
     ///         LicenseModel = "LICENSE_INCLUDED",

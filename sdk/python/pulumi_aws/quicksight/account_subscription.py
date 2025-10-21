@@ -25,7 +25,9 @@ class AccountSubscriptionArgs:
                  notification_email: pulumi.Input[_builtins.str],
                  active_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admin_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  contact_number: Optional[pulumi.Input[_builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,6 +36,7 @@ class AccountSubscriptionArgs:
                  iam_identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reader_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -46,7 +49,9 @@ class AccountSubscriptionArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
@@ -55,6 +60,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -66,8 +72,12 @@ class AccountSubscriptionArgs:
             pulumi.set(__self__, "active_directory_name", active_directory_name)
         if admin_groups is not None:
             pulumi.set(__self__, "admin_groups", admin_groups)
+        if admin_pro_groups is not None:
+            pulumi.set(__self__, "admin_pro_groups", admin_pro_groups)
         if author_groups is not None:
             pulumi.set(__self__, "author_groups", author_groups)
+        if author_pro_groups is not None:
+            pulumi.set(__self__, "author_pro_groups", author_pro_groups)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if contact_number is not None:
@@ -84,6 +94,8 @@ class AccountSubscriptionArgs:
             pulumi.set(__self__, "last_name", last_name)
         if reader_groups is not None:
             pulumi.set(__self__, "reader_groups", reader_groups)
+        if reader_pro_groups is not None:
+            pulumi.set(__self__, "reader_pro_groups", reader_pro_groups)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
         if region is not None:
@@ -164,6 +176,18 @@ class AccountSubscriptionArgs:
         pulumi.set(self, "admin_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="adminProGroups")
+    def admin_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "admin_pro_groups")
+
+    @admin_pro_groups.setter
+    def admin_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "admin_pro_groups", value)
+
+    @_builtins.property
     @pulumi.getter(name="authorGroups")
     def author_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -174,6 +198,18 @@ class AccountSubscriptionArgs:
     @author_groups.setter
     def author_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "author_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorProGroups")
+    def author_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Author PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "author_pro_groups")
+
+    @author_pro_groups.setter
+    def author_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "author_pro_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
@@ -272,6 +308,18 @@ class AccountSubscriptionArgs:
         pulumi.set(self, "reader_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="readerProGroups")
+    def reader_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "reader_pro_groups")
+
+    @reader_pro_groups.setter
+    def reader_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "reader_pro_groups", value)
+
+    @_builtins.property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -303,8 +351,10 @@ class _AccountSubscriptionState:
                  account_subscription_status: Optional[pulumi.Input[_builtins.str]] = None,
                  active_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admin_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
                  author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  contact_number: Optional[pulumi.Input[_builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -315,6 +365,7 @@ class _AccountSubscriptionState:
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_email: Optional[pulumi.Input[_builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reader_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -323,8 +374,10 @@ class _AccountSubscriptionState:
         :param pulumi.Input[_builtins.str] account_subscription_status: Status of the Amazon QuickSight account's subscription.
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
@@ -337,6 +390,7 @@ class _AccountSubscriptionState:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -348,10 +402,14 @@ class _AccountSubscriptionState:
             pulumi.set(__self__, "active_directory_name", active_directory_name)
         if admin_groups is not None:
             pulumi.set(__self__, "admin_groups", admin_groups)
+        if admin_pro_groups is not None:
+            pulumi.set(__self__, "admin_pro_groups", admin_pro_groups)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
         if author_groups is not None:
             pulumi.set(__self__, "author_groups", author_groups)
+        if author_pro_groups is not None:
+            pulumi.set(__self__, "author_pro_groups", author_pro_groups)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if contact_number is not None:
@@ -372,6 +430,8 @@ class _AccountSubscriptionState:
             pulumi.set(__self__, "notification_email", notification_email)
         if reader_groups is not None:
             pulumi.set(__self__, "reader_groups", reader_groups)
+        if reader_pro_groups is not None:
+            pulumi.set(__self__, "reader_pro_groups", reader_pro_groups)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
         if region is not None:
@@ -426,6 +486,18 @@ class _AccountSubscriptionState:
         pulumi.set(self, "admin_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="adminProGroups")
+    def admin_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "admin_pro_groups")
+
+    @admin_pro_groups.setter
+    def admin_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "admin_pro_groups", value)
+
+    @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -448,6 +520,18 @@ class _AccountSubscriptionState:
     @author_groups.setter
     def author_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "author_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorProGroups")
+    def author_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Author PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "author_pro_groups")
+
+    @author_pro_groups.setter
+    def author_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "author_pro_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
@@ -572,6 +656,18 @@ class _AccountSubscriptionState:
         pulumi.set(self, "reader_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="readerProGroups")
+    def reader_pro_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "reader_pro_groups")
+
+    @reader_pro_groups.setter
+    def reader_pro_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "reader_pro_groups", value)
+
+    @_builtins.property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -605,8 +701,10 @@ class AccountSubscription(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  active_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admin_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
                  author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  contact_number: Optional[pulumi.Input[_builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -617,13 +715,14 @@ class AccountSubscription(pulumi.CustomResource):
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_email: Optional[pulumi.Input[_builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reader_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Account Subscription.
 
-        > Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+        > Due to the absence of the `admin_group`, `author_group`, `reader_group`, `admin_pro_group`, `author_pro_group`, and `reader_pro_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
 
         ## Example Usage
 
@@ -651,8 +750,10 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
@@ -665,6 +766,7 @@ class AccountSubscription(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -677,7 +779,7 @@ class AccountSubscription(pulumi.CustomResource):
         """
         Resource for managing an AWS QuickSight Account Subscription.
 
-        > Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+        > Due to the absence of the `admin_group`, `author_group`, `reader_group`, `admin_pro_group`, `author_pro_group`, and `reader_pro_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
 
         ## Example Usage
 
@@ -718,8 +820,10 @@ class AccountSubscription(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  active_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 admin_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
                  author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  contact_number: Optional[pulumi.Input[_builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -730,6 +834,7 @@ class AccountSubscription(pulumi.CustomResource):
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  notification_email: Optional[pulumi.Input[_builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reader_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -746,10 +851,12 @@ class AccountSubscription(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["active_directory_name"] = active_directory_name
             __props__.__dict__["admin_groups"] = admin_groups
+            __props__.__dict__["admin_pro_groups"] = admin_pro_groups
             if authentication_method is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_method'")
             __props__.__dict__["authentication_method"] = authentication_method
             __props__.__dict__["author_groups"] = author_groups
+            __props__.__dict__["author_pro_groups"] = author_pro_groups
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["contact_number"] = contact_number
             __props__.__dict__["directory_id"] = directory_id
@@ -764,6 +871,7 @@ class AccountSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'notification_email'")
             __props__.__dict__["notification_email"] = notification_email
             __props__.__dict__["reader_groups"] = reader_groups
+            __props__.__dict__["reader_pro_groups"] = reader_pro_groups
             __props__.__dict__["realm"] = realm
             __props__.__dict__["region"] = region
             __props__.__dict__["account_subscription_status"] = None
@@ -781,8 +889,10 @@ class AccountSubscription(pulumi.CustomResource):
             account_subscription_status: Optional[pulumi.Input[_builtins.str]] = None,
             active_directory_name: Optional[pulumi.Input[_builtins.str]] = None,
             admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            admin_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
             author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            author_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             contact_number: Optional[pulumi.Input[_builtins.str]] = None,
             directory_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -793,6 +903,7 @@ class AccountSubscription(pulumi.CustomResource):
             last_name: Optional[pulumi.Input[_builtins.str]] = None,
             notification_email: Optional[pulumi.Input[_builtins.str]] = None,
             reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reader_pro_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             realm: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountSubscription':
         """
@@ -806,8 +917,10 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_subscription_status: Status of the Amazon QuickSight account's subscription.
         :param pulumi.Input[_builtins.str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_groups: Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_pro_groups: Admin PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_groups: Author group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_pro_groups: Author PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
         :param pulumi.Input[_builtins.str] contact_number: A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
@@ -820,6 +933,7 @@ class AccountSubscription(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[_builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -831,8 +945,10 @@ class AccountSubscription(pulumi.CustomResource):
         __props__.__dict__["account_subscription_status"] = account_subscription_status
         __props__.__dict__["active_directory_name"] = active_directory_name
         __props__.__dict__["admin_groups"] = admin_groups
+        __props__.__dict__["admin_pro_groups"] = admin_pro_groups
         __props__.__dict__["authentication_method"] = authentication_method
         __props__.__dict__["author_groups"] = author_groups
+        __props__.__dict__["author_pro_groups"] = author_pro_groups
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["contact_number"] = contact_number
         __props__.__dict__["directory_id"] = directory_id
@@ -843,6 +959,7 @@ class AccountSubscription(pulumi.CustomResource):
         __props__.__dict__["last_name"] = last_name
         __props__.__dict__["notification_email"] = notification_email
         __props__.__dict__["reader_groups"] = reader_groups
+        __props__.__dict__["reader_pro_groups"] = reader_pro_groups
         __props__.__dict__["realm"] = realm
         __props__.__dict__["region"] = region
         return AccountSubscription(resource_name, opts=opts, __props__=__props__)
@@ -880,6 +997,14 @@ class AccountSubscription(pulumi.CustomResource):
         return pulumi.get(self, "admin_groups")
 
     @_builtins.property
+    @pulumi.getter(name="adminProGroups")
+    def admin_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "admin_pro_groups")
+
+    @_builtins.property
     @pulumi.getter(name="authenticationMethod")
     def authentication_method(self) -> pulumi.Output[_builtins.str]:
         """
@@ -894,6 +1019,14 @@ class AccountSubscription(pulumi.CustomResource):
         Author group associated with your Active Directory or IAM Identity Center account.
         """
         return pulumi.get(self, "author_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="authorProGroups")
+    def author_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Author PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "author_pro_groups")
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
@@ -976,6 +1109,14 @@ class AccountSubscription(pulumi.CustomResource):
         Reader group associated with your Active Directory or IAM Identity Center account.
         """
         return pulumi.get(self, "reader_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="readerProGroups")
+    def reader_pro_groups(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        """
+        return pulumi.get(self, "reader_pro_groups")
 
     @_builtins.property
     @pulumi.getter

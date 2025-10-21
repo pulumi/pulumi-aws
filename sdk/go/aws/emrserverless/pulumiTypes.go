@@ -1371,6 +1371,162 @@ func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+type ApplicationSchedulerConfiguration struct {
+	// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
+	// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+	QueueTimeoutMinutes *int `pulumi:"queueTimeoutMinutes"`
+}
+
+// ApplicationSchedulerConfigurationInput is an input type that accepts ApplicationSchedulerConfigurationArgs and ApplicationSchedulerConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationSchedulerConfigurationInput` via:
+//
+//	ApplicationSchedulerConfigurationArgs{...}
+type ApplicationSchedulerConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationSchedulerConfigurationOutput() ApplicationSchedulerConfigurationOutput
+	ToApplicationSchedulerConfigurationOutputWithContext(context.Context) ApplicationSchedulerConfigurationOutput
+}
+
+type ApplicationSchedulerConfigurationArgs struct {
+	// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+	MaxConcurrentRuns pulumi.IntPtrInput `pulumi:"maxConcurrentRuns"`
+	// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+	QueueTimeoutMinutes pulumi.IntPtrInput `pulumi:"queueTimeoutMinutes"`
+}
+
+func (ApplicationSchedulerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSchedulerConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationSchedulerConfigurationArgs) ToApplicationSchedulerConfigurationOutput() ApplicationSchedulerConfigurationOutput {
+	return i.ToApplicationSchedulerConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationSchedulerConfigurationArgs) ToApplicationSchedulerConfigurationOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSchedulerConfigurationOutput)
+}
+
+func (i ApplicationSchedulerConfigurationArgs) ToApplicationSchedulerConfigurationPtrOutput() ApplicationSchedulerConfigurationPtrOutput {
+	return i.ToApplicationSchedulerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSchedulerConfigurationArgs) ToApplicationSchedulerConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSchedulerConfigurationOutput).ToApplicationSchedulerConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationSchedulerConfigurationPtrInput is an input type that accepts ApplicationSchedulerConfigurationArgs, ApplicationSchedulerConfigurationPtr and ApplicationSchedulerConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationSchedulerConfigurationPtrInput` via:
+//
+//	        ApplicationSchedulerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSchedulerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSchedulerConfigurationPtrOutput() ApplicationSchedulerConfigurationPtrOutput
+	ToApplicationSchedulerConfigurationPtrOutputWithContext(context.Context) ApplicationSchedulerConfigurationPtrOutput
+}
+
+type applicationSchedulerConfigurationPtrType ApplicationSchedulerConfigurationArgs
+
+func ApplicationSchedulerConfigurationPtr(v *ApplicationSchedulerConfigurationArgs) ApplicationSchedulerConfigurationPtrInput {
+	return (*applicationSchedulerConfigurationPtrType)(v)
+}
+
+func (*applicationSchedulerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSchedulerConfiguration)(nil)).Elem()
+}
+
+func (i *applicationSchedulerConfigurationPtrType) ToApplicationSchedulerConfigurationPtrOutput() ApplicationSchedulerConfigurationPtrOutput {
+	return i.ToApplicationSchedulerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSchedulerConfigurationPtrType) ToApplicationSchedulerConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSchedulerConfigurationPtrOutput)
+}
+
+type ApplicationSchedulerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSchedulerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSchedulerConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSchedulerConfigurationOutput) ToApplicationSchedulerConfigurationOutput() ApplicationSchedulerConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSchedulerConfigurationOutput) ToApplicationSchedulerConfigurationOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSchedulerConfigurationOutput) ToApplicationSchedulerConfigurationPtrOutput() ApplicationSchedulerConfigurationPtrOutput {
+	return o.ToApplicationSchedulerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSchedulerConfigurationOutput) ToApplicationSchedulerConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSchedulerConfiguration) *ApplicationSchedulerConfiguration {
+		return &v
+	}).(ApplicationSchedulerConfigurationPtrOutput)
+}
+
+// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+func (o ApplicationSchedulerConfigurationOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationSchedulerConfiguration) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
+}
+
+// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+func (o ApplicationSchedulerConfigurationOutput) QueueTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationSchedulerConfiguration) *int { return v.QueueTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationSchedulerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSchedulerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSchedulerConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSchedulerConfigurationPtrOutput) ToApplicationSchedulerConfigurationPtrOutput() ApplicationSchedulerConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSchedulerConfigurationPtrOutput) ToApplicationSchedulerConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSchedulerConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSchedulerConfigurationPtrOutput) Elem() ApplicationSchedulerConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationSchedulerConfiguration) ApplicationSchedulerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSchedulerConfiguration
+		return ret
+	}).(ApplicationSchedulerConfigurationOutput)
+}
+
+// Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
+func (o ApplicationSchedulerConfigurationPtrOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationSchedulerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentRuns
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
+func (o ApplicationSchedulerConfigurationPtrOutput) QueueTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationSchedulerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueueTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
@@ -1390,6 +1546,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityPtrInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationPtrInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSchedulerConfigurationInput)(nil)).Elem(), ApplicationSchedulerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSchedulerConfigurationPtrInput)(nil)).Elem(), ApplicationSchedulerConfigurationArgs{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
@@ -1408,4 +1566,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSchedulerConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationSchedulerConfigurationPtrOutput{})
 }

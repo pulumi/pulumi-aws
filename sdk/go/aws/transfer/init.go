@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "aws:transfer/connector:Connector":
 		r = &Connector{}
+	case "aws:transfer/hostKey:HostKey":
+		r = &HostKey{}
 	case "aws:transfer/profile:Profile":
 		r = &Profile{}
 	case "aws:transfer/server:Server":
@@ -39,6 +41,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Tag{}
 	case "aws:transfer/user:User":
 		r = &User{}
+	case "aws:transfer/webApp:WebApp":
+		r = &WebApp{}
+	case "aws:transfer/webAppCustomization:WebAppCustomization":
+		r = &WebAppCustomization{}
 	case "aws:transfer/workflow:Workflow":
 		r = &Workflow{}
 	default:
@@ -76,6 +82,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"transfer/hostKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"transfer/profile",
 		&module{version},
 	)
@@ -97,6 +108,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"transfer/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/webApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/webAppCustomization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
