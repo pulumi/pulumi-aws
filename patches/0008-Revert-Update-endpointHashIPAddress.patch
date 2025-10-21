@@ -9,7 +9,7 @@ This commit causes never-converging diffs due to incorrect use of
 a computed property in hashing.
 
 diff --git a/internal/service/route53resolver/endpoint.go b/internal/service/route53resolver/endpoint.go
-index c1da4050065..64fe64cdd00 100644
+index c1da405006..64fe64cdd0 100644
 --- a/internal/service/route53resolver/endpoint.go
 +++ b/internal/service/route53resolver/endpoint.go
 @@ -436,7 +436,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Client, id s

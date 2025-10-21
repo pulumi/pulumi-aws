@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alberto Pose <albertopose@gmail.com>
+Date: Tue, 21 Oct 2025 15:14:01 +0100
+Subject: [PATCH] Adding APN 1.1 marketplace identifier to User Agent request
+ string.
+
+
+diff --git a/internal/conns/config.go b/internal/conns/config.go
+index c983abba23..72a0069616 100644
+--- a/internal/conns/config.go
++++ b/internal/conns/config.go
+@@ -79,6 +79,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+ 			Products: []awsbase.UserAgentProduct{
+ 				{Name: "Pulumi", Version: "1.0"},
+ 				{Name: "Pulumi-Aws", Version: c.TerraformVersion, Comment: "+https://pulumi.com"},
++				{Name: "APN", Version: "1.1", Comment: "c7qiae2l6usvzoynupds6v7hf"},
+ 			},
+ 		},
+ 		AssumeRole:                     c.AssumeRole,
