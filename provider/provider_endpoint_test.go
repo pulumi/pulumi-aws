@@ -56,24 +56,21 @@ func TestProviderEndpoints(t *testing.T) {
 		}))
 		t.Cleanup(server.Close)
 
-		// Using AWS_ENDPOINT_URL environment variable as a workaround.
-		// TODO Investigate why using aws:endpoints is not working.
+		// Using environment variables since configuring passing variables to
+		// provider.Configure is too late on the lifecycle of the provider. These
+		// values are fetched when the provider is initialized.
 		t.Setenv("AWS_ENDPOINT_URL", server.URL)
+		t.Setenv("AWS_SKIP_METADATA_API_CHECK", "true")
+		t.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "true")
+		t.Setenv("AWS_ACCESS_KEY_ID", "test")
+		t.Setenv("AWS_SECRET_ACCESS_KEY", "test")
+		t.Setenv("AWS_SESSION_TOKEN", "test")
+		t.Setenv("AWS_REGION", "us-west-2")
 
 		provider, err := testProviderServer()
 		require.NoError(t, err)
-		m := map[string]string{
-			"aws:region":                        "us-west-2",
-			"aws:ec2_metadata_service_endpoint": server.URL,
-			"aws:skipCredentialsValidation":     "true",
-			"aws:skipRegionValidation":          "true",
-			"aws:skipRequestingAccountId":       "true",
-			"aws:skipMetadataApiCheck":          "true",
-		}
 		ctx := context.Background()
-		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
-			Variables: m,
-		})
+		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{})
 		require.NoError(t, err)
 		_, err = provider.Invoke(ctx, &pulumirpc.InvokeRequest{
 			Tok: "aws:s3/getObjects:getObjects",
