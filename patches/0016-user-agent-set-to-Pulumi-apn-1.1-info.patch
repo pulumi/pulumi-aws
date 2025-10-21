@@ -28,7 +28,6 @@ index 0000000000..ddf3aed4ba
 +
 +func UserAgentHeaderRoundTripper(next http.RoundTripper) http.RoundTripper {
 +	return roundTripperFunc(func(r *http.Request) (*http.Response, error) {
-+		fmt.Println("Adding header")
 +		r.Header.Set("User-Agent", "APN/1.1 (c7qiae2l6usvzoynupds6v7hf)")
 +		resp, err := next.RoundTrip(r)
 +		return resp, err
