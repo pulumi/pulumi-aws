@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -50,7 +52,7 @@ import (
 //
 // ```
 //
-// ## Example in Conjunction with Scaling Policies
+// ### With Scaling Policies
 //
 // ```go
 // package main
@@ -102,7 +104,7 @@ import (
 //
 // ```
 //
-// ## Example with an Expression
+// ### With a Metrics Math Expression
 //
 // ```go
 // package main
@@ -220,7 +222,56 @@ import (
 //
 // ```
 //
-// ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+// ### With a Metrics Insights Query
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
+//				Name:               pulumi.String("example-alarm"),
+//				AlarmDescription:   pulumi.String("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(1),
+//				Threshold:          pulumi.Float64(0.6),
+//				TreatMissingData:   pulumi.String("notBreaching"),
+//				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
+//					&cloudwatch.MetricAlarmMetricQueryArgs{
+//						Id: pulumi.String("q1"),
+//						Expression: pulumi.String(`SELECT
+//	  MAX(DBLoadRelativeToNumVCPUs)
+//
+// FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+// WHERE DBInstanceIdentifier != 'example-rds-instance'
+// GROUP BY DBInstanceIdentifier
+// ORDER BY MIN() ASC
+// LIMIT 1
+// `),
+//
+//						Period:     pulumi.Int(60),
+//						ReturnData: pulumi.Bool(true),
+//						Label:      pulumi.String("Max DB Load of the Least-Loaded RDS Instance"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Monitoring Healthy NLB Hosts with Target Group and NLB
 //
 // ```go
 // package main
@@ -267,7 +318,7 @@ import (
 // ```
 //
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
-// You must choose one or the other
+// You must choose one or the other.
 //
 // ## Import
 //
@@ -301,7 +352,7 @@ type MetricAlarm struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
-	// The number of datapoints that must be breaching to trigger the alarm.
+	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapOutput `pulumi:"dimensions"`
@@ -401,7 +452,7 @@ type metricAlarmState struct {
 	Arn *string `pulumi:"arn"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
-	// The number of datapoints that must be breaching to trigger the alarm.
+	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
@@ -466,7 +517,7 @@ type MetricAlarmState struct {
 	Arn pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringPtrInput
-	// The number of datapoints that must be breaching to trigger the alarm.
+	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
@@ -533,7 +584,7 @@ type metricAlarmArgs struct {
 	AlarmDescription *string `pulumi:"alarmDescription"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// The number of datapoints that must be breaching to trigger the alarm.
+	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
@@ -595,7 +646,7 @@ type MetricAlarmArgs struct {
 	AlarmDescription pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
 	ComparisonOperator pulumi.StringInput
-	// The number of datapoints that must be breaching to trigger the alarm.
+	// The number of data points that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
@@ -759,7 +810,7 @@ func (o MetricAlarmOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// The number of datapoints that must be breaching to trigger the alarm.
+// The number of data points that must be breaching to trigger the alarm.
 func (o MetricAlarmOutput) DatapointsToAlarm() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.DatapointsToAlarm }).(pulumi.IntPtrOutput)
 }

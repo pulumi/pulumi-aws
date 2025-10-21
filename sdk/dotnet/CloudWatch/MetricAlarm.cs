@@ -14,6 +14,8 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +41,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ## Example in Conjunction with Scaling Policies
+    /// ### With Scaling Policies
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -82,7 +84,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ## Example with an Expression
+    /// ### With a Metrics Math Expression
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -195,7 +197,48 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+    /// ### With a Metrics Insights Query
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
+    ///     {
+    ///         Name = "example-alarm",
+    ///         AlarmDescription = "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+    ///         ComparisonOperator = "GreaterThanThreshold",
+    ///         EvaluationPeriods = 1,
+    ///         Threshold = 0.6,
+    ///         TreatMissingData = "notBreaching",
+    ///         MetricQueries = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
+    ///             {
+    ///                 Id = "q1",
+    ///                 Expression = @"SELECT
+    ///   MAX(DBLoadRelativeToNumVCPUs)
+    /// FROM SCHEMA(""AWS/RDS"", DBInstanceIdentifier)
+    /// WHERE DBInstanceIdentifier != 'example-rds-instance'
+    /// GROUP BY DBInstanceIdentifier
+    /// ORDER BY MIN() ASC
+    /// LIMIT 1
+    /// ",
+    ///                 Period = 60,
+    ///                 ReturnData = true,
+    ///                 Label = "Max DB Load of the Least-Loaded RDS Instance",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Monitoring Healthy NLB Hosts with Target Group and NLB
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -236,7 +279,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `Statistic` and `ExtendedStatistic` parameters.
-    /// You must choose one or the other
+    /// You must choose one or the other.
     /// 
     /// ## Import
     /// 
@@ -292,7 +335,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> ComparisonOperator { get; private set; } = null!;
 
         /// <summary>
-        /// The number of datapoints that must be breaching to trigger the alarm.
+        /// The number of data points that must be breaching to trigger the alarm.
         /// </summary>
         [Output("datapointsToAlarm")]
         public Output<int?> DatapointsToAlarm { get; private set; } = null!;
@@ -500,7 +543,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> ComparisonOperator { get; set; } = null!;
 
         /// <summary>
-        /// The number of datapoints that must be breaching to trigger the alarm.
+        /// The number of data points that must be breaching to trigger the alarm.
         /// </summary>
         [Input("datapointsToAlarm")]
         public Input<int>? DatapointsToAlarm { get; set; }
@@ -700,7 +743,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? ComparisonOperator { get; set; }
 
         /// <summary>
-        /// The number of datapoints that must be breaching to trigger the alarm.
+        /// The number of data points that must be breaching to trigger the alarm.
         /// </summary>
         [Input("datapointsToAlarm")]
         public Input<int>? DatapointsToAlarm { get; set; }

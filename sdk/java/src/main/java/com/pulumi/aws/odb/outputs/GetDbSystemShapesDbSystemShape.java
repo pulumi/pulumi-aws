@@ -11,93 +11,269 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDbSystemShapesDbSystemShape {
+    /**
+     * @return The maximum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     private Integer availableCoreCount;
+    /**
+     * @return The maximum number of CPU cores per DB node that can be enabled for the shape.
+     * 
+     */
     private Integer availableCoreCountPerNode;
+    /**
+     * @return The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+     * 
+     */
     private Integer availableDataStorageInTbs;
+    /**
+     * @return The maximum amount of data storage, in terabytes (TB), that&#39;s available per storage server for the shape.
+     * 
+     */
     private Integer availableDataStoragePerServerInTbs;
+    /**
+     * @return The maximum amount of DB node storage, in gigabytes (GB), that&#39;s available per DB node for the shape.
+     * 
+     */
     private Integer availableDbNodePerNodeInGbs;
+    /**
+     * @return The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+     * 
+     */
     private Integer availableDbNodeStorageInGbs;
+    /**
+     * @return The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+     * 
+     */
     private Integer availableMemoryInGbs;
+    /**
+     * @return The maximum amount of memory, in gigabytes (GB), that&#39;s available per DB node for the shape.
+     * 
+     */
     private Integer availableMemoryPerNodeInGbs;
+    /**
+     * @return The discrete number by which the CPU core count for the shape can be increased or decreased.
+     * 
+     */
     private Integer coreCountIncrement;
+    /**
+     * @return The maximum number of Exadata storage servers available for the shape.
+     * 
+     */
     private Integer maxStorageCount;
+    /**
+     * @return The maximum number of compute servers available for the shape.
+     * 
+     */
     private Integer maximumNodeCount;
+    /**
+     * @return The minimum number of CPU cores that can be enabled per node for the shape.
+     * 
+     */
     private Integer minCoreCountPerNode;
+    /**
+     * @return The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+     * 
+     */
     private Integer minDataStorageInTbs;
+    /**
+     * @return The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+     * 
+     */
     private Integer minDbNodeStoragePerNodeInGbs;
+    /**
+     * @return The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+     * 
+     */
     private Integer minMemoryPerNodeInGbs;
+    /**
+     * @return The minimum number of Exadata storage servers available for the shape.
+     * 
+     */
     private Integer minStorageCount;
+    /**
+     * @return The minimum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     private Integer minimumCoreCount;
+    /**
+     * @return The minimum number of compute servers available for the shape.
+     * 
+     */
     private Integer minimumNodeCount;
+    /**
+     * @return The name of the shape.
+     * 
+     */
     private String name;
+    /**
+     * @return The runtime minimum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     private Integer runtimeMinimumCoreCount;
+    /**
+     * @return The family of the shape.
+     * 
+     */
     private String shapeFamily;
+    /**
+     * @return The shape type, determined by the CPU hardware.
+     * 
+     */
     private String shapeType;
 
     private GetDbSystemShapesDbSystemShape() {}
+    /**
+     * @return The maximum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     public Integer availableCoreCount() {
         return this.availableCoreCount;
     }
+    /**
+     * @return The maximum number of CPU cores per DB node that can be enabled for the shape.
+     * 
+     */
     public Integer availableCoreCountPerNode() {
         return this.availableCoreCountPerNode;
     }
+    /**
+     * @return The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+     * 
+     */
     public Integer availableDataStorageInTbs() {
         return this.availableDataStorageInTbs;
     }
+    /**
+     * @return The maximum amount of data storage, in terabytes (TB), that&#39;s available per storage server for the shape.
+     * 
+     */
     public Integer availableDataStoragePerServerInTbs() {
         return this.availableDataStoragePerServerInTbs;
     }
+    /**
+     * @return The maximum amount of DB node storage, in gigabytes (GB), that&#39;s available per DB node for the shape.
+     * 
+     */
     public Integer availableDbNodePerNodeInGbs() {
         return this.availableDbNodePerNodeInGbs;
     }
+    /**
+     * @return The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+     * 
+     */
     public Integer availableDbNodeStorageInGbs() {
         return this.availableDbNodeStorageInGbs;
     }
+    /**
+     * @return The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+     * 
+     */
     public Integer availableMemoryInGbs() {
         return this.availableMemoryInGbs;
     }
+    /**
+     * @return The maximum amount of memory, in gigabytes (GB), that&#39;s available per DB node for the shape.
+     * 
+     */
     public Integer availableMemoryPerNodeInGbs() {
         return this.availableMemoryPerNodeInGbs;
     }
+    /**
+     * @return The discrete number by which the CPU core count for the shape can be increased or decreased.
+     * 
+     */
     public Integer coreCountIncrement() {
         return this.coreCountIncrement;
     }
+    /**
+     * @return The maximum number of Exadata storage servers available for the shape.
+     * 
+     */
     public Integer maxStorageCount() {
         return this.maxStorageCount;
     }
+    /**
+     * @return The maximum number of compute servers available for the shape.
+     * 
+     */
     public Integer maximumNodeCount() {
         return this.maximumNodeCount;
     }
+    /**
+     * @return The minimum number of CPU cores that can be enabled per node for the shape.
+     * 
+     */
     public Integer minCoreCountPerNode() {
         return this.minCoreCountPerNode;
     }
+    /**
+     * @return The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+     * 
+     */
     public Integer minDataStorageInTbs() {
         return this.minDataStorageInTbs;
     }
+    /**
+     * @return The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+     * 
+     */
     public Integer minDbNodeStoragePerNodeInGbs() {
         return this.minDbNodeStoragePerNodeInGbs;
     }
+    /**
+     * @return The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+     * 
+     */
     public Integer minMemoryPerNodeInGbs() {
         return this.minMemoryPerNodeInGbs;
     }
+    /**
+     * @return The minimum number of Exadata storage servers available for the shape.
+     * 
+     */
     public Integer minStorageCount() {
         return this.minStorageCount;
     }
+    /**
+     * @return The minimum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     public Integer minimumCoreCount() {
         return this.minimumCoreCount;
     }
+    /**
+     * @return The minimum number of compute servers available for the shape.
+     * 
+     */
     public Integer minimumNodeCount() {
         return this.minimumNodeCount;
     }
+    /**
+     * @return The name of the shape.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The runtime minimum number of CPU cores that can be enabled for the shape.
+     * 
+     */
     public Integer runtimeMinimumCoreCount() {
         return this.runtimeMinimumCoreCount;
     }
+    /**
+     * @return The family of the shape.
+     * 
+     */
     public String shapeFamily() {
         return this.shapeFamily;
     }
+    /**
+     * @return The shape type, determined by the CPU hardware.
+     * 
+     */
     public String shapeType() {
         return this.shapeType;
     }

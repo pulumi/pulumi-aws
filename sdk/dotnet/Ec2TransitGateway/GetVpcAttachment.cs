@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway VPC Attachment.
         /// 
+        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+        /// 
         /// ## Example Usage
         /// 
         /// ### By Filter
@@ -68,6 +70,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway VPC Attachment.
         /// 
+        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
+        /// 
         /// ## Example Usage
         /// 
         /// ### By Filter
@@ -121,6 +125,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway VPC Attachment.
+        /// 
+        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.VpcAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `Id` attribute directly from the `aws.ec2transitgateway.VpcAttachment` _resource_. For example, `TransitGatewayAttachmentId  = aws_ec2_transit_gateway_vpc_attachment.example.id`.
         /// 
         /// ## Example Usage
         /// 

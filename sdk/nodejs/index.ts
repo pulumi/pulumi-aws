@@ -293,6 +293,7 @@ import * as verifiedaccess from "./verifiedaccess";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
+import * as vpn from "./vpn";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
@@ -519,6 +520,7 @@ export {
     verifiedpermissions,
     vpc,
     vpclattice,
+    vpn,
     waf,
     wafregional,
     wafv2,

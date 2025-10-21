@@ -15,6 +15,13 @@ from .agent_data_source import *
 from .agent_flow import *
 from .agent_knowledge_base import *
 from .agent_prompt import *
+from .agentcore_agent_runtime import *
+from .agentcore_agent_runtime_endpoint import *
+from .agentcore_api_key_credential_provider import *
+from .agentcore_browser import *
+from .agentcore_code_interpreter import *
+from .agentcore_gateway import *
+from .agentcore_gateway_target import *
 from .custom_model import *
 from .get_agent_agent_versions import *
 from .get_custom_model import *

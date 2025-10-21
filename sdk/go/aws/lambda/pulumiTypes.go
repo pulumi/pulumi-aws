@@ -427,6 +427,8 @@ func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulu
 type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
 	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+	// Block for a Kafka schema registry setting. See below.
+	SchemaRegistryConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig `pulumi:"schemaRegistryConfig"`
 }
 
 // EventSourceMappingAmazonManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput values.
@@ -443,6 +445,8 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigInput interface {
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs struct {
 	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+	// Block for a Kafka schema registry setting. See below.
+	SchemaRegistryConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput `pulumi:"schemaRegistryConfig"`
 }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
@@ -527,6 +531,13 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGro
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Block for a Kafka schema registry setting. See below.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) SchemaRegistryConfig() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ElementType() reflect.Type {
@@ -559,6 +570,427 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Consumer
 		}
 		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Block for a Kafka schema registry setting. See below.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) SchemaRegistryConfig() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig struct {
+	// Configuration block for authentication Lambda uses to access the schema registry.
+	AccessConfigs []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig `pulumi:"accessConfigs"`
+	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+	EventRecordFormat *string `pulumi:"eventRecordFormat"`
+	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	SchemaValidationConfigs []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{...}
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs struct {
+	// Configuration block for authentication Lambda uses to access the schema registry.
+	AccessConfigs EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput `pulumi:"accessConfigs"`
+	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+	EventRecordFormat pulumi.StringPtrInput `pulumi:"eventRecordFormat"`
+	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	SchemaValidationConfigs EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
+}
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput).ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs, EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtr and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput` via:
+//
+//	        EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput
+}
+
+type eventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs
+
+func EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtr(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput {
+	return (*eventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType)(v)
+}
+
+func (*eventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		return &v
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+// Configuration block for authentication Lambda uses to access the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		return v.AccessConfigs
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) EventRecordFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		return v.EventRecordFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		return v.SchemaRegistryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) Elem() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig
+		return ret
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
+}
+
+// Configuration block for authentication Lambda uses to access the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AccessConfigs
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) EventRecordFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventRecordFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig struct {
+	// Authentication type Lambda uses to access the schema registry.
+	Type *string `pulumi:"type"`
+	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+	Uri *string `pulumi:"uri"`
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{...}
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs struct {
+	// Authentication type Lambda uses to access the schema registry.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput)
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray{ EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{...} }
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return o
+}
+
+// Authentication type Lambda uses to access the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		return vs[0].([]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)[vs[1].(int)]
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig struct {
+	// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+	Attribute *string `pulumi:"attribute"`
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{...}
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs struct {
+	// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+}
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput)
+}
+
+// EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput` via:
+//
+//	EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray{ EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{...} }
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput
+	ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return o
+}
+
+// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig) *string {
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		return vs[0].([]EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)[vs[1].(int)]
+	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput)
 }
 
 type EventSourceMappingDestinationConfig struct {
@@ -1816,6 +2248,8 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() pulumi.St
 type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
 	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+	// Block for a Kafka schema registry setting. See below.
+	SchemaRegistryConfig *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig `pulumi:"schemaRegistryConfig"`
 }
 
 // EventSourceMappingSelfManagedKafkaEventSourceConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigOutput values.
@@ -1832,6 +2266,8 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
 type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
 	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+	// Block for a Kafka schema registry setting. See below.
+	SchemaRegistryConfig EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput `pulumi:"schemaRegistryConfig"`
 }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ElementType() reflect.Type {
@@ -1916,6 +2352,13 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroup
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Block for a Kafka schema registry setting. See below.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) SchemaRegistryConfig() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
 type EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ElementType() reflect.Type {
@@ -1948,6 +2391,427 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGr
 		}
 		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Block for a Kafka schema registry setting. See below.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) SchemaRegistryConfig() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryConfig
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig struct {
+	// Configuration block for authentication Lambda uses to access the schema registry.
+	AccessConfigs []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig `pulumi:"accessConfigs"`
+	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+	EventRecordFormat *string `pulumi:"eventRecordFormat"`
+	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	SchemaValidationConfigs []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{...}
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs struct {
+	// Configuration block for authentication Lambda uses to access the schema registry.
+	AccessConfigs EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput `pulumi:"accessConfigs"`
+	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+	EventRecordFormat pulumi.StringPtrInput `pulumi:"eventRecordFormat"`
+	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	SchemaValidationConfigs EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
+}
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput).ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs, EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtr and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput` via:
+//
+//	        EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput
+}
+
+type eventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs
+
+func EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtr(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput {
+	return (*eventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType)(v)
+}
+
+func (*eventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrType) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		return &v
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
+}
+
+// Configuration block for authentication Lambda uses to access the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		return v.AccessConfigs
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) EventRecordFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		return v.EventRecordFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		return v.SchemaRegistryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) Elem() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig
+		return ret
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
+}
+
+// Configuration block for authentication Lambda uses to access the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AccessConfigs
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) EventRecordFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventRecordFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaRegistryUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaRegistryUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaValidationConfigs
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig struct {
+	// Authentication type Lambda uses to access the schema registry.
+	Type *string `pulumi:"type"`
+	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+	Uri *string `pulumi:"uri"`
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{...}
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs struct {
+	// Authentication type Lambda uses to access the schema registry.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput)
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray{ EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{...} }
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return o
+}
+
+// Authentication type Lambda uses to access the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
+		return vs[0].([]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig)[vs[1].(int)]
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig struct {
+	// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+	Attribute *string `pulumi:"attribute"`
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{...}
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs struct {
+	// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+}
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput)
+}
+
+// EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput` via:
+//
+//	EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray{ EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{...} }
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput
+	ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return o
+}
+
+// Message attribute to validate. Valid values: `KEY`, `VALUE`.
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig) *string {
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
+		return vs[0].([]EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig)[vs[1].(int)]
+	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput)
 }
 
 type EventSourceMappingSourceAccessConfiguration struct {
@@ -5049,6 +5913,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput)(nil)).Elem(), EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigPtrInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigOnFailureInput)(nil)).Elem(), EventSourceMappingDestinationConfigOnFailureArgs{})
@@ -5069,6 +5939,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
@@ -5121,6 +5997,12 @@ func init() {
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailureOutput{})
@@ -5141,6 +6023,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})

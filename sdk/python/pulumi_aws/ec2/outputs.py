@@ -464,6 +464,9 @@ __all__ = [
     'GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult',
     'GetVpcPeeringConnectionsFilterResult',
     'GetVpcsFilterResult',
+    'GetVpnConnectionFilterResult',
+    'GetVpnConnectionRouteResult',
+    'GetVpnConnectionVgwTelemetryResult',
     'GetVpnGatewayFilterResult',
 ]
 
@@ -4988,7 +4991,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                Cannot be used with `snapshot_id`.
         :param _builtins.int iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
                This must be set with a `volume_type` of `"io1/io2/gp3"`.
-        :param _builtins.str kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        :param _builtins.str kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
                `encrypted` must be set to `true` when this is set.
         :param _builtins.str snapshot_id: The Snapshot ID to mount.
         :param _builtins.int throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
@@ -5047,7 +5050,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         `encrypted` must be set to `true` when this is set.
         """
         return pulumi.get(self, "kms_key_id")
@@ -24664,6 +24667,107 @@ class GetVpcsFilterResult(dict):
         A VPC will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpnConnectionFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpnConnectionRouteResult(dict):
+    def __init__(__self__, *,
+                 destination_cidr_block: _builtins.str,
+                 source: _builtins.str,
+                 state: _builtins.str):
+        """
+        :param _builtins.str state: Current state of the VPN connection.
+        """
+        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> _builtins.str:
+        return pulumi.get(self, "destination_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        Current state of the VPN connection.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class GetVpnConnectionVgwTelemetryResult(dict):
+    def __init__(__self__, *,
+                 accepted_route_count: _builtins.int,
+                 last_status_change: _builtins.str,
+                 outside_ip_address: _builtins.str,
+                 status: _builtins.str,
+                 status_message: _builtins.str):
+        pulumi.set(__self__, "accepted_route_count", accepted_route_count)
+        pulumi.set(__self__, "last_status_change", last_status_change)
+        pulumi.set(__self__, "outside_ip_address", outside_ip_address)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptedRouteCount")
+    def accepted_route_count(self) -> _builtins.int:
+        return pulumi.get(self, "accepted_route_count")
+
+    @_builtins.property
+    @pulumi.getter(name="lastStatusChange")
+    def last_status_change(self) -> _builtins.str:
+        return pulumi.get(self, "last_status_change")
+
+    @_builtins.property
+    @pulumi.getter(name="outsideIpAddress")
+    def outside_ip_address(self) -> _builtins.str:
+        return pulumi.get(self, "outside_ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> _builtins.str:
+        return pulumi.get(self, "status_message")
 
 
 @pulumi.output_type

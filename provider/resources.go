@@ -4528,6 +4528,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_vpc_peering_connection":              {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
 			"aws_vpc_peering_connections":             {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnections")},
 			"aws_vpcs":                                {Tok: awsDataSource(ec2Mod, "getVpcs")},
+			"aws_vpn_connection":                      {Tok: awsDataSource(ec2Mod, "getVpnConnection")},
 			"aws_vpn_gateway":                         {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
 			"aws_ec2_spot_price":                      {Tok: awsDataSource(ec2Mod, "getSpotPrice")},
 			"aws_ec2_instance_type_offering":          {Tok: awsDataSource(ec2Mod, "getInstanceTypeOffering")},

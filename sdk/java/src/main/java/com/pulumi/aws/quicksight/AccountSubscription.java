@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  * 
- * &gt; Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+ * &gt; Due to the absence of the `adminGroup`, `authorGroup`, `readerGroup`, `adminProGroup`, `authorProGroup`, and `readerProGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
  * 
  * ## Example Usage
  * 
@@ -124,6 +124,20 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminGroups);
     }
     /**
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Export(name="adminProGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> adminProGroups;
+
+    /**
+     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Output<Optional<List<String>>> adminProGroups() {
+        return Codegen.optional(this.adminProGroups);
+    }
+    /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
@@ -150,6 +164,20 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> authorGroups() {
         return Codegen.optional(this.authorGroups);
+    }
+    /**
+     * Author PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Export(name="authorProGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> authorProGroups;
+
+    /**
+     * @return Author PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Output<Optional<List<String>>> authorProGroups() {
+        return Codegen.optional(this.authorProGroups);
     }
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
@@ -294,6 +322,20 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> readerGroups() {
         return Codegen.optional(this.readerGroups);
+    }
+    /**
+     * Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    @Export(name="readerProGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> readerProGroups;
+
+    /**
+     * @return Reader PRO group associated with your Active Directory or IAM Identity Center account.
+     * 
+     */
+    public Output<Optional<List<String>>> readerProGroups() {
+        return Codegen.optional(this.readerProGroups);
     }
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.

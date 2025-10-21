@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing an AWS QuickSight Account Subscription.
     /// 
-    /// &gt; Due to the absence of the `AdminGroup`, `AuthorGroup`, and `ReaderGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+    /// &gt; Due to the absence of the `AdminGroup`, `AuthorGroup`, `ReaderGroup`, `AdminProGroup`, `AuthorProGroup`, and `ReaderProGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
     /// 
     /// ## Example Usage
     /// 
@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<string>> AdminGroups { get; private set; } = null!;
 
         /// <summary>
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        [Output("adminProGroups")]
+        public Output<ImmutableArray<string>> AdminProGroups { get; private set; } = null!;
+
+        /// <summary>
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
         [Output("authenticationMethod")]
@@ -81,6 +87,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("authorGroups")]
         public Output<ImmutableArray<string>> AuthorGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Author PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        [Output("authorProGroups")]
+        public Output<ImmutableArray<string>> AuthorProGroups { get; private set; } = null!;
 
         /// <summary>
         /// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
@@ -143,6 +155,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("readerGroups")]
         public Output<ImmutableArray<string>> ReaderGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        [Output("readerProGroups")]
+        public Output<ImmutableArray<string>> ReaderProGroups { get; private set; } = null!;
 
         /// <summary>
         /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
@@ -226,6 +244,18 @@ namespace Pulumi.Aws.Quicksight
             set => _adminGroups = value;
         }
 
+        [Input("adminProGroups")]
+        private InputList<string>? _adminProGroups;
+
+        /// <summary>
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> AdminProGroups
+        {
+            get => _adminProGroups ?? (_adminProGroups = new InputList<string>());
+            set => _adminProGroups = value;
+        }
+
         /// <summary>
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
@@ -242,6 +272,18 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _authorGroups ?? (_authorGroups = new InputList<string>());
             set => _authorGroups = value;
+        }
+
+        [Input("authorProGroups")]
+        private InputList<string>? _authorProGroups;
+
+        /// <summary>
+        /// Author PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> AuthorProGroups
+        {
+            get => _authorProGroups ?? (_authorProGroups = new InputList<string>());
+            set => _authorProGroups = value;
         }
 
         /// <summary>
@@ -312,6 +354,18 @@ namespace Pulumi.Aws.Quicksight
             set => _readerGroups = value;
         }
 
+        [Input("readerProGroups")]
+        private InputList<string>? _readerProGroups;
+
+        /// <summary>
+        /// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> ReaderProGroups
+        {
+            get => _readerProGroups ?? (_readerProGroups = new InputList<string>());
+            set => _readerProGroups = value;
+        }
+
         /// <summary>
         /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
         /// </summary>
@@ -362,6 +416,18 @@ namespace Pulumi.Aws.Quicksight
             set => _adminGroups = value;
         }
 
+        [Input("adminProGroups")]
+        private InputList<string>? _adminProGroups;
+
+        /// <summary>
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> AdminProGroups
+        {
+            get => _adminProGroups ?? (_adminProGroups = new InputList<string>());
+            set => _adminProGroups = value;
+        }
+
         /// <summary>
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
@@ -378,6 +444,18 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _authorGroups ?? (_authorGroups = new InputList<string>());
             set => _authorGroups = value;
+        }
+
+        [Input("authorProGroups")]
+        private InputList<string>? _authorProGroups;
+
+        /// <summary>
+        /// Author PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> AuthorProGroups
+        {
+            get => _authorProGroups ?? (_authorProGroups = new InputList<string>());
+            set => _authorProGroups = value;
         }
 
         /// <summary>
@@ -446,6 +524,18 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _readerGroups ?? (_readerGroups = new InputList<string>());
             set => _readerGroups = value;
+        }
+
+        [Input("readerProGroups")]
+        private InputList<string>? _readerProGroups;
+
+        /// <summary>
+        /// Reader PRO group associated with your Active Directory or IAM Identity Center account.
+        /// </summary>
+        public InputList<string> ReaderProGroups
+        {
+            get => _readerProGroups ?? (_readerProGroups = new InputList<string>());
+            set => _readerProGroups = value;
         }
 
         /// <summary>

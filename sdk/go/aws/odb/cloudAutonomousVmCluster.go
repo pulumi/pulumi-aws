@@ -33,9 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_minimum_parameters", &odb.CloudAutonomousVmClusterArgs{
-//				CloudExadataInfrastructureId:    pulumi.String("<exadata_infra_id>"),
-//				OdbNetworkId:                    pulumi.String("<odb_net_id>"),
-//				DisplayName:                     pulumi.String("Ofake-avmc-my_avmc"),
+//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
+//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
+//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
 //				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
 //				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
 //				TotalContainerDatabases:         pulumi.Int(1),
@@ -56,9 +56,9 @@ import (
 //			_, err = odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_all_params", &odb.CloudAutonomousVmClusterArgs{
 //				Description:                     pulumi.String("my first avmc"),
 //				TimeZone:                        pulumi.String("UTC"),
-//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure.test.id>"),
-//				OdbNetworkId:                    pulumi.String("<aws_odb_network.test.id>"),
-//				DisplayName:                     pulumi.String("Ofake_my avmc"),
+//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
+//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
+//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
 //				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
 //				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
 //				TotalContainerDatabases:         pulumi.Int(1),

@@ -31,6 +31,111 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// });
     /// ```
     /// 
+    /// ### Direct Connect Gateway Association
+    /// 
+    /// When associating a Direct Connect Gateway attachment, reference the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource (available in v6.5.0+):
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AmazonSideAsn = "64512",
+    ///     });
+    /// 
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
+    ///     {
+    ///         Description = "example",
+    ///     });
+    /// 
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("example", new()
+    ///     {
+    ///         DxGatewayId = example.Id,
+    ///         AssociatedGatewayId = exampleTransitGateway.Id,
+    ///         AllowedPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Aws.Ec2TransitGateway.RouteTable("example", new()
+    ///     {
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///     });
+    /// 
+    ///     // Correct: Reference the attachment ID directly from the association resource
+    ///     var exampleRouteTableAssociation = new Aws.Ec2TransitGateway.RouteTableAssociation("example", new()
+    ///     {
+    ///         TransitGatewayAttachmentId = exampleGatewayAssociation.TransitGatewayAttachmentId,
+    ///         TransitGatewayRouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** Avoid using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `AllowedPrefixes`). Always reference the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource when available.
+    /// 
+    /// ### VPC Attachment Association
+    /// 
+    /// For VPC attachments, always reference the attachment resource's `Id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         VpcId = example.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("example", new()
+    ///     {
+    ///         Description = "example",
+    ///     });
+    /// 
+    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Aws.Ec2TransitGateway.RouteTable("example", new()
+    ///     {
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///     });
+    /// 
+    ///     // Correct: Reference the VPC attachment ID directly
+    ///     var exampleRouteTableAssociation = new Aws.Ec2TransitGateway.RouteTableAssociation("example", new()
+    ///     {
+    ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,
+    ///         TransitGatewayRouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** When the `TransitGatewayAttachmentId` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table association.
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_association` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:

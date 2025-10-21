@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "with_minimum_parameter", &odb.CloudVmClusterArgs{
-//				DisplayName:                  pulumi.String("my-exa-infra"),
-//				CloudExadataInfrastructureId: pulumi.String("exa_gjrmtxl4qk"),
+//				DisplayName:                  pulumi.String("my_vm_cluster"),
+//				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
 //				GiVersion:                    pulumi.String("23.0.0.0"),
 //				HostnamePrefix:               pulumi.String("apollo12"),
 //				SshPublicKeys: pulumi.StringArray{
 //					pulumi.String("public-ssh-key"),
 //				},
-//				OdbNetworkId:             pulumi.String("odbnet_3l9st3litg"),
+//				OdbNetworkId:             pulumi.String("<aws_odb_network_id>"),
 //				IsLocalBackupEnabled:     pulumi.Bool(true),
 //				IsSparseDiskgroupEnabled: pulumi.Bool(true),
 //				LicenseModel:             pulumi.String("LICENSE_INCLUDED"),
@@ -58,15 +58,15 @@ import (
 //				return err
 //			}
 //			_, err = odb.NewCloudVmCluster(ctx, "with_all_parameters", &odb.CloudVmClusterArgs{
-//				DisplayName:                  pulumi.String("my-vmc"),
-//				CloudExadataInfrastructureId: pulumi.String("exa_gjrmtxl4qk"),
+//				DisplayName:                  pulumi.String("my_vm_cluster"),
+//				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
 //				GiVersion:                    pulumi.String("23.0.0.0"),
 //				HostnamePrefix:               pulumi.String("apollo12"),
 //				SshPublicKeys: pulumi.StringArray{
 //					pulumi.String("my-ssh-key"),
 //				},
-//				OdbNetworkId:             pulumi.String("odbnet_3l9st3litg"),
+//				OdbNetworkId:             pulumi.String("<aws_odb_network_id>"),
 //				IsLocalBackupEnabled:     pulumi.Bool(true),
 //				IsSparseDiskgroupEnabled: pulumi.Bool(true),
 //				LicenseModel:             pulumi.String("LICENSE_INCLUDED"),

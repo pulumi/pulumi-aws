@@ -182,6 +182,57 @@ class RouteTablePropagation(pulumi.CustomResource):
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
 
+        ### Direct Connect Gateway Propagation
+
+        When propagating routes from a Direct Connect Gateway attachment, reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource (available in v6.5.0+):
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/16"])
+        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
+        # Correct: Reference the attachment ID directly from the association resource
+        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=example_gateway_association.transit_gateway_attachment_id,
+            transit_gateway_route_table_id=example_route_table.id)
+        ```
+
+        > **NOTE:** Avoid using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowed_prefixes`). Always reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource when available.
+
+        ### VPC Attachment Propagation
+
+        For VPC attachments, always reference the attachment resource's `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
+            cidr_block="10.0.1.0/24")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("example",
+            subnet_ids=[example_subnet.id],
+            transit_gateway_id=example_transit_gateway.id,
+            vpc_id=example.id)
+        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
+        # Correct: Reference the VPC attachment ID directly
+        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=example_vpc_attachment.id,
+            transit_gateway_route_table_id=example_route_table.id)
+        ```
+
+        > **NOTE:** When the `transit_gateway_attachment_id` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
+
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
@@ -215,6 +266,57 @@ class RouteTablePropagation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
+
+        ### Direct Connect Gateway Propagation
+
+        When propagating routes from a Direct Connect Gateway attachment, reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource (available in v6.5.0+):
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.directconnect.Gateway("example",
+            name="example",
+            amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_gateway_association = aws.directconnect.GatewayAssociation("example",
+            dx_gateway_id=example.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/16"])
+        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
+        # Correct: Reference the attachment ID directly from the association resource
+        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=example_gateway_association.transit_gateway_attachment_id,
+            transit_gateway_route_table_id=example_route_table.id)
+        ```
+
+        > **NOTE:** Avoid using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source to retrieve the attachment ID, as this can cause unnecessary resource recreation when unrelated attributes of the Direct Connect Gateway association change (such as `allowed_prefixes`). Always reference the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource when available.
+
+        ### VPC Attachment Propagation
+
+        For VPC attachments, always reference the attachment resource's `id` attribute directly. Avoid using data sources or lifecycle rules that might cause the attachment ID to become unknown during planning:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example.id,
+            cidr_block="10.0.1.0/24")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("example",
+            subnet_ids=[example_subnet.id],
+            transit_gateway_id=example_transit_gateway.id,
+            vpc_id=example.id)
+        example_route_table = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_transit_gateway.id)
+        # Correct: Reference the VPC attachment ID directly
+        example_route_table_propagation = aws.ec2transitgateway.RouteTablePropagation("example",
+            transit_gateway_attachment_id=example_vpc_attachment.id,
+            transit_gateway_route_table_id=example_route_table.id)
+        ```
+
+        > **NOTE:** When the `transit_gateway_attachment_id` changes (for example, when a VPC attachment is replaced), this resource will be recreated. This is the correct behavior to maintain consistency between the attachment and its route table propagation.
 
         ## Import
 

@@ -100,6 +100,11 @@ export const getEventCategories: typeof import("./getEventCategories").getEventC
 export const getEventCategoriesOutput: typeof import("./getEventCategories").getEventCategoriesOutput = null as any;
 utilities.lazyLoad(exports, ["getEventCategories","getEventCategoriesOutput"], () => require("./getEventCategories"));
 
+export { GetGlobalClusterArgs, GetGlobalClusterResult, GetGlobalClusterOutputArgs } from "./getGlobalCluster";
+export const getGlobalCluster: typeof import("./getGlobalCluster").getGlobalCluster = null as any;
+export const getGlobalClusterOutput: typeof import("./getGlobalCluster").getGlobalClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalCluster","getGlobalClusterOutput"], () => require("./getGlobalCluster"));
+
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;

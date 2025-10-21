@@ -53,14 +53,14 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
     }
 
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * Amazon Resource Name (ARN) of the Exadata infrastructure.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the pipeline.
+     * @return Amazon Resource Name (ARN) of the Exadata infrastructure.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -688,7 +688,7 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the pipeline.
+         * @param arn Amazon Resource Name (ARN) of the Exadata infrastructure.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the pipeline.
+         * @param arn Amazon Resource Name (ARN) of the Exadata infrastructure.
          * 
          * @return builder
          * 

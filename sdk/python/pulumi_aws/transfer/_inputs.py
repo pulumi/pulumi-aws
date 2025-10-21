@@ -39,6 +39,12 @@ __all__ = [
     'UserHomeDirectoryMappingArgsDict',
     'UserPosixProfileArgs',
     'UserPosixProfileArgsDict',
+    'WebAppIdentityProviderDetailsArgs',
+    'WebAppIdentityProviderDetailsArgsDict',
+    'WebAppIdentityProviderDetailsIdentityCenterConfigArgs',
+    'WebAppIdentityProviderDetailsIdentityCenterConfigArgsDict',
+    'WebAppWebAppUnitArgs',
+    'WebAppWebAppUnitArgsDict',
     'WorkflowOnExceptionStepArgs',
     'WorkflowOnExceptionStepArgsDict',
     'WorkflowOnExceptionStepCopyStepDetailsArgs',
@@ -972,6 +978,125 @@ class UserPosixProfileArgs:
     @secondary_gids.setter
     def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class WebAppIdentityProviderDetailsArgsDict(TypedDict):
+        identity_center_config: NotRequired[pulumi.Input['WebAppIdentityProviderDetailsIdentityCenterConfigArgsDict']]
+        """
+        Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        """
+elif False:
+    WebAppIdentityProviderDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppIdentityProviderDetailsArgs:
+    def __init__(__self__, *,
+                 identity_center_config: Optional[pulumi.Input['WebAppIdentityProviderDetailsIdentityCenterConfigArgs']] = None):
+        """
+        :param pulumi.Input['WebAppIdentityProviderDetailsIdentityCenterConfigArgs'] identity_center_config: Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        """
+        if identity_center_config is not None:
+            pulumi.set(__self__, "identity_center_config", identity_center_config)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterConfig")
+    def identity_center_config(self) -> Optional[pulumi.Input['WebAppIdentityProviderDetailsIdentityCenterConfigArgs']]:
+        """
+        Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+        """
+        return pulumi.get(self, "identity_center_config")
+
+    @identity_center_config.setter
+    def identity_center_config(self, value: Optional[pulumi.Input['WebAppIdentityProviderDetailsIdentityCenterConfigArgs']]):
+        pulumi.set(self, "identity_center_config", value)
+
+
+if not MYPY:
+    class WebAppIdentityProviderDetailsIdentityCenterConfigArgsDict(TypedDict):
+        application_arn: NotRequired[pulumi.Input[_builtins.str]]
+        instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of the IAM Identity Center used for the web app.
+        """
+        role: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ARN of an identity bearer role for your web app.
+        """
+elif False:
+    WebAppIdentityProviderDetailsIdentityCenterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppIdentityProviderDetailsIdentityCenterConfigArgs:
+    def __init__(__self__, *,
+                 application_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 role: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center used for the web app.
+        :param pulumi.Input[_builtins.str] role: ARN of an identity bearer role for your web app.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if instance_arn is not None:
+            pulumi.set(__self__, "instance_arn", instance_arn)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "application_arn")
+
+    @application_arn.setter
+    def application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "application_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the IAM Identity Center used for the web app.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of an identity bearer role for your web app.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "role", value)
+
+
+if not MYPY:
+    class WebAppWebAppUnitArgsDict(TypedDict):
+        provisioned: pulumi.Input[_builtins.int]
+elif False:
+    WebAppWebAppUnitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAppWebAppUnitArgs:
+    def __init__(__self__, *,
+                 provisioned: pulumi.Input[_builtins.int]):
+        pulumi.set(__self__, "provisioned", provisioned)
+
+    @_builtins.property
+    @pulumi.getter
+    def provisioned(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "provisioned")
+
+    @provisioned.setter
+    def provisioned(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "provisioned", value)
 
 
 if not MYPY:

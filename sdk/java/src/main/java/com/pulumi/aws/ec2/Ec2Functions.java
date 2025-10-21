@@ -128,6 +128,8 @@ import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
 import com.pulumi.aws.ec2.inputs.GetVpcsPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+import com.pulumi.aws.ec2.inputs.GetVpnConnectionPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
 import com.pulumi.aws.ec2.inputs.GetVpnGatewayPlainArgs;
 import com.pulumi.aws.ec2.outputs.GetAmiIdsResult;
@@ -192,6 +194,7 @@ import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionResult;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionsResult;
 import com.pulumi.aws.ec2.outputs.GetVpcResult;
 import com.pulumi.aws.ec2.outputs.GetVpcsResult;
+import com.pulumi.aws.ec2.outputs.GetVpnConnectionResult;
 import com.pulumi.aws.ec2.outputs.GetVpnGatewayResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -23468,6 +23471,566 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetVpcsResult> getVpcsPlain(GetVpcsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVpnConnectionResult> getVpnConnection() {
+        return getVpnConnection(GetVpnConnectionArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVpnConnectionResult> getVpnConnectionPlain() {
+        return getVpnConnectionPlain(GetVpnConnectionPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVpnConnectionResult> getVpnConnection(GetVpnConnectionArgs args) {
+        return getVpnConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVpnConnectionResult> getVpnConnectionPlain(GetVpnConnectionPlainArgs args) {
+        return getVpnConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVpnConnectionResult> getVpnConnection(GetVpnConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpnConnection:getVpnConnection", TypeShape.of(GetVpnConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetVpnConnectionResult> getVpnConnection(GetVpnConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getVpnConnection:getVpnConnection", TypeShape.of(GetVpnConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .filters(GetVpnConnectionFilterArgs.builder()
+     *                 .name("customer-gateway-id")
+     *                 .values("cgw-1234567890")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("vpnConnectionId", example.vpnConnectionId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Find by VPN Connection ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getVpnConnection(GetVpnConnectionArgs.builder()
+     *             .vpnConnectionId("vpn-abcd1234567890")
+     *             .build());
+     * 
+     *         ctx.export("gatewayAssociationState", example.gatewayAssociationState());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetVpnConnectionResult> getVpnConnectionPlain(GetVpnConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getVpnConnection:getVpnConnection", TypeShape.of(GetVpnConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The VPN Gateway data source provides details about

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Odb
         public Output<int> AdditionalStorageCount { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
+        /// Amazon Resource Name (ARN) of the Exadata infrastructure.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Odb
         public Input<int>? AdditionalStorageCount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
+        /// Amazon Resource Name (ARN) of the Exadata infrastructure.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

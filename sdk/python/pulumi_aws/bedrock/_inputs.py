@@ -339,6 +339,130 @@ __all__ = [
     'AgentPromptVariantTemplateConfigurationTextCachePointArgsDict',
     'AgentPromptVariantTemplateConfigurationTextInputVariableArgs',
     'AgentPromptVariantTemplateConfigurationTextInputVariableArgsDict',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactArgs',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs',
+    'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationArgs',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict',
+    'AgentcoreAgentRuntimeEndpointTimeoutsArgs',
+    'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict',
+    'AgentcoreAgentRuntimeLifecycleConfigurationArgs',
+    'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict',
+    'AgentcoreAgentRuntimeNetworkConfigurationArgs',
+    'AgentcoreAgentRuntimeNetworkConfigurationArgsDict',
+    'AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs',
+    'AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgsDict',
+    'AgentcoreAgentRuntimeProtocolConfigurationArgs',
+    'AgentcoreAgentRuntimeProtocolConfigurationArgsDict',
+    'AgentcoreAgentRuntimeRequestHeaderConfigurationArgs',
+    'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict',
+    'AgentcoreAgentRuntimeTimeoutsArgs',
+    'AgentcoreAgentRuntimeTimeoutsArgsDict',
+    'AgentcoreAgentRuntimeWorkloadIdentityDetailArgs',
+    'AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict',
+    'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs',
+    'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict',
+    'AgentcoreBrowserNetworkConfigurationArgs',
+    'AgentcoreBrowserNetworkConfigurationArgsDict',
+    'AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs',
+    'AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict',
+    'AgentcoreBrowserRecordingArgs',
+    'AgentcoreBrowserRecordingArgsDict',
+    'AgentcoreBrowserRecordingS3LocationArgs',
+    'AgentcoreBrowserRecordingS3LocationArgsDict',
+    'AgentcoreBrowserTimeoutsArgs',
+    'AgentcoreBrowserTimeoutsArgsDict',
+    'AgentcoreCodeInterpreterNetworkConfigurationArgs',
+    'AgentcoreCodeInterpreterNetworkConfigurationArgsDict',
+    'AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs',
+    'AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict',
+    'AgentcoreCodeInterpreterTimeoutsArgs',
+    'AgentcoreCodeInterpreterTimeoutsArgsDict',
+    'AgentcoreGatewayAuthorizerConfigurationArgs',
+    'AgentcoreGatewayAuthorizerConfigurationArgsDict',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict',
+    'AgentcoreGatewayProtocolConfigurationArgs',
+    'AgentcoreGatewayProtocolConfigurationArgsDict',
+    'AgentcoreGatewayProtocolConfigurationMcpArgs',
+    'AgentcoreGatewayProtocolConfigurationMcpArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationArgs',
+    'AgentcoreGatewayTargetTargetConfigurationArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args',
+    'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args',
+    'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3ArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args',
+    'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3ArgsDict',
+    'AgentcoreGatewayTargetTimeoutsArgs',
+    'AgentcoreGatewayTargetTimeoutsArgsDict',
+    'AgentcoreGatewayTimeoutsArgs',
+    'AgentcoreGatewayTimeoutsArgsDict',
+    'AgentcoreGatewayWorkloadIdentityDetailArgs',
+    'AgentcoreGatewayWorkloadIdentityDetailArgsDict',
     'CustomModelOutputDataConfigArgs',
     'CustomModelOutputDataConfigArgsDict',
     'CustomModelTimeoutsArgs',
@@ -8976,6 +9100,4100 @@ class AgentPromptVariantTemplateConfigurationTextInputVariableArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict(TypedDict):
+        container_configuration: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict']]
+        """
+        Container configuration block. See `container_configuration` below.
+        """
+elif False:
+    AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactArgs:
+    def __init__(__self__, *,
+                 container_configuration: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs'] container_configuration: Container configuration block. See `container_configuration` below.
+        """
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']]:
+        """
+        Container configuration block. See `container_configuration` below.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @container_configuration.setter
+    def container_configuration(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']]):
+        pulumi.set(self, "container_configuration", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict(TypedDict):
+        container_uri: pulumi.Input[_builtins.str]
+        """
+        URI of the container image in Amazon ECR.
+        """
+elif False:
+    AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs:
+    def __init__(__self__, *,
+                 container_uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] container_uri: URI of the container image in Amazon ECR.
+        """
+        pulumi.set(__self__, "container_uri", container_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="containerUri")
+    def container_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        URI of the container image in Amazon ECR.
+        """
+        return pulumi.get(self, "container_uri")
+
+    @container_uri.setter
+    def container_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_uri", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict(TypedDict):
+        custom_jwt_authorizer: NotRequired[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]
+        """
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+elif False:
+    AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs'] custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+        if custom_jwt_authorizer is not None:
+            pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs']]:
+        """
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+    @custom_jwt_authorizer.setter
+    def custom_jwt_authorizer(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs']]):
+        pulumi.set(self, "custom_jwt_authorizer", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDict):
+        discovery_url: pulumi.Input[_builtins.str]
+        """
+        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Set of allowed audience values for JWT token validation.
+        """
+        allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Set of allowed client IDs for JWT token validation.
+        """
+elif False:
+    AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs:
+    def __init__(__self__, *,
+                 discovery_url: pulumi.Input[_builtins.str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
+        """
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovery_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed audience values for JWT token validation.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed client IDs for JWT token validation.
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @allowed_clients.setter
+    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_clients", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeEndpointTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentcoreAgentRuntimeEndpointTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeEndpointTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeLifecycleConfigurationArgsDict(TypedDict):
+        idle_runtime_session_timeout: pulumi.Input[_builtins.int]
+        """
+        Timeout in seconds for idle runtime sessions.
+        """
+        max_lifetime: pulumi.Input[_builtins.int]
+        """
+        Maximum lifetime for the instance in seconds.
+        """
+elif False:
+    AgentcoreAgentRuntimeLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeLifecycleConfigurationArgs:
+    def __init__(__self__, *,
+                 idle_runtime_session_timeout: pulumi.Input[_builtins.int],
+                 max_lifetime: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions.
+        :param pulumi.Input[_builtins.int] max_lifetime: Maximum lifetime for the instance in seconds.
+        """
+        pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
+        pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleRuntimeSessionTimeout")
+    def idle_runtime_session_timeout(self) -> pulumi.Input[_builtins.int]:
+        """
+        Timeout in seconds for idle runtime sessions.
+        """
+        return pulumi.get(self, "idle_runtime_session_timeout")
+
+    @idle_runtime_session_timeout.setter
+    def idle_runtime_session_timeout(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "idle_runtime_session_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum lifetime for the instance in seconds.
+        """
+        return pulumi.get(self, "max_lifetime")
+
+    @max_lifetime.setter
+    def max_lifetime(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_lifetime", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeNetworkConfigurationArgsDict(TypedDict):
+        network_mode: pulumi.Input[_builtins.str]
+        """
+        Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+        """
+        network_mode_config: NotRequired[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgsDict']]
+        """
+        Network mode configuration. See `network_mode_config` below.
+        """
+elif False:
+    AgentcoreAgentRuntimeNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 network_mode: pulumi.Input[_builtins.str],
+                 network_mode_config: Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] network_mode: Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+        :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs'] network_mode_config: Network mode configuration. See `network_mode_config` below.
+        """
+        pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @network_mode.setter
+    def network_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs']]:
+        """
+        Network mode configuration. See `network_mode_config` below.
+        """
+        return pulumi.get(self, "network_mode_config")
+
+    @network_mode_config.setter
+    def network_mode_config(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs']]):
+        pulumi.set(self, "network_mode_config", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgsDict(TypedDict):
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Security groups associated with the VPC configuration.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Subnets associated with the VPC configuration.
+        """
+elif False:
+    AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups associated with the VPC configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnets associated with the VPC configuration.
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Security groups associated with the VPC configuration.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Subnets associated with the VPC configuration.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeProtocolConfigurationArgsDict(TypedDict):
+        server_protocol: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        """
+elif False:
+    AgentcoreAgentRuntimeProtocolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeProtocolConfigurationArgs:
+    def __init__(__self__, *,
+                 server_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] server_protocol: Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        """
+        if server_protocol is not None:
+            pulumi.set(__self__, "server_protocol", server_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="serverProtocol")
+    def server_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        """
+        return pulumi.get(self, "server_protocol")
+
+    @server_protocol.setter
+    def server_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "server_protocol", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict(TypedDict):
+        request_header_allowlists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of HTTP request headers that are allowed to be passed through to the runtime.
+        """
+elif False:
+    AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeRequestHeaderConfigurationArgs:
+    def __init__(__self__, *,
+                 request_header_allowlists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] request_header_allowlists: A list of HTTP request headers that are allowed to be passed through to the runtime.
+        """
+        if request_header_allowlists is not None:
+            pulumi.set(__self__, "request_header_allowlists", request_header_allowlists)
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderAllowlists")
+    def request_header_allowlists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of HTTP request headers that are allowed to be passed through to the runtime.
+        """
+        return pulumi.get(self, "request_header_allowlists")
+
+    @request_header_allowlists.setter
+    def request_header_allowlists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "request_header_allowlists", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentcoreAgentRuntimeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict(TypedDict):
+        workload_identity_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the workload identity.
+        """
+elif False:
+    AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreAgentRuntimeWorkloadIdentityDetailArgs:
+    def __init__(__self__, *,
+                 workload_identity_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the workload identity.
+        """
+        pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityArn")
+    def workload_identity_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the workload identity.
+        """
+        return pulumi.get(self, "workload_identity_arn")
+
+    @workload_identity_arn.setter
+    def workload_identity_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_identity_arn", value)
+
+
+if not MYPY:
+    class AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict(TypedDict):
+        secret_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the secret in AWS Secrets Manager.
+        """
+elif False:
+    AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret in AWS Secrets Manager.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the secret in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+if not MYPY:
+    class AgentcoreBrowserNetworkConfigurationArgsDict(TypedDict):
+        network_mode: pulumi.Input[_builtins.str]
+        """
+        Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        """
+        network_mode_config: NotRequired[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict']]
+elif False:
+    AgentcoreBrowserNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreBrowserNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 network_mode: pulumi.Input[_builtins.str],
+                 network_mode_config: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] network_mode: Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        """
+        pulumi.set(__self__, "network_mode", network_mode)
+        if network_mode_config is not None:
+            pulumi.set(__self__, "network_mode_config", network_mode_config)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @network_mode.setter
+    def network_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkModeConfig")
+    def network_mode_config(self) -> Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']]:
+        return pulumi.get(self, "network_mode_config")
+
+    @network_mode_config.setter
+    def network_mode_config(self, value: Optional[pulumi.Input['AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs']]):
+        pulumi.set(self, "network_mode_config", value)
+
+
+if not MYPY:
+    class AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict(TypedDict):
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+elif False:
+    AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreBrowserNetworkConfigurationNetworkModeConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
+    class AgentcoreBrowserRecordingArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable recording for browser sessions. Defaults to `false`.
+        """
+        s3_location: NotRequired[pulumi.Input['AgentcoreBrowserRecordingS3LocationArgsDict']]
+        """
+        S3 location where browser session recordings are stored. See `s3_location` below.
+        """
+elif False:
+    AgentcoreBrowserRecordingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreBrowserRecordingArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 s3_location: Optional[pulumi.Input['AgentcoreBrowserRecordingS3LocationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable recording for browser sessions. Defaults to `false`.
+        :param pulumi.Input['AgentcoreBrowserRecordingS3LocationArgs'] s3_location: S3 location where browser session recordings are stored. See `s3_location` below.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable recording for browser sessions. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional[pulumi.Input['AgentcoreBrowserRecordingS3LocationArgs']]:
+        """
+        S3 location where browser session recordings are stored. See `s3_location` below.
+        """
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: Optional[pulumi.Input['AgentcoreBrowserRecordingS3LocationArgs']]):
+        pulumi.set(self, "s3_location", value)
+
+
+if not MYPY:
+    class AgentcoreBrowserRecordingS3LocationArgsDict(TypedDict):
+        bucket: pulumi.Input[_builtins.str]
+        """
+        Name of the S3 bucket where recordings are stored.
+        """
+        prefix: pulumi.Input[_builtins.str]
+        """
+        S3 key prefix for recording files.
+        """
+elif False:
+    AgentcoreBrowserRecordingS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreBrowserRecordingS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket where recordings are stored.
+        :param pulumi.Input[_builtins.str] prefix: S3 key prefix for recording files.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the S3 bucket where recordings are stored.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 key prefix for recording files.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class AgentcoreBrowserTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    AgentcoreBrowserTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreBrowserTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class AgentcoreCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
+        network_mode: pulumi.Input[_builtins.str]
+        """
+        Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+        """
+        vpc_config: NotRequired[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict']]
+        """
+        VPC configuration. See `vpc_config` below.
+        """
+elif False:
+    AgentcoreCodeInterpreterNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 network_mode: pulumi.Input[_builtins.str],
+                 vpc_config: Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] network_mode: Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+        :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs'] vpc_config: VPC configuration. See `vpc_config` below.
+        """
+        pulumi.set(__self__, "network_mode", network_mode)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @network_mode.setter
+    def network_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "network_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs']]:
+        """
+        VPC configuration. See `vpc_config` below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: Optional[pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+if not MYPY:
+    class AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict(TypedDict):
+        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Security groups associated with the VPC configuration.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Subnets associated with the VPC configuration.
+        """
+elif False:
+    AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups associated with the VPC configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnets associated with the VPC configuration.
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Security groups associated with the VPC configuration.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Subnets associated with the VPC configuration.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+if not MYPY:
+    class AgentcoreCodeInterpreterTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    AgentcoreCodeInterpreterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayAuthorizerConfigurationArgsDict(TypedDict):
+        custom_jwt_authorizer: NotRequired[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]
+        """
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+elif False:
+    AgentcoreGatewayAuthorizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayAuthorizerConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs'] custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+        if custom_jwt_authorizer is not None:
+            pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs']]:
+        """
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+    @custom_jwt_authorizer.setter
+    def custom_jwt_authorizer(self, value: Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs']]):
+        pulumi.set(self, "custom_jwt_authorizer", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDict):
+        discovery_url: pulumi.Input[_builtins.str]
+        """
+        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Set of allowed audience values for JWT token validation.
+        """
+        allowed_clients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Set of allowed client IDs for JWT token validation.
+        """
+elif False:
+    AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs:
+    def __init__(__self__, *,
+                 discovery_url: pulumi.Input[_builtins.str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
+        """
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovery_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed audience values for JWT token validation.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed client IDs for JWT token validation.
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @allowed_clients.setter
+    def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_clients", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayProtocolConfigurationArgsDict(TypedDict):
+        mcp: NotRequired[pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpArgsDict']]
+        """
+        Model Context Protocol (MCP) configuration block. See `mcp` below.
+        """
+elif False:
+    AgentcoreGatewayProtocolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayProtocolConfigurationArgs:
+    def __init__(__self__, *,
+                 mcp: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpArgs'] mcp: Model Context Protocol (MCP) configuration block. See `mcp` below.
+        """
+        if mcp is not None:
+            pulumi.set(__self__, "mcp", mcp)
+
+    @_builtins.property
+    @pulumi.getter
+    def mcp(self) -> Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpArgs']]:
+        """
+        Model Context Protocol (MCP) configuration block. See `mcp` below.
+        """
+        return pulumi.get(self, "mcp")
+
+    @mcp.setter
+    def mcp(self, value: Optional[pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpArgs']]):
+        pulumi.set(self, "mcp", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayProtocolConfigurationMcpArgsDict(TypedDict):
+        instructions: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Instructions for the MCP protocol configuration.
+        """
+        search_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        """
+        supported_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Set of supported MCP protocol versions.
+        """
+elif False:
+    AgentcoreGatewayProtocolConfigurationMcpArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayProtocolConfigurationMcpArgs:
+    def __init__(__self__, *,
+                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
+                 search_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 supported_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] instructions: Instructions for the MCP protocol configuration.
+        :param pulumi.Input[_builtins.str] search_type: Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_versions: Set of supported MCP protocol versions.
+        """
+        if instructions is not None:
+            pulumi.set(__self__, "instructions", instructions)
+        if search_type is not None:
+            pulumi.set(__self__, "search_type", search_type)
+        if supported_versions is not None:
+            pulumi.set(__self__, "supported_versions", supported_versions)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Instructions for the MCP protocol configuration.
+        """
+        return pulumi.get(self, "instructions")
+
+    @instructions.setter
+    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchType")
+    def search_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        """
+        return pulumi.get(self, "search_type")
+
+    @search_type.setter
+    def search_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "search_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedVersions")
+    def supported_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of supported MCP protocol versions.
+        """
+        return pulumi.get(self, "supported_versions")
+
+    @supported_versions.setter
+    def supported_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_versions", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
+        api_key: NotRequired[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict']]
+        """
+        API key-based authentication configuration. See `api_key` below.
+        """
+        gateway_iam_role: NotRequired[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict']]
+        """
+        Use the gateway's IAM role for authentication. This is an empty configuration block.
+        """
+        oauth: NotRequired[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict']]
+        """
+        OAuth-based authentication configuration. See `oauth` below.
+        """
+elif False:
+    AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 api_key: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']] = None,
+                 gateway_iam_role: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']] = None,
+                 oauth: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs'] api_key: API key-based authentication configuration. See `api_key` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs'] gateway_iam_role: Use the gateway's IAM role for authentication. This is an empty configuration block.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs'] oauth: OAuth-based authentication configuration. See `oauth` below.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if gateway_iam_role is not None:
+            pulumi.set(__self__, "gateway_iam_role", gateway_iam_role)
+        if oauth is not None:
+            pulumi.set(__self__, "oauth", oauth)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']]:
+        """
+        API key-based authentication configuration. See `api_key` below.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']]):
+        pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayIamRole")
+    def gateway_iam_role(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]:
+        """
+        Use the gateway's IAM role for authentication. This is an empty configuration block.
+        """
+        return pulumi.get(self, "gateway_iam_role")
+
+    @gateway_iam_role.setter
+    def gateway_iam_role(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]):
+        pulumi.set(self, "gateway_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def oauth(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']]:
+        """
+        OAuth-based authentication configuration. See `oauth` below.
+        """
+        return pulumi.get(self, "oauth")
+
+    @oauth.setter
+    def oauth(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']]):
+        pulumi.set(self, "oauth", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict(TypedDict):
+        provider_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the OIDC provider for API key authentication.
+        """
+        credential_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+        """
+        credential_parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Name of the parameter containing the API key credential.
+        """
+        credential_prefix: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Prefix to add to the API key credential value.
+        """
+elif False:
+    AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs:
+    def __init__(__self__, *,
+                 provider_arn: pulumi.Input[_builtins.str],
+                 credential_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] provider_arn: ARN of the OIDC provider for API key authentication.
+        :param pulumi.Input[_builtins.str] credential_location: Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+        :param pulumi.Input[_builtins.str] credential_parameter_name: Name of the parameter containing the API key credential.
+        :param pulumi.Input[_builtins.str] credential_prefix: Prefix to add to the API key credential value.
+        """
+        pulumi.set(__self__, "provider_arn", provider_arn)
+        if credential_location is not None:
+            pulumi.set(__self__, "credential_location", credential_location)
+        if credential_parameter_name is not None:
+            pulumi.set(__self__, "credential_parameter_name", credential_parameter_name)
+        if credential_prefix is not None:
+            pulumi.set(__self__, "credential_prefix", credential_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the OIDC provider for API key authentication.
+        """
+        return pulumi.get(self, "provider_arn")
+
+    @provider_arn.setter
+    def provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialLocation")
+    def credential_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location where the API key credential is provided. Valid values: `HEADER`, `QUERY_PARAMETER`.
+        """
+        return pulumi.get(self, "credential_location")
+
+    @credential_location.setter
+    def credential_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "credential_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialParameterName")
+    def credential_parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the parameter containing the API key credential.
+        """
+        return pulumi.get(self, "credential_parameter_name")
+
+    @credential_parameter_name.setter
+    def credential_parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "credential_parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialPrefix")
+    def credential_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Prefix to add to the API key credential value.
+        """
+        return pulumi.get(self, "credential_prefix")
+
+    @credential_prefix.setter
+    def credential_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "credential_prefix", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict(TypedDict):
+        pass
+elif False:
+    AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict(TypedDict):
+        provider_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the OIDC provider for OAuth authentication.
+        """
+        scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Set of OAuth scopes to request.
+        """
+        custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        Map of custom parameters to include in OAuth requests.
+        """
+elif False:
+    AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs:
+    def __init__(__self__, *,
+                 provider_arn: pulumi.Input[_builtins.str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] provider_arn: ARN of the OIDC provider for OAuth authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Set of OAuth scopes to request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_parameters: Map of custom parameters to include in OAuth requests.
+        """
+        pulumi.set(__self__, "provider_arn", provider_arn)
+        pulumi.set(__self__, "scopes", scopes)
+        if custom_parameters is not None:
+            pulumi.set(__self__, "custom_parameters", custom_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="providerArn")
+    def provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the OIDC provider for OAuth authentication.
+        """
+        return pulumi.get(self, "provider_arn")
+
+    @provider_arn.setter
+    def provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of OAuth scopes to request.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customParameters")
+    def custom_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of custom parameters to include in OAuth requests.
+        """
+        return pulumi.get(self, "custom_parameters")
+
+    @custom_parameters.setter
+    def custom_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_parameters", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
+        mcp: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgsDict']]
+        """
+        Model Context Protocol (MCP) configuration. See `mcp` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 mcp: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs'] mcp: Model Context Protocol (MCP) configuration. See `mcp` below.
+        """
+        if mcp is not None:
+            pulumi.set(__self__, "mcp", mcp)
+
+    @_builtins.property
+    @pulumi.getter
+    def mcp(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs']]:
+        """
+        Model Context Protocol (MCP) configuration. See `mcp` below.
+        """
+        return pulumi.get(self, "mcp")
+
+    @mcp.setter
+    def mcp(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs']]):
+        pulumi.set(self, "mcp", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
+        lambda_: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict']]
+        """
+        Lambda function target configuration. See `lambda` below.
+        """
+        open_api_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict']]
+        """
+        OpenAPI schema-based target configuration. See `api_schema_configuration` below.
+        """
+        smithy_model: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict']]
+        """
+        Smithy model-based target configuration. See `api_schema_configuration` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
+    def __init__(__self__, *,
+                 lambda_: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']] = None,
+                 open_api_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']] = None,
+                 smithy_model: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs'] lambda_: Lambda function target configuration. See `lambda` below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs'] open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs'] smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
+        """
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if open_api_schema is not None:
+            pulumi.set(__self__, "open_api_schema", open_api_schema)
+        if smithy_model is not None:
+            pulumi.set(__self__, "smithy_model", smithy_model)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']]:
+        """
+        Lambda function target configuration. See `lambda` below.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']]):
+        pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openApiSchema")
+    def open_api_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']]:
+        """
+        OpenAPI schema-based target configuration. See `api_schema_configuration` below.
+        """
+        return pulumi.get(self, "open_api_schema")
+
+    @open_api_schema.setter
+    def open_api_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']]):
+        pulumi.set(self, "open_api_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smithyModel")
+    def smithy_model(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']]:
+        """
+        Smithy model-based target configuration. See `api_schema_configuration` below.
+        """
+        return pulumi.get(self, "smithy_model")
+
+    @smithy_model.setter
+    def smithy_model(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']]):
+        pulumi.set(self, "smithy_model", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the Lambda function to invoke.
+        """
+        tool_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict']]
+        """
+        Schema definition for the tool. See `tool_schema` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[_builtins.str],
+                 tool_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] lambda_arn: ARN of the Lambda function to invoke.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs'] tool_schema: Schema definition for the tool. See `tool_schema` below.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if tool_schema is not None:
+            pulumi.set(__self__, "tool_schema", tool_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Lambda function to invoke.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toolSchema")
+    def tool_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']]:
+        """
+        Schema definition for the tool. See `tool_schema` below.
+        """
+        return pulumi.get(self, "tool_schema")
+
+    @tool_schema.setter
+    def tool_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']]):
+        pulumi.set(self, "tool_schema", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict(TypedDict):
+        inline_payloads: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgsDict']]]]
+        """
+        Inline tool definition. See `inline_payload` below.
+        """
+        s3: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict']]
+        """
+        S3-based tool definition. See `s3` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs:
+    def __init__(__self__, *,
+                 inline_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]]] = None,
+                 s3: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]] inline_payloads: Inline tool definition. See `inline_payload` below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args'] s3: S3-based tool definition. See `s3` below.
+        """
+        if inline_payloads is not None:
+            pulumi.set(__self__, "inline_payloads", inline_payloads)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayloads")
+    def inline_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]]]:
+        """
+        Inline tool definition. See `inline_payload` below.
+        """
+        return pulumi.get(self, "inline_payloads")
+
+    @inline_payloads.setter
+    def inline_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]]]):
+        pulumi.set(self, "inline_payloads", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']]:
+        """
+        S3-based tool definition. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgsDict(TypedDict):
+        description: pulumi.Input[_builtins.str]
+        """
+        Description of what the tool does.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the tool.
+        """
+        input_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict']]
+        """
+        Schema for the tool's input. See `schema_definition` below.
+        """
+        output_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict']]
+        """
+        Schema for the tool's output. See `schema_definition` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 input_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']] = None,
+                 output_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of what the tool does.
+        :param pulumi.Input[_builtins.str] name: Name of the tool.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs'] input_schema: Schema for the tool's input. See `schema_definition` below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs'] output_schema: Schema for the tool's output. See `schema_definition` below.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        if input_schema is not None:
+            pulumi.set(__self__, "input_schema", input_schema)
+        if output_schema is not None:
+            pulumi.set(__self__, "output_schema", output_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[_builtins.str]:
+        """
+        Description of what the tool does.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the tool.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']]:
+        """
+        Schema for the tool's input. See `schema_definition` below.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']]):
+        pulumi.set(self, "input_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputSchema")
+    def output_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs']]:
+        """
+        Schema for the tool's output. See `schema_definition` below.
+        """
+        return pulumi.get(self, "output_schema")
+
+    @output_schema.setter
+    def output_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs']]):
+        pulumi.set(self, "output_schema", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the gateway target.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgsDict']]
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgsDict']]]]
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the gateway target.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the gateway target.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs']]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs']]]]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgsDict']]
+        """
+        Nested items definition for arrays of arrays.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgsDict']]]]
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs'] items: Nested items definition for arrays of arrays.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs']]] properties: Set of property definitions for arrays of objects. See `property` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs']]:
+        """
+        Nested items definition for arrays of arrays.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs']]]]:
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgsDict']]
+        """
+        Items definition for array properties. See `items` above.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgsDict']]]]
+        """
+        Set of nested property definitions for object properties.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs']]]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs'] items: Items definition for array properties. See `items` above.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs']]] properties: Set of nested property definitions for object properties.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs']]:
+        """
+        Items definition for array properties. See `items` above.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs']]]]:
+        """
+        Set of nested property definitions for object properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgsDict']]
+        """
+        Nested items definition for arrays of arrays.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgsDict']]]]
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs'] items: Nested items definition for arrays of arrays.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs']]] properties: Set of property definitions for arrays of objects. See `property` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs']]:
+        """
+        Nested items definition for arrays of arrays.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs']]]]:
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the gateway target.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgsDict']]
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgsDict']]]]
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the gateway target.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the gateway target.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs']]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs']]]]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgsDict']]
+        """
+        Nested items definition for arrays of arrays.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgsDict']]]]
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs'] items: Nested items definition for arrays of arrays.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs']]] properties: Set of property definitions for arrays of objects. See `property` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs']]:
+        """
+        Nested items definition for arrays of arrays.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs']]]]:
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgsDict']]
+        """
+        Items definition for array properties. See `items` above.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict']]]]
+        """
+        Set of nested property definitions for object properties.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs']]]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs'] items: Items definition for array properties. See `items` above.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs']]] properties: Set of nested property definitions for object properties.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs']]:
+        """
+        Items definition for array properties. See `items` above.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs']]]]:
+        """
+        Set of nested property definitions for object properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgsDict']]
+        """
+        Nested items definition for arrays of arrays.
+        """
+        properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgsDict']]]]
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs']] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs'] items: Nested items definition for arrays of arrays.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs']]] properties: Set of property definitions for arrays of objects. See `property` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs']]:
+        """
+        Nested items definition for arrays of arrays.
+        """
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs']]):
+        pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs']]]]:
+        """
+        Set of property definitions for arrays of objects. See `property` below.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs']]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the array items.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the array items.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Data type of the array items.
+        :param pulumi.Input[_builtins.str] description: Description of the array items.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the array items.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the array items.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the property.
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        Data type of the property.
+        """
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Description of the property.
+        """
+        items_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        properties_json: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        required: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 items_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the property.
+        :param pulumi.Input[_builtins.str] type: Data type of the property.
+        :param pulumi.Input[_builtins.str] description: Description of the property.
+        :param pulumi.Input[_builtins.str] items_json: JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        :param pulumi.Input[_builtins.str] properties_json: JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        :param pulumi.Input[_builtins.bool] required: Whether this property is required. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if items_json is not None:
+            pulumi.set(__self__, "items_json", items_json)
+        if properties_json is not None:
+            pulumi.set(__self__, "properties_json", properties_json)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the property.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Description of the property.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemsJson")
+    def items_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for array items. Used for complex nested structures. Cannot be used with `properties_json`.
+        """
+        return pulumi.get(self, "items_json")
+
+    @items_json.setter
+    def items_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "items_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertiesJson")
+    def properties_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        JSON-encoded schema definition for object properties. Used for complex nested structures. Cannot be used with `items_json`.
+        """
+        return pulumi.get(self, "properties_json")
+
+    @properties_json.setter
+    def properties_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "properties_json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether this property is required. Defaults to `false`.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict(TypedDict):
+        bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Account ID of the S3 bucket owner.
+        """
+        uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 URI where the schema is stored.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args:
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: Account ID of the S3 bucket owner.
+        :param pulumi.Input[_builtins.str] uri: S3 URI where the schema is stored.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict(TypedDict):
+        inline_payload: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgsDict']]
+        s3: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3ArgsDict']]
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs:
+    def __init__(__self__, *,
+                 inline_payload: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs']] = None,
+                 s3: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args']] = None):
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs']]:
+        return pulumi.get(self, "inline_payload")
+
+    @inline_payload.setter
+    def inline_payload(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs']]):
+        pulumi.set(self, "inline_payload", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgsDict(TypedDict):
+        payload: pulumi.Input[_builtins.str]
+        """
+        The inline schema payload content.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs:
+    def __init__(__self__, *,
+                 payload: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] payload: The inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> pulumi.Input[_builtins.str]:
+        """
+        The inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "payload", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3ArgsDict(TypedDict):
+        bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Account ID of the S3 bucket owner.
+        """
+        uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 URI where the schema is stored.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args:
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: Account ID of the S3 bucket owner.
+        :param pulumi.Input[_builtins.str] uri: S3 URI where the schema is stored.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict(TypedDict):
+        inline_payload: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgsDict']]
+        s3: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3ArgsDict']]
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs:
+    def __init__(__self__, *,
+                 inline_payload: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs']] = None,
+                 s3: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args']] = None):
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs']]:
+        return pulumi.get(self, "inline_payload")
+
+    @inline_payload.setter
+    def inline_payload(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs']]):
+        pulumi.set(self, "inline_payload", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgsDict(TypedDict):
+        payload: pulumi.Input[_builtins.str]
+        """
+        The inline schema payload content.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs:
+    def __init__(__self__, *,
+                 payload: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] payload: The inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> pulumi.Input[_builtins.str]:
+        """
+        The inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+    @payload.setter
+    def payload(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "payload", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3ArgsDict(TypedDict):
+        bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Account ID of the S3 bucket owner.
+        """
+        uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 URI where the schema is stored.
+        """
+elif False:
+    AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args:
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket_owner_account_id: Account ID of the S3 bucket owner.
+        :param pulumi.Input[_builtins.str] uri: S3 URI where the schema is stored.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTargetTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentcoreGatewayTargetTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentcoreGatewayTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class AgentcoreGatewayWorkloadIdentityDetailArgsDict(TypedDict):
+        workload_identity_arn: pulumi.Input[_builtins.str]
+        """
+        ARN of the workload identity.
+        """
+elif False:
+    AgentcoreGatewayWorkloadIdentityDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentcoreGatewayWorkloadIdentityDetailArgs:
+    def __init__(__self__, *,
+                 workload_identity_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the workload identity.
+        """
+        pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityArn")
+    def workload_identity_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the workload identity.
+        """
+        return pulumi.get(self, "workload_identity_arn")
+
+    @workload_identity_arn.setter
+    def workload_identity_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workload_identity_arn", value)
 
 
 if not MYPY:

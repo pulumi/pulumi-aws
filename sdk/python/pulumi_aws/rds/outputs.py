@@ -43,6 +43,7 @@ __all__ = [
     'GetClusterMasterUserSecretResult',
     'GetClustersFilterResult',
     'GetEngineVersionFilterResult',
+    'GetGlobalClusterMemberResult',
     'GetInstanceMasterUserSecretResult',
     'GetInstancesFilterResult',
     'GetProxyAuthResult',
@@ -1578,6 +1579,35 @@ class GetEngineVersionFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetGlobalClusterMemberResult(dict):
+    def __init__(__self__, *,
+                 db_cluster_arn: _builtins.str,
+                 is_writer: _builtins.bool):
+        """
+        :param _builtins.str db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster
+        :param _builtins.bool is_writer: Whether the member is the primary DB Cluster
+        """
+        pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+        pulumi.set(__self__, "is_writer", is_writer)
+
+    @_builtins.property
+    @pulumi.getter(name="dbClusterArn")
+    def db_cluster_arn(self) -> _builtins.str:
+        """
+        Amazon Resource Name (ARN) of member DB Cluster
+        """
+        return pulumi.get(self, "db_cluster_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="isWriter")
+    def is_writer(self) -> _builtins.bool:
+        """
+        Whether the member is the primary DB Cluster
+        """
+        return pulumi.get(self, "is_writer")
 
 
 @pulumi.output_type

@@ -459,6 +459,8 @@ if typing.TYPE_CHECKING:
     vpc = __vpc
     import pulumi_aws.vpclattice as __vpclattice
     vpclattice = __vpclattice
+    import pulumi_aws.vpn as __vpn
+    vpn = __vpn
     import pulumi_aws.waf as __waf
     waf = __waf
     import pulumi_aws.wafregional as __wafregional
@@ -689,6 +691,7 @@ else:
     verifiedpermissions = _utilities.lazy_import('pulumi_aws.verifiedpermissions')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
+    vpn = _utilities.lazy_import('pulumi_aws.vpn')
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws.wafv2')
@@ -857,6 +860,14 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration": "QueryLoggingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/resourcePolicy",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -2081,6 +2092,62 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrock",
   "classes": {
    "aws:bedrock/agentPrompt:AgentPrompt": "AgentPrompt"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreAgentRuntime",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime": "AgentcoreAgentRuntime"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreAgentRuntimeEndpoint",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint": "AgentcoreAgentRuntimeEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreApiKeyCredentialProvider",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider": "AgentcoreApiKeyCredentialProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreBrowser",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreBrowser:AgentcoreBrowser": "AgentcoreBrowser"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreCodeInterpreter",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter": "AgentcoreCodeInterpreter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreGateway",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreGateway:AgentcoreGateway": "AgentcoreGateway"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreGatewayTarget",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget": "AgentcoreGatewayTarget"
   }
  },
  {
@@ -12341,6 +12408,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "transfer/hostKey",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/hostKey:HostKey": "HostKey"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "transfer/profile",
   "fqn": "pulumi_aws.transfer",
   "classes": {
@@ -12377,6 +12452,22 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/webApp",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/webApp:WebApp": "WebApp"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/webAppCustomization",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/webAppCustomization:WebAppCustomization": "WebAppCustomization"
   }
  },
  {

@@ -51,7 +51,7 @@ class MetricAlarmArgs:
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
-        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
@@ -191,7 +191,7 @@ class MetricAlarmArgs:
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of datapoints that must be breaching to trigger the alarm.
+        The number of data points that must be breaching to trigger the alarm.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 
@@ -451,7 +451,7 @@ class _MetricAlarmState:
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CloudWatch Metric Alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
@@ -599,7 +599,7 @@ class _MetricAlarmState:
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of datapoints that must be breaching to trigger the alarm.
+        The number of data points that must be breaching to trigger the alarm.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 
@@ -883,6 +883,8 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -900,7 +902,7 @@ class MetricAlarm(pulumi.CustomResource):
             insufficient_data_actions=[])
         ```
 
-        ## Example in Conjunction with Scaling Policies
+        ### With Scaling Policies
 
         ```python
         import pulumi
@@ -928,7 +930,7 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_actions=[bat.arn])
         ```
 
-        ## Example with an Expression
+        ### With a Metrics Math Expression
 
         ```python
         import pulumi
@@ -1012,7 +1014,36 @@ class MetricAlarm(pulumi.CustomResource):
             ])
         ```
 
-        ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+        ### With a Metrics Insights Query
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching",
+            metric_queries=[{
+                "id": "q1",
+                "expression": \"\"\"SELECT
+          MAX(DBLoadRelativeToNumVCPUs)
+        FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+        WHERE DBInstanceIdentifier != 'example-rds-instance'
+        GROUP BY DBInstanceIdentifier
+        ORDER BY MIN() ASC
+        LIMIT 1
+        \"\"\",
+                "period": 60,
+                "return_data": True,
+                "label": "Max DB Load of the Least-Loaded RDS Instance",
+            }])
+        ```
+
+        ### Monitoring Healthy NLB Hosts with Target Group and NLB
 
         ```python
         import pulumi
@@ -1038,7 +1069,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
-        You must choose one or the other
+        You must choose one or the other.
 
         ## Import
 
@@ -1066,7 +1097,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
@@ -1109,6 +1140,8 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1126,7 +1159,7 @@ class MetricAlarm(pulumi.CustomResource):
             insufficient_data_actions=[])
         ```
 
-        ## Example in Conjunction with Scaling Policies
+        ### With Scaling Policies
 
         ```python
         import pulumi
@@ -1154,7 +1187,7 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_actions=[bat.arn])
         ```
 
-        ## Example with an Expression
+        ### With a Metrics Math Expression
 
         ```python
         import pulumi
@@ -1238,7 +1271,36 @@ class MetricAlarm(pulumi.CustomResource):
             ])
         ```
 
-        ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+        ### With a Metrics Insights Query
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            name="example-alarm",
+            alarm_description="Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=1,
+            threshold=0.6,
+            treat_missing_data="notBreaching",
+            metric_queries=[{
+                "id": "q1",
+                "expression": \"\"\"SELECT
+          MAX(DBLoadRelativeToNumVCPUs)
+        FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+        WHERE DBInstanceIdentifier != 'example-rds-instance'
+        GROUP BY DBInstanceIdentifier
+        ORDER BY MIN() ASC
+        LIMIT 1
+        \"\"\",
+                "period": 60,
+                "return_data": True,
+                "label": "Max DB Load of the Least-Loaded RDS Instance",
+            }])
+        ```
+
+        ### Monitoring Healthy NLB Hosts with Target Group and NLB
 
         ```python
         import pulumi
@@ -1264,7 +1326,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
-        You must choose one or the other
+        You must choose one or the other.
 
         ## Import
 
@@ -1409,7 +1471,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CloudWatch Metric Alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
-        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimensions: The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[_builtins.str] evaluate_low_sample_count_percentiles: Used only for alarms based on percentiles.
                If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
@@ -1517,7 +1579,7 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of datapoints that must be breaching to trigger the alarm.
+        The number of data points that must be breaching to trigger the alarm.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 

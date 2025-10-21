@@ -9797,7 +9797,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
@@ -9834,7 +9834,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1/io2/gp3"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
@@ -9945,7 +9945,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -10034,7 +10034,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
@@ -60979,6 +60979,339 @@ func (o GetVpcsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcsFilterOutput {
 	}).(GetVpcsFilterOutput)
 }
 
+type GetVpnConnectionFilter struct {
+	// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpnConnectionFilterInput is an input type that accepts GetVpnConnectionFilterArgs and GetVpnConnectionFilterOutput values.
+// You can construct a concrete instance of `GetVpnConnectionFilterInput` via:
+//
+//	GetVpnConnectionFilterArgs{...}
+type GetVpnConnectionFilterInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionFilterOutput() GetVpnConnectionFilterOutput
+	ToGetVpnConnectionFilterOutputWithContext(context.Context) GetVpnConnectionFilterOutput
+}
+
+type GetVpnConnectionFilterArgs struct {
+	// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpnConnectionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionFilter)(nil)).Elem()
+}
+
+func (i GetVpnConnectionFilterArgs) ToGetVpnConnectionFilterOutput() GetVpnConnectionFilterOutput {
+	return i.ToGetVpnConnectionFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionFilterArgs) ToGetVpnConnectionFilterOutputWithContext(ctx context.Context) GetVpnConnectionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionFilterOutput)
+}
+
+// GetVpnConnectionFilterArrayInput is an input type that accepts GetVpnConnectionFilterArray and GetVpnConnectionFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpnConnectionFilterArrayInput` via:
+//
+//	GetVpnConnectionFilterArray{ GetVpnConnectionFilterArgs{...} }
+type GetVpnConnectionFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionFilterArrayOutput() GetVpnConnectionFilterArrayOutput
+	ToGetVpnConnectionFilterArrayOutputWithContext(context.Context) GetVpnConnectionFilterArrayOutput
+}
+
+type GetVpnConnectionFilterArray []GetVpnConnectionFilterInput
+
+func (GetVpnConnectionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionFilter)(nil)).Elem()
+}
+
+func (i GetVpnConnectionFilterArray) ToGetVpnConnectionFilterArrayOutput() GetVpnConnectionFilterArrayOutput {
+	return i.ToGetVpnConnectionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionFilterArray) ToGetVpnConnectionFilterArrayOutputWithContext(ctx context.Context) GetVpnConnectionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionFilterArrayOutput)
+}
+
+type GetVpnConnectionFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionFilter)(nil)).Elem()
+}
+
+func (o GetVpnConnectionFilterOutput) ToGetVpnConnectionFilterOutput() GetVpnConnectionFilterOutput {
+	return o
+}
+
+func (o GetVpnConnectionFilterOutput) ToGetVpnConnectionFilterOutputWithContext(ctx context.Context) GetVpnConnectionFilterOutput {
+	return o
+}
+
+// Name of the filter field. Valid values can be found in the [EC2 `DescribeVPNConnections` API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html).
+func (o GetVpnConnectionFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetVpnConnectionFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpnConnectionFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpnConnectionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionFilter)(nil)).Elem()
+}
+
+func (o GetVpnConnectionFilterArrayOutput) ToGetVpnConnectionFilterArrayOutput() GetVpnConnectionFilterArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionFilterArrayOutput) ToGetVpnConnectionFilterArrayOutputWithContext(ctx context.Context) GetVpnConnectionFilterArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVpnConnectionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnConnectionFilter {
+		return vs[0].([]GetVpnConnectionFilter)[vs[1].(int)]
+	}).(GetVpnConnectionFilterOutput)
+}
+
+type GetVpnConnectionRouteType struct {
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	Source               string `pulumi:"source"`
+	// Current state of the VPN connection.
+	State string `pulumi:"state"`
+}
+
+// GetVpnConnectionRouteTypeInput is an input type that accepts GetVpnConnectionRouteTypeArgs and GetVpnConnectionRouteTypeOutput values.
+// You can construct a concrete instance of `GetVpnConnectionRouteTypeInput` via:
+//
+//	GetVpnConnectionRouteTypeArgs{...}
+type GetVpnConnectionRouteTypeInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionRouteTypeOutput() GetVpnConnectionRouteTypeOutput
+	ToGetVpnConnectionRouteTypeOutputWithContext(context.Context) GetVpnConnectionRouteTypeOutput
+}
+
+type GetVpnConnectionRouteTypeArgs struct {
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	Source               pulumi.StringInput `pulumi:"source"`
+	// Current state of the VPN connection.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (GetVpnConnectionRouteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionRouteType)(nil)).Elem()
+}
+
+func (i GetVpnConnectionRouteTypeArgs) ToGetVpnConnectionRouteTypeOutput() GetVpnConnectionRouteTypeOutput {
+	return i.ToGetVpnConnectionRouteTypeOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionRouteTypeArgs) ToGetVpnConnectionRouteTypeOutputWithContext(ctx context.Context) GetVpnConnectionRouteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionRouteTypeOutput)
+}
+
+// GetVpnConnectionRouteTypeArrayInput is an input type that accepts GetVpnConnectionRouteTypeArray and GetVpnConnectionRouteTypeArrayOutput values.
+// You can construct a concrete instance of `GetVpnConnectionRouteTypeArrayInput` via:
+//
+//	GetVpnConnectionRouteTypeArray{ GetVpnConnectionRouteTypeArgs{...} }
+type GetVpnConnectionRouteTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionRouteTypeArrayOutput() GetVpnConnectionRouteTypeArrayOutput
+	ToGetVpnConnectionRouteTypeArrayOutputWithContext(context.Context) GetVpnConnectionRouteTypeArrayOutput
+}
+
+type GetVpnConnectionRouteTypeArray []GetVpnConnectionRouteTypeInput
+
+func (GetVpnConnectionRouteTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionRouteType)(nil)).Elem()
+}
+
+func (i GetVpnConnectionRouteTypeArray) ToGetVpnConnectionRouteTypeArrayOutput() GetVpnConnectionRouteTypeArrayOutput {
+	return i.ToGetVpnConnectionRouteTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionRouteTypeArray) ToGetVpnConnectionRouteTypeArrayOutputWithContext(ctx context.Context) GetVpnConnectionRouteTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionRouteTypeArrayOutput)
+}
+
+type GetVpnConnectionRouteTypeOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionRouteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionRouteType)(nil)).Elem()
+}
+
+func (o GetVpnConnectionRouteTypeOutput) ToGetVpnConnectionRouteTypeOutput() GetVpnConnectionRouteTypeOutput {
+	return o
+}
+
+func (o GetVpnConnectionRouteTypeOutput) ToGetVpnConnectionRouteTypeOutputWithContext(ctx context.Context) GetVpnConnectionRouteTypeOutput {
+	return o
+}
+
+func (o GetVpnConnectionRouteTypeOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+func (o GetVpnConnectionRouteTypeOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Current state of the VPN connection.
+func (o GetVpnConnectionRouteTypeOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.State }).(pulumi.StringOutput)
+}
+
+type GetVpnConnectionRouteTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionRouteTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionRouteType)(nil)).Elem()
+}
+
+func (o GetVpnConnectionRouteTypeArrayOutput) ToGetVpnConnectionRouteTypeArrayOutput() GetVpnConnectionRouteTypeArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionRouteTypeArrayOutput) ToGetVpnConnectionRouteTypeArrayOutputWithContext(ctx context.Context) GetVpnConnectionRouteTypeArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) GetVpnConnectionRouteTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnConnectionRouteType {
+		return vs[0].([]GetVpnConnectionRouteType)[vs[1].(int)]
+	}).(GetVpnConnectionRouteTypeOutput)
+}
+
+type GetVpnConnectionVgwTelemetry struct {
+	AcceptedRouteCount int    `pulumi:"acceptedRouteCount"`
+	LastStatusChange   string `pulumi:"lastStatusChange"`
+	OutsideIpAddress   string `pulumi:"outsideIpAddress"`
+	Status             string `pulumi:"status"`
+	StatusMessage      string `pulumi:"statusMessage"`
+}
+
+// GetVpnConnectionVgwTelemetryInput is an input type that accepts GetVpnConnectionVgwTelemetryArgs and GetVpnConnectionVgwTelemetryOutput values.
+// You can construct a concrete instance of `GetVpnConnectionVgwTelemetryInput` via:
+//
+//	GetVpnConnectionVgwTelemetryArgs{...}
+type GetVpnConnectionVgwTelemetryInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionVgwTelemetryOutput() GetVpnConnectionVgwTelemetryOutput
+	ToGetVpnConnectionVgwTelemetryOutputWithContext(context.Context) GetVpnConnectionVgwTelemetryOutput
+}
+
+type GetVpnConnectionVgwTelemetryArgs struct {
+	AcceptedRouteCount pulumi.IntInput    `pulumi:"acceptedRouteCount"`
+	LastStatusChange   pulumi.StringInput `pulumi:"lastStatusChange"`
+	OutsideIpAddress   pulumi.StringInput `pulumi:"outsideIpAddress"`
+	Status             pulumi.StringInput `pulumi:"status"`
+	StatusMessage      pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (GetVpnConnectionVgwTelemetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionVgwTelemetry)(nil)).Elem()
+}
+
+func (i GetVpnConnectionVgwTelemetryArgs) ToGetVpnConnectionVgwTelemetryOutput() GetVpnConnectionVgwTelemetryOutput {
+	return i.ToGetVpnConnectionVgwTelemetryOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionVgwTelemetryArgs) ToGetVpnConnectionVgwTelemetryOutputWithContext(ctx context.Context) GetVpnConnectionVgwTelemetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionVgwTelemetryOutput)
+}
+
+// GetVpnConnectionVgwTelemetryArrayInput is an input type that accepts GetVpnConnectionVgwTelemetryArray and GetVpnConnectionVgwTelemetryArrayOutput values.
+// You can construct a concrete instance of `GetVpnConnectionVgwTelemetryArrayInput` via:
+//
+//	GetVpnConnectionVgwTelemetryArray{ GetVpnConnectionVgwTelemetryArgs{...} }
+type GetVpnConnectionVgwTelemetryArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnConnectionVgwTelemetryArrayOutput() GetVpnConnectionVgwTelemetryArrayOutput
+	ToGetVpnConnectionVgwTelemetryArrayOutputWithContext(context.Context) GetVpnConnectionVgwTelemetryArrayOutput
+}
+
+type GetVpnConnectionVgwTelemetryArray []GetVpnConnectionVgwTelemetryInput
+
+func (GetVpnConnectionVgwTelemetryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionVgwTelemetry)(nil)).Elem()
+}
+
+func (i GetVpnConnectionVgwTelemetryArray) ToGetVpnConnectionVgwTelemetryArrayOutput() GetVpnConnectionVgwTelemetryArrayOutput {
+	return i.ToGetVpnConnectionVgwTelemetryArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnConnectionVgwTelemetryArray) ToGetVpnConnectionVgwTelemetryArrayOutputWithContext(ctx context.Context) GetVpnConnectionVgwTelemetryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnConnectionVgwTelemetryArrayOutput)
+}
+
+type GetVpnConnectionVgwTelemetryOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionVgwTelemetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnConnectionVgwTelemetry)(nil)).Elem()
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) ToGetVpnConnectionVgwTelemetryOutput() GetVpnConnectionVgwTelemetryOutput {
+	return o
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) ToGetVpnConnectionVgwTelemetryOutputWithContext(ctx context.Context) GetVpnConnectionVgwTelemetryOutput {
+	return o
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) int { return v.AcceptedRouteCount }).(pulumi.IntOutput)
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) LastStatusChange() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.LastStatusChange }).(pulumi.StringOutput)
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) OutsideIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.OutsideIpAddress }).(pulumi.StringOutput)
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetVpnConnectionVgwTelemetryOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type GetVpnConnectionVgwTelemetryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnConnectionVgwTelemetryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnConnectionVgwTelemetry)(nil)).Elem()
+}
+
+func (o GetVpnConnectionVgwTelemetryArrayOutput) ToGetVpnConnectionVgwTelemetryArrayOutput() GetVpnConnectionVgwTelemetryArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionVgwTelemetryArrayOutput) ToGetVpnConnectionVgwTelemetryArrayOutputWithContext(ctx context.Context) GetVpnConnectionVgwTelemetryArrayOutput {
+	return o
+}
+
+func (o GetVpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) GetVpnConnectionVgwTelemetryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnConnectionVgwTelemetry {
+		return vs[0].([]GetVpnConnectionVgwTelemetry)[vs[1].(int)]
+	}).(GetVpnConnectionVgwTelemetryOutput)
+}
+
 type GetVpnGatewayFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
@@ -61985,6 +62318,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionsFilterArrayInput)(nil)).Elem(), GetVpcPeeringConnectionsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcsFilterInput)(nil)).Elem(), GetVpcsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcsFilterArrayInput)(nil)).Elem(), GetVpcsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionFilterInput)(nil)).Elem(), GetVpnConnectionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionFilterArrayInput)(nil)).Elem(), GetVpnConnectionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionRouteTypeInput)(nil)).Elem(), GetVpnConnectionRouteTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionRouteTypeArrayInput)(nil)).Elem(), GetVpnConnectionRouteTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
 	pulumi.RegisterOutputType(AmiCopyEbsBlockDeviceOutput{})
@@ -62880,6 +63219,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionFilterOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionRouteTypeOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionRouteTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionVgwTelemetryOutput{})
+	pulumi.RegisterOutputType(GetVpnConnectionVgwTelemetryArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayFilterArrayOutput{})
 }

@@ -148,16 +148,39 @@ import (
 //
 // AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
 //
-//	resource "lakeformation.Permissions" "example" {
-//	  permissions = ["SELECT"]
-//	  principal   = "123456789012:IAMPrincipals"
+// ```go
+// package main
 //
-//	  tableWithColumns {
-//	    databaseName = aws_glue_catalog_table.example.database_name
-//	    name          = aws_glue_catalog_table.example.name
-//	    columnNames  = ["event"]
-//	  }
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("SELECT"),
+//				},
+//				Principal: pulumi.String("123456789012:IAMPrincipals"),
+//				TableWithColumns: &lakeformation.PermissionsTableWithColumnsArgs{
+//					DatabaseName: pulumi.Any(exampleAwsGlueCatalogTable.DatabaseName),
+//					Name:         pulumi.Any(exampleAwsGlueCatalogTable.Name),
+//					ColumnNames: pulumi.StringArray{
+//						pulumi.String("event"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
+//
+// ```
 //
 // ## Using Lake Formation Permissions
 //

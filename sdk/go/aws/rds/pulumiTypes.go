@@ -3976,6 +3976,112 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 	}).(GetEngineVersionFilterOutput)
 }
 
+type GetGlobalClusterMember struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn string `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter bool `pulumi:"isWriter"`
+}
+
+// GetGlobalClusterMemberInput is an input type that accepts GetGlobalClusterMemberArgs and GetGlobalClusterMemberOutput values.
+// You can construct a concrete instance of `GetGlobalClusterMemberInput` via:
+//
+//	GetGlobalClusterMemberArgs{...}
+type GetGlobalClusterMemberInput interface {
+	pulumi.Input
+
+	ToGetGlobalClusterMemberOutput() GetGlobalClusterMemberOutput
+	ToGetGlobalClusterMemberOutputWithContext(context.Context) GetGlobalClusterMemberOutput
+}
+
+type GetGlobalClusterMemberArgs struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn pulumi.StringInput `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter pulumi.BoolInput `pulumi:"isWriter"`
+}
+
+func (GetGlobalClusterMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GetGlobalClusterMemberArgs) ToGetGlobalClusterMemberOutput() GetGlobalClusterMemberOutput {
+	return i.ToGetGlobalClusterMemberOutputWithContext(context.Background())
+}
+
+func (i GetGlobalClusterMemberArgs) ToGetGlobalClusterMemberOutputWithContext(ctx context.Context) GetGlobalClusterMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGlobalClusterMemberOutput)
+}
+
+// GetGlobalClusterMemberArrayInput is an input type that accepts GetGlobalClusterMemberArray and GetGlobalClusterMemberArrayOutput values.
+// You can construct a concrete instance of `GetGlobalClusterMemberArrayInput` via:
+//
+//	GetGlobalClusterMemberArray{ GetGlobalClusterMemberArgs{...} }
+type GetGlobalClusterMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetGlobalClusterMemberArrayOutput() GetGlobalClusterMemberArrayOutput
+	ToGetGlobalClusterMemberArrayOutputWithContext(context.Context) GetGlobalClusterMemberArrayOutput
+}
+
+type GetGlobalClusterMemberArray []GetGlobalClusterMemberInput
+
+func (GetGlobalClusterMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GetGlobalClusterMemberArray) ToGetGlobalClusterMemberArrayOutput() GetGlobalClusterMemberArrayOutput {
+	return i.ToGetGlobalClusterMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetGlobalClusterMemberArray) ToGetGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GetGlobalClusterMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGlobalClusterMemberArrayOutput)
+}
+
+type GetGlobalClusterMemberOutput struct{ *pulumi.OutputState }
+
+func (GetGlobalClusterMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GetGlobalClusterMemberOutput) ToGetGlobalClusterMemberOutput() GetGlobalClusterMemberOutput {
+	return o
+}
+
+func (o GetGlobalClusterMemberOutput) ToGetGlobalClusterMemberOutputWithContext(ctx context.Context) GetGlobalClusterMemberOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of member DB Cluster
+func (o GetGlobalClusterMemberOutput) DbClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGlobalClusterMember) string { return v.DbClusterArn }).(pulumi.StringOutput)
+}
+
+// Whether the member is the primary DB Cluster
+func (o GetGlobalClusterMemberOutput) IsWriter() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGlobalClusterMember) bool { return v.IsWriter }).(pulumi.BoolOutput)
+}
+
+type GetGlobalClusterMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGlobalClusterMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GetGlobalClusterMemberArrayOutput) ToGetGlobalClusterMemberArrayOutput() GetGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GetGlobalClusterMemberArrayOutput) ToGetGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GetGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GetGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GetGlobalClusterMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGlobalClusterMember {
+		return vs[0].([]GetGlobalClusterMember)[vs[1].(int)]
+	}).(GetGlobalClusterMemberOutput)
+}
+
 type GetInstanceMasterUserSecret struct {
 	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -4374,6 +4480,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterArrayInput)(nil)).Elem(), GetClustersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberInput)(nil)).Elem(), GetGlobalClusterMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberArrayInput)(nil)).Elem(), GetGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretInput)(nil)).Elem(), GetInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretArrayInput)(nil)).Elem(), GetInstanceMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterInput)(nil)).Elem(), GetInstancesFilterArgs{})
@@ -4432,6 +4540,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClustersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetGlobalClusterMemberOutput{})
+	pulumi.RegisterOutputType(GetGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(GetInstanceMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})

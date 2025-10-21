@@ -82,6 +82,8 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
+     * &gt; **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+     * 
      */
     @Import(name="routes")
     private @Nullable Output<List<RouteTableRouteArgs>> routes;
@@ -89,6 +91,8 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+     * 
+     * &gt; **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
      * 
      */
     public Optional<Output<List<RouteTableRouteArgs>>> routes() {
@@ -269,6 +273,8 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
          * @param routes A list of route objects. Their keys are documented below.
          * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
          * 
+         * &gt; **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+         * 
          * @return builder
          * 
          */
@@ -281,6 +287,8 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
          * @param routes A list of route objects. Their keys are documented below.
          * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
          * 
+         * &gt; **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+         * 
          * @return builder
          * 
          */
@@ -291,6 +299,8 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routes A list of route objects. Their keys are documented below.
          * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
+         * 
+         * &gt; **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource (`aws.ec2.Route`) and a Route Table resource with routes defined in-line (`aws.ec2.RouteTable`). At this time you cannot use a `aws.ec2.RouteTable` inline `route` blocks in conjunction with any `aws.ec2.Route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.
          * 
          * @return builder
          * 

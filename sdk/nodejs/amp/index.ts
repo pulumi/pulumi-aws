@@ -30,6 +30,11 @@ export type QueryLoggingConfiguration = import("./queryLoggingConfiguration").Qu
 export const QueryLoggingConfiguration: typeof import("./queryLoggingConfiguration").QueryLoggingConfiguration = null as any;
 utilities.lazyLoad(exports, ["QueryLoggingConfiguration"], () => require("./queryLoggingConfiguration"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
 export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
 export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;
@@ -59,6 +64,8 @@ const _module = {
                 return new AlertManagerDefinition(name, <any>undefined, { urn })
             case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
                 return new QueryLoggingConfiguration(name, <any>undefined, { urn })
+            case "aws:amp/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
                 return new RuleGroupNamespace(name, <any>undefined, { urn })
             case "aws:amp/scraper:Scraper":
@@ -74,6 +81,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/queryLoggingConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)

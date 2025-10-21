@@ -20,9 +20,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.datazone.Environment("example", {
  *     name: "example",
- *     accountIdentifier: test.accountId,
- *     accountRegion: testAwsRegion.name,
- *     blueprintIdentifier: testAwsDatazoneEnvironmentBlueprintConfiguration.environmentBlueprintId,
+ *     blueprintIdentifier: test.environmentBlueprintId,
  *     profileIdentifier: testAwsDatazoneEnvironmentProfile.id,
  *     projectIdentifier: testAwsDatazoneProject.id,
  *     domainIdentifier: testAwsDatazoneDomain.id,
@@ -140,7 +138,9 @@ export class Environment extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.datazone.EnvironmentTimeouts | undefined>;
     /**
-     * The user parameters that are used in the environment. See User Parameters for more information.
+     * The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      */
     declare public readonly userParameters: pulumi.Output<outputs.datazone.EnvironmentUserParameter[] | undefined>;
 
@@ -273,7 +273,9 @@ export interface EnvironmentState {
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
     /**
-     * The user parameters that are used in the environment. See User Parameters for more information.
+     * The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      */
     userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[]>;
 }
@@ -326,7 +328,9 @@ export interface EnvironmentArgs {
     region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
     /**
-     * The user parameters that are used in the environment. See User Parameters for more information.
+     * The user parameters that are used in the environment.
+     * See User Parameters for more information.
+     * Changing these values recreates the resource.
      */
     userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentUserParameter>[]>;
 }

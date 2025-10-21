@@ -150,6 +150,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly releaseLabel: pulumi.Output<string>;
     /**
+     * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     */
+    declare public readonly schedulerConfiguration: pulumi.Output<outputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -187,6 +191,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = state?.networkConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["releaseLabel"] = state?.releaseLabel;
+            resourceInputs["schedulerConfiguration"] = state?.schedulerConfiguration;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["type"] = state?.type;
@@ -209,6 +214,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["schedulerConfiguration"] = args?.schedulerConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
@@ -272,6 +278,10 @@ export interface ApplicationState {
      */
     releaseLabel?: pulumi.Input<string>;
     /**
+     * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     */
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -333,6 +343,10 @@ export interface ApplicationArgs {
      * The EMR release version associated with the application.
      */
     releaseLabel: pulumi.Input<string>;
+    /**
+     * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     */
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

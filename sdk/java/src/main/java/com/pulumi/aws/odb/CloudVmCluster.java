@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var withMinimumParameter = new CloudVmCluster("withMinimumParameter", CloudVmClusterArgs.builder()
- *             .displayName("my-exa-infra")
- *             .cloudExadataInfrastructureId("exa_gjrmtxl4qk")
+ *             .displayName("my_vm_cluster")
+ *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .cpuCoreCount(6)
  *             .giVersion("23.0.0.0")
  *             .hostnamePrefix("apollo12")
  *             .sshPublicKeys("public-ssh-key")
- *             .odbNetworkId("odbnet_3l9st3litg")
+ *             .odbNetworkId("<aws_odb_network_id>")
  *             .isLocalBackupEnabled(true)
  *             .isSparseDiskgroupEnabled(true)
  *             .licenseModel("LICENSE_INCLUDED")
@@ -75,13 +75,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var withAllParameters = new CloudVmCluster("withAllParameters", CloudVmClusterArgs.builder()
- *             .displayName("my-vmc")
- *             .cloudExadataInfrastructureId("exa_gjrmtxl4qk")
+ *             .displayName("my_vm_cluster")
+ *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .cpuCoreCount(6)
  *             .giVersion("23.0.0.0")
  *             .hostnamePrefix("apollo12")
  *             .sshPublicKeys("my-ssh-key")
- *             .odbNetworkId("odbnet_3l9st3litg")
+ *             .odbNetworkId("<aws_odb_network_id>")
  *             .isLocalBackupEnabled(true)
  *             .isSparseDiskgroupEnabled(true)
  *             .licenseModel("LICENSE_INCLUDED")

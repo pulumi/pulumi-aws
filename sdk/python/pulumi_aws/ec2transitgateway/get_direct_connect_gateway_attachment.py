@@ -120,6 +120,8 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[_builtins.str]
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 
+    !> **Warning:** Using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transit_gateway_attachment_id  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+
     ## Example Usage
 
     ### By Transit Gateway and Direct Connect Gateway Identifiers
@@ -164,6 +166,8 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+
+    !> **Warning:** Using the `ec2transitgateway_get_direct_connect_gateway_attachment` data source in combination with  `ec2transitgateway.RouteTablePropagation` or `ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `transit_gateway_attachment_id` attribute directly from the `directconnect.GatewayAssociation` resource. For example, `transit_gateway_attachment_id  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
 
     ## Example Usage
 

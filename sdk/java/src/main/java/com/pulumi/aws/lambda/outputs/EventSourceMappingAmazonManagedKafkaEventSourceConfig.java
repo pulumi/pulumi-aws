@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lambda.outputs;
 
+import com.pulumi.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -16,6 +17,11 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
      * 
      */
     private @Nullable String consumerGroupId;
+    /**
+     * @return Block for a Kafka schema registry setting. See below.
+     * 
+     */
+    private @Nullable EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig schemaRegistryConfig;
 
     private EventSourceMappingAmazonManagedKafkaEventSourceConfig() {}
     /**
@@ -24,6 +30,13 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
      */
     public Optional<String> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
+    }
+    /**
+     * @return Block for a Kafka schema registry setting. See below.
+     * 
+     */
+    public Optional<EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig> schemaRegistryConfig() {
+        return Optional.ofNullable(this.schemaRegistryConfig);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String consumerGroupId;
+        private @Nullable EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig schemaRegistryConfig;
         public Builder() {}
         public Builder(EventSourceMappingAmazonManagedKafkaEventSourceConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerGroupId = defaults.consumerGroupId;
+    	      this.schemaRegistryConfig = defaults.schemaRegistryConfig;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
             this.consumerGroupId = consumerGroupId;
             return this;
         }
+        @CustomType.Setter
+        public Builder schemaRegistryConfig(@Nullable EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig schemaRegistryConfig) {
+
+            this.schemaRegistryConfig = schemaRegistryConfig;
+            return this;
+        }
         public EventSourceMappingAmazonManagedKafkaEventSourceConfig build() {
             final var _resultValue = new EventSourceMappingAmazonManagedKafkaEventSourceConfig();
             _resultValue.consumerGroupId = consumerGroupId;
+            _resultValue.schemaRegistryConfig = schemaRegistryConfig;
             return _resultValue;
         }
     }

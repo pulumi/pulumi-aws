@@ -13,6 +13,7 @@ import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationInteractiveConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationMaximumCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationNetworkConfiguration;
+import com.pulumi.aws.emrserverless.outputs.ApplicationSchedulerConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -329,6 +330,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<String> releaseLabel() {
         return this.releaseLabel;
+    }
+    /**
+     * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     * 
+     */
+    @Export(name="schedulerConfiguration", refs={ApplicationSchedulerConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ApplicationSchedulerConfiguration> schedulerConfiguration;
+
+    /**
+     * @return Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
+     * 
+     */
+    public Output<Optional<ApplicationSchedulerConfiguration>> schedulerConfiguration() {
+        return Codegen.optional(this.schedulerConfiguration);
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

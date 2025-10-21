@@ -52,7 +52,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///             },
     ///             RoutingPolicy = "MULTIVALUE",
     ///         },
-    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
+    ///         HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
     ///         {
     ///             FailureThreshold = 1,
     ///         },
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<Outputs.ServiceHealthCheckConfig?> HealthCheckConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `HealthCheckCustomConfig` Block for details.
+        /// Please use `HealthCheckConfig` instead. See `HealthCheckCustomConfig` Block for details.
         /// </summary>
         [Output("healthCheckCustomConfig")]
         public Output<Outputs.ServiceHealthCheckCustomConfig?> HealthCheckCustomConfig { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<Inputs.ServiceHealthCheckConfigArgs>? HealthCheckConfig { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `HealthCheckCustomConfig` Block for details.
+        /// Please use `HealthCheckConfig` instead. See `HealthCheckCustomConfig` Block for details.
         /// </summary>
         [Input("healthCheckCustomConfig")]
         public Input<Inputs.ServiceHealthCheckCustomConfigArgs>? HealthCheckCustomConfig { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<Inputs.ServiceHealthCheckConfigGetArgs>? HealthCheckConfig { get; set; }
 
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks. See `HealthCheckCustomConfig` Block for details.
+        /// Please use `HealthCheckConfig` instead. See `HealthCheckCustomConfig` Block for details.
         /// </summary>
         [Input("healthCheckCustomConfig")]
         public Input<Inputs.ServiceHealthCheckCustomConfigGetArgs>? HealthCheckCustomConfig { get; set; }

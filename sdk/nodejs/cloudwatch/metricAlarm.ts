@@ -14,6 +14,8 @@ import {Topic} from "../sns";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +34,7 @@ import {Topic} from "../sns";
  * });
  * ```
  *
- * ## Example in Conjunction with Scaling Policies
+ * ### With Scaling Policies
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -62,7 +64,7 @@ import {Topic} from "../sns";
  * });
  * ```
  *
- * ## Example with an Expression
+ * ### With a Metrics Math Expression
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -148,7 +150,37 @@ import {Topic} from "../sns";
  * });
  * ```
  *
- * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+ * ### With a Metrics Insights Query
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.MetricAlarm("example", {
+ *     name: "example-alarm",
+ *     alarmDescription: "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+ *     comparisonOperator: "GreaterThanThreshold",
+ *     evaluationPeriods: 1,
+ *     threshold: 0.6,
+ *     treatMissingData: "notBreaching",
+ *     metricQueries: [{
+ *         id: "q1",
+ *         expression: `SELECT
+ *   MAX(DBLoadRelativeToNumVCPUs)
+ * FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+ * WHERE DBInstanceIdentifier != 'example-rds-instance'
+ * GROUP BY DBInstanceIdentifier
+ * ORDER BY MIN() ASC
+ * LIMIT 1
+ * `,
+ *         period: 60,
+ *         returnData: true,
+ *         label: "Max DB Load of the Least-Loaded RDS Instance",
+ *     }],
+ * });
+ * ```
+ *
+ * ### Monitoring Healthy NLB Hosts with Target Group and NLB
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -175,7 +207,7 @@ import {Topic} from "../sns";
  * ```
  *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
- * You must choose one or the other
+ * You must choose one or the other.
  *
  * ## Import
  *
@@ -246,7 +278,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     declare public readonly comparisonOperator: pulumi.Output<string>;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of data points that must be breaching to trigger the alarm.
      */
     declare public readonly datapointsToAlarm: pulumi.Output<number | undefined>;
     /**
@@ -440,7 +472,7 @@ export interface MetricAlarmState {
      */
     comparisonOperator?: pulumi.Input<string>;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of data points that must be breaching to trigger the alarm.
      */
     datapointsToAlarm?: pulumi.Input<number>;
     /**
@@ -554,7 +586,7 @@ export interface MetricAlarmArgs {
      */
     comparisonOperator: pulumi.Input<string>;
     /**
-     * The number of datapoints that must be breaching to trigger the alarm.
+     * The number of data points that must be breaching to trigger the alarm.
      */
     datapointsToAlarm?: pulumi.Input<number>;
     /**

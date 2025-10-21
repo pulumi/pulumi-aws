@@ -129,16 +129,34 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
     /// 
-    /// resource "aws.lakeformation.Permissions" "example" {
-    ///   permissions = ["SELECT"]
-    ///   principal   = "123456789012:IAMPrincipals"
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
-    ///   TableWithColumns {
-    ///     DatabaseName = aws_glue_catalog_table.example.database_name
-    ///     name          = aws_glue_catalog_table.example.name
-    ///     ColumnNames  = ["event"]
-    ///   }
-    /// }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LakeFormation.Permissions("example", new()
+    ///     {
+    ///         PermissionDetails = new[]
+    ///         {
+    ///             "SELECT",
+    ///         },
+    ///         Principal = "123456789012:IAMPrincipals",
+    ///         TableWithColumns = new Aws.LakeFormation.Inputs.PermissionsTableWithColumnsArgs
+    ///         {
+    ///             DatabaseName = exampleAwsGlueCatalogTable.DatabaseName,
+    ///             Name = exampleAwsGlueCatalogTable.Name,
+    ///             ColumnNames = new[]
+    ///             {
+    ///                 "event",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Using Lake Formation Permissions
     /// 

@@ -87,16 +87,20 @@ import * as utilities from "../utilities";
  *
  * AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
  *
- * resource "aws.lakeformation.Permissions" "example" {
- *   permissions = ["SELECT"]
- *   principal   = "123456789012:IAMPrincipals"
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  *
- *   tableWithColumns {
- *     databaseName = aws_glue_catalog_table.example.database_name
- *     name          = aws_glue_catalog_table.example.name
- *     columnNames  = ["event"]
- *   }
- * }
+ * const example = new aws.lakeformation.Permissions("example", {
+ *     permissions: ["SELECT"],
+ *     principal: "123456789012:IAMPrincipals",
+ *     tableWithColumns: {
+ *         databaseName: exampleAwsGlueCatalogTable.databaseName,
+ *         name: exampleAwsGlueCatalogTable.name,
+ *         columnNames: ["event"],
+ *     },
+ * });
+ * ```
  *
  * ## Using Lake Formation Permissions
  *
