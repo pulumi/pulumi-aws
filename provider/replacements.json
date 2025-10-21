@@ -1932,7 +1932,7 @@
     },
     {
       "old": "~> **NOTE on Route Tables and Routes:** Terraform currently provides both a standalone Route resource (`aws_route`) and a Route Table resource with routes defined in-line (`aws_route_table`). At this time you cannot use a `aws_route_table` inline `route` blocks in conjunction with any `aws_route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.\n",
-      "new": "~> **NOTE on Route Tables and Routes:** TODO currently provides both a standalone Route resource (`aws_route`) and a Route Table resource with routes defined in-line (`aws_route_table`). At this time you cannot use a `aws_route_table` inline `route` blocks in conjunction with any `aws_route` resources. Doing so will cause a conflict of rule settings and will overwrite rules.\n"
+      "new": ""
     }
   ],
   "route53_record.html.markdown": [
