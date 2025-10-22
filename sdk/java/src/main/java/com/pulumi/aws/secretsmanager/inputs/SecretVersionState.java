@@ -5,6 +5,8 @@ package com.pulumi.aws.secretsmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +31,13 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    @Import(name="hasSecretStringWo")
+    private @Nullable Output<Boolean> hasSecretStringWo;
+
+    public Optional<Output<Boolean>> hasSecretStringWo() {
+        return Optional.ofNullable(this.hasSecretStringWo);
     }
 
     /**
@@ -92,6 +101,21 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    @Import(name="secretStringWoVersion")
+    private @Nullable Output<Integer> secretStringWoVersion;
+
+    /**
+     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    public Optional<Output<Integer>> secretStringWoVersion() {
+        return Optional.ofNullable(this.secretStringWoVersion);
+    }
+
+    /**
      * The unique identifier of the version of the secret.
      * 
      */
@@ -129,10 +153,12 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
 
     private SecretVersionState(SecretVersionState $) {
         this.arn = $.arn;
+        this.hasSecretStringWo = $.hasSecretStringWo;
         this.region = $.region;
         this.secretBinary = $.secretBinary;
         this.secretId = $.secretId;
         this.secretString = $.secretString;
+        this.secretStringWoVersion = $.secretStringWoVersion;
         this.versionId = $.versionId;
         this.versionStages = $.versionStages;
     }
@@ -174,6 +200,15 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder hasSecretStringWo(@Nullable Output<Boolean> hasSecretStringWo) {
+            $.hasSecretStringWo = hasSecretStringWo;
+            return this;
+        }
+
+        public Builder hasSecretStringWo(Boolean hasSecretStringWo) {
+            return hasSecretStringWo(Output.of(hasSecretStringWo));
         }
 
         /**
@@ -258,6 +293,27 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder secretString(String secretString) {
             return secretString(Output.of(secretString));
+        }
+
+        /**
+         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWoVersion(@Nullable Output<Integer> secretStringWoVersion) {
+            $.secretStringWoVersion = secretStringWoVersion;
+            return this;
+        }
+
+        /**
+         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWoVersion(Integer secretStringWoVersion) {
+            return secretStringWoVersion(Output.of(secretStringWoVersion));
         }
 
         /**

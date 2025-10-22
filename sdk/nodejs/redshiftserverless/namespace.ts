@@ -64,6 +64,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
+     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     */
+    declare public readonly adminUserPasswordWoVersion: pulumi.Output<number | undefined>;
+    /**
      * The username of the administrator for the first database created in the namespace.
      */
     declare public readonly adminUsername: pulumi.Output<string>;
@@ -133,6 +137,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["adminPasswordSecretArn"] = state?.adminPasswordSecretArn;
             resourceInputs["adminPasswordSecretKmsKeyId"] = state?.adminPasswordSecretKmsKeyId;
             resourceInputs["adminUserPassword"] = state?.adminUserPassword;
+            resourceInputs["adminUserPasswordWoVersion"] = state?.adminUserPasswordWoVersion;
             resourceInputs["adminUsername"] = state?.adminUsername;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["dbName"] = state?.dbName;
@@ -153,6 +158,7 @@ export class Namespace extends pulumi.CustomResource {
             }
             resourceInputs["adminPasswordSecretKmsKeyId"] = args?.adminPasswordSecretKmsKeyId;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
+            resourceInputs["adminUserPasswordWoVersion"] = args?.adminUserPasswordWoVersion;
             resourceInputs["adminUsername"] = args?.adminUsername ? pulumi.secret(args.adminUsername) : undefined;
             resourceInputs["dbName"] = args?.dbName;
             resourceInputs["defaultIamRoleArn"] = args?.defaultIamRoleArn;
@@ -192,6 +198,10 @@ export interface NamespaceState {
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     */
+    adminUserPasswordWoVersion?: pulumi.Input<number>;
     /**
      * The username of the administrator for the first database created in the namespace.
      */
@@ -260,6 +270,10 @@ export interface NamespaceArgs {
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     */
+    adminUserPasswordWoVersion?: pulumi.Input<number>;
     /**
      * The username of the administrator for the first database created in the namespace.
      */

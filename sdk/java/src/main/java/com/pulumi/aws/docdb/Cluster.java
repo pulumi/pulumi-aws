@@ -407,6 +407,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> masterPassword() {
         return Codegen.optional(this.masterPassword);
     }
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> masterPasswordWoVersion;
+
+    /**
+     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> masterPasswordWoVersion() {
+        return Codegen.optional(this.masterPasswordWoVersion);
+    }
     @Export(name="masterUserSecrets", refs={List.class,ClusterMasterUserSecret.class}, tree="[0,1]")
     private Output<List<ClusterMasterUserSecret>> masterUserSecrets;
 

@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,6 +33,21 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
      */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
+    }
+
+    /**
+     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * 
+     */
+    @Import(name="apiKeyWoVersion")
+    private @Nullable Output<Integer> apiKeyWoVersion;
+
+    /**
+     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * 
+     */
+    public Optional<Output<Integer>> apiKeyWoVersion() {
+        return Optional.ofNullable(this.apiKeyWoVersion);
     }
 
     /**
@@ -76,6 +92,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     private AgentcoreApiKeyCredentialProviderArgs(AgentcoreApiKeyCredentialProviderArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyWoVersion = $.apiKeyWoVersion;
         this.name = $.name;
         this.region = $.region;
     }
@@ -121,6 +138,27 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(@Nullable Output<Integer> apiKeyWoVersion) {
+            $.apiKeyWoVersion = apiKeyWoVersion;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWoVersion(Integer apiKeyWoVersion) {
+            return apiKeyWoVersion(Output.of(apiKeyWoVersion));
         }
 
         /**

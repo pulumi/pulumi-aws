@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<Outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn>> ApiKeySecretArns { get; private set; } = null!;
 
         /// <summary>
+        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// </summary>
+        [Output("apiKeyWoVersion")]
+        public Output<int?> ApiKeyWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the API Key credential provider.
         /// </summary>
         [Output("credentialProviderArn")]
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
+        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// </summary>
+        [Input("apiKeyWoVersion")]
+        public Input<int>? ApiKeyWoVersion { get; set; }
+
+        /// <summary>
         /// Name of the API Key credential provider. Forces replacement when changed.
         /// 
         /// The following arguments are optional:
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.Bedrock
             get => _apiKeySecretArns ?? (_apiKeySecretArns = new InputList<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnGetArgs>());
             set => _apiKeySecretArns = value;
         }
+
+        /// <summary>
+        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// </summary>
+        [Input("apiKeyWoVersion")]
+        public Input<int>? ApiKeyWoVersion { get; set; }
 
         /// <summary>
         /// ARN of the API Key credential provider.

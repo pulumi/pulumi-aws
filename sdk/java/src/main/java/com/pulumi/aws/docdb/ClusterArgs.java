@@ -308,6 +308,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    @Import(name="masterPasswordWoVersion")
+    private @Nullable Output<Integer> masterPasswordWoVersion;
+
+    /**
+     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    public Optional<Output<Integer>> masterPasswordWoVersion() {
+        return Optional.ofNullable(this.masterPasswordWoVersion);
+    }
+
+    /**
      * Username for the master DB user.
      * 
      */
@@ -533,6 +548,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.manageMasterUserPassword = $.manageMasterUserPassword;
         this.masterPassword = $.masterPassword;
+        this.masterPasswordWoVersion = $.masterPasswordWoVersion;
         this.masterUsername = $.masterUsername;
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
@@ -991,6 +1007,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterPassword(String masterPassword) {
             return masterPassword(Output.of(masterPassword));
+        }
+
+        /**
+         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWoVersion(@Nullable Output<Integer> masterPasswordWoVersion) {
+            $.masterPasswordWoVersion = masterPasswordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWoVersion(Integer masterPasswordWoVersion) {
+            return masterPasswordWoVersion(Output.of(masterPasswordWoVersion));
         }
 
         /**

@@ -596,6 +596,10 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
+     * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     */
+    declare public readonly passwordWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      */
     declare public readonly performanceInsightsEnabled: pulumi.Output<boolean | undefined>;
@@ -787,6 +791,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = state?.optionGroupName;
             resourceInputs["parameterGroupName"] = state?.parameterGroupName;
             resourceInputs["password"] = state?.password;
+            resourceInputs["passwordWoVersion"] = state?.passwordWoVersion;
             resourceInputs["performanceInsightsEnabled"] = state?.performanceInsightsEnabled;
             resourceInputs["performanceInsightsKmsKeyId"] = state?.performanceInsightsKmsKeyId;
             resourceInputs["performanceInsightsRetentionPeriod"] = state?.performanceInsightsRetentionPeriod;
@@ -866,6 +871,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = args?.optionGroupName;
             resourceInputs["parameterGroupName"] = args?.parameterGroupName;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordWoVersion"] = args?.passwordWoVersion;
             resourceInputs["performanceInsightsEnabled"] = args?.performanceInsightsEnabled;
             resourceInputs["performanceInsightsKmsKeyId"] = args?.performanceInsightsKmsKeyId;
             resourceInputs["performanceInsightsRetentionPeriod"] = args?.performanceInsightsRetentionPeriod;
@@ -1196,6 +1202,10 @@ export interface InstanceState {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
+    /**
+     * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     */
+    passwordWoVersion?: pulumi.Input<number>;
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      */
@@ -1576,6 +1586,10 @@ export interface InstanceArgs {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
+    /**
+     * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     */
+    passwordWoVersion?: pulumi.Input<number>;
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      */

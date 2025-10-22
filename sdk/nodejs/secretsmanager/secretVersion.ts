@@ -76,6 +76,7 @@ export class SecretVersion extends pulumi.CustomResource {
      * The ARN of the secret.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly hasSecretStringWo: pulumi.Output<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -92,6 +93,10 @@ export class SecretVersion extends pulumi.CustomResource {
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     declare public readonly secretString: pulumi.Output<string | undefined>;
+    /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     */
+    declare public readonly secretStringWoVersion: pulumi.Output<number | undefined>;
     /**
      * The unique identifier of the version of the secret.
      */
@@ -117,10 +122,12 @@ export class SecretVersion extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SecretVersionState | undefined;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["hasSecretStringWo"] = state?.hasSecretStringWo;
             resourceInputs["region"] = state?.region;
             resourceInputs["secretBinary"] = state?.secretBinary;
             resourceInputs["secretId"] = state?.secretId;
             resourceInputs["secretString"] = state?.secretString;
+            resourceInputs["secretStringWoVersion"] = state?.secretStringWoVersion;
             resourceInputs["versionId"] = state?.versionId;
             resourceInputs["versionStages"] = state?.versionStages;
         } else {
@@ -132,8 +139,10 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["secretBinary"] = args?.secretBinary ? pulumi.secret(args.secretBinary) : undefined;
             resourceInputs["secretId"] = args?.secretId;
             resourceInputs["secretString"] = args?.secretString ? pulumi.secret(args.secretString) : undefined;
+            resourceInputs["secretStringWoVersion"] = args?.secretStringWoVersion;
             resourceInputs["versionStages"] = args?.versionStages;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hasSecretStringWo"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -151,6 +160,7 @@ export interface SecretVersionState {
      * The ARN of the secret.
      */
     arn?: pulumi.Input<string>;
+    hasSecretStringWo?: pulumi.Input<boolean>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -167,6 +177,10 @@ export interface SecretVersionState {
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
+    /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     */
+    secretStringWoVersion?: pulumi.Input<number>;
     /**
      * The unique identifier of the version of the secret.
      */
@@ -199,6 +213,10 @@ export interface SecretVersionArgs {
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
+    /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     */
+    secretStringWoVersion?: pulumi.Input<number>;
     /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      *

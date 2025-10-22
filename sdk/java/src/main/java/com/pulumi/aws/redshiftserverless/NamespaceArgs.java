@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> adminUserPassword() {
         return Optional.ofNullable(this.adminUserPassword);
+    }
+
+    /**
+     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * 
+     */
+    @Import(name="adminUserPasswordWoVersion")
+    private @Nullable Output<Integer> adminUserPasswordWoVersion;
+
+    /**
+     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * 
+     */
+    public Optional<Output<Integer>> adminUserPasswordWoVersion() {
+        return Optional.ofNullable(this.adminUserPasswordWoVersion);
     }
 
     /**
@@ -208,6 +224,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     private NamespaceArgs(NamespaceArgs $) {
         this.adminPasswordSecretKmsKeyId = $.adminPasswordSecretKmsKeyId;
         this.adminUserPassword = $.adminUserPassword;
+        this.adminUserPasswordWoVersion = $.adminUserPasswordWoVersion;
         this.adminUsername = $.adminUsername;
         this.dbName = $.dbName;
         this.defaultIamRoleArn = $.defaultIamRoleArn;
@@ -280,6 +297,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder adminUserPassword(String adminUserPassword) {
             return adminUserPassword(Output.of(adminUserPassword));
+        }
+
+        /**
+         * @param adminUserPasswordWoVersion Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminUserPasswordWoVersion(@Nullable Output<Integer> adminUserPasswordWoVersion) {
+            $.adminUserPasswordWoVersion = adminUserPasswordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param adminUserPasswordWoVersion Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminUserPasswordWoVersion(Integer adminUserPasswordWoVersion) {
+            return adminUserPasswordWoVersion(Output.of(adminUserPasswordWoVersion));
         }
 
         /**

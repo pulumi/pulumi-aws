@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Provides a resource to create a routing table entry (a route) in a VPC routing table.
+    /// 
+    /// &gt; **NOTE on `GatewayId` attribute:** The AWS API is very forgiving with the resource ID passed in the `GatewayId` attribute. For example an `aws.ec2.Route` resource can be created with an `aws.ec2.NatGateway` or `aws.ec2.EgressOnlyInternetGateway` ID specified for the `GatewayId` attribute. Specifying anything other than an `aws.ec2.InternetGateway` or `aws.ec2.VpnGateway` ID will lead to this provider reporting a permanent diff between your configuration and recorded state, as the AWS API returns the more-specific attribute. If you are experiencing constant diffs with an `aws.ec2.Route` resource, the first thing to check is that the correct attribute is being specified.
+    /// 
+    /// &gt; **NOTE on combining `VpcEndpointId` and `DestinationPrefixListId` attributes:** To associate a Gateway VPC Endpoint (such as S3) with destination prefix list, use the `aws.ec2.VpcEndpointRouteTableAssociation` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

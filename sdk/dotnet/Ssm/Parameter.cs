@@ -123,6 +123,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the resource has a `ValueWo` set.
+        /// </summary>
+        [Output("hasValueWo")]
+        public Output<bool> HasValueWo { get; private set; } = null!;
+
+        /// <summary>
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `Type` of `SecureString`.
         /// </summary>
         [Output("insecureValue")]
@@ -183,6 +189,14 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
+
+        /// <summary>
+        /// Used together with `ValueWo` to trigger an update. Increment this value when an update to the `ValueWo` is required.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` DataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        /// </summary>
+        [Output("valueWoVersion")]
+        public Output<int?> ValueWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Version of the parameter.
@@ -336,6 +350,14 @@ namespace Pulumi.Aws.Ssm
             }
         }
 
+        /// <summary>
+        /// Used together with `ValueWo` to trigger an update. Increment this value when an update to the `ValueWo` is required.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` DataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<int>? ValueWoVersion { get; set; }
+
         public ParameterArgs()
         {
         }
@@ -367,6 +389,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the resource has a `ValueWo` set.
+        /// </summary>
+        [Input("hasValueWo")]
+        public Input<bool>? HasValueWo { get; set; }
 
         /// <summary>
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `Type` of `SecureString`.
@@ -451,6 +479,14 @@ namespace Pulumi.Aws.Ssm
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `ValueWo` to trigger an update. Increment this value when an update to the `ValueWo` is required.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` DataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<int>? ValueWoVersion { get; set; }
 
         /// <summary>
         /// Version of the parameter.

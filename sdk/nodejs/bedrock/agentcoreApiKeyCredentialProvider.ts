@@ -71,6 +71,10 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly apiKeySecretArns: pulumi.Output<outputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn[]>;
     /**
+     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     */
+    declare public readonly apiKeyWoVersion: pulumi.Output<number | undefined>;
+    /**
      * ARN of the API Key credential provider.
      */
     declare public /*out*/ readonly credentialProviderArn: pulumi.Output<string>;
@@ -102,12 +106,14 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
             const state = argsOrState as AgentcoreApiKeyCredentialProviderState | undefined;
             resourceInputs["apiKey"] = state?.apiKey;
             resourceInputs["apiKeySecretArns"] = state?.apiKeySecretArns;
+            resourceInputs["apiKeyWoVersion"] = state?.apiKeyWoVersion;
             resourceInputs["credentialProviderArn"] = state?.credentialProviderArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as AgentcoreApiKeyCredentialProviderArgs | undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["apiKeyWoVersion"] = args?.apiKeyWoVersion;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["apiKeySecretArns"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface AgentcoreApiKeyCredentialProviderState {
      * ARN of the AWS Secrets Manager secret containing the API key.
      */
     apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[]>;
+    /**
+     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     */
+    apiKeyWoVersion?: pulumi.Input<number>;
     /**
      * ARN of the API Key credential provider.
      */
@@ -162,6 +172,10 @@ export interface AgentcoreApiKeyCredentialProviderArgs {
      * **Write-Only API Key (choose one approach):**
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     */
+    apiKeyWoVersion?: pulumi.Input<number>;
     /**
      * Name of the API Key credential provider. Forces replacement when changed.
      *
