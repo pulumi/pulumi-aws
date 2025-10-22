@@ -57,13 +57,13 @@ size = 128439774
 url = "https://github.com/gradle/gradle-distributions/releases/download/v7.6.6/gradle-7.6.6-bin.zip"
 
 [[tools.java]]
-version = "corretto-11.0.28.6.1"
+version = "corretto-11.0.29.7.1"
 backend = "core:java"
 
 [tools.java.platforms.linux-x64]
-checksum = "sha256:70734c46e0bbeb7f45b721756ba0b2f1f1e1ef85a11e10d5a488f06b257dadd9"
-size = 195648709
-url = "https://corretto.aws/downloads/resources/11.0.28.6.1/amazon-corretto-11.0.28.6.1-linux-x64.tar.gz"
+checksum = "sha256:279c6d3124f8b0251b16297b16687fe8b3946410b05ed27de1259b5e5cea02ba"
+size = 195379320
+url = "https://corretto.aws/downloads/resources/11.0.29.7.1/amazon-corretto-11.0.29.7.1-linux-x64.tar.gz"
 
 [[tools.node]]
 version = "20.19.5"
