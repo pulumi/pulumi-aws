@@ -10,7 +10,7 @@ We think this was an optimization for a special edge case that
 drastically worsens the UX for the majority of users.
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index a554e1c579..c4ea822a4a 100644
+index f7294983e2..bb6d966ab4 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
 @@ -37,7 +37,6 @@ import (
