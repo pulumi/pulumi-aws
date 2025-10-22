@@ -28,6 +28,11 @@ url_api = ""
 version = "1.24.9"
 backend = "core:go"
 
+[tools.go.platforms.linux-x64]
+checksum = "sha256:5b7899591c2dd6e9da1809fde4a2fad842c45d3f6b9deb235ba82216e31e34a6"
+size = 78693175
+url = "https://dl.google.com/go/go1.24.9.linux-amd64.tar.gz"
+
 [tools.go.platforms.macos-arm64]
 checksum = "sha256:af451b40651d7fb36db1bbbd9c66ddbed28b96d7da48abea50a19f82c6e9d1d6"
 size = 76432048
