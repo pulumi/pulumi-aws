@@ -66,6 +66,7 @@ func TestProviderEndpoints(t *testing.T) {
 		t.Setenv("AWS_SECRET_ACCESS_KEY", "test")
 		t.Setenv("AWS_SESSION_TOKEN", "test")
 		t.Setenv("AWS_REGION", "us-west-2")
+		t.Setenv("AWS_PROFILE", "")
 
 		provider, err := testProviderServer()
 		require.NoError(t, err)
