@@ -6,7 +6,7 @@ Subject: [PATCH] Add dedicated_host docs
 
 diff --git a/website/docs/d/dedicated_host.html.markdown b/website/docs/d/dedicated_host.html.markdown
 new file mode 100644
-index 00000000000..9473a00c591
+index 0000000000..9473a00c59
 --- /dev/null
 +++ b/website/docs/d/dedicated_host.html.markdown
 @@ -0,0 +1,75 @@
@@ -87,7 +87,7 @@ index 00000000000..9473a00c591
 +```
 diff --git a/website/docs/r/dedicated_host.html.markdown b/website/docs/r/dedicated_host.html.markdown
 new file mode 100644
-index 00000000000..01845aa221c
+index 0000000000..01845aa221
 --- /dev/null
 +++ b/website/docs/r/dedicated_host.html.markdown
 @@ -0,0 +1,71 @@
