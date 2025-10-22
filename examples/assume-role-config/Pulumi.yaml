@@ -1,3 +1,0 @@
-name: assume-role-config
-runtime: nodejs
-description: Shows how to configure aws:assumeRoles
