@@ -30,7 +30,6 @@ const anotherSubnet = new aws.ec2.Subnet("another-subnet", {
 const secret = new aws.secretsmanager.Secret("secret", {});
 
 const example = new aws.rds.Proxy("example", {
-  name: "example",
   debugLogging: false,
   engineFamily: "MYSQL",
   idleClientTimeout: 1800,
@@ -38,9 +37,10 @@ const example = new aws.rds.Proxy("example", {
   roleArn: proxyRole.arn,
   vpcSubnetIds: [subnet.id, anotherSubnet.id],
   auths: secret.arn.apply(sec => [{
+    description: 'Postgres Proxy Authentication',
     iamAuth: "DISABLED",
     authScheme: "SECRETS",
-    secretArn: sec[0],
+    secretArn: sec,
   }]),
   tags: {
     Name: "example",
@@ -48,4 +48,20 @@ const example = new aws.rds.Proxy("example", {
   },
 });
 
+const example2 = new aws.rds.Proxy("example2", {
+  debugLogging: false,
+  engineFamily: "MYSQL",
+  idleClientTimeout: 1800,
+  requireTls: true,
+  roleArn: proxyRole.arn,
+  vpcSubnetIds: [subnet.id, anotherSubnet.id],
+  defaultAuthScheme: 'IAM_AUTH',
+  auths: [{}],
+  tags: {
+    Name: "example",
+    Key: "value",
+  },
+});
+
 export const exmapleID = example.id;
+export const example2ID = example2.id;
