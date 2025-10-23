@@ -6,6 +6,7 @@ package com.pulumi.aws.secretsmanager;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +79,21 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    @Import(name="secretStringWoVersion")
+    private @Nullable Output<Integer> secretStringWoVersion;
+
+    /**
+     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    public Optional<Output<Integer>> secretStringWoVersion() {
+        return Optional.ofNullable(this.secretStringWoVersion);
+    }
+
+    /**
      * Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that&#39;s already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
      * 
      * &gt; **NOTE:** If `versionStages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
@@ -103,6 +119,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         this.secretBinary = $.secretBinary;
         this.secretId = $.secretId;
         this.secretString = $.secretString;
+        this.secretStringWoVersion = $.secretStringWoVersion;
         this.versionStages = $.versionStages;
     }
 
@@ -206,6 +223,27 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secretString(String secretString) {
             return secretString(Output.of(secretString));
+        }
+
+        /**
+         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWoVersion(@Nullable Output<Integer> secretStringWoVersion) {
+            $.secretStringWoVersion = secretStringWoVersion;
+            return this;
+        }
+
+        /**
+         * @param secretStringWoVersion Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWoVersion(Integer secretStringWoVersion) {
+            return secretStringWoVersion(Output.of(secretStringWoVersion));
         }
 
         /**

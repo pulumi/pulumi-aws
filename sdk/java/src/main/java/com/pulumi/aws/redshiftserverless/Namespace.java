@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +106,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> adminUserPassword() {
         return Codegen.optional(this.adminUserPassword);
+    }
+    /**
+     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * 
+     */
+    @Export(name="adminUserPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> adminUserPasswordWoVersion;
+
+    /**
+     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * 
+     */
+    public Output<Optional<Integer>> adminUserPasswordWoVersion() {
+        return Codegen.optional(this.adminUserPasswordWoVersion);
     }
     /**
      * The username of the administrator for the first database created in the namespace.

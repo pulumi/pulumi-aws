@@ -32,7 +32,8 @@ class ParameterArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Parameter resource.
         :param pulumi.Input[Union[_builtins.str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -50,6 +51,9 @@ class ParameterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         pulumi.set(__self__, "type", type)
         if allowed_pattern is not None:
@@ -76,6 +80,8 @@ class ParameterArgs:
             pulumi.set(__self__, "tier", tier)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -235,6 +241,20 @@ class ParameterArgs:
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
 
+    @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "value_wo_version", value)
+
 
 @pulumi.input_type
 class _ParameterState:
@@ -243,6 +263,7 @@ class _ParameterState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  data_type: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 has_value_wo: Optional[pulumi.Input[_builtins.bool]] = None,
                  insecure_value: Optional[pulumi.Input[_builtins.str]] = None,
                  key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -253,6 +274,7 @@ class _ParameterState:
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Parameter resources.
@@ -260,6 +282,7 @@ class _ParameterState:
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
         :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
+        :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -272,6 +295,9 @@ class _ParameterState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[_builtins.int] version: Version of the parameter.
         """
         if allowed_pattern is not None:
@@ -282,6 +308,8 @@ class _ParameterState:
             pulumi.set(__self__, "data_type", data_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if has_value_wo is not None:
+            pulumi.set(__self__, "has_value_wo", has_value_wo)
         if insecure_value is not None:
             pulumi.set(__self__, "insecure_value", insecure_value)
         if key_id is not None:
@@ -302,6 +330,8 @@ class _ParameterState:
             pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -352,6 +382,18 @@ class _ParameterState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasValueWo")
+    def has_value_wo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether the resource has a `value_wo` set.
+        """
+        return pulumi.get(self, "has_value_wo")
+
+    @has_value_wo.setter
+    def has_value_wo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "has_value_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="insecureValue")
@@ -476,6 +518,20 @@ class _ParameterState:
         pulumi.set(self, "value", value)
 
     @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "value_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -507,6 +563,7 @@ class Parameter(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
         Provides an SSM Parameter resource.
@@ -591,6 +648,9 @@ class Parameter(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         ...
     @overload
@@ -692,6 +752,7 @@ class Parameter(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -716,6 +777,8 @@ class Parameter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
+            __props__.__dict__["value_wo_version"] = value_wo_version
+            __props__.__dict__["has_value_wo"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
@@ -734,6 +797,7 @@ class Parameter(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             data_type: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
+            has_value_wo: Optional[pulumi.Input[_builtins.bool]] = None,
             insecure_value: Optional[pulumi.Input[_builtins.str]] = None,
             key_id: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -744,6 +808,7 @@ class Parameter(pulumi.CustomResource):
             tier: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
             value: Optional[pulumi.Input[_builtins.str]] = None,
+            value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             version: Optional[pulumi.Input[_builtins.int]] = None) -> 'Parameter':
         """
         Get an existing Parameter resource's state with the given name, id, and optional extra
@@ -756,6 +821,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
         :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
+        :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[_builtins.str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -768,6 +834,9 @@ class Parameter(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[_builtins.int] version: Version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -778,6 +847,7 @@ class Parameter(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["data_type"] = data_type
         __props__.__dict__["description"] = description
+        __props__.__dict__["has_value_wo"] = has_value_wo
         __props__.__dict__["insecure_value"] = insecure_value
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["name"] = name
@@ -788,6 +858,7 @@ class Parameter(pulumi.CustomResource):
         __props__.__dict__["tier"] = tier
         __props__.__dict__["type"] = type
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_wo_version"] = value_wo_version
         __props__.__dict__["version"] = version
         return Parameter(resource_name, opts=opts, __props__=__props__)
 
@@ -822,6 +893,14 @@ class Parameter(pulumi.CustomResource):
         Description of the parameter.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="hasValueWo")
+    def has_value_wo(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates whether the resource has a `value_wo` set.
+        """
+        return pulumi.get(self, "has_value_wo")
 
     @_builtins.property
     @pulumi.getter(name="insecureValue")
@@ -904,6 +983,16 @@ class Parameter(pulumi.CustomResource):
         Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         """
         return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
+        return pulumi.get(self, "value_wo_version")
 
     @_builtins.property
     @pulumi.getter

@@ -9,6 +9,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -219,6 +220,25 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.value);
     }
 
+    /**
+     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
+     */
+    @Import(name="valueWoVersion")
+    private @Nullable Output<Integer> valueWoVersion;
+
+    /**
+     * @return Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
+     */
+    public Optional<Output<Integer>> valueWoVersion() {
+        return Optional.ofNullable(this.valueWoVersion);
+    }
+
     private ParameterArgs() {}
 
     private ParameterArgs(ParameterArgs $) {
@@ -235,6 +255,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.tier = $.tier;
         this.type = $.type;
         this.value = $.value;
+        this.valueWoVersion = $.valueWoVersion;
     }
 
     public static Builder builder() {
@@ -554,6 +575,31 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder value(String value) {
             return value(Output.of(value));
+        }
+
+        /**
+         * @param valueWoVersion Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+         * 
+         * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(@Nullable Output<Integer> valueWoVersion) {
+            $.valueWoVersion = valueWoVersion;
+            return this;
+        }
+
+        /**
+         * @param valueWoVersion Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+         * 
+         * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(Integer valueWoVersion) {
+            return valueWoVersion(Output.of(valueWoVersion));
         }
 
         public ParameterArgs build() {

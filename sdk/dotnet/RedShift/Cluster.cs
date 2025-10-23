@@ -273,6 +273,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> MasterPasswordSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Output("masterPasswordWoVersion")]
+        public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Username for the master DB user.
         /// </summary>
         [Output("masterUsername")]
@@ -595,6 +601,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterPasswordSecretKmsKeyId")]
         public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
 
         /// <summary>
         /// Username for the master DB user.
@@ -937,6 +949,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterPasswordSecretKmsKeyId")]
         public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
 
         /// <summary>
         /// Username for the master DB user.

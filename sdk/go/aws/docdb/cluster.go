@@ -115,8 +115,10 @@ type Cluster struct {
 	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword    pulumi.StringPtrOutput             `pulumi:"masterPassword"`
-	MasterUserSecrets ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
+	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrOutput                `pulumi:"masterPasswordWoVersion"`
+	MasterUserSecrets       ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
@@ -242,8 +244,10 @@ type clusterState struct {
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword    *string                   `pulumi:"masterPassword"`
-	MasterUserSecrets []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
+	MasterPassword *string `pulumi:"masterPassword"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion *int                      `pulumi:"masterPasswordWoVersion"`
+	MasterUserSecrets       []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
@@ -333,8 +337,10 @@ type ClusterState struct {
 	ManageMasterUserPassword pulumi.BoolPtrInput
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
-	MasterPassword    pulumi.StringPtrInput
-	MasterUserSecrets ClusterMasterUserSecretArrayInput
+	MasterPassword pulumi.StringPtrInput
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrInput
+	MasterUserSecrets       ClusterMasterUserSecretArrayInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
@@ -421,6 +427,8 @@ type clusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
@@ -500,6 +508,8 @@ type ClusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
@@ -736,6 +746,11 @@ func (o ClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 // show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
+}
+
+// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+func (o ClusterOutput) MasterPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.MasterPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterOutput) MasterUserSecrets() ClusterMasterUserSecretArrayOutput {

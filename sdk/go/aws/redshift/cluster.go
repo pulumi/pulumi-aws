@@ -163,6 +163,8 @@ type Cluster struct {
 	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrOutput `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// Specifies if the Redshift cluster is multi-AZ.
@@ -324,6 +326,8 @@ type clusterState struct {
 	MasterPasswordSecretArn *string `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Specifies if the Redshift cluster is multi-AZ.
@@ -443,6 +447,8 @@ type ClusterState struct {
 	MasterPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// Specifies if the Redshift cluster is multi-AZ.
@@ -550,6 +556,8 @@ type clusterArgs struct {
 	MasterPassword *string `pulumi:"masterPassword"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Specifies if the Redshift cluster is multi-AZ.
@@ -652,6 +660,8 @@ type ClusterArgs struct {
 	MasterPassword pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
+	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// Specifies if the Redshift cluster is multi-AZ.
@@ -949,6 +959,11 @@ func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringOutput {
 // ID of the KMS key used to encrypt the cluster admin credentials secret.
 func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringOutput)
+}
+
+// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+func (o ClusterOutput) MasterPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.MasterPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Username for the master DB user.

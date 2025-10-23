@@ -438,6 +438,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly masterPassword: pulumi.Output<string | undefined>;
     /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */
     declare public readonly masterUserSecretKmsKeyId: pulumi.Output<string>;
@@ -608,6 +612,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = state?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = state?.masterPassword;
+            resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUserSecretKmsKeyId"] = state?.masterUserSecretKmsKeyId;
             resourceInputs["masterUserSecrets"] = state?.masterUserSecrets;
             resourceInputs["masterUsername"] = state?.masterUsername;
@@ -679,6 +684,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = args?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
+            resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUserSecretKmsKeyId"] = args?.masterUserSecretKmsKeyId;
             resourceInputs["masterUsername"] = args?.masterUsername;
             resourceInputs["monitoringInterval"] = args?.monitoringInterval;
@@ -910,6 +916,10 @@ export interface ClusterState {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */
@@ -1190,6 +1200,10 @@ export interface ClusterArgs {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */

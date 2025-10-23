@@ -168,6 +168,10 @@ export class Cluster extends pulumi.CustomResource {
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     declare public readonly masterPassword: pulumi.Output<string | undefined>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
     declare public /*out*/ readonly masterUserSecrets: pulumi.Output<outputs.docdb.ClusterMasterUserSecret[]>;
     /**
      * Username for the master DB user.
@@ -270,6 +274,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = state?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = state?.masterPassword;
+            resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUserSecrets"] = state?.masterUserSecrets;
             resourceInputs["masterUsername"] = state?.masterUsername;
             resourceInputs["port"] = state?.port;
@@ -306,6 +311,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = args?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
+            resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = args?.masterUsername;
             resourceInputs["port"] = args?.port;
             resourceInputs["preferredBackupWindow"] = args?.preferredBackupWindow;
@@ -434,6 +440,10 @@ export interface ClusterState {
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterMasterUserSecret>[]>;
     /**
      * Username for the master DB user.
@@ -586,6 +596,10 @@ export interface ClusterArgs {
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Username for the master DB user.
      */

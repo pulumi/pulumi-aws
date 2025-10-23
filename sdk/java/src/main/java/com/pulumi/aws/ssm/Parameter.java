@@ -192,6 +192,20 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Indicates whether the resource has a `valueWo` set.
+     * 
+     */
+    @Export(name="hasValueWo", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hasValueWo;
+
+    /**
+     * @return Indicates whether the resource has a `valueWo` set.
+     * 
+     */
+    public Output<Boolean> hasValueWo() {
+        return this.hasValueWo;
+    }
+    /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
@@ -334,6 +348,24 @@ public class Parameter extends com.pulumi.resources.CustomResource {
      */
     public Output<String> value() {
         return this.value;
+    }
+    /**
+     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
+     */
+    @Export(name="valueWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> valueWoVersion;
+
+    /**
+     * @return Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
+     */
+    public Output<Optional<Integer>> valueWoVersion() {
+        return Codegen.optional(this.valueWoVersion);
     }
     /**
      * Version of the parameter.

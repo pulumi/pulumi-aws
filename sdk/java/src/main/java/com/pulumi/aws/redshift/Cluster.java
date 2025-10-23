@@ -584,6 +584,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.masterPasswordSecretKmsKeyId;
     }
     /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> masterPasswordWoVersion;
+
+    /**
+     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> masterPasswordWoVersion() {
+        return Codegen.optional(this.masterPasswordWoVersion);
+    }
+    /**
      * Username for the master DB user.
      * 
      */

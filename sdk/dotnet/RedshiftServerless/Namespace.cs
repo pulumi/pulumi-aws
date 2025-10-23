@@ -59,6 +59,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string?> AdminUserPassword { get; private set; } = null!;
 
         /// <summary>
+        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// </summary>
+        [Output("adminUserPasswordWoVersion")]
+        public Output<int?> AdminUserPasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The username of the administrator for the first database created in the namespace.
         /// </summary>
         [Output("adminUsername")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.RedshiftServerless
             }
         }
 
+        /// <summary>
+        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// </summary>
+        [Input("adminUserPasswordWoVersion")]
+        public Input<int>? AdminUserPasswordWoVersion { get; set; }
+
         [Input("adminUsername")]
         private Input<string>? _adminUsername;
 
@@ -336,6 +348,12 @@ namespace Pulumi.Aws.RedshiftServerless
                 _adminUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// </summary>
+        [Input("adminUserPasswordWoVersion")]
+        public Input<int>? AdminUserPasswordWoVersion { get; set; }
 
         [Input("adminUsername")]
         private Input<string>? _adminUsername;

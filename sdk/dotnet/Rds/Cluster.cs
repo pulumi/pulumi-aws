@@ -576,6 +576,12 @@ namespace Pulumi.Aws.Rds
         public Output<string?> MasterPassword { get; private set; } = null!;
 
         /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Output("masterPasswordWoVersion")]
+        public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Output("masterUserSecretKmsKeyId")]
@@ -1066,6 +1072,12 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
+
+        /// <summary>
         /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Input("masterUserSecretKmsKeyId")]
@@ -1541,6 +1553,12 @@ namespace Pulumi.Aws.Rds
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
 
         /// <summary>
         /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.

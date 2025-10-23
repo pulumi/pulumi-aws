@@ -124,6 +124,8 @@ type Parameter struct {
 	DataType pulumi.StringOutput `pulumi:"dataType"`
 	// Description of the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether the resource has a `valueWo` set.
+	HasValueWo pulumi.BoolOutput `pulumi:"hasValueWo"`
 	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
 	InsecureValue pulumi.StringOutput `pulumi:"insecureValue"`
 	// KMS key ID or ARN for encrypting a SecureString.
@@ -146,6 +148,10 @@ type Parameter struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringOutput `pulumi:"value"`
+	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	//
+	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWoVersion pulumi.IntPtrOutput `pulumi:"valueWoVersion"`
 	// Version of the parameter.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
@@ -198,6 +204,8 @@ type parameterState struct {
 	DataType *string `pulumi:"dataType"`
 	// Description of the parameter.
 	Description *string `pulumi:"description"`
+	// Indicates whether the resource has a `valueWo` set.
+	HasValueWo *bool `pulumi:"hasValueWo"`
 	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
 	InsecureValue *string `pulumi:"insecureValue"`
 	// KMS key ID or ARN for encrypting a SecureString.
@@ -220,6 +228,10 @@ type parameterState struct {
 	Type *string `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
+	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	//
+	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWoVersion *int `pulumi:"valueWoVersion"`
 	// Version of the parameter.
 	Version *int `pulumi:"version"`
 }
@@ -233,6 +245,8 @@ type ParameterState struct {
 	DataType pulumi.StringPtrInput
 	// Description of the parameter.
 	Description pulumi.StringPtrInput
+	// Indicates whether the resource has a `valueWo` set.
+	HasValueWo pulumi.BoolPtrInput
 	// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
 	InsecureValue pulumi.StringPtrInput
 	// KMS key ID or ARN for encrypting a SecureString.
@@ -255,6 +269,10 @@ type ParameterState struct {
 	Type pulumi.StringPtrInput
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
+	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	//
+	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWoVersion pulumi.IntPtrInput
 	// Version of the parameter.
 	Version pulumi.IntPtrInput
 }
@@ -292,6 +310,10 @@ type parameterArgs struct {
 	Type string `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
+	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	//
+	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWoVersion *int `pulumi:"valueWoVersion"`
 }
 
 // The set of arguments for constructing a Parameter resource.
@@ -324,6 +346,10 @@ type ParameterArgs struct {
 	Type pulumi.StringInput
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
+	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	//
+	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+	ValueWoVersion pulumi.IntPtrInput
 }
 
 func (ParameterArgs) ElementType() reflect.Type {
@@ -433,6 +459,11 @@ func (o ParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the resource has a `valueWo` set.
+func (o ParameterOutput) HasValueWo() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.BoolOutput { return v.HasValueWo }).(pulumi.BoolOutput)
+}
+
 // Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
 func (o ParameterOutput) InsecureValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.InsecureValue }).(pulumi.StringOutput)
@@ -483,6 +514,13 @@ func (o ParameterOutput) Type() pulumi.StringOutput {
 // Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 func (o ParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
+// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+//
+// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+func (o ParameterOutput) ValueWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.IntPtrOutput { return v.ValueWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Version of the parameter.

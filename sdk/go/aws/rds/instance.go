@@ -594,6 +594,8 @@ type Instance struct {
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+	PasswordWoVersion pulumi.IntPtrOutput `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
 	PerformanceInsightsEnabled pulumi.BoolPtrOutput `pulumi:"performanceInsightsEnabled"`
 	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -880,6 +882,8 @@ type instanceState struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
+	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -1127,6 +1131,8 @@ type InstanceState struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
+	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+	PasswordWoVersion pulumi.IntPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -1362,6 +1368,8 @@ type instanceArgs struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
+	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -1587,6 +1595,8 @@ type InstanceArgs struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
+	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+	PasswordWoVersion pulumi.IntPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -2085,6 +2095,11 @@ func (o InstanceOutput) ParameterGroupName() pulumi.StringOutput {
 // Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 func (o InstanceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+func (o InstanceOutput) PasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.IntPtrOutput { return v.PasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Specifies whether Performance Insights are enabled. Defaults to false.

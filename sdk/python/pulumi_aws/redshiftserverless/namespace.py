@@ -22,6 +22,7 @@ class NamespaceArgs:
                  namespace_name: pulumi.Input[_builtins.str],
                  admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_user_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  db_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class NamespaceArgs:
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
                Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
         :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
         :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
@@ -53,6 +55,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
+        if admin_user_password_wo_version is not None:
+            pulumi.set(__self__, "admin_user_password_wo_version", admin_user_password_wo_version)
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
         if db_name is not None:
@@ -108,6 +112,18 @@ class NamespaceArgs:
     @admin_user_password.setter
     def admin_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "admin_user_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adminUserPasswordWoVersion")
+    def admin_user_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
+        """
+        return pulumi.get(self, "admin_user_password_wo_version")
+
+    @admin_user_password_wo_version.setter
+    def admin_user_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "admin_user_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
@@ -225,6 +241,7 @@ class _NamespaceState:
                  admin_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_user_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  db_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -244,6 +261,7 @@ class _NamespaceState:
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
                Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
         :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
@@ -265,6 +283,8 @@ class _NamespaceState:
             pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
+        if admin_user_password_wo_version is not None:
+            pulumi.set(__self__, "admin_user_password_wo_version", admin_user_password_wo_version)
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
         if arn is not None:
@@ -328,6 +348,18 @@ class _NamespaceState:
     @admin_user_password.setter
     def admin_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "admin_user_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adminUserPasswordWoVersion")
+    def admin_user_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
+        """
+        return pulumi.get(self, "admin_user_password_wo_version")
+
+    @admin_user_password_wo_version.setter
+    def admin_user_password_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "admin_user_password_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
@@ -495,6 +527,7 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_user_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  db_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -529,6 +562,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
                Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
         :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
         :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
@@ -582,6 +616,7 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_user_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  db_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -603,6 +638,7 @@ class Namespace(pulumi.CustomResource):
 
             __props__.__dict__["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
             __props__.__dict__["admin_user_password"] = None if admin_user_password is None else pulumi.Output.secret(admin_user_password)
+            __props__.__dict__["admin_user_password_wo_version"] = admin_user_password_wo_version
             __props__.__dict__["admin_username"] = None if admin_username is None else pulumi.Output.secret(admin_username)
             __props__.__dict__["db_name"] = db_name
             __props__.__dict__["default_iam_role_arn"] = default_iam_role_arn
@@ -634,6 +670,7 @@ class Namespace(pulumi.CustomResource):
             admin_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
             admin_password_secret_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             admin_user_password: Optional[pulumi.Input[_builtins.str]] = None,
+            admin_user_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             admin_username: Optional[pulumi.Input[_builtins.str]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             db_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -658,6 +695,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_password_secret_kms_key_id: ID of the KMS key used to encrypt the namespace's admin credentials secret.
         :param pulumi.Input[_builtins.str] admin_user_password: The password of the administrator for the first database created in the namespace.
                Conflicts with `manage_admin_password` and `admin_user_password_wo`.
+        :param pulumi.Input[_builtins.int] admin_user_password_wo_version: Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
         :param pulumi.Input[_builtins.str] admin_username: The username of the administrator for the first database created in the namespace.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
         :param pulumi.Input[_builtins.str] db_name: The name of the first database created in the namespace.
@@ -680,6 +718,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["admin_password_secret_arn"] = admin_password_secret_arn
         __props__.__dict__["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
         __props__.__dict__["admin_user_password"] = admin_user_password
+        __props__.__dict__["admin_user_password_wo_version"] = admin_user_password_wo_version
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["arn"] = arn
         __props__.__dict__["db_name"] = db_name
@@ -719,6 +758,14 @@ class Namespace(pulumi.CustomResource):
         Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         """
         return pulumi.get(self, "admin_user_password")
+
+    @_builtins.property
+    @pulumi.getter(name="adminUserPasswordWoVersion")
+    def admin_user_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Used together with `admin_user_password_wo` to trigger an update. Increment this value when an update to the `admin_user_password_wo` is required
+        """
+        return pulumi.get(self, "admin_user_password_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")

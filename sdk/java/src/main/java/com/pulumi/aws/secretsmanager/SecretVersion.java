@@ -10,6 +10,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -118,6 +120,12 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    @Export(name="hasSecretStringWo", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hasSecretStringWo;
+
+    public Output<Boolean> hasSecretStringWo() {
+        return this.hasSecretStringWo;
+    }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
@@ -173,6 +181,20 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> secretString() {
         return Codegen.optional(this.secretString);
+    }
+    /**
+     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    @Export(name="secretStringWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> secretStringWoVersion;
+
+    /**
+     * @return Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> secretStringWoVersion() {
+        return Codegen.optional(this.secretStringWoVersion);
     }
     /**
      * The unique identifier of the version of the secret.

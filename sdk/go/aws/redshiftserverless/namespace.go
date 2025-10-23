@@ -55,6 +55,8 @@ type Namespace struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrOutput `pulumi:"adminUserPassword"`
+	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	AdminUserPasswordWoVersion pulumi.IntPtrOutput `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
 	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
@@ -135,6 +137,8 @@ type namespaceState struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
@@ -172,6 +176,8 @@ type NamespaceState struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
+	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
@@ -211,6 +217,8 @@ type namespaceArgs struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// The name of the first database created in the namespace.
@@ -241,6 +249,8 @@ type NamespaceArgs struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
+	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
@@ -365,6 +375,11 @@ func (o NamespaceOutput) AdminPasswordSecretKmsKeyId() pulumi.StringOutput {
 // Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
+}
+
+// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+func (o NamespaceOutput) AdminUserPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.IntPtrOutput { return v.AdminUserPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // The username of the administrator for the first database created in the namespace.

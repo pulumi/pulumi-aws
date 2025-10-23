@@ -29,8 +29,6 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
-
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
@@ -5655,24 +5653,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			prov.Resources[name] = res
 		}
 	}
-
-	// TODO[pulumi/pulumi-terraform-bridge#2938]
-	// Currently, the bridge omits write-only attributes from being written to a provider schema.
-	// In this provider, we additionally have some attributes  called things like "has_value_wo" or "version_wo".
-	// To avoid user confusion, we omit these here as well.
-	tfbridge.MustTraverseProperties(&prov, "write-only-supporting-properties",
-		func(propertyVisitInfo tfbridge.PropertyVisitInfo) (tfbridge.PropertyVisitResult, error) {
-			schemaPath := propertyVisitInfo.SchemaPath()
-			if key, ok := schemaPath[len(schemaPath)-1].(walk.GetAttrStep); ok {
-				if strings.Contains(key.Name, "_wo_") || strings.HasSuffix(key.Name, "_wo") {
-					propertyVisitInfo.SchemaInfo().Omit = true
-					// Since we're omitting these properties entirely, they have no effect at runtime.
-					return tfbridge.PropertyVisitResult{HasEffect: false}, nil
-				}
-			}
-			return tfbridge.PropertyVisitResult{}, nil
-		},
-	)
 
 	setAutonaming(&prov)
 

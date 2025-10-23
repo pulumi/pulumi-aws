@@ -220,6 +220,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly masterPasswordSecretKmsKeyId: pulumi.Output<string>;
     /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Username for the master DB user.
      */
     declare public readonly masterUsername: pulumi.Output<string | undefined>;
@@ -336,6 +340,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPassword"] = state?.masterPassword;
             resourceInputs["masterPasswordSecretArn"] = state?.masterPasswordSecretArn;
             resourceInputs["masterPasswordSecretKmsKeyId"] = state?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = state?.masterUsername;
             resourceInputs["multiAz"] = state?.multiAz;
             resourceInputs["nodeType"] = state?.nodeType;
@@ -384,6 +389,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = args?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = args?.masterUsername;
             resourceInputs["multiAz"] = args?.multiAz;
             resourceInputs["nodeType"] = args?.nodeType;
@@ -561,6 +567,10 @@ export interface ClusterState {
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
     masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Username for the master DB user.
      */
@@ -747,6 +757,10 @@ export interface ClusterArgs {
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
     masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     */
+    masterPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Username for the master DB user.
      */

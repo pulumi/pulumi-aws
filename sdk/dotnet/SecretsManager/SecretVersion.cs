@@ -74,6 +74,9 @@ namespace Pulumi.Aws.SecretsManager
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("hasSecretStringWo")]
+        public Output<bool> HasSecretStringWo { get; private set; } = null!;
+
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
@@ -97,6 +100,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Output("secretString")]
         public Output<string?> SecretString { get; private set; } = null!;
+
+        /// <summary>
+        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// </summary>
+        [Output("secretStringWoVersion")]
+        public Output<int?> SecretStringWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the version of the secret.
@@ -207,6 +216,12 @@ namespace Pulumi.Aws.SecretsManager
             }
         }
 
+        /// <summary>
+        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// </summary>
+        [Input("secretStringWoVersion")]
+        public Input<int>? SecretStringWoVersion { get; set; }
+
         [Input("versionStages")]
         private InputList<string>? _versionStages;
 
@@ -234,6 +249,9 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("hasSecretStringWo")]
+        public Input<bool>? HasSecretStringWo { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -278,6 +296,12 @@ namespace Pulumi.Aws.SecretsManager
                 _secretString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// </summary>
+        [Input("secretStringWoVersion")]
+        public Input<int>? SecretStringWoVersion { get; set; }
 
         /// <summary>
         /// The unique identifier of the version of the secret.

@@ -885,6 +885,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     * 
+     */
+    @Import(name="passwordWoVersion")
+    private @Nullable Output<Integer> passwordWoVersion;
+
+    /**
+     * @return Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     * 
+     */
+    public Optional<Output<Integer>> passwordWoVersion() {
+        return Optional.ofNullable(this.passwordWoVersion);
+    }
+
+    /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      * 
      */
@@ -1291,6 +1306,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.optionGroupName = $.optionGroupName;
         this.parameterGroupName = $.parameterGroupName;
         this.password = $.password;
+        this.passwordWoVersion = $.passwordWoVersion;
         this.performanceInsightsEnabled = $.performanceInsightsEnabled;
         this.performanceInsightsKmsKeyId = $.performanceInsightsKmsKeyId;
         this.performanceInsightsRetentionPeriod = $.performanceInsightsRetentionPeriod;
@@ -2527,6 +2543,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordWoVersion Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(@Nullable Output<Integer> passwordWoVersion) {
+            $.passwordWoVersion = passwordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param passwordWoVersion Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(Integer passwordWoVersion) {
+            return passwordWoVersion(Output.of(passwordWoVersion));
         }
 
         /**

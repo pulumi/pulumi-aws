@@ -764,6 +764,12 @@ namespace Pulumi.Aws.Rds
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// Used together with `PasswordWo` to trigger an update. Increment this value when an update to `PasswordWo` is required.
+        /// </summary>
+        [Output("passwordWoVersion")]
+        public Output<int?> PasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
         /// </summary>
         [Output("performanceInsightsEnabled")]
@@ -1356,6 +1362,12 @@ namespace Pulumi.Aws.Rds
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `PasswordWo` to trigger an update. Increment this value when an update to `PasswordWo` is required.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<int>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1959,6 +1971,12 @@ namespace Pulumi.Aws.Rds
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `PasswordWo` to trigger an update. Increment this value when an update to `PasswordWo` is required.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<int>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.

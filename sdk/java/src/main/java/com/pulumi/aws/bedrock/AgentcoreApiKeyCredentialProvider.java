@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -97,6 +98,20 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
      */
     public Output<List<AgentcoreApiKeyCredentialProviderApiKeySecretArn>> apiKeySecretArns() {
         return this.apiKeySecretArns;
+    }
+    /**
+     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * 
+     */
+    @Export(name="apiKeyWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> apiKeyWoVersion;
+
+    /**
+     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> apiKeyWoVersion() {
+        return Codegen.optional(this.apiKeyWoVersion);
     }
     /**
      * ARN of the API Key credential provider.

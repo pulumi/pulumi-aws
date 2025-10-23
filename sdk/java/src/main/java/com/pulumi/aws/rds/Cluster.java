@@ -1072,6 +1072,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.masterPassword);
     }
     /**
+     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> masterPasswordWoVersion;
+
+    /**
+     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> masterPasswordWoVersion() {
+        return Codegen.optional(this.masterPasswordWoVersion);
+    }
+    /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */

@@ -1398,6 +1398,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
+     * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     * 
+     */
+    @Export(name="passwordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> passwordWoVersion;
+
+    /**
+     * @return Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
+     * 
+     */
+    public Output<Optional<Integer>> passwordWoVersion() {
+        return Codegen.optional(this.passwordWoVersion);
+    }
+    /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      * 
      */

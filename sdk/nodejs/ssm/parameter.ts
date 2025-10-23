@@ -121,6 +121,10 @@ export class Parameter extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the resource has a `valueWo` set.
+     */
+    declare public /*out*/ readonly hasValueWo: pulumi.Output<boolean>;
+    /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      */
     declare public readonly insecureValue: pulumi.Output<string>;
@@ -163,6 +167,12 @@ export class Parameter extends pulumi.CustomResource {
      */
     declare public readonly value: pulumi.Output<string>;
     /**
+     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     *
+     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     */
+    declare public readonly valueWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Version of the parameter.
      */
     declare public /*out*/ readonly version: pulumi.Output<number>;
@@ -184,6 +194,7 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["dataType"] = state?.dataType;
             resourceInputs["description"] = state?.description;
+            resourceInputs["hasValueWo"] = state?.hasValueWo;
             resourceInputs["insecureValue"] = state?.insecureValue;
             resourceInputs["keyId"] = state?.keyId;
             resourceInputs["name"] = state?.name;
@@ -194,6 +205,7 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["tier"] = state?.tier;
             resourceInputs["type"] = state?.type;
             resourceInputs["value"] = state?.value;
+            resourceInputs["valueWoVersion"] = state?.valueWoVersion;
             resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ParameterArgs | undefined;
@@ -213,6 +225,8 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["tier"] = args?.tier;
             resourceInputs["type"] = args?.type;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueWoVersion"] = args?.valueWoVersion;
+            resourceInputs["hasValueWo"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -243,6 +257,10 @@ export interface ParameterState {
      * Description of the parameter.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the resource has a `valueWo` set.
+     */
+    hasValueWo?: pulumi.Input<boolean>;
     /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      */
@@ -285,6 +303,12 @@ export interface ParameterState {
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      */
     value?: pulumi.Input<string>;
+    /**
+     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     *
+     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     */
+    valueWoVersion?: pulumi.Input<number>;
     /**
      * Version of the parameter.
      */
@@ -349,4 +373,10 @@ export interface ParameterArgs {
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      */
     value?: pulumi.Input<string>;
+    /**
+     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     *
+     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     */
+    valueWoVersion?: pulumi.Input<number>;
 }

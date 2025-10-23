@@ -196,6 +196,12 @@ namespace Pulumi.Aws.DocDB
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
 
+        /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Output("masterPasswordWoVersion")]
+        public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
+
         [Output("masterUserSecrets")]
         public Output<ImmutableArray<Outputs.ClusterMasterUserSecret>> MasterUserSecrets { get; private set; } = null!;
 
@@ -489,6 +495,12 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
+
+        /// <summary>
         /// Username for the master DB user.
         /// </summary>
         [Input("masterUsername")]
@@ -758,6 +770,12 @@ namespace Pulumi.Aws.DocDB
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// </summary>
+        [Input("masterPasswordWoVersion")]
+        public Input<int>? MasterPasswordWoVersion { get; set; }
 
         [Input("masterUserSecrets")]
         private InputList<Inputs.ClusterMasterUserSecretGetArgs>? _masterUserSecrets;
