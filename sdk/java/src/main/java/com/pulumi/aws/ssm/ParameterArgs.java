@@ -221,6 +221,23 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * 
+     */
+    @Import(name="valueWo")
+    private @Nullable Output<String> valueWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * 
+     */
+    public Optional<Output<String>> valueWo() {
+        return Optional.ofNullable(this.valueWo);
+    }
+
+    /**
      * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
      * 
      * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -255,6 +272,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.tier = $.tier;
         this.type = $.type;
         this.value = $.value;
+        this.valueWo = $.valueWo;
         this.valueWoVersion = $.valueWoVersion;
     }
 
@@ -575,6 +593,29 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder value(String value) {
             return value(Output.of(value));
+        }
+
+        /**
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(@Nullable Output<String> valueWo) {
+            $.valueWo = valueWo;
+            return this;
+        }
+
+        /**
+         * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWo(String valueWo) {
+            return valueWo(Output.of(valueWo));
         }
 
         /**

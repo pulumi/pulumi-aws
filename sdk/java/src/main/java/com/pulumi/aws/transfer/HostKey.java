@@ -21,6 +21,41 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.HostKey;
+ * import com.pulumi.aws.transfer.HostKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new HostKey("example", HostKeyArgs.builder()
+ *             .serverId(exampleAwsTransferServer.id())
+ *             .description("example additional host key")
+ *             .hostKeyBodyWo("""
+ * # Private key PEM.
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
@@ -73,6 +108,22 @@ public class HostKey extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> hostKeyBody() {
         return Codegen.optional(this.hostKeyBody);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     * 
+     */
+    @Export(name="hostKeyBodyWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> hostKeyBodyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     * 
+     */
+    public Output<Optional<String>> hostKeyBodyWo() {
+        return Codegen.optional(this.hostKeyBodyWo);
     }
     /**
      * Public key fingerprint.
@@ -199,7 +250,8 @@ public class HostKey extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "hostKeyBody"
+                "hostKeyBody",
+                "hostKeyBodyWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

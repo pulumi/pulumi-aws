@@ -183,6 +183,22 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secretString);
     }
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * 
+     */
+    @Export(name="secretStringWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> secretStringWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * 
+     */
+    public Output<Optional<String>> secretStringWo() {
+        return Codegen.optional(this.secretStringWo);
+    }
+    /**
      * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
@@ -270,7 +286,8 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "secretBinary",
-                "secretString"
+                "secretString",
+                "secretStringWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

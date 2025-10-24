@@ -962,6 +962,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Networkfirewall *string `pulumi:"networkfirewall"`
 	// Use this to override the default service endpoint URL
+	Networkflowmonitor *string `pulumi:"networkflowmonitor"`
+	// Use this to override the default service endpoint URL
 	Networkmanager *string `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor *string `pulumi:"networkmonitor"`
@@ -971,6 +973,8 @@ type ProviderEndpoint struct {
 	Notificationscontacts *string `pulumi:"notificationscontacts"`
 	// Use this to override the default service endpoint URL
 	Oam *string `pulumi:"oam"`
+	// Use this to override the default service endpoint URL
+	Observabilityadmin *string `pulumi:"observabilityadmin"`
 	// Use this to override the default service endpoint URL
 	Odb *string `pulumi:"odb"`
 	// Use this to override the default service endpoint URL
@@ -1580,6 +1584,8 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Networkfirewall pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	// Use this to override the default service endpoint URL
+	Networkflowmonitor pulumi.StringPtrInput `pulumi:"networkflowmonitor"`
+	// Use this to override the default service endpoint URL
 	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor pulumi.StringPtrInput `pulumi:"networkmonitor"`
@@ -1589,6 +1595,8 @@ type ProviderEndpointArgs struct {
 	Notificationscontacts pulumi.StringPtrInput `pulumi:"notificationscontacts"`
 	// Use this to override the default service endpoint URL
 	Oam pulumi.StringPtrInput `pulumi:"oam"`
+	// Use this to override the default service endpoint URL
+	Observabilityadmin pulumi.StringPtrInput `pulumi:"observabilityadmin"`
 	// Use this to override the default service endpoint URL
 	Odb pulumi.StringPtrInput `pulumi:"odb"`
 	// Use this to override the default service endpoint URL
@@ -2834,6 +2842,11 @@ func (o ProviderEndpointOutput) Networkfirewall() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Networkflowmonitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Networkflowmonitor }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Networkmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Networkmanager }).(pulumi.StringPtrOutput)
 }
@@ -2856,6 +2869,11 @@ func (o ProviderEndpointOutput) Notificationscontacts() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Oam() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Oam }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Observabilityadmin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Observabilityadmin }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

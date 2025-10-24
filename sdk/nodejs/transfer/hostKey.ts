@@ -9,6 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer.HostKey("example", {
+ *     serverId: exampleAwsTransferServer.id,
+ *     description: "example additional host key",
+ *     hostKeyBodyWo: "# Private key PEM.\n",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
@@ -58,6 +69,11 @@ export class HostKey extends pulumi.CustomResource {
      */
     declare public readonly hostKeyBody: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     */
+    declare public readonly hostKeyBodyWo: pulumi.Output<string | undefined>;
+    /**
      * Public key fingerprint.
      */
     declare public /*out*/ readonly hostKeyFingerprint: pulumi.Output<string>;
@@ -98,6 +114,7 @@ export class HostKey extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["description"] = state?.description;
             resourceInputs["hostKeyBody"] = state?.hostKeyBody;
+            resourceInputs["hostKeyBodyWo"] = state?.hostKeyBodyWo;
             resourceInputs["hostKeyFingerprint"] = state?.hostKeyFingerprint;
             resourceInputs["hostKeyId"] = state?.hostKeyId;
             resourceInputs["region"] = state?.region;
@@ -111,6 +128,7 @@ export class HostKey extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["hostKeyBody"] = args?.hostKeyBody ? pulumi.secret(args.hostKeyBody) : undefined;
+            resourceInputs["hostKeyBodyWo"] = args?.hostKeyBodyWo ? pulumi.secret(args.hostKeyBodyWo) : undefined;
             resourceInputs["region"] = args?.region;
             resourceInputs["serverId"] = args?.serverId;
             resourceInputs["tags"] = args?.tags;
@@ -120,7 +138,7 @@ export class HostKey extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["hostKeyBody"] };
+        const secretOpts = { additionalSecretOutputs: ["hostKeyBody", "hostKeyBodyWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(HostKey.__pulumiType, name, resourceInputs, opts);
     }
@@ -142,6 +160,11 @@ export interface HostKeyState {
      * Private key portion of an SSH key pair.
      */
     hostKeyBody?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     */
+    hostKeyBodyWo?: pulumi.Input<string>;
     /**
      * Public key fingerprint.
      */
@@ -180,6 +203,11 @@ export interface HostKeyArgs {
      * Private key portion of an SSH key pair.
      */
     hostKeyBody?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     */
+    hostKeyBodyWo?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

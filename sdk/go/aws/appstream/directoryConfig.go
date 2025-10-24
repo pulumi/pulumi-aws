@@ -37,6 +37,10 @@ import (
 //					AccountName:     pulumi.String("NAME OF ACCOUNT"),
 //					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
 //				},
+//				CertificateBasedAuthProperties: &appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs{
+//					CertificateAuthorityArn: pulumi.String("ARN OF CERTIFICATE AUTHORITY"),
+//					Status:                  pulumi.String("STATUS OF CERTIFICATE BASED AUTHENTICATION"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -57,6 +61,8 @@ import (
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
+	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
 	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Fully qualified name of the directory.
@@ -108,6 +114,8 @@ func GetDirectoryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryConfig resources.
 type directoryConfigState struct {
+	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Fully qualified name of the directory.
@@ -121,6 +129,8 @@ type directoryConfigState struct {
 }
 
 type DirectoryConfigState struct {
+	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrInput
 	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
 	CreatedTime pulumi.StringPtrInput
 	// Fully qualified name of the directory.
@@ -138,6 +148,8 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 }
 
 type directoryConfigArgs struct {
+	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+	CertificateBasedAuthProperties *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
 	// Fully qualified name of the directory.
 	DirectoryName string `pulumi:"directoryName"`
 	// Distinguished names of the organizational units for computer accounts.
@@ -150,6 +162,8 @@ type directoryConfigArgs struct {
 
 // The set of arguments for constructing a DirectoryConfig resource.
 type DirectoryConfigArgs struct {
+	// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+	CertificateBasedAuthProperties DirectoryConfigCertificateBasedAuthPropertiesPtrInput
 	// Fully qualified name of the directory.
 	DirectoryName pulumi.StringInput
 	// Distinguished names of the organizational units for computer accounts.
@@ -245,6 +259,13 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {
 
 func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
 	return o
+}
+
+// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+func (o DirectoryConfigOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+		return v.CertificateBasedAuthProperties
+	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the directory config was created.

@@ -191,6 +191,13 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Value { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. `ValueWoVersion` can be used to trigger an update and is required with this argument.
+        /// </summary>
+        [Output("valueWo")]
+        public Output<string?> ValueWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `ValueWo` to trigger an update. Increment this value when an update to the `ValueWo` is required.
         /// 
         /// &gt; **NOTE:** `aws:ssm:integration` DataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -230,6 +237,7 @@ namespace Pulumi.Aws.Ssm
                 AdditionalSecretOutputs =
                 {
                     "value",
+                    "valueWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -347,6 +355,23 @@ namespace Pulumi.Aws.Ssm
             {
                 var emptySecret = Output.CreateSecret(0);
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. `ValueWoVersion` can be used to trigger an update and is required with this argument.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -477,6 +502,23 @@ namespace Pulumi.Aws.Ssm
             {
                 var emptySecret = Output.CreateSecret(0);
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("valueWo")]
+        private Input<string>? _valueWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. `ValueWoVersion` can be used to trigger an update and is required with this argument.
+        /// </summary>
+        public Input<string>? ValueWo
+        {
+            get => _valueWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _valueWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

@@ -547,7 +547,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<bool?> EnableLogFileValidation { get; private set; } = null!;
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `True`. Setting this to `False` will pause logging.
+        /// Enables logging for the trail. When set to `True`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `False`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `True`.
         /// </summary>
         [Output("enableLogging")]
         public Output<bool?> EnableLogging { get; private set; } = null!;
@@ -721,7 +721,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? EnableLogFileValidation { get; set; }
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `True`. Setting this to `False` will pause logging.
+        /// Enables logging for the trail. When set to `True`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `False`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `True`.
         /// </summary>
         [Input("enableLogging")]
         public Input<bool>? EnableLogging { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? EnableLogFileValidation { get; set; }
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `True`. Setting this to `False` will pause logging.
+        /// Enables logging for the trail. When set to `True`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `False`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `True`.
         /// </summary>
         [Input("enableLogging")]
         public Input<bool>? EnableLogging { get; set; }

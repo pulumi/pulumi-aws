@@ -14,6 +14,25 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.HostKey("example", new()
+    ///     {
+    ///         ServerId = exampleAwsTransferServer.Id,
+    ///         Description = "example additional host key",
+    ///         HostKeyBodyWo = @"# Private key PEM.
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
@@ -42,6 +61,13 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("hostKeyBody")]
         public Output<string?> HostKeyBody { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
+        /// </summary>
+        [Output("hostKeyBodyWo")]
+        public Output<string?> HostKeyBodyWo { get; private set; } = null!;
 
         /// <summary>
         /// Public key fingerprint.
@@ -105,6 +131,7 @@ namespace Pulumi.Aws.Transfer
                 AdditionalSecretOutputs =
                 {
                     "hostKeyBody",
+                    "hostKeyBodyWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,6 +175,23 @@ namespace Pulumi.Aws.Transfer
             {
                 var emptySecret = Output.CreateSecret(0);
                 _hostKeyBody = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("hostKeyBodyWo")]
+        private Input<string>? _hostKeyBodyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
+        /// </summary>
+        public Input<string>? HostKeyBodyWo
+        {
+            get => _hostKeyBodyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _hostKeyBodyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -208,6 +252,23 @@ namespace Pulumi.Aws.Transfer
             {
                 var emptySecret = Output.CreateSecret(0);
                 _hostKeyBody = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("hostKeyBodyWo")]
+        private Input<string>? _hostKeyBodyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `HostKeyBody` or `HostKeyBodyWo` must be configured.
+        /// </summary>
+        public Input<string>? HostKeyBodyWo
+        {
+            get => _hostKeyBodyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _hostKeyBodyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

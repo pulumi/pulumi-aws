@@ -34,6 +34,11 @@ namespace Pulumi.Aws.AppStream
     ///             AccountName = "NAME OF ACCOUNT",
     ///             AccountPassword = "PASSWORD OF ACCOUNT",
     ///         },
+    ///         CertificateBasedAuthProperties = new Aws.AppStream.Inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs
+    ///         {
+    ///             CertificateAuthorityArn = "ARN OF CERTIFICATE AUTHORITY",
+    ///             Status = "STATUS OF CERTIFICATE BASED AUTHENTICATION",
+    ///         },
     ///     });
     /// 
     /// });
@@ -50,6 +55,12 @@ namespace Pulumi.Aws.AppStream
     [AwsResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
     public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `CertificateBasedAuthProperties` below.
+        /// </summary>
+        [Output("certificateBasedAuthProperties")]
+        public Output<Outputs.DirectoryConfigCertificateBasedAuthProperties?> CertificateBasedAuthProperties { get; private set; } = null!;
+
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         /// </summary>
@@ -127,6 +138,12 @@ namespace Pulumi.Aws.AppStream
     public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `CertificateBasedAuthProperties` below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs>? CertificateBasedAuthProperties { get; set; }
+
+        /// <summary>
         /// Fully qualified name of the directory.
         /// </summary>
         [Input("directoryName", required: true)]
@@ -164,6 +181,12 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class DirectoryConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `CertificateBasedAuthProperties` below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryConfigCertificateBasedAuthPropertiesGetArgs>? CertificateBasedAuthProperties { get; set; }
+
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         /// </summary>

@@ -167,6 +167,11 @@ export class Parameter extends pulumi.CustomResource {
      */
     declare public readonly value: pulumi.Output<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     */
+    declare public readonly valueWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
      *
      * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -205,6 +210,7 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["tier"] = state?.tier;
             resourceInputs["type"] = state?.type;
             resourceInputs["value"] = state?.value;
+            resourceInputs["valueWo"] = state?.valueWo;
             resourceInputs["valueWoVersion"] = state?.valueWoVersion;
             resourceInputs["version"] = state?.version;
         } else {
@@ -225,13 +231,14 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["tier"] = args?.tier;
             resourceInputs["type"] = args?.type;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueWo"] = args?.valueWo ? pulumi.secret(args.valueWo) : undefined;
             resourceInputs["valueWoVersion"] = args?.valueWoVersion;
             resourceInputs["hasValueWo"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["value"] };
+        const secretOpts = { additionalSecretOutputs: ["value", "valueWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Parameter.__pulumiType, name, resourceInputs, opts);
     }
@@ -304,6 +311,11 @@ export interface ParameterState {
      */
     value?: pulumi.Input<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     */
+    valueWo?: pulumi.Input<string>;
+    /**
      * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
      *
      * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -373,6 +385,11 @@ export interface ParameterArgs {
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      */
     value?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     */
+    valueWo?: pulumi.Input<string>;
     /**
      * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
      *

@@ -35,14 +35,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the root
+     * ARN of the root.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -80,14 +80,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     @Import(name="featureSet")
     private @Nullable Output<String> featureSet;
 
     /**
-     * @return Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * @return Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     public Optional<Output<String>> featureSet() {
@@ -95,14 +95,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the master account
+     * ARN of the master account.
      * 
      */
     @Import(name="masterAccountArn")
     private @Nullable Output<String> masterAccountArn;
 
     /**
-     * @return ARN of the master account
+     * @return ARN of the master account.
      * 
      */
     public Optional<Output<String>> masterAccountArn() {
@@ -110,14 +110,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Email address of the master account
+     * Email address of the master account.
      * 
      */
     @Import(name="masterAccountEmail")
     private @Nullable Output<String> masterAccountEmail;
 
     /**
-     * @return Email address of the master account
+     * @return Email address of the master account.
      * 
      */
     public Optional<Output<String>> masterAccountEmail() {
@@ -125,14 +125,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of the master account
+     * Identifier of the master account.
      * 
      */
     @Import(name="masterAccountId")
     private @Nullable Output<String> masterAccountId;
 
     /**
-     * @return Identifier of the master account
+     * @return Identifier of the master account.
      * 
      */
     public Optional<Output<String>> masterAccountId() {
@@ -140,14 +140,14 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the master account
+     * Name of the master account.
      * 
      */
     @Import(name="masterAccountName")
     private @Nullable Output<String> masterAccountName;
 
     /**
-     * @return Name of the master account
+     * @return Name of the master account.
      * 
      */
     public Optional<Output<String>> masterAccountName() {
@@ -250,7 +250,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureSet Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+         * @param featureSet Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureSet Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+         * @param featureSet Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountArn ARN of the master account
+         * @param masterAccountArn ARN of the master account.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountArn ARN of the master account
+         * @param masterAccountArn ARN of the master account.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountEmail Email address of the master account
+         * @param masterAccountEmail Email address of the master account.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountEmail Email address of the master account
+         * @param masterAccountEmail Email address of the master account.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountId Identifier of the master account
+         * @param masterAccountId Identifier of the master account.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountId Identifier of the master account
+         * @param masterAccountId Identifier of the master account.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountName Name of the master account
+         * @param masterAccountName Name of the master account.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterAccountName Name of the master account
+         * @param masterAccountName Name of the master account.
          * 
          * @return builder
          * 

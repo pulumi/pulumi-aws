@@ -49,7 +49,7 @@ class AgentAgentArgs:
         :param pulumi.Input[_builtins.str] description: Description of the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
@@ -189,7 +189,7 @@ class AgentAgentArgs:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -318,7 +318,7 @@ class _AgentAgentState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
@@ -509,7 +509,7 @@ class _AgentAgentState:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -693,6 +693,7 @@ class AgentAgent(pulumi.CustomResource):
             agent_name="my-agent-name",
             agent_resource_role_arn=example.arn,
             idle_session_ttl_in_seconds=500,
+            instruction="You are a friendly assistant who helps answer questions.",
             foundation_model="anthropic.claude-v2")
         ```
 
@@ -716,7 +717,7 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
@@ -777,6 +778,7 @@ class AgentAgent(pulumi.CustomResource):
             agent_name="my-agent-name",
             agent_resource_role_arn=example.arn,
             idle_session_ttl_in_seconds=500,
+            instruction="You are a friendly assistant who helps answer questions.",
             foundation_model="anthropic.claude-v2")
         ```
 
@@ -906,7 +908,7 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        :param pulumi.Input[_builtins.str] instruction: Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[_builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[_builtins.str] prepared_at: Timestamp of when the agent was last prepared.
@@ -1037,7 +1039,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter
     def instruction(self) -> pulumi.Output[_builtins.str]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        Instructions that tell the agent what it should do and how it should interact with users. If `prepare_agent` is `true` this argument is required. The valid range is 40 - 20000 characters.
         """
         return pulumi.get(self, "instruction")
 

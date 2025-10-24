@@ -34204,6 +34204,4325 @@ func (o AgentcoreGatewayWorkloadIdentityDetailArrayOutput) Index(i pulumi.IntInp
 	}).(AgentcoreGatewayWorkloadIdentityDetailOutput)
 }
 
+type AgentcoreMemoryStrategyConfiguration struct {
+	// Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+	Consolidation *AgentcoreMemoryStrategyConfigurationConsolidation `pulumi:"consolidation"`
+	// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+	Extraction *AgentcoreMemoryStrategyConfigurationExtraction `pulumi:"extraction"`
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+	Type string `pulumi:"type"`
+}
+
+// AgentcoreMemoryStrategyConfigurationInput is an input type that accepts AgentcoreMemoryStrategyConfigurationArgs and AgentcoreMemoryStrategyConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationArgs{...}
+type AgentcoreMemoryStrategyConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationOutput() AgentcoreMemoryStrategyConfigurationOutput
+	ToAgentcoreMemoryStrategyConfigurationOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationArgs struct {
+	// Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+	Consolidation AgentcoreMemoryStrategyConfigurationConsolidationPtrInput `pulumi:"consolidation"`
+	// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+	Extraction AgentcoreMemoryStrategyConfigurationExtractionPtrInput `pulumi:"extraction"`
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationOutput() AgentcoreMemoryStrategyConfigurationOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationOutput).ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationArgs, AgentcoreMemoryStrategyConfigurationPtr and AgentcoreMemoryStrategyConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationPtrType AgentcoreMemoryStrategyConfigurationArgs
+
+func AgentcoreMemoryStrategyConfigurationPtr(v *AgentcoreMemoryStrategyConfigurationArgs) AgentcoreMemoryStrategyConfigurationPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationOutput() AgentcoreMemoryStrategyConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfiguration {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationPtrOutput)
+}
+
+// Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+func (o AgentcoreMemoryStrategyConfigurationOutput) Consolidation() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationConsolidation {
+		return v.Consolidation
+	}).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
+}
+
+// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+func (o AgentcoreMemoryStrategyConfigurationOutput) Extraction() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationExtraction {
+		return v.Extraction
+	}).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
+}
+
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+func (o AgentcoreMemoryStrategyConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) AgentcoreMemoryStrategyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfiguration
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationOutput)
+}
+
+// Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Consolidation() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationConsolidation {
+		if v == nil {
+			return nil
+		}
+		return v.Consolidation
+	}).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
+}
+
+// Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Extraction() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationExtraction {
+		if v == nil {
+			return nil
+		}
+		return v.Extraction
+	}).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
+}
+
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationConsolidation struct {
+	// Additional text to append to the model prompt for consolidation processing.
+	AppendToPrompt string `pulumi:"appendToPrompt"`
+	// ID of the foundation model to use for consolidation processing.
+	ModelId string `pulumi:"modelId"`
+}
+
+// AgentcoreMemoryStrategyConfigurationConsolidationInput is an input type that accepts AgentcoreMemoryStrategyConfigurationConsolidationArgs and AgentcoreMemoryStrategyConfigurationConsolidationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationConsolidationInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationConsolidationArgs{...}
+type AgentcoreMemoryStrategyConfigurationConsolidationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationConsolidationOutput() AgentcoreMemoryStrategyConfigurationConsolidationOutput
+	ToAgentcoreMemoryStrategyConfigurationConsolidationOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationConsolidationOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationConsolidationArgs struct {
+	// Additional text to append to the model prompt for consolidation processing.
+	AppendToPrompt pulumi.StringInput `pulumi:"appendToPrompt"`
+	// ID of the foundation model to use for consolidation processing.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationConsolidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationConsolidation)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationConsolidationArgs) ToAgentcoreMemoryStrategyConfigurationConsolidationOutput() AgentcoreMemoryStrategyConfigurationConsolidationOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationConsolidationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationConsolidationArgs) ToAgentcoreMemoryStrategyConfigurationConsolidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationConsolidationOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationConsolidationArgs) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutput() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationConsolidationArgs) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationConsolidationOutput).ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationConsolidationPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationConsolidationArgs, AgentcoreMemoryStrategyConfigurationConsolidationPtr and AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationConsolidationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationConsolidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationConsolidationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutput() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationConsolidationPtrType AgentcoreMemoryStrategyConfigurationConsolidationArgs
+
+func AgentcoreMemoryStrategyConfigurationConsolidationPtr(v *AgentcoreMemoryStrategyConfigurationConsolidationArgs) AgentcoreMemoryStrategyConfigurationConsolidationPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationConsolidationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationConsolidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationConsolidation)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationConsolidationPtrType) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutput() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationConsolidationPtrType) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationConsolidationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationConsolidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationConsolidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationOutput() AgentcoreMemoryStrategyConfigurationConsolidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutput() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationConsolidation) *AgentcoreMemoryStrategyConfigurationConsolidation {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
+}
+
+// Additional text to append to the model prompt for consolidation processing.
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) AppendToPrompt() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationConsolidation) string { return v.AppendToPrompt }).(pulumi.StringOutput)
+}
+
+// ID of the foundation model to use for consolidation processing.
+func (o AgentcoreMemoryStrategyConfigurationConsolidationOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationConsolidation) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationConsolidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutput() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) ToAgentcoreMemoryStrategyConfigurationConsolidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationConsolidationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationConsolidation) AgentcoreMemoryStrategyConfigurationConsolidation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationConsolidation
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationConsolidationOutput)
+}
+
+// Additional text to append to the model prompt for consolidation processing.
+func (o AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) AppendToPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationConsolidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendToPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the foundation model to use for consolidation processing.
+func (o AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationConsolidation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationExtraction struct {
+	// Additional text to append to the model prompt for extraction processing.
+	AppendToPrompt string `pulumi:"appendToPrompt"`
+	// ID of the foundation model to use for extraction processing.
+	ModelId string `pulumi:"modelId"`
+}
+
+// AgentcoreMemoryStrategyConfigurationExtractionInput is an input type that accepts AgentcoreMemoryStrategyConfigurationExtractionArgs and AgentcoreMemoryStrategyConfigurationExtractionOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationExtractionInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationExtractionArgs{...}
+type AgentcoreMemoryStrategyConfigurationExtractionInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationExtractionOutput() AgentcoreMemoryStrategyConfigurationExtractionOutput
+	ToAgentcoreMemoryStrategyConfigurationExtractionOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationExtractionOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationExtractionArgs struct {
+	// Additional text to append to the model prompt for extraction processing.
+	AppendToPrompt pulumi.StringInput `pulumi:"appendToPrompt"`
+	// ID of the foundation model to use for extraction processing.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationExtraction)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationExtractionArgs) ToAgentcoreMemoryStrategyConfigurationExtractionOutput() AgentcoreMemoryStrategyConfigurationExtractionOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationExtractionOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationExtractionArgs) ToAgentcoreMemoryStrategyConfigurationExtractionOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationExtractionOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationExtractionArgs) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutput() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationExtractionArgs) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationExtractionOutput).ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationExtractionPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationExtractionArgs, AgentcoreMemoryStrategyConfigurationExtractionPtr and AgentcoreMemoryStrategyConfigurationExtractionPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationExtractionPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationExtractionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationExtractionPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutput() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationExtractionPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationExtractionPtrType AgentcoreMemoryStrategyConfigurationExtractionArgs
+
+func AgentcoreMemoryStrategyConfigurationExtractionPtr(v *AgentcoreMemoryStrategyConfigurationExtractionArgs) AgentcoreMemoryStrategyConfigurationExtractionPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationExtractionPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationExtractionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationExtraction)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationExtractionPtrType) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutput() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationExtractionPtrType) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationExtractionOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationExtraction)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) ToAgentcoreMemoryStrategyConfigurationExtractionOutput() AgentcoreMemoryStrategyConfigurationExtractionOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) ToAgentcoreMemoryStrategyConfigurationExtractionOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutput() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationExtraction) *AgentcoreMemoryStrategyConfigurationExtraction {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput)
+}
+
+// Additional text to append to the model prompt for extraction processing.
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) AppendToPrompt() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationExtraction) string { return v.AppendToPrompt }).(pulumi.StringOutput)
+}
+
+// ID of the foundation model to use for extraction processing.
+func (o AgentcoreMemoryStrategyConfigurationExtractionOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationExtraction) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationExtractionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationExtraction)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutput() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) ToAgentcoreMemoryStrategyConfigurationExtractionPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationExtractionOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationExtraction) AgentcoreMemoryStrategyConfigurationExtraction {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationExtraction
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationExtractionOutput)
+}
+
+// Additional text to append to the model prompt for extraction processing.
+func (o AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) AppendToPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationExtraction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendToPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the foundation model to use for extraction processing.
+func (o AgentcoreMemoryStrategyConfigurationExtractionPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationExtraction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreMemoryStrategyTimeoutsInput is an input type that accepts AgentcoreMemoryStrategyTimeoutsArgs and AgentcoreMemoryStrategyTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyTimeoutsInput` via:
+//
+//	AgentcoreMemoryStrategyTimeoutsArgs{...}
+type AgentcoreMemoryStrategyTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyTimeoutsOutput() AgentcoreMemoryStrategyTimeoutsOutput
+	ToAgentcoreMemoryStrategyTimeoutsOutputWithContext(context.Context) AgentcoreMemoryStrategyTimeoutsOutput
+}
+
+type AgentcoreMemoryStrategyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreMemoryStrategyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyTimeoutsArgs) ToAgentcoreMemoryStrategyTimeoutsOutput() AgentcoreMemoryStrategyTimeoutsOutput {
+	return i.ToAgentcoreMemoryStrategyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyTimeoutsArgs) ToAgentcoreMemoryStrategyTimeoutsOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyTimeoutsOutput)
+}
+
+func (i AgentcoreMemoryStrategyTimeoutsArgs) ToAgentcoreMemoryStrategyTimeoutsPtrOutput() AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return i.ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyTimeoutsArgs) ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyTimeoutsOutput).ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyTimeoutsPtrInput is an input type that accepts AgentcoreMemoryStrategyTimeoutsArgs, AgentcoreMemoryStrategyTimeoutsPtr and AgentcoreMemoryStrategyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyTimeoutsPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyTimeoutsPtrOutput() AgentcoreMemoryStrategyTimeoutsPtrOutput
+	ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyTimeoutsPtrOutput
+}
+
+type agentcoreMemoryStrategyTimeoutsPtrType AgentcoreMemoryStrategyTimeoutsArgs
+
+func AgentcoreMemoryStrategyTimeoutsPtr(v *AgentcoreMemoryStrategyTimeoutsArgs) AgentcoreMemoryStrategyTimeoutsPtrInput {
+	return (*agentcoreMemoryStrategyTimeoutsPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyTimeoutsPtrType) ToAgentcoreMemoryStrategyTimeoutsPtrOutput() AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return i.ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyTimeoutsPtrType) ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyTimeoutsPtrOutput)
+}
+
+type AgentcoreMemoryStrategyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsOutput) ToAgentcoreMemoryStrategyTimeoutsOutput() AgentcoreMemoryStrategyTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsOutput) ToAgentcoreMemoryStrategyTimeoutsOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsOutput) ToAgentcoreMemoryStrategyTimeoutsPtrOutput() AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return o.ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsOutput) ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyTimeouts) *AgentcoreMemoryStrategyTimeouts {
+		return &v
+	}).(AgentcoreMemoryStrategyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryStrategyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreMemoryStrategyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryStrategyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) ToAgentcoreMemoryStrategyTimeoutsPtrOutput() AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) ToAgentcoreMemoryStrategyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) Elem() AgentcoreMemoryStrategyTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyTimeouts) AgentcoreMemoryStrategyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyTimeouts
+		return ret
+	}).(AgentcoreMemoryStrategyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AgentcoreMemoryTimeoutsInput is an input type that accepts AgentcoreMemoryTimeoutsArgs and AgentcoreMemoryTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryTimeoutsInput` via:
+//
+//	AgentcoreMemoryTimeoutsArgs{...}
+type AgentcoreMemoryTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryTimeoutsOutput() AgentcoreMemoryTimeoutsOutput
+	ToAgentcoreMemoryTimeoutsOutputWithContext(context.Context) AgentcoreMemoryTimeoutsOutput
+}
+
+type AgentcoreMemoryTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AgentcoreMemoryTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryTimeoutsArgs) ToAgentcoreMemoryTimeoutsOutput() AgentcoreMemoryTimeoutsOutput {
+	return i.ToAgentcoreMemoryTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryTimeoutsArgs) ToAgentcoreMemoryTimeoutsOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryTimeoutsOutput)
+}
+
+func (i AgentcoreMemoryTimeoutsArgs) ToAgentcoreMemoryTimeoutsPtrOutput() AgentcoreMemoryTimeoutsPtrOutput {
+	return i.ToAgentcoreMemoryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryTimeoutsArgs) ToAgentcoreMemoryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryTimeoutsOutput).ToAgentcoreMemoryTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryTimeoutsPtrInput is an input type that accepts AgentcoreMemoryTimeoutsArgs, AgentcoreMemoryTimeoutsPtr and AgentcoreMemoryTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryTimeoutsPtrInput` via:
+//
+//	        AgentcoreMemoryTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryTimeoutsPtrOutput() AgentcoreMemoryTimeoutsPtrOutput
+	ToAgentcoreMemoryTimeoutsPtrOutputWithContext(context.Context) AgentcoreMemoryTimeoutsPtrOutput
+}
+
+type agentcoreMemoryTimeoutsPtrType AgentcoreMemoryTimeoutsArgs
+
+func AgentcoreMemoryTimeoutsPtr(v *AgentcoreMemoryTimeoutsArgs) AgentcoreMemoryTimeoutsPtrInput {
+	return (*agentcoreMemoryTimeoutsPtrType)(v)
+}
+
+func (*agentcoreMemoryTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryTimeoutsPtrType) ToAgentcoreMemoryTimeoutsPtrOutput() AgentcoreMemoryTimeoutsPtrOutput {
+	return i.ToAgentcoreMemoryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryTimeoutsPtrType) ToAgentcoreMemoryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryTimeoutsPtrOutput)
+}
+
+type AgentcoreMemoryTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryTimeoutsOutput) ToAgentcoreMemoryTimeoutsOutput() AgentcoreMemoryTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryTimeoutsOutput) ToAgentcoreMemoryTimeoutsOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryTimeoutsOutput) ToAgentcoreMemoryTimeoutsPtrOutput() AgentcoreMemoryTimeoutsPtrOutput {
+	return o.ToAgentcoreMemoryTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryTimeoutsOutput) ToAgentcoreMemoryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryTimeouts) *AgentcoreMemoryTimeouts {
+		return &v
+	}).(AgentcoreMemoryTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreMemoryTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryTimeoutsPtrOutput) ToAgentcoreMemoryTimeoutsPtrOutput() AgentcoreMemoryTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryTimeoutsPtrOutput) ToAgentcoreMemoryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryTimeoutsPtrOutput) Elem() AgentcoreMemoryTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryTimeouts) AgentcoreMemoryTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryTimeouts
+		return ret
+	}).(AgentcoreMemoryTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreMemoryTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreMemoryTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderClientSecretArn struct {
+	// ARN of the secret in AWS Secrets Manager.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// AgentcoreOauth2CredentialProviderClientSecretArnInput is an input type that accepts AgentcoreOauth2CredentialProviderClientSecretArnArgs and AgentcoreOauth2CredentialProviderClientSecretArnOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderClientSecretArnInput` via:
+//
+//	AgentcoreOauth2CredentialProviderClientSecretArnArgs{...}
+type AgentcoreOauth2CredentialProviderClientSecretArnInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderClientSecretArnOutput() AgentcoreOauth2CredentialProviderClientSecretArnOutput
+	ToAgentcoreOauth2CredentialProviderClientSecretArnOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderClientSecretArnOutput
+}
+
+type AgentcoreOauth2CredentialProviderClientSecretArnArgs struct {
+	// ARN of the secret in AWS Secrets Manager.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (AgentcoreOauth2CredentialProviderClientSecretArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderClientSecretArnArgs) ToAgentcoreOauth2CredentialProviderClientSecretArnOutput() AgentcoreOauth2CredentialProviderClientSecretArnOutput {
+	return i.ToAgentcoreOauth2CredentialProviderClientSecretArnOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderClientSecretArnArgs) ToAgentcoreOauth2CredentialProviderClientSecretArnOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderClientSecretArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderClientSecretArnOutput)
+}
+
+// AgentcoreOauth2CredentialProviderClientSecretArnArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderClientSecretArnArray and AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderClientSecretArnArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderClientSecretArnArray{ AgentcoreOauth2CredentialProviderClientSecretArnArgs{...} }
+type AgentcoreOauth2CredentialProviderClientSecretArnArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutput() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput
+	ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderClientSecretArnArray []AgentcoreOauth2CredentialProviderClientSecretArnInput
+
+func (AgentcoreOauth2CredentialProviderClientSecretArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderClientSecretArnArray) ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutput() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderClientSecretArnArray) ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderClientSecretArnOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderClientSecretArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderClientSecretArnOutput) ToAgentcoreOauth2CredentialProviderClientSecretArnOutput() AgentcoreOauth2CredentialProviderClientSecretArnOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderClientSecretArnOutput) ToAgentcoreOauth2CredentialProviderClientSecretArnOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderClientSecretArnOutput {
+	return o
+}
+
+// ARN of the secret in AWS Secrets Manager.
+func (o AgentcoreOauth2CredentialProviderClientSecretArnOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderClientSecretArn) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderClientSecretArn)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput) ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutput() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput) ToAgentcoreOauth2CredentialProviderClientSecretArnArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderClientSecretArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderClientSecretArn {
+		return vs[0].([]AgentcoreOauth2CredentialProviderClientSecretArn)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderClientSecretArnOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfig struct {
+	// Custom OAuth2 provider configuration. See `custom` below.
+	CustomOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig `pulumi:"customOauth2ProviderConfig"`
+	// GitHub OAuth provider configuration. See `github` below.
+	GithubOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig `pulumi:"githubOauth2ProviderConfig"`
+	// Google OAuth provider configuration. See `google` below.
+	GoogleOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig `pulumi:"googleOauth2ProviderConfig"`
+	// Microsoft OAuth provider configuration. See `microsoft` below.
+	MicrosoftOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig `pulumi:"microsoftOauth2ProviderConfig"`
+	// Salesforce OAuth provider configuration. See `salesforce` below.
+	SalesforceOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig `pulumi:"salesforceOauth2ProviderConfig"`
+	// Slack OAuth provider configuration. See `slack` below.
+	SlackOauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig `pulumi:"slackOauth2ProviderConfig"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs struct {
+	// Custom OAuth2 provider configuration. See `custom` below.
+	CustomOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput `pulumi:"customOauth2ProviderConfig"`
+	// GitHub OAuth provider configuration. See `github` below.
+	GithubOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput `pulumi:"githubOauth2ProviderConfig"`
+	// Google OAuth provider configuration. See `google` below.
+	GoogleOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput `pulumi:"googleOauth2ProviderConfig"`
+	// Microsoft OAuth provider configuration. See `microsoft` below.
+	MicrosoftOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput `pulumi:"microsoftOauth2ProviderConfig"`
+	// Salesforce OAuth provider configuration. See `salesforce` below.
+	SalesforceOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput `pulumi:"salesforceOauth2ProviderConfig"`
+	// Slack OAuth provider configuration. See `slack` below.
+	SlackOauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput `pulumi:"slackOauth2ProviderConfig"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput)
+}
+
+// Custom OAuth2 provider configuration. See `custom` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) CustomOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+		return v.CustomOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
+}
+
+// GitHub OAuth provider configuration. See `github` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) GithubOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+		return v.GithubOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
+}
+
+// Google OAuth provider configuration. See `google` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) GoogleOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+		return v.GoogleOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
+}
+
+// Microsoft OAuth provider configuration. See `microsoft` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) MicrosoftOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+		return v.MicrosoftOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
+}
+
+// Salesforce OAuth provider configuration. See `salesforce` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) SalesforceOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+		return v.SalesforceOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
+}
+
+// Slack OAuth provider configuration. See `slack` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput) SlackOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+		return v.SlackOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput)
+}
+
+// Custom OAuth2 provider configuration. See `custom` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) CustomOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
+}
+
+// GitHub OAuth provider configuration. See `github` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GithubOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GithubOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
+}
+
+// Google OAuth provider configuration. See `google` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) GoogleOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
+}
+
+// Microsoft OAuth provider configuration. See `microsoft` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) MicrosoftOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MicrosoftOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
+}
+
+// Salesforce OAuth provider configuration. See `salesforce` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SalesforceOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SalesforceOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
+}
+
+// Slack OAuth provider configuration. See `slack` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput) SlackOauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SlackOauth2ProviderConfig
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig struct {
+	// Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+	//
+	// **OAuth Discovery Configuration:**
+	ClientCredentialsWoVersion *int `pulumi:"clientCredentialsWoVersion"`
+	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	ClientId *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+	ClientIdWo *string `pulumi:"clientIdWo"`
+	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+	//
+	// **Write-Only Credentials (choose one pair):**
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscovery *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscovery"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs struct {
+	// Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+	//
+	// **OAuth Discovery Configuration:**
+	ClientCredentialsWoVersion pulumi.IntPtrInput `pulumi:"clientCredentialsWoVersion"`
+	// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+	ClientIdWo pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+	//
+	// **Write-Only Credentials (choose one pair):**
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscovery AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput `pulumi:"oauthDiscovery"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput)
+}
+
+// Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+//
+// **OAuth Discovery Configuration:**
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+//
+// **Write-Only Credentials (choose one pair):**
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput) OauthDiscovery() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscovery
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput)
+}
+
+// Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+//
+// **OAuth Discovery Configuration:**
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+// OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+//
+// **Write-Only Credentials (choose one pair):**
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput) OauthDiscovery() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscovery
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadata *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadata"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadata AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput `pulumi:"authorizationServerMetadata"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringPtrInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput)
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadata() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadata
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) AuthorizationServerMetadata() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationServerMetadata
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput)
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig struct {
+	ClientCredentialsWoVersion *int    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   *string `pulumi:"clientIdWo"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs struct {
+	ClientCredentialsWoVersion pulumi.IntPtrInput    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadatas
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery) string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig struct {
+	ClientCredentialsWoVersion *int    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   *string `pulumi:"clientIdWo"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs struct {
+	ClientCredentialsWoVersion pulumi.IntPtrInput    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadatas
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery) string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig struct {
+	ClientCredentialsWoVersion *int    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   *string `pulumi:"clientIdWo"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs struct {
+	ClientCredentialsWoVersion pulumi.IntPtrInput    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadatas
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery) string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig struct {
+	ClientCredentialsWoVersion *int    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   *string `pulumi:"clientIdWo"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs struct {
+	ClientCredentialsWoVersion pulumi.IntPtrInput    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadatas
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery) string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig struct {
+	ClientCredentialsWoVersion *int    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   *string `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   *string `pulumi:"clientIdWo"`
+	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery `pulumi:"oauthDiscoveries"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs struct {
+	ClientCredentialsWoVersion pulumi.IntPtrInput    `pulumi:"clientCredentialsWoVersion"`
+	ClientId                   pulumi.StringPtrInput `pulumi:"clientId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientIdWo   pulumi.StringPtrInput `pulumi:"clientIdWo"`
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
+	// OAuth discovery configuration. See `oauthDiscovery` below.
+	OauthDiscoveries AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput `pulumi:"oauthDiscoveries"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput).ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs, AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtr and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrType AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs
+
+func AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtr(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput {
+	return (*agentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrType) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *int {
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) Elem() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig
+		return ret
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientCredentialsWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsWoVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientIdWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIdWo
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecretWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth discovery configuration. See `oauthDiscovery` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput) OauthDiscoveries() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.OauthDiscoveries
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs struct {
+	// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+	AuthorizationServerMetadatas AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput `pulumi:"authorizationServerMetadatas"`
+	// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput {
+	return o
+}
+
+// Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) AuthorizationServerMetadatas() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery) []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return v.AuthorizationServerMetadatas
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+// OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery) string {
+		return v.DiscoveryUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreTokenVaultCmkKmsConfiguration struct {
+	// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+	KeyType string `pulumi:"keyType"`
+	// ARN of the KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// AgentcoreTokenVaultCmkKmsConfigurationInput is an input type that accepts AgentcoreTokenVaultCmkKmsConfigurationArgs and AgentcoreTokenVaultCmkKmsConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreTokenVaultCmkKmsConfigurationInput` via:
+//
+//	AgentcoreTokenVaultCmkKmsConfigurationArgs{...}
+type AgentcoreTokenVaultCmkKmsConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput
+	ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput
+}
+
+type AgentcoreTokenVaultCmkKmsConfigurationArgs struct {
+	// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
+	// ARN of the KMS key.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (AgentcoreTokenVaultCmkKmsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput {
+	return i.ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationOutput)
+}
+
+func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return i.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationOutput).ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreTokenVaultCmkKmsConfigurationPtrInput is an input type that accepts AgentcoreTokenVaultCmkKmsConfigurationArgs, AgentcoreTokenVaultCmkKmsConfigurationPtr and AgentcoreTokenVaultCmkKmsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreTokenVaultCmkKmsConfigurationPtrInput` via:
+//
+//	        AgentcoreTokenVaultCmkKmsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreTokenVaultCmkKmsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput
+	ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput
+}
+
+type agentcoreTokenVaultCmkKmsConfigurationPtrType AgentcoreTokenVaultCmkKmsConfigurationArgs
+
+func AgentcoreTokenVaultCmkKmsConfigurationPtr(v *AgentcoreTokenVaultCmkKmsConfigurationArgs) AgentcoreTokenVaultCmkKmsConfigurationPtrInput {
+	return (*agentcoreTokenVaultCmkKmsConfigurationPtrType)(v)
+}
+
+func (*agentcoreTokenVaultCmkKmsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreTokenVaultCmkKmsConfigurationPtrType) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return i.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreTokenVaultCmkKmsConfigurationPtrType) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput)
+}
+
+type AgentcoreTokenVaultCmkKmsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreTokenVaultCmkKmsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return o.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreTokenVaultCmkKmsConfiguration) *AgentcoreTokenVaultCmkKmsConfiguration {
+		return &v
+	}).(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput)
+}
+
+// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreTokenVaultCmkKmsConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+// ARN of the KMS key.
+func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreTokenVaultCmkKmsConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreTokenVaultCmkKmsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) Elem() AgentcoreTokenVaultCmkKmsConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) AgentcoreTokenVaultCmkKmsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreTokenVaultCmkKmsConfiguration
+		return ret
+	}).(AgentcoreTokenVaultCmkKmsConfigurationOutput)
+}
+
+// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key.
+func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomModelOutputDataConfig struct {
 	// The S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
@@ -39892,6 +44211,58 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTimeoutsPtrInput)(nil)).Elem(), AgentcoreGatewayTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetailInput)(nil)).Elem(), AgentcoreGatewayWorkloadIdentityDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayWorkloadIdentityDetailArrayInput)(nil)).Elem(), AgentcoreGatewayWorkloadIdentityDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationConsolidationInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationConsolidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationConsolidationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationConsolidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationExtractionInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationExtractionPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyTimeoutsInput)(nil)).Elem(), AgentcoreMemoryStrategyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyTimeoutsPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryTimeoutsInput)(nil)).Elem(), AgentcoreMemoryTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryTimeoutsPtrInput)(nil)).Elem(), AgentcoreMemoryTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderClientSecretArnInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderClientSecretArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderClientSecretArnArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderClientSecretArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfigurationInput)(nil)).Elem(), AgentcoreTokenVaultCmkKmsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfigurationPtrInput)(nil)).Elem(), AgentcoreTokenVaultCmkKmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigPtrInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
@@ -40422,6 +44793,58 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayWorkloadIdentityDetailOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayWorkloadIdentityDetailArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationConsolidationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationExtractionOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderClientSecretArnOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreTokenVaultCmkKmsConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelOutputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(CustomModelTimeoutsOutput{})

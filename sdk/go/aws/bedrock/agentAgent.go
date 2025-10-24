@@ -117,6 +117,7 @@ import (
 // AgentName: pulumi.String("my-agent-name"),
 // AgentResourceRoleArn: example.Arn,
 // IdleSessionTtlInSeconds: pulumi.Int(500),
+// Instruction: pulumi.String("You are a friendly assistant who helps answer questions."),
 // FoundationModel: pulumi.String("anthropic.claude-v2"),
 // })
 // if err != nil {
@@ -161,7 +162,7 @@ type AgentAgent struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayOutput `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayOutput `pulumi:"memoryConfigurations"`
@@ -245,7 +246,7 @@ type agentAgentState struct {
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
@@ -291,7 +292,7 @@ type AgentAgentState struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
@@ -335,7 +336,7 @@ type agentAgentArgs struct {
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
@@ -372,7 +373,7 @@ type AgentAgentArgs struct {
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
 	// Configurations for the agent's ability to retain the conversational context.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
@@ -533,7 +534,7 @@ func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }

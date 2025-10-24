@@ -35,18 +35,43 @@ __all__ = [
 
 @pulumi.output_type
 class OrganizationAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "joinedMethod":
+            suggest = "joined_method"
+        elif key == "joinedTimestamp":
+            suggest = "joined_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None,
                  email: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
+                 joined_method: Optional[_builtins.str] = None,
+                 joined_timestamp: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
+                 state: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str email: Email of the account
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str email: Email of the account.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
+        :param _builtins.str name: Name of the policy type.
+        :param _builtins.str state: State of the account.
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -54,8 +79,14 @@ class OrganizationAccount(dict):
             pulumi.set(__self__, "email", email)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if joined_method is not None:
+            pulumi.set(__self__, "joined_method", joined_method)
+        if joined_timestamp is not None:
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -63,7 +94,7 @@ class OrganizationAccount(dict):
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -71,7 +102,7 @@ class OrganizationAccount(dict):
     @pulumi.getter
     def email(self) -> Optional[_builtins.str]:
         """
-        Email of the account
+        Email of the account.
         """
         return pulumi.get(self, "email")
 
@@ -79,41 +110,91 @@ class OrganizationAccount(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> Optional[_builtins.str]:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> Optional[_builtins.str]:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        State of the account.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> Optional[_builtins.str]:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
 class OrganizationNonMasterAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "joinedMethod":
+            suggest = "joined_method"
+        elif key == "joinedTimestamp":
+            suggest = "joined_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationNonMasterAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationNonMasterAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationNonMasterAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arn: Optional[_builtins.str] = None,
                  email: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
+                 joined_method: Optional[_builtins.str] = None,
+                 joined_timestamp: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
+                 state: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str email: Email of the account
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str email: Email of the account.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
+        :param _builtins.str name: Name of the policy type.
+        :param _builtins.str state: State of the account.
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,8 +202,14 @@ class OrganizationNonMasterAccount(dict):
             pulumi.set(__self__, "email", email)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if joined_method is not None:
+            pulumi.set(__self__, "joined_method", joined_method)
+        if joined_timestamp is not None:
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -130,7 +217,7 @@ class OrganizationNonMasterAccount(dict):
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -138,7 +225,7 @@ class OrganizationNonMasterAccount(dict):
     @pulumi.getter
     def email(self) -> Optional[_builtins.str]:
         """
-        Email of the account
+        Email of the account.
         """
         return pulumi.get(self, "email")
 
@@ -146,23 +233,48 @@ class OrganizationNonMasterAccount(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> Optional[_builtins.str]:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> Optional[_builtins.str]:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        State of the account.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> Optional[_builtins.str]:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
@@ -192,9 +304,9 @@ class OrganizationRoot(dict):
                  name: Optional[_builtins.str] = None,
                  policy_types: Optional[Sequence['outputs.OrganizationRootPolicyType']] = None):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str name: Name of the policy type.
         :param Sequence['OrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         if arn is not None:
@@ -210,7 +322,7 @@ class OrganizationRoot(dict):
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -218,7 +330,7 @@ class OrganizationRoot(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
 
@@ -226,7 +338,7 @@ class OrganizationRoot(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
@@ -245,7 +357,7 @@ class OrganizationRootPolicyType(dict):
                  status: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         if status is not None:
             pulumi.set(__self__, "status", status)
@@ -256,7 +368,7 @@ class OrganizationRootPolicyType(dict):
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
@@ -451,26 +563,35 @@ class GetOrganizationAccountResult(dict):
                  arn: _builtins.str,
                  email: _builtins.str,
                  id: _builtins.str,
+                 joined_method: _builtins.str,
+                 joined_timestamp: _builtins.str,
                  name: _builtins.str,
+                 state: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str email: Email of the account
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str email: Email of the account.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
+        :param _builtins.str name: Name of the policy type.
+        :param _builtins.str state: State of the account.
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "joined_method", joined_method)
+        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -478,7 +599,7 @@ class GetOrganizationAccountResult(dict):
     @pulumi.getter
     def email(self) -> _builtins.str:
         """
-        Email of the account
+        Email of the account.
         """
         return pulumi.get(self, "email")
 
@@ -486,23 +607,48 @@ class GetOrganizationAccountResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> _builtins.str:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> _builtins.str:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the account.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> _builtins.str:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
@@ -513,26 +659,35 @@ class GetOrganizationNonMasterAccountResult(dict):
                  arn: _builtins.str,
                  email: _builtins.str,
                  id: _builtins.str,
+                 joined_method: _builtins.str,
+                 joined_timestamp: _builtins.str,
                  name: _builtins.str,
+                 state: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str email: Email of the account
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str email: Email of the account.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
+        :param _builtins.str name: Name of the policy type.
+        :param _builtins.str state: State of the account.
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "joined_method", joined_method)
+        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -540,7 +695,7 @@ class GetOrganizationNonMasterAccountResult(dict):
     @pulumi.getter
     def email(self) -> _builtins.str:
         """
-        Email of the account
+        Email of the account.
         """
         return pulumi.get(self, "email")
 
@@ -548,23 +703,48 @@ class GetOrganizationNonMasterAccountResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> _builtins.str:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> _builtins.str:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the account.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> _builtins.str:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
@@ -577,9 +757,9 @@ class GetOrganizationRootResult(dict):
                  name: _builtins.str,
                  policy_types: Sequence['outputs.GetOrganizationRootPolicyTypeResult']):
         """
-        :param _builtins.str arn: ARN of the root
-        :param _builtins.str id: Identifier of the root
-        :param _builtins.str name: The name of the policy type
+        :param _builtins.str arn: ARN of the root.
+        :param _builtins.str id: Identifier of the root.
+        :param _builtins.str name: Name of the policy type.
         :param Sequence['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         pulumi.set(__self__, "arn", arn)
@@ -591,7 +771,7 @@ class GetOrganizationRootResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -599,7 +779,7 @@ class GetOrganizationRootResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Identifier of the root
+        Identifier of the root.
         """
         return pulumi.get(self, "id")
 
@@ -607,7 +787,7 @@ class GetOrganizationRootResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the policy type
+        Name of the policy type.
         """
         return pulumi.get(self, "name")
 
@@ -626,7 +806,7 @@ class GetOrganizationRootPolicyTypeResult(dict):
                  status: _builtins.str,
                  type: _builtins.str):
         """
-        :param _builtins.str status: The status of the policy type as it relates to the associated root
+        :param _builtins.str status: Status of the policy type as it relates to the associated root.
         """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "type", type)
@@ -635,7 +815,7 @@ class GetOrganizationRootPolicyTypeResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the policy type as it relates to the associated root
+        Status of the policy type as it relates to the associated root.
         """
         return pulumi.get(self, "status")
 
@@ -651,19 +831,28 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
                  arn: _builtins.str,
                  email: _builtins.str,
                  id: _builtins.str,
+                 joined_method: _builtins.str,
+                 joined_timestamp: _builtins.str,
                  name: _builtins.str,
+                 state: _builtins.str,
                  status: _builtins.str):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the account.
         :param _builtins.str email: The email address associated with the AWS account.
         :param _builtins.str id: Parent identifier of the organizational units.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
         :param _builtins.str name: The friendly name of the account.
-        :param _builtins.str status: The status of the account in the organization.
+        :param _builtins.str state: State of the account in the organization.
+        :param _builtins.str status: (**Deprecated** use `state` instead) Status of the account in the organization.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "joined_method", joined_method)
+        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
@@ -691,6 +880,22 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> _builtins.str:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> _builtins.str:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
@@ -700,9 +905,18 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the account in the organization.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> _builtins.str:
         """
-        The status of the account in the organization.
+        (**Deprecated** use `state` instead) Status of the account in the organization.
         """
         return pulumi.get(self, "status")
 
@@ -713,19 +927,28 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
                  arn: _builtins.str,
                  email: _builtins.str,
                  id: _builtins.str,
+                 joined_method: _builtins.str,
+                 joined_timestamp: _builtins.str,
                  name: _builtins.str,
+                 state: _builtins.str,
                  status: _builtins.str):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the account.
         :param _builtins.str email: The email address associated with the AWS account.
         :param _builtins.str id: Parent identifier of the organizational units.
-        :param _builtins.str name: The friendly name of the account.
-        :param _builtins.str status: The status of the account in the organization.
+        :param _builtins.str joined_method: Method by which the account joined the organization.
+        :param _builtins.str joined_timestamp: Date the account became a part of the organization.
+        :param _builtins.str name: Friendly name of the account.
+        :param _builtins.str state: State of the account in the organization.
+        :param _builtins.str status: (**Deprecated** use `state` instead) Status of the account in the organization.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "joined_method", joined_method)
+        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
@@ -753,18 +976,43 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="joinedMethod")
+    def joined_method(self) -> _builtins.str:
+        """
+        Method by which the account joined the organization.
+        """
+        return pulumi.get(self, "joined_method")
+
+    @_builtins.property
+    @pulumi.getter(name="joinedTimestamp")
+    def joined_timestamp(self) -> _builtins.str:
+        """
+        Date the account became a part of the organization.
+        """
+        return pulumi.get(self, "joined_timestamp")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The friendly name of the account.
+        Friendly name of the account.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the account in the organization.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""status is deprecated. Use state instead.""")
     def status(self) -> _builtins.str:
         """
-        The status of the account in the organization.
+        (**Deprecated** use `state` instead) Status of the account in the organization.
         """
         return pulumi.get(self, "status")
 

@@ -65,6 +65,10 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
     declare public readonly defaultDnsPrefix: pulumi.Output<string | undefined>;
+    /**
+     * If set to true deletes associated OCI resources. Default false.
+     */
+    declare public readonly deleteAssociatedResources: pulumi.Output<boolean>;
     declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
@@ -156,6 +160,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state?.createdAt;
             resourceInputs["customDomainName"] = state?.customDomainName;
             resourceInputs["defaultDnsPrefix"] = state?.defaultDnsPrefix;
+            resourceInputs["deleteAssociatedResources"] = state?.deleteAssociatedResources;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["managedServices"] = state?.managedServices;
             resourceInputs["ociDnsForwardingConfigs"] = state?.ociDnsForwardingConfigs;
@@ -201,6 +206,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["clientSubnetCidr"] = args?.clientSubnetCidr;
             resourceInputs["customDomainName"] = args?.customDomainName;
             resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
+            resourceInputs["deleteAssociatedResources"] = args?.deleteAssociatedResources;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["region"] = args?.region;
             resourceInputs["s3Access"] = args?.s3Access;
@@ -249,6 +255,10 @@ export interface NetworkState {
      */
     customDomainName?: pulumi.Input<string>;
     defaultDnsPrefix?: pulumi.Input<string>;
+    /**
+     * If set to true deletes associated OCI resources. Default false.
+     */
+    deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName?: pulumi.Input<string>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
@@ -333,6 +343,10 @@ export interface NetworkArgs {
      */
     customDomainName?: pulumi.Input<string>;
     defaultDnsPrefix?: pulumi.Input<string>;
+    /**
+     * If set to true deletes associated OCI resources. Default false.
+     */
+    deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

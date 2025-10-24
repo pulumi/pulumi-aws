@@ -97,14 +97,14 @@ public class Organization extends com.pulumi.resources.CustomResource {
         return this.accounts;
     }
     /**
-     * ARN of the root
+     * ARN of the root.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public Output<String> arn() {
@@ -139,70 +139,70 @@ public class Organization extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabledPolicyTypes);
     }
     /**
-     * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     @Export(name="featureSet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> featureSet;
 
     /**
-     * @return Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * @return Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     public Output<Optional<String>> featureSet() {
         return Codegen.optional(this.featureSet);
     }
     /**
-     * ARN of the master account
+     * ARN of the master account.
      * 
      */
     @Export(name="masterAccountArn", refs={String.class}, tree="[0]")
     private Output<String> masterAccountArn;
 
     /**
-     * @return ARN of the master account
+     * @return ARN of the master account.
      * 
      */
     public Output<String> masterAccountArn() {
         return this.masterAccountArn;
     }
     /**
-     * Email address of the master account
+     * Email address of the master account.
      * 
      */
     @Export(name="masterAccountEmail", refs={String.class}, tree="[0]")
     private Output<String> masterAccountEmail;
 
     /**
-     * @return Email address of the master account
+     * @return Email address of the master account.
      * 
      */
     public Output<String> masterAccountEmail() {
         return this.masterAccountEmail;
     }
     /**
-     * Identifier of the master account
+     * Identifier of the master account.
      * 
      */
     @Export(name="masterAccountId", refs={String.class}, tree="[0]")
     private Output<String> masterAccountId;
 
     /**
-     * @return Identifier of the master account
+     * @return Identifier of the master account.
      * 
      */
     public Output<String> masterAccountId() {
         return this.masterAccountId;
     }
     /**
-     * Name of the master account
+     * Name of the master account.
      * 
      */
     @Export(name="masterAccountName", refs={String.class}, tree="[0]")
     private Output<String> masterAccountName;
 
     /**
-     * @return Name of the master account
+     * @return Name of the master account.
      * 
      */
     public Output<String> masterAccountName() {

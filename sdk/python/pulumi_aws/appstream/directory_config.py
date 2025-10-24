@@ -24,17 +24,21 @@ class DirectoryConfigArgs:
                  directory_name: pulumi.Input[_builtins.str],
                  organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
+                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        :param pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_name", directory_name)
         pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+        if certificate_based_auth_properties is not None:
+            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -75,6 +79,18 @@ class DirectoryConfigArgs:
         pulumi.set(self, "service_account_credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+        """
+        Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
+
+    @certificate_based_auth_properties.setter
+    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+        pulumi.set(self, "certificate_based_auth_properties", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -90,6 +106,7 @@ class DirectoryConfigArgs:
 @pulumi.input_type
 class _DirectoryConfigState:
     def __init__(__self__, *,
+                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
                  created_time: Optional[pulumi.Input[_builtins.str]] = None,
                  directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -97,12 +114,15 @@ class _DirectoryConfigState:
                  service_account_credentials: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryConfig resources.
+        :param pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
+        if certificate_based_auth_properties is not None:
+            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
         if directory_name is not None:
@@ -113,6 +133,18 @@ class _DirectoryConfigState:
             pulumi.set(__self__, "region", region)
         if service_account_credentials is not None:
             pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+        """
+        Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
+
+    @certificate_based_auth_properties.setter
+    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+        pulumi.set(self, "certificate_based_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
@@ -181,6 +213,7 @@ class DirectoryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -201,6 +234,10 @@ class DirectoryConfig(pulumi.CustomResource):
             service_account_credentials={
                 "account_name": "NAME OF ACCOUNT",
                 "account_password": "PASSWORD OF ACCOUNT",
+            },
+            certificate_based_auth_properties={
+                "certificate_authority_arn": "ARN OF CERTIFICATE AUTHORITY",
+                "status": "STATUS OF CERTIFICATE BASED AUTHENTICATION",
             })
         ```
 
@@ -214,6 +251,7 @@ class DirectoryConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -240,6 +278,10 @@ class DirectoryConfig(pulumi.CustomResource):
             service_account_credentials={
                 "account_name": "NAME OF ACCOUNT",
                 "account_password": "PASSWORD OF ACCOUNT",
+            },
+            certificate_based_auth_properties={
+                "certificate_authority_arn": "ARN OF CERTIFICATE AUTHORITY",
+                "status": "STATUS OF CERTIFICATE BASED AUTHENTICATION",
             })
         ```
 
@@ -266,6 +308,7 @@ class DirectoryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_name: Optional[pulumi.Input[_builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -279,6 +322,7 @@ class DirectoryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryConfigArgs.__new__(DirectoryConfigArgs)
 
+            __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
             if directory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_name'")
             __props__.__dict__["directory_name"] = directory_name
@@ -300,6 +344,7 @@ class DirectoryConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
             created_time: Optional[pulumi.Input[_builtins.str]] = None,
             directory_name: Optional[pulumi.Input[_builtins.str]] = None,
             organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -312,6 +357,7 @@ class DirectoryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[_builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
@@ -322,12 +368,21 @@ class DirectoryConfig(pulumi.CustomResource):
 
         __props__ = _DirectoryConfigState.__new__(_DirectoryConfigState)
 
+        __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["directory_name"] = directory_name
         __props__.__dict__["organizational_unit_distinguished_names"] = organizational_unit_distinguished_names
         __props__.__dict__["region"] = region
         __props__.__dict__["service_account_credentials"] = service_account_credentials
         return DirectoryConfig(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> pulumi.Output[Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']]:
+        """
+        Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
+        """
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @_builtins.property
     @pulumi.getter(name="createdTime")

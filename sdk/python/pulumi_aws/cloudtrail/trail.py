@@ -47,7 +47,7 @@ class TrailArgs:
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorArgs']]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
@@ -160,7 +160,7 @@ class TrailArgs:
     @pulumi.getter(name="enableLogging")
     def enable_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         """
         return pulumi.get(self, "enable_logging")
 
@@ -332,7 +332,7 @@ class _TrailState:
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorArgs']]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.str] home_region: Region in which the trail was created.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
@@ -458,7 +458,7 @@ class _TrailState:
     @pulumi.getter(name="enableLogging")
     def enable_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         """
         return pulumi.get(self, "enable_logging")
 
@@ -935,7 +935,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
@@ -1320,7 +1320,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        :param pulumi.Input[_builtins.bool] enable_logging: Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[_builtins.str] home_region: Region in which the trail was created.
         :param pulumi.Input[_builtins.bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
@@ -1410,7 +1410,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter(name="enableLogging")
     def enable_logging(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
         """
         return pulumi.get(self, "enable_logging")
 

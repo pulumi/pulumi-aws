@@ -12,11 +12,11 @@ namespace Pulumi.Aws.Organizations
     public static class GetOrganization
     {
         /// <summary>
-        /// Get information about the organization that the user's account belongs to
+        /// Get information about the organization that the users account belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// ### List all account IDs for the organization
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// 
-        /// ### SNS topic that can be interacted by the organization only
+        /// ### Limit SNS Topic Access to an Organization
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -108,11 +108,11 @@ namespace Pulumi.Aws.Organizations
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Get information about the organization that the user's account belongs to
+        /// Get information about the organization that the users account belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// ### List all account IDs for the organization
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// 
-        /// ### SNS topic that can be interacted by the organization only
+        /// ### Limit SNS Topic Access to an Organization
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -204,11 +204,11 @@ namespace Pulumi.Aws.Organizations
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// Get information about the organization that the user's account belongs to
+        /// Get information about the organization that the users account belongs to.
         /// 
         /// ## Example Usage
         /// 
-        /// ### List all account IDs for the organization
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// 
-        /// ### SNS topic that can be interacted by the organization only
+        /// ### Limit SNS Topic Access to an Organization
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationAccountResult> Accounts;
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -24,6 +24,17 @@ import * as utilities from "../utilities";
  *
  * ### Write-Only API Key (Recommended for Production)
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentcoreApiKeyCredentialProvider("example", {
+ *     name: "example-api-key-provider",
+ *     apiKeyWo: "your-api-key-here",
+ *     apiKeyWoVersion: 1,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -71,6 +82,11 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly apiKeySecretArns: pulumi.Output<outputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn[]>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     */
+    declare public readonly apiKeyWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      */
     declare public readonly apiKeyWoVersion: pulumi.Output<number | undefined>;
@@ -106,6 +122,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
             const state = argsOrState as AgentcoreApiKeyCredentialProviderState | undefined;
             resourceInputs["apiKey"] = state?.apiKey;
             resourceInputs["apiKeySecretArns"] = state?.apiKeySecretArns;
+            resourceInputs["apiKeyWo"] = state?.apiKeyWo;
             resourceInputs["apiKeyWoVersion"] = state?.apiKeyWoVersion;
             resourceInputs["credentialProviderArn"] = state?.credentialProviderArn;
             resourceInputs["name"] = state?.name;
@@ -113,6 +130,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
         } else {
             const args = argsOrState as AgentcoreApiKeyCredentialProviderArgs | undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["apiKeyWo"] = args?.apiKeyWo ? pulumi.secret(args.apiKeyWo) : undefined;
             resourceInputs["apiKeyWoVersion"] = args?.apiKeyWoVersion;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
@@ -120,7 +138,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "apiKeyWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(AgentcoreApiKeyCredentialProvider.__pulumiType, name, resourceInputs, opts);
     }
@@ -140,6 +158,11 @@ export interface AgentcoreApiKeyCredentialProviderState {
      * ARN of the AWS Secrets Manager secret containing the API key.
      */
     apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[]>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     */
+    apiKeyWo?: pulumi.Input<string>;
     /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      */
@@ -172,6 +195,11 @@ export interface AgentcoreApiKeyCredentialProviderArgs {
      * **Write-Only API Key (choose one approach):**
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     */
+    apiKeyWo?: pulumi.Input<string>;
     /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      */

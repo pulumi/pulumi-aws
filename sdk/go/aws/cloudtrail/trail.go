@@ -541,7 +541,7 @@ type Trail struct {
 	CloudWatchLogsRoleArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogsRoleArn"`
 	// Whether log file integrity validation is enabled. Defaults to `false`.
 	EnableLogFileValidation pulumi.BoolPtrOutput `pulumi:"enableLogFileValidation"`
-	// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+	// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 	EnableLogging pulumi.BoolPtrOutput `pulumi:"enableLogging"`
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors TrailEventSelectorArrayOutput `pulumi:"eventSelectors"`
@@ -620,7 +620,7 @@ type trailState struct {
 	CloudWatchLogsRoleArn *string `pulumi:"cloudWatchLogsRoleArn"`
 	// Whether log file integrity validation is enabled. Defaults to `false`.
 	EnableLogFileValidation *bool `pulumi:"enableLogFileValidation"`
-	// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+	// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 	EnableLogging *bool `pulumi:"enableLogging"`
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors []TrailEventSelector `pulumi:"eventSelectors"`
@@ -667,7 +667,7 @@ type TrailState struct {
 	CloudWatchLogsRoleArn pulumi.StringPtrInput
 	// Whether log file integrity validation is enabled. Defaults to `false`.
 	EnableLogFileValidation pulumi.BoolPtrInput
-	// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+	// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 	EnableLogging pulumi.BoolPtrInput
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors TrailEventSelectorArrayInput
@@ -716,7 +716,7 @@ type trailArgs struct {
 	CloudWatchLogsRoleArn *string `pulumi:"cloudWatchLogsRoleArn"`
 	// Whether log file integrity validation is enabled. Defaults to `false`.
 	EnableLogFileValidation *bool `pulumi:"enableLogFileValidation"`
-	// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+	// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 	EnableLogging *bool `pulumi:"enableLogging"`
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors []TrailEventSelector `pulumi:"eventSelectors"`
@@ -756,7 +756,7 @@ type TrailArgs struct {
 	CloudWatchLogsRoleArn pulumi.StringPtrInput
 	// Whether log file integrity validation is enabled. Defaults to `false`.
 	EnableLogFileValidation pulumi.BoolPtrInput
-	// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+	// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 	EnableLogging pulumi.BoolPtrInput
 	// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
 	EventSelectors TrailEventSelectorArrayInput
@@ -898,7 +898,7 @@ func (o TrailOutput) EnableLogFileValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.BoolPtrOutput { return v.EnableLogFileValidation }).(pulumi.BoolPtrOutput)
 }
 
-// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+// Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
 func (o TrailOutput) EnableLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.BoolPtrOutput { return v.EnableLogging }).(pulumi.BoolPtrOutput)
 }

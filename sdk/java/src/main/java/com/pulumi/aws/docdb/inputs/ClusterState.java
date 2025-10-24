@@ -369,6 +369,25 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may
+     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * 
+     */
+    @Import(name="masterPasswordWo")
+    private @Nullable Output<String> masterPasswordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may
+     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * 
+     */
+    public Optional<Output<String>> masterPasswordWo() {
+        return Optional.ofNullable(this.masterPasswordWo);
+    }
+
+    /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      * 
      */
@@ -650,6 +669,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.manageMasterUserPassword = $.manageMasterUserPassword;
         this.masterPassword = $.masterPassword;
+        this.masterPasswordWo = $.masterPasswordWo;
         this.masterPasswordWoVersion = $.masterPasswordWoVersion;
         this.masterUserSecrets = $.masterUserSecrets;
         this.masterUsername = $.masterUsername;
@@ -1196,6 +1216,31 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterPassword(String masterPassword) {
             return masterPassword(Output.of(masterPassword));
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user. Note that this may
+         * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(@Nullable Output<String> masterPasswordWo) {
+            $.masterPasswordWo = masterPasswordWo;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user. Note that this may
+         * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(String masterPasswordWo) {
+            return masterPasswordWo(Output.of(masterPasswordWo));
         }
 
         /**

@@ -596,6 +596,11 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    declare public readonly passwordWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
      */
     declare public readonly passwordWoVersion: pulumi.Output<number | undefined>;
@@ -791,6 +796,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = state?.optionGroupName;
             resourceInputs["parameterGroupName"] = state?.parameterGroupName;
             resourceInputs["password"] = state?.password;
+            resourceInputs["passwordWo"] = state?.passwordWo;
             resourceInputs["passwordWoVersion"] = state?.passwordWoVersion;
             resourceInputs["performanceInsightsEnabled"] = state?.performanceInsightsEnabled;
             resourceInputs["performanceInsightsKmsKeyId"] = state?.performanceInsightsKmsKeyId;
@@ -871,6 +877,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["optionGroupName"] = args?.optionGroupName;
             resourceInputs["parameterGroupName"] = args?.parameterGroupName;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordWo"] = args?.passwordWo ? pulumi.secret(args.passwordWo) : undefined;
             resourceInputs["passwordWoVersion"] = args?.passwordWoVersion;
             resourceInputs["performanceInsightsEnabled"] = args?.performanceInsightsEnabled;
             resourceInputs["performanceInsightsKmsKeyId"] = args?.performanceInsightsKmsKeyId;
@@ -906,7 +913,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password"] };
+        const secretOpts = { additionalSecretOutputs: ["password", "passwordWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
@@ -1202,6 +1209,11 @@ export interface InstanceState {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    passwordWo?: pulumi.Input<string>;
     /**
      * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
      */
@@ -1586,6 +1598,11 @@ export interface InstanceArgs {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    passwordWo?: pulumi.Input<string>;
     /**
      * Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
      */

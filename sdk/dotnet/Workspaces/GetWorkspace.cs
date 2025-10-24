@@ -240,6 +240,9 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetWorkspaceResult
     {
+        /// <summary>
+        /// ID of the bundle for the WorkSpace.
+        /// </summary>
         public readonly string BundleId;
         /// <summary>
         /// Name of the WorkSpace, as seen by the operating system.
@@ -255,16 +258,32 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public readonly string IpAddress;
         public readonly string Region;
+        /// <summary>
+        /// Indicates whether the data stored on the root volume is encrypted.
+        /// </summary>
         public readonly bool RootVolumeEncryptionEnabled;
         /// <summary>
         /// Operational state of the WorkSpace.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Tags for the WorkSpace.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserName;
+        /// <summary>
+        /// Indicates whether the data stored on the user volume
+        /// is encrypted.
+        /// </summary>
         public readonly bool UserVolumeEncryptionEnabled;
+        /// <summary>
+        /// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        /// </summary>
         public readonly string VolumeEncryptionKey;
         public readonly string WorkspaceId;
+        /// <summary>
+        /// WorkSpace properties.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetWorkspaceWorkspacePropertyResult> WorkspaceProperties;
 
         [OutputConstructor]

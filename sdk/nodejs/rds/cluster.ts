@@ -438,6 +438,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly masterPassword: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    declare public readonly masterPasswordWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
     declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
@@ -612,6 +617,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = state?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = state?.masterPassword;
+            resourceInputs["masterPasswordWo"] = state?.masterPasswordWo;
             resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUserSecretKmsKeyId"] = state?.masterUserSecretKmsKeyId;
             resourceInputs["masterUserSecrets"] = state?.masterUserSecrets;
@@ -684,6 +690,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["manageMasterUserPassword"] = args?.manageMasterUserPassword;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
+            resourceInputs["masterPasswordWo"] = args?.masterPasswordWo ? pulumi.secret(args.masterPasswordWo) : undefined;
             resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUserSecretKmsKeyId"] = args?.masterUserSecretKmsKeyId;
             resourceInputs["masterUsername"] = args?.masterUsername;
@@ -720,7 +727,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["masterPassword", "masterPasswordWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -916,6 +923,11 @@ export interface ClusterState {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    masterPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
@@ -1200,6 +1212,11 @@ export interface ClusterArgs {
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     */
+    masterPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */

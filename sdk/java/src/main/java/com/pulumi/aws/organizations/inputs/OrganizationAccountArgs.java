@@ -16,14 +16,14 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
     public static final OrganizationAccountArgs Empty = new OrganizationAccountArgs();
 
     /**
-     * ARN of the root
+     * ARN of the root.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Email of the account
+     * Email of the account.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return Email of the account
+     * @return Email of the account.
      * 
      */
     public Optional<Output<String>> email() {
@@ -46,14 +46,14 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifier of the root
+     * Identifier of the root.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     public Optional<Output<String>> id() {
@@ -61,14 +61,44 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the policy type
+     * Method by which the account joined the organization.
+     * 
+     */
+    @Import(name="joinedMethod")
+    private @Nullable Output<String> joinedMethod;
+
+    /**
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    public Optional<Output<String>> joinedMethod() {
+        return Optional.ofNullable(this.joinedMethod);
+    }
+
+    /**
+     * Date the account became a part of the organization.
+     * 
+     */
+    @Import(name="joinedTimestamp")
+    private @Nullable Output<String> joinedTimestamp;
+
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    public Optional<Output<String>> joinedTimestamp() {
+        return Optional.ofNullable(this.joinedTimestamp);
+    }
+
+    /**
+     * Name of the policy type.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy type
+     * @return Name of the policy type.
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,16 +106,39 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The status of the policy type as it relates to the associated root
+     * State of the account.
      * 
      */
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    /**
+     * @return State of the account.
+     * 
+     */
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
+    /**
+     * Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
      * 
      */
+    @Deprecated /* status is deprecated. Use state instead. */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -96,7 +149,10 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         this.arn = $.arn;
         this.email = $.email;
         this.id = $.id;
+        this.joinedMethod = $.joinedMethod;
+        this.joinedTimestamp = $.joinedTimestamp;
         this.name = $.name;
+        this.state = $.state;
         this.status = $.status;
     }
 
@@ -119,7 +175,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -130,7 +186,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -140,7 +196,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param email Email of the account
+         * @param email Email of the account.
          * 
          * @return builder
          * 
@@ -151,7 +207,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param email Email of the account
+         * @param email Email of the account.
          * 
          * @return builder
          * 
@@ -161,7 +217,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id Identifier of the root
+         * @param id Identifier of the root.
          * 
          * @return builder
          * 
@@ -172,7 +228,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id Identifier of the root
+         * @param id Identifier of the root.
          * 
          * @return builder
          * 
@@ -182,7 +238,49 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the policy type
+         * @param joinedMethod Method by which the account joined the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinedMethod(@Nullable Output<String> joinedMethod) {
+            $.joinedMethod = joinedMethod;
+            return this;
+        }
+
+        /**
+         * @param joinedMethod Method by which the account joined the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinedMethod(String joinedMethod) {
+            return joinedMethod(Output.of(joinedMethod));
+        }
+
+        /**
+         * @param joinedTimestamp Date the account became a part of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinedTimestamp(@Nullable Output<String> joinedTimestamp) {
+            $.joinedTimestamp = joinedTimestamp;
+            return this;
+        }
+
+        /**
+         * @param joinedTimestamp Date the account became a part of the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder joinedTimestamp(String joinedTimestamp) {
+            return joinedTimestamp(Output.of(joinedTimestamp));
+        }
+
+        /**
+         * @param name Name of the policy type.
          * 
          * @return builder
          * 
@@ -193,7 +291,7 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the policy type
+         * @param name Name of the policy type.
          * 
          * @return builder
          * 
@@ -203,22 +301,51 @@ public final class OrganizationAccountArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The status of the policy type as it relates to the associated root
+         * @param state State of the account.
          * 
          * @return builder
          * 
          */
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        /**
+         * @param state State of the account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(String state) {
+            return state(Output.of(state));
+        }
+
+        /**
+         * @param status Status of the policy type as it relates to the associated root.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * status is deprecated. Use state instead.
+         * 
+         */
+        @Deprecated /* status is deprecated. Use state instead. */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
         /**
-         * @param status The status of the policy type as it relates to the associated root
+         * @param status Status of the policy type as it relates to the associated root.
          * 
          * @return builder
          * 
+         * @deprecated
+         * status is deprecated. Use state instead.
+         * 
          */
+        @Deprecated /* status is deprecated. Use state instead. */
         public Builder status(String status) {
             return status(Output.of(status));
         }

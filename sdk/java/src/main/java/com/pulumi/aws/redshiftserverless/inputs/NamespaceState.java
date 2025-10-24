@@ -67,6 +67,25 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * 
+     */
+    @Import(name="adminUserPasswordWo")
+    private @Nullable Output<String> adminUserPasswordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * 
+     */
+    public Optional<Output<String>> adminUserPasswordWo() {
+        return Optional.ofNullable(this.adminUserPasswordWo);
+    }
+
+    /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      * 
      */
@@ -284,6 +303,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         this.adminPasswordSecretArn = $.adminPasswordSecretArn;
         this.adminPasswordSecretKmsKeyId = $.adminPasswordSecretKmsKeyId;
         this.adminUserPassword = $.adminUserPassword;
+        this.adminUserPasswordWo = $.adminUserPasswordWo;
         this.adminUserPasswordWoVersion = $.adminUserPasswordWoVersion;
         this.adminUsername = $.adminUsername;
         this.arn = $.arn;
@@ -381,6 +401,31 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder adminUserPassword(String adminUserPassword) {
             return adminUserPassword(Output.of(adminUserPassword));
+        }
+
+        /**
+         * @param adminUserPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The password of the administrator for the first database created in the namespace.
+         * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminUserPasswordWo(@Nullable Output<String> adminUserPasswordWo) {
+            $.adminUserPasswordWo = adminUserPasswordWo;
+            return this;
+        }
+
+        /**
+         * @param adminUserPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The password of the administrator for the first database created in the namespace.
+         * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder adminUserPasswordWo(String adminUserPasswordWo) {
+            return adminUserPasswordWo(Output.of(adminUserPasswordWo));
         }
 
         /**

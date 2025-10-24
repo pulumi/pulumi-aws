@@ -53,6 +53,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreGateway{}
 	case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
 		r = &AgentcoreGatewayTarget{}
+	case "aws:bedrock/agentcoreMemory:AgentcoreMemory":
+		r = &AgentcoreMemory{}
+	case "aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy":
+		r = &AgentcoreMemoryStrategy{}
+	case "aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider":
+		r = &AgentcoreOauth2CredentialProvider{}
+	case "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk":
+		r = &AgentcoreTokenVaultCmk{}
+	case "aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity":
+		r = &AgentcoreWorkloadIdentity{}
 	case "aws:bedrock/customModel:CustomModel":
 		r = &CustomModel{}
 	case "aws:bedrock/guardrail:Guardrail":
@@ -154,6 +164,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentcoreGatewayTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreMemory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreMemoryStrategy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreOauth2CredentialProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreTokenVaultCmk",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreWorkloadIdentity",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

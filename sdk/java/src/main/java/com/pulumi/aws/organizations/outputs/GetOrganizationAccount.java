@@ -11,64 +11,108 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationAccount {
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     private String arn;
     /**
-     * @return Email of the account
+     * @return Email of the account.
      * 
      */
     private String email;
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     private String id;
     /**
-     * @return The name of the policy type
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    private String joinedMethod;
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    private String joinedTimestamp;
+    /**
+     * @return Name of the policy type.
      * 
      */
     private String name;
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return State of the account.
      * 
      */
+    private String state;
+    /**
+     * @return Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     private String status;
 
     private GetOrganizationAccount() {}
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Email of the account
+     * @return Email of the account.
      * 
      */
     public String email() {
         return this.email;
     }
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The name of the policy type
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    public String joinedMethod() {
+        return this.joinedMethod;
+    }
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    public String joinedTimestamp() {
+        return this.joinedTimestamp;
+    }
+    /**
+     * @return Name of the policy type.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return State of the account.
      * 
      */
+    public String state() {
+        return this.state;
+    }
+    /**
+     * @return Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     public String status() {
         return this.status;
     }
@@ -85,7 +129,10 @@ public final class GetOrganizationAccount {
         private String arn;
         private String email;
         private String id;
+        private String joinedMethod;
+        private String joinedTimestamp;
         private String name;
+        private String state;
         private String status;
         public Builder() {}
         public Builder(GetOrganizationAccount defaults) {
@@ -93,7 +140,10 @@ public final class GetOrganizationAccount {
     	      this.arn = defaults.arn;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.joinedMethod = defaults.joinedMethod;
+    	      this.joinedTimestamp = defaults.joinedTimestamp;
     	      this.name = defaults.name;
+    	      this.state = defaults.state;
     	      this.status = defaults.status;
         }
 
@@ -122,11 +172,35 @@ public final class GetOrganizationAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder joinedMethod(String joinedMethod) {
+            if (joinedMethod == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "joinedMethod");
+            }
+            this.joinedMethod = joinedMethod;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder joinedTimestamp(String joinedTimestamp) {
+            if (joinedTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "joinedTimestamp");
+            }
+            this.joinedTimestamp = joinedTimestamp;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetOrganizationAccount", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationAccount", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
@@ -142,7 +216,10 @@ public final class GetOrganizationAccount {
             _resultValue.arn = arn;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.joinedMethod = joinedMethod;
+            _resultValue.joinedTimestamp = joinedTimestamp;
             _resultValue.name = name;
+            _resultValue.state = state;
             _resultValue.status = status;
             return _resultValue;
         }

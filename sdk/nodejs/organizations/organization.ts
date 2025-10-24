@@ -80,7 +80,7 @@ export class Organization extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accounts: pulumi.Output<outputs.organizations.OrganizationAccount[]>;
     /**
-     * ARN of the root
+     * ARN of the root.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -92,23 +92,23 @@ export class Organization extends pulumi.CustomResource {
      */
     declare public readonly enabledPolicyTypes: pulumi.Output<string[] | undefined>;
     /**
-     * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
     declare public readonly featureSet: pulumi.Output<string | undefined>;
     /**
-     * ARN of the master account
+     * ARN of the master account.
      */
     declare public /*out*/ readonly masterAccountArn: pulumi.Output<string>;
     /**
-     * Email address of the master account
+     * Email address of the master account.
      */
     declare public /*out*/ readonly masterAccountEmail: pulumi.Output<string>;
     /**
-     * Identifier of the master account
+     * Identifier of the master account.
      */
     declare public /*out*/ readonly masterAccountId: pulumi.Output<string>;
     /**
-     * Name of the master account
+     * Name of the master account.
      */
     declare public /*out*/ readonly masterAccountName: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface OrganizationState {
      */
     accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[]>;
     /**
-     * ARN of the root
+     * ARN of the root.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -184,23 +184,23 @@ export interface OrganizationState {
      */
     enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
     featureSet?: pulumi.Input<string>;
     /**
-     * ARN of the master account
+     * ARN of the master account.
      */
     masterAccountArn?: pulumi.Input<string>;
     /**
-     * Email address of the master account
+     * Email address of the master account.
      */
     masterAccountEmail?: pulumi.Input<string>;
     /**
-     * Identifier of the master account
+     * Identifier of the master account.
      */
     masterAccountId?: pulumi.Input<string>;
     /**
-     * Name of the master account
+     * Name of the master account.
      */
     masterAccountName?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface OrganizationArgs {
      */
     enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
     featureSet?: pulumi.Input<string>;
 }

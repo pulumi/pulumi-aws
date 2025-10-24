@@ -102,6 +102,13 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string?> SecretString { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// </summary>
+        [Output("secretStringWo")]
+        public Output<string?> SecretStringWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
         /// </summary>
         [Output("secretStringWoVersion")]
@@ -148,6 +155,7 @@ namespace Pulumi.Aws.SecretsManager
                 {
                     "secretBinary",
                     "secretString",
+                    "secretStringWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -213,6 +221,23 @@ namespace Pulumi.Aws.SecretsManager
             {
                 var emptySecret = Output.CreateSecret(0);
                 _secretString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secretStringWo")]
+        private Input<string>? _secretStringWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// </summary>
+        public Input<string>? SecretStringWo
+        {
+            get => _secretStringWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretStringWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -294,6 +319,23 @@ namespace Pulumi.Aws.SecretsManager
             {
                 var emptySecret = Output.CreateSecret(0);
                 _secretString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secretStringWo")]
+        private Input<string>? _secretStringWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// </summary>
+        public Input<string>? SecretStringWo
+        {
+            get => _secretStringWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretStringWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

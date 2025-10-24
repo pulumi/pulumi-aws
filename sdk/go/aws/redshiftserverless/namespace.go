@@ -55,6 +55,10 @@ type Namespace struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrOutput `pulumi:"adminUserPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password of the administrator for the first database created in the namespace.
+	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	AdminUserPasswordWo pulumi.StringPtrOutput `pulumi:"adminUserPasswordWo"`
 	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
 	AdminUserPasswordWoVersion pulumi.IntPtrOutput `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
@@ -99,11 +103,15 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.AdminUserPassword != nil {
 		args.AdminUserPassword = pulumi.ToSecret(args.AdminUserPassword).(pulumi.StringPtrInput)
 	}
+	if args.AdminUserPasswordWo != nil {
+		args.AdminUserPasswordWo = pulumi.ToSecret(args.AdminUserPasswordWo).(pulumi.StringPtrInput)
+	}
 	if args.AdminUsername != nil {
 		args.AdminUsername = pulumi.ToSecret(args.AdminUsername).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"adminUserPassword",
+		"adminUserPasswordWo",
 		"adminUsername",
 	})
 	opts = append(opts, secrets)
@@ -137,6 +145,10 @@ type namespaceState struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password of the administrator for the first database created in the namespace.
+	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	AdminUserPasswordWo *string `pulumi:"adminUserPasswordWo"`
 	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
 	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
@@ -176,6 +188,10 @@ type NamespaceState struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password of the administrator for the first database created in the namespace.
+	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	AdminUserPasswordWo pulumi.StringPtrInput
 	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
 	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
@@ -217,6 +233,10 @@ type namespaceArgs struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password of the administrator for the first database created in the namespace.
+	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	AdminUserPasswordWo *string `pulumi:"adminUserPasswordWo"`
 	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
 	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
@@ -249,6 +269,10 @@ type NamespaceArgs struct {
 	// The password of the administrator for the first database created in the namespace.
 	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password of the administrator for the first database created in the namespace.
+	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	AdminUserPasswordWo pulumi.StringPtrInput
 	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
 	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
@@ -375,6 +399,13 @@ func (o NamespaceOutput) AdminPasswordSecretKmsKeyId() pulumi.StringOutput {
 // Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The password of the administrator for the first database created in the namespace.
+// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+func (o NamespaceOutput) AdminUserPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required

@@ -93,6 +93,7 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
+	// ID of the bundle for the WorkSpace.
 	BundleId string `pulumi:"bundleId"`
 	// Name of the WorkSpace, as seen by the operating system.
 	ComputerName string `pulumi:"computerName"`
@@ -100,17 +101,23 @@ type LookupWorkspaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IP address of the WorkSpace.
-	IpAddress                   string `pulumi:"ipAddress"`
-	Region                      string `pulumi:"region"`
-	RootVolumeEncryptionEnabled bool   `pulumi:"rootVolumeEncryptionEnabled"`
+	IpAddress string `pulumi:"ipAddress"`
+	Region    string `pulumi:"region"`
+	// Indicates whether the data stored on the root volume is encrypted.
+	RootVolumeEncryptionEnabled bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// Operational state of the WorkSpace.
-	State                       string                          `pulumi:"state"`
-	Tags                        map[string]string               `pulumi:"tags"`
-	UserName                    string                          `pulumi:"userName"`
-	UserVolumeEncryptionEnabled bool                            `pulumi:"userVolumeEncryptionEnabled"`
-	VolumeEncryptionKey         string                          `pulumi:"volumeEncryptionKey"`
-	WorkspaceId                 string                          `pulumi:"workspaceId"`
-	WorkspaceProperties         []GetWorkspaceWorkspaceProperty `pulumi:"workspaceProperties"`
+	State string `pulumi:"state"`
+	// Tags for the WorkSpace.
+	Tags     map[string]string `pulumi:"tags"`
+	UserName string            `pulumi:"userName"`
+	// Indicates whether the data stored on the user volume
+	// is encrypted.
+	UserVolumeEncryptionEnabled bool `pulumi:"userVolumeEncryptionEnabled"`
+	// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	VolumeEncryptionKey string `pulumi:"volumeEncryptionKey"`
+	WorkspaceId         string `pulumi:"workspaceId"`
+	// WorkSpace properties.
+	WorkspaceProperties []GetWorkspaceWorkspaceProperty `pulumi:"workspaceProperties"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -155,6 +162,7 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 	return o
 }
 
+// ID of the bundle for the WorkSpace.
 func (o LookupWorkspaceResultOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.BundleId }).(pulumi.StringOutput)
 }
@@ -182,6 +190,7 @@ func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// Indicates whether the data stored on the root volume is encrypted.
 func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolOutput)
 }
@@ -191,6 +200,7 @@ func (o LookupWorkspaceResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.State }).(pulumi.StringOutput)
 }
 
+// Tags for the WorkSpace.
 func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -199,10 +209,13 @@ func (o LookupWorkspaceResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.UserName }).(pulumi.StringOutput)
 }
 
+// Indicates whether the data stored on the user volume
+// is encrypted.
 func (o LookupWorkspaceResultOutput) UserVolumeEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) bool { return v.UserVolumeEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
+// Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 func (o LookupWorkspaceResultOutput) VolumeEncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.VolumeEncryptionKey }).(pulumi.StringOutput)
 }
@@ -211,6 +224,7 @@ func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
+// WorkSpace properties.
 func (o LookupWorkspaceResultOutput) WorkspaceProperties() GetWorkspaceWorkspacePropertyArrayOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceWorkspaceProperty { return v.WorkspaceProperties }).(GetWorkspaceWorkspacePropertyArrayOutput)
 }

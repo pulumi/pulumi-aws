@@ -441,11 +441,13 @@ class Endpoints(dict):
                  neptune: Optional[_builtins.str] = None,
                  neptunegraph: Optional[_builtins.str] = None,
                  networkfirewall: Optional[_builtins.str] = None,
+                 networkflowmonitor: Optional[_builtins.str] = None,
                  networkmanager: Optional[_builtins.str] = None,
                  networkmonitor: Optional[_builtins.str] = None,
                  notifications: Optional[_builtins.str] = None,
                  notificationscontacts: Optional[_builtins.str] = None,
                  oam: Optional[_builtins.str] = None,
+                 observabilityadmin: Optional[_builtins.str] = None,
                  odb: Optional[_builtins.str] = None,
                  opensearch: Optional[_builtins.str] = None,
                  opensearchingestion: Optional[_builtins.str] = None,
@@ -744,11 +746,13 @@ class Endpoints(dict):
         :param _builtins.str neptune: Use this to override the default service endpoint URL
         :param _builtins.str neptunegraph: Use this to override the default service endpoint URL
         :param _builtins.str networkfirewall: Use this to override the default service endpoint URL
+        :param _builtins.str networkflowmonitor: Use this to override the default service endpoint URL
         :param _builtins.str networkmanager: Use this to override the default service endpoint URL
         :param _builtins.str networkmonitor: Use this to override the default service endpoint URL
         :param _builtins.str notifications: Use this to override the default service endpoint URL
         :param _builtins.str notificationscontacts: Use this to override the default service endpoint URL
         :param _builtins.str oam: Use this to override the default service endpoint URL
+        :param _builtins.str observabilityadmin: Use this to override the default service endpoint URL
         :param _builtins.str odb: Use this to override the default service endpoint URL
         :param _builtins.str opensearch: Use this to override the default service endpoint URL
         :param _builtins.str opensearchingestion: Use this to override the default service endpoint URL
@@ -1246,6 +1250,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "neptunegraph", neptunegraph)
         if networkfirewall is not None:
             pulumi.set(__self__, "networkfirewall", networkfirewall)
+        if networkflowmonitor is not None:
+            pulumi.set(__self__, "networkflowmonitor", networkflowmonitor)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
@@ -1256,6 +1262,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
+        if observabilityadmin is not None:
+            pulumi.set(__self__, "observabilityadmin", observabilityadmin)
         if odb is not None:
             pulumi.set(__self__, "odb", odb)
         if opensearch is not None:
@@ -3047,6 +3055,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def networkflowmonitor(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "networkflowmonitor")
+
+    @_builtins.property
+    @pulumi.getter
     def networkmanager(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3084,6 +3100,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "oam")
+
+    @_builtins.property
+    @pulumi.getter
+    def observabilityadmin(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "observabilityadmin")
 
     @_builtins.property
     @pulumi.getter

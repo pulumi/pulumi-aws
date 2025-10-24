@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -107,6 +108,20 @@ public class Network extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> defaultDnsPrefix() {
         return Codegen.optional(this.defaultDnsPrefix);
+    }
+    /**
+     * If set to true deletes associated OCI resources. Default false.
+     * 
+     */
+    @Export(name="deleteAssociatedResources", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> deleteAssociatedResources;
+
+    /**
+     * @return If set to true deletes associated OCI resources. Default false.
+     * 
+     */
+    public Output<Boolean> deleteAssociatedResources() {
+        return this.deleteAssociatedResources;
     }
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;

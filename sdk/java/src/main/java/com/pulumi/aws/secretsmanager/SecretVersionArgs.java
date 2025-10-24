@@ -79,6 +79,23 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * 
+     */
+    @Import(name="secretStringWo")
+    private @Nullable Output<String> secretStringWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * 
+     */
+    public Optional<Output<String>> secretStringWo() {
+        return Optional.ofNullable(this.secretStringWo);
+    }
+
+    /**
      * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      * 
      */
@@ -119,6 +136,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         this.secretBinary = $.secretBinary;
         this.secretId = $.secretId;
         this.secretString = $.secretString;
+        this.secretStringWo = $.secretStringWo;
         this.secretStringWoVersion = $.secretStringWoVersion;
         this.versionStages = $.versionStages;
     }
@@ -223,6 +241,29 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secretString(String secretString) {
             return secretString(Output.of(secretString));
+        }
+
+        /**
+         * @param secretStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWo(@Nullable Output<String> secretStringWo) {
+            $.secretStringWo = secretStringWo;
+            return this;
+        }
+
+        /**
+         * @param secretStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretStringWo(String secretStringWo) {
+            return secretStringWo(Output.of(secretStringWo));
         }
 
         /**

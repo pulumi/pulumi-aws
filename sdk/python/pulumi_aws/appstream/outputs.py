@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DirectoryConfigCertificateBasedAuthProperties',
     'DirectoryConfigServiceAccountCredentials',
     'FleetComputeCapacity',
     'FleetDomainJoinInfo',
@@ -33,6 +34,54 @@ __all__ = [
     'GetImageImagePermissionResult',
     'GetImageStateChangeReasonResult',
 ]
+
+@pulumi.output_type
+class DirectoryConfigCertificateBasedAuthProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryConfigCertificateBasedAuthProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryConfigCertificateBasedAuthProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryConfigCertificateBasedAuthProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
+        :param _builtins.str status: The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the AWS Certificate Manager Private CA resource.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+        """
+        return pulumi.get(self, "status")
+
 
 @pulumi.output_type
 class DirectoryConfigServiceAccountCredentials(dict):

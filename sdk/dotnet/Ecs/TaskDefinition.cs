@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> TrackLatest { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 
@@ -679,7 +679,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
 
         /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 
@@ -867,7 +867,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskDefinitionVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
         /// 
         /// &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `Environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         /// 

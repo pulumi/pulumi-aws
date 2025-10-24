@@ -112,6 +112,7 @@ import javax.annotation.Nullable;
  *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
  *             .idleSessionTtlInSeconds(500)
+ *             .instruction("You are a friendly assistant who helps answer questions.")
  *             .foundationModel("anthropic.claude-v2")
  *             .build());
  * 
@@ -290,14 +291,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.idleSessionTtlInSeconds;
     }
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      * 
      */
     @Export(name="instruction", refs={String.class}, tree="[0]")
     private Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      * 
      */
     public Output<String> instruction() {

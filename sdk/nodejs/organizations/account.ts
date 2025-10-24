@@ -98,7 +98,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN for this account.
+     * ARN for this account.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -121,7 +121,13 @@ export class Account extends pulumi.CustomResource {
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      */
     declare public readonly iamUserAccessToBilling: pulumi.Output<string | undefined>;
+    /**
+     * Method by which the account joined the organization.
+     */
     declare public /*out*/ readonly joinedMethod: pulumi.Output<string>;
+    /**
+     * Date the account became a part of the organization.
+     */
     declare public /*out*/ readonly joinedTimestamp: pulumi.Output<string>;
     /**
      * Friendly name for the member account.
@@ -138,7 +144,13 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
-     * The status of the account in the organization.
+     * State of the account in the organization.
+     */
+    declare public /*out*/ readonly state: pulumi.Output<string>;
+    /**
+     * (**Deprecated** use `state` instead) Status of the account in the organization.
+     *
+     * @deprecated status is deprecated. Use state instead.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -174,6 +186,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["parentId"] = state?.parentId;
             resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["state"] = state?.state;
             resourceInputs["status"] = state?.status;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -194,6 +207,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["govcloudId"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -207,7 +221,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * The ARN for this account.
+     * ARN for this account.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -230,7 +244,13 @@ export interface AccountState {
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      */
     iamUserAccessToBilling?: pulumi.Input<string>;
+    /**
+     * Method by which the account joined the organization.
+     */
     joinedMethod?: pulumi.Input<string>;
+    /**
+     * Date the account became a part of the organization.
+     */
     joinedTimestamp?: pulumi.Input<string>;
     /**
      * Friendly name for the member account.
@@ -247,7 +267,13 @@ export interface AccountState {
      */
     roleName?: pulumi.Input<string>;
     /**
-     * The status of the account in the organization.
+     * State of the account in the organization.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * (**Deprecated** use `state` instead) Status of the account in the organization.
+     *
+     * @deprecated status is deprecated. Use state instead.
      */
     status?: pulumi.Input<string>;
     /**

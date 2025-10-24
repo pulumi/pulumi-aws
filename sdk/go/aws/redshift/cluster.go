@@ -163,6 +163,13 @@ type Cluster struct {
 	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user.
+	// Conflicts with `manageMasterPassword` and `masterPassword`.
+	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	MasterPasswordWo pulumi.StringPtrOutput `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrOutput `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
@@ -222,8 +229,12 @@ func NewCluster(ctx *pulumi.Context,
 	if args.MasterPassword != nil {
 		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrInput)
 	}
+	if args.MasterPasswordWo != nil {
+		args.MasterPasswordWo = pulumi.ToSecret(args.MasterPasswordWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",
+		"masterPasswordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -326,6 +337,13 @@ type clusterState struct {
 	MasterPasswordSecretArn *string `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user.
+	// Conflicts with `manageMasterPassword` and `masterPassword`.
+	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
@@ -447,6 +465,13 @@ type ClusterState struct {
 	MasterPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user.
+	// Conflicts with `manageMasterPassword` and `masterPassword`.
+	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	MasterPasswordWo pulumi.StringPtrInput
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
@@ -556,6 +581,13 @@ type clusterArgs struct {
 	MasterPassword *string `pulumi:"masterPassword"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user.
+	// Conflicts with `manageMasterPassword` and `masterPassword`.
+	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
@@ -660,6 +692,13 @@ type ClusterArgs struct {
 	MasterPassword pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user.
+	// Conflicts with `manageMasterPassword` and `masterPassword`.
+	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	MasterPasswordWo pulumi.StringPtrInput
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
@@ -959,6 +998,16 @@ func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringOutput {
 // ID of the KMS key used to encrypt the cluster admin credentials secret.
 func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Password for the master DB user.
+// Conflicts with `manageMasterPassword` and `masterPassword`.
+// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+// Note that this may show up in logs.
+// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+func (o ClusterOutput) MasterPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.

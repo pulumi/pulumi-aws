@@ -77,7 +77,7 @@ class GetOrganizationResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -184,11 +184,11 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
 
 def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
-    Get information about the organization that the user's account belongs to
+    Get information about the organization that the users account belongs to.
 
     ## Example Usage
 
-    ### List all account IDs for the organization
+    ### Basic Usage
 
     ```python
     import pulumi
@@ -198,7 +198,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
 
-    ### SNS topic that can be interacted by the organization only
+    ### Limit SNS Topic Access to an Organization
 
     ```python
     import pulumi
@@ -247,11 +247,11 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         roots=pulumi.get(__ret__, 'roots'))
 def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
-    Get information about the organization that the user's account belongs to
+    Get information about the organization that the users account belongs to.
 
     ## Example Usage
 
-    ### List all account IDs for the organization
+    ### Basic Usage
 
     ```python
     import pulumi
@@ -261,7 +261,7 @@ def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
 
-    ### SNS topic that can be interacted by the organization only
+    ### Limit SNS Topic Access to an Organization
 
     ```python
     import pulumi

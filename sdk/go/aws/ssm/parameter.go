@@ -148,6 +148,9 @@ type Parameter struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringOutput `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
 	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -169,8 +172,12 @@ func NewParameter(ctx *pulumi.Context,
 	if args.Value != nil {
 		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
+	if args.ValueWo != nil {
+		args.ValueWo = pulumi.ToSecret(args.ValueWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",
+		"valueWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -228,6 +235,9 @@ type parameterState struct {
 	Type *string `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	ValueWo *string `pulumi:"valueWo"`
 	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -269,6 +279,9 @@ type ParameterState struct {
 	Type pulumi.StringPtrInput
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	ValueWo pulumi.StringPtrInput
 	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -310,6 +323,9 @@ type parameterArgs struct {
 	Type string `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	ValueWo *string `pulumi:"valueWo"`
 	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -346,6 +362,9 @@ type ParameterArgs struct {
 	Type pulumi.StringInput
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	ValueWo pulumi.StringPtrInput
 	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -514,6 +533,12 @@ func (o ParameterOutput) Type() pulumi.StringOutput {
 // Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 func (o ParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+func (o ParameterOutput) ValueWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.

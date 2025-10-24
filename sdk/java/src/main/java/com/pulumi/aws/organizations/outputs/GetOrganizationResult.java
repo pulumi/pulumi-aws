@@ -20,7 +20,7 @@ public final class GetOrganizationResult {
      */
     private List<GetOrganizationAccount> accounts;
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     private String arn;
@@ -84,7 +84,7 @@ public final class GetOrganizationResult {
         return this.accounts;
     }
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public String arn() {

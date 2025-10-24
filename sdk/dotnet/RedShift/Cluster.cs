@@ -273,6 +273,17 @@ namespace Pulumi.Aws.RedShift
         public Output<string> MasterPasswordSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user.
+        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
+        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Note that this may show up in logs.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// </summary>
+        [Output("masterPasswordWo")]
+        public Output<string?> MasterPasswordWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
         /// </summary>
         [Output("masterPasswordWoVersion")]
@@ -407,6 +418,7 @@ namespace Pulumi.Aws.RedShift
                 AdditionalSecretOutputs =
                 {
                     "masterPassword",
+                    "masterPasswordWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -601,6 +613,27 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterPasswordSecretKmsKeyId")]
         public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
+
+        [Input("masterPasswordWo")]
+        private Input<string>? _masterPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user.
+        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
+        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Note that this may show up in logs.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// </summary>
+        public Input<string>? MasterPasswordWo
+        {
+            get => _masterPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
@@ -949,6 +982,27 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterPasswordSecretKmsKeyId")]
         public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
+
+        [Input("masterPasswordWo")]
+        private Input<string>? _masterPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user.
+        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
+        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Note that this may show up in logs.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// </summary>
+        public Input<string>? MasterPasswordWo
+        {
+            get => _masterPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.

@@ -23,6 +23,7 @@ class SecretVersionArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_binary: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_string_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -31,6 +32,8 @@ class SecretVersionArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+        :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
         :param pulumi.Input[_builtins.int] secret_string_wo_version: Used together with `secret_string_wo` to trigger an update. Increment this value when an update to `secret_string_wo` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
@@ -43,6 +46,8 @@ class SecretVersionArgs:
             pulumi.set(__self__, "secret_binary", secret_binary)
         if secret_string is not None:
             pulumi.set(__self__, "secret_string", secret_string)
+        if secret_string_wo is not None:
+            pulumi.set(__self__, "secret_string_wo", secret_string_wo)
         if secret_string_wo_version is not None:
             pulumi.set(__self__, "secret_string_wo_version", secret_string_wo_version)
         if version_stages is not None:
@@ -97,6 +102,19 @@ class SecretVersionArgs:
         pulumi.set(self, "secret_string", value)
 
     @_builtins.property
+    @pulumi.getter(name="secretStringWo")
+    def secret_string_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
+        """
+        return pulumi.get(self, "secret_string_wo")
+
+    @secret_string_wo.setter
+    def secret_string_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secret_string_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="secretStringWoVersion")
     def secret_string_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -132,6 +150,7 @@ class _SecretVersionState:
                  secret_binary: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_string_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version_id: Optional[pulumi.Input[_builtins.str]] = None,
                  version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -142,6 +161,8 @@ class _SecretVersionState:
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+        :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
         :param pulumi.Input[_builtins.int] secret_string_wo_version: Used together with `secret_string_wo` to trigger an update. Increment this value when an update to `secret_string_wo` is required.
         :param pulumi.Input[_builtins.str] version_id: The unique identifier of the version of the secret.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -160,6 +181,8 @@ class _SecretVersionState:
             pulumi.set(__self__, "secret_id", secret_id)
         if secret_string is not None:
             pulumi.set(__self__, "secret_string", secret_string)
+        if secret_string_wo is not None:
+            pulumi.set(__self__, "secret_string_wo", secret_string_wo)
         if secret_string_wo_version is not None:
             pulumi.set(__self__, "secret_string_wo_version", secret_string_wo_version)
         if version_id is not None:
@@ -237,6 +260,19 @@ class _SecretVersionState:
         pulumi.set(self, "secret_string", value)
 
     @_builtins.property
+    @pulumi.getter(name="secretStringWo")
+    def secret_string_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
+        """
+        return pulumi.get(self, "secret_string_wo")
+
+    @secret_string_wo.setter
+    def secret_string_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "secret_string_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="secretStringWoVersion")
     def secret_string_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -285,6 +321,7 @@ class SecretVersion(pulumi.CustomResource):
                  secret_binary: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_string_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -335,6 +372,8 @@ class SecretVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+        :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
         :param pulumi.Input[_builtins.int] secret_string_wo_version: Used together with `secret_string_wo` to trigger an update. Increment this value when an update to `secret_string_wo` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
@@ -406,6 +445,7 @@ class SecretVersion(pulumi.CustomResource):
                  secret_binary: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_string_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_string_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -423,12 +463,13 @@ class SecretVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'secret_id'")
             __props__.__dict__["secret_id"] = secret_id
             __props__.__dict__["secret_string"] = None if secret_string is None else pulumi.Output.secret(secret_string)
+            __props__.__dict__["secret_string_wo"] = None if secret_string_wo is None else pulumi.Output.secret(secret_string_wo)
             __props__.__dict__["secret_string_wo_version"] = secret_string_wo_version
             __props__.__dict__["version_stages"] = version_stages
             __props__.__dict__["arn"] = None
             __props__.__dict__["has_secret_string_wo"] = None
             __props__.__dict__["version_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretBinary", "secretString"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretBinary", "secretString", "secretStringWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SecretVersion, __self__).__init__(
             'aws:secretsmanager/secretVersion:SecretVersion',
@@ -446,6 +487,7 @@ class SecretVersion(pulumi.CustomResource):
             secret_binary: Optional[pulumi.Input[_builtins.str]] = None,
             secret_id: Optional[pulumi.Input[_builtins.str]] = None,
             secret_string: Optional[pulumi.Input[_builtins.str]] = None,
+            secret_string_wo: Optional[pulumi.Input[_builtins.str]] = None,
             secret_string_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             version_id: Optional[pulumi.Input[_builtins.str]] = None,
             version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SecretVersion':
@@ -461,6 +503,8 @@ class SecretVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+        :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
         :param pulumi.Input[_builtins.int] secret_string_wo_version: Used together with `secret_string_wo` to trigger an update. Increment this value when an update to `secret_string_wo` is required.
         :param pulumi.Input[_builtins.str] version_id: The unique identifier of the version of the secret.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -477,6 +521,7 @@ class SecretVersion(pulumi.CustomResource):
         __props__.__dict__["secret_binary"] = secret_binary
         __props__.__dict__["secret_id"] = secret_id
         __props__.__dict__["secret_string"] = secret_string
+        __props__.__dict__["secret_string_wo"] = secret_string_wo
         __props__.__dict__["secret_string_wo_version"] = secret_string_wo_version
         __props__.__dict__["version_id"] = version_id
         __props__.__dict__["version_stages"] = version_stages
@@ -526,6 +571,15 @@ class SecretVersion(pulumi.CustomResource):
         Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         """
         return pulumi.get(self, "secret_string")
+
+    @_builtins.property
+    @pulumi.getter(name="secretStringWo")
+    def secret_string_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
+        """
+        return pulumi.get(self, "secret_string_wo")
 
     @_builtins.property
     @pulumi.getter(name="secretStringWoVersion")

@@ -30,6 +30,7 @@ class NetworkArgs:
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -41,6 +42,7 @@ class NetworkArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -57,6 +59,8 @@ class NetworkArgs:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if default_dns_prefix is not None:
             pulumi.set(__self__, "default_dns_prefix", default_dns_prefix)
+        if delete_associated_resources is not None:
+            pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if s3_policy_document is not None:
@@ -159,6 +163,18 @@ class NetworkArgs:
         pulumi.set(self, "default_dns_prefix", value)
 
     @_builtins.property
+    @pulumi.getter(name="deleteAssociatedResources")
+    def delete_associated_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true deletes associated OCI resources. Default false.
+        """
+        return pulumi.get(self, "delete_associated_resources")
+
+    @delete_associated_resources.setter
+    def delete_associated_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "delete_associated_resources", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -215,6 +231,7 @@ class _NetworkState:
                  created_at: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_services: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]] = None,
                  oci_dns_forwarding_configs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]]] = None,
@@ -239,6 +256,7 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
@@ -274,6 +292,8 @@ class _NetworkState:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if default_dns_prefix is not None:
             pulumi.set(__self__, "default_dns_prefix", default_dns_prefix)
+        if delete_associated_resources is not None:
+            pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if managed_services is not None:
@@ -393,6 +413,18 @@ class _NetworkState:
     @default_dns_prefix.setter
     def default_dns_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_dns_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteAssociatedResources")
+    def delete_associated_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If set to true deletes associated OCI resources. Default false.
+        """
+        return pulumi.get(self, "delete_associated_resources")
+
+    @delete_associated_resources.setter
+    def delete_associated_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "delete_associated_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -628,6 +660,7 @@ class Network(pulumi.CustomResource):
                  client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_access: Optional[pulumi.Input[_builtins.str]] = None,
@@ -652,6 +685,7 @@ class Network(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
@@ -700,6 +734,7 @@ class Network(pulumi.CustomResource):
                  client_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_access: Optional[pulumi.Input[_builtins.str]] = None,
@@ -728,6 +763,7 @@ class Network(pulumi.CustomResource):
             __props__.__dict__["client_subnet_cidr"] = client_subnet_cidr
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["default_dns_prefix"] = default_dns_prefix
+            __props__.__dict__["delete_associated_resources"] = delete_associated_resources
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -773,6 +809,7 @@ class Network(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[_builtins.str]] = None,
             custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
             default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+            delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             managed_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]]] = None,
             oci_dns_forwarding_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]]] = None,
@@ -802,6 +839,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
@@ -833,6 +871,7 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["custom_domain_name"] = custom_domain_name
         __props__.__dict__["default_dns_prefix"] = default_dns_prefix
+        __props__.__dict__["delete_associated_resources"] = delete_associated_resources
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["managed_services"] = managed_services
         __props__.__dict__["oci_dns_forwarding_configs"] = oci_dns_forwarding_configs
@@ -902,6 +941,14 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "default_dns_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteAssociatedResources")
+    def delete_associated_resources(self) -> pulumi.Output[_builtins.bool]:
+        """
+        If set to true deletes associated OCI resources. Default false.
+        """
+        return pulumi.get(self, "delete_associated_resources")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

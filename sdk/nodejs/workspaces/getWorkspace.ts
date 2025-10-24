@@ -77,6 +77,9 @@ export interface GetWorkspaceArgs {
  * A collection of values returned by getWorkspace.
  */
 export interface GetWorkspaceResult {
+    /**
+     * ID of the bundle for the WorkSpace.
+     */
     readonly bundleId: string;
     /**
      * Name of the WorkSpace, as seen by the operating system.
@@ -92,16 +95,32 @@ export interface GetWorkspaceResult {
      */
     readonly ipAddress: string;
     readonly region: string;
+    /**
+     * Indicates whether the data stored on the root volume is encrypted.
+     */
     readonly rootVolumeEncryptionEnabled: boolean;
     /**
      * Operational state of the WorkSpace.
      */
     readonly state: string;
+    /**
+     * Tags for the WorkSpace.
+     */
     readonly tags: {[key: string]: string};
     readonly userName: string;
+    /**
+     * Indicates whether the data stored on the user volume
+     * is encrypted.
+     */
     readonly userVolumeEncryptionEnabled: boolean;
+    /**
+     * Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+     */
     readonly volumeEncryptionKey: string;
     readonly workspaceId: string;
+    /**
+     * WorkSpace properties.
+     */
     readonly workspaceProperties: outputs.workspaces.GetWorkspaceWorkspaceProperty[];
 }
 /**

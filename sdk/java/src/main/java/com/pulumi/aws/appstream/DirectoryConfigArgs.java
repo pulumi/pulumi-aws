@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.appstream;
 
+import com.pulumi.aws.appstream.inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs;
 import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DirectoryConfigArgs Empty = new DirectoryConfigArgs();
+
+    /**
+     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     * 
+     */
+    @Import(name="certificateBasedAuthProperties")
+    private @Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties;
+
+    /**
+     * @return Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     * 
+     */
+    public Optional<Output<DirectoryConfigCertificateBasedAuthPropertiesArgs>> certificateBasedAuthProperties() {
+        return Optional.ofNullable(this.certificateBasedAuthProperties);
+    }
 
     /**
      * Fully qualified name of the directory.
@@ -81,6 +97,7 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
     private DirectoryConfigArgs() {}
 
     private DirectoryConfigArgs(DirectoryConfigArgs $) {
+        this.certificateBasedAuthProperties = $.certificateBasedAuthProperties;
         this.directoryName = $.directoryName;
         this.organizationalUnitDistinguishedNames = $.organizationalUnitDistinguishedNames;
         this.region = $.region;
@@ -103,6 +120,27 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(DirectoryConfigArgs defaults) {
             $ = new DirectoryConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(@Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties) {
+            $.certificateBasedAuthProperties = certificateBasedAuthProperties;
+            return this;
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(DirectoryConfigCertificateBasedAuthPropertiesArgs certificateBasedAuthProperties) {
+            return certificateBasedAuthProperties(Output.of(certificateBasedAuthProperties));
         }
 
         /**

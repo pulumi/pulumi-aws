@@ -37,7 +37,9 @@ type Network struct {
 	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	DefaultDnsPrefix pulumi.StringPtrOutput `pulumi:"defaultDnsPrefix"`
-	DisplayName      pulumi.StringOutput    `pulumi:"displayName"`
+	// If set to true deletes associated OCI resources. Default false.
+	DeleteAssociatedResources pulumi.BoolOutput   `pulumi:"deleteAssociatedResources"`
+	DisplayName               pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices NetworkManagedServiceArrayOutput `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -135,7 +137,9 @@ type networkState struct {
 	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
-	DisplayName      *string `pulumi:"displayName"`
+	// If set to true deletes associated OCI resources. Default false.
+	DeleteAssociatedResources *bool   `pulumi:"deleteAssociatedResources"`
+	DisplayName               *string `pulumi:"displayName"`
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices []NetworkManagedService `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -186,7 +190,9 @@ type NetworkState struct {
 	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
 	CustomDomainName pulumi.StringPtrInput
 	DefaultDnsPrefix pulumi.StringPtrInput
-	DisplayName      pulumi.StringPtrInput
+	// If set to true deletes associated OCI resources. Default false.
+	DeleteAssociatedResources pulumi.BoolPtrInput
+	DisplayName               pulumi.StringPtrInput
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices NetworkManagedServiceArrayInput
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -237,7 +243,9 @@ type networkArgs struct {
 	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
-	DisplayName      string  `pulumi:"displayName"`
+	// If set to true deletes associated OCI resources. Default false.
+	DeleteAssociatedResources *bool  `pulumi:"deleteAssociatedResources"`
+	DisplayName               string `pulumi:"displayName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
@@ -262,7 +270,9 @@ type NetworkArgs struct {
 	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
 	CustomDomainName pulumi.StringPtrInput
 	DefaultDnsPrefix pulumi.StringPtrInput
-	DisplayName      pulumi.StringInput
+	// If set to true deletes associated OCI resources. Default false.
+	DeleteAssociatedResources pulumi.BoolPtrInput
+	DisplayName               pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the configuration for Amazon S3 access from the ODB network.
@@ -398,6 +408,11 @@ func (o NetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
 
 func (o NetworkOutput) DefaultDnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.DefaultDnsPrefix }).(pulumi.StringPtrOutput)
+}
+
+// If set to true deletes associated OCI resources. Default false.
+func (o NetworkOutput) DeleteAssociatedResources() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Network) pulumi.BoolOutput { return v.DeleteAssociatedResources }).(pulumi.BoolOutput)
 }
 
 func (o NetworkOutput) DisplayName() pulumi.StringOutput {

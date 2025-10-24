@@ -28,7 +28,7 @@ class OrganizationArgs:
         The set of arguments for constructing a Organization resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[_builtins.str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         """
         if aws_service_access_principals is not None:
             pulumi.set(__self__, "aws_service_access_principals", aws_service_access_principals)
@@ -65,7 +65,7 @@ class OrganizationArgs:
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         """
         return pulumi.get(self, "feature_set")
 
@@ -91,14 +91,14 @@ class _OrganizationState:
         """
         Input properties used for looking up and filtering Organization resources.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationAccountArgs']]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[_builtins.str] arn: ARN of the root
+        :param pulumi.Input[_builtins.str] arn: ARN of the root.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[_builtins.str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        :param pulumi.Input[_builtins.str] master_account_arn: ARN of the master account
-        :param pulumi.Input[_builtins.str] master_account_email: Email address of the master account
-        :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account
-        :param pulumi.Input[_builtins.str] master_account_name: Name of the master account
+        :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
+        :param pulumi.Input[_builtins.str] master_account_arn: ARN of the master account.
+        :param pulumi.Input[_builtins.str] master_account_email: Email address of the master account.
+        :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account.
+        :param pulumi.Input[_builtins.str] master_account_name: Name of the master account.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]] roots: List of organization roots. All elements have these attributes:
         """
@@ -141,7 +141,7 @@ class _OrganizationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -177,7 +177,7 @@ class _OrganizationState:
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         """
         return pulumi.get(self, "feature_set")
 
@@ -189,7 +189,7 @@ class _OrganizationState:
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ARN of the master account
+        ARN of the master account.
         """
         return pulumi.get(self, "master_account_arn")
 
@@ -201,7 +201,7 @@ class _OrganizationState:
     @pulumi.getter(name="masterAccountEmail")
     def master_account_email(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Email address of the master account
+        Email address of the master account.
         """
         return pulumi.get(self, "master_account_email")
 
@@ -213,7 +213,7 @@ class _OrganizationState:
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier of the master account
+        Identifier of the master account.
         """
         return pulumi.get(self, "master_account_id")
 
@@ -225,7 +225,7 @@ class _OrganizationState:
     @pulumi.getter(name="masterAccountName")
     def master_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the master account
+        Name of the master account.
         """
         return pulumi.get(self, "master_account_name")
 
@@ -311,7 +311,7 @@ class Organization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[_builtins.str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         """
         ...
     @overload
@@ -425,14 +425,14 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationAccountArgs', 'OrganizationAccountArgsDict']]]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[_builtins.str] arn: ARN of the root
+        :param pulumi.Input[_builtins.str] arn: ARN of the root.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[_builtins.str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        :param pulumi.Input[_builtins.str] master_account_arn: ARN of the master account
-        :param pulumi.Input[_builtins.str] master_account_email: Email address of the master account
-        :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account
-        :param pulumi.Input[_builtins.str] master_account_name: Name of the master account
+        :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
+        :param pulumi.Input[_builtins.str] master_account_arn: ARN of the master account.
+        :param pulumi.Input[_builtins.str] master_account_email: Email address of the master account.
+        :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account.
+        :param pulumi.Input[_builtins.str] master_account_name: Name of the master account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict']]]] roots: List of organization roots. All elements have these attributes:
         """
@@ -465,7 +465,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the root
+        ARN of the root.
         """
         return pulumi.get(self, "arn")
 
@@ -489,7 +489,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         """
         return pulumi.get(self, "feature_set")
 
@@ -497,7 +497,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the master account
+        ARN of the master account.
         """
         return pulumi.get(self, "master_account_arn")
 
@@ -505,7 +505,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="masterAccountEmail")
     def master_account_email(self) -> pulumi.Output[_builtins.str]:
         """
-        Email address of the master account
+        Email address of the master account.
         """
         return pulumi.get(self, "master_account_email")
 
@@ -513,7 +513,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier of the master account
+        Identifier of the master account.
         """
         return pulumi.get(self, "master_account_id")
 
@@ -521,7 +521,7 @@ class Organization(pulumi.CustomResource):
     @pulumi.getter(name="masterAccountName")
     def master_account_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the master account
+        Name of the master account.
         """
         return pulumi.get(self, "master_account_name")
 

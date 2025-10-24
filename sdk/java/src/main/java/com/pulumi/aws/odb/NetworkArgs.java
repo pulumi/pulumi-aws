@@ -7,6 +7,7 @@ import com.pulumi.aws.odb.inputs.NetworkTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -66,6 +67,21 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<String>> defaultDnsPrefix() {
         return Optional.ofNullable(this.defaultDnsPrefix);
+    }
+
+    /**
+     * If set to true deletes associated OCI resources. Default false.
+     * 
+     */
+    @Import(name="deleteAssociatedResources")
+    private @Nullable Output<Boolean> deleteAssociatedResources;
+
+    /**
+     * @return If set to true deletes associated OCI resources. Default false.
+     * 
+     */
+    public Optional<Output<Boolean>> deleteAssociatedResources() {
+        return Optional.ofNullable(this.deleteAssociatedResources);
     }
 
     @Import(name="displayName", required=true)
@@ -170,6 +186,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         this.clientSubnetCidr = $.clientSubnetCidr;
         this.customDomainName = $.customDomainName;
         this.defaultDnsPrefix = $.defaultDnsPrefix;
+        this.deleteAssociatedResources = $.deleteAssociatedResources;
         this.displayName = $.displayName;
         this.region = $.region;
         this.s3Access = $.s3Access;
@@ -261,6 +278,27 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder defaultDnsPrefix(String defaultDnsPrefix) {
             return defaultDnsPrefix(Output.of(defaultDnsPrefix));
+        }
+
+        /**
+         * @param deleteAssociatedResources If set to true deletes associated OCI resources. Default false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteAssociatedResources(@Nullable Output<Boolean> deleteAssociatedResources) {
+            $.deleteAssociatedResources = deleteAssociatedResources;
+            return this;
+        }
+
+        /**
+         * @param deleteAssociatedResources If set to true deletes associated OCI resources. Default false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteAssociatedResources(Boolean deleteAssociatedResources) {
+            return deleteAssociatedResources(Output.of(deleteAssociatedResources));
         }
 
         public Builder displayName(Output<String> displayName) {
