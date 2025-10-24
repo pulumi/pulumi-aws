@@ -240,6 +240,32 @@ __all__ = [
     'AgentcoreGatewayTargetTimeouts',
     'AgentcoreGatewayTimeouts',
     'AgentcoreGatewayWorkloadIdentityDetail',
+    'AgentcoreMemoryStrategyConfiguration',
+    'AgentcoreMemoryStrategyConfigurationConsolidation',
+    'AgentcoreMemoryStrategyConfigurationExtraction',
+    'AgentcoreMemoryStrategyTimeouts',
+    'AgentcoreMemoryTimeouts',
+    'AgentcoreOauth2CredentialProviderClientSecretArn',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreTokenVaultCmkKmsConfiguration',
     'CustomModelOutputDataConfig',
     'CustomModelTimeouts',
     'CustomModelTrainingDataConfig',
@@ -10390,6 +10416,1719 @@ class AgentcoreGatewayWorkloadIdentityDetail(dict):
         ARN of the workload identity.
         """
         return pulumi.get(self, "workload_identity_arn")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfiguration(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 consolidation: Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation'] = None,
+                 extraction: Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction'] = None):
+        """
+        :param _builtins.str type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+        :param 'AgentcoreMemoryStrategyConfigurationConsolidationArgs' consolidation: Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+        :param 'AgentcoreMemoryStrategyConfigurationExtractionArgs' extraction: Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        """
+        pulumi.set(__self__, "type", type)
+        if consolidation is not None:
+            pulumi.set(__self__, "consolidation", consolidation)
+        if extraction is not None:
+            pulumi.set(__self__, "extraction", extraction)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def consolidation(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation']:
+        """
+        Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+        """
+        return pulumi.get(self, "consolidation")
+
+    @_builtins.property
+    @pulumi.getter
+    def extraction(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction']:
+        """
+        Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        """
+        return pulumi.get(self, "extraction")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationConsolidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appendToPrompt":
+            suggest = "append_to_prompt"
+        elif key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationConsolidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationConsolidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationConsolidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 append_to_prompt: _builtins.str,
+                 model_id: _builtins.str):
+        """
+        :param _builtins.str append_to_prompt: Additional text to append to the model prompt for consolidation processing.
+        :param _builtins.str model_id: ID of the foundation model to use for consolidation processing.
+        """
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> _builtins.str:
+        """
+        Additional text to append to the model prompt for consolidation processing.
+        """
+        return pulumi.get(self, "append_to_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        """
+        ID of the foundation model to use for consolidation processing.
+        """
+        return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationExtraction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appendToPrompt":
+            suggest = "append_to_prompt"
+        elif key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationExtraction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationExtraction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationExtraction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 append_to_prompt: _builtins.str,
+                 model_id: _builtins.str):
+        """
+        :param _builtins.str append_to_prompt: Additional text to append to the model prompt for extraction processing.
+        :param _builtins.str model_id: ID of the foundation model to use for extraction processing.
+        """
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> _builtins.str:
+        """
+        Additional text to append to the model prompt for extraction processing.
+        """
+        return pulumi.get(self, "append_to_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        """
+        ID of the foundation model to use for extraction processing.
+        """
+        return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentcoreMemoryTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderClientSecretArn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderClientSecretArn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderClientSecretArn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderClientSecretArn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        :param _builtins.str secret_arn: ARN of the secret in AWS Secrets Manager.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the secret in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customOauth2ProviderConfig":
+            suggest = "custom_oauth2_provider_config"
+        elif key == "githubOauth2ProviderConfig":
+            suggest = "github_oauth2_provider_config"
+        elif key == "googleOauth2ProviderConfig":
+            suggest = "google_oauth2_provider_config"
+        elif key == "microsoftOauth2ProviderConfig":
+            suggest = "microsoft_oauth2_provider_config"
+        elif key == "salesforceOauth2ProviderConfig":
+            suggest = "salesforce_oauth2_provider_config"
+        elif key == "slackOauth2ProviderConfig":
+            suggest = "slack_oauth2_provider_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig'] = None,
+                 github_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig'] = None,
+                 google_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig'] = None,
+                 microsoft_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig'] = None,
+                 salesforce_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig'] = None,
+                 slack_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig'] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs' custom_oauth2_provider_config: Custom OAuth2 provider configuration. See `custom` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `github` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `google` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `microsoft` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `salesforce` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `slack` below.
+        """
+        if custom_oauth2_provider_config is not None:
+            pulumi.set(__self__, "custom_oauth2_provider_config", custom_oauth2_provider_config)
+        if github_oauth2_provider_config is not None:
+            pulumi.set(__self__, "github_oauth2_provider_config", github_oauth2_provider_config)
+        if google_oauth2_provider_config is not None:
+            pulumi.set(__self__, "google_oauth2_provider_config", google_oauth2_provider_config)
+        if microsoft_oauth2_provider_config is not None:
+            pulumi.set(__self__, "microsoft_oauth2_provider_config", microsoft_oauth2_provider_config)
+        if salesforce_oauth2_provider_config is not None:
+            pulumi.set(__self__, "salesforce_oauth2_provider_config", salesforce_oauth2_provider_config)
+        if slack_oauth2_provider_config is not None:
+            pulumi.set(__self__, "slack_oauth2_provider_config", slack_oauth2_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="customOauth2ProviderConfig")
+    def custom_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig']:
+        """
+        Custom OAuth2 provider configuration. See `custom` below.
+        """
+        return pulumi.get(self, "custom_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="githubOauth2ProviderConfig")
+    def github_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig']:
+        """
+        GitHub OAuth provider configuration. See `github` below.
+        """
+        return pulumi.get(self, "github_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="googleOauth2ProviderConfig")
+    def google_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig']:
+        """
+        Google OAuth provider configuration. See `google` below.
+        """
+        return pulumi.get(self, "google_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftOauth2ProviderConfig")
+    def microsoft_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig']:
+        """
+        Microsoft OAuth provider configuration. See `microsoft` below.
+        """
+        return pulumi.get(self, "microsoft_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="salesforceOauth2ProviderConfig")
+    def salesforce_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig']:
+        """
+        Salesforce OAuth provider configuration. See `salesforce` below.
+        """
+        return pulumi.get(self, "salesforce_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="slackOauth2ProviderConfig")
+    def slack_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig']:
+        """
+        Slack OAuth provider configuration. See `slack` below.
+        """
+        return pulumi.get(self, "slack_oauth2_provider_config")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discovery: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery'] = None):
+        """
+        :param _builtins.int client_credentials_wo_version: Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
+               
+               **OAuth Discovery Configuration:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discovery is not None:
+            pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
+
+        **OAuth Discovery Configuration:**
+        """
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery']:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discovery")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadata":
+            suggest = "authorization_server_metadata"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadata: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'] = None,
+                 discovery_url: Optional[_builtins.str] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs' authorization_server_metadata: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        if authorization_server_metadata is not None:
+            pulumi.set(__self__, "authorization_server_metadata", authorization_server_metadata)
+        if discovery_url is not None:
+            pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadata")
+    def authorization_server_metadata(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[_builtins.str]:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 token_endpoint: _builtins.str,
+                 response_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if response_types is not None:
+            pulumi.set(__self__, "response_types", response_types)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreTokenVaultCmkKmsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreTokenVaultCmkKmsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreTokenVaultCmkKmsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreTokenVaultCmkKmsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: _builtins.str,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key_type: Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+        :param _builtins.str kms_key_arn: ARN of the KMS key.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> _builtins.str:
+        """
+        Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
+        """
+        return pulumi.get(self, "key_type")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the KMS key.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

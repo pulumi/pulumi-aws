@@ -47,14 +47,14 @@ public final class OrganizationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     @Import(name="featureSet")
     private @Nullable Output<String> featureSet;
 
     /**
-     * @return Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+     * @return Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      * 
      */
     public Optional<Output<String>> featureSet() {
@@ -150,7 +150,7 @@ public final class OrganizationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureSet Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+         * @param featureSet Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class OrganizationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureSet Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
+         * @param featureSet Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
          * 
          * @return builder
          * 

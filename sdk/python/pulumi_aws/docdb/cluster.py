@@ -39,6 +39,7 @@ class ClusterArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -81,6 +82,9 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password for the master DB user. Note that this may
+               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -137,6 +141,8 @@ class ClusterArgs:
             pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_password_wo is not None:
+            pulumi.set(__self__, "master_password_wo", master_password_wo)
         if master_password_wo_version is not None:
             pulumi.set(__self__, "master_password_wo_version", master_password_wo_version)
         if master_username is not None:
@@ -391,6 +397,20 @@ class ClusterArgs:
         pulumi.set(self, "master_password", value)
 
     @_builtins.property
+    @pulumi.getter(name="masterPasswordWo")
+    def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password for the master DB user. Note that this may
+        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        """
+        return pulumi.get(self, "master_password_wo")
+
+    @master_password_wo.setter
+    def master_password_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "master_password_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -589,6 +609,7 @@ class _ClusterState:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
@@ -638,6 +659,9 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password for the master DB user. Note that this may
+               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -704,6 +728,8 @@ class _ClusterState:
             pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_password_wo is not None:
+            pulumi.set(__self__, "master_password_wo", master_password_wo)
         if master_password_wo_version is not None:
             pulumi.set(__self__, "master_password_wo_version", master_password_wo_version)
         if master_user_secrets is not None:
@@ -1012,6 +1038,20 @@ class _ClusterState:
         pulumi.set(self, "master_password", value)
 
     @_builtins.property
+    @pulumi.getter(name="masterPasswordWo")
+    def master_password_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password for the master DB user. Note that this may
+        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        """
+        return pulumi.get(self, "master_password_wo")
+
+    @master_password_wo.setter
+    def master_password_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "master_password_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -1242,6 +1282,7 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1321,6 +1362,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password for the master DB user. Note that this may
+               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -1416,6 +1460,7 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  master_username: Optional[pulumi.Input[_builtins.str]] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1457,6 +1502,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
+            __props__.__dict__["master_password_wo"] = None if master_password_wo is None else pulumi.Output.secret(master_password_wo)
             __props__.__dict__["master_password_wo_version"] = master_password_wo_version
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["port"] = port
@@ -1478,7 +1524,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "masterPasswordWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:docdb/cluster:Cluster',
@@ -1512,6 +1558,7 @@ class Cluster(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             manage_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
             master_password: Optional[pulumi.Input[_builtins.str]] = None,
+            master_password_wo: Optional[pulumi.Input[_builtins.str]] = None,
             master_password_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1566,6 +1613,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password for the master DB user. Note that this may
+               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -1614,6 +1664,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["manage_master_user_password"] = manage_master_user_password
         __props__.__dict__["master_password"] = master_password
+        __props__.__dict__["master_password_wo"] = master_password_wo
         __props__.__dict__["master_password_wo_version"] = master_password_wo_version
         __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
@@ -1816,6 +1867,16 @@ class Cluster(pulumi.CustomResource):
         show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
+
+    @_builtins.property
+    @pulumi.getter(name="masterPasswordWo")
+    def master_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password for the master DB user. Note that this may
+        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        """
+        return pulumi.get(self, "master_password_wo")
 
     @_builtins.property
     @pulumi.getter(name="masterPasswordWoVersion")

@@ -14,15 +14,23 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type OrganizationAccount struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn *string `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email *string `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id *string `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod *string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name *string `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State *string `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status *string `pulumi:"status"`
 }
 
@@ -38,15 +46,23 @@ type OrganizationAccountInput interface {
 }
 
 type OrganizationAccountArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringPtrInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringPtrInput `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -101,27 +117,44 @@ func (o OrganizationAccountOutput) ToOrganizationAccountOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o OrganizationAccountOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Email of the account
+// Email of the account.
 func (o OrganizationAccountOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o OrganizationAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the policy type
+// Method by which the account joined the organization.
+func (o OrganizationAccountOutput) JoinedMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.JoinedMethod }).(pulumi.StringPtrOutput)
+}
+
+// Date the account became a part of the organization.
+func (o OrganizationAccountOutput) JoinedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.JoinedTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the policy type.
 func (o OrganizationAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The status of the policy type as it relates to the associated root
+// State of the account.
+func (o OrganizationAccountOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationAccount) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Status of the policy type as it relates to the associated root.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o OrganizationAccountOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -147,15 +180,23 @@ func (o OrganizationAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAcc
 }
 
 type OrganizationNonMasterAccount struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn *string `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email *string `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id *string `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod *string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name *string `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State *string `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status *string `pulumi:"status"`
 }
 
@@ -171,15 +212,23 @@ type OrganizationNonMasterAccountInput interface {
 }
 
 type OrganizationNonMasterAccountArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringPtrInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringPtrInput `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -234,27 +283,44 @@ func (o OrganizationNonMasterAccountOutput) ToOrganizationNonMasterAccountOutput
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o OrganizationNonMasterAccountOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Email of the account
+// Email of the account.
 func (o OrganizationNonMasterAccountOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o OrganizationNonMasterAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the policy type
+// Method by which the account joined the organization.
+func (o OrganizationNonMasterAccountOutput) JoinedMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.JoinedMethod }).(pulumi.StringPtrOutput)
+}
+
+// Date the account became a part of the organization.
+func (o OrganizationNonMasterAccountOutput) JoinedTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.JoinedTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the policy type.
 func (o OrganizationNonMasterAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The status of the policy type as it relates to the associated root
+// State of the account.
+func (o OrganizationNonMasterAccountOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Status of the policy type as it relates to the associated root.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o OrganizationNonMasterAccountOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationNonMasterAccount) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -280,11 +346,11 @@ func (o OrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) Organi
 }
 
 type OrganizationRoot struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn *string `pulumi:"arn"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id *string `pulumi:"id"`
-	// The name of the policy type
+	// Name of the policy type.
 	Name *string `pulumi:"name"`
 	// List of policy types enabled for this root. All elements have these attributes:
 	PolicyTypes []OrganizationRootPolicyType `pulumi:"policyTypes"`
@@ -302,11 +368,11 @@ type OrganizationRootInput interface {
 }
 
 type OrganizationRootArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the policy type
+	// Name of the policy type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of policy types enabled for this root. All elements have these attributes:
 	PolicyTypes OrganizationRootPolicyTypeArrayInput `pulumi:"policyTypes"`
@@ -363,17 +429,17 @@ func (o OrganizationRootOutput) ToOrganizationRootOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o OrganizationRootOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationRoot) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o OrganizationRootOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationRoot) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the policy type
+// Name of the policy type.
 func (o OrganizationRootOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationRoot) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -404,7 +470,7 @@ func (o OrganizationRootArrayOutput) Index(i pulumi.IntInput) OrganizationRootOu
 }
 
 type OrganizationRootPolicyType struct {
-	// The status of the policy type as it relates to the associated root
+	// Status of the policy type as it relates to the associated root.
 	Status *string `pulumi:"status"`
 	Type   *string `pulumi:"type"`
 }
@@ -421,7 +487,7 @@ type OrganizationRootPolicyTypeInput interface {
 }
 
 type OrganizationRootPolicyTypeArgs struct {
-	// The status of the policy type as it relates to the associated root
+	// Status of the policy type as it relates to the associated root.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	Type   pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -477,7 +543,7 @@ func (o OrganizationRootPolicyTypeOutput) ToOrganizationRootPolicyTypeOutputWith
 	return o
 }
 
-// The status of the policy type as it relates to the associated root
+// Status of the policy type as it relates to the associated root.
 func (o OrganizationRootPolicyTypeOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationRootPolicyType) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -897,15 +963,23 @@ func (o GetDelegatedServicesDelegatedServiceArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetOrganizationAccount struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn string `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email string `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id string `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp string `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name string `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State string `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status string `pulumi:"status"`
 }
 
@@ -921,15 +995,23 @@ type GetOrganizationAccountInput interface {
 }
 
 type GetOrganizationAccountArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email pulumi.StringInput `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringInput `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State pulumi.StringInput `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -984,27 +1066,44 @@ func (o GetOrganizationAccountOutput) ToGetOrganizationAccountOutputWithContext(
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o GetOrganizationAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Email of the account
+// Email of the account.
 func (o GetOrganizationAccountOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o GetOrganizationAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the policy type
+// Method by which the account joined the organization.
+func (o GetOrganizationAccountOutput) JoinedMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.JoinedMethod }).(pulumi.StringOutput)
+}
+
+// Date the account became a part of the organization.
+func (o GetOrganizationAccountOutput) JoinedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
+}
+
+// Name of the policy type.
 func (o GetOrganizationAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the policy type as it relates to the associated root
+// State of the account.
+func (o GetOrganizationAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationAccount) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Status of the policy type as it relates to the associated root.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o GetOrganizationAccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationAccount) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1030,15 +1129,23 @@ func (o GetOrganizationAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizat
 }
 
 type GetOrganizationNonMasterAccount struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn string `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email string `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id string `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp string `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name string `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State string `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status string `pulumi:"status"`
 }
 
@@ -1054,15 +1161,23 @@ type GetOrganizationNonMasterAccountInput interface {
 }
 
 type GetOrganizationNonMasterAccountArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Email of the account
+	// Email of the account.
 	Email pulumi.StringInput `pulumi:"email"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the policy type
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringInput `pulumi:"joinedTimestamp"`
+	// Name of the policy type.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The status of the policy type as it relates to the associated root
+	// State of the account.
+	State pulumi.StringInput `pulumi:"state"`
+	// Status of the policy type as it relates to the associated root.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1117,27 +1232,44 @@ func (o GetOrganizationNonMasterAccountOutput) ToGetOrganizationNonMasterAccount
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o GetOrganizationNonMasterAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Email of the account
+// Email of the account.
 func (o GetOrganizationNonMasterAccountOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o GetOrganizationNonMasterAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the policy type
+// Method by which the account joined the organization.
+func (o GetOrganizationNonMasterAccountOutput) JoinedMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.JoinedMethod }).(pulumi.StringOutput)
+}
+
+// Date the account became a part of the organization.
+func (o GetOrganizationNonMasterAccountOutput) JoinedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
+}
+
+// Name of the policy type.
 func (o GetOrganizationNonMasterAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the policy type as it relates to the associated root
+// State of the account.
+func (o GetOrganizationNonMasterAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Status of the policy type as it relates to the associated root.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o GetOrganizationNonMasterAccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationNonMasterAccount) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1163,11 +1295,11 @@ func (o GetOrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetOrganizationRoot struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn string `pulumi:"arn"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id string `pulumi:"id"`
-	// The name of the policy type
+	// Name of the policy type.
 	Name string `pulumi:"name"`
 	// List of policy types enabled for this root. All elements have these attributes:
 	PolicyTypes []GetOrganizationRootPolicyType `pulumi:"policyTypes"`
@@ -1185,11 +1317,11 @@ type GetOrganizationRootInput interface {
 }
 
 type GetOrganizationRootArgs struct {
-	// ARN of the root
+	// ARN of the root.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Identifier of the root
+	// Identifier of the root.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the policy type
+	// Name of the policy type.
 	Name pulumi.StringInput `pulumi:"name"`
 	// List of policy types enabled for this root. All elements have these attributes:
 	PolicyTypes GetOrganizationRootPolicyTypeArrayInput `pulumi:"policyTypes"`
@@ -1246,17 +1378,17 @@ func (o GetOrganizationRootOutput) ToGetOrganizationRootOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the root
+// ARN of the root.
 func (o GetOrganizationRootOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier of the root
+// Identifier of the root.
 func (o GetOrganizationRootOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the policy type
+// Name of the policy type.
 func (o GetOrganizationRootOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationRoot) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1287,7 +1419,7 @@ func (o GetOrganizationRootArrayOutput) Index(i pulumi.IntInput) GetOrganization
 }
 
 type GetOrganizationRootPolicyType struct {
-	// The status of the policy type as it relates to the associated root
+	// Status of the policy type as it relates to the associated root.
 	Status string `pulumi:"status"`
 	Type   string `pulumi:"type"`
 }
@@ -1304,7 +1436,7 @@ type GetOrganizationRootPolicyTypeInput interface {
 }
 
 type GetOrganizationRootPolicyTypeArgs struct {
-	// The status of the policy type as it relates to the associated root
+	// Status of the policy type as it relates to the associated root.
 	Status pulumi.StringInput `pulumi:"status"`
 	Type   pulumi.StringInput `pulumi:"type"`
 }
@@ -1360,7 +1492,7 @@ func (o GetOrganizationRootPolicyTypeOutput) ToGetOrganizationRootPolicyTypeOutp
 	return o
 }
 
-// The status of the policy type as it relates to the associated root
+// Status of the policy type as it relates to the associated root.
 func (o GetOrganizationRootPolicyTypeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationRootPolicyType) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1396,9 +1528,17 @@ type GetOrganizationalUnitChildAccountsAccount struct {
 	Email string `pulumi:"email"`
 	// Parent identifier of the organizational units.
 	Id string `pulumi:"id"`
+	// Method by which the account joined the organization.
+	JoinedMethod string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp string `pulumi:"joinedTimestamp"`
 	// The friendly name of the account.
 	Name string `pulumi:"name"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State string `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status string `pulumi:"status"`
 }
 
@@ -1420,9 +1560,17 @@ type GetOrganizationalUnitChildAccountsAccountArgs struct {
 	Email pulumi.StringInput `pulumi:"email"`
 	// Parent identifier of the organizational units.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringInput `pulumi:"joinedTimestamp"`
 	// The friendly name of the account.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State pulumi.StringInput `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1492,12 +1640,29 @@ func (o GetOrganizationalUnitChildAccountsAccountOutput) Id() pulumi.StringOutpu
 	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Method by which the account joined the organization.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) JoinedMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.JoinedMethod }).(pulumi.StringOutput)
+}
+
+// Date the account became a part of the organization.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) JoinedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
+}
+
 // The friendly name of the account.
 func (o GetOrganizationalUnitChildAccountsAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the account in the organization.
+// State of the account in the organization.
+func (o GetOrganizationalUnitChildAccountsAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.State }).(pulumi.StringOutput)
+}
+
+// (**Deprecated** use `state` instead) Status of the account in the organization.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o GetOrganizationalUnitChildAccountsAccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1529,9 +1694,17 @@ type GetOrganizationalUnitDescendantAccountsAccount struct {
 	Email string `pulumi:"email"`
 	// Parent identifier of the organizational units.
 	Id string `pulumi:"id"`
-	// The friendly name of the account.
+	// Method by which the account joined the organization.
+	JoinedMethod string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp string `pulumi:"joinedTimestamp"`
+	// Friendly name of the account.
 	Name string `pulumi:"name"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State string `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status string `pulumi:"status"`
 }
 
@@ -1553,9 +1726,17 @@ type GetOrganizationalUnitDescendantAccountsAccountArgs struct {
 	Email pulumi.StringInput `pulumi:"email"`
 	// Parent identifier of the organizational units.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The friendly name of the account.
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringInput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringInput `pulumi:"joinedTimestamp"`
+	// Friendly name of the account.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State pulumi.StringInput `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1625,12 +1806,29 @@ func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Id() pulumi.String
 	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The friendly name of the account.
+// Method by which the account joined the organization.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) JoinedMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.JoinedMethod }).(pulumi.StringOutput)
+}
+
+// Date the account became a part of the organization.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) JoinedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.JoinedTimestamp }).(pulumi.StringOutput)
+}
+
+// Friendly name of the account.
 func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The status of the account in the organization.
+// State of the account in the organization.
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.State }).(pulumi.StringOutput)
+}
+
+// (**Deprecated** use `state` instead) Status of the account in the organization.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Status }).(pulumi.StringOutput)
 }

@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:organizations/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN for this account.
+     * ARN for this account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN for this account.
+     * @return ARN for this account.
      * 
      */
     public Output<String> arn() {
@@ -190,15 +190,31 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> iamUserAccessToBilling() {
         return Codegen.optional(this.iamUserAccessToBilling);
     }
+    /**
+     * Method by which the account joined the organization.
+     * 
+     */
     @Export(name="joinedMethod", refs={String.class}, tree="[0]")
     private Output<String> joinedMethod;
 
+    /**
+     * @return Method by which the account joined the organization.
+     * 
+     */
     public Output<String> joinedMethod() {
         return this.joinedMethod;
     }
+    /**
+     * Date the account became a part of the organization.
+     * 
+     */
     @Export(name="joinedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> joinedTimestamp;
 
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
     public Output<String> joinedTimestamp() {
         return this.joinedTimestamp;
     }
@@ -249,14 +265,32 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.roleName);
     }
     /**
-     * The status of the account in the organization.
+     * State of the account in the organization.
      * 
      */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output<String> state;
+
+    /**
+     * @return State of the account in the organization.
+     * 
+     */
+    public Output<String> state() {
+        return this.state;
+    }
+    /**
+     * (**Deprecated** use `state` instead) Status of the account in the organization.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the account in the organization.
+     * @return (**Deprecated** use `state` instead) Status of the account in the organization.
      * 
      */
     public Output<String> status() {

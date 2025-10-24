@@ -12,64 +12,108 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationAccount {
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     private @Nullable String arn;
     /**
-     * @return Email of the account
+     * @return Email of the account.
      * 
      */
     private @Nullable String email;
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     private @Nullable String id;
     /**
-     * @return The name of the policy type
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    private @Nullable String joinedMethod;
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    private @Nullable String joinedTimestamp;
+    /**
+     * @return Name of the policy type.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return State of the account.
      * 
      */
+    private @Nullable String state;
+    /**
+     * @return Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     private @Nullable String status;
 
     private OrganizationAccount() {}
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
     /**
-     * @return Email of the account
+     * @return Email of the account.
      * 
      */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the policy type
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    public Optional<String> joinedMethod() {
+        return Optional.ofNullable(this.joinedMethod);
+    }
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    public Optional<String> joinedTimestamp() {
+        return Optional.ofNullable(this.joinedTimestamp);
+    }
+    /**
+     * @return Name of the policy type.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return State of the account.
      * 
      */
+    public Optional<String> state() {
+        return Optional.ofNullable(this.state);
+    }
+    /**
+     * @return Status of the policy type as it relates to the associated root.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
@@ -86,7 +130,10 @@ public final class OrganizationAccount {
         private @Nullable String arn;
         private @Nullable String email;
         private @Nullable String id;
+        private @Nullable String joinedMethod;
+        private @Nullable String joinedTimestamp;
         private @Nullable String name;
+        private @Nullable String state;
         private @Nullable String status;
         public Builder() {}
         public Builder(OrganizationAccount defaults) {
@@ -94,7 +141,10 @@ public final class OrganizationAccount {
     	      this.arn = defaults.arn;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.joinedMethod = defaults.joinedMethod;
+    	      this.joinedTimestamp = defaults.joinedTimestamp;
     	      this.name = defaults.name;
+    	      this.state = defaults.state;
     	      this.status = defaults.status;
         }
 
@@ -117,9 +167,27 @@ public final class OrganizationAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder joinedMethod(@Nullable String joinedMethod) {
+
+            this.joinedMethod = joinedMethod;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder joinedTimestamp(@Nullable String joinedTimestamp) {
+
+            this.joinedTimestamp = joinedTimestamp;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder state(@Nullable String state) {
+
+            this.state = state;
             return this;
         }
         @CustomType.Setter
@@ -133,7 +201,10 @@ public final class OrganizationAccount {
             _resultValue.arn = arn;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.joinedMethod = joinedMethod;
+            _resultValue.joinedTimestamp = joinedTimestamp;
             _resultValue.name = name;
+            _resultValue.state = state;
             _resultValue.status = status;
             return _resultValue;
         }

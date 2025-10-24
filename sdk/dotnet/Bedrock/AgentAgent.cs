@@ -111,6 +111,7 @@ namespace Pulumi.Aws.Bedrock
     ///         AgentName = "my-agent-name",
     ///         AgentResourceRoleArn = example.Arn,
     ///         IdleSessionTtlInSeconds = 500,
+    ///         Instruction = "You are a friendly assistant who helps answer questions.",
     ///         FoundationModel = "anthropic.claude-v2",
     ///     });
     /// 
@@ -197,7 +198,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. If `PrepareAgent` is `True` this argument is required. The valid range is 40 - 20000 characters.
         /// </summary>
         [Output("instruction")]
         public Output<string> Instruction { get; private set; } = null!;
@@ -356,7 +357,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. If `PrepareAgent` is `True` this argument is required. The valid range is 40 - 20000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
@@ -501,7 +502,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+        /// Instructions that tell the agent what it should do and how it should interact with users. If `PrepareAgent` is `True` this argument is required. The valid range is 40 - 20000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }

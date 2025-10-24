@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<Outputs.OrganizationAccount>> Accounts { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,31 +85,31 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<string>> EnabledPolicyTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        /// Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         /// </summary>
         [Output("featureSet")]
         public Output<string?> FeatureSet { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the master account
+        /// ARN of the master account.
         /// </summary>
         [Output("masterAccountArn")]
         public Output<string> MasterAccountArn { get; private set; } = null!;
 
         /// <summary>
-        /// Email address of the master account
+        /// Email address of the master account.
         /// </summary>
         [Output("masterAccountEmail")]
         public Output<string> MasterAccountEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the master account
+        /// Identifier of the master account.
         /// </summary>
         [Output("masterAccountId")]
         public Output<string> MasterAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the master account
+        /// Name of the master account.
         /// </summary>
         [Output("masterAccountName")]
         public Output<string> MasterAccountName { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Organizations
         }
 
         /// <summary>
-        /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        /// Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         /// </summary>
         [Input("featureSet")]
         public Input<string>? FeatureSet { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Organizations
         }
 
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -253,31 +253,31 @@ namespace Pulumi.Aws.Organizations
         }
 
         /// <summary>
-        /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        /// Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
         /// </summary>
         [Input("featureSet")]
         public Input<string>? FeatureSet { get; set; }
 
         /// <summary>
-        /// ARN of the master account
+        /// ARN of the master account.
         /// </summary>
         [Input("masterAccountArn")]
         public Input<string>? MasterAccountArn { get; set; }
 
         /// <summary>
-        /// Email address of the master account
+        /// Email address of the master account.
         /// </summary>
         [Input("masterAccountEmail")]
         public Input<string>? MasterAccountEmail { get; set; }
 
         /// <summary>
-        /// Identifier of the master account
+        /// Identifier of the master account.
         /// </summary>
         [Input("masterAccountId")]
         public Input<string>? MasterAccountId { get; set; }
 
         /// <summary>
-        /// Name of the master account
+        /// Name of the master account.
         /// </summary>
         [Input("masterAccountName")]
         public Input<string>? MasterAccountName { get; set; }

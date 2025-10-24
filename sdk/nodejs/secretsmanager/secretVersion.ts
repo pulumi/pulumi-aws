@@ -94,6 +94,11 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     declare public readonly secretString: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     */
+    declare public readonly secretStringWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */
     declare public readonly secretStringWoVersion: pulumi.Output<number | undefined>;
@@ -127,6 +132,7 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["secretBinary"] = state?.secretBinary;
             resourceInputs["secretId"] = state?.secretId;
             resourceInputs["secretString"] = state?.secretString;
+            resourceInputs["secretStringWo"] = state?.secretStringWo;
             resourceInputs["secretStringWoVersion"] = state?.secretStringWoVersion;
             resourceInputs["versionId"] = state?.versionId;
             resourceInputs["versionStages"] = state?.versionStages;
@@ -139,6 +145,7 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["secretBinary"] = args?.secretBinary ? pulumi.secret(args.secretBinary) : undefined;
             resourceInputs["secretId"] = args?.secretId;
             resourceInputs["secretString"] = args?.secretString ? pulumi.secret(args.secretString) : undefined;
+            resourceInputs["secretStringWo"] = args?.secretStringWo ? pulumi.secret(args.secretStringWo) : undefined;
             resourceInputs["secretStringWoVersion"] = args?.secretStringWoVersion;
             resourceInputs["versionStages"] = args?.versionStages;
             resourceInputs["arn"] = undefined /*out*/;
@@ -146,7 +153,7 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["secretBinary", "secretString"] };
+        const secretOpts = { additionalSecretOutputs: ["secretBinary", "secretString", "secretStringWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(SecretVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -177,6 +184,11 @@ export interface SecretVersionState {
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     */
+    secretStringWo?: pulumi.Input<string>;
     /**
      * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */
@@ -213,6 +225,11 @@ export interface SecretVersionArgs {
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     */
+    secretStringWo?: pulumi.Input<string>;
     /**
      * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */

@@ -3004,6 +3004,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="networkflowmonitor")
+    private @Nullable Output<String> networkflowmonitor;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> networkflowmonitor() {
+        return Optional.ofNullable(this.networkflowmonitor);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="networkmanager")
     private @Nullable Output<String> networkmanager;
 
@@ -3073,6 +3088,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> oam() {
         return Optional.ofNullable(this.oam);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="observabilityadmin")
+    private @Nullable Output<String> observabilityadmin;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> observabilityadmin() {
+        return Optional.ofNullable(this.observabilityadmin);
     }
 
     /**
@@ -4747,11 +4777,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.neptune = $.neptune;
         this.neptunegraph = $.neptunegraph;
         this.networkfirewall = $.networkfirewall;
+        this.networkflowmonitor = $.networkflowmonitor;
         this.networkmanager = $.networkmanager;
         this.networkmonitor = $.networkmonitor;
         this.notifications = $.notifications;
         this.notificationscontacts = $.notificationscontacts;
         this.oam = $.oam;
+        this.observabilityadmin = $.observabilityadmin;
         this.odb = $.odb;
         this.opensearch = $.opensearch;
         this.opensearchingestion = $.opensearchingestion;
@@ -9050,6 +9082,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param networkflowmonitor Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkflowmonitor(@Nullable Output<String> networkflowmonitor) {
+            $.networkflowmonitor = networkflowmonitor;
+            return this;
+        }
+
+        /**
+         * @param networkflowmonitor Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkflowmonitor(String networkflowmonitor) {
+            return networkflowmonitor(Output.of(networkflowmonitor));
+        }
+
+        /**
          * @param networkmanager Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -9152,6 +9205,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder oam(String oam) {
             return oam(Output.of(oam));
+        }
+
+        /**
+         * @param observabilityadmin Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder observabilityadmin(@Nullable Output<String> observabilityadmin) {
+            $.observabilityadmin = observabilityadmin;
+            return this;
+        }
+
+        /**
+         * @param observabilityadmin Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder observabilityadmin(String observabilityadmin) {
+            return observabilityadmin(Output.of(observabilityadmin));
         }
 
         /**

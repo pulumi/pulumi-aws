@@ -26,14 +26,33 @@ public final class GetOrganizationalUnitChildAccountsAccount {
      */
     private String id;
     /**
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    private String joinedMethod;
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    private String joinedTimestamp;
+    /**
      * @return The friendly name of the account.
      * 
      */
     private String name;
     /**
-     * @return The status of the account in the organization.
+     * @return State of the account in the organization.
      * 
      */
+    private String state;
+    /**
+     * @return (**Deprecated** use `state` instead) Status of the account in the organization.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     private String status;
 
     private GetOrganizationalUnitChildAccountsAccount() {}
@@ -59,6 +78,20 @@ public final class GetOrganizationalUnitChildAccountsAccount {
         return this.id;
     }
     /**
+     * @return Method by which the account joined the organization.
+     * 
+     */
+    public String joinedMethod() {
+        return this.joinedMethod;
+    }
+    /**
+     * @return Date the account became a part of the organization.
+     * 
+     */
+    public String joinedTimestamp() {
+        return this.joinedTimestamp;
+    }
+    /**
      * @return The friendly name of the account.
      * 
      */
@@ -66,9 +99,20 @@ public final class GetOrganizationalUnitChildAccountsAccount {
         return this.name;
     }
     /**
-     * @return The status of the account in the organization.
+     * @return State of the account in the organization.
      * 
      */
+    public String state() {
+        return this.state;
+    }
+    /**
+     * @return (**Deprecated** use `state` instead) Status of the account in the organization.
+     * 
+     * @deprecated
+     * status is deprecated. Use state instead.
+     * 
+     */
+    @Deprecated /* status is deprecated. Use state instead. */
     public String status() {
         return this.status;
     }
@@ -85,7 +129,10 @@ public final class GetOrganizationalUnitChildAccountsAccount {
         private String arn;
         private String email;
         private String id;
+        private String joinedMethod;
+        private String joinedTimestamp;
         private String name;
+        private String state;
         private String status;
         public Builder() {}
         public Builder(GetOrganizationalUnitChildAccountsAccount defaults) {
@@ -93,7 +140,10 @@ public final class GetOrganizationalUnitChildAccountsAccount {
     	      this.arn = defaults.arn;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.joinedMethod = defaults.joinedMethod;
+    	      this.joinedTimestamp = defaults.joinedTimestamp;
     	      this.name = defaults.name;
+    	      this.state = defaults.state;
     	      this.status = defaults.status;
         }
 
@@ -122,11 +172,35 @@ public final class GetOrganizationalUnitChildAccountsAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder joinedMethod(String joinedMethod) {
+            if (joinedMethod == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsAccount", "joinedMethod");
+            }
+            this.joinedMethod = joinedMethod;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder joinedTimestamp(String joinedTimestamp) {
+            if (joinedTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsAccount", "joinedTimestamp");
+            }
+            this.joinedTimestamp = joinedTimestamp;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsAccount", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsAccount", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
@@ -142,7 +216,10 @@ public final class GetOrganizationalUnitChildAccountsAccount {
             _resultValue.arn = arn;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.joinedMethod = joinedMethod;
+            _resultValue.joinedTimestamp = joinedTimestamp;
             _resultValue.name = name;
+            _resultValue.state = state;
             _resultValue.status = status;
             return _resultValue;
         }

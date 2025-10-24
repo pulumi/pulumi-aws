@@ -97,14 +97,14 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      * 
      */
     @Import(name="enableLogging")
     private @Nullable Output<Boolean> enableLogging;
 
     /**
-     * @return Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * @return Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableLogging() {
@@ -500,7 +500,7 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableLogging Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+         * @param enableLogging Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableLogging Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+         * @param enableLogging Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
          * 
          * @return builder
          * 

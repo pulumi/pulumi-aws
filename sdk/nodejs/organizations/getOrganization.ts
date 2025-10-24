@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get information about the organization that the user's account belongs to
+ * Get information about the organization that the users account belongs to.
  *
  * ## Example Usage
  *
- * ### List all account IDs for the organization
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
  *
- * ### SNS topic that can be interacted by the organization only
+ * ### Limit SNS Topic Access to an Organization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,7 +70,7 @@ export interface GetOrganizationResult {
      */
     readonly accounts: outputs.organizations.GetOrganizationAccount[];
     /**
-     * ARN of the root
+     * ARN of the root.
      */
     readonly arn: string;
     /**
@@ -115,11 +115,11 @@ export interface GetOrganizationResult {
     readonly roots: outputs.organizations.GetOrganizationRoot[];
 }
 /**
- * Get information about the organization that the user's account belongs to
+ * Get information about the organization that the users account belongs to.
  *
  * ## Example Usage
  *
- * ### List all account IDs for the organization
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -129,7 +129,7 @@ export interface GetOrganizationResult {
  * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
  * ```
  *
- * ### SNS topic that can be interacted by the organization only
+ * ### Limit SNS Topic Access to an Organization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

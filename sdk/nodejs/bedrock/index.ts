@@ -85,6 +85,31 @@ export type AgentcoreGatewayTarget = import("./agentcoreGatewayTarget").Agentcor
 export const AgentcoreGatewayTarget: typeof import("./agentcoreGatewayTarget").AgentcoreGatewayTarget = null as any;
 utilities.lazyLoad(exports, ["AgentcoreGatewayTarget"], () => require("./agentcoreGatewayTarget"));
 
+export { AgentcoreMemoryArgs, AgentcoreMemoryState } from "./agentcoreMemory";
+export type AgentcoreMemory = import("./agentcoreMemory").AgentcoreMemory;
+export const AgentcoreMemory: typeof import("./agentcoreMemory").AgentcoreMemory = null as any;
+utilities.lazyLoad(exports, ["AgentcoreMemory"], () => require("./agentcoreMemory"));
+
+export { AgentcoreMemoryStrategyArgs, AgentcoreMemoryStrategyState } from "./agentcoreMemoryStrategy";
+export type AgentcoreMemoryStrategy = import("./agentcoreMemoryStrategy").AgentcoreMemoryStrategy;
+export const AgentcoreMemoryStrategy: typeof import("./agentcoreMemoryStrategy").AgentcoreMemoryStrategy = null as any;
+utilities.lazyLoad(exports, ["AgentcoreMemoryStrategy"], () => require("./agentcoreMemoryStrategy"));
+
+export { AgentcoreOauth2CredentialProviderArgs, AgentcoreOauth2CredentialProviderState } from "./agentcoreOauth2CredentialProvider";
+export type AgentcoreOauth2CredentialProvider = import("./agentcoreOauth2CredentialProvider").AgentcoreOauth2CredentialProvider;
+export const AgentcoreOauth2CredentialProvider: typeof import("./agentcoreOauth2CredentialProvider").AgentcoreOauth2CredentialProvider = null as any;
+utilities.lazyLoad(exports, ["AgentcoreOauth2CredentialProvider"], () => require("./agentcoreOauth2CredentialProvider"));
+
+export { AgentcoreTokenVaultCmkArgs, AgentcoreTokenVaultCmkState } from "./agentcoreTokenVaultCmk";
+export type AgentcoreTokenVaultCmk = import("./agentcoreTokenVaultCmk").AgentcoreTokenVaultCmk;
+export const AgentcoreTokenVaultCmk: typeof import("./agentcoreTokenVaultCmk").AgentcoreTokenVaultCmk = null as any;
+utilities.lazyLoad(exports, ["AgentcoreTokenVaultCmk"], () => require("./agentcoreTokenVaultCmk"));
+
+export { AgentcoreWorkloadIdentityArgs, AgentcoreWorkloadIdentityState } from "./agentcoreWorkloadIdentity";
+export type AgentcoreWorkloadIdentity = import("./agentcoreWorkloadIdentity").AgentcoreWorkloadIdentity;
+export const AgentcoreWorkloadIdentity: typeof import("./agentcoreWorkloadIdentity").AgentcoreWorkloadIdentity = null as any;
+utilities.lazyLoad(exports, ["AgentcoreWorkloadIdentity"], () => require("./agentcoreWorkloadIdentity"));
+
 export { CustomModelArgs, CustomModelState } from "./customModel";
 export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
@@ -172,6 +197,16 @@ const _module = {
                 return new AgentcoreGateway(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
                 return new AgentcoreGatewayTarget(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreMemory:AgentcoreMemory":
+                return new AgentcoreMemory(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy":
+                return new AgentcoreMemoryStrategy(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider":
+                return new AgentcoreOauth2CredentialProvider(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk":
+                return new AgentcoreTokenVaultCmk(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity":
+                return new AgentcoreWorkloadIdentity(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
@@ -203,6 +238,11 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowser", _module
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreCodeInterpreter", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGatewayTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemory", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemoryStrategy", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOauth2CredentialProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreTokenVaultCmk", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreWorkloadIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)

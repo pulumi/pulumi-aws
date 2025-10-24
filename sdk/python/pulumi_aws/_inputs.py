@@ -1196,6 +1196,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        networkflowmonitor: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         networkmanager: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1213,6 +1217,10 @@ if not MYPY:
         Use this to override the default service endpoint URL
         """
         oam: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        observabilityadmin: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
         """
@@ -1813,11 +1821,13 @@ class ProviderEndpointArgs:
                  neptune: Optional[pulumi.Input[_builtins.str]] = None,
                  neptunegraph: Optional[pulumi.Input[_builtins.str]] = None,
                  networkfirewall: Optional[pulumi.Input[_builtins.str]] = None,
+                 networkflowmonitor: Optional[pulumi.Input[_builtins.str]] = None,
                  networkmanager: Optional[pulumi.Input[_builtins.str]] = None,
                  networkmonitor: Optional[pulumi.Input[_builtins.str]] = None,
                  notifications: Optional[pulumi.Input[_builtins.str]] = None,
                  notificationscontacts: Optional[pulumi.Input[_builtins.str]] = None,
                  oam: Optional[pulumi.Input[_builtins.str]] = None,
+                 observabilityadmin: Optional[pulumi.Input[_builtins.str]] = None,
                  odb: Optional[pulumi.Input[_builtins.str]] = None,
                  opensearch: Optional[pulumi.Input[_builtins.str]] = None,
                  opensearchingestion: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2116,11 +2126,13 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] neptune: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] neptunegraph: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] networkfirewall: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] networkflowmonitor: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] networkmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] networkmonitor: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] notifications: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] notificationscontacts: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] oam: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] observabilityadmin: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] odb: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] opensearch: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] opensearchingestion: Use this to override the default service endpoint URL
@@ -2618,6 +2630,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "neptunegraph", neptunegraph)
         if networkfirewall is not None:
             pulumi.set(__self__, "networkfirewall", networkfirewall)
+        if networkflowmonitor is not None:
+            pulumi.set(__self__, "networkflowmonitor", networkflowmonitor)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
@@ -2628,6 +2642,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
+        if observabilityadmin is not None:
+            pulumi.set(__self__, "observabilityadmin", observabilityadmin)
         if odb is not None:
             pulumi.set(__self__, "odb", odb)
         if opensearch is not None:
@@ -5215,6 +5231,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def networkflowmonitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "networkflowmonitor")
+
+    @networkflowmonitor.setter
+    def networkflowmonitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "networkflowmonitor", value)
+
+    @_builtins.property
+    @pulumi.getter
     def networkmanager(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -5272,6 +5300,18 @@ class ProviderEndpointArgs:
     @oam.setter
     def oam(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "oam", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def observabilityadmin(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "observabilityadmin")
+
+    @observabilityadmin.setter
+    def observabilityadmin(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "observabilityadmin", value)
 
     @_builtins.property
     @pulumi.getter

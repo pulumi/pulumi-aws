@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationRootPolicyType {
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return Status of the policy type as it relates to the associated root.
      * 
      */
     private String status;
@@ -19,7 +19,7 @@ public final class GetOrganizationRootPolicyType {
 
     private GetOrganizationRootPolicyType() {}
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return Status of the policy type as it relates to the associated root.
      * 
      */
     public String status() {

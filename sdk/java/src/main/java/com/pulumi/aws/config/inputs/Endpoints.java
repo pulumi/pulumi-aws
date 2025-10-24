@@ -1010,6 +1010,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String networkflowmonitor;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String networkmanager;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1031,6 +1036,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String oam;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String observabilityadmin;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2920,6 +2930,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> networkflowmonitor() {
+        return Optional.ofNullable(this.networkflowmonitor);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> networkmanager() {
         return Optional.ofNullable(this.networkmanager);
     }
@@ -2950,6 +2967,13 @@ public final class Endpoints {
      */
     public Optional<String> oam() {
         return Optional.ofNullable(this.oam);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> observabilityadmin() {
+        return Optional.ofNullable(this.observabilityadmin);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3846,11 +3870,13 @@ public final class Endpoints {
         private @Nullable String neptune;
         private @Nullable String neptunegraph;
         private @Nullable String networkfirewall;
+        private @Nullable String networkflowmonitor;
         private @Nullable String networkmanager;
         private @Nullable String networkmonitor;
         private @Nullable String notifications;
         private @Nullable String notificationscontacts;
         private @Nullable String oam;
+        private @Nullable String observabilityadmin;
         private @Nullable String odb;
         private @Nullable String opensearch;
         private @Nullable String opensearchingestion;
@@ -4151,11 +4177,13 @@ public final class Endpoints {
     	      this.neptune = defaults.neptune;
     	      this.neptunegraph = defaults.neptunegraph;
     	      this.networkfirewall = defaults.networkfirewall;
+    	      this.networkflowmonitor = defaults.networkflowmonitor;
     	      this.networkmanager = defaults.networkmanager;
     	      this.networkmonitor = defaults.networkmonitor;
     	      this.notifications = defaults.notifications;
     	      this.notificationscontacts = defaults.notificationscontacts;
     	      this.oam = defaults.oam;
+    	      this.observabilityadmin = defaults.observabilityadmin;
     	      this.odb = defaults.odb;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchingestion = defaults.opensearchingestion;
@@ -5451,6 +5479,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder networkflowmonitor(@Nullable String networkflowmonitor) {
+
+            this.networkflowmonitor = networkflowmonitor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkmanager(@Nullable String networkmanager) {
 
             this.networkmanager = networkmanager;
@@ -5478,6 +5512,12 @@ public final class Endpoints {
         public Builder oam(@Nullable String oam) {
 
             this.oam = oam;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder observabilityadmin(@Nullable String observabilityadmin) {
+
+            this.observabilityadmin = observabilityadmin;
             return this;
         }
         @CustomType.Setter
@@ -6269,11 +6309,13 @@ public final class Endpoints {
             _resultValue.neptune = neptune;
             _resultValue.neptunegraph = neptunegraph;
             _resultValue.networkfirewall = networkfirewall;
+            _resultValue.networkflowmonitor = networkflowmonitor;
             _resultValue.networkmanager = networkmanager;
             _resultValue.networkmonitor = networkmonitor;
             _resultValue.notifications = notifications;
             _resultValue.notificationscontacts = notificationscontacts;
             _resultValue.oam = oam;
+            _resultValue.observabilityadmin = observabilityadmin;
             _resultValue.odb = odb;
             _resultValue.opensearch = opensearch;
             _resultValue.opensearchingestion = opensearchingestion;

@@ -197,6 +197,14 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> MasterPassword { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may
+        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// </summary>
+        [Output("masterPasswordWo")]
+        public Output<string?> MasterPasswordWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
         /// </summary>
         [Output("masterPasswordWoVersion")]
@@ -326,6 +334,7 @@ namespace Pulumi.Aws.DocDB
                 AdditionalSecretOutputs =
                 {
                     "masterPassword",
+                    "masterPasswordWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -491,6 +500,24 @@ namespace Pulumi.Aws.DocDB
             {
                 var emptySecret = Output.CreateSecret(0);
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("masterPasswordWo")]
+        private Input<string>? _masterPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may
+        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// </summary>
+        public Input<string>? MasterPasswordWo
+        {
+            get => _masterPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -768,6 +795,24 @@ namespace Pulumi.Aws.DocDB
             {
                 var emptySecret = Output.CreateSecret(0);
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("masterPasswordWo")]
+        private Input<string>? _masterPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may
+        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// </summary>
+        public Input<string>? MasterPasswordWo
+        {
+            get => _masterPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _masterPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

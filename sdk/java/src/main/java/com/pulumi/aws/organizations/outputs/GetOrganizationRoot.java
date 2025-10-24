@@ -13,17 +13,17 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationRoot {
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     private String arn;
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     private String id;
     /**
-     * @return The name of the policy type
+     * @return Name of the policy type.
      * 
      */
     private String name;
@@ -35,21 +35,21 @@ public final class GetOrganizationRoot {
 
     private GetOrganizationRoot() {}
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The name of the policy type
+     * @return Name of the policy type.
      * 
      */
     public String name() {

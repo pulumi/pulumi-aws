@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DirectoryConfigCertificateBasedAuthProperties struct {
+	// The ARN of the AWS Certificate Manager Private CA resource.
+	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
+	// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+	Status *string `pulumi:"status"`
+}
+
+// DirectoryConfigCertificateBasedAuthPropertiesInput is an input type that accepts DirectoryConfigCertificateBasedAuthPropertiesArgs and DirectoryConfigCertificateBasedAuthPropertiesOutput values.
+// You can construct a concrete instance of `DirectoryConfigCertificateBasedAuthPropertiesInput` via:
+//
+//	DirectoryConfigCertificateBasedAuthPropertiesArgs{...}
+type DirectoryConfigCertificateBasedAuthPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectoryConfigCertificateBasedAuthPropertiesOutput() DirectoryConfigCertificateBasedAuthPropertiesOutput
+	ToDirectoryConfigCertificateBasedAuthPropertiesOutputWithContext(context.Context) DirectoryConfigCertificateBasedAuthPropertiesOutput
+}
+
+type DirectoryConfigCertificateBasedAuthPropertiesArgs struct {
+	// The ARN of the AWS Certificate Manager Private CA resource.
+	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
+	// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DirectoryConfigCertificateBasedAuthPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfigCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i DirectoryConfigCertificateBasedAuthPropertiesArgs) ToDirectoryConfigCertificateBasedAuthPropertiesOutput() DirectoryConfigCertificateBasedAuthPropertiesOutput {
+	return i.ToDirectoryConfigCertificateBasedAuthPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectoryConfigCertificateBasedAuthPropertiesArgs) ToDirectoryConfigCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigCertificateBasedAuthPropertiesOutput)
+}
+
+func (i DirectoryConfigCertificateBasedAuthPropertiesArgs) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutput() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryConfigCertificateBasedAuthPropertiesArgs) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigCertificateBasedAuthPropertiesOutput).ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectoryConfigCertificateBasedAuthPropertiesPtrInput is an input type that accepts DirectoryConfigCertificateBasedAuthPropertiesArgs, DirectoryConfigCertificateBasedAuthPropertiesPtr and DirectoryConfigCertificateBasedAuthPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectoryConfigCertificateBasedAuthPropertiesPtrInput` via:
+//
+//	        DirectoryConfigCertificateBasedAuthPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryConfigCertificateBasedAuthPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutput() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput
+	ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(context.Context) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput
+}
+
+type directoryConfigCertificateBasedAuthPropertiesPtrType DirectoryConfigCertificateBasedAuthPropertiesArgs
+
+func DirectoryConfigCertificateBasedAuthPropertiesPtr(v *DirectoryConfigCertificateBasedAuthPropertiesArgs) DirectoryConfigCertificateBasedAuthPropertiesPtrInput {
+	return (*directoryConfigCertificateBasedAuthPropertiesPtrType)(v)
+}
+
+func (*directoryConfigCertificateBasedAuthPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryConfigCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (i *directoryConfigCertificateBasedAuthPropertiesPtrType) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutput() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return i.ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryConfigCertificateBasedAuthPropertiesPtrType) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
+}
+
+type DirectoryConfigCertificateBasedAuthPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectoryConfigCertificateBasedAuthPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfigCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCertificateBasedAuthPropertiesOutput() DirectoryConfigCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCertificateBasedAuthPropertiesOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesOutput {
+	return o
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutput() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o.ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConfigCertificateBasedAuthProperties) *DirectoryConfigCertificateBasedAuthProperties {
+		return &v
+	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
+}
+
+// The ARN of the AWS Certificate Manager Private CA resource.
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+func (o DirectoryConfigCertificateBasedAuthPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryConfigCertificateBasedAuthProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DirectoryConfigCertificateBasedAuthPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryConfigCertificateBasedAuthProperties)(nil)).Elem()
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutput() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) ToDirectoryConfigCertificateBasedAuthPropertiesPtrOutputWithContext(ctx context.Context) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Elem() DirectoryConfigCertificateBasedAuthPropertiesOutput {
+	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) DirectoryConfigCertificateBasedAuthProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryConfigCertificateBasedAuthProperties
+		return ret
+	}).(DirectoryConfigCertificateBasedAuthPropertiesOutput)
+}
+
+// The ARN of the AWS Certificate Manager Private CA resource.
+func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthorityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+func (o DirectoryConfigCertificateBasedAuthPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigCertificateBasedAuthProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectoryConfigServiceAccountCredentials struct {
 	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 	AccountName string `pulumi:"accountName"`
@@ -2298,6 +2454,8 @@ func (o GetImageStateChangeReasonArrayOutput) Index(i pulumi.IntInput) GetImageS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigCertificateBasedAuthPropertiesInput)(nil)).Elem(), DirectoryConfigCertificateBasedAuthPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigCertificateBasedAuthPropertiesPtrInput)(nil)).Elem(), DirectoryConfigCertificateBasedAuthPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityInput)(nil)).Elem(), FleetComputeCapacityArgs{})
@@ -2330,6 +2488,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImagePermissionArrayInput)(nil)).Elem(), GetImageImagePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageStateChangeReasonInput)(nil)).Elem(), GetImageStateChangeReasonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageStateChangeReasonArrayInput)(nil)).Elem(), GetImageStateChangeReasonArray{})
+	pulumi.RegisterOutputType(DirectoryConfigCertificateBasedAuthPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})

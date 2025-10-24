@@ -594,6 +594,9 @@ type Instance struct {
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
 	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
 	PasswordWoVersion pulumi.IntPtrOutput `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -685,8 +688,12 @@ func NewInstance(ctx *pulumi.Context,
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
+	if args.PasswordWo != nil {
+		args.PasswordWo = pulumi.ToSecret(args.PasswordWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
+		"passwordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -882,6 +889,9 @@ type instanceState struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+	PasswordWo *string `pulumi:"passwordWo"`
 	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1131,6 +1141,9 @@ type InstanceState struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+	PasswordWo pulumi.StringPtrInput
 	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
 	PasswordWoVersion pulumi.IntPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1368,6 +1381,9 @@ type instanceArgs struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+	PasswordWo *string `pulumi:"passwordWo"`
 	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1595,6 +1611,9 @@ type InstanceArgs struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 	Password pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+	PasswordWo pulumi.StringPtrInput
 	// Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.
 	PasswordWoVersion pulumi.IntPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -2095,6 +2114,12 @@ func (o InstanceOutput) ParameterGroupName() pulumi.StringOutput {
 // Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
 func (o InstanceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+func (o InstanceOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `passwordWo` to trigger an update. Increment this value when an update to `passwordWo` is required.

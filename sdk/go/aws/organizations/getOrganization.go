@@ -11,11 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information about the organization that the user's account belongs to
+// Get information about the organization that the users account belongs to.
 //
 // ## Example Usage
 //
-// ### List all account IDs for the organization
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -39,7 +39,7 @@ import (
 // }
 // ```
 //
-// ### SNS topic that can be interacted by the organization only
+// ### Limit SNS Topic Access to an Organization
 //
 // ```go
 // package main
@@ -123,7 +123,7 @@ func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 type LookupOrganizationResult struct {
 	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
 	Accounts []GetOrganizationAccount `pulumi:"accounts"`
-	// ARN of the root
+	// ARN of the root.
 	Arn string `pulumi:"arn"`
 	// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
 	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
@@ -174,7 +174,7 @@ func (o LookupOrganizationResultOutput) Accounts() GetOrganizationAccountArrayOu
 	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationAccount { return v.Accounts }).(GetOrganizationAccountArrayOutput)
 }
 
-// ARN of the root
+// ARN of the root.
 func (o LookupOrganizationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

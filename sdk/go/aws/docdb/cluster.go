@@ -116,6 +116,10 @@ type Cluster struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may
+	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	MasterPasswordWo pulumi.StringPtrOutput `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrOutput                `pulumi:"masterPasswordWoVersion"`
 	MasterUserSecrets       ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
@@ -166,8 +170,12 @@ func NewCluster(ctx *pulumi.Context,
 	if args.MasterPassword != nil {
 		args.MasterPassword = pulumi.ToSecret(args.MasterPassword).(pulumi.StringPtrInput)
 	}
+	if args.MasterPasswordWo != nil {
+		args.MasterPasswordWo = pulumi.ToSecret(args.MasterPasswordWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",
+		"masterPasswordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -245,6 +253,10 @@ type clusterState struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may
+	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion *int                      `pulumi:"masterPasswordWoVersion"`
 	MasterUserSecrets       []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
@@ -338,6 +350,10 @@ type ClusterState struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may
+	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	MasterPasswordWo pulumi.StringPtrInput
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	MasterUserSecrets       ClusterMasterUserSecretArrayInput
@@ -427,6 +443,10 @@ type clusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may
+	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
@@ -508,6 +528,10 @@ type ClusterArgs struct {
 	// Password for the master DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password for the master DB user. Note that this may
+	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	MasterPasswordWo pulumi.StringPtrInput
 	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
@@ -746,6 +770,13 @@ func (o ClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 // show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Password for the master DB user. Note that this may
+// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+func (o ClusterOutput) MasterPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.

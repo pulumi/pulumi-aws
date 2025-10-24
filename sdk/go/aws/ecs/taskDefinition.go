@@ -454,7 +454,7 @@ type TaskDefinition struct {
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrOutput `pulumi:"trackLatest"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	//
@@ -546,7 +546,7 @@ type taskDefinitionState struct {
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	//
@@ -603,7 +603,7 @@ type TaskDefinitionState struct {
 	TaskRoleArn pulumi.StringPtrInput
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	//
@@ -656,7 +656,7 @@ type taskDefinitionArgs struct {
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	//
@@ -706,7 +706,7 @@ type TaskDefinitionArgs struct {
 	TaskRoleArn pulumi.StringPtrInput
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
-	// Configuration block for volumes that containers in your task may use. Detailed below.
+	// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 	//
 	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	//
@@ -918,7 +918,7 @@ func (o TaskDefinitionOutput) TrackLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.TrackLatest }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for volumes that containers in your task may use. Detailed below.
+// Repeatable configuration block for volumes that containers in your task may use. Detailed below.
 //
 // > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 //

@@ -566,14 +566,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableLogFileValidation);
     }
     /**
-     * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      * 
      */
     @Export(name="enableLogging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableLogging;
 
     /**
-     * @return Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * @return Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enableLogging() {

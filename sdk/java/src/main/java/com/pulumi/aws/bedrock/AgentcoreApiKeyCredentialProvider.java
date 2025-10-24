@@ -56,6 +56,39 @@ import javax.annotation.Nullable;
  * 
  * ### Write-Only API Key (Recommended for Production)
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProvider;
+ * import com.pulumi.aws.bedrock.AgentcoreApiKeyCredentialProviderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreApiKeyCredentialProvider("example", AgentcoreApiKeyCredentialProviderArgs.builder()
+ *             .name("example-api-key-provider")
+ *             .apiKeyWo("your-api-key-here")
+ *             .apiKeyWoVersion(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -98,6 +131,22 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
      */
     public Output<List<AgentcoreApiKeyCredentialProviderApiKeySecretArn>> apiKeySecretArns() {
         return this.apiKeySecretArns;
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * 
+     */
+    @Export(name="apiKeyWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * 
+     */
+    public Output<Optional<String>> apiKeyWo() {
+        return Codegen.optional(this.apiKeyWo);
     }
     /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
@@ -204,7 +253,8 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "apiKey"
+                "apiKey",
+                "apiKeyWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

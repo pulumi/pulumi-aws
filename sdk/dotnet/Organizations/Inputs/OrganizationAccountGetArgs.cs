@@ -13,31 +13,49 @@ namespace Pulumi.Aws.Organizations.Inputs
     public sealed class OrganizationAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Email of the account
+        /// Email of the account.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// Identifier of the root
+        /// Identifier of the root.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the policy type
+        /// Method by which the account joined the organization.
+        /// </summary>
+        [Input("joinedMethod")]
+        public Input<string>? JoinedMethod { get; set; }
+
+        /// <summary>
+        /// Date the account became a part of the organization.
+        /// </summary>
+        [Input("joinedTimestamp")]
+        public Input<string>? JoinedTimestamp { get; set; }
+
+        /// <summary>
+        /// Name of the policy type.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The status of the policy type as it relates to the associated root
+        /// State of the account.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Status of the policy type as it relates to the associated root.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

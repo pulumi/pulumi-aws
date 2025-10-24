@@ -33,6 +33,24 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ### Write-Only API Key (Recommended for Production)
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreApiKeyCredentialProvider("example", new()
+    ///     {
+    ///         Name = "example-api-key-provider",
+    ///         ApiKeyWo = "your-api-key-here",
+    ///         ApiKeyWoVersion = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -57,6 +75,13 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("apiKeySecretArns")]
         public Output<ImmutableArray<Outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn>> ApiKeySecretArns { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// </summary>
+        [Output("apiKeyWo")]
+        public Output<string?> ApiKeyWo { get; private set; } = null!;
 
         /// <summary>
         /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
@@ -112,6 +137,7 @@ namespace Pulumi.Aws.Bedrock
                 AdditionalSecretOutputs =
                 {
                     "apiKey",
+                    "apiKeyWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,6 +177,23 @@ namespace Pulumi.Aws.Bedrock
             {
                 var emptySecret = Output.CreateSecret(0);
                 _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apiKeyWo")]
+        private Input<string>? _apiKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// </summary>
+        public Input<string>? ApiKeyWo
+        {
+            get => _apiKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -212,6 +255,23 @@ namespace Pulumi.Aws.Bedrock
         {
             get => _apiKeySecretArns ?? (_apiKeySecretArns = new InputList<Inputs.AgentcoreApiKeyCredentialProviderApiKeySecretArnGetArgs>());
             set => _apiKeySecretArns = value;
+        }
+
+        [Input("apiKeyWo")]
+        private Input<string>? _apiKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// </summary>
+        public Input<string>? ApiKeyWo
+        {
+            get => _apiKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
         }
 
         /// <summary>

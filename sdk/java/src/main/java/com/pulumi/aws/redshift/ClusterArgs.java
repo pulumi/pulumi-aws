@@ -411,6 +411,31 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user.
+     * Conflicts with `manageMasterPassword` and `masterPassword`.
+     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * 
+     */
+    @Import(name="masterPasswordWo")
+    private @Nullable Output<String> masterPasswordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user.
+     * Conflicts with `manageMasterPassword` and `masterPassword`.
+     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * 
+     */
+    public Optional<Output<String>> masterPasswordWo() {
+        return Optional.ofNullable(this.masterPasswordWo);
+    }
+
+    /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      * 
      */
@@ -691,6 +716,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
         this.masterPassword = $.masterPassword;
         this.masterPasswordSecretKmsKeyId = $.masterPasswordSecretKmsKeyId;
+        this.masterPasswordWo = $.masterPasswordWo;
         this.masterPasswordWoVersion = $.masterPasswordWoVersion;
         this.masterUsername = $.masterUsername;
         this.multiAz = $.multiAz;
@@ -1269,6 +1295,37 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterPasswordSecretKmsKeyId(String masterPasswordSecretKmsKeyId) {
             return masterPasswordSecretKmsKeyId(Output.of(masterPasswordSecretKmsKeyId));
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user.
+         * Conflicts with `manageMasterPassword` and `masterPassword`.
+         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * Note that this may show up in logs.
+         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(@Nullable Output<String> masterPasswordWo) {
+            $.masterPasswordWo = masterPasswordWo;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user.
+         * Conflicts with `manageMasterPassword` and `masterPassword`.
+         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * Note that this may show up in logs.
+         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(String masterPasswordWo) {
+            return masterPasswordWo(Output.of(masterPasswordWo));
         }
 
         /**

@@ -36,6 +36,23 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * 
+     */
+    @Import(name="apiKeyWo")
+    private @Nullable Output<String> apiKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * 
+     */
+    public Optional<Output<String>> apiKeyWo() {
+        return Optional.ofNullable(this.apiKeyWo);
+    }
+
+    /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      * 
      */
@@ -92,6 +109,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     private AgentcoreApiKeyCredentialProviderArgs(AgentcoreApiKeyCredentialProviderArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyWo = $.apiKeyWo;
         this.apiKeyWoVersion = $.apiKeyWoVersion;
         this.name = $.name;
         this.region = $.region;
@@ -138,6 +156,29 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(@Nullable Output<String> apiKeyWo) {
+            $.apiKeyWo = apiKeyWo;
+            return this;
+        }
+
+        /**
+         * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyWo(String apiKeyWo) {
+            return apiKeyWo(Output.of(apiKeyWo));
         }
 
         /**

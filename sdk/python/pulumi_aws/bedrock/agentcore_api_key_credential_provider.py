@@ -22,6 +22,7 @@ __all__ = ['AgentcoreApiKeyCredentialProviderArgs', 'AgentcoreApiKeyCredentialPr
 class AgentcoreApiKeyCredentialProviderArgs:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
@@ -30,6 +31,8 @@ class AgentcoreApiKeyCredentialProviderArgs:
         :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -40,6 +43,8 @@ class AgentcoreApiKeyCredentialProviderArgs:
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_wo is not None:
+            pulumi.set(__self__, "api_key_wo", api_key_wo)
         if api_key_wo_version is not None:
             pulumi.set(__self__, "api_key_wo_version", api_key_wo_version)
         if name is not None:
@@ -60,6 +65,19 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
+
+    @api_key_wo.setter
+    def api_key_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "api_key_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")
@@ -107,6 +125,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key_secret_arns: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]]] = None,
+                 api_key_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -117,6 +136,8 @@ class _AgentcoreApiKeyCredentialProviderState:
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
@@ -130,6 +151,8 @@ class _AgentcoreApiKeyCredentialProviderState:
             pulumi.set(__self__, "api_key", api_key)
         if api_key_secret_arns is not None:
             pulumi.set(__self__, "api_key_secret_arns", api_key_secret_arns)
+        if api_key_wo is not None:
+            pulumi.set(__self__, "api_key_wo", api_key_wo)
         if api_key_wo_version is not None:
             pulumi.set(__self__, "api_key_wo_version", api_key_wo_version)
         if credential_provider_arn is not None:
@@ -164,6 +187,19 @@ class _AgentcoreApiKeyCredentialProviderState:
     @api_key_secret_arns.setter
     def api_key_secret_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]]]):
         pulumi.set(self, "api_key_secret_arns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
+
+    @api_key_wo.setter
+    def api_key_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "api_key_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")
@@ -225,6 +261,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -245,6 +282,16 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         ### Write-Only API Key (Recommended for Production)
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
+            name="example-api-key-provider",
+            api_key_wo="your-api-key-here",
+            api_key_wo_version=1)
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -258,6 +305,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -288,6 +337,16 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         ### Write-Only API Key (Recommended for Production)
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreApiKeyCredentialProvider("example",
+            name="example-api-key-provider",
+            api_key_wo="your-api-key-here",
+            api_key_wo_version=1)
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -312,6 +371,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  api_key_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -325,12 +385,13 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             __props__ = AgentcoreApiKeyCredentialProviderArgs.__new__(AgentcoreApiKeyCredentialProviderArgs)
 
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
+            __props__.__dict__["api_key_wo"] = None if api_key_wo is None else pulumi.Output.secret(api_key_wo)
             __props__.__dict__["api_key_wo_version"] = api_key_wo_version
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["api_key_secret_arns"] = None
             __props__.__dict__["credential_provider_arn"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "apiKeyWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AgentcoreApiKeyCredentialProvider, __self__).__init__(
             'aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider',
@@ -344,6 +405,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[_builtins.str]] = None,
             api_key_secret_arns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]]] = None,
+            api_key_wo: Optional[pulumi.Input[_builtins.str]] = None,
             api_key_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -359,6 +421,8 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
+        :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
@@ -374,6 +438,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["api_key_secret_arns"] = api_key_secret_arns
+        __props__.__dict__["api_key_wo"] = api_key_wo
         __props__.__dict__["api_key_wo_version"] = api_key_wo_version
         __props__.__dict__["credential_provider_arn"] = credential_provider_arn
         __props__.__dict__["name"] = name
@@ -397,6 +462,15 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         ARN of the AWS Secrets Manager secret containing the API key.
         """
         return pulumi.get(self, "api_key_secret_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyWo")
+    def api_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        """
+        return pulumi.get(self, "api_key_wo")
 
     @_builtins.property
     @pulumi.getter(name="apiKeyWoVersion")

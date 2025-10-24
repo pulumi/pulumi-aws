@@ -18,14 +18,14 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
     public static final OrganizationRootArgs Empty = new OrganizationRootArgs();
 
     /**
-     * ARN of the root
+     * ARN of the root.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the root
+     * @return ARN of the root.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Identifier of the root
+     * Identifier of the root.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Identifier of the root
+     * @return Identifier of the root.
      * 
      */
     public Optional<Output<String>> id() {
@@ -48,14 +48,14 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the policy type
+     * Name of the policy type.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy type
+     * @return Name of the policy type.
      * 
      */
     public Optional<Output<String>> name() {
@@ -105,7 +105,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn ARN of the root
+         * @param arn ARN of the root.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param id Identifier of the root
+         * @param id Identifier of the root.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param id Identifier of the root
+         * @param id Identifier of the root.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the policy type
+         * @param name Name of the policy type.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class OrganizationRootArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the policy type
+         * @param name Name of the policy type.
          * 
          * @return builder
          * 

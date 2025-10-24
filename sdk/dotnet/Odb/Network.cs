@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Odb
         [Output("defaultDnsPrefix")]
         public Output<string?> DefaultDnsPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// If set to true deletes associated OCI resources. Default false.
+        /// </summary>
+        [Output("deleteAssociatedResources")]
+        public Output<bool> DeleteAssociatedResources { get; private set; } = null!;
+
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
@@ -232,6 +238,12 @@ namespace Pulumi.Aws.Odb
         [Input("defaultDnsPrefix")]
         public Input<string>? DefaultDnsPrefix { get; set; }
 
+        /// <summary>
+        /// If set to true deletes associated OCI resources. Default false.
+        /// </summary>
+        [Input("deleteAssociatedResources")]
+        public Input<bool>? DeleteAssociatedResources { get; set; }
+
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
@@ -316,6 +328,12 @@ namespace Pulumi.Aws.Odb
 
         [Input("defaultDnsPrefix")]
         public Input<string>? DefaultDnsPrefix { get; set; }
+
+        /// <summary>
+        /// If set to true deletes associated OCI resources. Default false.
+        /// </summary>
+        [Input("deleteAssociatedResources")]
+        public Input<bool>? DeleteAssociatedResources { get; set; }
 
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

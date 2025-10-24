@@ -2152,6 +2152,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreMemory",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreMemory:AgentcoreMemory": "AgentcoreMemory"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreMemoryStrategy",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy": "AgentcoreMemoryStrategy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreOauth2CredentialProvider",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider": "AgentcoreOauth2CredentialProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreTokenVaultCmk",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk": "AgentcoreTokenVaultCmk"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreWorkloadIdentity",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity": "AgentcoreWorkloadIdentity"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/customModel",
   "fqn": "pulumi_aws.bedrock",
   "classes": {

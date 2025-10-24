@@ -16,14 +16,14 @@ public final class OrganizationRootPolicyTypeArgs extends com.pulumi.resources.R
     public static final OrganizationRootPolicyTypeArgs Empty = new OrganizationRootPolicyTypeArgs();
 
     /**
-     * The status of the policy type as it relates to the associated root
+     * Status of the policy type as it relates to the associated root.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the policy type as it relates to the associated root
+     * @return Status of the policy type as it relates to the associated root.
      * 
      */
     public Optional<Output<String>> status() {
@@ -63,7 +63,7 @@ public final class OrganizationRootPolicyTypeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param status The status of the policy type as it relates to the associated root
+         * @param status Status of the policy type as it relates to the associated root.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class OrganizationRootPolicyTypeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param status The status of the policy type as it relates to the associated root
+         * @param status Status of the policy type as it relates to the associated root.
          * 
          * @return builder
          * 

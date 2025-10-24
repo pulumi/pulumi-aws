@@ -33,6 +33,7 @@ class ParameterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Parameter resource.
@@ -51,6 +52,8 @@ class ParameterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -80,6 +83,8 @@ class ParameterArgs:
             pulumi.set(__self__, "tier", tier)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
         if value_wo_version is not None:
             pulumi.set(__self__, "value_wo_version", value_wo_version)
 
@@ -242,6 +247,19 @@ class ParameterArgs:
         pulumi.set(self, "value", value)
 
     @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -274,6 +292,7 @@ class _ParameterState:
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
@@ -295,6 +314,8 @@ class _ParameterState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -330,6 +351,8 @@ class _ParameterState:
             pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo is not None:
+            pulumi.set(__self__, "value_wo", value_wo)
         if value_wo_version is not None:
             pulumi.set(__self__, "value_wo_version", value_wo_version)
         if version is not None:
@@ -518,6 +541,19 @@ class _ParameterState:
         pulumi.set(self, "value", value)
 
     @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        """
+        return pulumi.get(self, "value_wo")
+
+    @value_wo.setter
+    def value_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value_wo", value)
+
+    @_builtins.property
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -563,6 +599,7 @@ class Parameter(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
@@ -648,6 +685,8 @@ class Parameter(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -752,6 +791,7 @@ class Parameter(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -777,11 +817,12 @@ class Parameter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
+            __props__.__dict__["value_wo"] = None if value_wo is None else pulumi.Output.secret(value_wo)
             __props__.__dict__["value_wo_version"] = value_wo_version
             __props__.__dict__["has_value_wo"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value", "valueWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Parameter, __self__).__init__(
             'aws:ssm/parameter:Parameter',
@@ -808,6 +849,7 @@ class Parameter(pulumi.CustomResource):
             tier: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[Union[_builtins.str, 'ParameterType']]] = None,
             value: Optional[pulumi.Input[_builtins.str]] = None,
+            value_wo: Optional[pulumi.Input[_builtins.str]] = None,
             value_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             version: Optional[pulumi.Input[_builtins.int]] = None) -> 'Parameter':
         """
@@ -834,6 +876,8 @@ class Parameter(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
         :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
@@ -858,6 +902,7 @@ class Parameter(pulumi.CustomResource):
         __props__.__dict__["tier"] = tier
         __props__.__dict__["type"] = type
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_wo"] = value_wo
         __props__.__dict__["value_wo_version"] = value_wo_version
         __props__.__dict__["version"] = version
         return Parameter(resource_name, opts=opts, __props__=__props__)
@@ -983,6 +1028,15 @@ class Parameter(pulumi.CustomResource):
         Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         """
         return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueWo")
+    def value_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        """
+        return pulumi.get(self, "value_wo")
 
     @_builtins.property
     @pulumi.getter(name="valueWoVersion")

@@ -374,7 +374,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration block for volumes that containers in your task may use. Detailed below.
+     * Repeatable configuration block for volumes that containers in your task may use. Detailed below.
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
      * 
@@ -385,7 +385,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<List<TaskDefinitionVolumeArgs>> volumes;
 
     /**
-     * @return Configuration block for volumes that containers in your task may use. Detailed below.
+     * @return Repeatable configuration block for volumes that containers in your task may use. Detailed below.
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
      * 
@@ -951,7 +951,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumes Configuration block for volumes that containers in your task may use. Detailed below.
+         * @param volumes Repeatable configuration block for volumes that containers in your task may use. Detailed below.
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
          * 
@@ -966,7 +966,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumes Configuration block for volumes that containers in your task may use. Detailed below.
+         * @param volumes Repeatable configuration block for volumes that containers in your task may use. Detailed below.
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
          * 
@@ -980,7 +980,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumes Configuration block for volumes that containers in your task may use. Detailed below.
+         * @param volumes Repeatable configuration block for volumes that containers in your task may use. Detailed below.
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
          * 

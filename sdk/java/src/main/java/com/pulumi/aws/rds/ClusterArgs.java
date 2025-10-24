@@ -625,6 +625,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * 
+     */
+    @Import(name="masterPasswordWo")
+    private @Nullable Output<String> masterPasswordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * 
+     */
+    public Optional<Output<String>> masterPasswordWo() {
+        return Optional.ofNullable(this.masterPasswordWo);
+    }
+
+    /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      * 
      */
@@ -1045,6 +1062,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.manageMasterUserPassword = $.manageMasterUserPassword;
         this.masterPassword = $.masterPassword;
+        this.masterPasswordWo = $.masterPasswordWo;
         this.masterPasswordWoVersion = $.masterPasswordWoVersion;
         this.masterUserSecretKmsKeyId = $.masterUserSecretKmsKeyId;
         this.masterUsername = $.masterUsername;
@@ -2002,6 +2020,29 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterPassword(String masterPassword) {
             return masterPassword(Output.of(masterPassword));
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(@Nullable Output<String> masterPasswordWo) {
+            $.masterPasswordWo = masterPasswordWo;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordWo(String masterPasswordWo) {
+            return masterPasswordWo(Output.of(masterPasswordWo));
         }
 
         /**

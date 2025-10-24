@@ -528,11 +528,11 @@ public final class OrganizationsFunctions {
         return Deployment.getInstance().invokeAsync("aws:organizations/getDelegatedServices:getDelegatedServices", TypeShape.of(GetDelegatedServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -563,7 +563,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -632,11 +632,11 @@ public final class OrganizationsFunctions {
         return getOrganization(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -667,7 +667,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -736,11 +736,11 @@ public final class OrganizationsFunctions {
         return getOrganizationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -771,7 +771,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -840,11 +840,11 @@ public final class OrganizationsFunctions {
         return getOrganization(args, InvokeOptions.Empty);
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -875,7 +875,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -944,11 +944,11 @@ public final class OrganizationsFunctions {
         return getOrganizationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -979,7 +979,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -1048,11 +1048,11 @@ public final class OrganizationsFunctions {
         return Deployment.getInstance().invoke("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -1083,7 +1083,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code
@@ -1152,11 +1152,11 @@ public final class OrganizationsFunctions {
         return Deployment.getInstance().invoke("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get information about the organization that the user&#39;s account belongs to
+     * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
      * 
-     * ### List all account IDs for the organization
+     * ### Basic Usage
      * 
      * <pre>
      * {@code
@@ -1187,7 +1187,7 @@ public final class OrganizationsFunctions {
      * }
      * </pre>
      * 
-     * ### SNS topic that can be interacted by the organization only
+     * ### Limit SNS Topic Access to an Organization
      * 
      * <pre>
      * {@code

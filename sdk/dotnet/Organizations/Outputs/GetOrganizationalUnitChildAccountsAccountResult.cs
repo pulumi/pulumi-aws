@@ -26,11 +26,23 @@ namespace Pulumi.Aws.Organizations.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Method by which the account joined the organization.
+        /// </summary>
+        public readonly string JoinedMethod;
+        /// <summary>
+        /// Date the account became a part of the organization.
+        /// </summary>
+        public readonly string JoinedTimestamp;
+        /// <summary>
         /// The friendly name of the account.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the account in the organization.
+        /// State of the account in the organization.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// (**Deprecated** use `State` instead) Status of the account in the organization.
         /// </summary>
         public readonly string Status;
 
@@ -42,14 +54,23 @@ namespace Pulumi.Aws.Organizations.Outputs
 
             string id,
 
+            string joinedMethod,
+
+            string joinedTimestamp,
+
             string name,
+
+            string state,
 
             string status)
         {
             Arn = arn;
             Email = email;
             Id = id;
+            JoinedMethod = joinedMethod;
+            JoinedTimestamp = joinedTimestamp;
             Name = name;
+            State = state;
             Status = status;
         }
     }

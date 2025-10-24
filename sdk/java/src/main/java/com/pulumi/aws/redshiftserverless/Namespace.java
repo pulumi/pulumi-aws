@@ -108,6 +108,24 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminUserPassword);
     }
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * 
+     */
+    @Export(name="adminUserPasswordWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> adminUserPasswordWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * 
+     */
+    public Output<Optional<String>> adminUserPasswordWo() {
+        return Codegen.optional(this.adminUserPasswordWo);
+    }
+    /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      * 
      */
@@ -347,6 +365,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "adminUserPassword",
+                "adminUserPasswordWo",
                 "adminUsername"
             ))
             .build();

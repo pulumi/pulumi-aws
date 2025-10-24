@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Organizations.Outputs
     public sealed class OrganizationRoot
     {
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Identifier of the root
+        /// Identifier of the root.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the policy type
+        /// Name of the policy type.
         /// </summary>
         public readonly string? Name;
         /// <summary>

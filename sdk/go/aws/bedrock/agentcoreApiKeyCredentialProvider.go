@@ -42,6 +42,32 @@ import (
 //
 // ### Write-Only API Key (Recommended for Production)
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreApiKeyCredentialProvider(ctx, "example", &bedrock.AgentcoreApiKeyCredentialProviderArgs{
+//				Name:            pulumi.String("example-api-key-provider"),
+//				ApiKeyWo:        pulumi.String("your-api-key-here"),
+//				ApiKeyWoVersion: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore API Key Credential Provider using the provider name. For example:
@@ -58,6 +84,9 @@ type AgentcoreApiKeyCredentialProvider struct {
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput `pulumi:"apiKeySecretArns"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrOutput `pulumi:"apiKeyWo"`
 	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 	ApiKeyWoVersion pulumi.IntPtrOutput `pulumi:"apiKeyWoVersion"`
 	// ARN of the API Key credential provider.
@@ -82,8 +111,12 @@ func NewAgentcoreApiKeyCredentialProvider(ctx *pulumi.Context,
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
+	if args.ApiKeyWo != nil {
+		args.ApiKeyWo = pulumi.ToSecret(args.ApiKeyWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",
+		"apiKeyWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -115,6 +148,9 @@ type agentcoreApiKeyCredentialProviderState struct {
 	ApiKey *string `pulumi:"apiKey"`
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns []AgentcoreApiKeyCredentialProviderApiKeySecretArn `pulumi:"apiKeySecretArns"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+	ApiKeyWo *string `pulumi:"apiKeyWo"`
 	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
 	// ARN of the API Key credential provider.
@@ -136,6 +172,9 @@ type AgentcoreApiKeyCredentialProviderState struct {
 	ApiKey pulumi.StringPtrInput
 	// ARN of the AWS Secrets Manager secret containing the API key.
 	ApiKeySecretArns AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrInput
 	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 	ApiKeyWoVersion pulumi.IntPtrInput
 	// ARN of the API Key credential provider.
@@ -159,6 +198,9 @@ type agentcoreApiKeyCredentialProviderArgs struct {
 	//
 	// **Write-Only API Key (choose one approach):**
 	ApiKey *string `pulumi:"apiKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+	ApiKeyWo *string `pulumi:"apiKeyWo"`
 	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 	ApiKeyWoVersion *int `pulumi:"apiKeyWoVersion"`
 	// Name of the API Key credential provider. Forces replacement when changed.
@@ -177,6 +219,9 @@ type AgentcoreApiKeyCredentialProviderArgs struct {
 	//
 	// **Write-Only API Key (choose one approach):**
 	ApiKey pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+	ApiKeyWo pulumi.StringPtrInput
 	// Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
 	ApiKeyWoVersion pulumi.IntPtrInput
 	// Name of the API Key credential provider. Forces replacement when changed.
@@ -288,6 +333,12 @@ func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeySecretArns() AgentcoreApi
 	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput {
 		return v.ApiKeySecretArns
 	}).(AgentcoreApiKeyCredentialProviderApiKeySecretArnArrayOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+func (o AgentcoreApiKeyCredentialProviderOutput) ApiKeyWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreApiKeyCredentialProvider) pulumi.StringPtrOutput { return v.ApiKeyWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.

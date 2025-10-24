@@ -220,6 +220,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly masterPasswordSecretKmsKeyId: pulumi.Output<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user.
+     * Conflicts with `manageMasterPassword` and `masterPassword`.
+     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     */
+    declare public readonly masterPasswordWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
     declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
@@ -340,6 +349,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPassword"] = state?.masterPassword;
             resourceInputs["masterPasswordSecretArn"] = state?.masterPasswordSecretArn;
             resourceInputs["masterPasswordSecretKmsKeyId"] = state?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterPasswordWo"] = state?.masterPasswordWo;
             resourceInputs["masterPasswordWoVersion"] = state?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = state?.masterUsername;
             resourceInputs["multiAz"] = state?.multiAz;
@@ -389,6 +399,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["manualSnapshotRetentionPeriod"] = args?.manualSnapshotRetentionPeriod;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = args?.masterPasswordSecretKmsKeyId;
+            resourceInputs["masterPasswordWo"] = args?.masterPasswordWo ? pulumi.secret(args.masterPasswordWo) : undefined;
             resourceInputs["masterPasswordWoVersion"] = args?.masterPasswordWoVersion;
             resourceInputs["masterUsername"] = args?.masterUsername;
             resourceInputs["multiAz"] = args?.multiAz;
@@ -416,7 +427,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["masterPassword", "masterPasswordWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -567,6 +578,15 @@ export interface ClusterState {
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
     masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user.
+     * Conflicts with `manageMasterPassword` and `masterPassword`.
+     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     */
+    masterPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */
@@ -757,6 +777,15 @@ export interface ClusterArgs {
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      */
     masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password for the master DB user.
+     * Conflicts with `manageMasterPassword` and `masterPassword`.
+     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     */
+    masterPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
      */

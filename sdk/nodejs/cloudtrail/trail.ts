@@ -330,7 +330,7 @@ export class Trail extends pulumi.CustomResource {
      */
     declare public readonly enableLogFileValidation: pulumi.Output<boolean | undefined>;
     /**
-     * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      */
     declare public readonly enableLogging: pulumi.Output<boolean | undefined>;
     /**
@@ -487,7 +487,7 @@ export interface TrailState {
      */
     enableLogFileValidation?: pulumi.Input<boolean>;
     /**
-     * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      */
     enableLogging?: pulumi.Input<boolean>;
     /**
@@ -575,7 +575,7 @@ export interface TrailArgs {
      */
     enableLogFileValidation?: pulumi.Input<boolean>;
     /**
-     * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+     * Enables logging for the trail. When set to `true`, logging is started by calling the [`StartLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html) API. When set to `false`, logging is stopped by calling the [`StopLogging`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html) API. Defaults to `true`.
      */
     enableLogging?: pulumi.Input<boolean>;
     /**

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.appstream.inputs;
 
+import com.pulumi.aws.appstream.inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs;
 import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class DirectoryConfigState extends com.pulumi.resources.ResourceArgs {
 
     public static final DirectoryConfigState Empty = new DirectoryConfigState();
+
+    /**
+     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     * 
+     */
+    @Import(name="certificateBasedAuthProperties")
+    private @Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties;
+
+    /**
+     * @return Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     * 
+     */
+    public Optional<Output<DirectoryConfigCertificateBasedAuthPropertiesArgs>> certificateBasedAuthProperties() {
+        return Optional.ofNullable(this.certificateBasedAuthProperties);
+    }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
@@ -95,6 +111,7 @@ public final class DirectoryConfigState extends com.pulumi.resources.ResourceArg
     private DirectoryConfigState() {}
 
     private DirectoryConfigState(DirectoryConfigState $) {
+        this.certificateBasedAuthProperties = $.certificateBasedAuthProperties;
         this.createdTime = $.createdTime;
         this.directoryName = $.directoryName;
         this.organizationalUnitDistinguishedNames = $.organizationalUnitDistinguishedNames;
@@ -118,6 +135,27 @@ public final class DirectoryConfigState extends com.pulumi.resources.ResourceArg
 
         public Builder(DirectoryConfigState defaults) {
             $ = new DirectoryConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(@Nullable Output<DirectoryConfigCertificateBasedAuthPropertiesArgs> certificateBasedAuthProperties) {
+            $.certificateBasedAuthProperties = certificateBasedAuthProperties;
+            return this;
+        }
+
+        /**
+         * @param certificateBasedAuthProperties Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateBasedAuthProperties(DirectoryConfigCertificateBasedAuthPropertiesArgs certificateBasedAuthProperties) {
+            return certificateBasedAuthProperties(Output.of(certificateBasedAuthProperties));
         }
 
         /**

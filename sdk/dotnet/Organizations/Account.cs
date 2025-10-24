@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Organizations
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN for this account.
+        /// ARN for this account.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -120,9 +120,15 @@ namespace Pulumi.Aws.Organizations
         [Output("iamUserAccessToBilling")]
         public Output<string?> IamUserAccessToBilling { get; private set; } = null!;
 
+        /// <summary>
+        /// Method by which the account joined the organization.
+        /// </summary>
         [Output("joinedMethod")]
         public Output<string> JoinedMethod { get; private set; } = null!;
 
+        /// <summary>
+        /// Date the account became a part of the organization.
+        /// </summary>
         [Output("joinedTimestamp")]
         public Output<string> JoinedTimestamp { get; private set; } = null!;
 
@@ -147,7 +153,13 @@ namespace Pulumi.Aws.Organizations
         public Output<string?> RoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the account in the organization.
+        /// State of the account in the organization.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// (**Deprecated** use `State` instead) Status of the account in the organization.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -275,7 +287,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN for this account.
+        /// ARN for this account.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -310,9 +322,15 @@ namespace Pulumi.Aws.Organizations
         [Input("iamUserAccessToBilling")]
         public Input<string>? IamUserAccessToBilling { get; set; }
 
+        /// <summary>
+        /// Method by which the account joined the organization.
+        /// </summary>
         [Input("joinedMethod")]
         public Input<string>? JoinedMethod { get; set; }
 
+        /// <summary>
+        /// Date the account became a part of the organization.
+        /// </summary>
         [Input("joinedTimestamp")]
         public Input<string>? JoinedTimestamp { get; set; }
 
@@ -337,7 +355,13 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? RoleName { get; set; }
 
         /// <summary>
-        /// The status of the account in the organization.
+        /// State of the account in the organization.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// (**Deprecated** use `State` instead) Status of the account in the organization.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

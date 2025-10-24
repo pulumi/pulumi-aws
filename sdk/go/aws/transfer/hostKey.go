@@ -16,6 +16,32 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewHostKey(ctx, "example", &transfer.HostKeyArgs{
+//				ServerId:      pulumi.Any(exampleAwsTransferServer.Id),
+//				Description:   pulumi.String("example additional host key"),
+//				HostKeyBodyWo: pulumi.String("# Private key PEM.\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
@@ -32,6 +58,9 @@ type HostKey struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrOutput `pulumi:"hostKeyBody"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+	HostKeyBodyWo pulumi.StringPtrOutput `pulumi:"hostKeyBodyWo"`
 	// Public key fingerprint.
 	HostKeyFingerprint pulumi.StringOutput `pulumi:"hostKeyFingerprint"`
 	// ID of the host key.
@@ -59,8 +88,12 @@ func NewHostKey(ctx *pulumi.Context,
 	if args.HostKeyBody != nil {
 		args.HostKeyBody = pulumi.ToSecret(args.HostKeyBody).(pulumi.StringPtrInput)
 	}
+	if args.HostKeyBodyWo != nil {
+		args.HostKeyBodyWo = pulumi.ToSecret(args.HostKeyBodyWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"hostKeyBody",
+		"hostKeyBodyWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -92,6 +125,9 @@ type hostKeyState struct {
 	Description *string `pulumi:"description"`
 	// Private key portion of an SSH key pair.
 	HostKeyBody *string `pulumi:"hostKeyBody"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+	HostKeyBodyWo *string `pulumi:"hostKeyBodyWo"`
 	// Public key fingerprint.
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// ID of the host key.
@@ -113,6 +149,9 @@ type HostKeyState struct {
 	Description pulumi.StringPtrInput
 	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+	HostKeyBodyWo pulumi.StringPtrInput
 	// Public key fingerprint.
 	HostKeyFingerprint pulumi.StringPtrInput
 	// ID of the host key.
@@ -136,6 +175,9 @@ type hostKeyArgs struct {
 	Description *string `pulumi:"description"`
 	// Private key portion of an SSH key pair.
 	HostKeyBody *string `pulumi:"hostKeyBody"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+	HostKeyBodyWo *string `pulumi:"hostKeyBodyWo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Server ID.
@@ -150,6 +192,9 @@ type HostKeyArgs struct {
 	Description pulumi.StringPtrInput
 	// Private key portion of an SSH key pair.
 	HostKeyBody pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+	HostKeyBodyWo pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Server ID.
@@ -258,6 +303,12 @@ func (o HostKeyOutput) Description() pulumi.StringPtrOutput {
 // Private key portion of an SSH key pair.
 func (o HostKeyOutput) HostKeyBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.HostKeyBody }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+func (o HostKeyOutput) HostKeyBodyWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.HostKeyBodyWo }).(pulumi.StringPtrOutput)
 }
 
 // Public key fingerprint.

@@ -764,6 +764,13 @@ namespace Pulumi.Aws.Rds
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// </summary>
+        [Output("passwordWo")]
+        public Output<string?> PasswordWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `PasswordWo` to trigger an update. Increment this value when an update to `PasswordWo` is required.
         /// </summary>
         [Output("passwordWoVersion")]
@@ -963,6 +970,7 @@ namespace Pulumi.Aws.Rds
                 AdditionalSecretOutputs =
                 {
                     "password",
+                    "passwordWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -1360,6 +1368,23 @@ namespace Pulumi.Aws.Rds
             {
                 var emptySecret = Output.CreateSecret(0);
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("passwordWo")]
+        private Input<string>? _passwordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// </summary>
+        public Input<string>? PasswordWo
+        {
+            get => _passwordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -1969,6 +1994,23 @@ namespace Pulumi.Aws.Rds
             {
                 var emptySecret = Output.CreateSecret(0);
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("passwordWo")]
+        private Input<string>? _passwordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// </summary>
+        public Input<string>? PasswordWo
+        {
+            get => _passwordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

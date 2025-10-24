@@ -23,6 +23,10 @@ import * as utilities from "../utilities";
  *         accountName: "NAME OF ACCOUNT",
  *         accountPassword: "PASSWORD OF ACCOUNT",
  *     },
+ *     certificateBasedAuthProperties: {
+ *         certificateAuthorityArn: "ARN OF CERTIFICATE AUTHORITY",
+ *         status: "STATUS OF CERTIFICATE BASED AUTHENTICATION",
+ *     },
  * });
  * ```
  *
@@ -63,6 +67,10 @@ export class DirectoryConfig extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     */
+    declare public readonly certificateBasedAuthProperties: pulumi.Output<outputs.appstream.DirectoryConfigCertificateBasedAuthProperties | undefined>;
+    /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
@@ -96,6 +104,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryConfigState | undefined;
+            resourceInputs["certificateBasedAuthProperties"] = state?.certificateBasedAuthProperties;
             resourceInputs["createdTime"] = state?.createdTime;
             resourceInputs["directoryName"] = state?.directoryName;
             resourceInputs["organizationalUnitDistinguishedNames"] = state?.organizationalUnitDistinguishedNames;
@@ -112,6 +121,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
             if (args?.serviceAccountCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
+            resourceInputs["certificateBasedAuthProperties"] = args?.certificateBasedAuthProperties;
             resourceInputs["directoryName"] = args?.directoryName;
             resourceInputs["organizationalUnitDistinguishedNames"] = args?.organizationalUnitDistinguishedNames;
             resourceInputs["region"] = args?.region;
@@ -127,6 +137,10 @@ export class DirectoryConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DirectoryConfig resources.
  */
 export interface DirectoryConfigState {
+    /**
+     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     */
+    certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthProperties>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      */
@@ -153,6 +167,10 @@ export interface DirectoryConfigState {
  * The set of arguments for constructing a DirectoryConfig resource.
  */
 export interface DirectoryConfigArgs {
+    /**
+     * Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificateBasedAuthProperties` below.
+     */
+    certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthProperties>;
     /**
      * Fully qualified name of the directory.
      */

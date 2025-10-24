@@ -22,6 +22,7 @@ class HostKeyArgs:
                  server_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_body: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_key_body_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -29,6 +30,8 @@ class HostKeyArgs:
         :param pulumi.Input[_builtins.str] server_id: Server ID.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -37,6 +40,8 @@ class HostKeyArgs:
             pulumi.set(__self__, "description", description)
         if host_key_body is not None:
             pulumi.set(__self__, "host_key_body", host_key_body)
+        if host_key_body_wo is not None:
+            pulumi.set(__self__, "host_key_body_wo", host_key_body_wo)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -79,6 +84,19 @@ class HostKeyArgs:
         pulumi.set(self, "host_key_body", value)
 
     @_builtins.property
+    @pulumi.getter(name="hostKeyBodyWo")
+    def host_key_body_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
+        """
+        return pulumi.get(self, "host_key_body_wo")
+
+    @host_key_body_wo.setter
+    def host_key_body_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_key_body_wo", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -109,6 +127,7 @@ class _HostKeyState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_body: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_key_body_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -120,6 +139,8 @@ class _HostKeyState:
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of host key.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
         :param pulumi.Input[_builtins.str] host_key_fingerprint: Public key fingerprint.
         :param pulumi.Input[_builtins.str] host_key_id: ID of the host key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -133,6 +154,8 @@ class _HostKeyState:
             pulumi.set(__self__, "description", description)
         if host_key_body is not None:
             pulumi.set(__self__, "host_key_body", host_key_body)
+        if host_key_body_wo is not None:
+            pulumi.set(__self__, "host_key_body_wo", host_key_body_wo)
         if host_key_fingerprint is not None:
             pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if host_key_id is not None:
@@ -181,6 +204,19 @@ class _HostKeyState:
     @host_key_body.setter
     def host_key_body(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "host_key_body", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostKeyBodyWo")
+    def host_key_body_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
+        """
+        return pulumi.get(self, "host_key_body_wo")
+
+    @host_key_body_wo.setter
+    def host_key_body_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_key_body_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="hostKeyFingerprint")
@@ -263,6 +299,7 @@ class HostKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_body: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_key_body_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -271,6 +308,16 @@ class HostKey(pulumi.CustomResource):
         Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.HostKey("example",
+            server_id=example_aws_transfer_server["id"],
+            description="example additional host key",
+            host_key_body_wo="# Private key PEM.\\n")
+        ```
 
         ## Import
 
@@ -284,6 +331,8 @@ class HostKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_id: Server ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +347,16 @@ class HostKey(pulumi.CustomResource):
         Manages a host key for a server. This is an [_additional server host key_](https://docs.aws.amazon.com/transfer/latest/userguide/server-host-key-add.html).
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.HostKey("example",
+            server_id=example_aws_transfer_server["id"],
+            description="example additional host key",
+            host_key_body_wo="# Private key PEM.\\n")
+        ```
 
         ## Import
 
@@ -324,6 +383,7 @@ class HostKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  host_key_body: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_key_body_wo: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -338,6 +398,7 @@ class HostKey(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["host_key_body"] = None if host_key_body is None else pulumi.Output.secret(host_key_body)
+            __props__.__dict__["host_key_body_wo"] = None if host_key_body_wo is None else pulumi.Output.secret(host_key_body_wo)
             __props__.__dict__["region"] = region
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
@@ -347,7 +408,7 @@ class HostKey(pulumi.CustomResource):
             __props__.__dict__["host_key_fingerprint"] = None
             __props__.__dict__["host_key_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKeyBody"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["hostKeyBody", "hostKeyBodyWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HostKey, __self__).__init__(
             'aws:transfer/hostKey:HostKey',
@@ -362,6 +423,7 @@ class HostKey(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             host_key_body: Optional[pulumi.Input[_builtins.str]] = None,
+            host_key_body_wo: Optional[pulumi.Input[_builtins.str]] = None,
             host_key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
             host_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -378,6 +440,8 @@ class HostKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of host key.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
         :param pulumi.Input[_builtins.str] host_key_fingerprint: Public key fingerprint.
         :param pulumi.Input[_builtins.str] host_key_id: ID of the host key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -392,6 +456,7 @@ class HostKey(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["host_key_body"] = host_key_body
+        __props__.__dict__["host_key_body_wo"] = host_key_body_wo
         __props__.__dict__["host_key_fingerprint"] = host_key_fingerprint
         __props__.__dict__["host_key_id"] = host_key_id
         __props__.__dict__["region"] = region
@@ -423,6 +488,15 @@ class HostKey(pulumi.CustomResource):
         Private key portion of an SSH key pair.
         """
         return pulumi.get(self, "host_key_body")
+
+    @_builtins.property
+    @pulumi.getter(name="hostKeyBodyWo")
+    def host_key_body_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `host_key_body` or `host_key_body_wo` must be configured.
+        """
+        return pulumi.get(self, "host_key_body_wo")
 
     @_builtins.property
     @pulumi.getter(name="hostKeyFingerprint")

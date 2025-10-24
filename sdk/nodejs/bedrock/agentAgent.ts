@@ -60,6 +60,7 @@ import * as utilities from "../utilities";
  *     agentName: "my-agent-name",
  *     agentResourceRoleArn: example.arn,
  *     idleSessionTtlInSeconds: 500,
+ *     instruction: "You are a friendly assistant who helps answer questions.",
  *     foundationModel: "anthropic.claude-v2",
  * });
  * ```
@@ -147,7 +148,7 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     declare public readonly idleSessionTtlInSeconds: pulumi.Output<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      */
     declare public readonly instruction: pulumi.Output<string>;
     /**
@@ -307,7 +308,7 @@ export interface AgentAgentState {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**
@@ -384,7 +385,7 @@ export interface AgentAgentArgs {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**

@@ -64,6 +64,12 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     */
+    declare public readonly adminUserPasswordWo: pulumi.Output<string | undefined>;
+    /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      */
     declare public readonly adminUserPasswordWoVersion: pulumi.Output<number | undefined>;
@@ -137,6 +143,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["adminPasswordSecretArn"] = state?.adminPasswordSecretArn;
             resourceInputs["adminPasswordSecretKmsKeyId"] = state?.adminPasswordSecretKmsKeyId;
             resourceInputs["adminUserPassword"] = state?.adminUserPassword;
+            resourceInputs["adminUserPasswordWo"] = state?.adminUserPasswordWo;
             resourceInputs["adminUserPasswordWoVersion"] = state?.adminUserPasswordWoVersion;
             resourceInputs["adminUsername"] = state?.adminUsername;
             resourceInputs["arn"] = state?.arn;
@@ -158,6 +165,7 @@ export class Namespace extends pulumi.CustomResource {
             }
             resourceInputs["adminPasswordSecretKmsKeyId"] = args?.adminPasswordSecretKmsKeyId;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
+            resourceInputs["adminUserPasswordWo"] = args?.adminUserPasswordWo ? pulumi.secret(args.adminUserPasswordWo) : undefined;
             resourceInputs["adminUserPasswordWoVersion"] = args?.adminUserPasswordWoVersion;
             resourceInputs["adminUsername"] = args?.adminUsername ? pulumi.secret(args.adminUsername) : undefined;
             resourceInputs["dbName"] = args?.dbName;
@@ -175,7 +183,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["adminUserPassword", "adminUsername"] };
+        const secretOpts = { additionalSecretOutputs: ["adminUserPassword", "adminUserPasswordWo", "adminUsername"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
@@ -198,6 +206,12 @@ export interface NamespaceState {
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     */
+    adminUserPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      */
@@ -270,6 +284,12 @@ export interface NamespaceArgs {
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password of the administrator for the first database created in the namespace.
+     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     */
+    adminUserPasswordWo?: pulumi.Input<string>;
     /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      */

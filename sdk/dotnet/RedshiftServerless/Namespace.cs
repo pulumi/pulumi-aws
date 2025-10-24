@@ -59,6 +59,14 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string?> AdminUserPassword { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// </summary>
+        [Output("adminUserPasswordWo")]
+        public Output<string?> AdminUserPasswordWo { get; private set; } = null!;
+
+        /// <summary>
         /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
         /// </summary>
         [Output("adminUserPasswordWoVersion")]
@@ -169,6 +177,7 @@ namespace Pulumi.Aws.RedshiftServerless
                 AdditionalSecretOutputs =
                 {
                     "adminUserPassword",
+                    "adminUserPasswordWo",
                     "adminUsername",
                 },
             };
@@ -214,6 +223,24 @@ namespace Pulumi.Aws.RedshiftServerless
             {
                 var emptySecret = Output.CreateSecret(0);
                 _adminUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("adminUserPasswordWo")]
+        private Input<string>? _adminUserPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// </summary>
+        public Input<string>? AdminUserPasswordWo
+        {
+            get => _adminUserPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUserPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -346,6 +373,24 @@ namespace Pulumi.Aws.RedshiftServerless
             {
                 var emptySecret = Output.CreateSecret(0);
                 _adminUserPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("adminUserPasswordWo")]
+        private Input<string>? _adminUserPasswordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password of the administrator for the first database created in the namespace.
+        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// </summary>
+        public Input<string>? AdminUserPasswordWo
+        {
+            get => _adminUserPasswordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminUserPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

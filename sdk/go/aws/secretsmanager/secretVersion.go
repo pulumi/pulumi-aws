@@ -105,6 +105,9 @@ type SecretVersion struct {
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	SecretStringWo pulumi.StringPtrOutput `pulumi:"secretStringWo"`
 	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 	SecretStringWoVersion pulumi.IntPtrOutput `pulumi:"secretStringWoVersion"`
 	// The unique identifier of the version of the secret.
@@ -131,9 +134,13 @@ func NewSecretVersion(ctx *pulumi.Context,
 	if args.SecretString != nil {
 		args.SecretString = pulumi.ToSecret(args.SecretString).(pulumi.StringPtrInput)
 	}
+	if args.SecretStringWo != nil {
+		args.SecretStringWo = pulumi.ToSecret(args.SecretStringWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretBinary",
 		"secretString",
+		"secretStringWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -170,6 +177,9 @@ type secretVersionState struct {
 	SecretId *string `pulumi:"secretId"`
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	SecretStringWo *string `pulumi:"secretStringWo"`
 	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
 	// The unique identifier of the version of the secret.
@@ -192,6 +202,9 @@ type SecretVersionState struct {
 	SecretId pulumi.StringPtrInput
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	SecretStringWo pulumi.StringPtrInput
 	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 	SecretStringWoVersion pulumi.IntPtrInput
 	// The unique identifier of the version of the secret.
@@ -215,6 +228,9 @@ type secretVersionArgs struct {
 	SecretId string `pulumi:"secretId"`
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	SecretStringWo *string `pulumi:"secretStringWo"`
 	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -233,6 +249,9 @@ type SecretVersionArgs struct {
 	SecretId pulumi.StringInput
 	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	SecretStringWo pulumi.StringPtrInput
 	// Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
 	SecretStringWoVersion pulumi.IntPtrInput
 	// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -355,6 +374,12 @@ func (o SecretVersionOutput) SecretId() pulumi.StringOutput {
 // Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 func (o SecretVersionOutput) SecretString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretString }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+func (o SecretVersionOutput) SecretStringWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretStringWo }).(pulumi.StringPtrOutput)
 }
 
 // Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.

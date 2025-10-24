@@ -74,6 +74,9 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> _builtins.str:
+        """
+        ID of the bundle for the WorkSpace.
+        """
         return pulumi.get(self, "bundle_id")
 
     @_builtins.property
@@ -113,6 +116,9 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
     def root_volume_encryption_enabled(self) -> _builtins.bool:
+        """
+        Indicates whether the data stored on the root volume is encrypted.
+        """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @_builtins.property
@@ -126,6 +132,9 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Tags for the WorkSpace.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
@@ -136,11 +145,18 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
     def user_volume_encryption_enabled(self) -> _builtins.bool:
+        """
+        Indicates whether the data stored on the user volume
+        is encrypted.
+        """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> _builtins.str:
+        """
+        Symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        """
         return pulumi.get(self, "volume_encryption_key")
 
     @_builtins.property
@@ -151,6 +167,9 @@ class GetWorkspaceResult:
     @_builtins.property
     @pulumi.getter(name="workspaceProperties")
     def workspace_properties(self) -> Sequence['outputs.GetWorkspaceWorkspacePropertyResult']:
+        """
+        WorkSpace properties.
+        """
         return pulumi.get(self, "workspace_properties")
 
 

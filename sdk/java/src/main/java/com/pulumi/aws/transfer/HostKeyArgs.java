@@ -48,6 +48,23 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     * 
+     */
+    @Import(name="hostKeyBodyWo")
+    private @Nullable Output<String> hostKeyBodyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+     * 
+     */
+    public Optional<Output<String>> hostKeyBodyWo() {
+        return Optional.ofNullable(this.hostKeyBodyWo);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -97,6 +114,7 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
     private HostKeyArgs(HostKeyArgs $) {
         this.description = $.description;
         this.hostKeyBody = $.hostKeyBody;
+        this.hostKeyBodyWo = $.hostKeyBodyWo;
         this.region = $.region;
         this.serverId = $.serverId;
         this.tags = $.tags;
@@ -160,6 +178,29 @@ public final class HostKeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hostKeyBody(String hostKeyBody) {
             return hostKeyBody(Output.of(hostKeyBody));
+        }
+
+        /**
+         * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostKeyBodyWo(@Nullable Output<String> hostKeyBodyWo) {
+            $.hostKeyBodyWo = hostKeyBodyWo;
+            return this;
+        }
+
+        /**
+         * @param hostKeyBodyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only private key portion of an SSH key pair, guaranteed not to be written to plan or state artifacts. One of `hostKeyBody` or `hostKeyBodyWo` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostKeyBodyWo(String hostKeyBodyWo) {
+            return hostKeyBodyWo(Output.of(hostKeyBodyWo));
         }
 
         /**

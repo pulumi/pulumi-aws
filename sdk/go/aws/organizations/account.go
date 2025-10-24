@@ -93,7 +93,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The ARN for this account.
+	// ARN for this account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrOutput `pulumi:"closeOnDeletion"`
@@ -105,8 +105,10 @@ type Account struct {
 	GovcloudId pulumi.StringOutput `pulumi:"govcloudId"`
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling pulumi.StringPtrOutput `pulumi:"iamUserAccessToBilling"`
-	JoinedMethod           pulumi.StringOutput    `pulumi:"joinedMethod"`
-	JoinedTimestamp        pulumi.StringOutput    `pulumi:"joinedTimestamp"`
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringOutput `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringOutput `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
 	//
 	// The following arguments are optional:
@@ -115,7 +117,11 @@ type Account struct {
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State pulumi.StringOutput `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,7 +162,7 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The ARN for this account.
+	// ARN for this account.
 	Arn *string `pulumi:"arn"`
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
@@ -168,8 +174,10 @@ type accountState struct {
 	GovcloudId *string `pulumi:"govcloudId"`
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
-	JoinedMethod           *string `pulumi:"joinedMethod"`
-	JoinedTimestamp        *string `pulumi:"joinedTimestamp"`
+	// Method by which the account joined the organization.
+	JoinedMethod *string `pulumi:"joinedMethod"`
+	// Date the account became a part of the organization.
+	JoinedTimestamp *string `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
 	//
 	// The following arguments are optional:
@@ -178,7 +186,11 @@ type accountState struct {
 	ParentId *string `pulumi:"parentId"`
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
 	RoleName *string `pulumi:"roleName"`
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State *string `pulumi:"state"`
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -187,7 +199,7 @@ type accountState struct {
 }
 
 type AccountState struct {
-	// The ARN for this account.
+	// ARN for this account.
 	Arn pulumi.StringPtrInput
 	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrInput
@@ -199,8 +211,10 @@ type AccountState struct {
 	GovcloudId pulumi.StringPtrInput
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling pulumi.StringPtrInput
-	JoinedMethod           pulumi.StringPtrInput
-	JoinedTimestamp        pulumi.StringPtrInput
+	// Method by which the account joined the organization.
+	JoinedMethod pulumi.StringPtrInput
+	// Date the account became a part of the organization.
+	JoinedTimestamp pulumi.StringPtrInput
 	// Friendly name for the member account.
 	//
 	// The following arguments are optional:
@@ -209,7 +223,11 @@ type AccountState struct {
 	ParentId pulumi.StringPtrInput
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
 	RoleName pulumi.StringPtrInput
-	// The status of the account in the organization.
+	// State of the account in the organization.
+	State pulumi.StringPtrInput
+	// (**Deprecated** use `state` instead) Status of the account in the organization.
+	//
+	// Deprecated: status is deprecated. Use state instead.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -351,7 +369,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The ARN for this account.
+// ARN for this account.
 func (o AccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -381,10 +399,12 @@ func (o AccountOutput) IamUserAccessToBilling() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.IamUserAccessToBilling }).(pulumi.StringPtrOutput)
 }
 
+// Method by which the account joined the organization.
 func (o AccountOutput) JoinedMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.JoinedMethod }).(pulumi.StringOutput)
 }
 
+// Date the account became a part of the organization.
 func (o AccountOutput) JoinedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.JoinedTimestamp }).(pulumi.StringOutput)
 }
@@ -406,7 +426,14 @@ func (o AccountOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
 }
 
-// The status of the account in the organization.
+// State of the account in the organization.
+func (o AccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// (**Deprecated** use `state` instead) Status of the account in the organization.
+//
+// Deprecated: status is deprecated. Use state instead.
 func (o AccountOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

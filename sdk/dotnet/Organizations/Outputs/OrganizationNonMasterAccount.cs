@@ -14,23 +14,35 @@ namespace Pulumi.Aws.Organizations.Outputs
     public sealed class OrganizationNonMasterAccount
     {
         /// <summary>
-        /// ARN of the root
+        /// ARN of the root.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Email of the account
+        /// Email of the account.
         /// </summary>
         public readonly string? Email;
         /// <summary>
-        /// Identifier of the root
+        /// Identifier of the root.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the policy type
+        /// Method by which the account joined the organization.
+        /// </summary>
+        public readonly string? JoinedMethod;
+        /// <summary>
+        /// Date the account became a part of the organization.
+        /// </summary>
+        public readonly string? JoinedTimestamp;
+        /// <summary>
+        /// Name of the policy type.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The status of the policy type as it relates to the associated root
+        /// State of the account.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// Status of the policy type as it relates to the associated root.
         /// </summary>
         public readonly string? Status;
 
@@ -42,14 +54,23 @@ namespace Pulumi.Aws.Organizations.Outputs
 
             string? id,
 
+            string? joinedMethod,
+
+            string? joinedTimestamp,
+
             string? name,
+
+            string? state,
 
             string? status)
         {
             Arn = arn;
             Email = email;
             Id = id;
+            JoinedMethod = joinedMethod;
+            JoinedTimestamp = joinedTimestamp;
             Name = name;
+            State = state;
             Status = status;
         }
     }
