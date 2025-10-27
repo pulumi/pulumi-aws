@@ -62,6 +62,8 @@ jobs:
       env:
         MISE_ENV: test
       with:
+        # Latest working version. See https://github.com/jdx/mise/discussions/6781
+        version: 2025.10.16
         github_token: ${{ secrets.GITHUB_TOKEN }}
         cache_key: "mise-{{platform}}-{{file_hash}}"
         # also save this cache since we are using a different mise env.
