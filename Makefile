@@ -39,20 +39,36 @@ LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(
 # Ensure all directories exist before evaluating targets to avoid issues with `touch` creating directories.
 _ := $(shell mkdir -p .make bin .pulumi/bin)
 
+# Installs all necessary tools with mise and records completion in a sentinel
+# file so dependent targets can participate in make's caching behaviour. The
+# environment is refreshed via an order-only prerequisite so it still runs on
+# every invocation without invalidating the sentinel.
+mise_install: .make/mise_install | mise_env
+
+.PHONY: mise_env
+mise_env:
+	@mise env -q  > /dev/null
+
+.make/mise_install:
+	@mise install -q
+	@touch $@
+
 # Build the provider and all SDKs and install ready for testing
-build: install_plugins provider build_sdks install_sdks
+build: .make/mise_install provider build_sdks install_sdks
+build: | mise_env
 # Keep aliases for old targets to ensure backwards compatibility
 development: build
 only_build: build
 # Prepare the workspace for building the provider and SDKs
 # Importantly this is run by CI ahead of restoring the bin directory and resuming SDK builds
-prepare_local_workspace: install_plugins upstream
+prepare_local_workspace: .make/mise_install upstream
+prepare_local_workspace: | mise_env
 # Creates all generated files which need to be committed
 generate: generate_sdks schema
 generate_sdks: generate_nodejs generate_python generate_dotnet generate_go generate_java
 build_sdks: build_nodejs build_python build_dotnet build_go build_java
 install_sdks: install_nodejs_sdk install_python_sdk install_dotnet_sdk install_go_sdk install_java_sdk
-.PHONY: development only_build build generate generate_sdks build_sdks install_sdks
+.PHONY: development only_build build generate generate_sdks build_sdks install_sdks mise_install mise_env
 
 help:
 	@echo "Usage: make [target]"
@@ -79,7 +95,7 @@ help:
 	@echo ""
 	@echo "Internal Targets (automatically run as dependencies of other targets)"
 	@echo "  prepare_local_workspace  Prepare for building"
-	@echo "  install_plugins          Install plugin dependencies"
+	@echo "  mise_install             Install tools with mise"
 	@echo "  upstream                 Initialize the upstream submodule, if present"
 	@echo ""
 	@echo "Language-Specific Targets"
@@ -97,7 +113,8 @@ GEN_ENVS := PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(G
 
 generate_dotnet: .make/generate_dotnet
 build_dotnet: .make/build_dotnet
-.make/generate_dotnet: .make/install_plugins bin/$(CODEGEN)
+.make/generate_dotnet: .make/mise_install bin/$(CODEGEN)
+.make/generate_dotnet: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
@@ -110,7 +127,8 @@ build_dotnet: .make/build_dotnet
 
 generate_go: .make/generate_go
 build_go: .make/build_go
-.make/generate_go: .make/install_plugins bin/$(CODEGEN)
+.make/generate_go: .make/mise_install bin/$(CODEGEN)
+.make/generate_go: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) go --out sdk/go/
 	@touch $@
 .make/build_go: .make/generate_go
@@ -121,7 +139,8 @@ build_go: .make/build_go
 generate_java: .make/generate_java
 build_java: .make/build_java
 .make/generate_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
-.make/generate_java: .make/install_plugins bin/$(CODEGEN)
+.make/generate_java: .make/mise_install bin/$(CODEGEN)
+.make/generate_java: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) java --out sdk/java/
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
 	@touch $@
@@ -135,7 +154,8 @@ build_java: .make/build_java
 
 generate_nodejs: .make/generate_nodejs
 build_nodejs: .make/build_nodejs
-.make/generate_nodejs: .make/install_plugins bin/$(CODEGEN)
+.make/generate_nodejs: .make/mise_install bin/$(CODEGEN)
+.make/generate_nodejs: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) nodejs --out sdk/nodejs/
 	printf "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/nodejs/go.mod
 	@touch $@
@@ -149,7 +169,8 @@ build_nodejs: .make/build_nodejs
 
 generate_python: .make/generate_python
 build_python: .make/build_python
-.make/generate_python: .make/install_plugins bin/$(CODEGEN)
+.make/generate_python: .make/mise_install bin/$(CODEGEN)
+.make/generate_python: | mise_env
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) python --out sdk/python/
 	printf "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/python/go.mod
 	cp README.md sdk/python/
@@ -234,7 +255,8 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 .make/schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
-.make/schema: bin/$(CODEGEN) .make/install_plugins .make/upstream
+.make/schema: bin/$(CODEGEN) .make/mise_install .make/upstream
+.make/schema: | mise_env
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)
 	@touch $@
@@ -269,7 +291,6 @@ debug_tfgen:
 	dlv  --listen=:2345 --headless=true --api-version=2  exec $(WORKING_DIR)/bin/$(CODEGEN) -- schema --out provider/cmd/$(PROVIDER)
 .PHONY: debug_tfgen
 
-include scripts/plugins.mk
 include scripts/crossbuild.mk
 
 # Permit providers to extend the Makefile with provider-specific Make includes.
