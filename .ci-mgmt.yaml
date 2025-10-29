@@ -21,28 +21,6 @@ freeDiskSpaceBeforeTest: true
 # TODO: remove XrunUpstreamTools flag after work to add docs replacement strategies to resources.go is completed
 # Tracked in in https://github.com/pulumi/pulumi-aws/issues/2757
 XrunUpstreamTools: true
-plugins:
-    - name: archive
-      version: "0.0.1"
-    - name: tls
-      version: "4.10.0"
-    - name: github
-      version: "4.10.0"
-    - name: kubernetes
-      version: "4.11.0"
-    - name: "null"
-      version: "0.0.3"
-    - name: "local"
-      version: "0.1.0"
-    - name: random
-      version: "4.8.2"
-    - name: github
-      version: "5.14.0"
-    - name: std
-      version: "1.6.2"
-    - name: terraform
-      version: "1.0.17"
-      kind: converter
 # Use `pulumi convert` for translating examples from TF to Pulumi.
 pulumiConvert: 1
 allowMissingDocs: false
