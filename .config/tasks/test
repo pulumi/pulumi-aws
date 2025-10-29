@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#MISE description="Run example integration tests"
+#USAGE flag "--pkg <pattern>" help="Package pattern to test" default="./..."
+#USAGE flag "--run <regex>" help="Regex passed to go test -run"
+#USAGE flag "--tags <tags>" help="Go build tags" default="all"
+#USAGE flag "--timeout <duration>" help="go test timeout" default="2h"
+#USAGE flag "--count <n>" help="go test -count" default="1"
+#USAGE flag "--args <args>" help="Additional go test args"
+
+pkg="${usage_pkg:-./...}"
+tags="${usage_tags:-all}"
+timeout="${usage_timeout:-2h}"
+count="${usage_count:-1}"
+run_regex="${usage_run:-}"
+extra_args="${usage_args:-}"
+
+args=(go test -v -parallel "${TESTPARALLELISM:-10}" -tags "${tags}" -timeout "${timeout}" -count "${count}")
+
+if [ -n "${GOTESTARGS:-}" ]; then
+  # shellcheck disable=SC2206
+  args+=(${GOTESTARGS})
+fi
+
+if [ -n "${extra_args}" ]; then
+  # shellcheck disable=SC2206
+  args+=(${extra_args})
+fi
+
+if [ -n "${run_regex}" ]; then
+  args+=(-run "${run_regex}")
+fi
+
+args+=("${pkg}")
+
+"${args[@]}"

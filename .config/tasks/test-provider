@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#MISE description="Run provider unit tests"
+#USAGE flag "--pkg <pattern>" help="Package pattern to test" default="./..."
+#USAGE flag "--run <regex>" help="Regex passed to go test -run"
+#USAGE flag "--coverpkg <pattern>" help="Override -coverpkg" default="./...,github.com/hashicorp/terraform-provider-..."
+#USAGE flag "--timeout <duration>" help="go test timeout" default="15m"
+#USAGE flag "--count <n>" help="go test -count" default="1"
+#USAGE flag "--args <args>" help="Additional go test args"
+#USAGE flag "--no-short" help="Disable -short"
+
+pkg="${usage_pkg:-./...}"
+coverpkg="${usage_coverpkg:-./...,github.com/hashicorp/terraform-provider-...}"
+timeout="${usage_timeout:-15m}"
+count="${usage_count:-1}"
+run_regex="${usage_run:-}"
+extra_args="${usage_args:-}"
+no_short="${usage_no_short:-false}"
+
+args=(go test -v)
+
+if [ "${no_short}" != "true" ]; then
+  args+=(-short)
+fi
+
+args+=(-coverprofile="coverage.txt" -coverpkg "${coverpkg}" -parallel "${TESTPARALLELISM:-10}" -timeout "${timeout}" -count "${count}")
+
+if [ -n "${extra_args}" ]; then
+  # shellcheck disable=SC2206
+  args+=(${extra_args})
+fi
+
+if [ -n "${run_regex}" ]; then
+  args+=(-run "${run_regex}")
+fi
+
+args+=("${pkg}")
+
+"${args[@]}"
