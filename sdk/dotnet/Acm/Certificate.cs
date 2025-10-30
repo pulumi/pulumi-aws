@@ -79,50 +79,6 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ### Existing Certificate Body Import
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Tls = Pulumi.Tls;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Tls.Index.PrivateKey("example", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///     });
-    /// 
-    ///     var exampleSelfSignedCert = new Tls.Index.SelfSignedCert("example", new()
-    ///     {
-    ///         KeyAlgorithm = "RSA",
-    ///         PrivateKeyPem = example.PrivateKeyPem,
-    ///         Subject = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", "example.com" },
-    ///                 { "organization", "ACME Examples, Inc" },
-    ///             },
-    ///         },
-    ///         ValidityPeriodHours = 12,
-    ///         AllowedUses = new[]
-    ///         {
-    ///             "key_encipherment",
-    ///             "digital_signature",
-    ///             "server_auth",
-    ///         },
-    ///     });
-    /// 
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
-    ///     {
-    ///         PrivateKey = example.PrivateKeyPem,
-    ///         CertificateBody = exampleSelfSignedCert.CertPem,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Referencing DomainValidationOptions With ForEach Based Resources
     /// 
     /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.

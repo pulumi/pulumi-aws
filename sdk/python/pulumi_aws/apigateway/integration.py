@@ -697,7 +697,7 @@ class Integration(pulumi.CustomResource):
             },
             request_templates={
                 "application/xml": \"\"\"{
-           "body" : $input.json('$')
+           \\"body\\" : $input.json('$')
         }
         \"\"\",
             })
@@ -893,7 +893,7 @@ class Integration(pulumi.CustomResource):
             },
             request_templates={
                 "application/xml": \"\"\"{
-           "body" : $input.json('$')
+           \\"body\\" : $input.json('$')
         }
         \"\"\",
             })

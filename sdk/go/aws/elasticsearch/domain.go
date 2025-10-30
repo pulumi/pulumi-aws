@@ -84,15 +84,15 @@ import (
 //			_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
 //				DomainName: pulumi.String(domain),
 //				AccessPolicies: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
+//	  \"Version\": \"2012-10-17\",
+//	  \"Statement\": [
 //	    {
-//	      "Action": "es:*",
-//	      "Principal": "*",
-//	      "Effect": "Allow",
-//	      "Resource": "arn:aws:es:%v:%v:domain/%v/*",
-//	      "Condition": {
-//	        "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+//	      \"Action\": \"es:*\",
+//	      \"Principal\": \"*\",
+//	      \"Effect\": \"Allow\",
+//	      \"Resource\": \"arn:aws:es:%v:%v:domain/%v/*\",
+//	      \"Condition\": {
+//	        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}
 //	      }
 //	    }
 //	  ]
@@ -284,19 +284,17 @@ import (
 // AdvancedOptions: pulumi.StringMap{
 // "rest.action.multi.allow_explicit_index": pulumi.String("true"),
 // },
-//
-//	AccessPolicies: pulumi.Any(fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [
-//			{
-//				"Action": "es:*",
-//				"Principal": "*",
-//				"Effect": "Allow",
-//				"Resource": "arn:aws:es:%v:%v:domain/%v/*"
-//			}
-//		]
-//	}
-//
+// AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+// \t\"Version\": \"2012-10-17\",
+// \t\"Statement\": [
+// \t\t{
+// \t\t\t\"Action\": \"es:*\",
+// \t\t\t\"Principal\": \"*\",
+// \t\t\t\"Effect\": \"Allow\",
+// \t\t\t\"Resource\": \"arn:aws:es:%v:%v:domain/%v/*\"
+// \t\t}
+// \t]
+// }
 // `, current.Region, currentGetCallerIdentity.AccountId, domain)),
 // Tags: pulumi.StringMap{
 // "Domain": pulumi.String("TestDomain"),

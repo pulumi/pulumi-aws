@@ -77,19 +77,19 @@ import javax.annotation.Nullable;
  *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineConfigurationBody(example.arn().applyValue(_arn -> """
- * version: "2"
+ * version: \"2\"
  * example-pipeline:
  *   source:
  *     http:
- *       path: "/example"
+ *       path: \"/example\"
  *   sink:
  *     - s3:
  *         aws:
- *           sts_role_arn: "%s"
- *           region: "%s"
- *         bucket: "example"
+ *           sts_role_arn: \"%s\"
+ *           region: \"%s\"
+ *         bucket: \"example\"
  *         threshold:
- *           event_collect_timeout: "60s"
+ *           event_collect_timeout: \"60s\"
  *         codec:
  *           ndjson:
  * ", _arn,current.region())))

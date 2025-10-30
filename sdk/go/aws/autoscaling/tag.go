@@ -18,6 +18,8 @@ import (
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:

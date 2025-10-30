@@ -14,47 +14,6 @@ import (
 // Gets a registration code used to register a CA certificate with AWS IoT.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: "RSA",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: verification.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
-//					map[string]interface{}{
-//						"commonName": example.RegistrationCode,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRegistrationCode(ctx *pulumi.Context, args *GetRegistrationCodeArgs, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegistrationCodeResult

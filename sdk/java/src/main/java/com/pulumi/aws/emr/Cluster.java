@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  *             .applications("Spark")
  *             .additionalInfo("""
  * {
- *   "instanceAwsClientConfiguration": {
- *     "proxyPort": 8099,
- *     "proxyHost": "myproxy.example.com"
+ *   \"instanceAwsClientConfiguration\": {
+ *     \"proxyPort\": 8099,
+ *     \"proxyHost\": \"myproxy.example.com\"
  *   }
  * }
  *             """)
@@ -95,31 +95,31 @@ import javax.annotation.Nullable;
  *                 .bidPrice("0.30")
  *                 .autoscalingPolicy("""
  * {
- * "Constraints": {
- *   "MinCapacity": 1,
- *   "MaxCapacity": 2
+ * \"Constraints\": {
+ *   \"MinCapacity\": 1,
+ *   \"MaxCapacity\": 2
  * },
- * "Rules": [
+ * \"Rules\": [
  *   {
- *     "Name": "ScaleOutMemoryPercentage",
- *     "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
- *     "Action": {
- *       "SimpleScalingPolicyConfiguration": {
- *         "AdjustmentType": "CHANGE_IN_CAPACITY",
- *         "ScalingAdjustment": 1,
- *         "CoolDown": 300
+ *     \"Name\": \"ScaleOutMemoryPercentage\",
+ *     \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",
+ *     \"Action\": {
+ *       \"SimpleScalingPolicyConfiguration\": {
+ *         \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",
+ *         \"ScalingAdjustment\": 1,
+ *         \"CoolDown\": 300
  *       }
  *     },
- *     "Trigger": {
- *       "CloudWatchAlarmDefinition": {
- *         "ComparisonOperator": "LESS_THAN",
- *         "EvaluationPeriods": 1,
- *         "MetricName": "YARNMemoryAvailablePercentage",
- *         "Namespace": "AWS/ElasticMapReduce",
- *         "Period": 300,
- *         "Statistic": "AVERAGE",
- *         "Threshold": 15.0,
- *         "Unit": "PERCENT"
+ *     \"Trigger\": {
+ *       \"CloudWatchAlarmDefinition\": {
+ *         \"ComparisonOperator\": \"LESS_THAN\",
+ *         \"EvaluationPeriods\": 1,
+ *         \"MetricName\": \"YARNMemoryAvailablePercentage\",
+ *         \"Namespace\": \"AWS/ElasticMapReduce\",
+ *         \"Period\": 300,
+ *         \"Statistic\": \"AVERAGE\",
+ *         \"Threshold\": 15.0,
+ *         \"Unit\": \"PERCENT\"
  *       }
  *     }
  *   }
@@ -142,28 +142,28 @@ import javax.annotation.Nullable;
  *             .configurationsJson("""
  *   [
  *     {
- *       "Classification": "hadoop-env",
- *       "Configurations": [
+ *       \"Classification\": \"hadoop-env\",
+ *       \"Configurations\": [
  *         {
- *           "Classification": "export",
- *           "Properties": {
- *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           \"Classification\": \"export\",
+ *           \"Properties\": {
+ *             \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
  *           }
  *         }
  *       ],
- *       "Properties": {}
+ *       \"Properties\": {}
  *     },
  *     {
- *       "Classification": "spark-env",
- *       "Configurations": [
+ *       \"Classification\": \"spark-env\",
+ *       \"Configurations\": [
  *         {
- *           "Classification": "export",
- *           "Properties": {
- *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+ *           \"Classification\": \"export\",
+ *           \"Properties\": {
+ *             \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
  *           }
  *         }
  *       ],
- *       "Properties": {}
+ *       \"Properties\": {}
  *     }
  *   ]
  *             """)
@@ -551,16 +551,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *             .configurationsJson("""
      * [
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \"Classification\": \"hadoop-env\",
+     * \"Configurations\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \"Classification\": \"export\",
+     * \"Properties\": {
+     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \"Properties\": {}
      * }
      * ]
      *             """)
@@ -606,16 +606,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *             .configurationsJson("""
      * [
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \"Classification\": \"hadoop-env\",
+     * \"Configurations\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \"Classification\": \"export\",
+     * \"Properties\": {
+     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \"Properties\": {}
      * }
      * ]
      *             """)

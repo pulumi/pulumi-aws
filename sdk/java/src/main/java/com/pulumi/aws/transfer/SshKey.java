@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.tls.privateKey;
- * import com.pulumi.tls.privateKeyArgs;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .userName(exampleUser.userName())
  *             .body(StdFunctions.trimspace(TrimspaceArgs.builder()
  *                 .input(examplePrivateKey.publicKeyOpenssh())
- *                 .build()).result())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

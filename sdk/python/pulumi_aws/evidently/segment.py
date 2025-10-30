@@ -329,9 +329,9 @@ class Segment(pulumi.CustomResource):
         example = aws.evidently.Segment("example",
             name="example",
             pattern=\"\"\"  {
-            "Price": [
+            \\"Price\\": [
               {
-                "numeric": [">",10,"<=",20]
+                \\"numeric\\": [\\">\\",10,\\"<=\\",20]
               }
             ]
           }
@@ -405,9 +405,9 @@ class Segment(pulumi.CustomResource):
         example = aws.evidently.Segment("example",
             name="example",
             pattern=\"\"\"  {
-            "Price": [
+            \\"Price\\": [
               {
-                "numeric": [">",10,"<=",20]
+                \\"numeric\\": [\\">\\",10,\\"<=\\",20]
               }
             ]
           }

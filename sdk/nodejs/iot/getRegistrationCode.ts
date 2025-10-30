@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
  * Gets a registration code used to register a CA certificate with AWS IoT.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.index.PrivateKey("verification", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.index.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
- *         commonName: example.registrationCode,
- *     }],
- * });
- * ```
  */
 export function getRegistrationCode(args?: GetRegistrationCodeArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
     args = args || {};
@@ -61,22 +45,6 @@ export interface GetRegistrationCodeResult {
  * Gets a registration code used to register a CA certificate with AWS IoT.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.index.PrivateKey("verification", {algorithm: "RSA"});
- * const verificationCertRequest = new tls.index.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
- *     subject: [{
- *         commonName: example.registrationCode,
- *     }],
- * });
- * ```
  */
 export function getRegistrationCodeOutput(args?: GetRegistrationCodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationCodeResult> {
     args = args || {};

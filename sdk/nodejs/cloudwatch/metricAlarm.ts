@@ -167,7 +167,7 @@ import {Topic} from "../sns";
  *         id: "q1",
  *         expression: `SELECT
  *   MAX(DBLoadRelativeToNumVCPUs)
- * FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+ * FROM SCHEMA(\\"AWS/RDS\\", DBInstanceIdentifier)
  * WHERE DBInstanceIdentifier != 'example-rds-instance'
  * GROUP BY DBInstanceIdentifier
  * ORDER BY MIN() ASC

@@ -13,18 +13,285 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// This resource can be useful for getting back a set of subnet IDs.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetSubnets.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         {
+        ///             return s.CidrBlock;
+        ///         }).ToList()),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// The following example retrieves a set of all subnets in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+        /// can loop through the subnets, putting instances across availability zones.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var @private = await Aws.Ec2.GetSubnets.InvokeAsync(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///         Tags = 
+        ///         {
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
+        /// 
+        ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
+        ///     foreach (var range in )
+        ///     {
+        ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
+        ///         {
+        ///             Ami = ami,
+        ///             InstanceType = Aws.Ec2.InstanceType.T2_Micro,
+        ///             SubnetId = range.Value,
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSubnetsResult> InvokeAsync(GetSubnetsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a set of subnet IDs.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetSubnets.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         {
+        ///             return s.CidrBlock;
+        ///         }).ToList()),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// The following example retrieves a set of all subnets in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+        /// can loop through the subnets, putting instances across availability zones.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var @private = await Aws.Ec2.GetSubnets.InvokeAsync(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///         Tags = 
+        ///         {
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
+        /// 
+        ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
+        ///     foreach (var range in )
+        ///     {
+        ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
+        ///         {
+        ///             Ami = ami,
+        ///             InstanceType = Aws.Ec2.InstanceType.T2_Micro,
+        ///             SubnetId = range.Value,
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a set of subnet IDs.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all CIDR blocks for every subnet ID in a VPC.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetSubnets.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleGetSubnet = Std.Toset.Invoke(new()
+        ///     {
+        ///         Input = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids),
+        ///     }).Apply(invoke =&gt; );
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["subnetCidrBlocks"] = exampleGetSubnet.Apply(exampleGetSubnet =&gt; (exampleGetSubnet).Values.Select(s =&gt; 
+        ///         {
+        ///             return s.CidrBlock;
+        ///         }).ToList()),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// The following example retrieves a set of all subnets in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+        /// can loop through the subnets, putting instances across availability zones.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var @private = await Aws.Ec2.GetSubnets.InvokeAsync(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///         Tags = 
+        ///         {
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
+        /// 
+        ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
+        ///     foreach (var range in )
+        ///     {
+        ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
+        ///         {
+        ///             Ami = ami,
+        ///             InstanceType = Aws.Ec2.InstanceType.T2_Micro,
+        ///             SubnetId = range.Value,
+        ///         }));
+        ///     }
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());

@@ -28,25 +28,25 @@ import * as utilities from "../utilities";
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: example.bucket,
  *     policy: pulumi.all([example.arn, current, current]).apply(([arn, current, current1]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
+ *   \"Version\": \"2012-10-17\",
+ *   \"Statement\": [
  *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "bedrock.amazonaws.com"
+ *       \"Effect\": \"Allow\",
+ *       \"Principal\": {
+ *         \"Service\": \"bedrock.amazonaws.com\"
  *       },
- *       "Action": [
- *         "s3:*"
+ *       \"Action\": [
+ *         \"s3:*\"
  *       ],
- *       "Resource": [
- *         "${arn}/*"
+ *       \"Resource\": [
+ *         \"${arn}/*\"
  *       ],
- *       "Condition": {
- *         "StringEquals": {
- *           "aws:SourceAccount": "${current.accountId}"
+ *       \"Condition\": {
+ *         \"StringEquals\": {
+ *           \"aws:SourceAccount\": \"${current.accountId}\"
  *         },
- *         "ArnLike": {
- *           "aws:SourceArn": "arn:aws:bedrock:us-east-1:${current1.accountId}:*"
+ *         \"ArnLike\": {
+ *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:${current1.accountId}:*\"
  *         }
  *       }
  *     }

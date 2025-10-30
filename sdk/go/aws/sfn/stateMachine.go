@@ -37,13 +37,13 @@ import (
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.Sprintf(`{
-//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//	  "StartAt": "HelloWorld",
-//	  "States": {
-//	    "HelloWorld": {
-//	      "Type": "Task",
-//	      "Resource": "%v",
-//	      "End": true
+//	  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+//	  \"StartAt\": \"HelloWorld\",
+//	  \"States\": {
+//	    \"HelloWorld\": {
+//	      \"Type\": \"Task\",
+//	      \"Resource\": \"%v\",
+//	      \"End\": true
 //	    }
 //	  }
 //	}
@@ -82,13 +82,13 @@ import (
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Type:    pulumi.String("EXPRESS"),
 //				Definition: pulumi.Sprintf(`{
-//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//	  "StartAt": "HelloWorld",
-//	  "States": {
-//	    "HelloWorld": {
-//	      "Type": "Task",
-//	      "Resource": "%v",
-//	      "End": true
+//	  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+//	  \"StartAt\": \"HelloWorld\",
+//	  \"States\": {
+//	    \"HelloWorld\": {
+//	      \"Type\": \"Task\",
+//	      \"Resource\": \"%v\",
+//	      \"End\": true
 //	    }
 //	  }
 //	}
@@ -128,13 +128,13 @@ import (
 //				Publish: pulumi.Bool(true),
 //				Type:    pulumi.String("EXPRESS"),
 //				Definition: pulumi.Sprintf(`{
-//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//	  "StartAt": "HelloWorld",
-//	  "States": {
-//	    "HelloWorld": {
-//	      "Type": "Task",
-//	      "Resource": "%v",
-//	      "End": true
+//	  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+//	  \"StartAt\": \"HelloWorld\",
+//	  \"States\": {
+//	    \"HelloWorld\": {
+//	      \"Type\": \"Task\",
+//	      \"Resource\": \"%v\",
+//	      \"End\": true
 //	    }
 //	  }
 //	}
@@ -174,13 +174,13 @@ import (
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.Sprintf(`{
-//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//	  "StartAt": "HelloWorld",
-//	  "States": {
-//	    "HelloWorld": {
-//	      "Type": "Task",
-//	      "Resource": "%v",
-//	      "End": true
+//	  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+//	  \"StartAt\": \"HelloWorld\",
+//	  \"States\": {
+//	    \"HelloWorld\": {
+//	      \"Type\": \"Task\",
+//	      \"Resource\": \"%v\",
+//	      \"End\": true
 //	    }
 //	  }
 //	}
@@ -225,13 +225,13 @@ import (
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Definition: pulumi.Sprintf(`{
-//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//	  "StartAt": "HelloWorld",
-//	  "States": {
-//	    "HelloWorld": {
-//	      "Type": "Task",
-//	      "Resource": "%v",
-//	      "End": true
+//	  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+//	  \"StartAt\": \"HelloWorld\",
+//	  \"States\": {
+//	    \"HelloWorld\": {
+//	      \"Type\": \"Task\",
+//	      \"Resource\": \"%v\",
+//	      \"End\": true
 //	    }
 //	  }
 //	}

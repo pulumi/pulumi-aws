@@ -13,6 +13,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Invocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * // Lambda function to invoke
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "data_processor",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ * });
+ * // Invoke the function once during resource creation
+ * const exampleInvocation = new aws.lambda.Invocation("example", {
+ *     functionName: example.name,
+ *     input: JSON.stringify({
+ *         operation: "initialize",
+ *         config: {
+ *             environment: "production",
+ *             debug: false,
+ *         },
+ *     }),
+ * });
+ * export const initializationResult = std.jsondecodeOutput({
+ *     input: exampleInvocation.result,
+ * }).apply(invoke => invoke.result?.status);
+ * ```
+ *
  * ### Dynamic Invocation with Triggers
  *
  * ```typescript

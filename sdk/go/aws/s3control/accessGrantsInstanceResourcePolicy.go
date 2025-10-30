@@ -38,20 +38,20 @@ import (
 //			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "example", &s3control.AccessGrantsInstanceResourcePolicyArgs{
 //				Policy: example.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
 //					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "S3AccessGrantsPolicy",
-//	  "Statement": [{
-//	    "Sid": "AllowAccessToS3AccessGrants",
-//	    "Effect": "Allow",
-//	    "Principal": {
-//	      "AWS": "123456789456"
+//	  \"Version\": \"2012-10-17\",
+//	  \"Id\": \"S3AccessGrantsPolicy\",
+//	  \"Statement\": [{
+//	    \"Sid\": \"AllowAccessToS3AccessGrants\",
+//	    \"Effect\": \"Allow\",
+//	    \"Principal\": {
+//	      \"AWS\": \"123456789456\"
 //	    },
-//	    "Action": [
-//	      "s3:ListAccessGrants",
-//	      "s3:ListAccessGrantsLocations",
-//	      "s3:GetDataAccess"
+//	    \"Action\": [
+//	      \"s3:ListAccessGrants\",
+//	      \"s3:ListAccessGrantsLocations\",
+//	      \"s3:GetDataAccess\"
 //	    ],
-//	    "Resource": "%v"
+//	    \"Resource\": \"%v\"
 //	  }]
 //	}
 //
