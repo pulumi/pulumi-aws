@@ -90,39 +90,3 @@ url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190
 [[tools.python]]
 version = "3.11.8"
 backend = "core:python"
-
-[[tools."vfox-pulumi:pulumi/pulumi-archive"]]
-version = "0.3.5"
-backend = "vfox-pulumi:pulumi/pulumi-archive"
-
-[[tools."vfox-pulumi:pulumi/pulumi-converter-terraform"]]
-version = "1.2.4"
-backend = "vfox-pulumi:pulumi/pulumi-converter-terraform"
-
-[[tools."vfox-pulumi:pulumi/pulumi-github"]]
-version = "6.8.0"
-backend = "vfox-pulumi:pulumi/pulumi-github"
-
-[[tools."vfox-pulumi:pulumi/pulumi-kubernetes"]]
-version = "4.23.0"
-backend = "vfox-pulumi:pulumi/pulumi-kubernetes"
-
-[[tools."vfox-pulumi:pulumi/pulumi-local"]]
-version = "0.1.6"
-backend = "vfox-pulumi:pulumi/pulumi-local"
-
-[[tools."vfox-pulumi:pulumi/pulumi-null"]]
-version = "0.0.13"
-backend = "vfox-pulumi:pulumi/pulumi-null"
-
-[[tools."vfox-pulumi:pulumi/pulumi-random"]]
-version = "4.18.4"
-backend = "vfox-pulumi:pulumi/pulumi-random"
-
-[[tools."vfox-pulumi:pulumi/pulumi-std"]]
-version = "2.2.0"
-backend = "vfox-pulumi:pulumi/pulumi-std"
-
-[[tools."vfox-pulumi:pulumi/pulumi-tls"]]
-version = "5.2.2"
-backend = "vfox-pulumi:pulumi/pulumi-tls"
