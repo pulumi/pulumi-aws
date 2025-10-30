@@ -35,7 +35,7 @@ replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terrafo
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250923233607-7f1981c8674a
 	github.com/hashicorp/terraform-provider-aws => ../upstream
-	github.com/hashicorp/vault => github.com/hashicorp/vault v1.20.3
+	github.com/hashicorp/vault => github.com/hashicorp/vault v1.21.0
 )
 
 require (
