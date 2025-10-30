@@ -20,6 +20,104 @@ import (
 // > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 //
 // ## Example Usage
+//
+// ### Basic Invocation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"operation": "getStatus",
+//				"id":        "123456",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := lambda.LookupInvocation(ctx, &lambda.LookupInvocationArgs{
+//				FunctionName: exampleAwsLambdaFunction.FunctionName,
+//				Input:        json0,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("result", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
+//				Input: example.Result,
+//			}, nil).Result))
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Dynamic Resource Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"environment": environment,
+//				"region":      current.Region,
+//				"service":     "api",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			// Get resource configuration from Lambda
+//			resourceConfig, err := lambda.LookupInvocation(ctx, &lambda.LookupInvocationArgs{
+//				FunctionName: "resource-config-generator",
+//				Qualifier:    pulumi.StringRef("production"),
+//				Input:        json0,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			config := std.Jsondecode(ctx, &std.JsondecodeArgs{
+//				Input: resourceConfig.Result,
+//			}, nil).Result
+//			// Use dynamic configuration
+//			_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+//				ClusterId:          pulumi.Any(config.Cache.ClusterId),
+//				Engine:             pulumi.Any(config.Cache.Engine),
+//				NodeType:           pulumi.Any(config.Cache.NodeType),
+//				NumCacheNodes:      pulumi.Any(config.Cache.Nodes),
+//				ParameterGroupName: pulumi.Any(config.Cache.ParameterGroup),
+//				Tags:               pulumi.Any(config.Tags),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInvocationResult

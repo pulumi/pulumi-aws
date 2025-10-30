@@ -290,7 +290,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .schema("""
  * schema {
- * 	query: Query
+ * \tquery: Query
  * }
  * type Query {
  *   test: Int

@@ -69,6 +69,31 @@ import (
 //	}
 //
 // ```
+//
+// ### Handling Key-Value Secret Strings in JSON
+//
+// # Reading key-value pairs from JSON back into a native map
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ctx.Export("example", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
+//				Input: exampleAwsSecretsmanagerSecretVersion.SecretString,
+//			}, nil).Result.Key1))
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult

@@ -398,32 +398,32 @@ import * as utilities from "../utilities";
  *     name: "opensearch",
  *     role: firehose.id,
  *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
+ *   \"Version\": \"2012-10-17\",
+ *   \"Statement\": [
  *     {
- *       "Effect": "Allow",
- *       "Action": [
- *         "es:*"
+ *       \"Effect\": \"Allow\",
+ *       \"Action\": [
+ *         \"es:*\"
  *       ],
- *       "Resource": [
- *         "${testCluster.arn}",
- *         "${testCluster.arn}/*"
+ *       \"Resource\": [
+ *         \"${testCluster.arn}\",
+ *         \"${testCluster.arn}/*\"
  *       ]
  *         },
  *         {
- *           "Effect": "Allow",
- *           "Action": [
- *             "ec2:DescribeVpcs",
- *             "ec2:DescribeVpcAttribute",
- *             "ec2:DescribeSubnets",
- *             "ec2:DescribeSecurityGroups",
- *             "ec2:DescribeNetworkInterfaces",
- *             "ec2:CreateNetworkInterface",
- *             "ec2:CreateNetworkInterfacePermission",
- *             "ec2:DeleteNetworkInterface"
+ *           \"Effect\": \"Allow\",
+ *           \"Action\": [
+ *             \"ec2:DescribeVpcs\",
+ *             \"ec2:DescribeVpcAttribute\",
+ *             \"ec2:DescribeSubnets\",
+ *             \"ec2:DescribeSecurityGroups\",
+ *             \"ec2:DescribeNetworkInterfaces\",
+ *             \"ec2:CreateNetworkInterface\",
+ *             \"ec2:CreateNetworkInterfacePermission\",
+ *             \"ec2:DeleteNetworkInterface\"
  *           ],
- *           "Resource": [
- *             "*"
+ *           \"Resource\": [
+ *             \"*\"
  *           ]
  *         }
  *   ]

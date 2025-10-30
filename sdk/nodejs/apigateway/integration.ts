@@ -46,7 +46,7 @@ import {RestApi} from "./index";
  *     },
  *     requestTemplates: {
  *         "application/xml": `{
- *    "body" : input.json('')
+ *    \\"body\\" : input.json('')
  * }
  * `,
  *     },

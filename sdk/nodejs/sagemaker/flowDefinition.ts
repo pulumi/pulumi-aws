@@ -87,15 +87,15 @@ import * as utilities from "../utilities";
  *     humanLoopActivationConfig: {
  *         humanLoopActivationConditionsConfig: {
  *             humanLoopActivationConditions: `        {
- * \x09\x09\x09"Conditions": [
- * \x09\x09\x09  {
- * \x09\x09\x09\x09"ConditionType": "Sampling",
- * \x09\x09\x09\x09"ConditionParameters": {
- * \x09\x09\x09\x09  "RandomSamplingPercentage": 5
- * \x09\x09\x09\x09}
- * \x09\x09\x09  }
- * \x09\x09\x09]
- * \x09\x09}
+ * \\t\\t\\t\\"Conditions\\": [
+ * \\t\\t\\t  {
+ * \\t\\t\\t\\t\\"ConditionType\\": \\"Sampling\\",
+ * \\t\\t\\t\\t\\"ConditionParameters\\": {
+ * \\t\\t\\t\\t  \\"RandomSamplingPercentage\\": 5
+ * \\t\\t\\t\\t}
+ * \\t\\t\\t  }
+ * \\t\\t\\t]
+ * \\t\\t}
  * `,
  *         },
  *     },

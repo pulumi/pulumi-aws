@@ -86,16 +86,16 @@ export class InstanceGroup extends pulumi.CustomResource {
      *
      * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \\"Classification\\": \\"hadoop-env\\",
+     * \\"Configurations\\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \\"Classification\\": \\"export\\",
+     * \\"Properties\\": {
+     * \\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \\"Properties\\": {}
      * }
      * ]
      * `});
@@ -211,16 +211,16 @@ export interface InstanceGroupState {
      *
      * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \\"Classification\\": \\"hadoop-env\\",
+     * \\"Configurations\\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \\"Classification\\": \\"export\\",
+     * \\"Properties\\": {
+     * \\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \\"Properties\\": {}
      * }
      * ]
      * `});
@@ -286,16 +286,16 @@ export interface InstanceGroupArgs {
      *
      * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \\"Classification\\": \\"hadoop-env\\",
+     * \\"Configurations\\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \\"Classification\\": \\"export\\",
+     * \\"Properties\\": {
+     * \\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \\"Properties\\": {}
      * }
      * ]
      * `});

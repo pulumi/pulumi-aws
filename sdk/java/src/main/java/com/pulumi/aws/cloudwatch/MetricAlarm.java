@@ -283,7 +283,7 @@ import javax.annotation.Nullable;
  *                 .expression("""
  * SELECT
  *   MAX(DBLoadRelativeToNumVCPUs)
- * FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+ * FROM SCHEMA(\"AWS/RDS\", DBInstanceIdentifier)
  * WHERE DBInstanceIdentifier != 'example-rds-instance'
  * GROUP BY DBInstanceIdentifier
  * ORDER BY MIN() ASC

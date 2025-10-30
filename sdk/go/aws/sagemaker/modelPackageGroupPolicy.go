@@ -16,6 +16,81 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleModelPackageGroup, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
+// ModelPackageGroupName: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// example := exampleModelPackageGroup.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AddPermModelPackageGroup"))),
+// Actions: []string{
+// "sagemaker:DescribeModelPackage",
+// "sagemaker:ListModelPackages",
+// },
+// Resources: []string{
+// arn,
+// },
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: interface{}{
+// current.AccountId,
+// },
+// Type: "AWS",
+// },
+// },
+// },
+// },
+// }, nil)), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
+// ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
+// ResourcePolicy: std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
+// Input: example.Json,
+// }, nil).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
+// var _zero pulumi.String
+// tmpJSON0, err := json.Marshal(invoke.Result)
+// if err != nil {
+// return _zero, err
+// }
+// json0 := string(tmpJSON0)
+// return pulumi.String(json0), nil
+// }).(pulumi.StringOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:

@@ -148,9 +148,9 @@ import (
 //					DeleteBehavior: pulumi.String("LOG"),
 //				},
 //				Configuration: pulumi.String(`{
-//	  "Version":1.0,
-//	  "Grouping": {
-//	    "TableGroupingPolicy": "CombineCompatibleSchemas"
+//	  \"Version\":1.0,
+//	  \"Grouping\": {
+//	    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"
 //	  }
 //	}
 //

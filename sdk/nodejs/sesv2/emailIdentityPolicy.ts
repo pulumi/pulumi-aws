@@ -20,22 +20,22 @@ import * as utilities from "../utilities";
  *     emailIdentity: example.emailIdentity,
  *     policyName: "example",
  *     policy: pulumi.interpolate`{
- *   "Id":"ExampleAuthorizationPolicy",
- *   "Version":"2012-10-17",
- *   "Statement":[
+ *   \"Id\":\"ExampleAuthorizationPolicy\",
+ *   \"Version\":\"2012-10-17\",
+ *   \"Statement\":[
  *     {
- *       "Sid":"AuthorizeIAMUser",
- *       "Effect":"Allow",
- *       "Resource":"${example.arn}",
- *       "Principal":{
- *         "AWS":[
- *           "arn:aws:iam::123456789012:user/John",
- *           "arn:aws:iam::123456789012:user/Jane"
+ *       \"Sid\":\"AuthorizeIAMUser\",
+ *       \"Effect\":\"Allow\",
+ *       \"Resource\":\"${example.arn}\",
+ *       \"Principal\":{
+ *         \"AWS\":[
+ *           \"arn:aws:iam::123456789012:user/John\",
+ *           \"arn:aws:iam::123456789012:user/Jane\"
  *         ]
  *       },
- *       "Action":[
- *         "ses:DeleteEmailIdentity",
- *         "ses:PutEmailIdentityDkimSigningAttributes"
+ *       \"Action\":[
+ *         \"ses:DeleteEmailIdentity\",
+ *         \"ses:PutEmailIdentityDkimSigningAttributes\"
  *       ]
  *     }
  *   ]

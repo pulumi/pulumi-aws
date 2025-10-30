@@ -35,14 +35,14 @@ import (
 //				Name:          pulumi.String("example"),
 //				EngineType:    pulumi.String("ActiveMQ"),
 //				EngineVersion: pulumi.String("5.17.6"),
-//				Data: pulumi.String(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+//				Data: pulumi.String(`<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
 //
-// <broker xmlns="http://activemq.apache.org/schema/core">
+// <broker xmlns=\"http://activemq.apache.org/schema/core\">
 //
 //	<plugins>
-//	  <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+//	  <forcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/>
 //	  <statisticsBrokerPlugin/>
-//	  <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+//	  <timeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/>
 //	</plugins>
 //
 // </broker>

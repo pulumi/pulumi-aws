@@ -32,19 +32,19 @@ import * as utilities from "../utilities";
  * })});
  * const examplePipeline = new aws.opensearchingest.Pipeline("example", {
  *     pipelineName: "example",
- *     pipelineConfigurationBody: pulumi.all([example.arn, current]).apply(([arn, current]) => `version: "2"
+ *     pipelineConfigurationBody: pulumi.all([example.arn, current]).apply(([arn, current]) => `version: \"2\"
  * example-pipeline:
  *   source:
  *     http:
- *       path: "/example"
+ *       path: \"/example\"
  *   sink:
  *     - s3:
  *         aws:
- *           sts_role_arn: "${arn}"
- *           region: "${current.region}"
- *         bucket: "example"
+ *           sts_role_arn: \"${arn}\"
+ *           region: \"${current.region}\"
+ *         bucket: \"example\"
  *         threshold:
- *           event_collect_timeout: "60s"
+ *           event_collect_timeout: \"60s\"
  *         codec:
  *           ndjson:
  * `),

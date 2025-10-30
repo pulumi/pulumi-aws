@@ -27,21 +27,21 @@ namespace Pulumi.Aws.AppSync
     ///         AuthenticationType = "API_KEY",
     ///         Name = "tf-example",
     ///         Schema = @"type Mutation {
-    /// 	putPost(id: ID!, title: String!): Post
+    /// \tputPost(id: ID!, title: String!): Post
     /// }
     /// 
     /// type Post {
-    /// 	id: ID!
-    /// 	title: String!
+    /// \tid: ID!
+    /// \ttitle: String!
     /// }
     /// 
     /// type Query {
-    /// 	singlePost(id: ID!): Post
+    /// \tsinglePost(id: ID!): Post
     /// }
     /// 
     /// schema {
-    /// 	query: Query
-    /// 	mutation: Mutation
+    /// \tquery: Query
+    /// \tmutation: Mutation
     /// }
     /// ",
     ///     });
@@ -65,11 +65,11 @@ namespace Pulumi.Aws.AppSync
     ///         Type = "Query",
     ///         DataSource = testDataSource.Name,
     ///         RequestTemplate = @"{
-    ///     ""version"": ""2018-05-29"",
-    ///     ""method"": ""GET"",
-    ///     ""resourcePath"": ""/"",
-    ///     ""params"":{
-    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
+    ///     \""version\"": \""2018-05-29\"",
+    ///     \""method\"": \""GET\"",
+    ///     \""resourcePath\"": \""/\"",
+    ///     \""params\"":{
+    ///         \""headers\"": $utils.http.copyheaders($ctx.request.headers)
     ///     }
     /// }
     /// ",

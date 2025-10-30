@@ -731,15 +731,15 @@ class Domain(pulumi.CustomResource):
         example = aws.elasticsearch.Domain("example",
             domain_name=domain,
             access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
+              \\"Action\\": \\"es:*\\",
+              \\"Principal\\": \\"*\\",
+              \\"Effect\\": \\"Allow\\",
+              \\"Resource\\": \\"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*\\",
+              \\"Condition\\": {{
+                \\"IpAddress\\": {{\\"aws:SourceIp\\": [\\"66.193.100.22/32\\"]}}
               }}
             }}
           ]
@@ -828,15 +828,15 @@ class Domain(pulumi.CustomResource):
                 "rest.action.multi.allow_explicit_index": "true",
             },
             access_policies=f\"\"\"{{
-        \\x09"Version": "2012-10-17",
-        \\x09"Statement": [
-        \\x09\\x09{{
-        \\x09\\x09\\x09"Action": "es:*",
-        \\x09\\x09\\x09"Principal": "*",
-        \\x09\\x09\\x09"Effect": "Allow",
-        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"
-        \\x09\\x09}}
-        \\x09]
+        \\t\\"Version\\": \\"2012-10-17\\",
+        \\t\\"Statement\\": [
+        \\t\\t{{
+        \\t\\t\\t\\"Action\\": \\"es:*\\",
+        \\t\\t\\t\\"Principal\\": \\"*\\",
+        \\t\\t\\t\\"Effect\\": \\"Allow\\",
+        \\t\\t\\t\\"Resource\\": \\"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*\\"
+        \\t\\t}}
+        \\t]
         }}
         \"\"\",
             tags={
@@ -920,15 +920,15 @@ class Domain(pulumi.CustomResource):
         example = aws.elasticsearch.Domain("example",
             domain_name=domain,
             access_policies=f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Action": "es:*",
-              "Principal": "*",
-              "Effect": "Allow",
-              "Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*",
-              "Condition": {{
-                "IpAddress": {{"aws:SourceIp": ["66.193.100.22/32"]}}
+              \\"Action\\": \\"es:*\\",
+              \\"Principal\\": \\"*\\",
+              \\"Effect\\": \\"Allow\\",
+              \\"Resource\\": \\"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*\\",
+              \\"Condition\\": {{
+                \\"IpAddress\\": {{\\"aws:SourceIp\\": [\\"66.193.100.22/32\\"]}}
               }}
             }}
           ]
@@ -1017,15 +1017,15 @@ class Domain(pulumi.CustomResource):
                 "rest.action.multi.allow_explicit_index": "true",
             },
             access_policies=f\"\"\"{{
-        \\x09"Version": "2012-10-17",
-        \\x09"Statement": [
-        \\x09\\x09{{
-        \\x09\\x09\\x09"Action": "es:*",
-        \\x09\\x09\\x09"Principal": "*",
-        \\x09\\x09\\x09"Effect": "Allow",
-        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"
-        \\x09\\x09}}
-        \\x09]
+        \\t\\"Version\\": \\"2012-10-17\\",
+        \\t\\"Statement\\": [
+        \\t\\t{{
+        \\t\\t\\t\\"Action\\": \\"es:*\\",
+        \\t\\t\\t\\"Principal\\": \\"*\\",
+        \\t\\t\\t\\"Effect\\": \\"Allow\\",
+        \\t\\t\\t\\"Resource\\": \\"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*\\"
+        \\t\\t}}
+        \\t]
         }}
         \"\"\",
             tags={

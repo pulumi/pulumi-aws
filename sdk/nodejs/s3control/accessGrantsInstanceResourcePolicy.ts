@@ -16,20 +16,20 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3control.AccessGrantsInstance("example", {});
  * const exampleAccessGrantsInstanceResourcePolicy = new aws.s3control.AccessGrantsInstanceResourcePolicy("example", {policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Id": "S3AccessGrantsPolicy",
- *   "Statement": [{
- *     "Sid": "AllowAccessToS3AccessGrants",
- *     "Effect": "Allow",
- *     "Principal": {
- *       "AWS": "123456789456"
+ *   \"Version\": \"2012-10-17\",
+ *   \"Id\": \"S3AccessGrantsPolicy\",
+ *   \"Statement\": [{
+ *     \"Sid\": \"AllowAccessToS3AccessGrants\",
+ *     \"Effect\": \"Allow\",
+ *     \"Principal\": {
+ *       \"AWS\": \"123456789456\"
  *     },
- *     "Action": [
- *       "s3:ListAccessGrants",
- *       "s3:ListAccessGrantsLocations",
- *       "s3:GetDataAccess"
+ *     \"Action\": [
+ *       \"s3:ListAccessGrants\",
+ *       \"s3:ListAccessGrantsLocations\",
+ *       \"s3:GetDataAccess\"
  *     ],
- *     "Resource": "${example.accessGrantsInstanceArn}"
+ *     \"Resource\": \"${example.accessGrantsInstanceArn}\"
  *   }]
  * }
  * `});

@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     name: "my-state-machine",
  *     roleArn: iamForSfn.arn,
  *     definition: `{
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "${lambda.arn}",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"${lambda.arn}\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     roleArn: iamForSfn.arn,
  *     type: "EXPRESS",
  *     definition: `{
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "${lambda.arn}",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"${lambda.arn}\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -76,13 +76,13 @@ import * as utilities from "../utilities";
  *     publish: true,
  *     type: "EXPRESS",
  *     definition: `{
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "${lambda.arn}",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"${lambda.arn}\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -103,13 +103,13 @@ import * as utilities from "../utilities";
  *     name: "my-state-machine",
  *     roleArn: iamForSfn.arn,
  *     definition: `{
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "${lambda.arn}",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"${lambda.arn}\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -135,13 +135,13 @@ import * as utilities from "../utilities";
  *     name: "my-state-machine",
  *     roleArn: iamForSfn.arn,
  *     definition: `{
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "${lambda.arn}",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"${lambda.arn}\",
+ *       \"End\": true
  *     }
  *   }
  * }

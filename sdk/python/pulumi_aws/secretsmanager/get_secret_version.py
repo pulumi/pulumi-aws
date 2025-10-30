@@ -176,6 +176,17 @@ def get_secret_version(region: Optional[_builtins.str] = None,
         version_stage="example")
     ```
 
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native map
+
+    ```python
+    import pulumi
+    import pulumi_std as std
+
+    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
+    ```
+
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -230,6 +241,17 @@ def get_secret_version_output(region: Optional[pulumi.Input[Optional[_builtins.s
 
     by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
+    ```
+
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native map
+
+    ```python
+    import pulumi
+    import pulumi_std as std
+
+    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
     ```
 
 

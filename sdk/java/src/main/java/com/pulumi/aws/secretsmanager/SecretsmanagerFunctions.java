@@ -1126,6 +1126,40 @@ public final class SecretsmanagerFunctions {
      * }
      * </pre>
      * 
+     * ### Handling Key-Value Secret Strings in JSON
+     * 
+     * Reading key-value pairs from JSON back into a native map
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .build()).result().key1());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args) {
         return getSecretVersion(args, InvokeOptions.Empty);
@@ -1199,6 +1233,40 @@ public final class SecretsmanagerFunctions {
      *             .versionStage("example")
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Handling Key-Value Secret Strings in JSON
+     * 
+     * Reading key-value pairs from JSON back into a native map
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .build()).result().key1());
      *     }
      * }
      * }
@@ -1282,6 +1350,40 @@ public final class SecretsmanagerFunctions {
      * }
      * </pre>
      * 
+     * ### Handling Key-Value Secret Strings in JSON
+     * 
+     * Reading key-value pairs from JSON back into a native map
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .build()).result().key1());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", TypeShape.of(GetSecretVersionResult.class), args, Utilities.withVersion(options));
@@ -1360,6 +1462,40 @@ public final class SecretsmanagerFunctions {
      * }
      * </pre>
      * 
+     * ### Handling Key-Value Secret Strings in JSON
+     * 
+     * Reading key-value pairs from JSON back into a native map
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .build()).result().key1());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", TypeShape.of(GetSecretVersionResult.class), args, Utilities.withVersion(options));
@@ -1433,6 +1569,40 @@ public final class SecretsmanagerFunctions {
      *             .versionStage("example")
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Handling Key-Value Secret Strings in JSON
+     * 
+     * Reading key-value pairs from JSON back into a native map
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+     *             .build()).result().key1());
      *     }
      * }
      * }

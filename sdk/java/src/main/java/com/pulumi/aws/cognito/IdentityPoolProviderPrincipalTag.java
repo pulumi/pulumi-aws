@@ -19,6 +19,74 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS Cognito Identity Principal Mapping.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolClientArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CompactArgs;
+ * import com.pulumi.aws.cognito.IdentityPool;
+ * import com.pulumi.aws.cognito.IdentityPoolArgs;
+ * import com.pulumi.aws.cognito.inputs.IdentityPoolCognitoIdentityProviderArgs;
+ * import com.pulumi.aws.cognito.IdentityPoolProviderPrincipalTag;
+ * import com.pulumi.aws.cognito.IdentityPoolProviderPrincipalTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserPool("example", UserPoolArgs.builder()
+ *             .name("user pool")
+ *             .autoVerifiedAttributes("email")
+ *             .build());
+ * 
+ *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
+ *             .name("client")
+ *             .userPoolId(example.id())
+ *             .supportedIdentityProviders(StdFunctions.compact(CompactArgs.builder()
+ *                 .input("COGNITO")
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         var exampleIdentityPool = new IdentityPool("exampleIdentityPool", IdentityPoolArgs.builder()
+ *             .identityPoolName("identity pool")
+ *             .allowUnauthenticatedIdentities(false)
+ *             .cognitoIdentityProviders(IdentityPoolCognitoIdentityProviderArgs.builder()
+ *                 .clientId(exampleUserPoolClient.id())
+ *                 .providerName(example.endpoint())
+ *                 .serverSideTokenCheck(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleIdentityPoolProviderPrincipalTag = new IdentityPoolProviderPrincipalTag("exampleIdentityPoolProviderPrincipalTag", IdentityPoolProviderPrincipalTagArgs.builder()
+ *             .identityPoolId(exampleIdentityPool.id())
+ *             .identityProviderName(example.endpoint())
+ *             .useDefaults(false)
+ *             .principalTags(Map.of("test", "value"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:

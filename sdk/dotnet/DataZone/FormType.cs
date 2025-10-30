@@ -121,17 +121,17 @@ namespace Pulumi.Aws.DataZone
     ///         Status = "DISABLED",
     ///         Model = new Aws.DataZone.Inputs.FormTypeModelArgs
     ///         {
-    ///             Smithy = @"	structure SageMakerModelFormType {
-    /// 			@required
-    /// 			@amazon.datazone#searchable
-    /// 			modelName: String
+    ///             Smithy = @"\tstructure SageMakerModelFormType {
+    /// \t\t\t@required
+    /// \t\t\t@amazon.datazone#searchable
+    /// \t\t\tmodelName: String
     /// 
-    /// 			@required
-    /// 			modelArn: String
+    /// \t\t\t@required
+    /// \t\t\tmodelArn: String
     /// 
-    /// 			@required
-    /// 			creationTime: String
-    /// 			}
+    /// \t\t\t@required
+    /// \t\t\tcreationTime: String
+    /// \t\t\t}
     /// ",
     ///         },
     ///     });

@@ -55,6 +55,45 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Validate Signing Profiles
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const example = await aws.lambda.getCodeSigningConfig({
+ *         arn: codeSigningConfigArn,
+ *     });
+ *     const allowedProfiles = example.allowedPublishers?.[0]?.signingProfileVersionArns;
+ *     const requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+ *     const profileAllowed = (await std.contains({
+ *         input: allowedProfiles,
+ *         element: requiredProfile,
+ *     })).result;
+ *     // Conditional resource creation based on signing profile validation
+ *     const conditional: aws.lambda.Function[] = [];
+ *     for (const range = {value: 0}; range.value < (profileAllowed ? 1 : 0); range.value++) {
+ *         conditional.push(new aws.lambda.Function(`conditional-${range.value}`, {
+ *             code: new pulumi.asset.FileArchive("function.zip"),
+ *             name: "conditional-function",
+ *             role: lambdaRole.arn,
+ *             handler: "index.handler",
+ *             runtime: aws.lambda.Runtime.Python3d12,
+ *             codeSigningConfigArn: example.arn,
+ *         }));
+ *     }
+ *     return {
+ *         deploymentStatus: {
+ *             profileAllowed: profileAllowed,
+ *             functionCreated: profileAllowed,
+ *             message: profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed",
+ *         },
+ *     };
+ * }
+ * ```
+ *
  * ### Multi-Environment Configuration
  *
  * ```typescript
@@ -180,6 +219,45 @@ export interface GetCodeSigningConfigResult {
  *         Security: "code-signed",
  *     },
  * });
+ * ```
+ *
+ * ### Validate Signing Profiles
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const example = await aws.lambda.getCodeSigningConfig({
+ *         arn: codeSigningConfigArn,
+ *     });
+ *     const allowedProfiles = example.allowedPublishers?.[0]?.signingProfileVersionArns;
+ *     const requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+ *     const profileAllowed = (await std.contains({
+ *         input: allowedProfiles,
+ *         element: requiredProfile,
+ *     })).result;
+ *     // Conditional resource creation based on signing profile validation
+ *     const conditional: aws.lambda.Function[] = [];
+ *     for (const range = {value: 0}; range.value < (profileAllowed ? 1 : 0); range.value++) {
+ *         conditional.push(new aws.lambda.Function(`conditional-${range.value}`, {
+ *             code: new pulumi.asset.FileArchive("function.zip"),
+ *             name: "conditional-function",
+ *             role: lambdaRole.arn,
+ *             handler: "index.handler",
+ *             runtime: aws.lambda.Runtime.Python3d12,
+ *             codeSigningConfigArn: example.arn,
+ *         }));
+ *     }
+ *     return {
+ *         deploymentStatus: {
+ *             profileAllowed: profileAllowed,
+ *             functionCreated: profileAllowed,
+ *             message: profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed",
+ *         },
+ *     };
+ * }
  * ```
  *
  * ### Multi-Environment Configuration

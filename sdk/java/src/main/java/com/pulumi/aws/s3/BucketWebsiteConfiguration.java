@@ -115,11 +115,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .routingRuleDetails("""
  * [{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
+ *     \"Condition\": {
+ *         \"KeyPrefixEquals\": \"docs/\"
  *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": ""
+ *     \"Redirect\": {
+ *         \"ReplaceKeyPrefixWith\": \"\"
  *     }
  * }]
  *             """)

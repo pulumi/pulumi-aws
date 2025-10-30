@@ -103,60 +103,6 @@ import javax.annotation.Nullable;
  * 
  * ### Existing Certificate Body Import
  * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.tls.privateKey;
- * import com.pulumi.tls.privateKeyArgs;
- * import com.pulumi.tls.selfSignedCert;
- * import com.pulumi.tls.selfSignedCertArgs;
- * import com.pulumi.aws.acm.Certificate;
- * import com.pulumi.aws.acm.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PrivateKey("example", PrivateKeyArgs.builder()
- *             .algorithm("RSA")
- *             .build());
- * 
- *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
- *             .keyAlgorithm("RSA")
- *             .privateKeyPem(example.privateKeyPem())
- *             .subject(List.of(Map.ofEntries(
- *                 Map.entry("commonName", "example.com"),
- *                 Map.entry("organization", "ACME Examples, Inc")
- *             )))
- *             .validityPeriodHours(12)
- *             .allowedUses(List.of(            
- *                 "key_encipherment",
- *                 "digital_signature",
- *                 "server_auth"))
- *             .build());
- * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .privateKey(example.privateKeyPem())
- *             .certificateBody(exampleSelfSignedCert.certPem())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ### Referencing domainValidationOptions With forEach Based Resources
  * 
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.

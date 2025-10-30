@@ -23,6 +23,50 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint() {
         return getEndpoint(GetEndpointArgs.Empty, InvokeOptions.Empty);
@@ -31,6 +75,50 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
@@ -41,6 +129,50 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
         return getEndpoint(args, InvokeOptions.Empty);
@@ -49,6 +181,50 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -59,6 +235,50 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
@@ -67,6 +287,50 @@ public final class IotFunctions {
      * Returns a unique endpoint specific to the AWS account making the call.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .build());
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
@@ -77,15 +341,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     */
-    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Gets a registration code used to register a CA certificate with AWS IoT.
-     * 
-     * ## Example Usage
-     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -94,11 +349,9 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.Pod;
+     * import com.pulumi.kubernetes.PodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -112,23 +365,34 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+     *         final var example = IotFunctions.getEndpoint(GetEndpointArgs.builder()
      *             .build());
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(List.of(Map.of("name", "my-device")))
+     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name"),
+     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                     Map.entry("name", "IOT_ENDPOINT"),
+     *                     Map.entry("value", example.endpointAddress())
+     *                 )))
+     *             )))))
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode() {
@@ -139,50 +403,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain() {
         return getRegistrationCodePlain(GetRegistrationCodePlainArgs.Empty, InvokeOptions.Empty);
@@ -191,50 +411,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args) {
@@ -245,50 +421,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args) {
         return getRegistrationCodePlain(args, InvokeOptions.Empty);
@@ -297,50 +429,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOptions options) {
@@ -351,50 +439,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
@@ -403,50 +447,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.privateKeyArgs;
-     * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.certRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args, InvokeOptions options) {

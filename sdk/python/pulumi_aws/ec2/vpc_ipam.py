@@ -442,6 +442,31 @@ class VpcIpam(pulumi.CustomResource):
 
         Shared with multiple operating_regions:
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_region()
+        config = pulumi.Config()
+        ipam_regions = config.get_object("ipamRegions")
+        if ipam_regions is None:
+            ipam_regions = [
+                "us-east-1",
+                "us-west-2",
+            ]
+        # ensure current provider region is an operating_regions entry
+        all_ipam_regions = std.distinct(input=std.concat(input=[
+            [current.region],
+            ipam_regions,
+        ]).result).result
+        main = aws.ec2.VpcIpam("main",
+            operating_regions=[{"key": k, "value": v} for k, v in all_ipam_regions].apply(lambda entries: [{
+                "regionName": entry["value"],
+            } for entry in entries]),
+            description="multi region ipam")
+        ```
+
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
@@ -490,6 +515,31 @@ class VpcIpam(pulumi.CustomResource):
         ```
 
         Shared with multiple operating_regions:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_region()
+        config = pulumi.Config()
+        ipam_regions = config.get_object("ipamRegions")
+        if ipam_regions is None:
+            ipam_regions = [
+                "us-east-1",
+                "us-west-2",
+            ]
+        # ensure current provider region is an operating_regions entry
+        all_ipam_regions = std.distinct(input=std.concat(input=[
+            [current.region],
+            ipam_regions,
+        ]).result).result
+        main = aws.ec2.VpcIpam("main",
+            operating_regions=[{"key": k, "value": v} for k, v in all_ipam_regions].apply(lambda entries: [{
+                "regionName": entry["value"],
+            } for entry in entries]),
+            description="multi region ipam")
+        ```
 
         ## Import
 

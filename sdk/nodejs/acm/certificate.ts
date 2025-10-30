@@ -66,32 +66,6 @@ import * as utilities from "../utilities";
  *
  * ### Existing Certificate Body Import
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const example = new tls.index.PrivateKey("example", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.index.SelfSignedCert("example", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: example.privateKeyPem,
- *     subject: [{
- *         commonName: "example.com",
- *         organization: "ACME Examples, Inc",
- *     }],
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- * });
- * const cert = new aws.acm.Certificate("cert", {
- *     privateKey: example.privateKeyPem,
- *     certificateBody: exampleSelfSignedCert.certPem,
- * });
- * ```
- *
  * ### Referencing domainValidationOptions With forEach Based Resources
  *
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.

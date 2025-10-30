@@ -112,15 +112,15 @@ import javax.annotation.Nullable;
  *             .domainName(domain)
  *             .accessPolicies("""
  * {
- *   "Version": "2012-10-17",
- *   "Statement": [
+ *   \"Version\": \"2012-10-17\",
+ *   \"Statement\": [
  *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:%s:%s:domain/%s/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+ *       \"Action\": \"es:*\",
+ *       \"Principal\": \"*\",
+ *       \"Effect\": \"Allow\",
+ *       \"Resource\": \"arn:aws:es:%s:%s:domain/%s/*\",
+ *       \"Condition\": {
+ *         \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}
  *       }
  *     }
  *   ]
@@ -291,15 +291,15 @@ import javax.annotation.Nullable;
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
  *             .accessPolicies("""
  * {
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:%s:%s:domain/%s/*"
- * 		}
- * 	]
+ * \t\"Version\": \"2012-10-17\",
+ * \t\"Statement\": [
+ * \t\t{
+ * \t\t\t\"Action\": \"es:*\",
+ * \t\t\t\"Principal\": \"*\",
+ * \t\t\t\"Effect\": \"Allow\",
+ * \t\t\t\"Resource\": \"arn:aws:es:%s:%s:domain/%s/*\"
+ * \t\t}
+ * \t]
  * }
  * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .tags(Map.of("Domain", "TestDomain"))

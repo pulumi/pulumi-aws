@@ -33,10 +33,10 @@ namespace Pulumi.Aws.TimestreamQuery
     ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Name = exampleAwsTimestreamwriteTable.TableName,
     ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-    /// 	ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
     /// FROM exampledatabase.exampletable
     /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
     /// GROUP BY region, hostname, az, BIN(time, 15s)
@@ -310,10 +310,10 @@ namespace Pulumi.Aws.TimestreamQuery
     ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Name = exampleAwsTimestreamwriteTable.TableName,
     ///         QueryString = @"SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
-    /// 	ROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
-    /// 	ROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+    /// \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+    /// \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
     /// FROM exampledatabase.exampletable
     /// WHERE measure_name = 'metrics' AND time &gt; ago(2h)
     /// GROUP BY region, hostname, az, BIN(time, 15s)

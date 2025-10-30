@@ -184,22 +184,22 @@ class EmailIdentityPolicy(pulumi.CustomResource):
             email_identity=example.email_identity,
             policy_name="example",
             policy=example.arn.apply(lambda arn: f\"\"\"{{
-          "Id":"ExampleAuthorizationPolicy",
-          "Version":"2012-10-17",
-          "Statement":[
+          \\"Id\\":\\"ExampleAuthorizationPolicy\\",
+          \\"Version\\":\\"2012-10-17\\",
+          \\"Statement\\":[
             {{
-              "Sid":"AuthorizeIAMUser",
-              "Effect":"Allow",
-              "Resource":"{arn}",
-              "Principal":{{
-                "AWS":[
-                  "arn:aws:iam::123456789012:user/John",
-                  "arn:aws:iam::123456789012:user/Jane"
+              \\"Sid\\":\\"AuthorizeIAMUser\\",
+              \\"Effect\\":\\"Allow\\",
+              \\"Resource\\":\\"{arn}\\",
+              \\"Principal\\":{{
+                \\"AWS\\":[
+                  \\"arn:aws:iam::123456789012:user/John\\",
+                  \\"arn:aws:iam::123456789012:user/Jane\\"
                 ]
               }},
-              "Action":[
-                "ses:DeleteEmailIdentity",
-                "ses:PutEmailIdentityDkimSigningAttributes"
+              \\"Action\\":[
+                \\"ses:DeleteEmailIdentity\\",
+                \\"ses:PutEmailIdentityDkimSigningAttributes\\"
               ]
             }}
           ]
@@ -244,22 +244,22 @@ class EmailIdentityPolicy(pulumi.CustomResource):
             email_identity=example.email_identity,
             policy_name="example",
             policy=example.arn.apply(lambda arn: f\"\"\"{{
-          "Id":"ExampleAuthorizationPolicy",
-          "Version":"2012-10-17",
-          "Statement":[
+          \\"Id\\":\\"ExampleAuthorizationPolicy\\",
+          \\"Version\\":\\"2012-10-17\\",
+          \\"Statement\\":[
             {{
-              "Sid":"AuthorizeIAMUser",
-              "Effect":"Allow",
-              "Resource":"{arn}",
-              "Principal":{{
-                "AWS":[
-                  "arn:aws:iam::123456789012:user/John",
-                  "arn:aws:iam::123456789012:user/Jane"
+              \\"Sid\\":\\"AuthorizeIAMUser\\",
+              \\"Effect\\":\\"Allow\\",
+              \\"Resource\\":\\"{arn}\\",
+              \\"Principal\\":{{
+                \\"AWS\\":[
+                  \\"arn:aws:iam::123456789012:user/John\\",
+                  \\"arn:aws:iam::123456789012:user/Jane\\"
                 ]
               }},
-              "Action":[
-                "ses:DeleteEmailIdentity",
-                "ses:PutEmailIdentityDkimSigningAttributes"
+              \\"Action\\":[
+                \\"ses:DeleteEmailIdentity\\",
+                \\"ses:PutEmailIdentityDkimSigningAttributes\\"
               ]
             }}
           ]

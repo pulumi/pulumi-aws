@@ -118,15 +118,15 @@ namespace Pulumi.Aws.Sagemaker
     ///             HumanLoopActivationConditionsConfig = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs
     ///             {
     ///                 HumanLoopActivationConditions = @"        {
-    /// 			""Conditions"": [
-    /// 			  {
-    /// 				""ConditionType"": ""Sampling"",
-    /// 				""ConditionParameters"": {
-    /// 				  ""RandomSamplingPercentage"": 5
-    /// 				}
-    /// 			  }
-    /// 			]
-    /// 		}
+    /// \t\t\t\""Conditions\"": [
+    /// \t\t\t  {
+    /// \t\t\t\t\""ConditionType\"": \""Sampling\"",
+    /// \t\t\t\t\""ConditionParameters\"": {
+    /// \t\t\t\t  \""RandomSamplingPercentage\"": 5
+    /// \t\t\t\t}
+    /// \t\t\t  }
+    /// \t\t\t]
+    /// \t\t}
     /// ",
     ///             },
     ///         },

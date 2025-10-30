@@ -173,7 +173,7 @@ namespace Pulumi.Aws.AppSync
     ///         AuthenticationType = "AWS_IAM",
     ///         Name = "example",
     ///         Schema = @"schema {
-    /// 	query: Query
+    /// \tquery: Query
     /// }
     /// type Query {
     ///   test: Int

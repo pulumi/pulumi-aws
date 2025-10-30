@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     name: "test-group",
  *     resourceQuery: {
  *         query: `{
- *   "ResourceTypeFilters": [
- *     "AWS::EC2::Instance"
+ *   \\"ResourceTypeFilters\\": [
+ *     \\"AWS::EC2::Instance\\"
  *   ],
- *   "TagFilters": [
+ *   \\"TagFilters\\": [
  *     {
- *       "Key": "Stage",
- *       "Values": ["Test"]
+ *       \\"Key\\": \\"Stage\\",
+ *       \\"Values\\": [\\"Test\\"]
  *     }
  *   ]
  * }

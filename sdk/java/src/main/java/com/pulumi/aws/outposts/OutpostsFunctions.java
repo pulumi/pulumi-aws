@@ -915,8 +915,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.ec2InstanceArgs;
+     * import com.pulumi.aws.Ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -964,8 +964,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.ec2InstanceArgs;
+     * import com.pulumi.aws.Ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1013,8 +1013,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.ec2InstanceArgs;
+     * import com.pulumi.aws.Ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1062,8 +1062,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.ec2InstanceArgs;
+     * import com.pulumi.aws.Ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1111,8 +1111,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.ec2Instance;
-     * import com.pulumi.aws.ec2InstanceArgs;
+     * import com.pulumi.aws.Ec2Instance;
+     * import com.pulumi.aws.Ec2InstanceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

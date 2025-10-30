@@ -26,18 +26,18 @@ import * as utilities from "../utilities";
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
  *     repository: example.name,
  *     policy: `{
- *     "rules": [
+ *     \\"rules\\": [
  *         {
- *             "rulePriority": 1,
- *             "description": "Expire images older than 14 days",
- *             "selection": {
- *                 "tagStatus": "untagged",
- *                 "countType": "sinceImagePushed",
- *                 "countUnit": "days",
- *                 "countNumber": 14
+ *             \\"rulePriority\\": 1,
+ *             \\"description\\": \\"Expire images older than 14 days\\",
+ *             \\"selection\\": {
+ *                 \\"tagStatus\\": \\"untagged\\",
+ *                 \\"countType\\": \\"sinceImagePushed\\",
+ *                 \\"countUnit\\": \\"days\\",
+ *                 \\"countNumber\\": 14
  *             },
- *             "action": {
- *                 "type": "expire"
+ *             \\"action\\": {
+ *                 \\"type\\": \\"expire\\"
  *             }
  *         }
  *     ]
@@ -56,18 +56,18 @@ import * as utilities from "../utilities";
  * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
  *     repository: example.name,
  *     policy: `{
- *     "rules": [
+ *     \\"rules\\": [
  *         {
- *             "rulePriority": 1,
- *             "description": "Keep last 30 images",
- *             "selection": {
- *                 "tagStatus": "tagged",
- *                 "tagPrefixList": ["v"],
- *                 "countType": "imageCountMoreThan",
- *                 "countNumber": 30
+ *             \\"rulePriority\\": 1,
+ *             \\"description\\": \\"Keep last 30 images\\",
+ *             \\"selection\\": {
+ *                 \\"tagStatus\\": \\"tagged\\",
+ *                 \\"tagPrefixList\\": [\\"v\\"],
+ *                 \\"countType\\": \\"imageCountMoreThan\\",
+ *                 \\"countNumber\\": 30
  *             },
- *             "action": {
- *                 "type": "expire"
+ *             \\"action\\": {
+ *                 \\"type\\": \\"expire\\"
  *             }
  *         }
  *     ]

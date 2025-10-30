@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .targetEndpointArn(target.endpointArn())
  *             .tableMappings("""
  *   {
- *     "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
+ *     \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]
  *   }
  *             """)
  *             .startReplication(true)

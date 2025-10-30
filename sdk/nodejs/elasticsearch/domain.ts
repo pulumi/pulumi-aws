@@ -45,15 +45,15 @@ import * as utilities from "../utilities";
  * const example = new aws.elasticsearch.Domain("example", {
  *     domainName: domain,
  *     accessPolicies: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `{
- *   "Version": "2012-10-17",
- *   "Statement": [
+ *   \"Version\": \"2012-10-17\",
+ *   \"Statement\": [
  *     {
- *       "Action": "es:*",
- *       "Principal": "*",
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
- *       "Condition": {
- *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+ *       \"Action\": \"es:*\",
+ *       \"Principal\": \"*\",
+ *       \"Effect\": \"Allow\",
+ *       \"Resource\": \"arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*\",
+ *       \"Condition\": {
+ *         \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}
  *       }
  *     }
  *   ]
@@ -149,15 +149,15 @@ import * as utilities from "../utilities";
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },
  *     accessPolicies: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Action": "es:*",
- * 			"Principal": "*",
- * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
- * 		}
- * 	]
+ * \t\"Version\": \"2012-10-17\",
+ * \t\"Statement\": [
+ * \t\t{
+ * \t\t\t\"Action\": \"es:*\",
+ * \t\t\t\"Principal\": \"*\",
+ * \t\t\t\"Effect\": \"Allow\",
+ * \t\t\t\"Resource\": \"arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*\"
+ * \t\t}
+ * \t]
  * }
  * `),
  *     tags: {

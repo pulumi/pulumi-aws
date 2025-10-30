@@ -9,6 +9,37 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const exampleModelPackageGroup = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
+ * const example = pulumi.all([exampleModelPackageGroup.arn, current]).apply(([arn, current]) => aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         sid: "AddPermModelPackageGroup",
+ *         actions: [
+ *             "sagemaker:DescribeModelPackage",
+ *             "sagemaker:ListModelPackages",
+ *         ],
+ *         resources: [arn],
+ *         principals: [{
+ *             identifiers: [current.accountId],
+ *             type: "AWS",
+ *         }],
+ *     }],
+ * }));
+ * const exampleModelPackageGroupPolicy = new aws.sagemaker.ModelPackageGroupPolicy("example", {
+ *     modelPackageGroupName: exampleModelPackageGroup.modelPackageGroupName,
+ *     resourcePolicy: pulumi.jsonStringify(example.apply(example => std.jsondecodeOutput({
+ *         input: example.json,
+ *     })).apply(invoke => invoke.result)),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:

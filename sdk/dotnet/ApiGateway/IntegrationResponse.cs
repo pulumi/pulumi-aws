@@ -71,7 +71,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         ResponseTemplates = 
     ///         {
     ///             { "application/xml", @"#set($inputRoot = $input.path('$'))
-    /// &lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
+    /// &lt;?xml version=\""1.0\"" encoding=\""UTF-8\""?&gt;
     /// &lt;message&gt;
     ///     $inputRoot.body
     /// &lt;/message&gt;
