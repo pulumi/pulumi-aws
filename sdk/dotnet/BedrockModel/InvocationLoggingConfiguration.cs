@@ -43,25 +43,25 @@ namespace Pulumi.Aws.BedrockModel
     ///             var current = values.Item2;
     ///             var current1 = values.Item3;
     ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
+    ///   \""Version\"": \""2012-10-17\"",
+    ///   \""Statement\"": [
     ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""Service"": ""bedrock.amazonaws.com""
+    ///       \""Effect\"": \""Allow\"",
+    ///       \""Principal\"": {{
+    ///         \""Service\"": \""bedrock.amazonaws.com\""
     ///       }},
-    ///       ""Action"": [
-    ///         ""s3:*""
+    ///       \""Action\"": [
+    ///         \""s3:*\""
     ///       ],
-    ///       ""Resource"": [
-    ///         ""{arn}/*""
+    ///       \""Resource\"": [
+    ///         \""{arn}/*\""
     ///       ],
-    ///       ""Condition"": {{
-    ///         ""StringEquals"": {{
-    ///           ""aws:SourceAccount"": ""{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}""
+    ///       \""Condition\"": {{
+    ///         \""StringEquals\"": {{
+    ///           \""aws:SourceAccount\"": \""{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}\""
     ///         }},
-    ///         ""ArnLike"": {{
-    ///           ""aws:SourceArn"": ""arn:aws:bedrock:us-east-1:{current1.AccountId}:*""
+    ///         \""ArnLike\"": {{
+    ///           \""aws:SourceArn\"": \""arn:aws:bedrock:us-east-1:{current1.AccountId}:*\""
     ///         }}
     ///       }}
     ///     }}

@@ -974,6 +974,72 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Validate Signing Profiles
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ContainsArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         final var allowedProfiles = example.allowedPublishers()[0].signingProfileVersionArns();
+     * 
+     *         final var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+     * 
+     *         final var profileAllowed = StdFunctions.contains(ContainsArgs.builder()
+     *             .input(allowedProfiles)
+     *             .element(requiredProfile)
+     *             .build()).result();
+     * 
+     *         // Conditional resource creation based on signing profile validation
+     *         for (var i = 0; i < profileAllowed ? 1 : 0; i++) {
+     *             new Function("conditional-" + i, FunctionArgs.builder()
+     *                 .code(new FileArchive("function.zip"))
+     *                 .name("conditional-function")
+     *                 .role(lambdaRole.arn())
+     *                 .handler("index.handler")
+     *                 .runtime("python3.12")
+     *                 .codeSigningConfigArn(example.arn())
+     *                 .build());
+     * 
+     *         
+     * }
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("profileAllowed", profileAllowed),
+     *             Map.entry("functionCreated", profileAllowed),
+     *             Map.entry("message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed")
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### Multi-Environment Configuration
      * 
      * <pre>
@@ -1119,6 +1185,72 @@ public final class LambdaFunctions {
      *             ))
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Validate Signing Profiles
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ContainsArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         final var allowedProfiles = example.allowedPublishers()[0].signingProfileVersionArns();
+     * 
+     *         final var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+     * 
+     *         final var profileAllowed = StdFunctions.contains(ContainsArgs.builder()
+     *             .input(allowedProfiles)
+     *             .element(requiredProfile)
+     *             .build()).result();
+     * 
+     *         // Conditional resource creation based on signing profile validation
+     *         for (var i = 0; i < profileAllowed ? 1 : 0; i++) {
+     *             new Function("conditional-" + i, FunctionArgs.builder()
+     *                 .code(new FileArchive("function.zip"))
+     *                 .name("conditional-function")
+     *                 .role(lambdaRole.arn())
+     *                 .handler("index.handler")
+     *                 .runtime("python3.12")
+     *                 .codeSigningConfigArn(example.arn())
+     *                 .build());
+     * 
+     *         
+     * }
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("profileAllowed", profileAllowed),
+     *             Map.entry("functionCreated", profileAllowed),
+     *             Map.entry("message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed")
+     *         ));
      *     }
      * }
      * }
@@ -1274,6 +1406,72 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Validate Signing Profiles
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ContainsArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         final var allowedProfiles = example.allowedPublishers()[0].signingProfileVersionArns();
+     * 
+     *         final var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+     * 
+     *         final var profileAllowed = StdFunctions.contains(ContainsArgs.builder()
+     *             .input(allowedProfiles)
+     *             .element(requiredProfile)
+     *             .build()).result();
+     * 
+     *         // Conditional resource creation based on signing profile validation
+     *         for (var i = 0; i < profileAllowed ? 1 : 0; i++) {
+     *             new Function("conditional-" + i, FunctionArgs.builder()
+     *                 .code(new FileArchive("function.zip"))
+     *                 .name("conditional-function")
+     *                 .role(lambdaRole.arn())
+     *                 .handler("index.handler")
+     *                 .runtime("python3.12")
+     *                 .codeSigningConfigArn(example.arn())
+     *                 .build());
+     * 
+     *         
+     * }
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("profileAllowed", profileAllowed),
+     *             Map.entry("functionCreated", profileAllowed),
+     *             Map.entry("message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed")
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### Multi-Environment Configuration
      * 
      * <pre>
@@ -1424,6 +1622,72 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Validate Signing Profiles
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ContainsArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         final var allowedProfiles = example.allowedPublishers()[0].signingProfileVersionArns();
+     * 
+     *         final var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+     * 
+     *         final var profileAllowed = StdFunctions.contains(ContainsArgs.builder()
+     *             .input(allowedProfiles)
+     *             .element(requiredProfile)
+     *             .build()).result();
+     * 
+     *         // Conditional resource creation based on signing profile validation
+     *         for (var i = 0; i < profileAllowed ? 1 : 0; i++) {
+     *             new Function("conditional-" + i, FunctionArgs.builder()
+     *                 .code(new FileArchive("function.zip"))
+     *                 .name("conditional-function")
+     *                 .role(lambdaRole.arn())
+     *                 .handler("index.handler")
+     *                 .runtime("python3.12")
+     *                 .codeSigningConfigArn(example.arn())
+     *                 .build());
+     * 
+     *         
+     * }
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("profileAllowed", profileAllowed),
+     *             Map.entry("functionCreated", profileAllowed),
+     *             Map.entry("message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed")
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### Multi-Environment Configuration
      * 
      * <pre>
@@ -1569,6 +1833,72 @@ public final class LambdaFunctions {
      *             ))
      *             .build());
      * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Validate Signing Profiles
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ContainsArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         final var allowedProfiles = example.allowedPublishers()[0].signingProfileVersionArns();
+     * 
+     *         final var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+     * 
+     *         final var profileAllowed = StdFunctions.contains(ContainsArgs.builder()
+     *             .input(allowedProfiles)
+     *             .element(requiredProfile)
+     *             .build()).result();
+     * 
+     *         // Conditional resource creation based on signing profile validation
+     *         for (var i = 0; i < profileAllowed ? 1 : 0; i++) {
+     *             new Function("conditional-" + i, FunctionArgs.builder()
+     *                 .code(new FileArchive("function.zip"))
+     *                 .name("conditional-function")
+     *                 .role(lambdaRole.arn())
+     *                 .handler("index.handler")
+     *                 .runtime("python3.12")
+     *                 .codeSigningConfigArn(example.arn())
+     *                 .build());
+     * 
+     *         
+     * }
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("profileAllowed", profileAllowed),
+     *             Map.entry("functionCreated", profileAllowed),
+     *             Map.entry("message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed")
+     *         ));
      *     }
      * }
      * }
@@ -3988,6 +4318,110 @@ public final class LambdaFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Invocation
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("operation", "getStatus"),
+     *                     jsonProperty("id", "123456")
+     *                 )))
+     *             .build());
+     * 
+     *         ctx.export("result", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.result())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Dynamic Resource Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import com.pulumi.aws.elasticache.Cluster;
+     * import com.pulumi.aws.elasticache.ClusterArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get resource configuration from Lambda
+     *         final var resourceConfig = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName("resource-config-generator")
+     *             .qualifier("production")
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("environment", environment),
+     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("service", "api")
+     *                 )))
+     *             .build());
+     * 
+     *         final var config = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(resourceConfig.result())
+     *             .build()).result();
+     * 
+     *         // Use dynamic configuration
+     *         var example = new Cluster("example", ClusterArgs.builder()
+     *             .clusterId(config.cache().clusterId())
+     *             .engine(config.cache().engine())
+     *             .nodeType(config.cache().nodeType())
+     *             .numCacheNodes(config.cache().nodes())
+     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .tags(config.tags())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args) {
         return getInvocation(args, InvokeOptions.Empty);
@@ -4002,6 +4436,110 @@ public final class LambdaFunctions {
      * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
      * 
      * ## Example Usage
+     * 
+     * ### Basic Invocation
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("operation", "getStatus"),
+     *                     jsonProperty("id", "123456")
+     *                 )))
+     *             .build());
+     * 
+     *         ctx.export("result", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.result())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Dynamic Resource Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import com.pulumi.aws.elasticache.Cluster;
+     * import com.pulumi.aws.elasticache.ClusterArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get resource configuration from Lambda
+     *         final var resourceConfig = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName("resource-config-generator")
+     *             .qualifier("production")
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("environment", environment),
+     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("service", "api")
+     *                 )))
+     *             .build());
+     * 
+     *         final var config = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(resourceConfig.result())
+     *             .build()).result();
+     * 
+     *         // Use dynamic configuration
+     *         var example = new Cluster("example", ClusterArgs.builder()
+     *             .clusterId(config.cache().clusterId())
+     *             .engine(config.cache().engine())
+     *             .nodeType(config.cache().nodeType())
+     *             .numCacheNodes(config.cache().nodes())
+     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .tags(config.tags())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args) {
@@ -4018,6 +4556,110 @@ public final class LambdaFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Invocation
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("operation", "getStatus"),
+     *                     jsonProperty("id", "123456")
+     *                 )))
+     *             .build());
+     * 
+     *         ctx.export("result", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.result())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Dynamic Resource Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import com.pulumi.aws.elasticache.Cluster;
+     * import com.pulumi.aws.elasticache.ClusterArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get resource configuration from Lambda
+     *         final var resourceConfig = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName("resource-config-generator")
+     *             .qualifier("production")
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("environment", environment),
+     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("service", "api")
+     *                 )))
+     *             .build());
+     * 
+     *         final var config = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(resourceConfig.result())
+     *             .build()).result();
+     * 
+     *         // Use dynamic configuration
+     *         var example = new Cluster("example", ClusterArgs.builder()
+     *             .clusterId(config.cache().clusterId())
+     *             .engine(config.cache().engine())
+     *             .nodeType(config.cache().nodeType())
+     *             .numCacheNodes(config.cache().nodes())
+     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .tags(config.tags())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
@@ -4033,6 +4675,110 @@ public final class LambdaFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Invocation
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("operation", "getStatus"),
+     *                     jsonProperty("id", "123456")
+     *                 )))
+     *             .build());
+     * 
+     *         ctx.export("result", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.result())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Dynamic Resource Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import com.pulumi.aws.elasticache.Cluster;
+     * import com.pulumi.aws.elasticache.ClusterArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get resource configuration from Lambda
+     *         final var resourceConfig = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName("resource-config-generator")
+     *             .qualifier("production")
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("environment", environment),
+     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("service", "api")
+     *                 )))
+     *             .build());
+     * 
+     *         final var config = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(resourceConfig.result())
+     *             .build()).result();
+     * 
+     *         // Use dynamic configuration
+     *         var example = new Cluster("example", ClusterArgs.builder()
+     *             .clusterId(config.cache().clusterId())
+     *             .engine(config.cache().engine())
+     *             .nodeType(config.cache().nodeType())
+     *             .numCacheNodes(config.cache().nodes())
+     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .tags(config.tags())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
@@ -4047,6 +4793,110 @@ public final class LambdaFunctions {
      * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
      * 
      * ## Example Usage
+     * 
+     * ### Basic Invocation
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("operation", "getStatus"),
+     *                     jsonProperty("id", "123456")
+     *                 )))
+     *             .build());
+     * 
+     *         ctx.export("result", StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(example.result())
+     *             .build()).result());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Dynamic Resource Configuration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.JsondecodeArgs;
+     * import com.pulumi.aws.elasticache.Cluster;
+     * import com.pulumi.aws.elasticache.ClusterArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get resource configuration from Lambda
+     *         final var resourceConfig = LambdaFunctions.getInvocation(GetInvocationArgs.builder()
+     *             .functionName("resource-config-generator")
+     *             .qualifier("production")
+     *             .input(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("environment", environment),
+     *                     jsonProperty("region", current.region()),
+     *                     jsonProperty("service", "api")
+     *                 )))
+     *             .build());
+     * 
+     *         final var config = StdFunctions.jsondecode(JsondecodeArgs.builder()
+     *             .input(resourceConfig.result())
+     *             .build()).result();
+     * 
+     *         // Use dynamic configuration
+     *         var example = new Cluster("example", ClusterArgs.builder()
+     *             .clusterId(config.cache().clusterId())
+     *             .engine(config.cache().engine())
+     *             .nodeType(config.cache().nodeType())
+     *             .numCacheNodes(config.cache().nodes())
+     *             .parameterGroupName(config.cache().parameterGroup())
+     *             .tags(config.tags())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args, InvokeOptions options) {

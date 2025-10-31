@@ -94,8 +94,13 @@ jobs:
       uses: ./.github/actions/download-sdk
       with:
         language: java
-    - name: Restore makefile progress
-      run: make --touch provider schema build_sdks
+    - name: Restore task progress
+      run: mise run mark \
+        build:sdks:dotnet \
+        build:sdks:go \
+        build:sdks:java \
+        build:sdks:nodejs \
+        build:sdks:python
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps

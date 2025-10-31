@@ -54,9 +54,13 @@ golangci-lint = "1.64.8" # See note about about overrides if you need to customi
 "vfox-pulumi:pulumi/pulumi-random" = "latest"
 "vfox-pulumi:pulumi/pulumi-std" = "latest"
 "vfox-pulumi:pulumi/pulumi-converter-terraform" = "latest"
+usage = "latest"
 
 [task_config]
-includes = [".config/tasks/provider-base.toml"]
+includes = [
+  ".config/provider-base.toml",
+  ".config/mise/tasks",
+]
 
 [settings]
 experimental = true # Required for Go binaries (e.g. pulumictl).

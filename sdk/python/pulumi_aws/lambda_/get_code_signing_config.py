@@ -174,6 +174,35 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
         })
     ```
 
+    ### Validate Signing Profiles
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
+    required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
+    profile_allowed = std.contains(input=allowed_profiles,
+        element=required_profile).result
+    # Conditional resource creation based on signing profile validation
+    conditional = []
+    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
+        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
+            code=pulumi.FileArchive("function.zip"),
+            name="conditional-function",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
+            code_signing_config_arn=example.arn))
+    pulumi.export("deploymentStatus", {
+        "profileAllowed": profile_allowed,
+        "functionCreated": profile_allowed,
+        "message": "Function deployed with valid signing profile" if profile_allowed else "Deployment blocked - signing profile not allowed",
+    })
+    ```
+
     ### Multi-Environment Configuration
 
     ```python
@@ -259,6 +288,35 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
             "Environment": "production",
             "Security": "code-signed",
         })
+    ```
+
+    ### Validate Signing Profiles
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_code_signing_config(arn=code_signing_config_arn)
+    allowed_profiles = example.allowed_publishers[0].signing_profile_version_arns
+    required_profile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
+    profile_allowed = std.contains(input=allowed_profiles,
+        element=required_profile).result
+    # Conditional resource creation based on signing profile validation
+    conditional = []
+    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
+        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
+            code=pulumi.FileArchive("function.zip"),
+            name="conditional-function",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
+            code_signing_config_arn=example.arn))
+    pulumi.export("deploymentStatus", {
+        "profileAllowed": profile_allowed,
+        "functionCreated": profile_allowed,
+        "message": "Function deployed with valid signing profile" if profile_allowed else "Deployment blocked - signing profile not allowed",
+    })
     ```
 
     ### Multi-Environment Configuration

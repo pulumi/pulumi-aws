@@ -80,6 +80,60 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// 
+        /// ### Validate Signing Profiles
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var example = await Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     var allowedProfiles = example.AllowedPublishers[0]?.SigningProfileVersionArns;
+        /// 
+        ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+        /// 
+        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     {
+        ///         Input = allowedProfiles,
+        ///         Element = requiredProfile,
+        ///     })).Result;
+        /// 
+        ///     // Conditional resource creation based on signing profile validation
+        ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
+        ///         {
+        ///             Code = new FileArchive("function.zip"),
+        ///             Name = "conditional-function",
+        ///             Role = lambdaRole.Arn,
+        ///             Handler = "index.handler",
+        ///             Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///             CodeSigningConfigArn = example.Arn,
+        ///         }));
+        ///     }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "profileAllowed", profileAllowed },
+        ///             { "functionCreated", profileAllowed },
+        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
         /// ### Multi-Environment Configuration
         /// 
         /// ```csharp
@@ -197,6 +251,60 @@ namespace Pulumi.Aws.Lambda
         /// });
         /// ```
         /// 
+        /// ### Validate Signing Profiles
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var example = await Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     var allowedProfiles = example.AllowedPublishers[0]?.SigningProfileVersionArns;
+        /// 
+        ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+        /// 
+        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     {
+        ///         Input = allowedProfiles,
+        ///         Element = requiredProfile,
+        ///     })).Result;
+        /// 
+        ///     // Conditional resource creation based on signing profile validation
+        ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
+        ///         {
+        ///             Code = new FileArchive("function.zip"),
+        ///             Name = "conditional-function",
+        ///             Role = lambdaRole.Arn,
+        ///             Handler = "index.handler",
+        ///             Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///             CodeSigningConfigArn = example.Arn,
+        ///         }));
+        ///     }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "profileAllowed", profileAllowed },
+        ///             { "functionCreated", profileAllowed },
+        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
         /// ### Multi-Environment Configuration
         /// 
         /// ```csharp
@@ -311,6 +419,60 @@ namespace Pulumi.Aws.Lambda
         ///         },
         ///     });
         /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Validate Signing Profiles
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var example = await Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     var allowedProfiles = example.AllowedPublishers[0]?.SigningProfileVersionArns;
+        /// 
+        ///     var requiredProfile = "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile";
+        /// 
+        ///     var profileAllowed = (await Std.Contains.InvokeAsync(new()
+        ///     {
+        ///         Input = allowedProfiles,
+        ///         Element = requiredProfile,
+        ///     })).Result;
+        /// 
+        ///     // Conditional resource creation based on signing profile validation
+        ///     var conditional = new List&lt;Aws.Lambda.Function&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; profileAllowed ? 1 : 0; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         conditional.Add(new Aws.Lambda.Function($"conditional-{range.Value}", new()
+        ///         {
+        ///             Code = new FileArchive("function.zip"),
+        ///             Name = "conditional-function",
+        ///             Role = lambdaRole.Arn,
+        ///             Handler = "index.handler",
+        ///             Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///             CodeSigningConfigArn = example.Arn,
+        ///         }));
+        ///     }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["deploymentStatus"] = 
+        ///         {
+        ///             { "profileAllowed", profileAllowed },
+        ///             { "functionCreated", profileAllowed },
+        ///             { "message", profileAllowed ? "Function deployed with valid signing profile" : "Deployment blocked - signing profile not allowed" },
+        ///         },
+        ///     };
         /// });
         /// ```
         /// 

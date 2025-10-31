@@ -91,8 +91,6 @@ jobs:
         uses: ./.github/actions/download-prerequisites
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-      - name: Restore makefile progress
-        run: make --touch provider schema
       - name: Build SDK
         run: make build_${{ matrix.language }}
 

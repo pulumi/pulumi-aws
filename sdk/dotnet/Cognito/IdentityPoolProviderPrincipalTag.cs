@@ -12,6 +12,68 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides an AWS Cognito Identity Principal Mapping.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Cognito.UserPool("example", new()
+    ///     {
+    ///         Name = "user pool",
+    ///         AutoVerifiedAttributes = new[]
+    ///         {
+    ///             "email",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("example", new()
+    ///     {
+    ///         Name = "client",
+    ///         UserPoolId = example.Id,
+    ///         SupportedIdentityProviders = Std.Compact.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "COGNITO",
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("example", new()
+    ///     {
+    ///         IdentityPoolName = "identity pool",
+    ///         AllowUnauthenticatedIdentities = false,
+    ///         CognitoIdentityProviders = new[]
+    ///         {
+    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///             {
+    ///                 ClientId = exampleUserPoolClient.Id,
+    ///                 ProviderName = example.Endpoint,
+    ///                 ServerSideTokenCheck = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleIdentityPoolProviderPrincipalTag = new Aws.Cognito.IdentityPoolProviderPrincipalTag("example", new()
+    ///     {
+    ///         IdentityPoolId = exampleIdentityPool.Id,
+    ///         IdentityProviderName = example.Endpoint,
+    ///         UseDefaults = false,
+    ///         PrincipalTags = 
+    ///         {
+    ///             { "test", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:

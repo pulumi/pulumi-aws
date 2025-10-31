@@ -8,6 +8,23 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Organizations Policies.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.organizations.getPolicies({
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * });
+ * const exampleGetPolicy = example.then(example => std.toset({
+ *     input: example.ids,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) })));
+ * ```
  */
 export function getPolicies(args: GetPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +61,23 @@ export interface GetPoliciesResult {
  * Data source for managing an AWS Organizations Policies.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.organizations.getPolicies({
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * });
+ * const exampleGetPolicy = example.then(example => std.toset({
+ *     input: example.ids,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) })));
+ * ```
  */
 export function getPoliciesOutput(args: GetPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

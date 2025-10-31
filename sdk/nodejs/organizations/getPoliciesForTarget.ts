@@ -8,6 +8,25 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Organizations Policies For Target.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.organizations.getOrganization({});
+ * const exampleGetPoliciesForTarget = example.then(example => aws.organizations.getPoliciesForTarget({
+ *     targetId: example.roots?.[0]?.id,
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * }));
+ * const exampleGetPolicy = exampleGetPoliciesForTarget.then(exampleGetPoliciesForTarget => std.toset({
+ *     input: exampleGetPoliciesForTarget.ids,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) })));
+ * ```
  */
 export function getPoliciesForTarget(args: GetPoliciesForTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesForTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,6 +69,25 @@ export interface GetPoliciesForTargetResult {
  * Data source for managing an AWS Organizations Policies For Target.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.organizations.getOrganization({});
+ * const exampleGetPoliciesForTarget = example.then(example => aws.organizations.getPoliciesForTarget({
+ *     targetId: example.roots?.[0]?.id,
+ *     filter: "SERVICE_CONTROL_POLICY",
+ * }));
+ * const exampleGetPolicy = exampleGetPoliciesForTarget.then(exampleGetPoliciesForTarget => std.toset({
+ *     input: exampleGetPoliciesForTarget.ids,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ *     policyId: __value,
+ * }) })));
+ * ```
  */
 export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoliciesForTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

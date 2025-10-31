@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+set -euo pipefail
+#MISE description "Run supported :mark tasks for SDK generation/build targets"
+#USAGE flag "--list" help="Show supported targets and exit"
+#USAGE arg "[task]" help="SDK task(s) to mark complete" var=#true
+
+list=${usage_list:-false}
+tasks=()
+if [[ -n "${usage_task:-}" ]]; then
+  # shellcheck disable=SC2206 # splitting on IFS is safe for task identifiers
+  tasks=(${usage_task})
+fi
+
+readonly SUPPORTED=(
+  generate:sdks:dotnet
+  generate:sdks:go
+  generate:sdks:java
+  generate:sdks:nodejs
+  generate:sdks:python
+  build:sdks:dotnet
+  build:sdks:go
+  build:sdks:java
+  build:sdks:nodejs
+  build:sdks:python
+)
+
+if [[ "$list" == "true" ]]; then
+  printf '%s\n' "${SUPPORTED[@]}"
+  exit 0
+fi
+
+if ((${#tasks[@]} == 0)); then
+  printf 'mark: provide at least one task (try --help)\n' >&2
+  exit 1
+fi
+
+status=0
+for task in "${tasks[@]}"; do
+  base="$task"
+  if [[ "$base" == *":mark" ]]; then
+    base="${base%:mark}"
+    target="$task"
+  else
+    target="${task}:mark"
+  fi
+
+  supported=false
+  for allowed in "${SUPPORTED[@]}"; do
+    if [[ "$base" == "$allowed" ]]; then
+      supported=true
+      break
+    fi
+  done
+
+  if [[ "$supported" == false ]]; then
+    printf 'mark: unsupported target "%s"\n' "$task" >&2
+    status=1
+    continue
+  fi
+
+  if ! mise run "$target"; then
+    printf 'mark: failed to run %s\n' "$target" >&2
+    status=1
+  fi
+done
+
+exit $status

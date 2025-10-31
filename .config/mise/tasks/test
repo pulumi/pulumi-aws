@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-#MISE description="Run example integration tests"
+#MISE description "Run example integration tests"
 #USAGE flag "--pkg <pattern>" help="Package pattern to test" default="./..."
 #USAGE flag "--run <regex>" help="Regex passed to go test -run"
 #USAGE flag "--tags <tags>" help="Go build tags" default="all"

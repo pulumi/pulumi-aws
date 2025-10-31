@@ -57,8 +57,8 @@ import javax.annotation.Nullable;
  *             .keyId(oauthConfig.keyId())
  *             .plaintext("""
  * {
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
+ *   \"client_id\": \"e587dbae22222f55da22\",
+ *   \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"
  * }
  *             """)
  *             .build());
