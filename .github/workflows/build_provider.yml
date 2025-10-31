@@ -95,7 +95,7 @@ jobs:
           restore-keys: |
             go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-
       - name: Prepare local workspace before restoring previously built
-        run: make prepare_local_workspace
+        run: mise run prepare:workspace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore prerequisites

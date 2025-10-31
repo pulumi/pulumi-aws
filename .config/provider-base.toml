@@ -36,6 +36,12 @@ sources = [
 ]
 outputs = ["bin/pulumi-tfgen-aws"]
 
+["prepare:workspace"]
+description = "Prime directories and upstream checkout"
+alias = ["prepare"]
+depends = ["dirs", "upstream"]
+run = "true"
+
 [schema]
 description = "Generate schema.json via tfgen"
 depends = ["tfgen:build"]
@@ -505,28 +511,6 @@ depends = ["upstream"]
 dir = "provider"
 run = "golangci-lint run --path-prefix provider -c ../.golangci.yml --fix"
 
-# [acc]
-# description = "Run focused acceptance/integration tests"
-# depends = ["provider:no-deps"]
-# env.PATH = "{{ [config_root, 'bin'] | join_path }}:{{ env.PATH }}"
-# file = ".config/mise/tasks/acc"
-
-# [mark]
-# file = ".config/mise/tasks/mark"
-
-# [test]
-# description = "Run example integration tests"
-# depends = ["build"]
-# env.PATH = "{{ [config_root, 'bin'] | join_path }}:{{ env.PATH }}"
-# dir = "examples"
-# file = ".config/mise/tasks/test"
-
-# ["test:provider"]
-# description = "Run provider unit tests"
-# depends = ["build"]
-# dir = "provider"
-# file = "tasks/test-provider"
-
 [clean]
 description = "Clean build artifacts"
 run = '''
@@ -543,7 +527,7 @@ run = '''
 cat <<'EOF'
 Common workflows:
   mise run build
-  mise run acc -- --run TestFoo
+  mise run test -- --run TestFoo
   mise run build:sdks:nodejs:skip
   mise run test -- --pkg ./examples/...
 
@@ -564,11 +548,3 @@ run = 'dlv --listen=:2345 --headless=true --api-version=2 exec bin/${CODEGEN} --
 [demo-simple]
 description = "Minimal file task used to verify mise file tasks"
 file = ".config/mise/tasks/demo-simple"
-
-[demo-task]
-usage = '''
-flag "--dir <dir>" help="Directory containing tests" default="examples"
-'''
-run = '''
-echo "${usage_dir?}"
-'''

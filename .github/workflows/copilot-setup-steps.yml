@@ -44,4 +44,4 @@ jobs:
 
       - name: Prepare local workspace
         # this runs install_plugins and upstream
-        run: make prepare_local_workspace
+        run: mise run prepare:workspace

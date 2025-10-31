@@ -69,7 +69,7 @@ jobs:
         # also save this cache since we are using a different mise env.
         cache_save: true
     - name: Prepare local workspace
-      run: make prepare_local_workspace
+      run: mise run prepare:workspace
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Download bin
@@ -96,10 +96,15 @@ jobs:
         language: java
     - name: Restore task progress
       run: mise run mark \
+        generate:sdks:dotnet \
         build:sdks:dotnet \
+        generate:sdks:go \
         build:sdks:go \
+        generate:sdks:java \
         build:sdks:java \
+        generate:sdks:nodejs \
         build:sdks:nodejs \
+        generate:sdks:python \
         build:sdks:python
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
@@ -121,7 +126,7 @@ jobs:
       with:
         environment: logins/pulumi-ci
     - name: Install prebuilt SDKs
-      run: make install_sdks
+      run: mise run install:sdks
     - name: Generate test shards
       run: |-
         cd examples
@@ -131,7 +136,7 @@ jobs:
             --output env >> "$GITHUB_ENV"
     - name: Run tests
       run: |
-        make GOTESTARGS="-test.run ${SHARD_TESTS} ${SHARD_PATHS}" test
+        GOTESTARGS="-test.run ${SHARD_TESTS} ${SHARD_PATHS}" mise run test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}

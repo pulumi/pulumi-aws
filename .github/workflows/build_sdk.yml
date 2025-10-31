@@ -84,7 +84,7 @@ jobs:
             sdk/*.sum
             *.sum
       - name: Prepare local workspace
-        run: make prepare_local_workspace
+        run: mise run prepare:workspace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download prerequisites
@@ -92,7 +92,7 @@ jobs:
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
       - name: Build SDK
-        run: make build_${{ matrix.language }}
+        run: mise run build:sdks:${{ matrix.language }}
 
       - name: Check worktree clean
         id: worktreeClean
