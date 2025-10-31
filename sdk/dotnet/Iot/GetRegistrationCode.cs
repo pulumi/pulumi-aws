@@ -15,38 +15,6 @@ namespace Pulumi.Aws.Iot
         /// Gets a registration code used to register a CA certificate with AWS IoT.
         /// 
         /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Tls = Pulumi.Tls;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
-        /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
-        ///     {
-        ///         Algorithm = "RSA",
-        ///     });
-        /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
-        ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetRegistrationCodeResult> InvokeAsync(GetRegistrationCodeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeArgs(), options.WithDefaults());
@@ -55,38 +23,6 @@ namespace Pulumi.Aws.Iot
         /// Gets a registration code used to register a CA certificate with AWS IoT.
         /// 
         /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Tls = Pulumi.Tls;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
-        /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
-        ///     {
-        ///         Algorithm = "RSA",
-        ///     });
-        /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
-        ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetRegistrationCodeResult> Invoke(GetRegistrationCodeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeInvokeArgs(), options.WithDefaults());
@@ -95,38 +31,6 @@ namespace Pulumi.Aws.Iot
         /// Gets a registration code used to register a CA certificate with AWS IoT.
         /// 
         /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Tls = Pulumi.Tls;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
-        /// 
-        ///     var verification = new Tls.Index.PrivateKey("verification", new()
-        ///     {
-        ///         Algorithm = "RSA",
-        ///     });
-        /// 
-        ///     var verificationCertRequest = new Tls.Index.CertRequest("verification", new()
-        ///     {
-        ///         KeyAlgorithm = "RSA",
-        ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetRegistrationCodeResult> Invoke(GetRegistrationCodeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", args ?? new GetRegistrationCodeInvokeArgs(), options.WithDefaults());

@@ -1,0 +1,550 @@
+
+[upstream]
+description = "Initialize upstream submodule and apply patches"
+run = '''
+./scripts/upstream.sh init
+( 
+  cd upstream-tools
+  yarn install --frozen-lockfile
+  yarn --silent run apply
+)
+'''
+sources = [
+  "patches/**",
+  "{{ vars.upstream_head }}",
+]
+
+[dirs]
+description = "Creates directories"
+run = '''
+mkdir -p bin
+mkdir -p .pulumi/examples-cache
+mkdir -p .make
+'''
+
+["tfgen:build"]
+description = "Build the pulumi-tfgen-aws code generator"
+depends = ["dirs", "upstream"]
+dir = "provider"
+run = 'go build ${PULUMI_PROVIDER_BUILD_PARALLELISM} -o ../bin/${CODEGEN} -ldflags "${LDFLAGS_PROJ_VERSION} ${LDFLAGS_EXTRAS}" ${PROJECT}/${PROVIDER_PATH}/cmd/${CODEGEN}'
+sources = [
+  "provider/*.go",
+  "provider/go.mod",
+  "provider/go.sum",
+  "patches/**",
+  "{{ vars.upstream_head }}",
+]
+outputs = ["bin/pulumi-tfgen-aws"]
+
+["prepare:workspace"]
+description = "Prime directories and upstream checkout"
+alias = ["prepare"]
+depends = ["dirs", "upstream"]
+run = "true"
+
+[schema]
+description = "Generate schema.json via tfgen"
+depends = ["tfgen:build"]
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_MISSING_DOCS_ERROR = "{{ env.PULUMI_MISSING_DOCS_ERROR | default(value='true') }}"
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.VERSION = "{{ env.PROVIDER_VERSION }}"
+run = '''
+bin/${CODEGEN} schema --out provider/cmd/${PROVIDER}
+cd provider && go generate cmd/${PROVIDER}/main.go
+'''
+sources = ["bin/pulumi-tfgen-aws"]
+outputs = ["provider/cmd/pulumi-resource-aws/schema.json"]
+
+[tfgen]
+description = "Run schema generation with dependencies"
+depends = ["schema"]
+run = "true"
+
+["tfgen:no-deps"]
+description = "Generate schema without rebuilding upstream"
+depends = ["tfgen:build"]
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_MISSING_DOCS_ERROR = "{{ env.PULUMI_MISSING_DOCS_ERROR | default(value='true') }}"
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.VERSION = "{{ env.PROVIDER_VERSION }}"
+run = '''
+bin/${CODEGEN} schema --out provider/cmd/${PROVIDER}
+cd provider && go generate cmd/${PROVIDER}/main.go
+'''
+
+[provider]
+description = "Build provider binary"
+depends = ["schema", "dirs"]
+env.VERSION = "{{ env.PROVIDER_VERSION }}"
+run = '''
+./scripts/minimal_schema.sh
+mise run provider:build-binary
+'''
+sources = [
+  "provider/**/*.go",
+  "provider/go.mod",
+  "provider/go.sum",
+  "provider/cmd/pulumi-resource-aws/schema.json",
+]
+outputs = ["bin/pulumi-resource-aws"]
+
+
+["provider:no-deps"]
+description = "Build provider binary without validating schema"
+depends = ["dirs"]
+env.VERSION = "{{ env.PROVIDER_VERSION }}"
+run = '''
+./scripts/minimal_schema.sh
+mise run provider:build-binary
+'''
+
+["provider:build-binary"]
+description = "Compile the provider executable"
+dir = "provider"
+env.CGO_ENABLED = "0"
+run = 'go build ${PULUMI_PROVIDER_BUILD_PARALLELISM} -o ../bin/${PROVIDER} -ldflags "${LDFLAGS}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER}'
+
+["generate:sdks:dotnet"]
+description = "Generate .NET SDK"
+depends = ["schema"]
+depends_post = ["generate:sdks:dotnet:mark"]
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+run = '''
+bin/${CODEGEN} dotnet --out sdk/dotnet/
+printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/dotnet/go.mod
+printf "%s\n" "${PROVIDER_VERSION}" > sdk/dotnet/version.txt
+'''
+sources = ["provider/cmd/pulumi-resource-aws/schema.json"]
+outputs = [".make/generate_dotnet"]
+
+["generate:sdks:dotnet:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/generate_dotnet
+'''
+outputs = [".make/generate_dotnet"]
+
+["build:sdks:dotnet"]
+description = "Build .NET SDK"
+dir = "sdk/dotnet"
+depends = ["generate:sdks:dotnet"]
+depends_post = ["build:sdks:dotnet:mark"]
+run = '''
+dotnet build
+mkdir -p ../../.make
+'''
+sources = ["../../.make/generate_dotnet"]
+outputs = ["../../.make/build_dotnet"]
+
+["build:sdks:dotnet:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/build_dotnet
+'''
+outputs = [".make/build_dotnet"]
+
+["install:sdks:dotnet"]
+description = "Install .NET SDK locally"
+depends = ["build:sdks:dotnet"]
+run = '''
+mkdir -p nuget
+find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p "{}" $(pwd)/nuget \;
+if ! dotnet nuget list source | grep -q "$(pwd)/nuget"; then dotnet nuget add source "$(pwd)/nuget" --name "$(pwd)/nuget"; fi
+'''
+sources = [".make/build_dotnet"]
+
+["generate:sdks:go"]
+description = "Generate Go SDK"
+depends = ["schema"]
+depends_post = ["generate:sdks:go:mark"]
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+run = '''
+bin/${CODEGEN} go --out sdk/go/
+'''
+sources = ["provider/cmd/pulumi-resource-aws/schema.json"]
+outputs = [".make/generate_go"]
+
+["generate:sdks:go:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/generate_go
+'''
+outputs = [".make/generate_go"]
+
+["build:sdks:go"]
+description = "Build Go SDK packages"
+dir = "sdk"
+depends = ["generate:sdks:go"]
+depends_post = ["build:sdks:go:mark"]
+run = '''
+module_path="$(grep -e "^module" go.mod | cut -d " " -f 2)" && go list "${module_path}/go/..." | xargs -I {} bash -c 'go build {} && go clean -i {}'
+mkdir -p ../.make
+'''
+sources = ["../.make/generate_go"]
+outputs = ["../.make/build_go"]
+
+["build:sdks:go:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/build_go
+'''
+outputs = [".make/build_go"]
+
+["generate:sdks:java"]
+description = "Generate Java SDK"
+depends = ["schema"]
+depends_post = ["generate:sdks:java:mark"]
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+run = '''
+bin/${CODEGEN} java --out sdk/java/
+printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
+'''
+sources = ["provider/cmd/pulumi-resource-aws/schema.json"]
+outputs = [".make/generate_java"]
+
+["generate:sdks:java:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/generate_java
+'''
+outputs = [".make/generate_java"]
+
+["build:sdks:java"]
+description = "Build Java SDK"
+dir = "sdk/java"
+depends = ["generate:sdks:java"]
+depends_post = ["build:sdks:java:mark"]
+run = '''
+gradle --console=plain build
+gradle --console=plain javadoc
+mkdir -p ../../.make
+'''
+sources = ["../../.make/generate_java"]
+outputs = ["../../.make/build_java"]
+
+["build:sdks:java:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/build_java
+'''
+outputs = [".make/build_java"]
+
+["generate:sdks:nodejs"]
+description = "Generate Node.js SDK"
+depends = ["schema"]
+depends_post = ["generate:sdks:nodejs:mark"]
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+run = '''
+bin/${CODEGEN} nodejs --out sdk/nodejs/
+printf "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/nodejs/go.mod
+'''
+sources = ["provider/cmd/pulumi-resource-aws/schema.json"]
+outputs = [".make/generate_nodejs"]
+
+["generate:sdks:nodejs:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/generate_nodejs
+'''
+outputs = [".make/generate_nodejs"]
+
+["build:sdks:nodejs"]
+description = "Build Node.js SDK"
+dir = "sdk/nodejs"
+depends = ["generate:sdks:nodejs"]
+depends_post = ["build:sdks:nodejs:mark"]
+run = '''
+yarn install
+yarn run tsc
+cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
+mkdir -p ../../.make
+'''
+sources = ["../../.make/generate_nodejs"]
+outputs = ["../../.make/build_nodejs"]
+
+["build:sdks:nodejs:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/build_nodejs
+'''
+outputs = [".make/build_nodejs"]
+
+["install:sdks:nodejs"]
+description = "Link Node.js SDK locally"
+depends = ["build:sdks:nodejs"]
+run = '''
+yarn link --cwd sdk/nodejs/bin
+'''
+sources = [".make/build_nodejs"]
+
+["install:sdks:go"]
+description = "Placeholder for Go SDK installation"
+depends = ["build:sdks:go"]
+run = "true"
+
+["install:sdks:java"]
+description = "Placeholder for Java SDK installation"
+depends = ["build:sdks:java"]
+run = "true"
+
+["generate:sdks:python"]
+description = "Generate Python SDK"
+depends = ["schema"]
+depends_post = ["generate:sdks:python:mark"]
+env.PULUMI_HOME = "{{ config_root }}/.pulumi"
+env.PULUMI_CONVERT = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+env.PULUMI_CONVERT_EXAMPLES_CACHE_DIR = "{{ config_root }}/.pulumi/examples-cache"
+env.PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION = "{{ env.PULUMI_CONVERT | default(value='1') }}"
+run = '''
+bin/${CODEGEN} python --out sdk/python/
+printf "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/python/go.mod
+cp README.md sdk/python/
+'''
+sources = ["provider/cmd/pulumi-resource-aws/schema.json"]
+outputs = [".make/generate_python"]
+
+["generate:sdks:python:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/generate_python
+'''
+outputs = [".make/generate_python"]
+
+["build:sdks:python"]
+description = "Build Python SDK"
+depends = ["generate:sdks:python"]
+depends_post = ["build:sdks:python:mark"]
+run = '''
+rm -rf sdk/python/bin sdk/python.bin
+cp -R sdk/python sdk/python.bin
+mv sdk/python.bin sdk/python/bin
+rm sdk/python/bin/go.mod
+python3 -m venv sdk/python/venv
+sdk/python/venv/bin/python -m pip install build==1.2.1
+sdk/python/venv/bin/python -m build sdk/python/bin
+'''
+sources = [".make/generate_python"]
+outputs = [".make/build_python"]
+
+["build:sdks:python:mark"]
+hide = true
+run = '''
+mkdir -p .make
+touch .make/build_python
+'''
+outputs = [".make/build_python"]
+
+["install:sdks:python"]
+description = "Placeholder for Python SDK installation"
+depends = ["build:sdks:python"]
+run = "true"
+["generate:sdks"]
+description = "Generate all SDKs"
+depends = ["generate:sdks:*"]
+run = "true"
+
+["build:sdks"]
+description = "Build all SDKs"
+depends = [
+  "build:sdks:dotnet",
+  "build:sdks:go",
+  "build:sdks:java",
+  "build:sdks:nodejs",
+  "build:sdks:python"
+]
+run = "true"
+
+["install:sdks"]
+description = "Install all SDKs locally"
+depends = [
+  "install:sdks:dotnet",
+  "install:sdks:go",
+  "install:sdks:java",
+  "install:sdks:nodejs",
+  "install:sdks:python"
+]
+run = "true"
+
+# Manual skip variants -----------------------------------------------------
+# These entry points are for intentional local overrides. They skip the normal
+# dependency chain but still refresh their `.make/*` sentinels via the shared
+# mark helpers wired in through `depends_post`.
+
+["build:sdks:dotnet:skip"]
+description = "Build .NET SDK without regenerating sources"
+dir = "sdk/dotnet"
+depends_post = ["build:sdks:dotnet:mark"]
+run = '''
+dotnet build
+'''
+sources = ["../../.make/generate_dotnet"]
+outputs = ["../../.make/build_dotnet"]
+
+["install:sdks:dotnet:skip"]
+description = "Install .NET SDK without rebuilding"
+depends = ["build:sdks:dotnet:skip"]
+run = '''
+mkdir -p nuget
+find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p "{}" $(pwd)/nuget \;
+if ! dotnet nuget list source | grep -q "$(pwd)/nuget"; then dotnet nuget add source "$(pwd)/nuget" --name "$(pwd)/nuget"; fi
+'''
+sources = [".make/build_dotnet"]
+
+["build:sdks:go:skip"]
+description = "Build Go SDK packages without regenerating sources"
+dir = "sdk"
+depends_post = ["build:sdks:go:mark"]
+run = '''
+module_path="$(grep -e "^module" go.mod | cut -d " " -f 2)" && go list "${module_path}/go/..." | xargs -I {} bash -c 'go build {} && go clean -i {}'
+'''
+sources = ["../.make/generate_go"]
+outputs = ["../.make/build_go"]
+
+["install:sdks:go:skip"]
+description = "Placeholder Go SDK install without rebuild"
+depends = ["build:sdks:go:skip"]
+run = "true"
+
+["build:sdks:java:skip"]
+description = "Build Java SDK without regenerating sources"
+dir = "sdk/java"
+depends_post = ["build:sdks:java:mark"]
+run = '''
+gradle --console=plain build
+gradle --console=plain javadoc
+'''
+sources = ["../../.make/generate_java"]
+outputs = ["../../.make/build_java"]
+
+["install:sdks:java:skip"]
+description = "Placeholder Java SDK install without rebuild"
+depends = ["build:sdks:java:skip"]
+run = "true"
+
+["build:sdks:nodejs:skip"]
+description = "Build Node.js SDK without regenerating sources"
+dir = "sdk/nodejs"
+depends_post = ["build:sdks:nodejs:mark"]
+run = '''
+yarn install
+yarn run tsc
+cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
+'''
+sources = ["../../.make/generate_nodejs"]
+outputs = ["../../.make/build_nodejs"]
+
+["install:sdks:nodejs:skip"]
+description = "Link Node.js SDK without rebuilding"
+depends = ["build:sdks:nodejs:skip"]
+run = '''
+yarn link --cwd sdk/nodejs/bin
+'''
+sources = [".make/build_nodejs"]
+
+
+["build:sdks:python:skip"]
+description = "Build Python SDK without regenerating sources"
+depends_post = ["build:sdks:python:mark"]
+run = '''
+rm -rf sdk/python/bin sdk/python.bin
+cp -R sdk/python sdk/python.bin
+mv sdk/python.bin sdk/python/bin
+rm sdk/python/bin/go.mod
+python3 -m venv sdk/python/venv
+sdk/python/venv/bin/python -m pip install build==1.2.1
+sdk/python/venv/bin/python -m build sdk/python/bin
+'''
+sources = [".make/generate_python"]
+outputs = [".make/build_python"]
+
+["install:sdks:python:skip"]
+description = "Placeholder Python SDK install without rebuild"
+depends = ["build:sdks:python:skip"]
+run = "true"
+
+
+[generate]
+description = "Generate schema and all SDKs"
+depends = ["generate:sdks", "schema"]
+run = "true"
+
+[build]
+description = "Build provider and SDKs, install artifacts"
+depends = ["provider", "build:sdks", "install:sdks"]
+run = "true"
+
+["lint:provider"]
+description = "Run golangci-lint on provider"
+depends = ["upstream"]
+dir = "provider"
+run = "golangci-lint run --path-prefix provider -c ../.golangci.yml"
+
+["lint:provider:fix"]
+description = "Run golangci-lint with --fix on provider"
+depends = ["upstream"]
+dir = "provider"
+run = "golangci-lint run --path-prefix provider -c ../.golangci.yml --fix"
+
+[clean]
+description = "Clean build artifacts"
+run = '''
+rm -rf sdk/{dotnet,nodejs,go,python,java}
+rm -rf bin/*
+rm -rf .make/*
+rm -rf .pulumi/examples-cache
+if dotnet nuget list source | grep -q "$(pwd)/nuget"; then dotnet nuget remove source "$(pwd)/nuget"; fi
+'''
+
+[help]
+description = "Show common mise workflows for this repo"
+run = '''
+cat <<'EOF'
+Common workflows:
+  mise run build
+  mise run test -- --run TestFoo
+  mise run build:sdks:nodejs:skip
+  mise run test -- --pkg ./examples/...
+
+Run `mise tasks` to list available tasks.
+Use the `:skip` tasks (e.g. `mise run build:sdks:nodejs:skip`) when you want to reuse existing SDK sources.
+Use `mise run <task> --help` to see options for a specific task.
+EOF
+'''
+
+["ci:mgmt"]
+description = "Regenerate CI config"
+run = "go run github.com/pulumi/ci-mgmt/provider-ci@master generate"
+
+["debug:tfgen"]
+description = "Start dlv against tfgen"
+depends = ["tfgen:build"]
+run = 'dlv --listen=:2345 --headless=true --api-version=2 exec bin/${CODEGEN} -- schema --out provider/cmd/${PROVIDER}'
+[demo-simple]
+description = "Minimal file task used to verify mise file tasks"
+file = ".config/mise/tasks/demo-simple"

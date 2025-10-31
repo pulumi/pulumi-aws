@@ -23,16 +23,16 @@ import * as utilities from "../utilities";
  * const main = new aws.elasticsearch.DomainPolicy("main", {
  *     domainName: example.domainName,
  *     accessPolicies: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
+ *     \"Version\": \"2012-10-17\",
+ *     \"Statement\": [
  *         {
- *             "Action": "es:*",
- *             "Principal": "*",
- *             "Effect": "Allow",
- *             "Condition": {
- *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
+ *             \"Action\": \"es:*\",
+ *             \"Principal\": \"*\",
+ *             \"Effect\": \"Allow\",
+ *             \"Condition\": {
+ *                 \"IpAddress\": {\"aws:SourceIp\": \"127.0.0.1/32\"}
  *             },
- *             "Resource": "${example.arn}/*"
+ *             \"Resource\": \"${example.arn}/*\"
  *         }
  *     ]
  * }

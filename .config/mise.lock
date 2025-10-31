@@ -91,6 +91,15 @@ url = "https://github.com/pulumi/pulumi/releases/download/v3.190.0/pulumi-v3.190
 version = "3.11.8"
 backend = "core:python"
 
+[[tools.usage]]
+version = "2.5.1"
+backend = "aqua:jdx/usage"
+
+[tools.usage.platforms.macos-arm64]
+checksum = "sha256:a71c1017e64786a7094909c31c0c5aa1cfb1cec2f3b3bce112e654abd2b4232e"
+size = 5027353
+url = "https://github.com/jdx/usage/releases/download/v2.5.1/usage-universal-apple-darwin.tar.gz"
+
 [[tools."vfox-pulumi:pulumi/pulumi-archive"]]
 version = "0.3.5"
 backend = "vfox-pulumi:pulumi/pulumi-archive"

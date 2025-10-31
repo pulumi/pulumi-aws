@@ -31,28 +31,28 @@ namespace Pulumi.Aws.M2
     ///         Definition = new Aws.M2.Inputs.ApplicationDefinitionArgs
     ///         {
     ///             Content = @$"{{
-    ///   ""definition"": {{
-    ///     ""listeners"": [
+    ///   \""definition\"": {{
+    ///     \""listeners\"": [
     ///       {{
-    ///         ""port"": 8196,
-    ///         ""type"": ""http""
+    ///         \""port\"": 8196,
+    ///         \""type\"": \""http\""
     ///       }}
     ///     ],
-    ///     ""ba-application"": {{
-    ///       ""app-location"": ""{s3_source}/PlanetsDemo-v1.zip""
+    ///     \""ba-application\"": {{
+    ///       \""app-location\"": \""{s3_source}/PlanetsDemo-v1.zip\""
     ///     }}
     ///   }},
-    ///   ""source-locations"": [
+    ///   \""source-locations\"": [
     ///     {{
-    ///       ""source-id"": ""s3-source"",
-    ///       ""source-type"": ""s3"",
-    ///       ""properties"": {{
-    ///         ""s3-bucket"": ""example-bucket"",
-    ///         ""s3-key-prefix"": ""v1""
+    ///       \""source-id\"": \""s3-source\"",
+    ///       \""source-type\"": \""s3\"",
+    ///       \""properties\"": {{
+    ///         \""s3-bucket\"": \""example-bucket\"",
+    ///         \""s3-key-prefix\"": \""v1\""
     ///       }}
     ///     }}
     ///   ],
-    ///   ""template-version"": ""2.0""
+    ///   \""template-version\"": \""2.0\""
     /// }}
     /// 
     /// ",

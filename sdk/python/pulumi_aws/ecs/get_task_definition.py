@@ -326,16 +326,16 @@ def get_task_definition(region: Optional[_builtins.str] = None,
         family="mongodb",
         container_definitions=\"\"\"[
       {
-        "cpu": 128,
-        "environment": [{
-          "name": "SECRET",
-          "value": "KEY"
+        \\"cpu\\": 128,
+        \\"environment\\": [{
+          \\"name\\": \\"SECRET\\",
+          \\"value\\": \\"KEY\\"
         }],
-        "essential": true,
-        "image": "mongo:latest",
-        "memory": 128,
-        "memoryReservation": 64,
-        "name": "mongodb"
+        \\"essential\\": true,
+        \\"image\\": \\"mongo:latest\\",
+        \\"memory\\": 128,
+        \\"memoryReservation\\": 64,
+        \\"name\\": \\"mongodb\\"
       }
     ]
     \"\"\")
@@ -400,16 +400,16 @@ def get_task_definition_output(region: Optional[pulumi.Input[Optional[_builtins.
         family="mongodb",
         container_definitions=\"\"\"[
       {
-        "cpu": 128,
-        "environment": [{
-          "name": "SECRET",
-          "value": "KEY"
+        \\"cpu\\": 128,
+        \\"environment\\": [{
+          \\"name\\": \\"SECRET\\",
+          \\"value\\": \\"KEY\\"
         }],
-        "essential": true,
-        "image": "mongo:latest",
-        "memory": 128,
-        "memoryReservation": 64,
-        "name": "mongodb"
+        \\"essential\\": true,
+        \\"image\\": \\"mongo:latest\\",
+        \\"memory\\": 128,
+        \\"memoryReservation\\": 64,
+        \\"name\\": \\"mongodb\\"
       }
     ]
     \"\"\")

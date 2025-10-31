@@ -78,11 +78,11 @@ namespace Pulumi.Aws.S3
     ///             Key = "error.html",
     ///         },
     ///         RoutingRuleDetails = @"[{
-    ///     ""Condition"": {
-    ///         ""KeyPrefixEquals"": ""docs/""
+    ///     \""Condition\"": {
+    ///         \""KeyPrefixEquals\"": \""docs/\""
     ///     },
-    ///     ""Redirect"": {
-    ///         ""ReplaceKeyPrefixWith"": """"
+    ///     \""Redirect\"": {
+    ///         \""ReplaceKeyPrefixWith\"": \""\""
     ///     }
     /// }]
     /// ",

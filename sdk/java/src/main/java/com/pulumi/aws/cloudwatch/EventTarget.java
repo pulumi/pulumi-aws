@@ -565,8 +565,8 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .inputTemplate("""
  * {
- *   "instance_id": <instance>,
- *   "instance_status": <status>
+ *   \"instance_id\": <instance>,
+ *   \"instance_status\": <status>
  * }
  *                 """)
  *                 .build())
@@ -816,7 +816,7 @@ import javax.annotation.Nullable;
  *                 .inputPaths(Map.of("input", "$.detail.input"))
  *                 .inputTemplate("""
  *       {
- *         "input": <input>
+ *         \"input\": <input>
  *       }
  *                 """)
  *                 .build())

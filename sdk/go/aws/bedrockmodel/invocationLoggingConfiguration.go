@@ -50,25 +50,25 @@ import (
 //				Bucket: example.Bucket,
 //				Policy: example.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
+//	  \"Version\": \"2012-10-17\",
+//	  \"Statement\": [
 //	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "Service": "bedrock.amazonaws.com"
+//	      \"Effect\": \"Allow\",
+//	      \"Principal\": {
+//	        \"Service\": \"bedrock.amazonaws.com\"
 //	      },
-//	      "Action": [
-//	        "s3:*"
+//	      \"Action\": [
+//	        \"s3:*\"
 //	      ],
-//	      "Resource": [
-//	        "%v/*"
+//	      \"Resource\": [
+//	        \"%v/*\"
 //	      ],
-//	      "Condition": {
-//	        "StringEquals": {
-//	          "aws:SourceAccount": "%v"
+//	      \"Condition\": {
+//	        \"StringEquals\": {
+//	          \"aws:SourceAccount\": \"%v\"
 //	        },
-//	        "ArnLike": {
-//	          "aws:SourceArn": "arn:aws:bedrock:us-east-1:%v:*"
+//	        \"ArnLike\": {
+//	          \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:%v:*\"
 //	        }
 //	      }
 //	    }

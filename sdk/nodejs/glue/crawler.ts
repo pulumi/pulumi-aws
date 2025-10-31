@@ -79,9 +79,9 @@ import * as utilities from "../utilities";
  *         deleteBehavior: "LOG",
  *     },
  *     configuration: `{
- *   "Version":1.0,
- *   "Grouping": {
- *     "TableGroupingPolicy": "CombineCompatibleSchemas"
+ *   \\"Version\\":1.0,
+ *   \\"Grouping\\": {
+ *     \\"TableGroupingPolicy\\": \\"CombineCompatibleSchemas\\"
  *   }
  * }
  * `,

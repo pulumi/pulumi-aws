@@ -86,9 +86,9 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .pattern("""
  *   {
- *     "Price": [
+ *     \"Price\": [
  *       {
- *         "numeric": [">",10,"<=",20]
+ *         \"numeric\": [\">\",10,\"<=\",20]
  *       }
  *     ]
  *   }

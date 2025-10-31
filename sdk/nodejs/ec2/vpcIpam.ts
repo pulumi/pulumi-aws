@@ -32,6 +32,34 @@ import * as utilities from "../utilities";
  *
  * Shared with multiple operating_regions:
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = aws.getRegion({});
+ * const config = new pulumi.Config();
+ * const ipamRegions = config.getObject<Array<any>>("ipamRegions") || [
+ *     "us-east-1",
+ *     "us-west-2",
+ * ];
+ * // ensure current provider region is an operating_regions entry
+ * const allIpamRegions = std.concat({
+ *     input: [
+ *         [current.then(current => current.region)],
+ *         ipamRegions,
+ *     ],
+ * }).then(invoke => std.distinct({
+ *     input: invoke.result,
+ * })).then(invoke => invoke.result);
+ * const main = new aws.ec2.VpcIpam("main", {
+ *     operatingRegions: allIpamRegions.map((v, k) => ({key: k, value: v})).apply(entries => entries.map(entry => ({
+ *         regionName: entry.value,
+ *     }))),
+ *     description: "multi region ipam",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:

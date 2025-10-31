@@ -28,20 +28,20 @@ namespace Pulumi.Aws.S3Control
     ///     var exampleAccessGrantsInstanceResourcePolicy = new Aws.S3Control.AccessGrantsInstanceResourcePolicy("example", new()
     ///     {
     ///         Policy = example.AccessGrantsInstanceArn.Apply(accessGrantsInstanceArn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""S3AccessGrantsPolicy"",
-    ///   ""Statement"": [{{
-    ///     ""Sid"": ""AllowAccessToS3AccessGrants"",
-    ///     ""Effect"": ""Allow"",
-    ///     ""Principal"": {{
-    ///       ""AWS"": ""123456789456""
+    ///   \""Version\"": \""2012-10-17\"",
+    ///   \""Id\"": \""S3AccessGrantsPolicy\"",
+    ///   \""Statement\"": [{{
+    ///     \""Sid\"": \""AllowAccessToS3AccessGrants\"",
+    ///     \""Effect\"": \""Allow\"",
+    ///     \""Principal\"": {{
+    ///       \""AWS\"": \""123456789456\""
     ///     }},
-    ///     ""Action"": [
-    ///       ""s3:ListAccessGrants"",
-    ///       ""s3:ListAccessGrantsLocations"",
-    ///       ""s3:GetDataAccess""
+    ///     \""Action\"": [
+    ///       \""s3:ListAccessGrants\"",
+    ///       \""s3:ListAccessGrantsLocations\"",
+    ///       \""s3:GetDataAccess\""
     ///     ],
-    ///     ""Resource"": ""{accessGrantsInstanceArn}""
+    ///     \""Resource\"": \""{accessGrantsInstanceArn}\""
     ///   }}]
     /// }}
     /// "),

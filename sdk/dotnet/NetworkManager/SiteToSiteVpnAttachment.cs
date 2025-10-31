@@ -33,6 +33,140 @@ namespace Pulumi.Aws.NetworkManager
     /// });
     /// ```
     /// 
+    /// ### Full Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Awscc = Pulumi.Awscc;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testCustomerGateway = new Aws.Ec2.CustomerGateway("test", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var testVpnConnection = new Aws.Ec2.VpnConnection("test", new()
+    ///     {
+    ///         CustomerGatewayId = testCustomerGateway.Id,
+    ///         Type = "ipsec.1",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var testGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("test", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     {
+    ///         CoreNetworkConfigurations = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
+    ///             {
+    ///                 VpnEcmpSupport = false,
+    ///                 AsnRanges = new[]
+    ///                 {
+    ///                     "64512-64555",
+    ///                 },
+    ///                 EdgeLocations = new[]
+    ///                 {
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
+    ///                     {
+    ///                         Location = current.Region,
+    ///                         Asn = "64512",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Segments = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
+    ///             {
+    ///                 Name = "shared",
+    ///                 Description = "SegmentForSharedServices",
+    ///                 RequireAttachmentAcceptance = true,
+    ///             },
+    ///         },
+    ///         SegmentActions = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
+    ///             {
+    ///                 Action = "share",
+    ///                 Mode = "attachment-route",
+    ///                 Segment = "shared",
+    ///                 ShareWiths = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///         AttachmentPolicies = new[]
+    ///         {
+    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
+    ///             {
+    ///                 RuleNumber = 1,
+    ///                 ConditionLogic = "or",
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
+    ///                     {
+    ///                         Type = "tag-value",
+    ///                         Operator = "equals",
+    ///                         Key = "segment",
+    ///                         Value = "shared",
+    ///                     },
+    ///                 },
+    ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
+    ///                 {
+    ///                     AssociationMethod = "constant",
+    ///                     Segment = "shared",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testNetworkmanagerCoreNetwork = new Awscc.Index.NetworkmanagerCoreNetwork("test", new()
+    ///     {
+    ///         GlobalNetworkId = testGlobalNetwork.Id,
+    ///         PolicyDocument = JsonSerializer.Serialize(Std.Jsondecode.Invoke(new()
+    ///         {
+    ///             Input = test.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///         }).Result),
+    ///     });
+    /// 
+    ///     var testSiteToSiteVpnAttachment = new Aws.NetworkManager.SiteToSiteVpnAttachment("test", new()
+    ///     {
+    ///         CoreNetworkId = testNetworkmanagerCoreNetwork.Id,
+    ///         VpnConnectionArn = testVpnConnection.Arn,
+    ///         Tags = 
+    ///         {
+    ///             { "segment", "shared" },
+    ///         },
+    ///     });
+    /// 
+    ///     var testAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("test", new()
+    ///     {
+    ///         AttachmentId = testSiteToSiteVpnAttachment.Id,
+    ///         AttachmentType = testSiteToSiteVpnAttachment.AttachmentType,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:

@@ -93,16 +93,16 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      *             .configurationsJson("""
      * [
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \"Classification\": \"hadoop-env\",
+     * \"Configurations\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \"Classification\": \"export\",
+     * \"Properties\": {
+     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \"Properties\": {}
      * }
      * ]
      *             """)
@@ -146,16 +146,16 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      *             .configurationsJson("""
      * [
      * {
-     * "Classification": "hadoop-env",
-     * "Configurations": [
+     * \"Classification\": \"hadoop-env\",
+     * \"Configurations\": [
      * {
-     * "Classification": "export",
-     * "Properties": {
-     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * \"Classification\": \"export\",
+     * \"Properties\": {
+     * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
      * }
      * }
      * ],
-     * "Properties": {}
+     * \"Properties\": {}
      * }
      * ]
      *             """)
@@ -418,16 +418,16 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          *             .configurationsJson("""
          * [
          * {
-         * "Classification": "hadoop-env",
-         * "Configurations": [
+         * \"Classification\": \"hadoop-env\",
+         * \"Configurations\": [
          * {
-         * "Classification": "export",
-         * "Properties": {
-         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+         * \"Classification\": \"export\",
+         * \"Properties\": {
+         * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
          * }
          * }
          * ],
-         * "Properties": {}
+         * \"Properties\": {}
          * }
          * ]
          *             """)
@@ -475,16 +475,16 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          *             .configurationsJson("""
          * [
          * {
-         * "Classification": "hadoop-env",
-         * "Configurations": [
+         * \"Classification\": \"hadoop-env\",
+         * \"Configurations\": [
          * {
-         * "Classification": "export",
-         * "Properties": {
-         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+         * \"Classification\": \"export\",
+         * \"Properties\": {
+         * \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"
          * }
          * }
          * ],
-         * "Properties": {}
+         * \"Properties\": {}
          * }
          * ]
          *             """)

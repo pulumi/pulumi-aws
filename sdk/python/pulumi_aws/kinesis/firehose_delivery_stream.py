@@ -1051,32 +1051,32 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 testClusterArn=test_cluster.arn,
                 testClusterArn1=test_cluster.arn
         ).apply(lambda resolved_outputs: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Effect": "Allow",
-              "Action": [
-                "es:*"
+              \\"Effect\\": \\"Allow\\",
+              \\"Action\\": [
+                \\"es:*\\"
               ],
-              "Resource": [
-                "{resolved_outputs['testClusterArn']}",
-                "{resolved_outputs['testClusterArn1']}/*"
+              \\"Resource\\": [
+                \\"{resolved_outputs['testClusterArn']}\\",
+                \\"{resolved_outputs['testClusterArn1']}/*\\"
               ]
                 }},
                 {{
-                  "Effect": "Allow",
-                  "Action": [
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface"
+                  \\"Effect\\": \\"Allow\\",
+                  \\"Action\\": [
+                    \\"ec2:DescribeVpcs\\",
+                    \\"ec2:DescribeVpcAttribute\\",
+                    \\"ec2:DescribeSubnets\\",
+                    \\"ec2:DescribeSecurityGroups\\",
+                    \\"ec2:DescribeNetworkInterfaces\\",
+                    \\"ec2:CreateNetworkInterface\\",
+                    \\"ec2:CreateNetworkInterfacePermission\\",
+                    \\"ec2:DeleteNetworkInterface\\"
                   ],
-                  "Resource": [
-                    "*"
+                  \\"Resource\\": [
+                    \\"*\\"
                   ]
                 }}
           ]
@@ -1709,32 +1709,32 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 testClusterArn=test_cluster.arn,
                 testClusterArn1=test_cluster.arn
         ).apply(lambda resolved_outputs: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Effect": "Allow",
-              "Action": [
-                "es:*"
+              \\"Effect\\": \\"Allow\\",
+              \\"Action\\": [
+                \\"es:*\\"
               ],
-              "Resource": [
-                "{resolved_outputs['testClusterArn']}",
-                "{resolved_outputs['testClusterArn1']}/*"
+              \\"Resource\\": [
+                \\"{resolved_outputs['testClusterArn']}\\",
+                \\"{resolved_outputs['testClusterArn1']}/*\\"
               ]
                 }},
                 {{
-                  "Effect": "Allow",
-                  "Action": [
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface"
+                  \\"Effect\\": \\"Allow\\",
+                  \\"Action\\": [
+                    \\"ec2:DescribeVpcs\\",
+                    \\"ec2:DescribeVpcAttribute\\",
+                    \\"ec2:DescribeSubnets\\",
+                    \\"ec2:DescribeSecurityGroups\\",
+                    \\"ec2:DescribeNetworkInterfaces\\",
+                    \\"ec2:CreateNetworkInterface\\",
+                    \\"ec2:CreateNetworkInterfacePermission\\",
+                    \\"ec2:DeleteNetworkInterface\\"
                   ],
-                  "Resource": [
-                    "*"
+                  \\"Resource\\": [
+                    \\"*\\"
                   ]
                 }}
           ]

@@ -65,21 +65,21 @@ import (
 //			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
 //				PipelineName: pulumi.String("example"),
 //				PipelineConfigurationBody: example.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`version: "2"
+//					return fmt.Sprintf(`version: \"2\"
 //
 // example-pipeline:
 //
 //	source:
 //	  http:
-//	    path: "/example"
+//	    path: \"/example\"
 //	sink:
 //	  - s3:
 //	      aws:
-//	        sts_role_arn: "%v"
-//	        region: "%v"
-//	      bucket: "example"
+//	        sts_role_arn: \"%v\"
+//	        region: \"%v\"
+//	      bucket: \"example\"
 //	      threshold:
-//	        event_collect_timeout: "60s"
+//	        event_collect_timeout: \"60s\"
 //	      codec:
 //	        ndjson:
 //

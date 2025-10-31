@@ -907,9 +907,9 @@ class Crawler(pulumi.CustomResource):
                 "delete_behavior": "LOG",
             },
             configuration=\"\"\"{
-          "Version":1.0,
-          "Grouping": {
-            "TableGroupingPolicy": "CombineCompatibleSchemas"
+          \\"Version\\":1.0,
+          \\"Grouping\\": {
+            \\"TableGroupingPolicy\\": \\"CombineCompatibleSchemas\\"
           }
         }
         \"\"\")
@@ -1071,9 +1071,9 @@ class Crawler(pulumi.CustomResource):
                 "delete_behavior": "LOG",
             },
             configuration=\"\"\"{
-          "Version":1.0,
-          "Grouping": {
-            "TableGroupingPolicy": "CombineCompatibleSchemas"
+          \\"Version\\":1.0,
+          \\"Grouping\\": {
+            \\"TableGroupingPolicy\\": \\"CombineCompatibleSchemas\\"
           }
         }
         \"\"\")

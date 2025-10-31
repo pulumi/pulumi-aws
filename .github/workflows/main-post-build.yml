@@ -72,7 +72,7 @@ jobs:
       - name: Echo Coverage Output Dir
         run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
       - name: Generate Coverage Data
-        run: PULUMI_MISSING_DOCS_ERROR=true make tfgen
+        run: PULUMI_MISSING_DOCS_ERROR=true mise run tfgen
         env:
           COVERAGE_OUTPUT_DIR: ${{ runner.temp }}/cov
       - name: Summarize Provider Coverage Results

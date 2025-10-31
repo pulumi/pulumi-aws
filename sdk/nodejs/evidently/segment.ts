@@ -35,9 +35,9 @@ import * as utilities from "../utilities";
  * const example = new aws.evidently.Segment("example", {
  *     name: "example",
  *     pattern: `  {
- *     "Price": [
+ *     \\"Price\\": [
  *       {
- *         "numeric": [">",10,"<=",20]
+ *         \\"numeric\\": [\\">\\",10,\\"<=\\",20]
  *       }
  *     ]
  *   }

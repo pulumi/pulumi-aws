@@ -19,39 +19,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
- *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
- *         subject: {
- *             commonName: "example.com",
- *         },
- *     },
- *     permanentDeletionTimeInDays: 7,
- * });
- * const key = new tls.index.PrivateKey("key", {algorithm: "RSA"});
- * const csr = new tls.index.CertRequest("csr", {
- *     privateKeyPem: key.privateKeyPem,
- *     subject: [{
- *         commonName: "example",
- *     }],
- * });
- * const example = new aws.acmpca.Certificate("example", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificateSigningRequest: csr.certRequestPem,
- *     signingAlgorithm: "SHA256WITHRSA",
- *     validity: {
- *         type: "YEARS",
- *         value: "1",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * ### Identity Schema

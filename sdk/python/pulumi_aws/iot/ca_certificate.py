@@ -391,49 +391,6 @@ class CaCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        ca_private_key = tls.index.PrivateKey("ca", algorithm=RSA)
-        ca = tls.index.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
-            subject=[{
-                commonName: example.com,
-                organization: ACME Examples, Inc,
-            }],
-            validity_period_hours=12,
-            allowed_uses=[
-                key_encipherment,
-                digital_signature,
-                server_auth,
-            ],
-            is_ca_certificate=True)
-        verification_private_key = tls.index.PrivateKey("verification", algorithm=RSA)
-        example = aws.iot.get_registration_code()
-        verification = tls.index.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
-            subject=[{
-                commonName: example.registration_code,
-            }])
-        verification_locally_signed_cert = tls.index.LocallySignedCert("verification",
-            cert_request_pem=verification.cert_request_pem,
-            ca_private_key_pem=ca_private_key.private_key_pem,
-            ca_cert_pem=ca.cert_pem,
-            validity_period_hours=12,
-            allowed_uses=[
-                key_encipherment,
-                digital_signature,
-                server_auth,
-            ])
-        example_ca_certificate = aws.iot.CaCertificate("example",
-            active=True,
-            ca_certificate_pem=ca["certPem"],
-            verification_certificate_pem=verification_locally_signed_cert["certPem"],
-            allow_auto_registration=True)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
@@ -456,49 +413,6 @@ class CaCertificate(pulumi.CustomResource):
         Creates and manages an AWS IoT CA Certificate.
 
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_tls as tls
-
-        ca_private_key = tls.index.PrivateKey("ca", algorithm=RSA)
-        ca = tls.index.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
-            subject=[{
-                commonName: example.com,
-                organization: ACME Examples, Inc,
-            }],
-            validity_period_hours=12,
-            allowed_uses=[
-                key_encipherment,
-                digital_signature,
-                server_auth,
-            ],
-            is_ca_certificate=True)
-        verification_private_key = tls.index.PrivateKey("verification", algorithm=RSA)
-        example = aws.iot.get_registration_code()
-        verification = tls.index.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
-            subject=[{
-                commonName: example.registration_code,
-            }])
-        verification_locally_signed_cert = tls.index.LocallySignedCert("verification",
-            cert_request_pem=verification.cert_request_pem,
-            ca_private_key_pem=ca_private_key.private_key_pem,
-            ca_cert_pem=ca.cert_pem,
-            validity_period_hours=12,
-            allowed_uses=[
-                key_encipherment,
-                digital_signature,
-                server_auth,
-            ])
-        example_ca_certificate = aws.iot.CaCertificate("example",
-            active=True,
-            ca_certificate_pem=ca["certPem"],
-            verification_certificate_pem=verification_locally_signed_cert["certPem"],
-            allow_auto_registration=True)
-        ```
 
         :param str resource_name: The name of the resource.
         :param CaCertificateArgs args: The arguments to use to populate this resource's properties.

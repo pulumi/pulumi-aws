@@ -32,7 +32,7 @@ jobs:
           cache_key: "mise-{{platform}}-{{file_hash}}"
           # only saving the cache in the prerequisites job
           cache_save: false
-      - run: make prepare_local_workspace
+      - run: mise run prepare:workspace
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

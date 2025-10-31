@@ -234,11 +234,11 @@ class TableItem(pulumi.CustomResource):
             table_name=example_table.name,
             hash_key=example_table.hash_key,
             item=\"\"\"{
-          "exampleHashKey": {"S": "something"},
-          "one": {"N": "11111"},
-          "two": {"N": "22222"},
-          "three": {"N": "33333"},
-          "four": {"N": "44444"}
+          \\"exampleHashKey\\": {\\"S\\": \\"something\\"},
+          \\"one\\": {\\"N\\": \\"11111\\"},
+          \\"two\\": {\\"N\\": \\"22222\\"},
+          \\"three\\": {\\"N\\": \\"33333\\"},
+          \\"four\\": {\\"N\\": \\"44444\\"}
         }
         \"\"\")
         ```
@@ -288,11 +288,11 @@ class TableItem(pulumi.CustomResource):
             table_name=example_table.name,
             hash_key=example_table.hash_key,
             item=\"\"\"{
-          "exampleHashKey": {"S": "something"},
-          "one": {"N": "11111"},
-          "two": {"N": "22222"},
-          "three": {"N": "33333"},
-          "four": {"N": "44444"}
+          \\"exampleHashKey\\": {\\"S\\": \\"something\\"},
+          \\"one\\": {\\"N\\": \\"11111\\"},
+          \\"two\\": {\\"N\\": \\"22222\\"},
+          \\"three\\": {\\"N\\": \\"33333\\"},
+          \\"four\\": {\\"N\\": \\"44444\\"}
         }
         \"\"\")
         ```

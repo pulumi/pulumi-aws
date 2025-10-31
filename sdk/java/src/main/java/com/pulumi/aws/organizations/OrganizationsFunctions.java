@@ -2325,6 +2325,8 @@ public final class OrganizationsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetPoliciesResult> getPolicies(GetPoliciesArgs args) {
         return getPolicies(args, InvokeOptions.Empty);
@@ -2333,6 +2335,8 @@ public final class OrganizationsFunctions {
      * Data source for managing an AWS Organizations Policies.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(GetPoliciesPlainArgs args) {
@@ -2343,6 +2347,8 @@ public final class OrganizationsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetPoliciesResult> getPolicies(GetPoliciesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
@@ -2351,6 +2357,8 @@ public final class OrganizationsFunctions {
      * Data source for managing an AWS Organizations Policies.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static Output<GetPoliciesResult> getPolicies(GetPoliciesArgs args, InvokeOutputOptions options) {
@@ -2361,6 +2369,8 @@ public final class OrganizationsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static CompletableFuture<GetPoliciesResult> getPoliciesPlain(GetPoliciesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
@@ -2369,6 +2379,8 @@ public final class OrganizationsFunctions {
      * Data source for managing an AWS Organizations Policies For Target.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static Output<GetPoliciesForTargetResult> getPoliciesForTarget(GetPoliciesForTargetArgs args) {
@@ -2379,6 +2391,8 @@ public final class OrganizationsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static CompletableFuture<GetPoliciesForTargetResult> getPoliciesForTargetPlain(GetPoliciesForTargetPlainArgs args) {
         return getPoliciesForTargetPlain(args, InvokeOptions.Empty);
@@ -2387,6 +2401,8 @@ public final class OrganizationsFunctions {
      * Data source for managing an AWS Organizations Policies For Target.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static Output<GetPoliciesForTargetResult> getPoliciesForTarget(GetPoliciesForTargetArgs args, InvokeOptions options) {
@@ -2397,6 +2413,8 @@ public final class OrganizationsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
      */
     public static Output<GetPoliciesForTargetResult> getPoliciesForTarget(GetPoliciesForTargetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", TypeShape.of(GetPoliciesForTargetResult.class), args, Utilities.withVersion(options));
@@ -2405,6 +2423,8 @@ public final class OrganizationsFunctions {
      * Data source for managing an AWS Organizations Policies For Target.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      */
     public static CompletableFuture<GetPoliciesForTargetResult> getPoliciesForTargetPlain(GetPoliciesForTargetPlainArgs args, InvokeOptions options) {

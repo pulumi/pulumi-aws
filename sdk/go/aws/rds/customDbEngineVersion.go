@@ -43,7 +43,7 @@ import (
 //				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
 //				KmsKeyId:                              example.Arn,
-//				Manifest:                              pulumi.String("  {\n	\"databaseInstallationFileNames\":[\"V982063-01.zip\"]\n  }\n"),
+//				Manifest:                              pulumi.String("  {\n\\t\\\"databaseInstallationFileNames\\\":[\\\"V982063-01.zip\\\"]\n  }\n"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //					"Key":  pulumi.String("value"),

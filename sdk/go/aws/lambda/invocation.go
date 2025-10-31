@@ -20,6 +20,62 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Invocation
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Lambda function to invoke
+// example, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+// Code: pulumi.NewFileArchive("function.zip"),
+// Name: pulumi.String("data_processor"),
+// Role: pulumi.Any(lambdaRole.Arn),
+// Handler: pulumi.String("index.handler"),
+// Runtime: pulumi.String(lambda.RuntimePython3d12),
+// })
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "operation": "initialize",
+// "config": map[string]interface{}{
+// "environment": "production",
+// "debug": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// // Invoke the function once during resource creation
+// exampleInvocation, err := lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
+// FunctionName: example.Name,
+// Input: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("initializationResult", std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
+// Input: exampleInvocation.Result,
+// }, nil).ApplyT(func(invoke std.JsondecodeResult) (*interface{}, error) {
+// return invoke.Result.Status, nil
+// }).(pulumi.Interface{}PtrOutput))
+// return nil
+// })
+// }
+// ```
+//
 // ### Dynamic Invocation with Triggers
 //
 // ```go

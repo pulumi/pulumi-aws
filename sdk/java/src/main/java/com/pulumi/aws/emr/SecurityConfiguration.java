@@ -44,18 +44,18 @@ import javax.annotation.Nullable;
  *             .name("emrsc_other")
  *             .configuration("""
  * {
- *   "EncryptionConfiguration": {
- *     "AtRestEncryptionConfiguration": {
- *       "S3EncryptionConfiguration": {
- *         "EncryptionMode": "SSE-S3"
+ *   \"EncryptionConfiguration\": {
+ *     \"AtRestEncryptionConfiguration\": {
+ *       \"S3EncryptionConfiguration\": {
+ *         \"EncryptionMode\": \"SSE-S3\"
  *       },
- *       "LocalDiskEncryptionConfiguration": {
- *         "EncryptionKeyProviderType": "AwsKms",
- *         "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key"
+ *       \"LocalDiskEncryptionConfiguration\": {
+ *         \"EncryptionKeyProviderType\": \"AwsKms\",
+ *         \"AwsKmsKey\": \"arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key\"
  *       }
  *     },
- *     "EnableInTransitEncryption": false,
- *     "EnableAtRestEncryption": true
+ *     \"EnableInTransitEncryption\": false,
+ *     \"EnableAtRestEncryption\": true
  *   }
  * }
  *             """)

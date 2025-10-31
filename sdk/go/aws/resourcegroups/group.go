@@ -31,13 +31,13 @@ import (
 //				Name: pulumi.String("test-group"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(`{
-//	  "ResourceTypeFilters": [
-//	    "AWS::EC2::Instance"
+//	  \"ResourceTypeFilters\": [
+//	    \"AWS::EC2::Instance\"
 //	  ],
-//	  "TagFilters": [
+//	  \"TagFilters\": [
 //	    {
-//	      "Key": "Stage",
-//	      "Values": ["Test"]
+//	      \"Key\": \"Stage\",
+//	      \"Values\": [\"Test\"]
 //	    }
 //	  ]
 //	}

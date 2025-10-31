@@ -256,7 +256,7 @@ public final class DynamodbFunctions {
      *             .projectionExpression("#P")
      *             .key("""
      * {
-     * 	"hashKey": {"S": "example"}
+     * \t\"hashKey\": {\"S\": \"example\"}
      * }
      *             """)
      *             .build());
@@ -305,7 +305,7 @@ public final class DynamodbFunctions {
      *             .projectionExpression("#P")
      *             .key("""
      * {
-     * 	"hashKey": {"S": "example"}
+     * \t\"hashKey\": {\"S\": \"example\"}
      * }
      *             """)
      *             .build());
@@ -354,7 +354,7 @@ public final class DynamodbFunctions {
      *             .projectionExpression("#P")
      *             .key("""
      * {
-     * 	"hashKey": {"S": "example"}
+     * \t\"hashKey\": {\"S\": \"example\"}
      * }
      *             """)
      *             .build());
@@ -403,7 +403,7 @@ public final class DynamodbFunctions {
      *             .projectionExpression("#P")
      *             .key("""
      * {
-     * 	"hashKey": {"S": "example"}
+     * \t\"hashKey\": {\"S\": \"example\"}
      * }
      *             """)
      *             .build());
@@ -452,7 +452,7 @@ public final class DynamodbFunctions {
      *             .projectionExpression("#P")
      *             .key("""
      * {
-     * 	"hashKey": {"S": "example"}
+     * \t\"hashKey\": {\"S\": \"example\"}
      * }
      *             """)
      *             .build());

@@ -293,6 +293,34 @@ class Invocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Invocation
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # Lambda function to invoke
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="data_processor",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        # Invoke the function once during resource creation
+        example_invocation = aws.lambda_.Invocation("example",
+            function_name=example.name,
+            input=json.dumps({
+                "operation": "initialize",
+                "config": {
+                    "environment": "production",
+                    "debug": False,
+                },
+            }))
+        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).apply(lambda invoke: invoke.result["status"]))
+        ```
+
         ### Dynamic Invocation with Triggers
 
         ```python
@@ -375,6 +403,34 @@ class Invocation(pulumi.CustomResource):
         > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
         ## Example Usage
+
+        ### Basic Invocation
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        # Lambda function to invoke
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="data_processor",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        # Invoke the function once during resource creation
+        example_invocation = aws.lambda_.Invocation("example",
+            function_name=example.name,
+            input=json.dumps({
+                "operation": "initialize",
+                "config": {
+                    "environment": "production",
+                    "debug": False,
+                },
+            }))
+        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).apply(lambda invoke: invoke.result["status"]))
+        ```
 
         ### Dynamic Invocation with Triggers
 

@@ -65,9 +65,9 @@ import (
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
 //				Name: pulumi.String("example"),
 //				Pattern: pulumi.String(`  {
-//	    "Price": [
+//	    \"Price\": [
 //	      {
-//	        "numeric": [">",10,"<=",20]
+//	        \"numeric\": [\">\",10,\"<=\",20]
 //	      }
 //	    ]
 //	  }

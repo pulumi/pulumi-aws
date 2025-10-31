@@ -37,7 +37,7 @@ jobs:
         git grep -l 'go:embed' -- provider | xargs sed -i 's/go:embed/ goembed/g'
     - name: prepare workspace
       continue-on-error: true
-      run: make prepare_local_workspace
+      run: mise run prepare:workspace
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: golangci-lint

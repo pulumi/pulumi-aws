@@ -129,7 +129,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, _builtins.s
         },
         projection_expression="#P",
         key=\"\"\"{
-    \\x09"hashKey": {"S": "example"}
+    \\t\\"hashKey\\": {\\"S\\": \\"example\\"}
     }
     \"\"\")
     ```
@@ -184,7 +184,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
         },
         projection_expression="#P",
         key=\"\"\"{
-    \\x09"hashKey": {"S": "example"}
+    \\t\\"hashKey\\": {\\"S\\": \\"example\\"}
     }
     \"\"\")
     ```

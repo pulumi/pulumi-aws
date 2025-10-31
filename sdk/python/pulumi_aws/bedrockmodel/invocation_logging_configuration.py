@@ -127,25 +127,25 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": "bedrock.amazonaws.com"
+              \\"Effect\\": \\"Allow\\",
+              \\"Principal\\": {{
+                \\"Service\\": \\"bedrock.amazonaws.com\\"
               }},
-              "Action": [
-                "s3:*"
+              \\"Action\\": [
+                \\"s3:*\\"
               ],
-              "Resource": [
-                "{arn}/*"
+              \\"Resource\\": [
+                \\"{arn}/*\\"
               ],
-              "Condition": {{
-                "StringEquals": {{
-                  "aws:SourceAccount": "{current.account_id}"
+              \\"Condition\\": {{
+                \\"StringEquals\\": {{
+                  \\"aws:SourceAccount\\": \\"{current.account_id}\\"
                 }},
-                "ArnLike": {{
-                  "aws:SourceArn": "arn:aws:bedrock:us-east-1:{current.account_id}:*"
+                \\"ArnLike\\": {{
+                  \\"aws:SourceArn\\": \\"arn:aws:bedrock:us-east-1:{current.account_id}:*\\"
                 }}
               }}
             }}
@@ -204,25 +204,25 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.bucket,
             policy=example.arn.apply(lambda arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Statement\\": [
             {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Service": "bedrock.amazonaws.com"
+              \\"Effect\\": \\"Allow\\",
+              \\"Principal\\": {{
+                \\"Service\\": \\"bedrock.amazonaws.com\\"
               }},
-              "Action": [
-                "s3:*"
+              \\"Action\\": [
+                \\"s3:*\\"
               ],
-              "Resource": [
-                "{arn}/*"
+              \\"Resource\\": [
+                \\"{arn}/*\\"
               ],
-              "Condition": {{
-                "StringEquals": {{
-                  "aws:SourceAccount": "{current.account_id}"
+              \\"Condition\\": {{
+                \\"StringEquals\\": {{
+                  \\"aws:SourceAccount\\": \\"{current.account_id}\\"
                 }},
-                "ArnLike": {{
-                  "aws:SourceArn": "arn:aws:bedrock:us-east-1:{current.account_id}:*"
+                \\"ArnLike\\": {{
+                  \\"aws:SourceArn\\": \\"arn:aws:bedrock:us-east-1:{current.account_id}:*\\"
                 }}
               }}
             }}

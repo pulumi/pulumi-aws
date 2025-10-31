@@ -319,8 +319,8 @@ import * as utilities from "../utilities";
  *             status: "$.detail.status",
  *         },
  *         inputTemplate: `{
- *   "instance_id": <instance>,
- *   "instance_status": <status>
+ *   \\"instance_id\\": <instance>,
+ *   \\"instance_status\\": <status>
  * }
  * `,
  *     },
@@ -473,7 +473,7 @@ import * as utilities from "../utilities";
  *             input: "$.detail.input",
  *         },
  *         inputTemplate: `      {
- *         "input": <input>
+ *         \\"input\\": <input>
  *       }
  * `,
  *     },

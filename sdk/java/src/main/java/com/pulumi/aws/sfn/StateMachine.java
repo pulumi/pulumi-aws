@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .roleArn(iamForSfn.arn())
  *             .definition("""
  * {
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "%s",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"%s\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -103,13 +103,13 @@ import javax.annotation.Nullable;
  *             .type("EXPRESS")
  *             .definition("""
  * {
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "%s",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"%s\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -153,13 +153,13 @@ import javax.annotation.Nullable;
  *             .type("EXPRESS")
  *             .definition("""
  * {
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "%s",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"%s\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -204,13 +204,13 @@ import javax.annotation.Nullable;
  *             .roleArn(iamForSfn.arn())
  *             .definition("""
  * {
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "%s",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"%s\",
+ *       \"End\": true
  *     }
  *   }
  * }
@@ -260,13 +260,13 @@ import javax.annotation.Nullable;
  *             .roleArn(iamForSfn.arn())
  *             .definition("""
  * {
- *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
- *   "StartAt": "HelloWorld",
- *   "States": {
- *     "HelloWorld": {
- *       "Type": "Task",
- *       "Resource": "%s",
- *       "End": true
+ *   \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",
+ *   \"StartAt\": \"HelloWorld\",
+ *   \"States\": {
+ *     \"HelloWorld\": {
+ *       \"Type\": \"Task\",
+ *       \"Resource\": \"%s\",
+ *       \"End\": true
  *     }
  *   }
  * }

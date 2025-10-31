@@ -87,6 +87,19 @@ def get_policies_for_target(filter: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.organizations.get_organization()
+    example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
+        filter="SERVICE_CONTROL_POLICY")
+    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example_get_policies_for_target.ids).result}
+    ```
+
 
     :param _builtins.str filter: Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
     :param _builtins.str target_id: The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
@@ -109,6 +122,19 @@ def get_policies_for_target_output(filter: Optional[pulumi.Input[_builtins.str]]
     Data source for managing an AWS Organizations Policies For Target.
 
     ## Example Usage
+
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.organizations.get_organization()
+    example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
+        filter="SERVICE_CONTROL_POLICY")
+    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in std.toset(input=example_get_policies_for_target.ids).result}
+    ```
 
 
     :param _builtins.str filter: Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)

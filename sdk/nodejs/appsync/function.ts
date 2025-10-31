@@ -51,11 +51,11 @@ import * as utilities from "../utilities";
  *     dataSource: exampleDataSource.name,
  *     name: "example",
  *     requestMappingTemplate: `{
- *     "version": "2018-05-29",
- *     "method": "GET",
- *     "resourcePath": "/",
- *     "params":{
- *         "headers": utils.http.copyheaders(ctx.request.headers)
+ *     \\"version\\": \\"2018-05-29\\",
+ *     \\"method\\": \\"GET\\",
+ *     \\"resourcePath\\": \\"/\\",
+ *     \\"params\\":{
+ *         \\"headers\\": utils.http.copyheaders(ctx.request.headers)
  *     }
  * }
  * `,

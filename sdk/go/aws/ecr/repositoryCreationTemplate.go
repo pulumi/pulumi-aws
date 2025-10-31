@@ -79,18 +79,18 @@ import (
 //				},
 //				RepositoryPolicy: pulumi.String(example.Json),
 //				LifecyclePolicy: pulumi.String(`{
-//	  "rules": [
+//	  \"rules\": [
 //	    {
-//	      "rulePriority": 1,
-//	      "description": "Expire images older than 14 days",
-//	      "selection": {
-//	        "tagStatus": "untagged",
-//	        "countType": "sinceImagePushed",
-//	        "countUnit": "days",
-//	        "countNumber": 14
+//	      \"rulePriority\": 1,
+//	      \"description\": \"Expire images older than 14 days\",
+//	      \"selection\": {
+//	        \"tagStatus\": \"untagged\",
+//	        \"countType\": \"sinceImagePushed\",
+//	        \"countUnit\": \"days\",
+//	        \"countNumber\": 14
 //	      },
-//	      "action": {
-//	        "type": "expire"
+//	      \"action\": {
+//	        \"type\": \"expire\"
 //	      }
 //	    }
 //	  ]

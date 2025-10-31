@@ -71,11 +71,11 @@ import (
 //				DataSource: exampleDataSource.Name,
 //				Name:       pulumi.String("example"),
 //				RequestMappingTemplate: pulumi.String(`{
-//	    "version": "2018-05-29",
-//	    "method": "GET",
-//	    "resourcePath": "/",
-//	    "params":{
-//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    \"version\": \"2018-05-29\",
+//	    \"method\": \"GET\",
+//	    \"resourcePath\": \"/\",
+//	    \"params\":{
+//	        \"headers\": $utils.http.copyheaders($ctx.request.headers)
 //	    }
 //	}
 //

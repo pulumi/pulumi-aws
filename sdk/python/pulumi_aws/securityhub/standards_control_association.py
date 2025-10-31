@@ -228,6 +228,24 @@ class StandardsControlAssociation(pulumi.CustomResource):
             updated_reason="Not needed")
         ```
 
+        ## Disabling security control in all standards
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.securityhub.Account("example")
+        iam1 = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
+        iam1_standards_control_association = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[__item.standards_arn for __item in iam1.standards_control_associations]).result)]:
+            iam1_standards_control_association.append(aws.securityhub.StandardsControlAssociation(f"iam_1-{range['key']}",
+                standards_arn=range["key"],
+                security_control_id=iam1.security_control_id,
+                association_status="DISABLED",
+                updated_reason="Not needed"))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
@@ -261,6 +279,24 @@ class StandardsControlAssociation(pulumi.CustomResource):
             security_control_id="IAM.1",
             association_status="DISABLED",
             updated_reason="Not needed")
+        ```
+
+        ## Disabling security control in all standards
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.securityhub.Account("example")
+        iam1 = aws.securityhub.get_standards_control_associations(security_control_id="IAM.1")
+        iam1_standards_control_association = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[__item.standards_arn for __item in iam1.standards_control_associations]).result)]:
+            iam1_standards_control_association.append(aws.securityhub.StandardsControlAssociation(f"iam_1-{range['key']}",
+                standards_arn=range["key"],
+                security_control_id=iam1.security_control_id,
+                association_status="DISABLED",
+                updated_reason="Not needed"))
         ```
 
         :param str resource_name: The name of the resource.

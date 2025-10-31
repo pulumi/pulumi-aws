@@ -67,25 +67,25 @@ import javax.annotation.Nullable;
  *             .bucket(example.bucket())
  *             .policy(example.arn().applyValue(_arn -> """
  * {
- *   "Version": "2012-10-17",
- *   "Statement": [
+ *   \"Version\": \"2012-10-17\",
+ *   \"Statement\": [
  *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "bedrock.amazonaws.com"
+ *       \"Effect\": \"Allow\",
+ *       \"Principal\": {
+ *         \"Service\": \"bedrock.amazonaws.com\"
  *       },
- *       "Action": [
- *         "s3:*"
+ *       \"Action\": [
+ *         \"s3:*\"
  *       ],
- *       "Resource": [
- *         "%s/*"
+ *       \"Resource\": [
+ *         \"%s/*\"
  *       ],
- *       "Condition": {
- *         "StringEquals": {
- *           "aws:SourceAccount": "%s"
+ *       \"Condition\": {
+ *         \"StringEquals\": {
+ *           \"aws:SourceAccount\": \"%s\"
  *         },
- *         "ArnLike": {
- *           "aws:SourceArn": "arn:aws:bedrock:us-east-1:%s:*"
+ *         \"ArnLike\": {
+ *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:%s:*\"
  *         }
  *       }
  *     }

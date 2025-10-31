@@ -130,17 +130,17 @@ import javax.annotation.Nullable;
  *             .status("DISABLED")
  *             .model(FormTypeModelArgs.builder()
  *                 .smithy("""
- * 	structure SageMakerModelFormType }{{@code
- * 			}{@literal @}{@code required
- * 			}{@literal @}{@code amazon.datazone#searchable
- * 			modelName: String
+ * \tstructure SageMakerModelFormType }{{@code
+ * \t\t\t}{@literal @}{@code required
+ * \t\t\t}{@literal @}{@code amazon.datazone#searchable
+ * \t\t\tmodelName: String
  * 
- * 			}{@literal @}{@code required
- * 			modelArn: String
+ * \t\t\t}{@literal @}{@code required
+ * \t\t\tmodelArn: String
  * 
- * 			}{@literal @}{@code required
- * 			creationTime: String
- * 			}}{@code
+ * \t\t\t}{@literal @}{@code required
+ * \t\t\tcreationTime: String
+ * \t\t\t}}{@code
  *                 """)
  *                 .build())
  *             .build());

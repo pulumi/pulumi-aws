@@ -20,21 +20,21 @@ import * as utilities from "../utilities";
  *     authenticationType: "API_KEY",
  *     name: "tf-example",
  *     schema: `type Mutation {
- * \x09putPost(id: ID!, title: String!): Post
+ * \\tputPost(id: ID!, title: String!): Post
  * }
  *
  * type Post {
- * \x09id: ID!
- * \x09title: String!
+ * \\tid: ID!
+ * \\ttitle: String!
  * }
  *
  * type Query {
- * \x09singlePost(id: ID!): Post
+ * \\tsinglePost(id: ID!): Post
  * }
  *
  * schema {
- * \x09query: Query
- * \x09mutation: Mutation
+ * \\tquery: Query
+ * \\tmutation: Mutation
  * }
  * `,
  * });
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *     type: "Query",
  *     dataSource: testDataSource.name,
  *     requestTemplate: `{
- *     "version": "2018-05-29",
- *     "method": "GET",
- *     "resourcePath": "/",
- *     "params":{
- *         "headers": utils.http.copyheaders(ctx.request.headers)
+ *     \\"version\\": \\"2018-05-29\\",
+ *     \\"method\\": \\"GET\\",
+ *     \\"resourcePath\\": \\"/\\",
+ *     \\"params\\":{
+ *         \\"headers\\": utils.http.copyheaders(ctx.request.headers)
  *     }
  * }
  * `,
