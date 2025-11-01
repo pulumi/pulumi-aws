@@ -9,14 +9,14 @@ runs:
       run: find bin -type f -executable > bin/executables.txt
 
     - name: Upload prerequisites bin
-      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
       with:
         name: prerequisites-bin
         path: bin/*
         retention-days: 30
 
     - name: Upload schema-embed.json
-      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
       with:
         name: schema-embed.json
         path: provider/cmd/pulumi-resource-aws/schema-embed.json
