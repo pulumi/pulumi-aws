@@ -91,6 +91,74 @@ import (
 //
 // ```
 //
+// ### Validate Signing Profiles
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
+//				Arn: codeSigningConfigArn,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			allowedProfiles := example.AllowedPublishers[0].SigningProfileVersionArns
+//			requiredProfile := "arn:aws:signer:us-west-2:123456789012:/signing-profiles/MyProfile"
+//			profileAllowed := std.Contains(ctx, &std.ContainsArgs{
+//				Input:   allowedProfiles,
+//				Element: requiredProfile,
+//			}, nil).Result
+//			// Conditional resource creation based on signing profile validation
+//			var tmp0 float64
+//			if profileAllowed {
+//				tmp0 = 1
+//			} else {
+//				tmp0 = 0
+//			}
+//			var conditional []*lambda.Function
+//			for index := 0; index < tmp0; index++ {
+//				key0 := index
+//				_ := index
+//				__res, err := lambda.NewFunction(ctx, fmt.Sprintf("conditional-%v", key0), &lambda.FunctionArgs{
+//					Code:                 pulumi.NewFileArchive("function.zip"),
+//					Name:                 pulumi.String("conditional-function"),
+//					Role:                 pulumi.Any(lambdaRole.Arn),
+//					Handler:              pulumi.String("index.handler"),
+//					Runtime:              pulumi.String(lambda.RuntimePython3d12),
+//					CodeSigningConfigArn: pulumi.String(example.Arn),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				conditional = append(conditional, __res)
+//			}
+//			var tmp1 string
+//			if profileAllowed {
+//				tmp1 = "Function deployed with valid signing profile"
+//			} else {
+//				tmp1 = "Deployment blocked - signing profile not allowed"
+//			}
+//			ctx.Export("deploymentStatus", pulumi.Map{
+//				"profileAllowed":  profileAllowed,
+//				"functionCreated": profileAllowed,
+//				"message":         tmp1,
+//			})
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Multi-Environment Configuration
 //
 // ```go

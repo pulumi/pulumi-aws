@@ -611,17 +611,17 @@ class Document(pulumi.CustomResource):
             name="test_document",
             document_type="Command",
             content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Check ip configuration of a Linux instance.",
-            "parameters": {
+            \\"schemaVersion\\": \\"1.2\\",
+            \\"description\\": \\"Check ip configuration of a Linux instance.\\",
+            \\"parameters\\": {
 
             },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
+            \\"runtimeConfig\\": {
+              \\"aws:runShellScript\\": {
+                \\"properties\\": [
                   {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["ifconfig"]
+                    \\"id\\": \\"0.aws:runShellScript\\",
+                    \\"runCommand\\": [\\"ifconfig\\"]
                   }
                 ]
               }
@@ -737,17 +737,17 @@ class Document(pulumi.CustomResource):
             name="test_document",
             document_type="Command",
             content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Check ip configuration of a Linux instance.",
-            "parameters": {
+            \\"schemaVersion\\": \\"1.2\\",
+            \\"description\\": \\"Check ip configuration of a Linux instance.\\",
+            \\"parameters\\": {
 
             },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
+            \\"runtimeConfig\\": {
+              \\"aws:runShellScript\\": {
+                \\"properties\\": [
                   {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["ifconfig"]
+                    \\"id\\": \\"0.aws:runShellScript\\",
+                    \\"runCommand\\": [\\"ifconfig\\"]
                   }
                 ]
               }

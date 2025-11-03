@@ -89,15 +89,15 @@ jobs:
           sdk/*.sum
           *.sum
     - name: Prepare local workspace before restoring previously built files
-      run: make prepare_local_workspace
+      run: mise run prepare:workspace
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Generate schema
-      run: make schema
+      run: mise run schema
     - name: Build provider binary
-      run: make provider
+      run: mise run provider
     - name: Unit-test provider code
-      run: make test_provider
+      run: mise run test-provider
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}

@@ -249,7 +249,7 @@ import (
 //						Expression: pulumi.String(`SELECT
 //	  MAX(DBLoadRelativeToNumVCPUs)
 //
-// FROM SCHEMA("AWS/RDS", DBInstanceIdentifier)
+// FROM SCHEMA(\"AWS/RDS\", DBInstanceIdentifier)
 // WHERE DBInstanceIdentifier != 'example-rds-instance'
 // GROUP BY DBInstanceIdentifier
 // ORDER BY MIN() ASC

@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * Creates and manages an AWS IoT CA Certificate.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const caPrivateKey = new tls.index.PrivateKey("ca", {algorithm: "RSA"});
- * const ca = new tls.index.SelfSignedCert("ca", {
- *     privateKeyPem: caPrivateKey.privateKeyPem,
- *     subject: [{
- *         commonName: "example.com",
- *         organization: "ACME Examples, Inc",
- *     }],
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- *     isCaCertificate: true,
- * });
- * const verificationPrivateKey = new tls.index.PrivateKey("verification", {algorithm: "RSA"});
- * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.index.CertRequest("verification", {
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
- *     subject: [{
- *         commonName: example.registrationCode,
- *     }],
- * });
- * const verificationLocallySignedCert = new tls.index.LocallySignedCert("verification", {
- *     certRequestPem: verification.certRequestPem,
- *     caPrivateKeyPem: caPrivateKey.privateKeyPem,
- *     caCertPem: ca.certPem,
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- * });
- * const exampleCaCertificate = new aws.iot.CaCertificate("example", {
- *     active: true,
- *     caCertificatePem: ca.certPem,
- *     verificationCertificatePem: verificationLocallySignedCert.certPem,
- *     allowAutoRegistration: true,
- * });
- * ```
  */
 export class CaCertificate extends pulumi.CustomResource {
     /**

@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *             .domainName(example.domainName())
  *             .accessPolicies(example.arn().applyValue(_arn -> """
  * {
- *     "Version": "2012-10-17",
- *     "Statement": [
+ *     \"Version\": \"2012-10-17\",
+ *     \"Statement\": [
  *         {
- *             "Action": "es:*",
- *             "Principal": "*",
- *             "Effect": "Allow",
- *             "Condition": {
- *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
+ *             \"Action\": \"es:*\",
+ *             \"Principal\": \"*\",
+ *             \"Effect\": \"Allow\",
+ *             \"Condition\": {
+ *                 \"IpAddress\": {\"aws:SourceIp\": \"127.0.0.1/32\"}
  *             },
- *             "Resource": "%s/*"
+ *             \"Resource\": \"%s/*\"
  *         }
  *     ]
  * }

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     },
  *     projectionExpression: "#P",
  *     key: `{
- * \x09"hashKey": {"S": "example"}
+ * \\t\\"hashKey\\": {\\"S\\": \\"example\\"}
  * }
  * `,
  * });
@@ -102,7 +102,7 @@ export interface GetTableItemResult {
  *     },
  *     projectionExpression: "#P",
  *     key: `{
- * \x09"hashKey": {"S": "example"}
+ * \\t\\"hashKey\\": {\\"S\\": \\"example\\"}
  * }
  * `,
  * });

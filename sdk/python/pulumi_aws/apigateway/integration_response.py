@@ -381,7 +381,7 @@ class IntegrationResponse(pulumi.CustomResource):
             status_code=response200.status_code,
             response_templates={
                 "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
-        <?xml version="1.0" encoding="UTF-8"?>
+        <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
         <message>
             $inputRoot.body
         </message>
@@ -458,7 +458,7 @@ class IntegrationResponse(pulumi.CustomResource):
             status_code=response200.status_code,
             response_templates={
                 "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
-        <?xml version="1.0" encoding="UTF-8"?>
+        <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
         <message>
             $inputRoot.body
         </message>

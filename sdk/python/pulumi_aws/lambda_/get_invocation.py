@@ -113,6 +113,49 @@ def get_invocation(function_name: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ### Basic Invocation
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_invocation(function_name=example_aws_lambda_function["functionName"],
+        input=json.dumps({
+            "operation": "getStatus",
+            "id": "123456",
+        }))
+    pulumi.export("result", std.jsondecode(input=example.result).result)
+    ```
+
+    ### Dynamic Resource Configuration
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    # Get resource configuration from Lambda
+    resource_config = aws.lambda.get_invocation(function_name="resource-config-generator",
+        qualifier="production",
+        input=json.dumps({
+            "environment": environment,
+            "region": current["region"],
+            "service": "api",
+        }))
+    config = std.jsondecode(input=resource_config.result).result
+    # Use dynamic configuration
+    example = aws.elasticache.Cluster("example",
+        cluster_id=config["cache"]["clusterId"],
+        engine=config["cache"]["engine"],
+        node_type=config["cache"]["nodeType"],
+        num_cache_nodes=config["cache"]["nodes"],
+        parameter_group_name=config["cache"]["parameterGroup"],
+        tags=config["tags"])
+    ```
+
 
     :param _builtins.str function_name: Name of the Lambda function.
     :param _builtins.str input: String in JSON format that is passed as payload to the Lambda function.
@@ -151,6 +194,49 @@ def get_invocation_output(function_name: Optional[pulumi.Input[_builtins.str]] =
     > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
     ## Example Usage
+
+    ### Basic Invocation
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    example = aws.lambda.get_invocation(function_name=example_aws_lambda_function["functionName"],
+        input=json.dumps({
+            "operation": "getStatus",
+            "id": "123456",
+        }))
+    pulumi.export("result", std.jsondecode(input=example.result).result)
+    ```
+
+    ### Dynamic Resource Configuration
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+    import pulumi_std as std
+
+    # Get resource configuration from Lambda
+    resource_config = aws.lambda.get_invocation(function_name="resource-config-generator",
+        qualifier="production",
+        input=json.dumps({
+            "environment": environment,
+            "region": current["region"],
+            "service": "api",
+        }))
+    config = std.jsondecode(input=resource_config.result).result
+    # Use dynamic configuration
+    example = aws.elasticache.Cluster("example",
+        cluster_id=config["cache"]["clusterId"],
+        engine=config["cache"]["engine"],
+        node_type=config["cache"]["nodeType"],
+        num_cache_nodes=config["cache"]["nodes"],
+        parameter_group_name=config["cache"]["parameterGroup"],
+        tags=config["tags"])
+    ```
 
 
     :param _builtins.str function_name: Name of the Lambda function.

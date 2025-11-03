@@ -53,9 +53,9 @@ namespace Pulumi.Aws.Evidently
     ///     {
     ///         Name = "example",
     ///         Pattern = @"  {
-    ///     ""Price"": [
+    ///     \""Price\"": [
     ///       {
-    ///         ""numeric"": [""&gt;"",10,""&lt;="",20]
+    ///         \""numeric\"": [\""&gt;\"",10,\""&lt;=\"",20]
     ///       }
     ///     ]
     ///   }

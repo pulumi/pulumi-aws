@@ -133,6 +133,33 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_caller_identity()
+        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+            "sid": "AddPermModelPackageGroup",
+            "actions": [
+                "sagemaker:DescribeModelPackage",
+                "sagemaker:ListModelPackages",
+            ],
+            "resources": [arn],
+            "principals": [{
+                "identifiers": [current.account_id],
+                "type": "AWS",
+            }],
+        }]))
+        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
+            model_package_group_name=example_model_package_group.model_package_group_name,
+            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
+        ```
+
         ## Import
 
         Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
@@ -156,6 +183,33 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         Provides a SageMaker AI Model Package Group Policy resource.
 
         ## Example Usage
+
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        current = aws.get_caller_identity()
+        example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+            "sid": "AddPermModelPackageGroup",
+            "actions": [
+                "sagemaker:DescribeModelPackage",
+                "sagemaker:ListModelPackages",
+            ],
+            "resources": [arn],
+            "principals": [{
+                "identifiers": [current.account_id],
+                "type": "AWS",
+            }],
+        }]))
+        example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
+            model_package_group_name=example_model_package_group.model_package_group_name,
+            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
+        ```
 
         ## Import
 

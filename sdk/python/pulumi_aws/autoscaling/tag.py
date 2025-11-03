@@ -145,6 +145,30 @@ class Tag(pulumi.CustomResource):
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.eks.NodeGroup("example",
+            cluster_name="example",
+            node_group_name="example")
+        example_tag = []
+        def create_example(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
+                    autoscaling_group_name=range["value"],
+                    tag={
+                        "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+                        "value": "SPOT",
+                        "propagate_at_launch": False,
+                    }))
+
+        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
@@ -171,6 +195,30 @@ class Tag(pulumi.CustomResource):
         > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
 
         > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.eks.NodeGroup("example",
+            cluster_name="example",
+            node_group_name="example")
+        example_tag = []
+        def create_example(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
+                    autoscaling_group_name=range["value"],
+                    tag={
+                        "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
+                        "value": "SPOT",
+                        "propagate_at_launch": False,
+                    }))
+
+        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
+        ```
 
         ## Import
 

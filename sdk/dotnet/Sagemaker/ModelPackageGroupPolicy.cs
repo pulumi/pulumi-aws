@@ -14,6 +14,68 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleModelPackageGroup = new Aws.Sagemaker.ModelPackageGroup("example", new()
+    ///     {
+    ///         ModelPackageGroupName = "example",
+    ///     });
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AddPermModelPackageGroup",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sagemaker:DescribeModelPackage",
+    ///                     "sagemaker:ListModelPackages",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleModelPackageGroup.Arn,
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Type = "AWS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleModelPackageGroupPolicy = new Aws.Sagemaker.ModelPackageGroupPolicy("example", new()
+    ///     {
+    ///         ModelPackageGroupName = exampleModelPackageGroup.ModelPackageGroupName,
+    ///         ResourcePolicy = Output.JsonSerialize(Output.Create(Std.Jsondecode.Invoke(new()
+    ///         {
+    ///             Input = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         }).Apply(invoke =&gt; invoke.Result))),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:

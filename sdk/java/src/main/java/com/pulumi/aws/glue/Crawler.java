@@ -190,9 +190,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .configuration("""
  * {
- *   "Version":1.0,
- *   "Grouping": {
- *     "TableGroupingPolicy": "CombineCompatibleSchemas"
+ *   \"Version\":1.0,
+ *   \"Grouping\": {
+ *     \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"
  *   }
  * }
  *             """)

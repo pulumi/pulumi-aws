@@ -127,18 +127,18 @@ import (
 //				OwningProjectIdentifier: testProject.ID(),
 //				Status:                  pulumi.String("DISABLED"),
 //				Model: &datazone.FormTypeModelArgs{
-//					Smithy: pulumi.String(`	structure SageMakerModelFormType {
-//				@required
-//				@amazon.datazone#searchable
-//				modelName: String
+//					Smithy: pulumi.String(`\tstructure SageMakerModelFormType {
 //
-//				@required
-//				modelArn: String
+// \t\t\t@required
+// \t\t\t@amazon.datazone#searchable
+// \t\t\tmodelName: String
 //
-//				@required
-//				creationTime: String
-//				}
+// \t\t\t@required
+// \t\t\tmodelArn: String
 //
+// \t\t\t@required
+// \t\t\tcreationTime: String
+// \t\t\t}
 // `),
 //
 //				},

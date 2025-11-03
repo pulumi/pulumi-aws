@@ -14,6 +14,77 @@ import (
 
 // Provides an AWS Cognito Identity Principal Mapping.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
+//				Name: pulumi.String("user pool"),
+//				AutoVerifiedAttributes: pulumi.StringArray{
+//					pulumi.String("email"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeCompact, err := std.Compact(ctx, &std.CompactArgs{
+//				Input: []string{
+//					"COGNITO",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
+//				Name:                       pulumi.String("client"),
+//				UserPoolId:                 example.ID(),
+//				SupportedIdentityProviders: pulumi.StringArray(invokeCompact.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
+//				IdentityPoolName:               pulumi.String("identity pool"),
+//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
+//				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
+//					&cognito.IdentityPoolCognitoIdentityProviderArgs{
+//						ClientId:             exampleUserPoolClient.ID(),
+//						ProviderName:         example.Endpoint,
+//						ServerSideTokenCheck: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewIdentityPoolProviderPrincipalTag(ctx, "example", &cognito.IdentityPoolProviderPrincipalTagArgs{
+//				IdentityPoolId:       exampleIdentityPool.ID(),
+//				IdentityProviderName: example.Endpoint,
+//				UseDefaults:          pulumi.Bool(false),
+//				PrincipalTags: pulumi.StringMap{
+//					"test": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:

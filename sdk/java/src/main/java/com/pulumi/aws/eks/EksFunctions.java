@@ -1746,12 +1746,16 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClustersResult> getClusters() {
         return getClusters(GetClustersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
@@ -1760,12 +1764,16 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClustersResult> getClusters(GetClustersArgs args) {
         return getClusters(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args) {
@@ -1774,6 +1782,8 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
@@ -1781,12 +1791,16 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve EKS Clusters list
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args, InvokeOptions options) {

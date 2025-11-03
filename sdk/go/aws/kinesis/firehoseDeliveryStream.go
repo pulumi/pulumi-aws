@@ -637,32 +637,32 @@ import (
 //					testClusterArn := _args[0].(string)
 //					testClusterArn1 := _args[1].(string)
 //					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
+//	  \"Version\": \"2012-10-17\",
+//	  \"Statement\": [
 //	    {
-//	      "Effect": "Allow",
-//	      "Action": [
-//	        "es:*"
+//	      \"Effect\": \"Allow\",
+//	      \"Action\": [
+//	        \"es:*\"
 //	      ],
-//	      "Resource": [
-//	        "%v",
-//	        "%v/*"
+//	      \"Resource\": [
+//	        \"%v\",
+//	        \"%v/*\"
 //	      ]
 //	        },
 //	        {
-//	          "Effect": "Allow",
-//	          "Action": [
-//	            "ec2:DescribeVpcs",
-//	            "ec2:DescribeVpcAttribute",
-//	            "ec2:DescribeSubnets",
-//	            "ec2:DescribeSecurityGroups",
-//	            "ec2:DescribeNetworkInterfaces",
-//	            "ec2:CreateNetworkInterface",
-//	            "ec2:CreateNetworkInterfacePermission",
-//	            "ec2:DeleteNetworkInterface"
+//	          \"Effect\": \"Allow\",
+//	          \"Action\": [
+//	            \"ec2:DescribeVpcs\",
+//	            \"ec2:DescribeVpcAttribute\",
+//	            \"ec2:DescribeSubnets\",
+//	            \"ec2:DescribeSecurityGroups\",
+//	            \"ec2:DescribeNetworkInterfaces\",
+//	            \"ec2:CreateNetworkInterface\",
+//	            \"ec2:CreateNetworkInterfacePermission\",
+//	            \"ec2:DeleteNetworkInterface\"
 //	          ],
-//	          "Resource": [
-//	            "*"
+//	          \"Resource\": [
+//	            \"*\"
 //	          ]
 //	        }
 //	  ]

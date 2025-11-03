@@ -95,14 +95,11 @@ jobs:
           restore-keys: |
             go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-
       - name: Prepare local workspace before restoring previously built
-        run: make prepare_local_workspace
+        run: mise run prepare:workspace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Restore prerequisites
         uses: ./.github/actions/download-prerequisites
-      - name: Restore makefile progress
-        # This mirrors the targets completed in the prerequisites job
-        run: make --touch provider schema
 
       - name: Build provider
         run: make "provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}"

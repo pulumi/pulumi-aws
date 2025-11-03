@@ -17,6 +17,106 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Dynamic Scaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({});
+ * const example = new aws.autoscaling.Group("example", {
+ *     namePrefix: "example",
+ *     launchConfiguration: exampleAwsLaunchConfiguration.name,
+ *     availabilityZones: [available.then(available => available.names?.[0])],
+ *     minSize: 0,
+ *     maxSize: 3,
+ *     tags: [{
+ *         key: "application",
+ *         value: "example",
+ *         propagateAtLaunch: true,
+ *     }],
+ * });
+ * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-dynamic-cost-optimization",
+ *     applicationSource: {
+ *         tagFilters: [{
+ *             key: "application",
+ *             values: ["example"],
+ *         }],
+ *     },
+ *     scalingInstructions: [{
+ *         maxCapacity: 3,
+ *         minCapacity: 0,
+ *         resourceId: std.format({
+ *             input: "autoScalingGroup/%s",
+ *             args: [example.name],
+ *         }).then(invoke => invoke.result),
+ *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
+ *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
+ * ### Basic Predictive Scaling
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({});
+ * const example = new aws.autoscaling.Group("example", {
+ *     namePrefix: "example",
+ *     launchConfiguration: exampleAwsLaunchConfiguration.name,
+ *     availabilityZones: [available.then(available => available.names?.[0])],
+ *     minSize: 0,
+ *     maxSize: 3,
+ *     tags: [{
+ *         key: "application",
+ *         value: "example",
+ *         propagateAtLaunch: true,
+ *     }],
+ * });
+ * const exampleScalingPlan = new aws.autoscalingplans.ScalingPlan("example", {
+ *     name: "example-predictive-cost-optimization",
+ *     applicationSource: {
+ *         tagFilters: [{
+ *             key: "application",
+ *             values: ["example"],
+ *         }],
+ *     },
+ *     scalingInstructions: [{
+ *         disableDynamicScaling: true,
+ *         maxCapacity: 3,
+ *         minCapacity: 0,
+ *         resourceId: std.format({
+ *             input: "autoScalingGroup/%s",
+ *             args: [example.name],
+ *         }).then(invoke => invoke.result),
+ *         scalableDimension: "autoscaling:autoScalingGroup:DesiredCapacity",
+ *         serviceNamespace: "autoscaling",
+ *         targetTrackingConfigurations: [{
+ *             predefinedScalingMetricSpecification: {
+ *                 predefinedScalingMetricType: "ASGAverageCPUUtilization",
+ *             },
+ *             targetValue: 70,
+ *         }],
+ *         predictiveScalingMaxCapacityBehavior: "SetForecastCapacityToMaxCapacity",
+ *         predictiveScalingMode: "ForecastAndScale",
+ *         predefinedLoadMetricSpecification: {
+ *             predefinedLoadMetricType: "ASGTotalCPUUtilization",
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
