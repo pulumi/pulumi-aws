@@ -52,6 +52,10 @@ export interface GetImageRecipeArgs {
  * A collection of values returned by getImageRecipe.
  */
 export interface GetImageRecipeResult {
+    /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+     */
+    readonly amiTags: {[key: string]: string};
     readonly arn: string;
     /**
      * Set of objects with block device mappings for the image recipe.

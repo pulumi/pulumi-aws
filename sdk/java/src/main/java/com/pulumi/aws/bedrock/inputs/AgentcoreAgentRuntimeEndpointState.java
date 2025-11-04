@@ -32,9 +32,17 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
         return Optional.ofNullable(this.agentRuntimeArn);
     }
 
+    /**
+     * ARN of the Agent Runtime Endpoint.
+     * 
+     */
     @Import(name="agentRuntimeEndpointArn")
     private @Nullable Output<String> agentRuntimeEndpointArn;
 
+    /**
+     * @return ARN of the Agent Runtime Endpoint.
+     * 
+     */
     public Optional<Output<String>> agentRuntimeEndpointArn() {
         return Optional.ofNullable(this.agentRuntimeEndpointArn);
     }
@@ -209,11 +217,23 @@ public final class AgentcoreAgentRuntimeEndpointState extends com.pulumi.resourc
             return agentRuntimeArn(Output.of(agentRuntimeArn));
         }
 
+        /**
+         * @param agentRuntimeEndpointArn ARN of the Agent Runtime Endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuntimeEndpointArn(@Nullable Output<String> agentRuntimeEndpointArn) {
             $.agentRuntimeEndpointArn = agentRuntimeEndpointArn;
             return this;
         }
 
+        /**
+         * @param agentRuntimeEndpointArn ARN of the Agent Runtime Endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentRuntimeEndpointArn(String agentRuntimeEndpointArn) {
             return agentRuntimeEndpointArn(Output.of(agentRuntimeEndpointArn));
         }

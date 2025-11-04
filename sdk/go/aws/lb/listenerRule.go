@@ -243,6 +243,48 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// With transform
+//			_, err = lb.NewListenerRule(ctx, "transform", &lb.ListenerRuleArgs{
+//				ListenerArn: frontEndListener.Arn,
+//				Actions: lb.ListenerRuleActionArray{
+//					&lb.ListenerRuleActionArgs{
+//						Type:           pulumi.String("forward"),
+//						TargetGroupArn: pulumi.Any(staticAwsLbTargetGroup.Arn),
+//					},
+//				},
+//				Conditions: lb.ListenerRuleConditionArray{
+//					&lb.ListenerRuleConditionArgs{
+//						PathPattern: &lb.ListenerRuleConditionPathPatternArgs{
+//							Values: pulumi.StringArray{
+//								pulumi.String("*"),
+//							},
+//						},
+//					},
+//				},
+//				Transforms: lb.ListenerRuleTransformArray{
+//					&lb.ListenerRuleTransformArgs{
+//						Type: pulumi.String("host-header-rewrite"),
+//						HostHeaderRewriteConfig: &lb.ListenerRuleTransformHostHeaderRewriteConfigArgs{
+//							Rewrite: &lb.ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{
+//								Regex:   pulumi.String("^mywebsite-(.+).com$"),
+//								Replace: pulumi.String("internal.dev.$1.myweb.com"),
+//							},
+//						},
+//					},
+//					&lb.ListenerRuleTransformArgs{
+//						Type: pulumi.String("url-rewrite"),
+//						UrlRewriteConfig: &lb.ListenerRuleTransformUrlRewriteConfigArgs{
+//							Rewrite: &lb.ListenerRuleTransformUrlRewriteConfigRewriteArgs{
+//								Regex:   pulumi.String("^/dp/([A-Za-z0-9]+)/?$"),
+//								Replace: pulumi.String("/product.php?id=$1"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -281,6 +323,8 @@ type ListenerRule struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+	Transforms ListenerRuleTransformArrayOutput `pulumi:"transforms"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -344,6 +388,8 @@ type listenerRuleState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 type ListenerRuleState struct {
@@ -363,6 +409,8 @@ type ListenerRuleState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+	Transforms ListenerRuleTransformArrayInput
 }
 
 func (ListenerRuleState) ElementType() reflect.Type {
@@ -382,6 +430,8 @@ type listenerRuleArgs struct {
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
@@ -398,6 +448,8 @@ type ListenerRuleArgs struct {
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+	Transforms ListenerRuleTransformArrayInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {
@@ -525,6 +577,11 @@ func (o ListenerRuleOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ListenerRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+func (o ListenerRuleOutput) Transforms() ListenerRuleTransformArrayOutput {
+	return o.ApplyT(func(v *ListenerRule) ListenerRuleTransformArrayOutput { return v.Transforms }).(ListenerRuleTransformArrayOutput)
 }
 
 type ListenerRuleArrayOutput struct{ *pulumi.OutputState }

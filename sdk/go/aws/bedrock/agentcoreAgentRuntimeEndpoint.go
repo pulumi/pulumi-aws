@@ -55,7 +55,8 @@ type AgentcoreAgentRuntimeEndpoint struct {
 	pulumi.CustomResourceState
 
 	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn         pulumi.StringOutput `pulumi:"agentRuntimeArn"`
+	AgentRuntimeArn pulumi.StringOutput `pulumi:"agentRuntimeArn"`
+	// ARN of the Agent Runtime Endpoint.
 	AgentRuntimeEndpointArn pulumi.StringOutput `pulumi:"agentRuntimeEndpointArn"`
 	// ID of the agent runtime this endpoint belongs to.
 	//
@@ -110,7 +111,8 @@ func GetAgentcoreAgentRuntimeEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
 type agentcoreAgentRuntimeEndpointState struct {
 	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn         *string `pulumi:"agentRuntimeArn"`
+	AgentRuntimeArn *string `pulumi:"agentRuntimeArn"`
+	// ARN of the Agent Runtime Endpoint.
 	AgentRuntimeEndpointArn *string `pulumi:"agentRuntimeEndpointArn"`
 	// ID of the agent runtime this endpoint belongs to.
 	//
@@ -133,7 +135,8 @@ type agentcoreAgentRuntimeEndpointState struct {
 
 type AgentcoreAgentRuntimeEndpointState struct {
 	// ARN of the associated Agent Runtime.
-	AgentRuntimeArn         pulumi.StringPtrInput
+	AgentRuntimeArn pulumi.StringPtrInput
+	// ARN of the Agent Runtime Endpoint.
 	AgentRuntimeEndpointArn pulumi.StringPtrInput
 	// ID of the agent runtime this endpoint belongs to.
 	//
@@ -287,6 +290,7 @@ func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeArn() pulumi.StringOutp
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeArn }).(pulumi.StringOutput)
 }
 
+// ARN of the Agent Runtime Endpoint.
 func (o AgentcoreAgentRuntimeEndpointOutput) AgentRuntimeEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntimeEndpoint) pulumi.StringOutput { return v.AgentRuntimeEndpointArn }).(pulumi.StringOutput)
 }

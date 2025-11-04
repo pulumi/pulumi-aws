@@ -85,6 +85,8 @@ import (
 type ImageRecipe struct {
 	pulumi.CustomResourceState
 
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+	AmiTags pulumi.StringMapOutput `pulumi:"amiTags"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -160,6 +162,8 @@ func GetImageRecipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImageRecipe resources.
 type imageRecipeState struct {
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+	AmiTags map[string]string `pulumi:"amiTags"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -197,6 +201,8 @@ type imageRecipeState struct {
 }
 
 type ImageRecipeState struct {
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+	AmiTags pulumi.StringMapInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringPtrInput
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
@@ -238,6 +244,8 @@ func (ImageRecipeState) ElementType() reflect.Type {
 }
 
 type imageRecipeArgs struct {
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+	AmiTags map[string]string `pulumi:"amiTags"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
@@ -266,6 +274,8 @@ type imageRecipeArgs struct {
 
 // The set of arguments for constructing a ImageRecipe resource.
 type ImageRecipeArgs struct {
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+	AmiTags pulumi.StringMapInput
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
 	// Ordered configuration block(s) with components for the image recipe. Detailed below.
@@ -377,6 +387,11 @@ func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {
 
 func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
 	return o
+}
+
+// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+func (o ImageRecipeOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
 // Amazon Resource Name (ARN) of the image recipe.

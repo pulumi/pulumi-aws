@@ -24,6 +24,7 @@ class ImageRecipeArgs:
                  components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]],
                  parent_image: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[_builtins.str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description of the image recipe.
         :param pulumi.Input[_builtins.str] name: Name of the image recipe.
@@ -51,6 +53,8 @@ class ImageRecipeArgs:
         pulumi.set(__self__, "components", components)
         pulumi.set(__self__, "parent_image", parent_image)
         pulumi.set(__self__, "version", version)
+        if ami_tags is not None:
+            pulumi.set(__self__, "ami_tags", ami_tags)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if description is not None:
@@ -105,6 +109,18 @@ class ImageRecipeArgs:
     @version.setter
     def version(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        """
+        return pulumi.get(self, "ami_tags")
+
+    @ami_tags.setter
+    def ami_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ami_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
@@ -206,6 +222,7 @@ class ImageRecipeArgs:
 @pulumi.input_type
 class _ImageRecipeState:
     def __init__(__self__, *,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]] = None,
@@ -224,6 +241,7 @@ class _ImageRecipeState:
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ImageRecipe resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
@@ -243,6 +261,8 @@ class _ImageRecipeState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
+        if ami_tags is not None:
+            pulumi.set(__self__, "ami_tags", ami_tags)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if block_device_mappings is not None:
@@ -275,6 +295,18 @@ class _ImageRecipeState:
             pulumi.set(__self__, "version", version)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        """
+        return pulumi.get(self, "ami_tags")
+
+    @ami_tags.setter
+    def ami_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ami_tags", value)
 
     @_builtins.property
     @pulumi.getter
@@ -477,6 +509,7 @@ class ImageRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -541,6 +574,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description of the image recipe.
@@ -626,6 +660,7 @@ class ImageRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -646,6 +681,7 @@ class ImageRecipe(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageRecipeArgs.__new__(ImageRecipeArgs)
 
+            __props__.__dict__["ami_tags"] = ami_tags
             __props__.__dict__["block_device_mappings"] = block_device_mappings
             if components is None and not opts.urn:
                 raise TypeError("Missing required property 'components'")
@@ -678,6 +714,7 @@ class ImageRecipe(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
             components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
@@ -701,6 +738,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
@@ -724,6 +762,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         __props__ = _ImageRecipeState.__new__(_ImageRecipeState)
 
+        __props__.__dict__["ami_tags"] = ami_tags
         __props__.__dict__["arn"] = arn
         __props__.__dict__["block_device_mappings"] = block_device_mappings
         __props__.__dict__["components"] = components
@@ -741,6 +780,14 @@ class ImageRecipe(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         __props__.__dict__["working_directory"] = working_directory
         return ImageRecipe(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        """
+        return pulumi.get(self, "ami_tags")
 
     @_builtins.property
     @pulumi.getter

@@ -30,6 +30,11 @@ export const getResource: typeof import("./getResource").getResource = null as a
 export const getResourceOutput: typeof import("./getResource").getResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getResource","getResourceOutput"], () => require("./getResource"));
 
+export { IdentityCenterConfigurationArgs, IdentityCenterConfigurationState } from "./identityCenterConfiguration";
+export type IdentityCenterConfiguration = import("./identityCenterConfiguration").IdentityCenterConfiguration;
+export const IdentityCenterConfiguration: typeof import("./identityCenterConfiguration").IdentityCenterConfiguration = null as any;
+utilities.lazyLoad(exports, ["IdentityCenterConfiguration"], () => require("./identityCenterConfiguration"));
+
 export { LfTagArgs, LfTagState } from "./lfTag";
 export type LfTag = import("./lfTag").LfTag;
 export const LfTag: typeof import("./lfTag").LfTag = null as any;
@@ -74,6 +79,8 @@ const _module = {
                 return new DataCellsFilter(name, <any>undefined, { urn })
             case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
                 return new DataLakeSettings(name, <any>undefined, { urn })
+            case "aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration":
+                return new IdentityCenterConfiguration(name, <any>undefined, { urn })
             case "aws:lakeformation/lfTag:LfTag":
                 return new LfTag(name, <any>undefined, { urn })
             case "aws:lakeformation/lfTagExpression:LfTagExpression":
@@ -95,6 +102,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataCellsFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataLakeSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "lakeformation/identityCenterConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTag", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTagExpression", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/optIn", _module)

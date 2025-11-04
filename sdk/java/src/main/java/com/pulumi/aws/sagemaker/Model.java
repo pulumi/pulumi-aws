@@ -92,6 +92,11 @@ import javax.annotation.Nullable;
  * 
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
  * 
+ * ### VPC Config
+ * 
+ * * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+ * * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import models using the `name`. For example:
@@ -160,14 +165,14 @@ public class Model extends com.pulumi.resources.CustomResource {
         return this.executionRoleArn;
     }
     /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      * 
      */
     @Export(name="inferenceExecutionConfig", refs={ModelInferenceExecutionConfig.class}, tree="[0]")
     private Output<ModelInferenceExecutionConfig> inferenceExecutionConfig;
 
     /**
-     * @return Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * @return Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      * 
      */
     public Output<ModelInferenceExecutionConfig> inferenceExecutionConfig() {
@@ -244,14 +249,14 @@ public class Model extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      * 
      */
     @Export(name="vpcConfig", refs={ModelVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ ModelVpcConfig> vpcConfig;
 
     /**
-     * @return Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * @return Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      * 
      */
     public Output<Optional<ModelVpcConfig>> vpcConfig() {

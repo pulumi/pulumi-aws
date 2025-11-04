@@ -391,11 +391,11 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 "key": "error.html",
             },
             routing_rule_details=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
+            \\"Condition\\": {
+                \\"KeyPrefixEquals\\": \\"docs/\\"
             },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": ""
+            \\"Redirect\\": {
+                \\"ReplaceKeyPrefixWith\\": \\"\\"
             }
         }]
         \"\"\")
@@ -507,11 +507,11 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 "key": "error.html",
             },
             routing_rule_details=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
+            \\"Condition\\": {
+                \\"KeyPrefixEquals\\": \\"docs/\\"
             },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": ""
+            \\"Redirect\\": {
+                \\"ReplaceKeyPrefixWith\\": \\"\\"
             }
         }]
         \"\"\")

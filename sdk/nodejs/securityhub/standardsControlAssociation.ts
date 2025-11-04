@@ -24,6 +24,32 @@ import * as utilities from "../utilities";
  *     updatedReason: "Not needed",
  * });
  * ```
+ *
+ * ## Disabling security control in all standards
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const example = new aws.securityhub.Account("example", {});
+ *     const iam1 = await aws.securityhub.getStandardsControlAssociations({
+ *         securityControlId: "IAM.1",
+ *     });
+ *     const iam1StandardsControlAssociation: aws.securityhub.StandardsControlAssociation[] = [];
+ *     for (const range of std.toset({
+ *         input: iam1.standardsControlAssociations.map(__item => __item.standardsArn),
+ *     }).result.map((v, k) => ({key: k, value: v}))) {
+ *         iam1StandardsControlAssociation.push(new aws.securityhub.StandardsControlAssociation(`iam_1-${range.key}`, {
+ *             standardsArn: range.key,
+ *             securityControlId: iam1.securityControlId,
+ *             associationStatus: "DISABLED",
+ *             updatedReason: "Not needed",
+ *         }));
+ *     }
+ * }
+ * ```
  */
 export class StandardsControlAssociation extends pulumi.CustomResource {
     /**

@@ -83,14 +83,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      * 
      */
     @Import(name="inferenceExecutionConfig")
     private @Nullable Output<ModelInferenceExecutionConfigArgs> inferenceExecutionConfig;
 
     /**
-     * @return Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * @return Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      * 
      */
     public Optional<Output<ModelInferenceExecutionConfigArgs>> inferenceExecutionConfig() {
@@ -173,14 +173,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<ModelVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * @return Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      * 
      */
     public Optional<Output<ModelVpcConfigArgs>> vpcConfig() {
@@ -316,7 +316,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+         * @param inferenceExecutionConfig Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+         * @param vpcConfig Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+         * @param vpcConfig Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
          * 
          * @return builder
          * 

@@ -24,7 +24,14 @@ __all__ = [
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration',
     'ApplicationInteractiveConfiguration',
     'ApplicationMaximumCapacity',
+    'ApplicationMonitoringConfiguration',
+    'ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration',
+    'ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType',
+    'ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration',
+    'ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration',
+    'ApplicationMonitoringConfigurationS3MonitoringConfiguration',
     'ApplicationNetworkConfiguration',
+    'ApplicationRuntimeConfiguration',
     'ApplicationSchedulerConfiguration',
 ]
 
@@ -361,6 +368,336 @@ class ApplicationMaximumCapacity(dict):
 
 
 @pulumi.output_type
+class ApplicationMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLoggingConfiguration":
+            suggest = "cloudwatch_logging_configuration"
+        elif key == "managedPersistenceMonitoringConfiguration":
+            suggest = "managed_persistence_monitoring_configuration"
+        elif key == "prometheusMonitoringConfiguration":
+            suggest = "prometheus_monitoring_configuration"
+        elif key == "s3MonitoringConfiguration":
+            suggest = "s3_monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logging_configuration: Optional['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration'] = None,
+                 managed_persistence_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration'] = None,
+                 prometheus_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration'] = None,
+                 s3_monitoring_configuration: Optional['outputs.ApplicationMonitoringConfigurationS3MonitoringConfiguration'] = None):
+        """
+        :param 'ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs' cloudwatch_logging_configuration: The Amazon CloudWatch configuration for monitoring logs.
+        :param 'ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs' managed_persistence_monitoring_configuration: The managed log persistence configuration for monitoring logs.
+        :param 'ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs' prometheus_monitoring_configuration: The Prometheus configuration for monitoring metrics.
+        :param 'ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs' s3_monitoring_configuration: The Amazon S3 configuration for monitoring log publishing.
+        """
+        if cloudwatch_logging_configuration is not None:
+            pulumi.set(__self__, "cloudwatch_logging_configuration", cloudwatch_logging_configuration)
+        if managed_persistence_monitoring_configuration is not None:
+            pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
+        if prometheus_monitoring_configuration is not None:
+            pulumi.set(__self__, "prometheus_monitoring_configuration", prometheus_monitoring_configuration)
+        if s3_monitoring_configuration is not None:
+            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLoggingConfiguration")
+    def cloudwatch_logging_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration']:
+        """
+        The Amazon CloudWatch configuration for monitoring logs.
+        """
+        return pulumi.get(self, "cloudwatch_logging_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedPersistenceMonitoringConfiguration")
+    def managed_persistence_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration']:
+        """
+        The managed log persistence configuration for monitoring logs.
+        """
+        return pulumi.get(self, "managed_persistence_monitoring_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="prometheusMonitoringConfiguration")
+    def prometheus_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration']:
+        """
+        The Prometheus configuration for monitoring metrics.
+        """
+        return pulumi.get(self, "prometheus_monitoring_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3MonitoringConfiguration")
+    def s3_monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfigurationS3MonitoringConfiguration']:
+        """
+        The Amazon S3 configuration for monitoring log publishing.
+        """
+        return pulumi.get(self, "s3_monitoring_configuration")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+        elif key == "logTypes":
+            suggest = "log_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 encryption_key_arn: Optional[_builtins.str] = None,
+                 log_group_name: Optional[_builtins.str] = None,
+                 log_stream_name_prefix: Optional[_builtins.str] = None,
+                 log_types: Optional[Sequence['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType']] = None):
+        """
+        :param _builtins.bool enabled: Enables CloudWatch logging.
+        :param _builtins.str encryption_key_arn: The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        :param _builtins.str log_group_name: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        :param _builtins.str log_stream_name_prefix: Prefix for the CloudWatch log stream name.
+        :param Sequence['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs'] log_types: The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Enables CloudWatch logging.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix for the CloudWatch log stream name.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[Sequence['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType']]:
+        """
+        The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
+        """
+        return pulumi.get(self, "log_types")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
+        :param Sequence[_builtins.str] values: The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 encryption_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Enables managed log persistence for monitoring logs.
+        :param _builtins.str encryption_key_arn: The KMS key ARN to encrypt the logs stored in managed persistence.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enables managed log persistence for monitoring logs.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The KMS key ARN to encrypt the logs stored in managed persistence.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteWriteUrl":
+            suggest = "remote_write_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remote_write_url: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str remote_write_url: The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+        """
+        if remote_write_url is not None:
+            pulumi.set(__self__, "remote_write_url", remote_write_url)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteWriteUrl")
+    def remote_write_url(self) -> Optional[_builtins.str]:
+        """
+        The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+        """
+        return pulumi.get(self, "remote_write_url")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfigurationS3MonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "logUri":
+            suggest = "log_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfigurationS3MonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfigurationS3MonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfigurationS3MonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_arn: Optional[_builtins.str] = None,
+                 log_uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        :param _builtins.str log_uri: The Amazon S3 destination URI for log publishing.
+        """
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 destination URI for log publishing.
+        """
+        return pulumi.get(self, "log_uri")
+
+
+@pulumi.output_type
 class ApplicationNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -408,6 +745,36 @@ class ApplicationNetworkConfiguration(dict):
         The array of subnet Ids for customer VPC connectivity.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class ApplicationRuntimeConfiguration(dict):
+    def __init__(__self__, *,
+                 classification: _builtins.str,
+                 properties: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str classification: The classification within a configuration.
+        :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
+        """
+        pulumi.set(__self__, "classification", classification)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> _builtins.str:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A set of properties specified within a configuration classification.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

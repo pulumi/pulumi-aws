@@ -83,6 +83,12 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class ImageRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        /// </summary>
+        [Output("amiTags")]
+        public Output<ImmutableDictionary<string, string>?> AmiTags { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("arn")]
@@ -226,6 +232,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class ImageRecipeArgs : global::Pulumi.ResourceArgs
     {
+        [Input("amiTags")]
+        private InputMap<string>? _amiTags;
+
+        /// <summary>
+        /// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        /// </summary>
+        public InputMap<string> AmiTags
+        {
+            get => _amiTags ?? (_amiTags = new InputMap<string>());
+            set => _amiTags = value;
+        }
+
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ImageRecipeBlockDeviceMappingArgs>? _blockDeviceMappings;
 
@@ -320,6 +338,18 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class ImageRecipeState : global::Pulumi.ResourceArgs
     {
+        [Input("amiTags")]
+        private InputMap<string>? _amiTags;
+
+        /// <summary>
+        /// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+        /// </summary>
+        public InputMap<string> AmiTags
+        {
+            get => _amiTags ?? (_amiTags = new InputMap<string>());
+            set => _amiTags = value;
+        }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>

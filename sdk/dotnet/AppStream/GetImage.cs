@@ -94,25 +94,25 @@ namespace Pulumi.Aws.AppStream
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with NameRegex or name.
+        /// ARN of the image being searched for. Cannot be used with `NameRegex` or `Name`.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
-        /// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+        /// Boolean that if it is set to `True` and there are multiple images returned the most recent will be returned. If it is set to `False` and there are multiple images return the datasource will error.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with NameRegex or arn.
+        /// Name of the image being searched for. Cannot be used with `NameRegex` or `Arn`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// Regular expression name of the image being searched for. Cannot be used with arn or name.
+        /// Regular expression name of the image being searched for. Cannot be used with `Arn` or `Name`.
         /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.AppStream
         public string? Region { get; set; }
 
         /// <summary>
-        /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+        /// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -138,25 +138,25 @@ namespace Pulumi.Aws.AppStream
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with NameRegex or name.
+        /// ARN of the image being searched for. Cannot be used with `NameRegex` or `Name`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+        /// Boolean that if it is set to `True` and there are multiple images returned the most recent will be returned. If it is set to `False` and there are multiple images return the datasource will error.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with NameRegex or arn.
+        /// Name of the image being searched for. Cannot be used with `NameRegex` or `Arn`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Regular expression name of the image being searched for. Cannot be used with arn or name.
+        /// Regular expression name of the image being searched for. Cannot be used with `Arn` or `Name`.
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+        /// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -116,9 +116,110 @@ import (
 //
 // ```
 //
+// ### Monitoring Configuration Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-7.1.0"),
+//				Type:         pulumi.String("spark"),
+//				MonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationArgs{
+//					CloudwatchLoggingConfiguration: &emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{
+//						Enabled:             pulumi.Bool(true),
+//						LogGroupName:        pulumi.String("/aws/emr-serverless/example"),
+//						LogStreamNamePrefix: pulumi.String("spark-logs"),
+//						LogTypes: emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray{
+//							&emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{
+//								Name: pulumi.String("SPARK_DRIVER"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("STDOUT"),
+//									pulumi.String("STDERR"),
+//								},
+//							},
+//							&emrserverless.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{
+//								Name: pulumi.String("SPARK_EXECUTOR"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("STDOUT"),
+//								},
+//							},
+//						},
+//					},
+//					ManagedPersistenceMonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
+//					PrometheusMonitoringConfiguration: &emrserverless.ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{
+//						RemoteWriteUrl: pulumi.String("https://prometheus-remote-write-endpoint.example.com/api/v1/write"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Runtime Configuration Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				Name:         pulumi.String("example"),
+//				ReleaseLabel: pulumi.String("emr-6.8.0"),
+//				Type:         pulumi.String("spark"),
+//				RuntimeConfigurations: emrserverless.ApplicationRuntimeConfigurationArray{
+//					&emrserverless.ApplicationRuntimeConfigurationArgs{
+//						Classification: pulumi.String("spark-executor-log4j2"),
+//						Properties: pulumi.StringMap{
+//							"rootLogger.level":                pulumi.String("error"),
+//							"logger.IdentifierForClass.name":  pulumi.String("classpathForSettingLogger"),
+//							"logger.IdentifierForClass.level": pulumi.String("info"),
+//						},
+//					},
+//					&emrserverless.ApplicationRuntimeConfigurationArgs{
+//						Classification: pulumi.String("spark-defaults"),
+//						Properties: pulumi.StringMap{
+//							"spark.executor.memory": pulumi.String("1g"),
+//							"spark.executor.cores":  pulumi.String("1"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+// Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:emrserverless/application:Application example id
@@ -142,6 +243,8 @@ type Application struct {
 	InteractiveConfiguration ApplicationInteractiveConfigurationOutput `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
+	// The configuration setting for monitoring.
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrOutput `pulumi:"monitoringConfiguration"`
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The network configuration for customer VPC connectivity.
@@ -150,6 +253,8 @@ type Application struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	RuntimeConfigurations ApplicationRuntimeConfigurationArrayOutput `pulumi:"runtimeConfigurations"`
 	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 	SchedulerConfiguration ApplicationSchedulerConfigurationPtrOutput `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -212,6 +317,8 @@ type applicationState struct {
 	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
+	// The configuration setting for monitoring.
+	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The network configuration for customer VPC connectivity.
@@ -220,6 +327,8 @@ type applicationState struct {
 	Region *string `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	RuntimeConfigurations []ApplicationRuntimeConfiguration `pulumi:"runtimeConfigurations"`
 	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -247,6 +356,8 @@ type ApplicationState struct {
 	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
+	// The configuration setting for monitoring.
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// The network configuration for customer VPC connectivity.
@@ -255,6 +366,8 @@ type ApplicationState struct {
 	Region pulumi.StringPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringPtrInput
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	RuntimeConfigurations ApplicationRuntimeConfigurationArrayInput
 	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -284,6 +397,8 @@ type applicationArgs struct {
 	InteractiveConfiguration *ApplicationInteractiveConfiguration `pulumi:"interactiveConfiguration"`
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
+	// The configuration setting for monitoring.
+	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The network configuration for customer VPC connectivity.
@@ -292,6 +407,8 @@ type applicationArgs struct {
 	Region *string `pulumi:"region"`
 	// The EMR release version associated with the application.
 	ReleaseLabel string `pulumi:"releaseLabel"`
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	RuntimeConfigurations []ApplicationRuntimeConfiguration `pulumi:"runtimeConfigurations"`
 	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -316,6 +433,8 @@ type ApplicationArgs struct {
 	InteractiveConfiguration ApplicationInteractiveConfigurationPtrInput
 	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 	MaximumCapacity ApplicationMaximumCapacityPtrInput
+	// The configuration setting for monitoring.
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// The network configuration for customer VPC connectivity.
@@ -324,6 +443,8 @@ type ApplicationArgs struct {
 	Region pulumi.StringPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringInput
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+	RuntimeConfigurations ApplicationRuntimeConfigurationArrayInput
 	// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
 	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -459,6 +580,11 @@ func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityOutput {
 	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityOutput)
 }
 
+// The configuration setting for monitoring.
+func (o ApplicationOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationMonitoringConfigurationPtrOutput { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
 // The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -477,6 +603,11 @@ func (o ApplicationOutput) Region() pulumi.StringOutput {
 // The EMR release version associated with the application.
 func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
+}
+
+// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+func (o ApplicationOutput) RuntimeConfigurations() ApplicationRuntimeConfigurationArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationRuntimeConfigurationArrayOutput { return v.RuntimeConfigurations }).(ApplicationRuntimeConfigurationArrayOutput)
 }
 
 // Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.

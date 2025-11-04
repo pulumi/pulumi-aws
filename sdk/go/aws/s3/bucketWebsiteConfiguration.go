@@ -83,11 +83,11 @@ import (
 //					Key: pulumi.String("error.html"),
 //				},
 //				RoutingRuleDetails: pulumi.String(`[{
-//	    "Condition": {
-//	        "KeyPrefixEquals": "docs/"
+//	    \"Condition\": {
+//	        \"KeyPrefixEquals\": \"docs/\"
 //	    },
-//	    "Redirect": {
-//	        "ReplaceKeyPrefixWith": ""
+//	    \"Redirect\": {
+//	        \"ReplaceKeyPrefixWith\": \"\"
 //	    }
 //	}]
 //

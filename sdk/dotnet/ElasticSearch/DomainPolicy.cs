@@ -32,16 +32,16 @@ namespace Pulumi.Aws.ElasticSearch
     ///     {
     ///         DomainName = example.DomainName,
     ///         AccessPolicies = example.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
+    ///     \""Version\"": \""2012-10-17\"",
+    ///     \""Statement\"": [
     ///         {{
-    ///             ""Action"": ""es:*"",
-    ///             ""Principal"": ""*"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Condition"": {{
-    ///                 ""IpAddress"": {{""aws:SourceIp"": ""127.0.0.1/32""}}
+    ///             \""Action\"": \""es:*\"",
+    ///             \""Principal\"": \""*\"",
+    ///             \""Effect\"": \""Allow\"",
+    ///             \""Condition\"": {{
+    ///                 \""IpAddress\"": {{\""aws:SourceIp\"": \""127.0.0.1/32\""}}
     ///             }},
-    ///             ""Resource"": ""{arn}/*""
+    ///             \""Resource\"": \""{arn}/*\""
     ///         }}
     ///     ]
     /// }}

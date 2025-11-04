@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_authorization_token import *
+from .get_images import *
 from .repository import *
 from .repository_policy import *
 from ._inputs import *

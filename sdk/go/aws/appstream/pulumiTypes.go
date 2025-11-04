@@ -1915,7 +1915,7 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 type GetImageApplication struct {
 	// The app block ARN of the application.
 	AppBlockArn string `pulumi:"appBlockArn"`
-	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn string `pulumi:"arn"`
 	// Time at which this image was created.
 	CreatedTime string `pulumi:"createdTime"`
@@ -1938,7 +1938,7 @@ type GetImageApplication struct {
 	// String to string map that contains additional attributes used to describe the application.
 	// * `Name` - Name of the application.
 	Metadata map[string]string `pulumi:"metadata"`
-	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name string `pulumi:"name"`
 	// Array of strings describing the platforms on which the application can run.
 	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
@@ -1961,7 +1961,7 @@ type GetImageApplicationInput interface {
 type GetImageApplicationArgs struct {
 	// The app block ARN of the application.
 	AppBlockArn pulumi.StringInput `pulumi:"appBlockArn"`
-	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Time at which this image was created.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
@@ -1984,7 +1984,7 @@ type GetImageApplicationArgs struct {
 	// String to string map that contains additional attributes used to describe the application.
 	// * `Name` - Name of the application.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Array of strings describing the platforms on which the application can run.
 	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
@@ -2049,7 +2049,7 @@ func (o GetImageApplicationOutput) AppBlockArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.AppBlockArn }).(pulumi.StringOutput)
 }
 
-// Arn of the image being searched for. Cannot be used with nameRegex or name.
+// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 func (o GetImageApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2105,7 +2105,7 @@ func (o GetImageApplicationOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetImageApplication) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Name of the image being searched for. Cannot be used with nameRegex or arn.
+// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 func (o GetImageApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Name }).(pulumi.StringOutput)
 }

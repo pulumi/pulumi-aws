@@ -284,13 +284,13 @@ class Group(pulumi.CustomResource):
             name="test-group",
             resource_query={
                 "query": \"\"\"{
-          "ResourceTypeFilters": [
-            "AWS::EC2::Instance"
+          \\"ResourceTypeFilters\\": [
+            \\"AWS::EC2::Instance\\"
           ],
-          "TagFilters": [
+          \\"TagFilters\\": [
             {
-              "Key": "Stage",
-              "Values": ["Test"]
+              \\"Key\\": \\"Stage\\",
+              \\"Values\\": [\\"Test\\"]
             }
           ]
         }
@@ -334,13 +334,13 @@ class Group(pulumi.CustomResource):
             name="test-group",
             resource_query={
                 "query": \"\"\"{
-          "ResourceTypeFilters": [
-            "AWS::EC2::Instance"
+          \\"ResourceTypeFilters\\": [
+            \\"AWS::EC2::Instance\\"
           ],
-          "TagFilters": [
+          \\"TagFilters\\": [
             {
-              "Key": "Stage",
-              "Values": ["Test"]
+              \\"Key\\": \\"Stage\\",
+              \\"Values\\": [\\"Test\\"]
             }
           ]
         }

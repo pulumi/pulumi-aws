@@ -153,6 +153,7 @@ class _AgentcoreAgentRuntimeEndpointState:
         """
         Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the associated Agent Runtime.
+        :param pulumi.Input[_builtins.str] agent_runtime_endpoint_arn: ARN of the Agent Runtime Endpoint.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
                
                The following arguments are optional:
@@ -199,6 +200,9 @@ class _AgentcoreAgentRuntimeEndpointState:
     @_builtins.property
     @pulumi.getter(name="agentRuntimeEndpointArn")
     def agent_runtime_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the Agent Runtime Endpoint.
+        """
         return pulumi.get(self, "agent_runtime_endpoint_arn")
 
     @agent_runtime_endpoint_arn.setter
@@ -453,6 +457,7 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the associated Agent Runtime.
+        :param pulumi.Input[_builtins.str] agent_runtime_endpoint_arn: ARN of the Agent Runtime Endpoint.
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime this endpoint belongs to.
                
                The following arguments are optional:
@@ -490,6 +495,9 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="agentRuntimeEndpointArn")
     def agent_runtime_endpoint_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN of the Agent Runtime Endpoint.
+        """
         return pulumi.get(self, "agent_runtime_endpoint_arn")
 
     @_builtins.property

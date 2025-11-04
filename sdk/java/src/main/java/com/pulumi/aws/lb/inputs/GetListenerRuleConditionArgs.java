@@ -22,14 +22,16 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
     public static final GetListenerRuleConditionArgs Empty = new GetListenerRuleConditionArgs();
 
     /**
-     * Contains a single attribute `values`, which contains a set of host names.
+     * Host header patterns to match.
+     * Detailed below.
      * 
      */
     @Import(name="hostHeaders")
     private @Nullable Output<List<GetListenerRuleConditionHostHeaderArgs>> hostHeaders;
 
     /**
-     * @return Contains a single attribute `values`, which contains a set of host names.
+     * @return Host header patterns to match.
+     * Detailed below.
      * 
      */
     public Optional<Output<List<GetListenerRuleConditionHostHeaderArgs>>> hostHeaders() {
@@ -69,14 +71,16 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+     * Path patterns to compare against the request URL.
+     * Detailed below.
      * 
      */
     @Import(name="pathPatterns")
     private @Nullable Output<List<GetListenerRuleConditionPathPatternArgs>> pathPatterns;
 
     /**
-     * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+     * @return Path patterns to compare against the request URL.
+     * Detailed below.
      * 
      */
     public Optional<Output<List<GetListenerRuleConditionPathPatternArgs>>> pathPatterns() {
@@ -145,7 +149,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
+         * @param hostHeaders Host header patterns to match.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -156,7 +161,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
+         * @param hostHeaders Host header patterns to match.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -166,7 +172,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostHeaders Contains a single attribute `values`, which contains a set of host names.
+         * @param hostHeaders Host header patterns to match.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -241,7 +248,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * @param pathPatterns Path patterns to compare against the request URL.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -252,7 +260,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * @param pathPatterns Path patterns to compare against the request URL.
+         * Detailed below.
          * 
          * @return builder
          * 
@@ -262,7 +271,8 @@ public final class GetListenerRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pathPatterns Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         * @param pathPatterns Path patterns to compare against the request URL.
+         * Detailed below.
          * 
          * @return builder
          * 

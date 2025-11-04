@@ -456,7 +456,7 @@ if not MYPY:
         """
         principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The claim that determines the principal in OIDC access tokens.
+        The claim that determines the principal in OIDC identity tokens.
         """
 elif False:
     IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
@@ -468,7 +468,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
                  principal_id_claim: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_ids: The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-        :param pulumi.Input[_builtins.str] principal_id_claim: The claim that determines the principal in OIDC access tokens.
+        :param pulumi.Input[_builtins.str] principal_id_claim: The claim that determines the principal in OIDC identity tokens.
         """
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -491,7 +491,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
     @pulumi.getter(name="principalIdClaim")
     def principal_id_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The claim that determines the principal in OIDC access tokens.
+        The claim that determines the principal in OIDC identity tokens.
         """
         return pulumi.get(self, "principal_id_claim")
 

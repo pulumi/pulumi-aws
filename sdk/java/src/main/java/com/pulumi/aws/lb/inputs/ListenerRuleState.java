@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.aws.lb.inputs.ListenerRuleActionArgs;
 import com.pulumi.aws.lb.inputs.ListenerRuleConditionArgs;
+import com.pulumi.aws.lb.inputs.ListenerRuleTransformArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -140,6 +141,21 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     * 
+     */
+    @Import(name="transforms")
+    private @Nullable Output<List<ListenerRuleTransformArgs>> transforms;
+
+    /**
+     * @return Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     * 
+     */
+    public Optional<Output<List<ListenerRuleTransformArgs>>> transforms() {
+        return Optional.ofNullable(this.transforms);
+    }
+
     private ListenerRuleState() {}
 
     private ListenerRuleState(ListenerRuleState $) {
@@ -151,6 +167,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.transforms = $.transforms;
     }
 
     public static Builder builder() {
@@ -357,6 +374,37 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transforms(@Nullable Output<List<ListenerRuleTransformArgs>> transforms) {
+            $.transforms = transforms;
+            return this;
+        }
+
+        /**
+         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transforms(List<ListenerRuleTransformArgs> transforms) {
+            return transforms(Output.of(transforms));
+        }
+
+        /**
+         * @param transforms Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transforms(ListenerRuleTransformArgs... transforms) {
+            return transforms(List.of(transforms));
         }
 
         public ListenerRuleState build() {

@@ -207,16 +207,16 @@ import javax.annotation.Nullable;
  *                 .customPolicyDetails(RuleSourceCustomPolicyDetailsArgs.builder()
  *                     .policyRuntime("guard-2.x.x")
  *                     .policyText("""
- * 	  rule tableisactive when
- * 		  resourceType == "AWS::DynamoDB::Table" {
- * 		  configuration.tableStatus == ['ACTIVE']
- * 	  }
- * 	  
- * 	  rule checkcompliance when
- * 		  resourceType == "AWS::DynamoDB::Table"
- * 		  tableisactive {
- * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
- * 	  }
+ * \t  rule tableisactive when
+ * \t\t  resourceType == \"AWS::DynamoDB::Table\" {
+ * \t\t  configuration.tableStatus == ['ACTIVE']
+ * \t  }
+ * \t  
+ * \t  rule checkcompliance when
+ * \t\t  resourceType == \"AWS::DynamoDB::Table\"
+ * \t\t  tableisactive {
+ * \t\t\t  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"
+ * \t  }
  *                     """)
  *                     .build())
  *                 .build())

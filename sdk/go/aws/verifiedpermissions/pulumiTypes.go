@@ -1170,7 +1170,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly struct {
 	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 	ClientIds []string `pulumi:"clientIds"`
-	// The claim that determines the principal in OIDC access tokens.
+	// The claim that determines the principal in OIDC identity tokens.
 	PrincipalIdClaim *string `pulumi:"principalIdClaim"`
 }
 
@@ -1188,7 +1188,7 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentity
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs struct {
 	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
-	// The claim that determines the principal in OIDC access tokens.
+	// The claim that determines the principal in OIDC identity tokens.
 	PrincipalIdClaim pulumi.StringPtrInput `pulumi:"principalIdClaim"`
 }
 
@@ -1276,7 +1276,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC access tokens.
+// The claim that determines the principal in OIDC identity tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		return v.PrincipalIdClaim
@@ -1317,7 +1317,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC access tokens.
+// The claim that determines the principal in OIDC identity tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		if v == nil {

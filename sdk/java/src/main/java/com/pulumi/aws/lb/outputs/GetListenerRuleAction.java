@@ -54,7 +54,7 @@ public final class GetListenerRuleAction {
      */
     private @Nullable List<GetListenerRuleActionRedirect> redirects;
     /**
-     * @return The type of the action, indicates which sub-block will be populated.
+     * @return Type of transform.
      * 
      */
     private String type;
@@ -108,7 +108,7 @@ public final class GetListenerRuleAction {
         return this.redirects == null ? List.of() : this.redirects;
     }
     /**
-     * @return The type of the action, indicates which sub-block will be populated.
+     * @return Type of transform.
      * 
      */
     public String type() {

@@ -143,13 +143,13 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration for request authorization. See `AuthorizerConfiguration` below.
+        /// Configuration for request authorization. Required when `AuthorizerType` is set to `CUSTOM_JWT`. See `AuthorizerConfiguration` below.
         /// </summary>
         [Output("authorizerConfiguration")]
         public Output<Outputs.AgentcoreGatewayAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Output("authorizerType")]
         public Output<string> AuthorizerType { get; private set; } = null!;
@@ -290,13 +290,13 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for request authorization. See `AuthorizerConfiguration` below.
+        /// Configuration for request authorization. Required when `AuthorizerType` is set to `CUSTOM_JWT`. See `AuthorizerConfiguration` below.
         /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreGatewayAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Input("authorizerType", required: true)]
         public Input<string> AuthorizerType { get; set; } = null!;
@@ -375,13 +375,13 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for request authorization. See `AuthorizerConfiguration` below.
+        /// Configuration for request authorization. Required when `AuthorizerType` is set to `CUSTOM_JWT`. See `AuthorizerConfiguration` below.
         /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreGatewayAuthorizerConfigurationGetArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Input("authorizerType")]
         public Input<string>? AuthorizerType { get; set; }

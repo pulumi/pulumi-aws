@@ -12,6 +12,18 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleConditionHostHeaderArgs : global::Pulumi.InvokeArgs
     {
+        [Input("regexValues", required: true)]
+        private List<string>? _regexValues;
+
+        /// <summary>
+        /// Set of regular expressions to compare against the request URL.
+        /// </summary>
+        public List<string> RegexValues
+        {
+            get => _regexValues ?? (_regexValues = new List<string>());
+            set => _regexValues = value;
+        }
+
         [Input("values", required: true)]
         private List<string>? _values;
 

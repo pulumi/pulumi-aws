@@ -8,6 +8,7 @@ import com.pulumi.aws.lb.ListenerRuleArgs;
 import com.pulumi.aws.lb.inputs.ListenerRuleState;
 import com.pulumi.aws.lb.outputs.ListenerRuleAction;
 import com.pulumi.aws.lb.outputs.ListenerRuleCondition;
+import com.pulumi.aws.lb.outputs.ListenerRuleTransform;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -52,6 +53,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateCognitoArgs;
  * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateOidcArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleTransformArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleTransformHostHeaderRewriteConfigArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleTransformUrlRewriteConfigArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleTransformUrlRewriteConfigRewriteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -220,6 +226,39 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // With transform
+ *         var transform = new ListenerRule("transform", ListenerRuleArgs.builder()
+ *             .listenerArn(frontEndListener.arn())
+ *             .actions(ListenerRuleActionArgs.builder()
+ *                 .type("forward")
+ *                 .targetGroupArn(staticAwsLbTargetGroup.arn())
+ *                 .build())
+ *             .conditions(ListenerRuleConditionArgs.builder()
+ *                 .pathPattern(ListenerRuleConditionPathPatternArgs.builder()
+ *                     .values("*")
+ *                     .build())
+ *                 .build())
+ *             .transforms(            
+ *                 ListenerRuleTransformArgs.builder()
+ *                     .type("host-header-rewrite")
+ *                     .hostHeaderRewriteConfig(ListenerRuleTransformHostHeaderRewriteConfigArgs.builder()
+ *                         .rewrite(ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs.builder()
+ *                             .regex("^mywebsite-(.+).com$")
+ *                             .replace("internal.dev.$1.myweb.com")
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 ListenerRuleTransformArgs.builder()
+ *                     .type("url-rewrite")
+ *                     .urlRewriteConfig(ListenerRuleTransformUrlRewriteConfigArgs.builder()
+ *                         .rewrite(ListenerRuleTransformUrlRewriteConfigRewriteArgs.builder()
+ *                             .regex("^/dp/([A-Za-z0-9]+)/?$")
+ *                             .replace("/product.php?id=$1")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -353,6 +392,20 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     * 
+     */
+    @Export(name="transforms", refs={List.class,ListenerRuleTransform.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ListenerRuleTransform>> transforms;
+
+    /**
+     * @return Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     * 
+     */
+    public Output<Optional<List<ListenerRuleTransform>>> transforms() {
+        return Codegen.optional(this.transforms);
     }
 
     /**

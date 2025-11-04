@@ -52,17 +52,17 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
-	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn *string `pulumi:"arn"`
-	// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+	// Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name *string `pulumi:"name"`
-	// Regular expression name of the image being searched for. Cannot be used with arn or name.
+	// Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
 	NameRegex *string `pulumi:"nameRegex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
 	Type *string `pulumi:"type"`
 }
 
@@ -114,17 +114,17 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
-	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+	// Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Regular expression name of the image being searched for. Cannot be used with arn or name.
+	// Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

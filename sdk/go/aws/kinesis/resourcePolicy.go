@@ -34,21 +34,21 @@ import (
 //			_, err := kinesis.NewResourcePolicy(ctx, "example", &kinesis.ResourcePolicyArgs{
 //				ResourceArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 //				Policy: pulumi.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "writePolicy",
-//	  "Statement": [{
-//	    "Sid": "writestatement",
-//	    "Effect": "Allow",
-//	    "Principal": {
-//	      "AWS": "123456789456"
+//	  \"Version\": \"2012-10-17\",
+//	  \"Id\": \"writePolicy\",
+//	  \"Statement\": [{
+//	    \"Sid\": \"writestatement\",
+//	    \"Effect\": \"Allow\",
+//	    \"Principal\": {
+//	      \"AWS\": \"123456789456\"
 //	    },
-//	    "Action": [
-//	      "kinesis:DescribeStreamSummary",
-//	      "kinesis:ListShards",
-//	      "kinesis:PutRecord",
-//	      "kinesis:PutRecords"
+//	    \"Action\": [
+//	      \"kinesis:DescribeStreamSummary\",
+//	      \"kinesis:ListShards\",
+//	      \"kinesis:PutRecord\",
+//	      \"kinesis:PutRecords\"
 //	    ],
-//	    "Resource": "%v"
+//	    \"Resource\": \"%v\"
 //	  }]
 //	}
 //

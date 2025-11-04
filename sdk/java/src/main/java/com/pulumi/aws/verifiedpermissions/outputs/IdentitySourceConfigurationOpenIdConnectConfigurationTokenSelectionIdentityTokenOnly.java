@@ -18,7 +18,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
      */
     private @Nullable List<String> clientIds;
     /**
-     * @return The claim that determines the principal in OIDC access tokens.
+     * @return The claim that determines the principal in OIDC identity tokens.
      * 
      */
     private @Nullable String principalIdClaim;
@@ -32,7 +32,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         return this.clientIds == null ? List.of() : this.clientIds;
     }
     /**
-     * @return The claim that determines the principal in OIDC access tokens.
+     * @return The claim that determines the principal in OIDC identity tokens.
      * 
      */
     public Optional<String> principalIdClaim() {

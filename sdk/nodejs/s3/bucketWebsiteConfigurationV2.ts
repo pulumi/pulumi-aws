@@ -54,11 +54,11 @@ import * as utilities from "../utilities";
  *         key: "error.html",
  *     },
  *     routingRuleDetails: `[{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
+ *     \\"Condition\\": {
+ *         \\"KeyPrefixEquals\\": \\"docs/\\"
  *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": ""
+ *     \\"Redirect\\": {
+ *         \\"ReplaceKeyPrefixWith\\": \\"\\"
  *     }
  * }]
  * `,

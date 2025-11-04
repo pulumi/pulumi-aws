@@ -218,6 +218,18 @@ namespace Pulumi.Aws.LB
         [Input("region")]
         public string? Region { get; set; }
 
+        [Input("transforms")]
+        private List<Inputs.GetListenerRuleTransformArgs>? _transforms;
+
+        /// <summary>
+        /// Block for transform to apply to requests that match this rule. Detailed below.
+        /// </summary>
+        public List<Inputs.GetListenerRuleTransformArgs> Transforms
+        {
+            get => _transforms ?? (_transforms = new List<Inputs.GetListenerRuleTransformArgs>());
+            set => _transforms = value;
+        }
+
         public GetListenerRuleArgs()
         {
         }
@@ -279,6 +291,18 @@ namespace Pulumi.Aws.LB
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("transforms")]
+        private InputList<Inputs.GetListenerRuleTransformInputArgs>? _transforms;
+
+        /// <summary>
+        /// Block for transform to apply to requests that match this rule. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetListenerRuleTransformInputArgs> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<Inputs.GetListenerRuleTransformInputArgs>());
+            set => _transforms = value;
+        }
+
         public GetListenerRuleInvokeArgs()
         {
         }
@@ -314,6 +338,10 @@ namespace Pulumi.Aws.LB
         /// Tags assigned to the Listener Rule.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Block for transform to apply to requests that match this rule. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetListenerRuleTransformResult> Transforms;
 
         [OutputConstructor]
         private GetListenerRuleResult(
@@ -331,7 +359,9 @@ namespace Pulumi.Aws.LB
 
             string region,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetListenerRuleTransformResult> transforms)
         {
             Actions = actions;
             Arn = arn;
@@ -341,6 +371,7 @@ namespace Pulumi.Aws.LB
             Priority = priority;
             Region = region;
             Tags = tags;
+            Transforms = transforms;
         }
     }
 }

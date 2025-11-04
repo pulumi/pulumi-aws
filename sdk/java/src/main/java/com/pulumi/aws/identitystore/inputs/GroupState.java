@@ -18,6 +18,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     public static final GroupState Empty = new GroupState();
 
     /**
+     * ARN of the Group.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the Group.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * A string containing the description of the group.
      * 
      */
@@ -114,6 +129,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private GroupState() {}
 
     private GroupState(GroupState $) {
+        this.arn = $.arn;
         this.description = $.description;
         this.displayName = $.displayName;
         this.externalIds = $.externalIds;
@@ -138,6 +154,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(GroupState defaults) {
             $ = new GroupState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn ARN of the Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

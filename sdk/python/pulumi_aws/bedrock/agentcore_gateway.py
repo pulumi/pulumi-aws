@@ -35,12 +35,12 @@ class AgentcoreGatewayArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreGateway resource.
-        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
                The following arguments are optional:
-        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. See `authorizer_configuration` below.
+        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
@@ -75,7 +75,7 @@ class AgentcoreGatewayArgs:
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         """
         return pulumi.get(self, "authorizer_type")
 
@@ -113,7 +113,7 @@ class AgentcoreGatewayArgs:
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]:
         """
-        Configuration for request authorization. See `authorizer_configuration` below.
+        Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -237,8 +237,8 @@ class _AgentcoreGatewayState:
                  workload_identity_details: Optional[pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayWorkloadIdentityDetailArgs']]]] = None):
         """
         Input properties used for looking up and filtering AgentcoreGateway resources.
-        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        :param pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs'] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
@@ -295,7 +295,7 @@ class _AgentcoreGatewayState:
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationArgs']]:
         """
-        Configuration for request authorization. See `authorizer_configuration` below.
+        Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -307,7 +307,7 @@ class _AgentcoreGatewayState:
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         """
         return pulumi.get(self, "authorizer_type")
 
@@ -599,8 +599,8 @@ class AgentcoreGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
@@ -795,8 +795,8 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. See `authorizer_configuration` below.
-        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        :param pulumi.Input[Union['AgentcoreGatewayAuthorizerConfigurationArgs', 'AgentcoreGatewayAuthorizerConfigurationArgsDict']] authorizer_configuration: Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         :param pulumi.Input[_builtins.str] description: Description of the gateway.
         :param pulumi.Input[_builtins.str] exception_level: Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
         :param pulumi.Input[_builtins.str] gateway_arn: ARN of the Gateway.
@@ -841,7 +841,7 @@ class AgentcoreGateway(pulumi.CustomResource):
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayAuthorizerConfiguration']]:
         """
-        Configuration for request authorization. See `authorizer_configuration` below.
+        Configuration for request authorization. Required when `authorizer_type` is set to `CUSTOM_JWT`. See `authorizer_configuration` below.
         """
         return pulumi.get(self, "authorizer_configuration")
 
@@ -849,7 +849,7 @@ class AgentcoreGateway(pulumi.CustomResource):
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+        Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
         """
         return pulumi.get(self, "authorizer_type")
 

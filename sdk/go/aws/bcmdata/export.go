@@ -112,7 +112,8 @@ type Export struct {
 	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrOutput   `pulumi:"export"`
+	Export ExportExportPtrOutput `pulumi:"export"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts ExportTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -152,7 +153,8 @@ type exportState struct {
 	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
 	Arn *string `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   *ExportExport     `pulumi:"export"`
+	Export *ExportExport `pulumi:"export"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
@@ -163,7 +165,8 @@ type ExportState struct {
 	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
 	Arn pulumi.StringPtrInput
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrInput
+	Export ExportExportPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
@@ -175,7 +178,8 @@ func (ExportState) ElementType() reflect.Type {
 
 type exportArgs struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   *ExportExport     `pulumi:"export"`
+	Export *ExportExport `pulumi:"export"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
@@ -183,7 +187,8 @@ type exportArgs struct {
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export   ExportExportPtrInput
+	Export ExportExportPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
 }
@@ -286,6 +291,7 @@ func (o ExportOutput) Export() ExportExportPtrOutput {
 	return o.ApplyT(func(v *Export) ExportExportPtrOutput { return v.Export }).(ExportExportPtrOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExportOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

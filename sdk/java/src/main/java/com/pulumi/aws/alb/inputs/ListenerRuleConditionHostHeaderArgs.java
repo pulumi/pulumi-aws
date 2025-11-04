@@ -5,26 +5,51 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ListenerRuleConditionHostHeaderArgs Empty = new ListenerRuleConditionHostHeaderArgs();
 
-    @Import(name="values", required=true)
-    private Output<List<String>> values;
+    /**
+     * List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+     * 
+     */
+    @Import(name="regexValues")
+    private @Nullable Output<List<String>> regexValues;
 
-    public Output<List<String>> values() {
-        return this.values;
+    /**
+     * @return List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+     * 
+     */
+    public Optional<Output<List<String>>> regexValues() {
+        return Optional.ofNullable(this.regexValues);
+    }
+
+    /**
+     * List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * 
+     */
+    @Import(name="values")
+    private @Nullable Output<List<String>> values;
+
+    /**
+     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * 
+     */
+    public Optional<Output<List<String>>> values() {
+        return Optional.ofNullable(this.values);
     }
 
     private ListenerRuleConditionHostHeaderArgs() {}
 
     private ListenerRuleConditionHostHeaderArgs(ListenerRuleConditionHostHeaderArgs $) {
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -46,23 +71,69 @@ public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resour
             $ = new ListenerRuleConditionHostHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder values(Output<List<String>> values) {
+        /**
+         * @param regexValues List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(@Nullable Output<List<String>> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            return regexValues(Output.of(regexValues));
+        }
+
+        /**
+         * @param regexValues List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
+        }
+
+        /**
+         * @param values List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }
 
         public ListenerRuleConditionHostHeaderArgs build() {
-            if ($.values == null) {
-                throw new MissingRequiredPropertyException("ListenerRuleConditionHostHeaderArgs", "values");
-            }
             return $;
         }
     }

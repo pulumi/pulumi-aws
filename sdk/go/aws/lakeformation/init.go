@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataCellsFilter{}
 	case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
 		r = &DataLakeSettings{}
+	case "aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration":
+		r = &IdentityCenterConfiguration{}
 	case "aws:lakeformation/lfTag:LfTag":
 		r = &LfTag{}
 	case "aws:lakeformation/lfTagExpression:LfTagExpression":
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lakeformation/dataLakeSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lakeformation/identityCenterConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

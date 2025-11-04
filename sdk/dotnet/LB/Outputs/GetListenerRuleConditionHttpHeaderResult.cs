@@ -18,6 +18,10 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly string HttpHeaderName;
         /// <summary>
+        /// Set of regular expressions to compare against the request URL.
+        /// </summary>
+        public readonly ImmutableArray<string> RegexValues;
+        /// <summary>
         /// Set of `Key`-`Value` pairs indicating the query string parameters to match.
         /// </summary>
         public readonly ImmutableArray<string> Values;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.LB.Outputs
         private GetListenerRuleConditionHttpHeaderResult(
             string httpHeaderName,
 
+            ImmutableArray<string> regexValues,
+
             ImmutableArray<string> values)
         {
             HttpHeaderName = httpHeaderName;
+            RegexValues = regexValues;
             Values = values;
         }
     }

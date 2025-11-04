@@ -84,7 +84,7 @@ namespace Pulumi.Aws.LB.Inputs
         }
 
         /// <summary>
-        /// The type of the action, indicates which sub-block will be populated.
+        /// Type of transform.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

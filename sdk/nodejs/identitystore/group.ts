@@ -62,6 +62,10 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
+     * ARN of the Group.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * A string containing the description of the group.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -101,6 +105,7 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
+            resourceInputs["arn"] = state?.arn;
             resourceInputs["description"] = state?.description;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["externalIds"] = state?.externalIds;
@@ -119,6 +124,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["identityStoreId"] = args?.identityStoreId;
             resourceInputs["region"] = args?.region;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["externalIds"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         }
@@ -131,6 +137,10 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
+    /**
+     * ARN of the Group.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A string containing the description of the group.
      */

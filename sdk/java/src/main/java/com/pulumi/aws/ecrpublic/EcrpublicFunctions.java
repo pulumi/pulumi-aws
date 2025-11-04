@@ -6,7 +6,10 @@ package com.pulumi.aws.ecrpublic;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenArgs;
 import com.pulumi.aws.ecrpublic.inputs.GetAuthorizationTokenPlainArgs;
+import com.pulumi.aws.ecrpublic.inputs.GetImagesArgs;
+import com.pulumi.aws.ecrpublic.inputs.GetImagesPlainArgs;
 import com.pulumi.aws.ecrpublic.outputs.GetAuthorizationTokenResult;
+import com.pulumi.aws.ecrpublic.outputs.GetImagesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -301,5 +304,40 @@ public final class EcrpublicFunctions {
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args) {
+        return getImages(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+     * 
+     */
+    public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
+        return getImagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecrpublic/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+     * 
+     */
+    public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ecrpublic/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+     * 
+     */
+    public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecrpublic/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
     }
 }

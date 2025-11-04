@@ -801,7 +801,7 @@ class Association(pulumi.CustomResource):
         yum install -y httpd
         systemctl enable httpd
         systemctl start httpd
-        echo "<h1>Web Server - {prefix}</h1>" > /var/www/html/index.html
+        echo \\"<h1>Web Server - {prefix}</h1>\\" > /var/www/html/index.html
         \"\"\").result,
             tags={
                 "Name": f"{prefix}-web-server",
@@ -1059,7 +1059,7 @@ class Association(pulumi.CustomResource):
         yum install -y httpd
         systemctl enable httpd
         systemctl start httpd
-        echo "<h1>Web Server - {prefix}</h1>" > /var/www/html/index.html
+        echo \\"<h1>Web Server - {prefix}</h1>\\" > /var/www/html/index.html
         \"\"\").result,
             tags={
                 "Name": f"{prefix}-web-server",

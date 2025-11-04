@@ -30,6 +30,21 @@ public final class GetListenerRuleConditionHttpHeader extends com.pulumi.resourc
     }
 
     /**
+     * Set of regular expressions to compare against the request URL.
+     * 
+     */
+    @Import(name="regexValues", required=true)
+    private List<String> regexValues;
+
+    /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    public List<String> regexValues() {
+        return this.regexValues;
+    }
+
+    /**
      * Set of `key`-`value` pairs indicating the query string parameters to match.
      * 
      */
@@ -48,6 +63,7 @@ public final class GetListenerRuleConditionHttpHeader extends com.pulumi.resourc
 
     private GetListenerRuleConditionHttpHeader(GetListenerRuleConditionHttpHeader $) {
         this.httpHeaderName = $.httpHeaderName;
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -81,6 +97,27 @@ public final class GetListenerRuleConditionHttpHeader extends com.pulumi.resourc
         }
 
         /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
+        }
+
+        /**
          * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
          * 
          * @return builder
@@ -104,6 +141,9 @@ public final class GetListenerRuleConditionHttpHeader extends com.pulumi.resourc
         public GetListenerRuleConditionHttpHeader build() {
             if ($.httpHeaderName == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeader", "httpHeaderName");
+            }
+            if ($.regexValues == null) {
+                throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeader", "regexValues");
             }
             if ($.values == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeader", "values");

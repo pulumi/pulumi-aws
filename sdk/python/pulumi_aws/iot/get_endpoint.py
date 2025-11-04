@@ -92,6 +92,28 @@ def get_endpoint(endpoint_type: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_kubernetes as kubernetes
+
+    example = aws.iot.get_endpoint()
+    agent = kubernetes.index.Pod("agent",
+        metadata=[{
+            name: my-device,
+        }],
+        spec=[{
+            container: [{
+                image: gcr.io/my-project/image-name,
+                name: image-name,
+                env: [{
+                    name: IOT_ENDPOINT,
+                    value: example.endpoint_address,
+                }],
+            }],
+        }])
+    ```
+
 
     :param _builtins.str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,6 +136,28 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[_builtins.
     Returns a unique endpoint specific to the AWS account making the call.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_kubernetes as kubernetes
+
+    example = aws.iot.get_endpoint()
+    agent = kubernetes.index.Pod("agent",
+        metadata=[{
+            name: my-device,
+        }],
+        spec=[{
+            container: [{
+                image: gcr.io/my-project/image-name,
+                name: image-name,
+                env: [{
+                    name: IOT_ENDPOINT,
+                    value: example.endpoint_address,
+                }],
+            }],
+        }])
+    ```
 
 
     :param _builtins.str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.

@@ -50,6 +50,7 @@ export function getListenerRule(args?: GetListenerRuleArgs, opts?: pulumi.Invoke
         "listenerArn": args.listenerArn,
         "priority": args.priority,
         "region": args.region,
+        "transforms": args.transforms,
     }, opts);
 }
 
@@ -86,6 +87,10 @@ export interface GetListenerRuleArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
+    /**
+     * Block for transform to apply to requests that match this rule. Detailed below.
+     */
+    transforms?: inputs.lb.GetListenerRuleTransform[];
 }
 
 /**
@@ -117,6 +122,10 @@ export interface GetListenerRuleResult {
      * Tags assigned to the Listener Rule.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Block for transform to apply to requests that match this rule. Detailed below.
+     */
+    readonly transforms?: outputs.lb.GetListenerRuleTransform[];
 }
 /**
  * Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -161,6 +170,7 @@ export function getListenerRuleOutput(args?: GetListenerRuleOutputArgs, opts?: p
         "listenerArn": args.listenerArn,
         "priority": args.priority,
         "region": args.region,
+        "transforms": args.transforms,
     }, opts);
 }
 
@@ -197,4 +207,8 @@ export interface GetListenerRuleOutputArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Block for transform to apply to requests that match this rule. Detailed below.
+     */
+    transforms?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleTransformArgs>[]>;
 }

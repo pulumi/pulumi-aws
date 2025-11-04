@@ -48,6 +48,26 @@ import * as utilities from "../utilities";
  *
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as github from "@pulumi/github";
+ *
+ * const example = new aws.codebuild.Webhook("example", {projectName: exampleAwsCodebuildProject.name});
+ * const exampleRepositoryWebhook = new github.index.RepositoryWebhook("example", {
+ *     active: true,
+ *     events: ["push"],
+ *     name: "example",
+ *     repository: exampleGithubRepository.name,
+ *     configuration: [{
+ *         url: example.payloadUrl,
+ *         secret: example.secret,
+ *         contentType: "json",
+ *         insecureSsl: false,
+ *     }],
+ * });
+ * ```
+ *
  * ### For CodeBuild Runner Project
  *
  * To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.

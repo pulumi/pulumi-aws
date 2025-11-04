@@ -166,6 +166,39 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
+ * // With transform
+ * const transform = new aws.lb.ListenerRule("transform", {
+ *     listenerArn: frontEndListener.arn,
+ *     actions: [{
+ *         type: "forward",
+ *         targetGroupArn: staticAwsLbTargetGroup.arn,
+ *     }],
+ *     conditions: [{
+ *         pathPattern: {
+ *             values: ["*"],
+ *         },
+ *     }],
+ *     transforms: [
+ *         {
+ *             type: "host-header-rewrite",
+ *             hostHeaderRewriteConfig: {
+ *                 rewrite: {
+ *                     regex: "^mywebsite-(.+).com$",
+ *                     replace: "internal.dev.$1.myweb.com",
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             type: "url-rewrite",
+ *             urlRewriteConfig: {
+ *                 rewrite: {
+ *                     regex: "^/dp/([A-Za-z0-9]+)/?$",
+ *                     replace: "/product.php?id=$1",
+ *                 },
+ *             },
+ *         },
+ *     ],
+ * });
  * ```
  *
  * ## Import
@@ -242,6 +275,10 @@ export class ListenerRule extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     */
+    declare public readonly transforms: pulumi.Output<outputs.lb.ListenerRuleTransform[] | undefined>;
 
     /**
      * Create a ListenerRule resource with the given unique name, arguments, and options.
@@ -264,6 +301,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["transforms"] = state?.transforms;
         } else {
             const args = argsOrState as ListenerRuleArgs | undefined;
             if (args?.actions === undefined && !opts.urn) {
@@ -281,6 +319,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["transforms"] = args?.transforms;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -327,6 +366,10 @@ export interface ListenerRuleState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     */
+    transforms?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleTransform>[]>;
 }
 
 /**
@@ -357,4 +400,8 @@ export interface ListenerRuleArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+     */
+    transforms?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleTransform>[]>;
 }

@@ -18,6 +18,18 @@ namespace Pulumi.Aws.LB.Inputs
         [Input("httpHeaderName", required: true)]
         public Input<string> HttpHeaderName { get; set; } = null!;
 
+        [Input("regexValues", required: true)]
+        private InputList<string>? _regexValues;
+
+        /// <summary>
+        /// Set of regular expressions to compare against the request URL.
+        /// </summary>
+        public InputList<string> RegexValues
+        {
+            get => _regexValues ?? (_regexValues = new InputList<string>());
+            set => _regexValues = value;
+        }
+
         [Input("values", required: true)]
         private InputList<string>? _values;
 

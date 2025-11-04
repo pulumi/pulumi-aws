@@ -51,6 +51,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("agentRuntimeArn")]
         public Output<string> AgentRuntimeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the Agent Runtime Endpoint.
+        /// </summary>
         [Output("agentRuntimeEndpointArn")]
         public Output<string> AgentRuntimeEndpointArn { get; private set; } = null!;
 
@@ -208,6 +211,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("agentRuntimeArn")]
         public Input<string>? AgentRuntimeArn { get; set; }
 
+        /// <summary>
+        /// ARN of the Agent Runtime Endpoint.
+        /// </summary>
         [Input("agentRuntimeEndpointArn")]
         public Input<string>? AgentRuntimeEndpointArn { get; set; }
 

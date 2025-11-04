@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'RepositoryCatalogDataArgs',
     'RepositoryCatalogDataArgsDict',
+    'GetImagesImageIdArgs',
+    'GetImagesImageIdArgsDict',
 ]
 
 MYPY = False
@@ -151,5 +153,57 @@ class RepositoryCatalogDataArgs:
     @usage_text.setter
     def usage_text(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "usage_text", value)
+
+
+if not MYPY:
+    class GetImagesImageIdArgsDict(TypedDict):
+        image_digest: NotRequired[_builtins.str]
+        """
+        Digest of the image manifest.
+        """
+        image_tag: NotRequired[_builtins.str]
+        """
+        Tag used for the image.
+        """
+elif False:
+    GetImagesImageIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetImagesImageIdArgs:
+    def __init__(__self__, *,
+                 image_digest: Optional[_builtins.str] = None,
+                 image_tag: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str image_digest: Digest of the image manifest.
+        :param _builtins.str image_tag: Tag used for the image.
+        """
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if image_tag is not None:
+            pulumi.set(__self__, "image_tag", image_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[_builtins.str]:
+        """
+        Digest of the image manifest.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @image_digest.setter
+    def image_digest(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "image_digest", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> Optional[_builtins.str]:
+        """
+        Tag used for the image.
+        """
+        return pulumi.get(self, "image_tag")
+
+    @image_tag.setter
+    def image_tag(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "image_tag", value)
 
 

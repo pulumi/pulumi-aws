@@ -21,6 +21,21 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     public static final ImageRecipeState Empty = new ImageRecipeState();
 
     /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    @Import(name="amiTags")
+    private @Nullable Output<Map<String,String>> amiTags;
+
+    /**
+     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> amiTags() {
+        return Optional.ofNullable(this.amiTags);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
@@ -267,6 +282,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     private ImageRecipeState() {}
 
     private ImageRecipeState(ImageRecipeState $) {
+        this.amiTags = $.amiTags;
         this.arn = $.arn;
         this.blockDeviceMappings = $.blockDeviceMappings;
         this.components = $.components;
@@ -301,6 +317,27 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ImageRecipeState defaults) {
             $ = new ImageRecipeState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param amiTags Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amiTags(@Nullable Output<Map<String,String>> amiTags) {
+            $.amiTags = amiTags;
+            return this;
+        }
+
+        /**
+         * @param amiTags Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amiTags(Map<String,String> amiTags) {
+            return amiTags(Output.of(amiTags));
         }
 
         /**

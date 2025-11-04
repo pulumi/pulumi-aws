@@ -124,14 +124,14 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the action, indicates which sub-block will be populated.
+     * Type of transform.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the action, indicates which sub-block will be populated.
+     * @return Type of transform.
      * 
      */
     public Output<String> type() {
@@ -360,7 +360,7 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the action, indicates which sub-block will be populated.
+         * @param type Type of transform.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the action, indicates which sub-block will be populated.
+         * @param type Type of transform.
          * 
          * @return builder
          * 

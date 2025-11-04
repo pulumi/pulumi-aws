@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetListenerRuleCondition {
     /**
-     * @return Contains a single attribute `values`, which contains a set of host names.
+     * @return Host header patterns to match.
+     * Detailed below.
      * 
      */
     private @Nullable List<GetListenerRuleConditionHostHeader> hostHeaders;
@@ -33,7 +34,8 @@ public final class GetListenerRuleCondition {
      */
     private @Nullable List<GetListenerRuleConditionHttpRequestMethod> httpRequestMethods;
     /**
-     * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+     * @return Path patterns to compare against the request URL.
+     * Detailed below.
      * 
      */
     private @Nullable List<GetListenerRuleConditionPathPattern> pathPatterns;
@@ -51,7 +53,8 @@ public final class GetListenerRuleCondition {
 
     private GetListenerRuleCondition() {}
     /**
-     * @return Contains a single attribute `values`, which contains a set of host names.
+     * @return Host header patterns to match.
+     * Detailed below.
      * 
      */
     public List<GetListenerRuleConditionHostHeader> hostHeaders() {
@@ -73,7 +76,8 @@ public final class GetListenerRuleCondition {
         return this.httpRequestMethods == null ? List.of() : this.httpRequestMethods;
     }
     /**
-     * @return Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+     * @return Path patterns to compare against the request URL.
+     * Detailed below.
      * 
      */
     public List<GetListenerRuleConditionPathPattern> pathPatterns() {

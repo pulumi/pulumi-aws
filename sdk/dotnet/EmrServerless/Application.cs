@@ -95,9 +95,108 @@ namespace Pulumi.Aws.EmrServerless
     /// });
     /// ```
     /// 
+    /// ### Monitoring Configuration Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.EmrServerless.Application("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-7.1.0",
+    ///         Type = "spark",
+    ///         MonitoringConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationArgs
+    ///         {
+    ///             CloudwatchLoggingConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 LogGroupName = "/aws/emr-serverless/example",
+    ///                 LogStreamNamePrefix = "spark-logs",
+    ///                 LogTypes = new[]
+    ///                 {
+    ///                     new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs
+    ///                     {
+    ///                         Name = "SPARK_DRIVER",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "STDOUT",
+    ///                             "STDERR",
+    ///                         },
+    ///                     },
+    ///                     new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs
+    ///                     {
+    ///                         Name = "SPARK_EXECUTOR",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "STDOUT",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ManagedPersistenceMonitoringConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///             PrometheusMonitoringConfiguration = new Aws.EmrServerless.Inputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs
+    ///             {
+    ///                 RemoteWriteUrl = "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Runtime Configuration Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.EmrServerless.Application("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ReleaseLabel = "emr-6.8.0",
+    ///         Type = "spark",
+    ///         RuntimeConfigurations = new[]
+    ///         {
+    ///             new Aws.EmrServerless.Inputs.ApplicationRuntimeConfigurationArgs
+    ///             {
+    ///                 Classification = "spark-executor-log4j2",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "rootLogger.level", "error" },
+    ///                     { "logger.IdentifierForClass.name", "classpathForSettingLogger" },
+    ///                     { "logger.IdentifierForClass.level", "info" },
+    ///                 },
+    ///             },
+    ///             new Aws.EmrServerless.Inputs.ApplicationRuntimeConfigurationArgs
+    ///             {
+    ///                 Classification = "spark-defaults",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "spark.executor.memory", "1g" },
+    ///                     { "spark.executor.cores", "1" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+    /// Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emrserverless/application:Application example id
@@ -155,6 +254,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<Outputs.ApplicationMaximumCapacity> MaximumCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
+        [Output("monitoringConfiguration")]
+        public Output<Outputs.ApplicationMonitoringConfiguration?> MonitoringConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the application.
         /// </summary>
         [Output("name")]
@@ -177,6 +282,12 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Output("releaseLabel")]
         public Output<string> ReleaseLabel { get; private set; } = null!;
+
+        /// <summary>
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+        /// </summary>
+        [Output("runtimeConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationRuntimeConfiguration>> RuntimeConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.
@@ -297,6 +408,12 @@ namespace Pulumi.Aws.EmrServerless
         public Input<Inputs.ApplicationMaximumCapacityArgs>? MaximumCapacity { get; set; }
 
         /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.ApplicationMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("name")]
@@ -319,6 +436,18 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
+
+        [Input("runtimeConfigurations")]
+        private InputList<Inputs.ApplicationRuntimeConfigurationArgs>? _runtimeConfigurations;
+
+        /// <summary>
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+        /// </summary>
+        public InputList<Inputs.ApplicationRuntimeConfigurationArgs> RuntimeConfigurations
+        {
+            get => _runtimeConfigurations ?? (_runtimeConfigurations = new InputList<Inputs.ApplicationRuntimeConfigurationArgs>());
+            set => _runtimeConfigurations = value;
+        }
 
         /// <summary>
         /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.
@@ -407,6 +536,12 @@ namespace Pulumi.Aws.EmrServerless
         public Input<Inputs.ApplicationMaximumCapacityGetArgs>? MaximumCapacity { get; set; }
 
         /// <summary>
+        /// The configuration setting for monitoring.
+        /// </summary>
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.ApplicationMonitoringConfigurationGetArgs>? MonitoringConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("name")]
@@ -429,6 +564,18 @@ namespace Pulumi.Aws.EmrServerless
         /// </summary>
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }
+
+        [Input("runtimeConfigurations")]
+        private InputList<Inputs.ApplicationRuntimeConfigurationGetArgs>? _runtimeConfigurations;
+
+        /// <summary>
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+        /// </summary>
+        public InputList<Inputs.ApplicationRuntimeConfigurationGetArgs> RuntimeConfigurations
+        {
+            get => _runtimeConfigurations ?? (_runtimeConfigurations = new InputList<Inputs.ApplicationRuntimeConfigurationGetArgs>());
+            set => _runtimeConfigurations = value;
+        }
 
         /// <summary>
         /// Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See SchedulerConfiguration Arguments below.

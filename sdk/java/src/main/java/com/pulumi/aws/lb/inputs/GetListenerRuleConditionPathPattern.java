@@ -15,6 +15,21 @@ public final class GetListenerRuleConditionPathPattern extends com.pulumi.resour
     public static final GetListenerRuleConditionPathPattern Empty = new GetListenerRuleConditionPathPattern();
 
     /**
+     * Set of regular expressions to compare against the request URL.
+     * 
+     */
+    @Import(name="regexValues", required=true)
+    private List<String> regexValues;
+
+    /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    public List<String> regexValues() {
+        return this.regexValues;
+    }
+
+    /**
      * Set of `key`-`value` pairs indicating the query string parameters to match.
      * 
      */
@@ -32,6 +47,7 @@ public final class GetListenerRuleConditionPathPattern extends com.pulumi.resour
     private GetListenerRuleConditionPathPattern() {}
 
     private GetListenerRuleConditionPathPattern(GetListenerRuleConditionPathPattern $) {
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -51,6 +67,27 @@ public final class GetListenerRuleConditionPathPattern extends com.pulumi.resour
 
         public Builder(GetListenerRuleConditionPathPattern defaults) {
             $ = new GetListenerRuleConditionPathPattern(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
         }
 
         /**
@@ -75,6 +112,9 @@ public final class GetListenerRuleConditionPathPattern extends com.pulumi.resour
         }
 
         public GetListenerRuleConditionPathPattern build() {
+            if ($.regexValues == null) {
+                throw new MissingRequiredPropertyException("GetListenerRuleConditionPathPattern", "regexValues");
+            }
             if ($.values == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionPathPattern", "values");
             }

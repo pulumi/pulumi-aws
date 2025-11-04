@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .kmsKeyId(example.arn())
  *             .manifest("""
  *   {
- * 	"databaseInstallationFileNames":["V982063-01.zip"]
+ * \t\"databaseInstallationFileNames\":[\"V982063-01.zip\"]
  *   }
  *             """)
  *             .tags(Map.ofEntries(

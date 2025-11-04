@@ -12,7 +12,9 @@ import com.pulumi.aws.emrserverless.outputs.ApplicationImageConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacity;
 import com.pulumi.aws.emrserverless.outputs.ApplicationInteractiveConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationMaximumCapacity;
+import com.pulumi.aws.emrserverless.outputs.ApplicationMonitoringConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationNetworkConfiguration;
+import com.pulumi.aws.emrserverless.outputs.ApplicationRuntimeConfiguration;
 import com.pulumi.aws.emrserverless.outputs.ApplicationSchedulerConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -152,9 +154,124 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Monitoring Configuration Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emrserverless.Application;
+ * import com.pulumi.aws.emrserverless.ApplicationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Application("example", ApplicationArgs.builder()
+ *             .name("example")
+ *             .releaseLabel("emr-7.1.0")
+ *             .type("spark")
+ *             .monitoringConfiguration(ApplicationMonitoringConfigurationArgs.builder()
+ *                 .cloudwatchLoggingConfiguration(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs.builder()
+ *                     .enabled(true)
+ *                     .logGroupName("/aws/emr-serverless/example")
+ *                     .logStreamNamePrefix("spark-logs")
+ *                     .logTypes(                    
+ *                         ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs.builder()
+ *                             .name("SPARK_DRIVER")
+ *                             .values(                            
+ *                                 "STDOUT",
+ *                                 "STDERR")
+ *                             .build(),
+ *                         ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs.builder()
+ *                             .name("SPARK_EXECUTOR")
+ *                             .values("STDOUT")
+ *                             .build())
+ *                     .build())
+ *                 .managedPersistenceMonitoringConfiguration(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs.builder()
+ *                     .enabled(true)
+ *                     .build())
+ *                 .prometheusMonitoringConfiguration(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs.builder()
+ *                     .remoteWriteUrl("https://prometheus-remote-write-endpoint.example.com/api/v1/write")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Runtime Configuration Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emrserverless.Application;
+ * import com.pulumi.aws.emrserverless.ApplicationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationRuntimeConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Application("example", ApplicationArgs.builder()
+ *             .name("example")
+ *             .releaseLabel("emr-6.8.0")
+ *             .type("spark")
+ *             .runtimeConfigurations(            
+ *                 ApplicationRuntimeConfigurationArgs.builder()
+ *                     .classification("spark-executor-log4j2")
+ *                     .properties(Map.ofEntries(
+ *                         Map.entry("rootLogger.level", "error"),
+ *                         Map.entry("logger.IdentifierForClass.name", "classpathForSettingLogger"),
+ *                         Map.entry("logger.IdentifierForClass.level", "info")
+ *                     ))
+ *                     .build(),
+ *                 ApplicationRuntimeConfigurationArgs.builder()
+ *                     .classification("spark-defaults")
+ *                     .properties(Map.ofEntries(
+ *                         Map.entry("spark.executor.memory", "1g"),
+ *                         Map.entry("spark.executor.cores", "1")
+ *                     ))
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+ * Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:emrserverless/application:Application example id
@@ -276,6 +393,20 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.maximumCapacity;
     }
     /**
+     * The configuration setting for monitoring.
+     * 
+     */
+    @Export(name="monitoringConfiguration", refs={ApplicationMonitoringConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ApplicationMonitoringConfiguration> monitoringConfiguration;
+
+    /**
+     * @return The configuration setting for monitoring.
+     * 
+     */
+    public Output<Optional<ApplicationMonitoringConfiguration>> monitoringConfiguration() {
+        return Codegen.optional(this.monitoringConfiguration);
+    }
+    /**
      * The name of the application.
      * 
      */
@@ -330,6 +461,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<String> releaseLabel() {
         return this.releaseLabel;
+    }
+    /**
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     * 
+     */
+    @Export(name="runtimeConfigurations", refs={List.class,ApplicationRuntimeConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationRuntimeConfiguration>> runtimeConfigurations;
+
+    /**
+     * @return A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     * 
+     */
+    public Output<Optional<List<ApplicationRuntimeConfiguration>>> runtimeConfigurations() {
+        return Codegen.optional(this.runtimeConfigurations);
     }
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.

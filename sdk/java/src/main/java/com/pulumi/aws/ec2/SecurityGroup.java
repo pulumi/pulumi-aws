@@ -331,7 +331,7 @@ import javax.annotation.Nullable;
  *             .create("true")
  *             .update("true")
  *             .delete("""
- *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=%s" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+ *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%s\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
  * ", tags.workaround1(),tags.workaround2(),id))
  *             .build(), CustomResourceOptions.builder()
@@ -339,7 +339,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("rerunUponChangeOf", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))

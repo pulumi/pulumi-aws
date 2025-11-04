@@ -28,7 +28,7 @@ class GetListenerRuleResult:
     """
     A collection of values returned by getListenerRule.
     """
-    def __init__(__self__, actions=None, arn=None, conditions=None, id=None, listener_arn=None, priority=None, region=None, tags=None):
+    def __init__(__self__, actions=None, arn=None, conditions=None, id=None, listener_arn=None, priority=None, region=None, tags=None, transforms=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -53,6 +53,9 @@ class GetListenerRuleResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transforms and not isinstance(transforms, list):
+            raise TypeError("Expected argument 'transforms' to be a list")
+        pulumi.set(__self__, "transforms", transforms)
 
     @_builtins.property
     @pulumi.getter
@@ -111,6 +114,14 @@ class GetListenerRuleResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence['outputs.GetListenerRuleTransformResult']]:
+        """
+        Block for transform to apply to requests that match this rule. Detailed below.
+        """
+        return pulumi.get(self, "transforms")
+
 
 class AwaitableGetListenerRuleResult(GetListenerRuleResult):
     # pylint: disable=using-constant-test
@@ -125,7 +136,8 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
             listener_arn=self.listener_arn,
             priority=self.priority,
             region=self.region,
-            tags=self.tags)
+            tags=self.tags,
+            transforms=self.transforms)
 
 
 def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]] = None,
@@ -134,6 +146,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
                       listener_arn: Optional[_builtins.str] = None,
                       priority: Optional[_builtins.int] = None,
                       region: Optional[_builtins.str] = None,
+                      transforms: Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -176,6 +189,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     :param _builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -184,6 +198,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     __args__['listenerArn'] = listener_arn
     __args__['priority'] = priority
     __args__['region'] = region
+    __args__['transforms'] = transforms
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lb/getListenerRule:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult).value
 
@@ -195,13 +210,15 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
         priority=pulumi.get(__ret__, 'priority'),
         region=pulumi.get(__ret__, 'region'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        transforms=pulumi.get(__ret__, 'transforms'))
 def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]]]] = None,
                              arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
                              listener_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                              priority: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                             transforms: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -244,6 +261,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     :param _builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetListenerRuleTransformArgs', 'GetListenerRuleTransformArgsDict']] transforms: Block for transform to apply to requests that match this rule. Detailed below.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -252,6 +270,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     __args__['listenerArn'] = listener_arn
     __args__['priority'] = priority
     __args__['region'] = region
+    __args__['transforms'] = transforms
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getListenerRule:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult)
     return __ret__.apply(lambda __response__: GetListenerRuleResult(
@@ -262,4 +281,5 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
         listener_arn=pulumi.get(__response__, 'listener_arn'),
         priority=pulumi.get(__response__, 'priority'),
         region=pulumi.get(__response__, 'region'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        transforms=pulumi.get(__response__, 'transforms')))

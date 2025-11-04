@@ -20,7 +20,7 @@ public final class GetImageApplication {
      */
     private String appBlockArn;
     /**
-     * @return Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * @return ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      * 
      */
     private String arn;
@@ -76,7 +76,7 @@ public final class GetImageApplication {
      */
     private Map<String,String> metadata;
     /**
-     * @return Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * @return Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      * 
      */
     private String name;
@@ -101,7 +101,7 @@ public final class GetImageApplication {
         return this.appBlockArn;
     }
     /**
-     * @return Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * @return ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      * 
      */
     public String arn() {
@@ -179,7 +179,7 @@ public final class GetImageApplication {
         return this.metadata;
     }
     /**
-     * @return Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * @return Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      * 
      */
     public String name() {

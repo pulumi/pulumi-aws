@@ -16,6 +16,8 @@ from .. import _utilities
 
 __all__ = [
     'RepositoryCatalogData',
+    'GetImagesImageResult',
+    'GetImagesImageIdResult',
 ]
 
 @pulumi.output_type
@@ -118,5 +120,119 @@ class RepositoryCatalogData(dict):
         Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         """
         return pulumi.get(self, "usage_text")
+
+
+@pulumi.output_type
+class GetImagesImageResult(dict):
+    def __init__(__self__, *,
+                 artifact_media_type: _builtins.str,
+                 image_digest: _builtins.str,
+                 image_manifest_media_type: _builtins.str,
+                 image_pushed_at: _builtins.str,
+                 image_size_in_bytes: _builtins.int,
+                 image_tags: Sequence[_builtins.str],
+                 registry_id: _builtins.str,
+                 repository_name: _builtins.str):
+        """
+        :param _builtins.str artifact_media_type: Media type of the artifact.
+        :param _builtins.str image_digest: Digest of the image manifest.
+        :param _builtins.str image_manifest_media_type: Media type of the image manifest.
+        :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
+        :param _builtins.str repository_name: Name of the public repository.
+        """
+        pulumi.set(__self__, "artifact_media_type", artifact_media_type)
+        pulumi.set(__self__, "image_digest", image_digest)
+        pulumi.set(__self__, "image_manifest_media_type", image_manifest_media_type)
+        pulumi.set(__self__, "image_pushed_at", image_pushed_at)
+        pulumi.set(__self__, "image_size_in_bytes", image_size_in_bytes)
+        pulumi.set(__self__, "image_tags", image_tags)
+        pulumi.set(__self__, "registry_id", registry_id)
+        pulumi.set(__self__, "repository_name", repository_name)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactMediaType")
+    def artifact_media_type(self) -> _builtins.str:
+        """
+        Media type of the artifact.
+        """
+        return pulumi.get(self, "artifact_media_type")
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> _builtins.str:
+        """
+        Digest of the image manifest.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @_builtins.property
+    @pulumi.getter(name="imageManifestMediaType")
+    def image_manifest_media_type(self) -> _builtins.str:
+        """
+        Media type of the image manifest.
+        """
+        return pulumi.get(self, "image_manifest_media_type")
+
+    @_builtins.property
+    @pulumi.getter(name="imagePushedAt")
+    def image_pushed_at(self) -> _builtins.str:
+        return pulumi.get(self, "image_pushed_at")
+
+    @_builtins.property
+    @pulumi.getter(name="imageSizeInBytes")
+    def image_size_in_bytes(self) -> _builtins.int:
+        return pulumi.get(self, "image_size_in_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="imageTags")
+    def image_tags(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "image_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> _builtins.str:
+        """
+        AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
+        """
+        return pulumi.get(self, "registry_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> _builtins.str:
+        """
+        Name of the public repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+
+@pulumi.output_type
+class GetImagesImageIdResult(dict):
+    def __init__(__self__, *,
+                 image_digest: Optional[_builtins.str] = None,
+                 image_tag: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str image_digest: Digest of the image manifest.
+        :param _builtins.str image_tag: Tag used for the image.
+        """
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if image_tag is not None:
+            pulumi.set(__self__, "image_tag", image_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[_builtins.str]:
+        """
+        Digest of the image manifest.
+        """
+        return pulumi.get(self, "image_digest")
+
+    @_builtins.property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> Optional[_builtins.str]:
+        """
+        Tag used for the image.
+        """
+        return pulumi.get(self, "image_tag")
 
 

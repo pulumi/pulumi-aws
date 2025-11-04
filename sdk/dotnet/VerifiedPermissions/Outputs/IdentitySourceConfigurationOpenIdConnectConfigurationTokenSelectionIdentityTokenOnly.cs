@@ -18,7 +18,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ClientIds;
         /// <summary>
-        /// The claim that determines the principal in OIDC access tokens.
+        /// The claim that determines the principal in OIDC identity tokens.
         /// </summary>
         public readonly string? PrincipalIdClaim;
 

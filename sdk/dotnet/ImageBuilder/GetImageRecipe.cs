@@ -153,6 +153,10 @@ namespace Pulumi.Aws.ImageBuilder
     [OutputType]
     public sealed class GetImageRecipeResult
     {
+        /// <summary>
+        /// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> AmiTags;
         public readonly string Arn;
         /// <summary>
         /// Set of objects with block device mappings for the image recipe.
@@ -210,6 +214,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         [OutputConstructor]
         private GetImageRecipeResult(
+            ImmutableDictionary<string, string> amiTags,
+
             string arn,
 
             ImmutableArray<Outputs.GetImageRecipeBlockDeviceMappingResult> blockDeviceMappings,
@@ -240,6 +246,7 @@ namespace Pulumi.Aws.ImageBuilder
 
             string workingDirectory)
         {
+            AmiTags = amiTags;
             Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
             Components = components;
