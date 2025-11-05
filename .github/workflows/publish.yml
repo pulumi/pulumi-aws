@@ -113,6 +113,8 @@ jobs:
       with:
         tag_name: v${{ inputs.version }}
         prerelease: ${{ inputs.isPrerelease }}
+        # This is a backport branch. We don't want to set this release to latest.
+        make_latest: false
         # We keep pre-releases as drafts so they're not visible until we manually publish them.
         draft: ${{ inputs.isPrerelease }}
         body: ${{ steps.schema-summary.outputs.summary }}
