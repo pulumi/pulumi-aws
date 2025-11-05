@@ -26,7 +26,8 @@ class ListenerRuleArgs:
                  listener_arn: pulumi.Input[_builtins.str],
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
@@ -35,6 +36,7 @@ class ListenerRuleArgs:
         :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "conditions", conditions)
@@ -45,6 +47,8 @@ class ListenerRuleArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @_builtins.property
     @pulumi.getter
@@ -118,6 +122,18 @@ class ListenerRuleArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
+        """
+        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]):
+        pulumi.set(self, "transforms", value)
+
 
 @pulumi.input_type
 class _ListenerRuleState:
@@ -129,7 +145,8 @@ class _ListenerRuleState:
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         Input properties used for looking up and filtering ListenerRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]] actions: An Action block. Action blocks are documented below.
@@ -140,6 +157,7 @@ class _ListenerRuleState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -157,6 +175,8 @@ class _ListenerRuleState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
 
     @_builtins.property
     @pulumi.getter
@@ -254,6 +274,18 @@ class _ListenerRuleState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
+        """
+        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]):
+        pulumi.set(self, "transforms", value)
+
 
 @pulumi.type_token("aws:lb/listenerRule:ListenerRule")
 class ListenerRule(pulumi.CustomResource):
@@ -267,6 +299,7 @@ class ListenerRule(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Load Balancer Listener Rule resource.
@@ -420,6 +453,38 @@ class ListenerRule(pulumi.CustomResource):
                     "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
+        # With transform
+        transform = aws.lb.ListenerRule("transform",
+            listener_arn=front_end_listener.arn,
+            actions=[{
+                "type": "forward",
+                "target_group_arn": static_aws_lb_target_group["arn"],
+            }],
+            conditions=[{
+                "path_pattern": {
+                    "values": ["*"],
+                },
+            }],
+            transforms=[
+                {
+                    "type": "host-header-rewrite",
+                    "host_header_rewrite_config": {
+                        "rewrite": {
+                            "regex": "^mywebsite-(.+).com$",
+                            "replace": "internal.dev.$1.myweb.com",
+                        },
+                    },
+                },
+                {
+                    "type": "url-rewrite",
+                    "url_rewrite_config": {
+                        "rewrite": {
+                            "regex": "^/dp/([A-Za-z0-9]+)/?$",
+                            "replace": "/product.php?id=$1",
+                        },
+                    },
+                },
+            ])
         ```
 
         ## Import
@@ -444,6 +509,7 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         ...
     @overload
@@ -603,6 +669,38 @@ class ListenerRule(pulumi.CustomResource):
                     "target_group_arn": static_aws_lb_target_group["arn"],
                 },
             ])
+        # With transform
+        transform = aws.lb.ListenerRule("transform",
+            listener_arn=front_end_listener.arn,
+            actions=[{
+                "type": "forward",
+                "target_group_arn": static_aws_lb_target_group["arn"],
+            }],
+            conditions=[{
+                "path_pattern": {
+                    "values": ["*"],
+                },
+            }],
+            transforms=[
+                {
+                    "type": "host-header-rewrite",
+                    "host_header_rewrite_config": {
+                        "rewrite": {
+                            "regex": "^mywebsite-(.+).com$",
+                            "replace": "internal.dev.$1.myweb.com",
+                        },
+                    },
+                },
+                {
+                    "type": "url-rewrite",
+                    "url_rewrite_config": {
+                        "rewrite": {
+                            "regex": "^/dp/([A-Za-z0-9]+)/?$",
+                            "replace": "/product.php?id=$1",
+                        },
+                    },
+                },
+            ])
         ```
 
         ## Import
@@ -640,6 +738,7 @@ class ListenerRule(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -661,6 +760,7 @@ class ListenerRule(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transforms"] = transforms
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancingv2/listenerRule:ListenerRule")])
@@ -682,7 +782,8 @@ class ListenerRule(pulumi.CustomResource):
             priority: Optional[pulumi.Input[_builtins.int]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ListenerRule':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None) -> 'ListenerRule':
         """
         Get an existing ListenerRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -698,6 +799,7 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]] transforms: Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -711,6 +813,7 @@ class ListenerRule(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["transforms"] = transforms
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -776,4 +879,12 @@ class ListenerRule(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerRuleTransform']]]:
+        """
+        Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `transform` block from the configuration.
+        """
+        return pulumi.get(self, "transforms")
 

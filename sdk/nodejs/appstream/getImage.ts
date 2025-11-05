@@ -41,19 +41,19 @@ export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetImageArgs {
     /**
-     * Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      */
     arn?: string;
     /**
-     * Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+     * Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
      */
     mostRecent?: boolean;
     /**
-     * Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      */
     name?: string;
     /**
-     * Regular expression name of the image being searched for. Cannot be used with arn or name.
+     * Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
      */
     nameRegex?: string;
     /**
@@ -61,7 +61,7 @@ export interface GetImageArgs {
      */
     region?: string;
     /**
-     * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      */
     type?: string;
 }
@@ -162,19 +162,19 @@ export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOu
  */
 export interface GetImageOutputArgs {
     /**
-     * Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+     * Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
      */
     mostRecent?: pulumi.Input<boolean>;
     /**
-     * Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Regular expression name of the image being searched for. Cannot be used with arn or name.
+     * Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
      */
     nameRegex?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface GetImageOutputArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      */
     type?: pulumi.Input<string>;
 }

@@ -54,6 +54,8 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
+	// ARN of the Group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A string containing the description of the group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
@@ -106,6 +108,8 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
+	// ARN of the Group.
+	Arn *string `pulumi:"arn"`
 	// A string containing the description of the group.
 	Description *string `pulumi:"description"`
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
@@ -123,6 +127,8 @@ type groupState struct {
 }
 
 type GroupState struct {
+	// ARN of the Group.
+	Arn pulumi.StringPtrInput
 	// A string containing the description of the group.
 	Description pulumi.StringPtrInput
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
@@ -255,6 +261,11 @@ func (o GroupOutput) ToGroupOutput() GroupOutput {
 
 func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
+}
+
+// ARN of the Group.
+func (o GroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A string containing the description of the group.

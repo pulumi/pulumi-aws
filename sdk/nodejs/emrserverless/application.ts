@@ -65,9 +65,78 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Monitoring Configuration Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-7.1.0",
+ *     type: "spark",
+ *     monitoringConfiguration: {
+ *         cloudwatchLoggingConfiguration: {
+ *             enabled: true,
+ *             logGroupName: "/aws/emr-serverless/example",
+ *             logStreamNamePrefix: "spark-logs",
+ *             logTypes: [
+ *                 {
+ *                     name: "SPARK_DRIVER",
+ *                     values: [
+ *                         "STDOUT",
+ *                         "STDERR",
+ *                     ],
+ *                 },
+ *                 {
+ *                     name: "SPARK_EXECUTOR",
+ *                     values: ["STDOUT"],
+ *                 },
+ *             ],
+ *         },
+ *         managedPersistenceMonitoringConfiguration: {
+ *             enabled: true,
+ *         },
+ *         prometheusMonitoringConfiguration: {
+ *             remoteWriteUrl: "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Runtime Configuration Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emrserverless.Application("example", {
+ *     name: "example",
+ *     releaseLabel: "emr-6.8.0",
+ *     type: "spark",
+ *     runtimeConfigurations: [
+ *         {
+ *             classification: "spark-executor-log4j2",
+ *             properties: {
+ *                 "rootLogger.level": "error",
+ *                 "logger.IdentifierForClass.name": "classpathForSettingLogger",
+ *                 "logger.IdentifierForClass.level": "info",
+ *             },
+ *         },
+ *         {
+ *             classification: "spark-defaults",
+ *             properties: {
+ *                 "spark.executor.memory": "1g",
+ *                 "spark.executor.cores": "1",
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
- * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+ * Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:emrserverless/application:Application example id
@@ -134,6 +203,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly maximumCapacity: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
     /**
+     * The configuration setting for monitoring.
+     */
+    declare public readonly monitoringConfiguration: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
+    /**
      * The name of the application.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -149,6 +222,10 @@ export class Application extends pulumi.CustomResource {
      * The EMR release version associated with the application.
      */
     declare public readonly releaseLabel: pulumi.Output<string>;
+    /**
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     */
+    declare public readonly runtimeConfigurations: pulumi.Output<outputs.emrserverless.ApplicationRuntimeConfiguration[] | undefined>;
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      */
@@ -187,10 +264,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["initialCapacities"] = state?.initialCapacities;
             resourceInputs["interactiveConfiguration"] = state?.interactiveConfiguration;
             resourceInputs["maximumCapacity"] = state?.maximumCapacity;
+            resourceInputs["monitoringConfiguration"] = state?.monitoringConfiguration;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkConfiguration"] = state?.networkConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["releaseLabel"] = state?.releaseLabel;
+            resourceInputs["runtimeConfigurations"] = state?.runtimeConfigurations;
             resourceInputs["schedulerConfiguration"] = state?.schedulerConfiguration;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -210,10 +289,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["initialCapacities"] = args?.initialCapacities;
             resourceInputs["interactiveConfiguration"] = args?.interactiveConfiguration;
             resourceInputs["maximumCapacity"] = args?.maximumCapacity;
+            resourceInputs["monitoringConfiguration"] = args?.monitoringConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["runtimeConfigurations"] = args?.runtimeConfigurations;
             resourceInputs["schedulerConfiguration"] = args?.schedulerConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
@@ -262,6 +343,10 @@ export interface ApplicationState {
      */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
     /**
+     * The configuration setting for monitoring.
+     */
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration>;
+    /**
      * The name of the application.
      */
     name?: pulumi.Input<string>;
@@ -277,6 +362,10 @@ export interface ApplicationState {
      * The EMR release version associated with the application.
      */
     releaseLabel?: pulumi.Input<string>;
+    /**
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     */
+    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[]>;
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      */
@@ -328,6 +417,10 @@ export interface ApplicationArgs {
      */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
     /**
+     * The configuration setting for monitoring.
+     */
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfiguration>;
+    /**
      * The name of the application.
      */
     name?: pulumi.Input<string>;
@@ -343,6 +436,10 @@ export interface ApplicationArgs {
      * The EMR release version associated with the application.
      */
     releaseLabel: pulumi.Input<string>;
+    /**
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     */
+    runtimeConfigurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationRuntimeConfiguration>[]>;
     /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      */

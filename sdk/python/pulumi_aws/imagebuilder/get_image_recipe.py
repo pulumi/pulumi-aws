@@ -27,7 +27,10 @@ class GetImageRecipeResult:
     """
     A collection of values returned by getImageRecipe.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, region=None, tags=None, user_data_base64=None, version=None, working_directory=None):
+    def __init__(__self__, ami_tags=None, arn=None, block_device_mappings=None, components=None, date_created=None, description=None, id=None, name=None, owner=None, parent_image=None, platform=None, region=None, tags=None, user_data_base64=None, version=None, working_directory=None):
+        if ami_tags and not isinstance(ami_tags, dict):
+            raise TypeError("Expected argument 'ami_tags' to be a dict")
+        pulumi.set(__self__, "ami_tags", ami_tags)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -73,6 +76,14 @@ class GetImageRecipeResult:
         if working_directory and not isinstance(working_directory, str):
             raise TypeError("Expected argument 'working_directory' to be a str")
         pulumi.set(__self__, "working_directory", working_directory)
+
+    @_builtins.property
+    @pulumi.getter(name="amiTags")
+    def ami_tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+        """
+        return pulumi.get(self, "ami_tags")
 
     @_builtins.property
     @pulumi.getter
@@ -195,6 +206,7 @@ class AwaitableGetImageRecipeResult(GetImageRecipeResult):
         if False:
             yield self
         return GetImageRecipeResult(
+            ami_tags=self.ami_tags,
             arn=self.arn,
             block_device_mappings=self.block_device_mappings,
             components=self.components,
@@ -241,6 +253,7 @@ def get_image_recipe(arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImageRecipe:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult).value
 
     return AwaitableGetImageRecipeResult(
+        ami_tags=pulumi.get(__ret__, 'ami_tags'),
         arn=pulumi.get(__ret__, 'arn'),
         block_device_mappings=pulumi.get(__ret__, 'block_device_mappings'),
         components=pulumi.get(__ret__, 'components'),
@@ -284,6 +297,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipe:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult)
     return __ret__.apply(lambda __response__: GetImageRecipeResult(
+        ami_tags=pulumi.get(__response__, 'ami_tags'),
         arn=pulumi.get(__response__, 'arn'),
         block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),
         components=pulumi.get(__response__, 'components'),

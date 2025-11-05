@@ -43,7 +43,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleActionRedirectResult> Redirects;
         /// <summary>
-        /// The type of the action, indicates which sub-block will be populated.
+        /// Type of transform.
         /// </summary>
         public readonly string Type;
 

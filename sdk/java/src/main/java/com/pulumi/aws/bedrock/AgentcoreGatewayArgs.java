@@ -21,14 +21,14 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
     public static final AgentcoreGatewayArgs Empty = new AgentcoreGatewayArgs();
 
     /**
-     * Configuration for request authorization. See `authorizerConfiguration` below.
+     * Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      * 
      */
     @Import(name="authorizerConfiguration")
     private @Nullable Output<AgentcoreGatewayAuthorizerConfigurationArgs> authorizerConfiguration;
 
     /**
-     * @return Configuration for request authorization. See `authorizerConfiguration` below.
+     * @return Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      * 
      */
     public Optional<Output<AgentcoreGatewayAuthorizerConfigurationArgs>> authorizerConfiguration() {
@@ -36,14 +36,14 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     @Import(name="authorizerType", required=true)
     private Output<String> authorizerType;
 
     /**
-     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     public Output<String> authorizerType() {
@@ -232,7 +232,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerConfiguration Configuration for request authorization. See `authorizerConfiguration` below.
+         * @param authorizerConfiguration Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerConfiguration Configuration for request authorization. See `authorizerConfiguration` below.
+         * @param authorizerConfiguration Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
          * 
          * @return builder
          * 

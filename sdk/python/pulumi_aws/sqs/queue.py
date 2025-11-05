@@ -821,12 +821,6 @@ class Queue(pulumi.CustomResource):
 
         * `url` (String) URL of the SQS queue.
 
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
-
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
         console
@@ -967,12 +961,6 @@ class Queue(pulumi.CustomResource):
         #### Required
 
         * `url` (String) URL of the SQS queue.
-
-        #### Optional
-
-        * `account_id` (String) AWS Account where this resource is managed.
-
-        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 

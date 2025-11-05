@@ -28,13 +28,13 @@ namespace Pulumi.Aws.ResourceGroups
     ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
     ///             Query = @"{
-    ///   ""ResourceTypeFilters"": [
-    ///     ""AWS::EC2::Instance""
+    ///   \""ResourceTypeFilters\"": [
+    ///     \""AWS::EC2::Instance\""
     ///   ],
-    ///   ""TagFilters"": [
+    ///   \""TagFilters\"": [
     ///     {
-    ///       ""Key"": ""Stage"",
-    ///       ""Values"": [""Test""]
+    ///       \""Key\"": \""Stage\"",
+    ///       \""Values\"": [\""Test\""]
     ///     }
     ///   ]
     /// }

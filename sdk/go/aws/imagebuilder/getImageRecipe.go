@@ -60,7 +60,9 @@ type LookupImageRecipeArgs struct {
 
 // A collection of values returned by getImageRecipe.
 type LookupImageRecipeResult struct {
-	Arn string `pulumi:"arn"`
+	// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+	AmiTags map[string]string `pulumi:"amiTags"`
+	Arn     string            `pulumi:"arn"`
 	// Set of objects with block device mappings for the image recipe.
 	BlockDeviceMappings []GetImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// List of objects with components for the image recipe.
@@ -126,6 +128,11 @@ func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutput() LookupI
 
 func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContext(ctx context.Context) LookupImageRecipeResultOutput {
 	return o
+}
+
+// Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+func (o LookupImageRecipeResultOutput) AmiTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.AmiTags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {

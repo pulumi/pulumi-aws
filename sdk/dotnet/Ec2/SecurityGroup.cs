@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Create = "true",
     ///         Update = "true",
-    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters ""Name=tag:Name,Values={tags.Workaround1}"" --query ""VpcEndpoints[0].VpcEndpointId"" --output text` &amp;&amp;
+    ///         Delete = @$"            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \""Name=tag:Name,Values={tags.Workaround1}\"" --query \""VpcEndpoints[0].VpcEndpointId\"" --output text` &amp;&amp;
     ///             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.Workaround2} --remove-security-group-ids {id}
     /// ",
     ///     }, new CustomResourceOptions
@@ -257,15 +257,15 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleResource = new Null.Resource("example", new()
+    ///     var exampleResource = new Null.Index.Resource("example", new()
     ///     {
     ///         Triggers = 
     ///         {
-    ///             { "rerun_upon_change_of", Std.Join.Invoke(new()
+    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,
-    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///             }).Result },
     ///         },
     ///     });
     /// 

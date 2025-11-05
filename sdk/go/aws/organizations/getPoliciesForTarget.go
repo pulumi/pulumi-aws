@@ -14,6 +14,8 @@ import (
 // Data source for managing an AWS Organizations Policies For Target.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, opts ...pulumi.InvokeOption) (*GetPoliciesForTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoliciesForTargetResult

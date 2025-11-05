@@ -104,6 +104,9 @@ export class Export extends pulumi.CustomResource {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     declare public readonly export: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
@@ -152,6 +155,9 @@ export interface ExportState {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
@@ -165,6 +171,9 @@ export interface ExportArgs {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
 }

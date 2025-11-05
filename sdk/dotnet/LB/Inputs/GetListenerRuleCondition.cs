@@ -16,7 +16,8 @@ namespace Pulumi.Aws.LB.Inputs
         private List<Inputs.GetListenerRuleConditionHostHeaderArgs>? _hostHeaders;
 
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of host names.
+        /// Host header patterns to match.
+        /// Detailed below.
         /// </summary>
         public List<Inputs.GetListenerRuleConditionHostHeaderArgs> HostHeaders
         {
@@ -53,7 +54,8 @@ namespace Pulumi.Aws.LB.Inputs
         private List<Inputs.GetListenerRuleConditionPathPatternArgs>? _pathPatterns;
 
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of path patterns to compare against the request URL.
+        /// Path patterns to compare against the request URL.
+        /// Detailed below.
         /// </summary>
         public List<Inputs.GetListenerRuleConditionPathPatternArgs> PathPatterns
         {

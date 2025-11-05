@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,14 +18,14 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
     public static final ListenerRuleConditionHttpHeaderArgs Empty = new ListenerRuleConditionHttpHeaderArgs();
 
     /**
-     * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+     * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
      * 
      */
     @Import(name="httpHeaderName", required=true)
     private Output<String> httpHeaderName;
 
     /**
-     * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+     * @return Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
      * 
      */
     public Output<String> httpHeaderName() {
@@ -31,24 +33,40 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
     }
 
     /**
-     * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+     * List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
      * 
      */
-    @Import(name="values", required=true)
-    private Output<List<String>> values;
+    @Import(name="regexValues")
+    private @Nullable Output<List<String>> regexValues;
 
     /**
-     * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+     * @return List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
      * 
      */
-    public Output<List<String>> values() {
-        return this.values;
+    public Optional<Output<List<String>>> regexValues() {
+        return Optional.ofNullable(this.regexValues);
+    }
+
+    /**
+     * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
+     * 
+     */
+    @Import(name="values")
+    private @Nullable Output<List<String>> values;
+
+    /**
+     * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
+     * 
+     */
+    public Optional<Output<List<String>>> values() {
+        return Optional.ofNullable(this.values);
     }
 
     private ListenerRuleConditionHttpHeaderArgs() {}
 
     private ListenerRuleConditionHttpHeaderArgs(ListenerRuleConditionHttpHeaderArgs $) {
         this.httpHeaderName = $.httpHeaderName;
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -71,7 +89,7 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param httpHeaderName Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         * @param httpHeaderName Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          * 
          * @return builder
          * 
@@ -82,7 +100,7 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param httpHeaderName Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+         * @param httpHeaderName Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
          * 
          * @return builder
          * 
@@ -92,18 +110,49 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+         * @param regexValues List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
          * 
          * @return builder
          * 
          */
-        public Builder values(Output<List<String>> values) {
+        public Builder regexValues(@Nullable Output<List<String>> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            return regexValues(Output.of(regexValues));
+        }
+
+        /**
+         * @param regexValues List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
+        }
+
+        /**
+         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
         /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
          * 
          * @return builder
          * 
@@ -113,7 +162,7 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+         * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
          * 
          * @return builder
          * 
@@ -125,9 +174,6 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         public ListenerRuleConditionHttpHeaderArgs build() {
             if ($.httpHeaderName == null) {
                 throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeaderArgs", "httpHeaderName");
-            }
-            if ($.values == null) {
-                throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeaderArgs", "values");
             }
             return $;
         }

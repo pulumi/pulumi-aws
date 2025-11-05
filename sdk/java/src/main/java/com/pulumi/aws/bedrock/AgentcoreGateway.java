@@ -164,28 +164,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreGateway:AgentcoreGateway")
 public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration for request authorization. See `authorizerConfiguration` below.
+     * Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      * 
      */
     @Export(name="authorizerConfiguration", refs={AgentcoreGatewayAuthorizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreGatewayAuthorizerConfiguration> authorizerConfiguration;
 
     /**
-     * @return Configuration for request authorization. See `authorizerConfiguration` below.
+     * @return Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      * 
      */
     public Output<Optional<AgentcoreGatewayAuthorizerConfiguration>> authorizerConfiguration() {
         return Codegen.optional(this.authorizerConfiguration);
     }
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     @Export(name="authorizerType", refs={String.class}, tree="[0]")
     private Output<String> authorizerType;
 
     /**
-     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`.
+     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     public Output<String> authorizerType() {

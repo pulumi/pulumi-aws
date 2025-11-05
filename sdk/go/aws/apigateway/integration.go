@@ -66,7 +66,7 @@ import (
 //					"integration.request.header.X-Authorization": pulumi.String("'static'"),
 //				},
 //				RequestTemplates: pulumi.StringMap{
-//					"application/xml": pulumi.String("{\n   \"body\" : $input.json('$')\n}\n"),
+//					"application/xml": pulumi.String("{\n   \\\"body\\\" : $input.json('$')\n}\n"),
 //				},
 //			})
 //			if err != nil {

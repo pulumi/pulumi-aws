@@ -55,19 +55,19 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///         {
     ///             var arn = values.Item1;
     ///             var current = values.Item2;
-    ///             return @$"version: ""2""
+    ///             return @$"version: \""2\""
     /// example-pipeline:
     ///   source:
     ///     http:
-    ///       path: ""/example""
+    ///       path: \""/example\""
     ///   sink:
     ///     - s3:
     ///         aws:
-    ///           sts_role_arn: ""{arn}""
-    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Region)}""
-    ///         bucket: ""example""
+    ///           sts_role_arn: \""{arn}\""
+    ///           region: \""{current.Apply(getRegionResult =&gt; getRegionResult.Region)}\""
+    ///         bucket: \""example\""
     ///         threshold:
-    ///           event_collect_timeout: ""60s""
+    ///           event_collect_timeout: \""60s\""
     ///         codec:
     ///           ndjson:
     /// ";

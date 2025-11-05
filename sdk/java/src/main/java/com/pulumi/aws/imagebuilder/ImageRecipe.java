@@ -98,6 +98,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/imageRecipe:ImageRecipe")
 public class ImageRecipe extends com.pulumi.resources.CustomResource {
     /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    @Export(name="amiTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> amiTags;
+
+    /**
+     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> amiTags() {
+        return Codegen.optional(this.amiTags);
+    }
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */

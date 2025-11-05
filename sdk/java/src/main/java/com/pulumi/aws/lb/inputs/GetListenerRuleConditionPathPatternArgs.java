@@ -16,6 +16,21 @@ public final class GetListenerRuleConditionPathPatternArgs extends com.pulumi.re
     public static final GetListenerRuleConditionPathPatternArgs Empty = new GetListenerRuleConditionPathPatternArgs();
 
     /**
+     * Set of regular expressions to compare against the request URL.
+     * 
+     */
+    @Import(name="regexValues", required=true)
+    private Output<List<String>> regexValues;
+
+    /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    public Output<List<String>> regexValues() {
+        return this.regexValues;
+    }
+
+    /**
      * Set of `key`-`value` pairs indicating the query string parameters to match.
      * 
      */
@@ -33,6 +48,7 @@ public final class GetListenerRuleConditionPathPatternArgs extends com.pulumi.re
     private GetListenerRuleConditionPathPatternArgs() {}
 
     private GetListenerRuleConditionPathPatternArgs(GetListenerRuleConditionPathPatternArgs $) {
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -52,6 +68,37 @@ public final class GetListenerRuleConditionPathPatternArgs extends com.pulumi.re
 
         public Builder(GetListenerRuleConditionPathPatternArgs defaults) {
             $ = new GetListenerRuleConditionPathPatternArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(Output<List<String>> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            return regexValues(Output.of(regexValues));
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
         }
 
         /**
@@ -86,6 +133,9 @@ public final class GetListenerRuleConditionPathPatternArgs extends com.pulumi.re
         }
 
         public GetListenerRuleConditionPathPatternArgs build() {
+            if ($.regexValues == null) {
+                throw new MissingRequiredPropertyException("GetListenerRuleConditionPathPatternArgs", "regexValues");
+            }
             if ($.values == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionPathPatternArgs", "values");
             }

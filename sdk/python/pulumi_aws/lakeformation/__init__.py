@@ -11,6 +11,7 @@ from .data_lake_settings import *
 from .get_data_lake_settings import *
 from .get_permissions import *
 from .get_resource import *
+from .identity_center_configuration import *
 from .lf_tag import *
 from .lf_tag_expression import *
 from .opt_in import *

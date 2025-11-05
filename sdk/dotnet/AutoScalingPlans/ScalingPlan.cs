@@ -19,6 +19,183 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Dynamic Scaling
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var example = new Aws.AutoScaling.Group("example", new()
+    ///     {
+    ///         NamePrefix = "example",
+    ///         LaunchConfiguration = exampleAwsLaunchConfiguration.Name,
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         },
+    ///         MinSize = 0,
+    ///         MaxSize = 3,
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "application",
+    ///                 Value = "example",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
+    ///     {
+    ///         Name = "example-dynamic-cost-optimization",
+    ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
+    ///         {
+    ///             TagFilters = new[]
+    ///             {
+    ///                 new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceTagFilterArgs
+    ///                 {
+    ///                     Key = "application",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "example",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ScalingInstructions = new[]
+    ///         {
+    ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
+    ///             {
+    ///                 MaxCapacity = 3,
+    ///                 MinCapacity = 0,
+    ///                 ResourceId = Std.Format.Invoke(new()
+    ///                 {
+    ///                     Input = "autoScalingGroup/%s",
+    ///                     Args = new[]
+    ///                     {
+    ///                         example.Name,
+    ///                     },
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
+    ///                 ServiceNamespace = "autoscaling",
+    ///                 TargetTrackingConfigurations = new[]
+    ///                 {
+    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
+    ///                     {
+    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
+    ///                         {
+    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
+    ///                         },
+    ///                         TargetValue = 70,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Basic Predictive Scaling
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var example = new Aws.AutoScaling.Group("example", new()
+    ///     {
+    ///         NamePrefix = "example",
+    ///         LaunchConfiguration = exampleAwsLaunchConfiguration.Name,
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         },
+    ///         MinSize = 0,
+    ///         MaxSize = 3,
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "application",
+    ///                 Value = "example",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScalingPlan = new Aws.AutoScalingPlans.ScalingPlan("example", new()
+    ///     {
+    ///         Name = "example-predictive-cost-optimization",
+    ///         ApplicationSource = new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceArgs
+    ///         {
+    ///             TagFilters = new[]
+    ///             {
+    ///                 new Aws.AutoScalingPlans.Inputs.ScalingPlanApplicationSourceTagFilterArgs
+    ///                 {
+    ///                     Key = "application",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "example",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ScalingInstructions = new[]
+    ///         {
+    ///             new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionArgs
+    ///             {
+    ///                 DisableDynamicScaling = true,
+    ///                 MaxCapacity = 3,
+    ///                 MinCapacity = 0,
+    ///                 ResourceId = Std.Format.Invoke(new()
+    ///                 {
+    ///                     Input = "autoScalingGroup/%s",
+    ///                     Args = new[]
+    ///                     {
+    ///                         example.Name,
+    ///                     },
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity",
+    ///                 ServiceNamespace = "autoscaling",
+    ///                 TargetTrackingConfigurations = new[]
+    ///                 {
+    ///                     new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs
+    ///                     {
+    ///                         PredefinedScalingMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs
+    ///                         {
+    ///                             PredefinedScalingMetricType = "ASGAverageCPUUtilization",
+    ///                         },
+    ///                         TargetValue = 70,
+    ///                     },
+    ///                 },
+    ///                 PredictiveScalingMaxCapacityBehavior = "SetForecastCapacityToMaxCapacity",
+    ///                 PredictiveScalingMode = "ForecastAndScale",
+    ///                 PredefinedLoadMetricSpecification = new Aws.AutoScalingPlans.Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs
+    ///                 {
+    ///                     PredefinedLoadMetricType = "ASGTotalCPUUtilization",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:

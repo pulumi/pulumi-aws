@@ -9,7 +9,9 @@ import com.pulumi.aws.emrserverless.inputs.ApplicationImageConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInteractiveConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationNetworkConfigurationArgs;
+import com.pulumi.aws.emrserverless.inputs.ApplicationRuntimeConfigurationArgs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationSchedulerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -132,6 +134,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The configuration setting for monitoring.
+     * 
+     */
+    @Import(name="monitoringConfiguration")
+    private @Nullable Output<ApplicationMonitoringConfigurationArgs> monitoringConfiguration;
+
+    /**
+     * @return The configuration setting for monitoring.
+     * 
+     */
+    public Optional<Output<ApplicationMonitoringConfigurationArgs>> monitoringConfiguration() {
+        return Optional.ofNullable(this.monitoringConfiguration);
+    }
+
+    /**
      * The name of the application.
      * 
      */
@@ -192,6 +209,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     * 
+     */
+    @Import(name="runtimeConfigurations")
+    private @Nullable Output<List<ApplicationRuntimeConfigurationArgs>> runtimeConfigurations;
+
+    /**
+     * @return A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+     * 
+     */
+    public Optional<Output<List<ApplicationRuntimeConfigurationArgs>>> runtimeConfigurations() {
+        return Optional.ofNullable(this.runtimeConfigurations);
+    }
+
+    /**
      * Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See schedulerConfiguration Arguments below.
      * 
      */
@@ -246,10 +278,12 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         this.initialCapacities = $.initialCapacities;
         this.interactiveConfiguration = $.interactiveConfiguration;
         this.maximumCapacity = $.maximumCapacity;
+        this.monitoringConfiguration = $.monitoringConfiguration;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
         this.region = $.region;
         this.releaseLabel = $.releaseLabel;
+        this.runtimeConfigurations = $.runtimeConfigurations;
         this.schedulerConfiguration = $.schedulerConfiguration;
         this.tags = $.tags;
         this.type = $.type;
@@ -431,6 +465,27 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param monitoringConfiguration The configuration setting for monitoring.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringConfiguration(@Nullable Output<ApplicationMonitoringConfigurationArgs> monitoringConfiguration) {
+            $.monitoringConfiguration = monitoringConfiguration;
+            return this;
+        }
+
+        /**
+         * @param monitoringConfiguration The configuration setting for monitoring.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringConfiguration(ApplicationMonitoringConfigurationArgs monitoringConfiguration) {
+            return monitoringConfiguration(Output.of(monitoringConfiguration));
+        }
+
+        /**
          * @param name The name of the application.
          * 
          * @return builder
@@ -512,6 +567,37 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder releaseLabel(String releaseLabel) {
             return releaseLabel(Output.of(releaseLabel));
+        }
+
+        /**
+         * @param runtimeConfigurations A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeConfigurations(@Nullable Output<List<ApplicationRuntimeConfigurationArgs>> runtimeConfigurations) {
+            $.runtimeConfigurations = runtimeConfigurations;
+            return this;
+        }
+
+        /**
+         * @param runtimeConfigurations A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeConfigurations(List<ApplicationRuntimeConfigurationArgs> runtimeConfigurations) {
+            return runtimeConfigurations(Output.of(runtimeConfigurations));
+        }
+
+        /**
+         * @param runtimeConfigurations A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeConfigurations(ApplicationRuntimeConfigurationArgs... runtimeConfigurations) {
+            return runtimeConfigurations(List.of(runtimeConfigurations));
         }
 
         /**

@@ -14,6 +14,56 @@ import * as utilities from "../utilities";
  * > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
  *
  * ## Example Usage
+ *
+ * ### Basic Invocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.lambda.getInvocation({
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     input: JSON.stringify({
+ *         operation: "getStatus",
+ *         id: "123456",
+ *     }),
+ * });
+ * export const result = example.then(example => std.jsondecode({
+ *     input: example.result,
+ * })).then(invoke => invoke.result);
+ * ```
+ *
+ * ### Dynamic Resource Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * // Get resource configuration from Lambda
+ * const resourceConfig = aws.lambda.getInvocation({
+ *     functionName: "resource-config-generator",
+ *     qualifier: "production",
+ *     input: JSON.stringify({
+ *         environment: environment,
+ *         region: current.region,
+ *         service: "api",
+ *     }),
+ * });
+ * const config = resourceConfig.then(resourceConfig => std.jsondecode({
+ *     input: resourceConfig.result,
+ * })).then(invoke => invoke.result);
+ * // Use dynamic configuration
+ * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: config?.cache?.clusterId,
+ *     engine: config?.cache?.engine,
+ *     nodeType: config?.cache?.nodeType,
+ *     numCacheNodes: config?.cache?.nodes,
+ *     parameterGroupName: config?.cache?.parameterGroup,
+ *     tags: config?.tags,
+ * });
+ * ```
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +126,56 @@ export interface GetInvocationResult {
  * > **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
  *
  * ## Example Usage
+ *
+ * ### Basic Invocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.lambda.getInvocation({
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     input: JSON.stringify({
+ *         operation: "getStatus",
+ *         id: "123456",
+ *     }),
+ * });
+ * export const result = example.then(example => std.jsondecode({
+ *     input: example.result,
+ * })).then(invoke => invoke.result);
+ * ```
+ *
+ * ### Dynamic Resource Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * // Get resource configuration from Lambda
+ * const resourceConfig = aws.lambda.getInvocation({
+ *     functionName: "resource-config-generator",
+ *     qualifier: "production",
+ *     input: JSON.stringify({
+ *         environment: environment,
+ *         region: current.region,
+ *         service: "api",
+ *     }),
+ * });
+ * const config = resourceConfig.then(resourceConfig => std.jsondecode({
+ *     input: resourceConfig.result,
+ * })).then(invoke => invoke.result);
+ * // Use dynamic configuration
+ * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: config?.cache?.clusterId,
+ *     engine: config?.cache?.engine,
+ *     nodeType: config?.cache?.nodeType,
+ *     numCacheNodes: config?.cache?.nodes,
+ *     parameterGroupName: config?.cache?.parameterGroup,
+ *     tags: config?.tags,
+ * });
+ * ```
  */
 export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInvocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

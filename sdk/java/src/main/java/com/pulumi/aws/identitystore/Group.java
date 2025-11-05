@@ -68,6 +68,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:identitystore/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
+     * ARN of the Group.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the Group.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * A string containing the description of the group.
      * 
      */

@@ -166,17 +166,17 @@ import * as utilities from "../utilities";
  * const exampleProvisioner0 = new command.local.Command("exampleProvisioner0", {
  *     create: "true",
  *     update: "true",
- *     "delete": `            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=${tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
+ *     "delete": `            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=${tags.workaround1}\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
  * `,
  * }, {
  *     dependsOn: [example],
  * });
- * const exampleResource = new _null.Resource("example", {triggers: {
- *     rerun_upon_change_of: std.join({
+ * const exampleResource = new _null.index.Resource("example", {triggers: {
+ *     rerunUponChangeOf: std.join({
  *         separator: ",",
  *         input: exampleAwsVpcEndpoint.securityGroupIds,
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * }});
  * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
  * `}, {

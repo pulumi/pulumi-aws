@@ -292,23 +292,19 @@ import (
 //			_, err = local.NewCommand(ctx, "exampleProvisioner0", &local.CommandArgs{
 //				Create: "true",
 //				Update: "true",
-//				Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%v\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
+//				Delete: fmt.Sprintf("            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\\"Name=tag:Name,Values=%v\\\" --query \\\"VpcEndpoints[0].VpcEndpointId\\\" --output text` &&\n            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %v --remove-security-group-ids %v\n", tags.Workaround1, tags.Workaround2, id),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
 //			if err != nil {
 //				return err
 //			}
-//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-//				Separator: ",",
-//				Input:     exampleAwsVpcEndpoint.SecurityGroupIds,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
 //			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
-//				Triggers: pulumi.StringMap{
-//					"rerun_upon_change_of": pulumi.String(invokeJoin.Result),
+//				Triggers: map[string]interface{}{
+//					"rerunUponChangeOf": std.Join(ctx, &std.JoinArgs{
+//						Separator: ",",
+//						Input:     exampleAwsVpcEndpoint.SecurityGroupIds,
+//					}, nil).Result,
 //				},
 //			})
 //			if err != nil {

@@ -141,20 +141,20 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
 
         example = aws.s3control.AccessGrantsInstance("example")
         example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "S3AccessGrantsPolicy",
-          "Statement": [{{
-            "Sid": "AllowAccessToS3AccessGrants",
-            "Effect": "Allow",
-            "Principal": {{
-              "AWS": "123456789456"
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Id\\": \\"S3AccessGrantsPolicy\\",
+          \\"Statement\\": [{{
+            \\"Sid\\": \\"AllowAccessToS3AccessGrants\\",
+            \\"Effect\\": \\"Allow\\",
+            \\"Principal\\": {{
+              \\"AWS\\": \\"123456789456\\"
             }},
-            "Action": [
-              "s3:ListAccessGrants",
-              "s3:ListAccessGrantsLocations",
-              "s3:GetDataAccess"
+            \\"Action\\": [
+              \\"s3:ListAccessGrants\\",
+              \\"s3:ListAccessGrantsLocations\\",
+              \\"s3:GetDataAccess\\"
             ],
-            "Resource": "{access_grants_instance_arn}"
+            \\"Resource\\": \\"{access_grants_instance_arn}\\"
           }}]
         }}
         \"\"\"))
@@ -191,20 +191,20 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
 
         example = aws.s3control.AccessGrantsInstance("example")
         example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("example", policy=example.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Id": "S3AccessGrantsPolicy",
-          "Statement": [{{
-            "Sid": "AllowAccessToS3AccessGrants",
-            "Effect": "Allow",
-            "Principal": {{
-              "AWS": "123456789456"
+          \\"Version\\": \\"2012-10-17\\",
+          \\"Id\\": \\"S3AccessGrantsPolicy\\",
+          \\"Statement\\": [{{
+            \\"Sid\\": \\"AllowAccessToS3AccessGrants\\",
+            \\"Effect\\": \\"Allow\\",
+            \\"Principal\\": {{
+              \\"AWS\\": \\"123456789456\\"
             }},
-            "Action": [
-              "s3:ListAccessGrants",
-              "s3:ListAccessGrantsLocations",
-              "s3:GetDataAccess"
+            \\"Action\\": [
+              \\"s3:ListAccessGrants\\",
+              \\"s3:ListAccessGrantsLocations\\",
+              \\"s3:GetDataAccess\\"
             ],
-            "Resource": "{access_grants_instance_arn}"
+            \\"Resource\\": \\"{access_grants_instance_arn}\\"
           }}]
         }}
         \"\"\"))

@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     }
 
     /**
-     * The claim that determines the principal in OIDC access tokens.
+     * The claim that determines the principal in OIDC identity tokens.
      * 
      */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
     /**
-     * @return The claim that determines the principal in OIDC access tokens.
+     * @return The claim that determines the principal in OIDC identity tokens.
      * 
      */
     public Optional<Output<String>> principalIdClaim() {
@@ -103,7 +103,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
          * 
          * @return builder
          * 

@@ -47,15 +47,15 @@ import javax.annotation.Nullable;
  *             .comment("example comment")
  *             .document("""
  * {
- *   "AWSPolicyFormatVersion": "2015-10-01",
- *   "RecordType": "A",
- *   "Endpoints": {
- *     "endpoint-start-NkPh": {
- *       "Type": "value",
- *       "Value": "10.0.0.2"
+ *   \"AWSPolicyFormatVersion\": \"2015-10-01\",
+ *   \"RecordType\": \"A\",
+ *   \"Endpoints\": {
+ *     \"endpoint-start-NkPh\": {
+ *       \"Type\": \"value\",
+ *       \"Value\": \"10.0.0.2\"
  *     }
  *   },
- *   "StartEndpoint": "endpoint-start-NkPh"
+ *   \"StartEndpoint\": \"endpoint-start-NkPh\"
  * }
  *             """)
  *             .build());

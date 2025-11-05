@@ -22,14 +22,14 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
     public static final ListenerRuleConditionArgs Empty = new ListenerRuleConditionArgs();
 
     /**
-     * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+     * Host header patterns to match. Host Header block fields documented below.
      * 
      */
     @Import(name="hostHeader")
     private @Nullable Output<ListenerRuleConditionHostHeaderArgs> hostHeader;
 
     /**
-     * @return Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+     * @return Host header patterns to match. Host Header block fields documented below.
      * 
      */
     public Optional<Output<ListenerRuleConditionHostHeaderArgs>> hostHeader() {
@@ -67,14 +67,14 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+     * Path patterns to match against the request URL. Path Pattern block fields documented below.
      * 
      */
     @Import(name="pathPattern")
     private @Nullable Output<ListenerRuleConditionPathPatternArgs> pathPattern;
 
     /**
-     * @return Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+     * @return Path patterns to match against the request URL. Path Pattern block fields documented below.
      * 
      */
     public Optional<Output<ListenerRuleConditionPathPatternArgs>> pathPattern() {
@@ -145,7 +145,7 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param hostHeader Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * @param hostHeader Host header patterns to match. Host Header block fields documented below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param hostHeader Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+         * @param hostHeader Host header patterns to match. Host Header block fields documented below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pathPattern Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+         * @param pathPattern Path patterns to match against the request URL. Path Pattern block fields documented below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ListenerRuleConditionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pathPattern Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+         * @param pathPattern Path patterns to match against the request URL. Path Pattern block fields documented below.
          * 
          * @return builder
          * 

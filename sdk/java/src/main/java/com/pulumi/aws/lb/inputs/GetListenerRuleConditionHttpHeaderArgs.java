@@ -31,6 +31,21 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
     }
 
     /**
+     * Set of regular expressions to compare against the request URL.
+     * 
+     */
+    @Import(name="regexValues", required=true)
+    private Output<List<String>> regexValues;
+
+    /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    public Output<List<String>> regexValues() {
+        return this.regexValues;
+    }
+
+    /**
      * Set of `key`-`value` pairs indicating the query string parameters to match.
      * 
      */
@@ -49,6 +64,7 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
 
     private GetListenerRuleConditionHttpHeaderArgs(GetListenerRuleConditionHttpHeaderArgs $) {
         this.httpHeaderName = $.httpHeaderName;
+        this.regexValues = $.regexValues;
         this.values = $.values;
     }
 
@@ -92,6 +108,37 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
         }
 
         /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(Output<List<String>> regexValues) {
+            $.regexValues = regexValues;
+            return this;
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(List<String> regexValues) {
+            return regexValues(Output.of(regexValues));
+        }
+
+        /**
+         * @param regexValues Set of regular expressions to compare against the request URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
+        }
+
+        /**
          * @param values Set of `key`-`value` pairs indicating the query string parameters to match.
          * 
          * @return builder
@@ -125,6 +172,9 @@ public final class GetListenerRuleConditionHttpHeaderArgs extends com.pulumi.res
         public GetListenerRuleConditionHttpHeaderArgs build() {
             if ($.httpHeaderName == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeaderArgs", "httpHeaderName");
+            }
+            if ($.regexValues == null) {
+                throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeaderArgs", "regexValues");
             }
             if ($.values == null) {
                 throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeaderArgs", "values");

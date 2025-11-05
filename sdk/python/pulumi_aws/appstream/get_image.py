@@ -277,12 +277,12 @@ def get_image(arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str arn: Arn of the image being searched for. Cannot be used with name_regex or name.
-    :param _builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
-    :param _builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
-    :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param _builtins.str arn: ARN of the image being searched for. Cannot be used with `name_regex` or `name`.
+    :param _builtins.bool most_recent: Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
+    :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
+    :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+    :param _builtins.str type: The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -337,12 +337,12 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None
     ```
 
 
-    :param _builtins.str arn: Arn of the image being searched for. Cannot be used with name_regex or name.
-    :param _builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
-    :param _builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
-    :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param _builtins.str arn: ARN of the image being searched for. Cannot be used with `name_regex` or `name`.
+    :param _builtins.bool most_recent: Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
+    :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
+    :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+    :param _builtins.str type: The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
     """
     __args__ = dict()
     __args__['arn'] = arn

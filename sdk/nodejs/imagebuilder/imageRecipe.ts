@@ -87,6 +87,10 @@ export class ImageRecipe extends pulumi.CustomResource {
     }
 
     /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     */
+    declare public readonly amiTags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -166,6 +170,7 @@ export class ImageRecipe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageRecipeState | undefined;
+            resourceInputs["amiTags"] = state?.amiTags;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["blockDeviceMappings"] = state?.blockDeviceMappings;
             resourceInputs["components"] = state?.components;
@@ -193,6 +198,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
+            resourceInputs["amiTags"] = args?.amiTags;
             resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
             resourceInputs["components"] = args?.components;
             resourceInputs["description"] = args?.description;
@@ -219,6 +225,10 @@ export class ImageRecipe extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ImageRecipe resources.
  */
 export interface ImageRecipeState {
+    /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     */
+    amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      */
@@ -291,6 +301,10 @@ export interface ImageRecipeState {
  * The set of arguments for constructing a ImageRecipe resource.
  */
 export interface ImageRecipeArgs {
+    /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     */
+    amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */

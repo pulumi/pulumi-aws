@@ -81,9 +81,17 @@ public class AgentcoreAgentRuntimeEndpoint extends com.pulumi.resources.CustomRe
     public Output<String> agentRuntimeArn() {
         return this.agentRuntimeArn;
     }
+    /**
+     * ARN of the Agent Runtime Endpoint.
+     * 
+     */
     @Export(name="agentRuntimeEndpointArn", refs={String.class}, tree="[0]")
     private Output<String> agentRuntimeEndpointArn;
 
+    /**
+     * @return ARN of the Agent Runtime Endpoint.
+     * 
+     */
     public Output<String> agentRuntimeEndpointArn() {
         return this.agentRuntimeEndpointArn;
     }

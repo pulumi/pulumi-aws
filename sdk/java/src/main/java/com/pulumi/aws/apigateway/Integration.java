@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .requestParameters(Map.of("integration.request.header.X-Authorization", "'static'"))
  *             .requestTemplates(Map.of("application/xml", """
  * {
- *    "body" : $input.json('$')
+ *    \"body\" : $input.json('$')
  * }
  *             """))
  *             .build());

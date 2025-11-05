@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.aws.lb.inputs.GetListenerRuleAction;
 import com.pulumi.aws.lb.inputs.GetListenerRuleCondition;
+import com.pulumi.aws.lb.inputs.GetListenerRuleTransform;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
@@ -118,6 +119,21 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Block for transform to apply to requests that match this rule. Detailed below.
+     * 
+     */
+    @Import(name="transforms")
+    private @Nullable List<GetListenerRuleTransform> transforms;
+
+    /**
+     * @return Block for transform to apply to requests that match this rule. Detailed below.
+     * 
+     */
+    public Optional<List<GetListenerRuleTransform>> transforms() {
+        return Optional.ofNullable(this.transforms);
+    }
+
     private GetListenerRulePlainArgs() {}
 
     private GetListenerRulePlainArgs(GetListenerRulePlainArgs $) {
@@ -127,6 +143,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
         this.listenerArn = $.listenerArn;
         this.priority = $.priority;
         this.region = $.region;
+        this.transforms = $.transforms;
     }
 
     public static Builder builder() {
@@ -238,6 +255,27 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;
+        }
+
+        /**
+         * @param transforms Block for transform to apply to requests that match this rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transforms(@Nullable List<GetListenerRuleTransform> transforms) {
+            $.transforms = transforms;
+            return this;
+        }
+
+        /**
+         * @param transforms Block for transform to apply to requests that match this rule. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transforms(GetListenerRuleTransform... transforms) {
+            return transforms(List.of(transforms));
         }
 
         public GetListenerRulePlainArgs build() {

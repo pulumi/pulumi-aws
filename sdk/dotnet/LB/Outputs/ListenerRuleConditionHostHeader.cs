@@ -13,11 +13,22 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleConditionHostHeader
     {
+        /// <summary>
+        /// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `Values`.
+        /// </summary>
+        public readonly ImmutableArray<string> RegexValues;
+        /// <summary>
+        /// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `RegexValues`.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private ListenerRuleConditionHostHeader(ImmutableArray<string> values)
+        private ListenerRuleConditionHostHeader(
+            ImmutableArray<string> regexValues,
+
+            ImmutableArray<string> values)
         {
+            RegexValues = regexValues;
             Values = values;
         }
     }

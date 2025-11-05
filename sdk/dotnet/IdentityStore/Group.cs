@@ -46,6 +46,12 @@ namespace Pulumi.Aws.IdentityStore
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// ARN of the Group.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A string containing the description of the group.
         /// </summary>
         [Output("description")]
@@ -163,6 +169,12 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the Group.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A string containing the description of the group.
         /// </summary>

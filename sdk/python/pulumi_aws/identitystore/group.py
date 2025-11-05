@@ -95,6 +95,7 @@ class GroupArgs:
 @pulumi.input_type
 class _GroupState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]] = None,
@@ -103,6 +104,7 @@ class _GroupState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
         :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
         :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
@@ -112,6 +114,8 @@ class _GroupState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -124,6 +128,18 @@ class _GroupState:
             pulumi.set(__self__, "identity_store_id", identity_store_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of the Group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -312,6 +328,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity_store_id'")
             __props__.__dict__["identity_store_id"] = identity_store_id
             __props__.__dict__["region"] = region
+            __props__.__dict__["arn"] = None
             __props__.__dict__["external_ids"] = None
             __props__.__dict__["group_id"] = None
         super(Group, __self__).__init__(
@@ -324,6 +341,7 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupExternalIdArgs', 'GroupExternalIdArgsDict']]]]] = None,
@@ -337,6 +355,7 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
         :param pulumi.Input[_builtins.str] description: A string containing the description of the group.
         :param pulumi.Input[_builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExternalIdArgs', 'GroupExternalIdArgsDict']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
@@ -350,6 +369,7 @@ class Group(pulumi.CustomResource):
 
         __props__ = _GroupState.__new__(_GroupState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["external_ids"] = external_ids
@@ -357,6 +377,14 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["identity_store_id"] = identity_store_id
         __props__.__dict__["region"] = region
         return Group(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN of the Group.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter

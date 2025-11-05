@@ -4,18 +4,38 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleConditionHostHeader {
-    private List<String> values;
+    /**
+     * @return List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+     * 
+     */
+    private @Nullable List<String> regexValues;
+    /**
+     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * 
+     */
+    private @Nullable List<String> values;
 
     private ListenerRuleConditionHostHeader() {}
+    /**
+     * @return List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+     * 
+     */
+    public List<String> regexValues() {
+        return this.regexValues == null ? List.of() : this.regexValues;
+    }
+    /**
+     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * 
+     */
     public List<String> values() {
-        return this.values;
+        return this.values == null ? List.of() : this.values;
     }
 
     public static Builder builder() {
@@ -27,18 +47,27 @@ public final class ListenerRuleConditionHostHeader {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> values;
+        private @Nullable List<String> regexValues;
+        private @Nullable List<String> values;
         public Builder() {}
         public Builder(ListenerRuleConditionHostHeader defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.regexValues = defaults.regexValues;
     	      this.values = defaults.values;
         }
 
         @CustomType.Setter
-        public Builder values(List<String> values) {
-            if (values == null) {
-              throw new MissingRequiredPropertyException("ListenerRuleConditionHostHeader", "values");
-            }
+        public Builder regexValues(@Nullable List<String> regexValues) {
+
+            this.regexValues = regexValues;
+            return this;
+        }
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
+        }
+        @CustomType.Setter
+        public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -47,6 +76,7 @@ public final class ListenerRuleConditionHostHeader {
         }
         public ListenerRuleConditionHostHeader build() {
             final var _resultValue = new ListenerRuleConditionHostHeader();
+            _resultValue.regexValues = regexValues;
             _resultValue.values = values;
             return _resultValue;
         }

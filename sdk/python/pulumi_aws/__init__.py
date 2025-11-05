@@ -7624,6 +7624,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lakeformation/identityCenterConfiguration",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration": "IdentityCenterConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lakeformation/lfTag",
   "fqn": "pulumi_aws.lakeformation",
   "classes": {

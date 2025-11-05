@@ -44,6 +44,11 @@ import * as utilities from "../utilities";
  *
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
  *
+ * ### VPC Config
+ *
+ * * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+ * * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
+ *
  * ## Import
  *
  * Using `pulumi import`, import models using the `name`. For example:
@@ -97,7 +102,7 @@ export class Model extends pulumi.CustomResource {
      */
     declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      */
     declare public readonly inferenceExecutionConfig: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
@@ -121,7 +126,7 @@ export class Model extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      */
     declare public readonly vpcConfig: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
 
@@ -192,7 +197,7 @@ export interface ModelState {
      */
     executionRoleArn?: pulumi.Input<string>;
     /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
@@ -216,7 +221,7 @@ export interface ModelState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      */
     vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }
@@ -238,7 +243,7 @@ export interface ModelArgs {
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     * Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
      */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
@@ -258,7 +263,7 @@ export interface ModelArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+     * Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
      */
     vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }

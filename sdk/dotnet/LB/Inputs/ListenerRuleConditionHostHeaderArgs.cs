@@ -12,8 +12,24 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class ListenerRuleConditionHostHeaderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("values", required: true)]
+        [Input("regexValues")]
+        private InputList<string>? _regexValues;
+
+        /// <summary>
+        /// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `Values`.
+        /// </summary>
+        public InputList<string> RegexValues
+        {
+            get => _regexValues ?? (_regexValues = new InputList<string>());
+            set => _regexValues = value;
+        }
+
+        [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `RegexValues`.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

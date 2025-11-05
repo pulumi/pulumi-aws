@@ -16,14 +16,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetImagePlainArgs Empty = new GetImagePlainArgs();
 
     /**
-     * Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return Arn of the image being searched for. Cannot be used with nameRegex or name.
+     * @return ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
      * 
      */
     public Optional<String> arn() {
@@ -31,14 +31,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+     * Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
      * 
      */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
     /**
-     * @return Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+     * @return Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
      * 
      */
     public Optional<Boolean> mostRecent() {
@@ -46,14 +46,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the image being searched for. Cannot be used with nameRegex or arn.
+     * @return Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
      * 
      */
     public Optional<String> name() {
@@ -61,14 +61,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Regular expression name of the image being searched for. Cannot be used with arn or name.
+     * Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
      * 
      */
     @Import(name="nameRegex")
     private @Nullable String nameRegex;
 
     /**
-     * @return Regular expression name of the image being searched for. Cannot be used with arn or name.
+     * @return Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
      * 
      */
     public Optional<String> nameRegex() {
@@ -91,14 +91,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+     * @return The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      * 
      */
     public Optional<String> type() {
@@ -135,7 +135,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn Arn of the image being searched for. Cannot be used with nameRegex or name.
+         * @param arn ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mostRecent Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
+         * @param mostRecent Boolean that if it is set to `true` and there are multiple images returned the most recent will be returned. If it is set to `false` and there are multiple images return the datasource will error.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the image being searched for. Cannot be used with nameRegex or arn.
+         * @param name Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nameRegex Regular expression name of the image being searched for. Cannot be used with arn or name.
+         * @param nameRegex Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The type of image which must be (PUBLIC, PRIVATE, or SHARED).
+         * @param type The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
          * 
          * @return builder
          * 

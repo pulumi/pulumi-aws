@@ -83,6 +83,11 @@ import (
 //
 // * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
 //
+// ### VPC Config
+//
+// * `securityGroupIds` - (Required) List of security group IDs you want to be applied to your training job or model. Specify the security groups for the VPC that is specified in the Subnets field.
+// * `subnets` - (Required) List of subnet IDs in the VPC to which you want to connect your training job or model.
+//
 // ## Import
 //
 // Using `pulumi import`, import models using the `name`. For example:
@@ -101,7 +106,7 @@ type Model struct {
 	EnableNetworkIsolation pulumi.BoolPtrOutput `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigOutput `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,7 +118,7 @@ type Model struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 	VpcConfig ModelVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -158,7 +163,7 @@ type modelState struct {
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -170,7 +175,7 @@ type modelState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -183,7 +188,7 @@ type ModelState struct {
 	EnableNetworkIsolation pulumi.BoolPtrInput
 	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -195,7 +200,7 @@ type ModelState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 	VpcConfig ModelVpcConfigPtrInput
 }
 
@@ -210,7 +215,7 @@ type modelArgs struct {
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -220,7 +225,7 @@ type modelArgs struct {
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -232,7 +237,7 @@ type ModelArgs struct {
 	EnableNetworkIsolation pulumi.BoolPtrInput
 	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringInput
-	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -242,7 +247,7 @@ type ModelArgs struct {
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+	// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 	VpcConfig ModelVpcConfigPtrInput
 }
 
@@ -353,7 +358,7 @@ func (o ModelOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+// Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
 func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigOutput {
 	return o.ApplyT(func(v *Model) ModelInferenceExecutionConfigOutput { return v.InferenceExecutionConfig }).(ModelInferenceExecutionConfigOutput)
 }
@@ -383,7 +388,7 @@ func (o ModelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+// Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
 func (o ModelOutput) VpcConfig() ModelVpcConfigPtrOutput {
 	return o.ApplyT(func(v *Model) ModelVpcConfigPtrOutput { return v.VpcConfig }).(ModelVpcConfigPtrOutput)
 }

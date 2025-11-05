@@ -245,9 +245,274 @@ func (o RepositoryCatalogDataPtrOutput) UsageText() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetImagesImage struct {
+	// Media type of the artifact.
+	ArtifactMediaType string `pulumi:"artifactMediaType"`
+	// Digest of the image manifest.
+	ImageDigest string `pulumi:"imageDigest"`
+	// Media type of the image manifest.
+	ImageManifestMediaType string   `pulumi:"imageManifestMediaType"`
+	ImagePushedAt          string   `pulumi:"imagePushedAt"`
+	ImageSizeInBytes       int      `pulumi:"imageSizeInBytes"`
+	ImageTags              []string `pulumi:"imageTags"`
+	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
+	RegistryId string `pulumi:"registryId"`
+	// Name of the public repository.
+	RepositoryName string `pulumi:"repositoryName"`
+}
+
+// GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
+// You can construct a concrete instance of `GetImagesImageInput` via:
+//
+//	GetImagesImageArgs{...}
+type GetImagesImageInput interface {
+	pulumi.Input
+
+	ToGetImagesImageOutput() GetImagesImageOutput
+	ToGetImagesImageOutputWithContext(context.Context) GetImagesImageOutput
+}
+
+type GetImagesImageArgs struct {
+	// Media type of the artifact.
+	ArtifactMediaType pulumi.StringInput `pulumi:"artifactMediaType"`
+	// Digest of the image manifest.
+	ImageDigest pulumi.StringInput `pulumi:"imageDigest"`
+	// Media type of the image manifest.
+	ImageManifestMediaType pulumi.StringInput      `pulumi:"imageManifestMediaType"`
+	ImagePushedAt          pulumi.StringInput      `pulumi:"imagePushedAt"`
+	ImageSizeInBytes       pulumi.IntInput         `pulumi:"imageSizeInBytes"`
+	ImageTags              pulumi.StringArrayInput `pulumi:"imageTags"`
+	// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
+	// Name of the public repository.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+}
+
+func (GetImagesImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImage)(nil)).Elem()
+}
+
+func (i GetImagesImageArgs) ToGetImagesImageOutput() GetImagesImageOutput {
+	return i.ToGetImagesImageOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageArgs) ToGetImagesImageOutputWithContext(ctx context.Context) GetImagesImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageOutput)
+}
+
+// GetImagesImageArrayInput is an input type that accepts GetImagesImageArray and GetImagesImageArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageArrayInput` via:
+//
+//	GetImagesImageArray{ GetImagesImageArgs{...} }
+type GetImagesImageArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageArrayOutput() GetImagesImageArrayOutput
+	ToGetImagesImageArrayOutputWithContext(context.Context) GetImagesImageArrayOutput
+}
+
+type GetImagesImageArray []GetImagesImageInput
+
+func (GetImagesImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImage)(nil)).Elem()
+}
+
+func (i GetImagesImageArray) ToGetImagesImageArrayOutput() GetImagesImageArrayOutput {
+	return i.ToGetImagesImageArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageArray) ToGetImagesImageArrayOutputWithContext(ctx context.Context) GetImagesImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageArrayOutput)
+}
+
+type GetImagesImageOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImage)(nil)).Elem()
+}
+
+func (o GetImagesImageOutput) ToGetImagesImageOutput() GetImagesImageOutput {
+	return o
+}
+
+func (o GetImagesImageOutput) ToGetImagesImageOutputWithContext(ctx context.Context) GetImagesImageOutput {
+	return o
+}
+
+// Media type of the artifact.
+func (o GetImagesImageOutput) ArtifactMediaType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.ArtifactMediaType }).(pulumi.StringOutput)
+}
+
+// Digest of the image manifest.
+func (o GetImagesImageOutput) ImageDigest() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.ImageDigest }).(pulumi.StringOutput)
+}
+
+// Media type of the image manifest.
+func (o GetImagesImageOutput) ImageManifestMediaType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.ImageManifestMediaType }).(pulumi.StringOutput)
+}
+
+func (o GetImagesImageOutput) ImagePushedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.ImagePushedAt }).(pulumi.StringOutput)
+}
+
+func (o GetImagesImageOutput) ImageSizeInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImagesImage) int { return v.ImageSizeInBytes }).(pulumi.IntOutput)
+}
+
+func (o GetImagesImageOutput) ImageTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagesImage) []string { return v.ImageTags }).(pulumi.StringArrayOutput)
+}
+
+// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
+func (o GetImagesImageOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.RegistryId }).(pulumi.StringOutput)
+}
+
+// Name of the public repository.
+func (o GetImagesImageOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+type GetImagesImageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImage)(nil)).Elem()
+}
+
+func (o GetImagesImageArrayOutput) ToGetImagesImageArrayOutput() GetImagesImageArrayOutput {
+	return o
+}
+
+func (o GetImagesImageArrayOutput) ToGetImagesImageArrayOutputWithContext(ctx context.Context) GetImagesImageArrayOutput {
+	return o
+}
+
+func (o GetImagesImageArrayOutput) Index(i pulumi.IntInput) GetImagesImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImage {
+		return vs[0].([]GetImagesImage)[vs[1].(int)]
+	}).(GetImagesImageOutput)
+}
+
+type GetImagesImageId struct {
+	// Digest of the image manifest.
+	ImageDigest *string `pulumi:"imageDigest"`
+	// Tag used for the image.
+	ImageTag *string `pulumi:"imageTag"`
+}
+
+// GetImagesImageIdInput is an input type that accepts GetImagesImageIdArgs and GetImagesImageIdOutput values.
+// You can construct a concrete instance of `GetImagesImageIdInput` via:
+//
+//	GetImagesImageIdArgs{...}
+type GetImagesImageIdInput interface {
+	pulumi.Input
+
+	ToGetImagesImageIdOutput() GetImagesImageIdOutput
+	ToGetImagesImageIdOutputWithContext(context.Context) GetImagesImageIdOutput
+}
+
+type GetImagesImageIdArgs struct {
+	// Digest of the image manifest.
+	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
+	// Tag used for the image.
+	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
+}
+
+func (GetImagesImageIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageId)(nil)).Elem()
+}
+
+func (i GetImagesImageIdArgs) ToGetImagesImageIdOutput() GetImagesImageIdOutput {
+	return i.ToGetImagesImageIdOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageIdArgs) ToGetImagesImageIdOutputWithContext(ctx context.Context) GetImagesImageIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageIdOutput)
+}
+
+// GetImagesImageIdArrayInput is an input type that accepts GetImagesImageIdArray and GetImagesImageIdArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageIdArrayInput` via:
+//
+//	GetImagesImageIdArray{ GetImagesImageIdArgs{...} }
+type GetImagesImageIdArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput
+	ToGetImagesImageIdArrayOutputWithContext(context.Context) GetImagesImageIdArrayOutput
+}
+
+type GetImagesImageIdArray []GetImagesImageIdInput
+
+func (GetImagesImageIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageId)(nil)).Elem()
+}
+
+func (i GetImagesImageIdArray) ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput {
+	return i.ToGetImagesImageIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageIdArray) ToGetImagesImageIdArrayOutputWithContext(ctx context.Context) GetImagesImageIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageIdArrayOutput)
+}
+
+type GetImagesImageIdOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageId)(nil)).Elem()
+}
+
+func (o GetImagesImageIdOutput) ToGetImagesImageIdOutput() GetImagesImageIdOutput {
+	return o
+}
+
+func (o GetImagesImageIdOutput) ToGetImagesImageIdOutputWithContext(ctx context.Context) GetImagesImageIdOutput {
+	return o
+}
+
+// Digest of the image manifest.
+func (o GetImagesImageIdOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImagesImageId) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
+}
+
+// Tag used for the image.
+func (o GetImagesImageIdOutput) ImageTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImagesImageId) *string { return v.ImageTag }).(pulumi.StringPtrOutput)
+}
+
+type GetImagesImageIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageId)(nil)).Elem()
+}
+
+func (o GetImagesImageIdArrayOutput) ToGetImagesImageIdArrayOutput() GetImagesImageIdArrayOutput {
+	return o
+}
+
+func (o GetImagesImageIdArrayOutput) ToGetImagesImageIdArrayOutputWithContext(ctx context.Context) GetImagesImageIdArrayOutput {
+	return o
+}
+
+func (o GetImagesImageIdArrayOutput) Index(i pulumi.IntInput) GetImagesImageIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImageId {
+		return vs[0].([]GetImagesImageId)[vs[1].(int)]
+	}).(GetImagesImageIdOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCatalogDataInput)(nil)).Elem(), RepositoryCatalogDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCatalogDataPtrInput)(nil)).Elem(), RepositoryCatalogDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageInput)(nil)).Elem(), GetImagesImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageArrayInput)(nil)).Elem(), GetImagesImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageIdInput)(nil)).Elem(), GetImagesImageIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageIdArrayInput)(nil)).Elem(), GetImagesImageIdArray{})
 	pulumi.RegisterOutputType(RepositoryCatalogDataOutput{})
 	pulumi.RegisterOutputType(RepositoryCatalogDataPtrOutput{})
+	pulumi.RegisterOutputType(GetImagesImageOutput{})
+	pulumi.RegisterOutputType(GetImagesImageArrayOutput{})
+	pulumi.RegisterOutputType(GetImagesImageIdOutput{})
+	pulumi.RegisterOutputType(GetImagesImageIdArrayOutput{})
 }

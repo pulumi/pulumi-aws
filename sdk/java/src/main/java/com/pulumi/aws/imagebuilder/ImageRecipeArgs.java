@@ -22,6 +22,21 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
     public static final ImageRecipeArgs Empty = new ImageRecipeArgs();
 
     /**
+     * Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    @Import(name="amiTags")
+    private @Nullable Output<Map<String,String>> amiTags;
+
+    /**
+     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> amiTags() {
+        return Optional.ofNullable(this.amiTags);
+    }
+
+    /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      * 
      */
@@ -193,6 +208,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
     private ImageRecipeArgs() {}
 
     private ImageRecipeArgs(ImageRecipeArgs $) {
+        this.amiTags = $.amiTags;
         this.blockDeviceMappings = $.blockDeviceMappings;
         this.components = $.components;
         this.description = $.description;
@@ -222,6 +238,27 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ImageRecipeArgs defaults) {
             $ = new ImageRecipeArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param amiTags Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amiTags(@Nullable Output<Map<String,String>> amiTags) {
+            $.amiTags = amiTags;
+            return this;
+        }
+
+        /**
+         * @param amiTags Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amiTags(Map<String,String> amiTags) {
+            return amiTags(Output.of(amiTags));
         }
 
         /**

@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.aws.lb.outputs.GetListenerRuleAction;
 import com.pulumi.aws.lb.outputs.GetListenerRuleCondition;
+import com.pulumi.aws.lb.outputs.GetListenerRuleTransform;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -46,6 +47,11 @@ public final class GetListenerRuleResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Block for transform to apply to requests that match this rule. Detailed below.
+     * 
+     */
+    private @Nullable List<GetListenerRuleTransform> transforms;
 
     private GetListenerRuleResult() {}
     /**
@@ -94,6 +100,13 @@ public final class GetListenerRuleResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Block for transform to apply to requests that match this rule. Detailed below.
+     * 
+     */
+    public List<GetListenerRuleTransform> transforms() {
+        return this.transforms == null ? List.of() : this.transforms;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -112,6 +125,7 @@ public final class GetListenerRuleResult {
         private Integer priority;
         private String region;
         private Map<String,String> tags;
+        private @Nullable List<GetListenerRuleTransform> transforms;
         public Builder() {}
         public Builder(GetListenerRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -123,6 +137,7 @@ public final class GetListenerRuleResult {
     	      this.priority = defaults.priority;
     	      this.region = defaults.region;
     	      this.tags = defaults.tags;
+    	      this.transforms = defaults.transforms;
         }
 
         @CustomType.Setter
@@ -191,6 +206,15 @@ public final class GetListenerRuleResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder transforms(@Nullable List<GetListenerRuleTransform> transforms) {
+
+            this.transforms = transforms;
+            return this;
+        }
+        public Builder transforms(GetListenerRuleTransform... transforms) {
+            return transforms(List.of(transforms));
+        }
         public GetListenerRuleResult build() {
             final var _resultValue = new GetListenerRuleResult();
             _resultValue.actions = actions;
@@ -201,6 +225,7 @@ public final class GetListenerRuleResult {
             _resultValue.priority = priority;
             _resultValue.region = region;
             _resultValue.tags = tags;
+            _resultValue.transforms = transforms;
             return _resultValue;
         }
     }

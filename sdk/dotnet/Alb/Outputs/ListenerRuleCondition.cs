@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class ListenerRuleCondition
     {
         /// <summary>
-        /// Contains a single `Values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        /// Host header patterns to match. Host Header block fields documented below.
         /// </summary>
         public readonly Outputs.ListenerRuleConditionHostHeader? HostHeader;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleConditionHttpRequestMethod? HttpRequestMethod;
         /// <summary>
-        /// Contains a single `Values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `QueryString` condition.
+        /// Path patterns to match against the request URL. Path Pattern block fields documented below.
         /// </summary>
         public readonly Outputs.ListenerRuleConditionPathPattern? PathPattern;
         /// <summary>

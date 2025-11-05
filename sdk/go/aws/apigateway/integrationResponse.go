@@ -81,7 +81,7 @@ import (
 //				ResponseTemplates: pulumi.StringMap{
 //					"application/xml": pulumi.String(`#set($inputRoot = $input.path('$'))
 //
-// <?xml version="1.0" encoding="UTF-8"?>
+// <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 // <message>
 //
 //	$inputRoot.body

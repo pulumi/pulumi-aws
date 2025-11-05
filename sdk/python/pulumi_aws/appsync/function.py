@@ -509,11 +509,11 @@ class Function(pulumi.CustomResource):
             data_source=example_data_source.name,
             name="example",
             request_mapping_template=\"\"\"{
-            "version": "2018-05-29",
-            "method": "GET",
-            "resourcePath": "/",
-            "params":{
-                "headers": $utils.http.copyheaders($ctx.request.headers)
+            \\"version\\": \\"2018-05-29\\",
+            \\"method\\": \\"GET\\",
+            \\"resourcePath\\": \\"/\\",
+            \\"params\\":{
+                \\"headers\\": $utils.http.copyheaders($ctx.request.headers)
             }
         }
         \"\"\",
@@ -614,11 +614,11 @@ class Function(pulumi.CustomResource):
             data_source=example_data_source.name,
             name="example",
             request_mapping_template=\"\"\"{
-            "version": "2018-05-29",
-            "method": "GET",
-            "resourcePath": "/",
-            "params":{
-                "headers": $utils.http.copyheaders($ctx.request.headers)
+            \\"version\\": \\"2018-05-29\\",
+            \\"method\\": \\"GET\\",
+            \\"resourcePath\\": \\"/\\",
+            \\"params\\":{
+                \\"headers\\": $utils.http.copyheaders($ctx.request.headers)
             }
         }
         \"\"\",

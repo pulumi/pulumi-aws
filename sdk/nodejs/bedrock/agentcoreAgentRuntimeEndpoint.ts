@@ -65,6 +65,9 @@ export class AgentcoreAgentRuntimeEndpoint extends pulumi.CustomResource {
      * ARN of the associated Agent Runtime.
      */
     declare public /*out*/ readonly agentRuntimeArn: pulumi.Output<string>;
+    /**
+     * ARN of the Agent Runtime Endpoint.
+     */
     declare public /*out*/ readonly agentRuntimeEndpointArn: pulumi.Output<string>;
     /**
      * ID of the agent runtime this endpoint belongs to.
@@ -150,6 +153,9 @@ export interface AgentcoreAgentRuntimeEndpointState {
      * ARN of the associated Agent Runtime.
      */
     agentRuntimeArn?: pulumi.Input<string>;
+    /**
+     * ARN of the Agent Runtime Endpoint.
+     */
     agentRuntimeEndpointArn?: pulumi.Input<string>;
     /**
      * ID of the agent runtime this endpoint belongs to.

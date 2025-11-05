@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  *     authenticationType: "AWS_IAM",
  *     name: "example",
  *     schema: `schema {
- * \x09query: Query
+ * \\tquery: Query
  * }
  * type Query {
  *   test: Int

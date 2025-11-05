@@ -14,6 +14,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageRecipeResult {
+    /**
+     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+     * 
+     */
+    private Map<String,String> amiTags;
     private String arn;
     /**
      * @return Set of objects with block device mappings for the image recipe.
@@ -83,6 +88,13 @@ public final class GetImageRecipeResult {
     private String workingDirectory;
 
     private GetImageRecipeResult() {}
+    /**
+     * @return Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution.
+     * 
+     */
+    public Map<String,String> amiTags() {
+        return this.amiTags;
+    }
     public String arn() {
         return this.arn;
     }
@@ -190,6 +202,7 @@ public final class GetImageRecipeResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Map<String,String> amiTags;
         private String arn;
         private List<GetImageRecipeBlockDeviceMapping> blockDeviceMappings;
         private List<GetImageRecipeComponent> components;
@@ -208,6 +221,7 @@ public final class GetImageRecipeResult {
         public Builder() {}
         public Builder(GetImageRecipeResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.amiTags = defaults.amiTags;
     	      this.arn = defaults.arn;
     	      this.blockDeviceMappings = defaults.blockDeviceMappings;
     	      this.components = defaults.components;
@@ -225,6 +239,14 @@ public final class GetImageRecipeResult {
     	      this.workingDirectory = defaults.workingDirectory;
         }
 
+        @CustomType.Setter
+        public Builder amiTags(Map<String,String> amiTags) {
+            if (amiTags == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "amiTags");
+            }
+            this.amiTags = amiTags;
+            return this;
+        }
         @CustomType.Setter
         public Builder arn(String arn) {
             if (arn == null) {
@@ -353,6 +375,7 @@ public final class GetImageRecipeResult {
         }
         public GetImageRecipeResult build() {
             final var _resultValue = new GetImageRecipeResult();
+            _resultValue.amiTags = amiTags;
             _resultValue.arn = arn;
             _resultValue.blockDeviceMappings = blockDeviceMappings;
             _resultValue.components = components;

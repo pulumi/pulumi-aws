@@ -17,6 +17,11 @@ public final class GetListenerRuleConditionHttpHeader {
      */
     private String httpHeaderName;
     /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    private List<String> regexValues;
+    /**
      * @return Set of `key`-`value` pairs indicating the query string parameters to match.
      * 
      */
@@ -29,6 +34,13 @@ public final class GetListenerRuleConditionHttpHeader {
      */
     public String httpHeaderName() {
         return this.httpHeaderName;
+    }
+    /**
+     * @return Set of regular expressions to compare against the request URL.
+     * 
+     */
+    public List<String> regexValues() {
+        return this.regexValues;
     }
     /**
      * @return Set of `key`-`value` pairs indicating the query string parameters to match.
@@ -48,11 +60,13 @@ public final class GetListenerRuleConditionHttpHeader {
     @CustomType.Builder
     public static final class Builder {
         private String httpHeaderName;
+        private List<String> regexValues;
         private List<String> values;
         public Builder() {}
         public Builder(GetListenerRuleConditionHttpHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpHeaderName = defaults.httpHeaderName;
+    	      this.regexValues = defaults.regexValues;
     	      this.values = defaults.values;
         }
 
@@ -63,6 +77,17 @@ public final class GetListenerRuleConditionHttpHeader {
             }
             this.httpHeaderName = httpHeaderName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder regexValues(List<String> regexValues) {
+            if (regexValues == null) {
+              throw new MissingRequiredPropertyException("GetListenerRuleConditionHttpHeader", "regexValues");
+            }
+            this.regexValues = regexValues;
+            return this;
+        }
+        public Builder regexValues(String... regexValues) {
+            return regexValues(List.of(regexValues));
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
@@ -78,6 +103,7 @@ public final class GetListenerRuleConditionHttpHeader {
         public GetListenerRuleConditionHttpHeader build() {
             final var _resultValue = new GetListenerRuleConditionHttpHeader();
             _resultValue.httpHeaderName = httpHeaderName;
+            _resultValue.regexValues = regexValues;
             _resultValue.values = values;
             return _resultValue;
         }

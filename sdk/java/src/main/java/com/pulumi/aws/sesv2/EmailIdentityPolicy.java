@@ -53,22 +53,22 @@ import javax.annotation.Nullable;
  *             .policyName("example")
  *             .policy(example.arn().applyValue(_arn -> """
  * }{{@code
- *   "Id":"ExampleAuthorizationPolicy",
- *   "Version":"2012-10-17",
- *   "Statement":[
+ *   \"Id\":\"ExampleAuthorizationPolicy\",
+ *   \"Version\":\"2012-10-17\",
+ *   \"Statement\":[
  *     }{{@code
- *       "Sid":"AuthorizeIAMUser",
- *       "Effect":"Allow",
- *       "Resource":"%s",
- *       "Principal":}{{@code
- *         "AWS":[
- *           "arn:aws:iam::123456789012:user/John",
- *           "arn:aws:iam::123456789012:user/Jane"
+ *       \"Sid\":\"AuthorizeIAMUser\",
+ *       \"Effect\":\"Allow\",
+ *       \"Resource\":\"%s\",
+ *       \"Principal\":}{{@code
+ *         \"AWS\":[
+ *           \"arn:aws:iam::123456789012:user/John\",
+ *           \"arn:aws:iam::123456789012:user/Jane\"
  *         ]
  *       }}{@code ,
- *       "Action":[
- *         "ses:DeleteEmailIdentity",
- *         "ses:PutEmailIdentityDkimSigningAttributes"
+ *       \"Action\":[
+ *         \"ses:DeleteEmailIdentity\",
+ *         \"ses:PutEmailIdentityDkimSigningAttributes\"
  *       ]
  *     }}{@code
  *   ]

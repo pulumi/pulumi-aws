@@ -103,6 +103,58 @@ import javax.annotation.Nullable;
  * 
  * Reading key-value pairs from JSON back into a native map
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JsondecodeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         ctx.export("example", StdFunctions.jsondecode(JsondecodeArgs.builder()
+ *             .input(exampleAwsSecretsmanagerSecretVersion.secretString())
+ *             .build()).result().key1());
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `secret_id` - (String) ID of the secret.
+ * 
+ * * `version_id` - (String) ID of the secret version.
+ * 
+ * #### Optional
+ * 
+ * * `account_id` (String) AWS Account where this resource is managed.
+ * 
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
+ * 
+ * console
+ * 
+ * % pulumi import aws_secretsmanager_secret_version.example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
+ * 
  */
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")
 public class SecretVersion extends com.pulumi.resources.CustomResource {

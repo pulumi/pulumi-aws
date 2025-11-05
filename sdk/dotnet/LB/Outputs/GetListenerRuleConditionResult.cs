@@ -14,7 +14,8 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class GetListenerRuleConditionResult
     {
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of host names.
+        /// Host header patterns to match.
+        /// Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHostHeaderResult> HostHeaders;
         /// <summary>
@@ -27,7 +28,8 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpRequestMethodResult> HttpRequestMethods;
         /// <summary>
-        /// Contains a single attribute `Values`, which contains a set of path patterns to compare against the request URL.
+        /// Path patterns to compare against the request URL.
+        /// Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionPathPatternResult> PathPatterns;
         /// <summary>

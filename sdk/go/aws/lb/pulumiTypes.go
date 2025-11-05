@@ -3468,13 +3468,13 @@ func (o ListenerRuleActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput
 }
 
 type ListenerRuleCondition struct {
-	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+	// Host header patterns to match. Host Header block fields documented below.
 	HostHeader *ListenerRuleConditionHostHeader `pulumi:"hostHeader"`
 	// HTTP headers to match. HTTP Header block fields documented below.
 	HttpHeader *ListenerRuleConditionHttpHeader `pulumi:"httpHeader"`
 	// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
 	HttpRequestMethod *ListenerRuleConditionHttpRequestMethod `pulumi:"httpRequestMethod"`
-	// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+	// Path patterns to match against the request URL. Path Pattern block fields documented below.
 	PathPattern *ListenerRuleConditionPathPattern `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings []ListenerRuleConditionQueryString `pulumi:"queryStrings"`
@@ -3496,13 +3496,13 @@ type ListenerRuleConditionInput interface {
 }
 
 type ListenerRuleConditionArgs struct {
-	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+	// Host header patterns to match. Host Header block fields documented below.
 	HostHeader ListenerRuleConditionHostHeaderPtrInput `pulumi:"hostHeader"`
 	// HTTP headers to match. HTTP Header block fields documented below.
 	HttpHeader ListenerRuleConditionHttpHeaderPtrInput `pulumi:"httpHeader"`
 	// Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
 	HttpRequestMethod ListenerRuleConditionHttpRequestMethodPtrInput `pulumi:"httpRequestMethod"`
-	// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+	// Path patterns to match against the request URL. Path Pattern block fields documented below.
 	PathPattern ListenerRuleConditionPathPatternPtrInput `pulumi:"pathPattern"`
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings ListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
@@ -3563,7 +3563,7 @@ func (o ListenerRuleConditionOutput) ToListenerRuleConditionOutputWithContext(ct
 	return o
 }
 
-// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+// Host header patterns to match. Host Header block fields documented below.
 func (o ListenerRuleConditionOutput) HostHeader() ListenerRuleConditionHostHeaderPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionHostHeader { return v.HostHeader }).(ListenerRuleConditionHostHeaderPtrOutput)
 }
@@ -3578,7 +3578,7 @@ func (o ListenerRuleConditionOutput) HttpRequestMethod() ListenerRuleConditionHt
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionHttpRequestMethod { return v.HttpRequestMethod }).(ListenerRuleConditionHttpRequestMethodPtrOutput)
 }
 
-// Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
+// Path patterns to match against the request URL. Path Pattern block fields documented below.
 func (o ListenerRuleConditionOutput) PathPattern() ListenerRuleConditionPathPatternPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionPathPattern { return v.PathPattern }).(ListenerRuleConditionPathPatternPtrOutput)
 }
@@ -3616,6 +3616,9 @@ func (o ListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerRuleC
 }
 
 type ListenerRuleConditionHostHeader struct {
+	// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues []string `pulumi:"regexValues"`
+	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
 	Values []string `pulumi:"values"`
 }
 
@@ -3631,6 +3634,9 @@ type ListenerRuleConditionHostHeaderInput interface {
 }
 
 type ListenerRuleConditionHostHeaderArgs struct {
+	// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
+	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3711,6 +3717,12 @@ func (o ListenerRuleConditionHostHeaderOutput) ToListenerRuleConditionHostHeader
 	}).(ListenerRuleConditionHostHeaderPtrOutput)
 }
 
+// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionHostHeaderOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
+// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3739,6 +3751,17 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) Elem() ListenerRuleConditionHo
 	}).(ListenerRuleConditionHostHeaderOutput)
 }
 
+// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionHostHeaderPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) []string {
 		if v == nil {
@@ -3749,9 +3772,11 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type ListenerRuleConditionHttpHeader struct {
-	// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+	// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
 	HttpHeaderName string `pulumi:"httpHeaderName"`
-	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	// List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues []string `pulumi:"regexValues"`
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
 	Values []string `pulumi:"values"`
 }
 
@@ -3767,9 +3792,11 @@ type ListenerRuleConditionHttpHeaderInput interface {
 }
 
 type ListenerRuleConditionHttpHeaderArgs struct {
-	// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+	// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
 	HttpHeaderName pulumi.StringInput `pulumi:"httpHeaderName"`
-	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	// List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3850,12 +3877,17 @@ func (o ListenerRuleConditionHttpHeaderOutput) ToListenerRuleConditionHttpHeader
 	}).(ListenerRuleConditionHttpHeaderPtrOutput)
 }
 
-// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
 func (o ListenerRuleConditionHttpHeaderOutput) HttpHeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHttpHeader) string { return v.HttpHeaderName }).(pulumi.StringOutput)
 }
 
-// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+// List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionHttpHeaderOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleConditionHttpHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHttpHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHttpHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3884,7 +3916,7 @@ func (o ListenerRuleConditionHttpHeaderPtrOutput) Elem() ListenerRuleConditionHt
 	}).(ListenerRuleConditionHttpHeaderOutput)
 }
 
-// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
 func (o ListenerRuleConditionHttpHeaderPtrOutput) HttpHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHttpHeader) *string {
 		if v == nil {
@@ -3894,7 +3926,17 @@ func (o ListenerRuleConditionHttpHeaderPtrOutput) HttpHeaderName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+// List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionHttpHeaderPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleConditionHttpHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHttpHeaderPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHttpHeader) []string {
 		if v == nil {
@@ -4038,6 +4080,9 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringA
 }
 
 type ListenerRuleConditionPathPattern struct {
+	// List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues []string `pulumi:"regexValues"`
+	// List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
 	Values []string `pulumi:"values"`
 }
 
@@ -4053,6 +4098,9 @@ type ListenerRuleConditionPathPatternInput interface {
 }
 
 type ListenerRuleConditionPathPatternArgs struct {
+	// List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
+	// List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4133,6 +4181,12 @@ func (o ListenerRuleConditionPathPatternOutput) ToListenerRuleConditionPathPatte
 	}).(ListenerRuleConditionPathPatternPtrOutput)
 }
 
+// List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionPathPatternOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListenerRuleConditionPathPattern) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
+// List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
 func (o ListenerRuleConditionPathPatternOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionPathPattern) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4161,6 +4215,17 @@ func (o ListenerRuleConditionPathPatternPtrOutput) Elem() ListenerRuleConditionP
 	}).(ListenerRuleConditionPathPatternOutput)
 }
 
+// List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+func (o ListenerRuleConditionPathPatternPtrOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition. Conflicts with `regexValues`.
 func (o ListenerRuleConditionPathPatternPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) []string {
 		if v == nil {
@@ -4407,6 +4472,713 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutpu
 		}
 		return v.Values
 	}).(pulumi.StringArrayOutput)
+}
+
+type ListenerRuleTransform struct {
+	// Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+	HostHeaderRewriteConfig *ListenerRuleTransformHostHeaderRewriteConfig `pulumi:"hostHeaderRewriteConfig"`
+	// Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+	Type string `pulumi:"type"`
+	// Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+	UrlRewriteConfig *ListenerRuleTransformUrlRewriteConfig `pulumi:"urlRewriteConfig"`
+}
+
+// ListenerRuleTransformInput is an input type that accepts ListenerRuleTransformArgs and ListenerRuleTransformOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformInput` via:
+//
+//	ListenerRuleTransformArgs{...}
+type ListenerRuleTransformInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformOutput() ListenerRuleTransformOutput
+	ToListenerRuleTransformOutputWithContext(context.Context) ListenerRuleTransformOutput
+}
+
+type ListenerRuleTransformArgs struct {
+	// Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+	HostHeaderRewriteConfig ListenerRuleTransformHostHeaderRewriteConfigPtrInput `pulumi:"hostHeaderRewriteConfig"`
+	// Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+	UrlRewriteConfig ListenerRuleTransformUrlRewriteConfigPtrInput `pulumi:"urlRewriteConfig"`
+}
+
+func (ListenerRuleTransformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransform)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformArgs) ToListenerRuleTransformOutput() ListenerRuleTransformOutput {
+	return i.ToListenerRuleTransformOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformArgs) ToListenerRuleTransformOutputWithContext(ctx context.Context) ListenerRuleTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformOutput)
+}
+
+// ListenerRuleTransformArrayInput is an input type that accepts ListenerRuleTransformArray and ListenerRuleTransformArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformArrayInput` via:
+//
+//	ListenerRuleTransformArray{ ListenerRuleTransformArgs{...} }
+type ListenerRuleTransformArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput
+	ToListenerRuleTransformArrayOutputWithContext(context.Context) ListenerRuleTransformArrayOutput
+}
+
+type ListenerRuleTransformArray []ListenerRuleTransformInput
+
+func (ListenerRuleTransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleTransform)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformArray) ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput {
+	return i.ToListenerRuleTransformArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformArray) ToListenerRuleTransformArrayOutputWithContext(ctx context.Context) ListenerRuleTransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformArrayOutput)
+}
+
+type ListenerRuleTransformOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransform)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformOutput) ToListenerRuleTransformOutput() ListenerRuleTransformOutput {
+	return o
+}
+
+func (o ListenerRuleTransformOutput) ToListenerRuleTransformOutputWithContext(ctx context.Context) ListenerRuleTransformOutput {
+	return o
+}
+
+// Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+func (o ListenerRuleTransformOutput) HostHeaderRewriteConfig() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) *ListenerRuleTransformHostHeaderRewriteConfig {
+		return v.HostHeaderRewriteConfig
+	}).(ListenerRuleTransformHostHeaderRewriteConfigPtrOutput)
+}
+
+// Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+func (o ListenerRuleTransformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+func (o ListenerRuleTransformOutput) UrlRewriteConfig() ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransform) *ListenerRuleTransformUrlRewriteConfig { return v.UrlRewriteConfig }).(ListenerRuleTransformUrlRewriteConfigPtrOutput)
+}
+
+type ListenerRuleTransformArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleTransform)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformArrayOutput) ToListenerRuleTransformArrayOutput() ListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o ListenerRuleTransformArrayOutput) ToListenerRuleTransformArrayOutputWithContext(ctx context.Context) ListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o ListenerRuleTransformArrayOutput) Index(i pulumi.IntInput) ListenerRuleTransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleTransform {
+		return vs[0].([]ListenerRuleTransform)[vs[1].(int)]
+	}).(ListenerRuleTransformOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfig struct {
+	// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+	Rewrite *ListenerRuleTransformHostHeaderRewriteConfigRewrite `pulumi:"rewrite"`
+}
+
+// ListenerRuleTransformHostHeaderRewriteConfigInput is an input type that accepts ListenerRuleTransformHostHeaderRewriteConfigArgs and ListenerRuleTransformHostHeaderRewriteConfigOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformHostHeaderRewriteConfigInput` via:
+//
+//	ListenerRuleTransformHostHeaderRewriteConfigArgs{...}
+type ListenerRuleTransformHostHeaderRewriteConfigInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformHostHeaderRewriteConfigOutput() ListenerRuleTransformHostHeaderRewriteConfigOutput
+	ToListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(context.Context) ListenerRuleTransformHostHeaderRewriteConfigOutput
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigArgs struct {
+	// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+	Rewrite ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput `pulumi:"rewrite"`
+}
+
+func (ListenerRuleTransformHostHeaderRewriteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigArgs) ToListenerRuleTransformHostHeaderRewriteConfigOutput() ListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigArgs) ToListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigOutput)
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigArgs) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutput() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigArgs) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigOutput).ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleTransformHostHeaderRewriteConfigPtrInput is an input type that accepts ListenerRuleTransformHostHeaderRewriteConfigArgs, ListenerRuleTransformHostHeaderRewriteConfigPtr and ListenerRuleTransformHostHeaderRewriteConfigPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformHostHeaderRewriteConfigPtrInput` via:
+//
+//	        ListenerRuleTransformHostHeaderRewriteConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleTransformHostHeaderRewriteConfigPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformHostHeaderRewriteConfigPtrOutput() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput
+	ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(context.Context) ListenerRuleTransformHostHeaderRewriteConfigPtrOutput
+}
+
+type listenerRuleTransformHostHeaderRewriteConfigPtrType ListenerRuleTransformHostHeaderRewriteConfigArgs
+
+func ListenerRuleTransformHostHeaderRewriteConfigPtr(v *ListenerRuleTransformHostHeaderRewriteConfigArgs) ListenerRuleTransformHostHeaderRewriteConfigPtrInput {
+	return (*listenerRuleTransformHostHeaderRewriteConfigPtrType)(v)
+}
+
+func (*listenerRuleTransformHostHeaderRewriteConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (i *listenerRuleTransformHostHeaderRewriteConfigPtrType) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutput() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleTransformHostHeaderRewriteConfigPtrType) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigPtrOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformHostHeaderRewriteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigOutput) ToListenerRuleTransformHostHeaderRewriteConfigOutput() ListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigOutput) ToListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigOutput) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutput() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return o.ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigOutput) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleTransformHostHeaderRewriteConfig) *ListenerRuleTransformHostHeaderRewriteConfig {
+		return &v
+	}).(ListenerRuleTransformHostHeaderRewriteConfigPtrOutput)
+}
+
+// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+func (o ListenerRuleTransformHostHeaderRewriteConfigOutput) Rewrite() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransformHostHeaderRewriteConfig) *ListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		return v.Rewrite
+	}).(ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformHostHeaderRewriteConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigPtrOutput) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutput() ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigPtrOutput) ToListenerRuleTransformHostHeaderRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigPtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigPtrOutput) Elem() ListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformHostHeaderRewriteConfig) ListenerRuleTransformHostHeaderRewriteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleTransformHostHeaderRewriteConfig
+		return ret
+	}).(ListenerRuleTransformHostHeaderRewriteConfigOutput)
+}
+
+// Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+func (o ListenerRuleTransformHostHeaderRewriteConfigPtrOutput) Rewrite() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformHostHeaderRewriteConfig) *ListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		if v == nil {
+			return nil
+		}
+		return v.Rewrite
+	}).(ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigRewrite struct {
+	// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+	Regex string `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+	Replace string `pulumi:"replace"`
+}
+
+// ListenerRuleTransformHostHeaderRewriteConfigRewriteInput is an input type that accepts ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs and ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformHostHeaderRewriteConfigRewriteInput` via:
+//
+//	ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{...}
+type ListenerRuleTransformHostHeaderRewriteConfigRewriteInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput
+	ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs struct {
+	// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+	Replace pulumi.StringInput `pulumi:"replace"`
+}
+
+func (ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput)
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput).ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(ctx)
+}
+
+// ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput is an input type that accepts ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs, ListenerRuleTransformHostHeaderRewriteConfigRewritePtr and ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput` via:
+//
+//	        ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput
+	ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput
+}
+
+type listenerRuleTransformHostHeaderRewriteConfigRewritePtrType ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs
+
+func ListenerRuleTransformHostHeaderRewriteConfigRewritePtr(v *ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput {
+	return (*listenerRuleTransformHostHeaderRewriteConfigRewritePtrType)(v)
+}
+
+func (*listenerRuleTransformHostHeaderRewriteConfigRewritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i *listenerRuleTransformHostHeaderRewriteConfigRewritePtrType) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return i.ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleTransformHostHeaderRewriteConfigRewritePtrType) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o.ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleTransformHostHeaderRewriteConfigRewrite) *ListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		return &v
+	}).(ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput)
+}
+
+// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransformHostHeaderRewriteConfigRewrite) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) Replace() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransformHostHeaderRewriteConfigRewrite) string { return v.Replace }).(pulumi.StringOutput)
+}
+
+type ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput() ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) ToListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) Elem() ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformHostHeaderRewriteConfigRewrite) ListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleTransformHostHeaderRewriteConfigRewrite
+		return ret
+	}).(ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput)
+}
+
+// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformHostHeaderRewriteConfigRewrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+func (o ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput) Replace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformHostHeaderRewriteConfigRewrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Replace
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfig struct {
+	// Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+	Rewrite *ListenerRuleTransformUrlRewriteConfigRewrite `pulumi:"rewrite"`
+}
+
+// ListenerRuleTransformUrlRewriteConfigInput is an input type that accepts ListenerRuleTransformUrlRewriteConfigArgs and ListenerRuleTransformUrlRewriteConfigOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformUrlRewriteConfigInput` via:
+//
+//	ListenerRuleTransformUrlRewriteConfigArgs{...}
+type ListenerRuleTransformUrlRewriteConfigInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformUrlRewriteConfigOutput() ListenerRuleTransformUrlRewriteConfigOutput
+	ToListenerRuleTransformUrlRewriteConfigOutputWithContext(context.Context) ListenerRuleTransformUrlRewriteConfigOutput
+}
+
+type ListenerRuleTransformUrlRewriteConfigArgs struct {
+	// Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+	Rewrite ListenerRuleTransformUrlRewriteConfigRewritePtrInput `pulumi:"rewrite"`
+}
+
+func (ListenerRuleTransformUrlRewriteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigArgs) ToListenerRuleTransformUrlRewriteConfigOutput() ListenerRuleTransformUrlRewriteConfigOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigArgs) ToListenerRuleTransformUrlRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigOutput)
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigArgs) ToListenerRuleTransformUrlRewriteConfigPtrOutput() ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigArgs) ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigOutput).ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleTransformUrlRewriteConfigPtrInput is an input type that accepts ListenerRuleTransformUrlRewriteConfigArgs, ListenerRuleTransformUrlRewriteConfigPtr and ListenerRuleTransformUrlRewriteConfigPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformUrlRewriteConfigPtrInput` via:
+//
+//	        ListenerRuleTransformUrlRewriteConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleTransformUrlRewriteConfigPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformUrlRewriteConfigPtrOutput() ListenerRuleTransformUrlRewriteConfigPtrOutput
+	ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(context.Context) ListenerRuleTransformUrlRewriteConfigPtrOutput
+}
+
+type listenerRuleTransformUrlRewriteConfigPtrType ListenerRuleTransformUrlRewriteConfigArgs
+
+func ListenerRuleTransformUrlRewriteConfigPtr(v *ListenerRuleTransformUrlRewriteConfigArgs) ListenerRuleTransformUrlRewriteConfigPtrInput {
+	return (*listenerRuleTransformUrlRewriteConfigPtrType)(v)
+}
+
+func (*listenerRuleTransformUrlRewriteConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (i *listenerRuleTransformUrlRewriteConfigPtrType) ToListenerRuleTransformUrlRewriteConfigPtrOutput() ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleTransformUrlRewriteConfigPtrType) ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigPtrOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfigOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformUrlRewriteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigOutput) ToListenerRuleTransformUrlRewriteConfigOutput() ListenerRuleTransformUrlRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigOutput) ToListenerRuleTransformUrlRewriteConfigOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigOutput) ToListenerRuleTransformUrlRewriteConfigPtrOutput() ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return o.ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigOutput) ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleTransformUrlRewriteConfig) *ListenerRuleTransformUrlRewriteConfig {
+		return &v
+	}).(ListenerRuleTransformUrlRewriteConfigPtrOutput)
+}
+
+// Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+func (o ListenerRuleTransformUrlRewriteConfigOutput) Rewrite() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o.ApplyT(func(v ListenerRuleTransformUrlRewriteConfig) *ListenerRuleTransformUrlRewriteConfigRewrite {
+		return v.Rewrite
+	}).(ListenerRuleTransformUrlRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformUrlRewriteConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigPtrOutput) ToListenerRuleTransformUrlRewriteConfigPtrOutput() ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigPtrOutput) ToListenerRuleTransformUrlRewriteConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigPtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigPtrOutput) Elem() ListenerRuleTransformUrlRewriteConfigOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformUrlRewriteConfig) ListenerRuleTransformUrlRewriteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleTransformUrlRewriteConfig
+		return ret
+	}).(ListenerRuleTransformUrlRewriteConfigOutput)
+}
+
+// Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+func (o ListenerRuleTransformUrlRewriteConfigPtrOutput) Rewrite() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformUrlRewriteConfig) *ListenerRuleTransformUrlRewriteConfigRewrite {
+		if v == nil {
+			return nil
+		}
+		return v.Rewrite
+	}).(ListenerRuleTransformUrlRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfigRewrite struct {
+	// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+	Regex string `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+	Replace string `pulumi:"replace"`
+}
+
+// ListenerRuleTransformUrlRewriteConfigRewriteInput is an input type that accepts ListenerRuleTransformUrlRewriteConfigRewriteArgs and ListenerRuleTransformUrlRewriteConfigRewriteOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformUrlRewriteConfigRewriteInput` via:
+//
+//	ListenerRuleTransformUrlRewriteConfigRewriteArgs{...}
+type ListenerRuleTransformUrlRewriteConfigRewriteInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformUrlRewriteConfigRewriteOutput() ListenerRuleTransformUrlRewriteConfigRewriteOutput
+	ToListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(context.Context) ListenerRuleTransformUrlRewriteConfigRewriteOutput
+}
+
+type ListenerRuleTransformUrlRewriteConfigRewriteArgs struct {
+	// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+	Replace pulumi.StringInput `pulumi:"replace"`
+}
+
+func (ListenerRuleTransformUrlRewriteConfigRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigRewriteArgs) ToListenerRuleTransformUrlRewriteConfigRewriteOutput() ListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigRewriteArgs) ToListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigRewriteOutput)
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigRewriteArgs) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutput() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleTransformUrlRewriteConfigRewriteArgs) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigRewriteOutput).ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(ctx)
+}
+
+// ListenerRuleTransformUrlRewriteConfigRewritePtrInput is an input type that accepts ListenerRuleTransformUrlRewriteConfigRewriteArgs, ListenerRuleTransformUrlRewriteConfigRewritePtr and ListenerRuleTransformUrlRewriteConfigRewritePtrOutput values.
+// You can construct a concrete instance of `ListenerRuleTransformUrlRewriteConfigRewritePtrInput` via:
+//
+//	        ListenerRuleTransformUrlRewriteConfigRewriteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerRuleTransformUrlRewriteConfigRewritePtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleTransformUrlRewriteConfigRewritePtrOutput() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput
+	ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(context.Context) ListenerRuleTransformUrlRewriteConfigRewritePtrOutput
+}
+
+type listenerRuleTransformUrlRewriteConfigRewritePtrType ListenerRuleTransformUrlRewriteConfigRewriteArgs
+
+func ListenerRuleTransformUrlRewriteConfigRewritePtr(v *ListenerRuleTransformUrlRewriteConfigRewriteArgs) ListenerRuleTransformUrlRewriteConfigRewritePtrInput {
+	return (*listenerRuleTransformUrlRewriteConfigRewritePtrType)(v)
+}
+
+func (*listenerRuleTransformUrlRewriteConfigRewritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i *listenerRuleTransformUrlRewriteConfigRewritePtrType) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutput() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return i.ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleTransformUrlRewriteConfigRewritePtrType) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTransformUrlRewriteConfigRewritePtrOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfigRewriteOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformUrlRewriteConfigRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) ToListenerRuleTransformUrlRewriteConfigRewriteOutput() ListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) ToListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutput() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o.ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleTransformUrlRewriteConfigRewrite) *ListenerRuleTransformUrlRewriteConfigRewrite {
+		return &v
+	}).(ListenerRuleTransformUrlRewriteConfigRewritePtrOutput)
+}
+
+// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransformUrlRewriteConfigRewrite) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+func (o ListenerRuleTransformUrlRewriteConfigRewriteOutput) Replace() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleTransformUrlRewriteConfigRewrite) string { return v.Replace }).(pulumi.StringOutput)
+}
+
+type ListenerRuleTransformUrlRewriteConfigRewritePtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutput() ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) ToListenerRuleTransformUrlRewriteConfigRewritePtrOutputWithContext(ctx context.Context) ListenerRuleTransformUrlRewriteConfigRewritePtrOutput {
+	return o
+}
+
+func (o ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) Elem() ListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformUrlRewriteConfigRewrite) ListenerRuleTransformUrlRewriteConfigRewrite {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleTransformUrlRewriteConfigRewrite
+		return ret
+	}).(ListenerRuleTransformUrlRewriteConfigRewriteOutput)
+}
+
+// Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+func (o ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformUrlRewriteConfigRewrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+func (o ListenerRuleTransformUrlRewriteConfigRewritePtrOutput) Replace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleTransformUrlRewriteConfigRewrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Replace
+	}).(pulumi.StringPtrOutput)
 }
 
 type LoadBalancerAccessLogs struct {
@@ -7490,7 +8262,7 @@ type GetListenerRuleAction struct {
 	// An action to redirect the request.
 	// Detailed below.
 	Redirects []GetListenerRuleActionRedirect `pulumi:"redirects"`
-	// The type of the action, indicates which sub-block will be populated.
+	// Type of transform.
 	Type string `pulumi:"type"`
 }
 
@@ -7523,7 +8295,7 @@ type GetListenerRuleActionArgs struct {
 	// An action to redirect the request.
 	// Detailed below.
 	Redirects GetListenerRuleActionRedirectArrayInput `pulumi:"redirects"`
-	// The type of the action, indicates which sub-block will be populated.
+	// Type of transform.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7615,7 +8387,7 @@ func (o GetListenerRuleActionOutput) Redirects() GetListenerRuleActionRedirectAr
 	return o.ApplyT(func(v GetListenerRuleAction) []GetListenerRuleActionRedirect { return v.Redirects }).(GetListenerRuleActionRedirectArrayOutput)
 }
 
-// The type of the action, indicates which sub-block will be populated.
+// Type of transform.
 func (o GetListenerRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8573,14 +9345,16 @@ func (o GetListenerRuleActionRedirectArrayOutput) Index(i pulumi.IntInput) GetLi
 }
 
 type GetListenerRuleCondition struct {
-	// Contains a single attribute `values`, which contains a set of host names.
+	// Host header patterns to match.
+	// Detailed below.
 	HostHeaders []GetListenerRuleConditionHostHeader `pulumi:"hostHeaders"`
 	// HTTP header and values to match.
 	// Detailed below.
 	HttpHeaders []GetListenerRuleConditionHttpHeader `pulumi:"httpHeaders"`
 	// Contains a single attribute `values`, which contains a set of HTTP request methods.
 	HttpRequestMethods []GetListenerRuleConditionHttpRequestMethod `pulumi:"httpRequestMethods"`
-	// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+	// Path patterns to compare against the request URL.
+	// Detailed below.
 	PathPatterns []GetListenerRuleConditionPathPattern `pulumi:"pathPatterns"`
 	// Query string parameters to match.
 	// Detailed below.
@@ -8601,14 +9375,16 @@ type GetListenerRuleConditionInput interface {
 }
 
 type GetListenerRuleConditionArgs struct {
-	// Contains a single attribute `values`, which contains a set of host names.
+	// Host header patterns to match.
+	// Detailed below.
 	HostHeaders GetListenerRuleConditionHostHeaderArrayInput `pulumi:"hostHeaders"`
 	// HTTP header and values to match.
 	// Detailed below.
 	HttpHeaders GetListenerRuleConditionHttpHeaderArrayInput `pulumi:"httpHeaders"`
 	// Contains a single attribute `values`, which contains a set of HTTP request methods.
 	HttpRequestMethods GetListenerRuleConditionHttpRequestMethodArrayInput `pulumi:"httpRequestMethods"`
-	// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+	// Path patterns to compare against the request URL.
+	// Detailed below.
 	PathPatterns GetListenerRuleConditionPathPatternArrayInput `pulumi:"pathPatterns"`
 	// Query string parameters to match.
 	// Detailed below.
@@ -8668,7 +9444,8 @@ func (o GetListenerRuleConditionOutput) ToGetListenerRuleConditionOutputWithCont
 	return o
 }
 
-// Contains a single attribute `values`, which contains a set of host names.
+// Host header patterns to match.
+// Detailed below.
 func (o GetListenerRuleConditionOutput) HostHeaders() GetListenerRuleConditionHostHeaderArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleCondition) []GetListenerRuleConditionHostHeader { return v.HostHeaders }).(GetListenerRuleConditionHostHeaderArrayOutput)
 }
@@ -8686,7 +9463,8 @@ func (o GetListenerRuleConditionOutput) HttpRequestMethods() GetListenerRuleCond
 	}).(GetListenerRuleConditionHttpRequestMethodArrayOutput)
 }
 
-// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+// Path patterns to compare against the request URL.
+// Detailed below.
 func (o GetListenerRuleConditionOutput) PathPatterns() GetListenerRuleConditionPathPatternArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleCondition) []GetListenerRuleConditionPathPattern { return v.PathPatterns }).(GetListenerRuleConditionPathPatternArrayOutput)
 }
@@ -8723,6 +9501,8 @@ func (o GetListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) GetListene
 }
 
 type GetListenerRuleConditionHostHeader struct {
+	// Set of regular expressions to compare against the request URL.
+	RegexValues []string `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values []string `pulumi:"values"`
 }
@@ -8739,6 +9519,8 @@ type GetListenerRuleConditionHostHeaderInput interface {
 }
 
 type GetListenerRuleConditionHostHeaderArgs struct {
+	// Set of regular expressions to compare against the request URL.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -8794,6 +9576,11 @@ func (o GetListenerRuleConditionHostHeaderOutput) ToGetListenerRuleConditionHost
 	return o
 }
 
+// Set of regular expressions to compare against the request URL.
+func (o GetListenerRuleConditionHostHeaderOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHostHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
+}
+
 // Set of `key`-`value` pairs indicating the query string parameters to match.
 func (o GetListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
@@ -8822,6 +9609,8 @@ func (o GetListenerRuleConditionHostHeaderArrayOutput) Index(i pulumi.IntInput) 
 type GetListenerRuleConditionHttpHeader struct {
 	// Name of the HTTP header to match.
 	HttpHeaderName string `pulumi:"httpHeaderName"`
+	// Set of regular expressions to compare against the request URL.
+	RegexValues []string `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values []string `pulumi:"values"`
 }
@@ -8840,6 +9629,8 @@ type GetListenerRuleConditionHttpHeaderInput interface {
 type GetListenerRuleConditionHttpHeaderArgs struct {
 	// Name of the HTTP header to match.
 	HttpHeaderName pulumi.StringInput `pulumi:"httpHeaderName"`
+	// Set of regular expressions to compare against the request URL.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -8898,6 +9689,11 @@ func (o GetListenerRuleConditionHttpHeaderOutput) ToGetListenerRuleConditionHttp
 // Name of the HTTP header to match.
 func (o GetListenerRuleConditionHttpHeaderOutput) HttpHeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) string { return v.HttpHeaderName }).(pulumi.StringOutput)
+}
+
+// Set of regular expressions to compare against the request URL.
+func (o GetListenerRuleConditionHttpHeaderOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
 // Set of `key`-`value` pairs indicating the query string parameters to match.
@@ -9023,6 +9819,8 @@ func (o GetListenerRuleConditionHttpRequestMethodArrayOutput) Index(i pulumi.Int
 }
 
 type GetListenerRuleConditionPathPattern struct {
+	// Set of regular expressions to compare against the request URL.
+	RegexValues []string `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values []string `pulumi:"values"`
 }
@@ -9039,6 +9837,8 @@ type GetListenerRuleConditionPathPatternInput interface {
 }
 
 type GetListenerRuleConditionPathPatternArgs struct {
+	// Set of regular expressions to compare against the request URL.
+	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// Set of `key`-`value` pairs indicating the query string parameters to match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -9092,6 +9892,11 @@ func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPat
 
 func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPathPatternOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternOutput {
 	return o
+}
+
+// Set of regular expressions to compare against the request URL.
+func (o GetListenerRuleConditionPathPatternOutput) RegexValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionPathPattern) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
 // Set of `key`-`value` pairs indicating the query string parameters to match.
@@ -9419,6 +10224,535 @@ func (o GetListenerRuleConditionSourceIpArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleConditionSourceIp {
 		return vs[0].([]GetListenerRuleConditionSourceIp)[vs[1].(int)]
 	}).(GetListenerRuleConditionSourceIpOutput)
+}
+
+type GetListenerRuleTransform struct {
+	// Block for host header rewrite. Detailed below.
+	HostHeaderRewriteConfigs []GetListenerRuleTransformHostHeaderRewriteConfig `pulumi:"hostHeaderRewriteConfigs"`
+	// Type of transform.
+	Type string `pulumi:"type"`
+	// Block for URL rewrite. Detailed below.
+	UrlRewriteConfigs []GetListenerRuleTransformUrlRewriteConfig `pulumi:"urlRewriteConfigs"`
+}
+
+// GetListenerRuleTransformInput is an input type that accepts GetListenerRuleTransformArgs and GetListenerRuleTransformOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformInput` via:
+//
+//	GetListenerRuleTransformArgs{...}
+type GetListenerRuleTransformInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformOutput() GetListenerRuleTransformOutput
+	ToGetListenerRuleTransformOutputWithContext(context.Context) GetListenerRuleTransformOutput
+}
+
+type GetListenerRuleTransformArgs struct {
+	// Block for host header rewrite. Detailed below.
+	HostHeaderRewriteConfigs GetListenerRuleTransformHostHeaderRewriteConfigArrayInput `pulumi:"hostHeaderRewriteConfigs"`
+	// Type of transform.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Block for URL rewrite. Detailed below.
+	UrlRewriteConfigs GetListenerRuleTransformUrlRewriteConfigArrayInput `pulumi:"urlRewriteConfigs"`
+}
+
+func (GetListenerRuleTransformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransform)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformArgs) ToGetListenerRuleTransformOutput() GetListenerRuleTransformOutput {
+	return i.ToGetListenerRuleTransformOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformArgs) ToGetListenerRuleTransformOutputWithContext(ctx context.Context) GetListenerRuleTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformOutput)
+}
+
+// GetListenerRuleTransformArrayInput is an input type that accepts GetListenerRuleTransformArray and GetListenerRuleTransformArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformArrayInput` via:
+//
+//	GetListenerRuleTransformArray{ GetListenerRuleTransformArgs{...} }
+type GetListenerRuleTransformArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformArrayOutput() GetListenerRuleTransformArrayOutput
+	ToGetListenerRuleTransformArrayOutputWithContext(context.Context) GetListenerRuleTransformArrayOutput
+}
+
+type GetListenerRuleTransformArray []GetListenerRuleTransformInput
+
+func (GetListenerRuleTransformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransform)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformArray) ToGetListenerRuleTransformArrayOutput() GetListenerRuleTransformArrayOutput {
+	return i.ToGetListenerRuleTransformArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformArray) ToGetListenerRuleTransformArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformArrayOutput)
+}
+
+type GetListenerRuleTransformOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransform)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformOutput) ToGetListenerRuleTransformOutput() GetListenerRuleTransformOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformOutput) ToGetListenerRuleTransformOutputWithContext(ctx context.Context) GetListenerRuleTransformOutput {
+	return o
+}
+
+// Block for host header rewrite. Detailed below.
+func (o GetListenerRuleTransformOutput) HostHeaderRewriteConfigs() GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleTransform) []GetListenerRuleTransformHostHeaderRewriteConfig {
+		return v.HostHeaderRewriteConfigs
+	}).(GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput)
+}
+
+// Type of transform.
+func (o GetListenerRuleTransformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleTransform) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Block for URL rewrite. Detailed below.
+func (o GetListenerRuleTransformOutput) UrlRewriteConfigs() GetListenerRuleTransformUrlRewriteConfigArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleTransform) []GetListenerRuleTransformUrlRewriteConfig {
+		return v.UrlRewriteConfigs
+	}).(GetListenerRuleTransformUrlRewriteConfigArrayOutput)
+}
+
+type GetListenerRuleTransformArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransform)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformArrayOutput) ToGetListenerRuleTransformArrayOutput() GetListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformArrayOutput) ToGetListenerRuleTransformArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformArrayOutput) Index(i pulumi.IntInput) GetListenerRuleTransformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleTransform {
+		return vs[0].([]GetListenerRuleTransform)[vs[1].(int)]
+	}).(GetListenerRuleTransformOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfig struct {
+	// Block for URL rewrite configuration. Detailed below.
+	Rewrites []GetListenerRuleTransformHostHeaderRewriteConfigRewrite `pulumi:"rewrites"`
+}
+
+// GetListenerRuleTransformHostHeaderRewriteConfigInput is an input type that accepts GetListenerRuleTransformHostHeaderRewriteConfigArgs and GetListenerRuleTransformHostHeaderRewriteConfigOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformHostHeaderRewriteConfigInput` via:
+//
+//	GetListenerRuleTransformHostHeaderRewriteConfigArgs{...}
+type GetListenerRuleTransformHostHeaderRewriteConfigInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformHostHeaderRewriteConfigOutput() GetListenerRuleTransformHostHeaderRewriteConfigOutput
+	ToGetListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(context.Context) GetListenerRuleTransformHostHeaderRewriteConfigOutput
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigArgs struct {
+	// Block for URL rewrite configuration. Detailed below.
+	Rewrites GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayInput `pulumi:"rewrites"`
+}
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigArgs) ToGetListenerRuleTransformHostHeaderRewriteConfigOutput() GetListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return i.ToGetListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigArgs) ToGetListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformHostHeaderRewriteConfigOutput)
+}
+
+// GetListenerRuleTransformHostHeaderRewriteConfigArrayInput is an input type that accepts GetListenerRuleTransformHostHeaderRewriteConfigArray and GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformHostHeaderRewriteConfigArrayInput` via:
+//
+//	GetListenerRuleTransformHostHeaderRewriteConfigArray{ GetListenerRuleTransformHostHeaderRewriteConfigArgs{...} }
+type GetListenerRuleTransformHostHeaderRewriteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput
+	ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutputWithContext(context.Context) GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigArray []GetListenerRuleTransformHostHeaderRewriteConfigInput
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigArray) ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput {
+	return i.ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigArray) ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigOutput() GetListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return o
+}
+
+// Block for URL rewrite configuration. Detailed below.
+func (o GetListenerRuleTransformHostHeaderRewriteConfigOutput) Rewrites() GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformHostHeaderRewriteConfig) []GetListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		return v.Rewrites
+	}).(GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformHostHeaderRewriteConfig)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput) Index(i pulumi.IntInput) GetListenerRuleTransformHostHeaderRewriteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleTransformHostHeaderRewriteConfig {
+		return vs[0].([]GetListenerRuleTransformHostHeaderRewriteConfig)[vs[1].(int)]
+	}).(GetListenerRuleTransformHostHeaderRewriteConfigOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigRewrite struct {
+	// Regular expression to match in the input string.
+	Regex string `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input.
+	Replace string `pulumi:"replace"`
+}
+
+// GetListenerRuleTransformHostHeaderRewriteConfigRewriteInput is an input type that accepts GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs and GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformHostHeaderRewriteConfigRewriteInput` via:
+//
+//	GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{...}
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput
+	ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs struct {
+	// Regular expression to match in the input string.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input.
+	Replace pulumi.StringInput `pulumi:"replace"`
+}
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return i.ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput)
+}
+
+// GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayInput is an input type that accepts GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray and GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayInput` via:
+//
+//	GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray{ GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{...} }
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput
+	ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutputWithContext(context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray []GetListenerRuleTransformHostHeaderRewriteConfigRewriteInput
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput {
+	return i.ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return o
+}
+
+// Regular expression to match in the input string.
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformHostHeaderRewriteConfigRewrite) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// Replacement string to use when rewriting the matched input.
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput) Replace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformHostHeaderRewriteConfigRewrite) string { return v.Replace }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformHostHeaderRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput() GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput) ToGetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput) Index(i pulumi.IntInput) GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleTransformHostHeaderRewriteConfigRewrite {
+		return vs[0].([]GetListenerRuleTransformHostHeaderRewriteConfigRewrite)[vs[1].(int)]
+	}).(GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfig struct {
+	// Block for URL rewrite configuration. Detailed below.
+	Rewrites []GetListenerRuleTransformUrlRewriteConfigRewrite `pulumi:"rewrites"`
+}
+
+// GetListenerRuleTransformUrlRewriteConfigInput is an input type that accepts GetListenerRuleTransformUrlRewriteConfigArgs and GetListenerRuleTransformUrlRewriteConfigOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformUrlRewriteConfigInput` via:
+//
+//	GetListenerRuleTransformUrlRewriteConfigArgs{...}
+type GetListenerRuleTransformUrlRewriteConfigInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformUrlRewriteConfigOutput() GetListenerRuleTransformUrlRewriteConfigOutput
+	ToGetListenerRuleTransformUrlRewriteConfigOutputWithContext(context.Context) GetListenerRuleTransformUrlRewriteConfigOutput
+}
+
+type GetListenerRuleTransformUrlRewriteConfigArgs struct {
+	// Block for URL rewrite configuration. Detailed below.
+	Rewrites GetListenerRuleTransformUrlRewriteConfigRewriteArrayInput `pulumi:"rewrites"`
+}
+
+func (GetListenerRuleTransformUrlRewriteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigArgs) ToGetListenerRuleTransformUrlRewriteConfigOutput() GetListenerRuleTransformUrlRewriteConfigOutput {
+	return i.ToGetListenerRuleTransformUrlRewriteConfigOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigArgs) ToGetListenerRuleTransformUrlRewriteConfigOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformUrlRewriteConfigOutput)
+}
+
+// GetListenerRuleTransformUrlRewriteConfigArrayInput is an input type that accepts GetListenerRuleTransformUrlRewriteConfigArray and GetListenerRuleTransformUrlRewriteConfigArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformUrlRewriteConfigArrayInput` via:
+//
+//	GetListenerRuleTransformUrlRewriteConfigArray{ GetListenerRuleTransformUrlRewriteConfigArgs{...} }
+type GetListenerRuleTransformUrlRewriteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformUrlRewriteConfigArrayOutput() GetListenerRuleTransformUrlRewriteConfigArrayOutput
+	ToGetListenerRuleTransformUrlRewriteConfigArrayOutputWithContext(context.Context) GetListenerRuleTransformUrlRewriteConfigArrayOutput
+}
+
+type GetListenerRuleTransformUrlRewriteConfigArray []GetListenerRuleTransformUrlRewriteConfigInput
+
+func (GetListenerRuleTransformUrlRewriteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigArray) ToGetListenerRuleTransformUrlRewriteConfigArrayOutput() GetListenerRuleTransformUrlRewriteConfigArrayOutput {
+	return i.ToGetListenerRuleTransformUrlRewriteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigArray) ToGetListenerRuleTransformUrlRewriteConfigArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformUrlRewriteConfigArrayOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformUrlRewriteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigOutput) ToGetListenerRuleTransformUrlRewriteConfigOutput() GetListenerRuleTransformUrlRewriteConfigOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigOutput) ToGetListenerRuleTransformUrlRewriteConfigOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigOutput {
+	return o
+}
+
+// Block for URL rewrite configuration. Detailed below.
+func (o GetListenerRuleTransformUrlRewriteConfigOutput) Rewrites() GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformUrlRewriteConfig) []GetListenerRuleTransformUrlRewriteConfigRewrite {
+		return v.Rewrites
+	}).(GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformUrlRewriteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformUrlRewriteConfig)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigArrayOutput) ToGetListenerRuleTransformUrlRewriteConfigArrayOutput() GetListenerRuleTransformUrlRewriteConfigArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigArrayOutput) ToGetListenerRuleTransformUrlRewriteConfigArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigArrayOutput) Index(i pulumi.IntInput) GetListenerRuleTransformUrlRewriteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleTransformUrlRewriteConfig {
+		return vs[0].([]GetListenerRuleTransformUrlRewriteConfig)[vs[1].(int)]
+	}).(GetListenerRuleTransformUrlRewriteConfigOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfigRewrite struct {
+	// Regular expression to match in the input string.
+	Regex string `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input.
+	Replace string `pulumi:"replace"`
+}
+
+// GetListenerRuleTransformUrlRewriteConfigRewriteInput is an input type that accepts GetListenerRuleTransformUrlRewriteConfigRewriteArgs and GetListenerRuleTransformUrlRewriteConfigRewriteOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformUrlRewriteConfigRewriteInput` via:
+//
+//	GetListenerRuleTransformUrlRewriteConfigRewriteArgs{...}
+type GetListenerRuleTransformUrlRewriteConfigRewriteInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformUrlRewriteConfigRewriteOutput() GetListenerRuleTransformUrlRewriteConfigRewriteOutput
+	ToGetListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteOutput
+}
+
+type GetListenerRuleTransformUrlRewriteConfigRewriteArgs struct {
+	// Regular expression to match in the input string.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// Replacement string to use when rewriting the matched input.
+	Replace pulumi.StringInput `pulumi:"replace"`
+}
+
+func (GetListenerRuleTransformUrlRewriteConfigRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigRewriteArgs) ToGetListenerRuleTransformUrlRewriteConfigRewriteOutput() GetListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return i.ToGetListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigRewriteArgs) ToGetListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformUrlRewriteConfigRewriteOutput)
+}
+
+// GetListenerRuleTransformUrlRewriteConfigRewriteArrayInput is an input type that accepts GetListenerRuleTransformUrlRewriteConfigRewriteArray and GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleTransformUrlRewriteConfigRewriteArrayInput` via:
+//
+//	GetListenerRuleTransformUrlRewriteConfigRewriteArray{ GetListenerRuleTransformUrlRewriteConfigRewriteArgs{...} }
+type GetListenerRuleTransformUrlRewriteConfigRewriteArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput() GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput
+	ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutputWithContext(context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput
+}
+
+type GetListenerRuleTransformUrlRewriteConfigRewriteArray []GetListenerRuleTransformUrlRewriteConfigRewriteInput
+
+func (GetListenerRuleTransformUrlRewriteConfigRewriteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigRewriteArray) ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput() GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput {
+	return i.ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleTransformUrlRewriteConfigRewriteArray) ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfigRewriteOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformUrlRewriteConfigRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteOutput) ToGetListenerRuleTransformUrlRewriteConfigRewriteOutput() GetListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteOutput) ToGetListenerRuleTransformUrlRewriteConfigRewriteOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return o
+}
+
+// Regular expression to match in the input string.
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformUrlRewriteConfigRewrite) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// Replacement string to use when rewriting the matched input.
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteOutput) Replace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleTransformUrlRewriteConfigRewrite) string { return v.Replace }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleTransformUrlRewriteConfigRewrite)(nil)).Elem()
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput) ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput() GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput) ToGetListenerRuleTransformUrlRewriteConfigRewriteArrayOutputWithContext(ctx context.Context) GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput) Index(i pulumi.IntInput) GetListenerRuleTransformUrlRewriteConfigRewriteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleTransformUrlRewriteConfigRewrite {
+		return vs[0].([]GetListenerRuleTransformUrlRewriteConfigRewrite)[vs[1].(int)]
+	}).(GetListenerRuleTransformUrlRewriteConfigRewriteOutput)
 }
 
 type GetLoadBalancerAccessLogs struct {
@@ -10013,6 +11347,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionQueryStringArrayInput)(nil)).Elem(), ListenerRuleConditionQueryStringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionSourceIpInput)(nil)).Elem(), ListenerRuleConditionSourceIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleConditionSourceIpPtrInput)(nil)).Elem(), ListenerRuleConditionSourceIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformInput)(nil)).Elem(), ListenerRuleTransformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformArrayInput)(nil)).Elem(), ListenerRuleTransformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigInput)(nil)).Elem(), ListenerRuleTransformHostHeaderRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigPtrInput)(nil)).Elem(), ListenerRuleTransformHostHeaderRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigRewriteInput)(nil)).Elem(), ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformHostHeaderRewriteConfigRewritePtrInput)(nil)).Elem(), ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigInput)(nil)).Elem(), ListenerRuleTransformUrlRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigPtrInput)(nil)).Elem(), ListenerRuleTransformUrlRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigRewriteInput)(nil)).Elem(), ListenerRuleTransformUrlRewriteConfigRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleTransformUrlRewriteConfigRewritePtrInput)(nil)).Elem(), ListenerRuleTransformUrlRewriteConfigRewriteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
@@ -10087,6 +11431,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionQueryStringValueArrayInput)(nil)).Elem(), GetListenerRuleConditionQueryStringValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionSourceIpInput)(nil)).Elem(), GetListenerRuleConditionSourceIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionSourceIpArrayInput)(nil)).Elem(), GetListenerRuleConditionSourceIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformInput)(nil)).Elem(), GetListenerRuleTransformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformArrayInput)(nil)).Elem(), GetListenerRuleTransformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigInput)(nil)).Elem(), GetListenerRuleTransformHostHeaderRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigArrayInput)(nil)).Elem(), GetListenerRuleTransformHostHeaderRewriteConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigRewriteInput)(nil)).Elem(), GetListenerRuleTransformHostHeaderRewriteConfigRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayInput)(nil)).Elem(), GetListenerRuleTransformHostHeaderRewriteConfigRewriteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigInput)(nil)).Elem(), GetListenerRuleTransformUrlRewriteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigArrayInput)(nil)).Elem(), GetListenerRuleTransformUrlRewriteConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigRewriteInput)(nil)).Elem(), GetListenerRuleTransformUrlRewriteConfigRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleTransformUrlRewriteConfigRewriteArrayInput)(nil)).Elem(), GetListenerRuleTransformUrlRewriteConfigRewriteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
@@ -10144,6 +11498,16 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleConditionQueryStringArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleConditionSourceIpOutput{})
 	pulumi.RegisterOutputType(ListenerRuleConditionSourceIpPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformArrayOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformHostHeaderRewriteConfigOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformHostHeaderRewriteConfigPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformHostHeaderRewriteConfigRewriteOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformHostHeaderRewriteConfigRewritePtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformUrlRewriteConfigOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformUrlRewriteConfigPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformUrlRewriteConfigRewriteOutput{})
+	pulumi.RegisterOutputType(ListenerRuleTransformUrlRewriteConfigRewritePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsOutput{})
@@ -10218,6 +11582,16 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerRuleConditionQueryStringValueArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerRuleConditionSourceIpOutput{})
 	pulumi.RegisterOutputType(GetListenerRuleConditionSourceIpArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformHostHeaderRewriteConfigOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformHostHeaderRewriteConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformHostHeaderRewriteConfigRewriteOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformHostHeaderRewriteConfigRewriteArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformUrlRewriteConfigOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformUrlRewriteConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformUrlRewriteConfigRewriteOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleTransformUrlRewriteConfigRewriteArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})

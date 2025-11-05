@@ -103,6 +103,8 @@ type LookupListenerRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Block for transform to apply to requests that match this rule. Detailed below.
+	Transforms []GetListenerRuleTransform `pulumi:"transforms"`
 }
 
 // A collection of values returned by getListenerRule.
@@ -122,6 +124,8 @@ type LookupListenerRuleResult struct {
 	Region      string `pulumi:"region"`
 	// Tags assigned to the Listener Rule.
 	Tags map[string]string `pulumi:"tags"`
+	// Block for transform to apply to requests that match this rule. Detailed below.
+	Transforms []GetListenerRuleTransform `pulumi:"transforms"`
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
@@ -152,6 +156,8 @@ type LookupListenerRuleOutputArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Block for transform to apply to requests that match this rule. Detailed below.
+	Transforms GetListenerRuleTransformArrayInput `pulumi:"transforms"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {
@@ -210,6 +216,11 @@ func (o LookupListenerRuleResultOutput) Region() pulumi.StringOutput {
 // Tags assigned to the Listener Rule.
 func (o LookupListenerRuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Block for transform to apply to requests that match this rule. Detailed below.
+func (o LookupListenerRuleResultOutput) Transforms() GetListenerRuleTransformArrayOutput {
+	return o.ApplyT(func(v LookupListenerRuleResult) []GetListenerRuleTransform { return v.Transforms }).(GetListenerRuleTransformArrayOutput)
 }
 
 func init() {

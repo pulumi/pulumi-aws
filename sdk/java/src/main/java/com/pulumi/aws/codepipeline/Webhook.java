@@ -23,6 +23,113 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codepipeline.Pipeline;
+ * import com.pulumi.aws.codepipeline.PipelineArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.codepipeline.Webhook;
+ * import com.pulumi.aws.codepipeline.WebhookArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookFilterArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new Pipeline("bar", PipelineArgs.builder()
+ *             .name("tf-test-pipeline")
+ *             .roleArn(barAwsIamRole.arn())
+ *             .artifactStores(PipelineArtifactStoreArgs.builder()
+ *                 .location(barAwsS3Bucket.bucket())
+ *                 .type("S3")
+ *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
+ *                     .id(s3kmskey.arn())
+ *                     .type("KMS")
+ *                     .build())
+ *                 .build())
+ *             .stages(            
+ *                 PipelineStageArgs.builder()
+ *                     .name("Source")
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .name("Source")
+ *                         .category("Source")
+ *                         .owner("ThirdParty")
+ *                         .provider("GitHub")
+ *                         .version("1")
+ *                         .outputArtifacts("test")
+ *                         .configuration(Map.ofEntries(
+ *                             Map.entry("Owner", "my-organization"),
+ *                             Map.entry("Repo", "test"),
+ *                             Map.entry("Branch", "master")
+ *                         ))
+ *                         .build())
+ *                     .build(),
+ *                 PipelineStageArgs.builder()
+ *                     .name("Build")
+ *                     .actions(PipelineStageActionArgs.builder()
+ *                         .name("Build")
+ *                         .category("Build")
+ *                         .owner("AWS")
+ *                         .provider("CodeBuild")
+ *                         .inputArtifacts("test")
+ *                         .version("1")
+ *                         .configuration(Map.of("ProjectName", "test"))
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *         final var webhookSecret = "super-secret";
+ * 
+ *         var barWebhook = new Webhook("barWebhook", WebhookArgs.builder()
+ *             .name("test-webhook-github-bar")
+ *             .authentication("GITHUB_HMAC")
+ *             .targetAction("Source")
+ *             .targetPipeline(bar.name())
+ *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
+ *                 .secretToken(webhookSecret)
+ *                 .build())
+ *             .filters(WebhookFilterArgs.builder()
+ *                 .jsonPath("$.ref")
+ *                 .matchEquals("refs/heads/{Branch}")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Wire the CodePipeline webhook into a GitHub repository.
+ *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()
+ *             .repository(repo.name())
+ *             .name("web")
+ *             .configuration(List.of(Map.ofEntries(
+ *                 Map.entry("url", barWebhook.url()),
+ *                 Map.entry("contentType", "json"),
+ *                 Map.entry("insecureSsl", true),
+ *                 Map.entry("secret", webhookSecret)
+ *             )))
+ *             .events(List.of("push"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema

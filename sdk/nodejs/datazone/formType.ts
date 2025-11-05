@@ -81,17 +81,17 @@ import * as utilities from "../utilities";
  *     owningProjectIdentifier: testProject.id,
  *     status: "DISABLED",
  *     model: {
- *         smithy: `\x09structure SageMakerModelFormType {
- * \x09\x09\x09@required
- * \x09\x09\x09@amazon.datazone#searchable
- * \x09\x09\x09modelName: String
+ *         smithy: `\\tstructure SageMakerModelFormType {
+ * \\t\\t\\t@required
+ * \\t\\t\\t@amazon.datazone#searchable
+ * \\t\\t\\tmodelName: String
  *
- * \x09\x09\x09@required
- * \x09\x09\x09modelArn: String
+ * \\t\\t\\t@required
+ * \\t\\t\\tmodelArn: String
  *
- * \x09\x09\x09@required
- * \x09\x09\x09creationTime: String
- * \x09\x09\x09}
+ * \\t\\t\\t@required
+ * \\t\\t\\tcreationTime: String
+ * \\t\\t\\t}
  * `,
  *     },
  * });

@@ -64,6 +64,16 @@ __all__ = [
     'ListenerRuleConditionQueryStringArgsDict',
     'ListenerRuleConditionSourceIpArgs',
     'ListenerRuleConditionSourceIpArgsDict',
+    'ListenerRuleTransformArgs',
+    'ListenerRuleTransformArgsDict',
+    'ListenerRuleTransformHostHeaderRewriteConfigArgs',
+    'ListenerRuleTransformHostHeaderRewriteConfigArgsDict',
+    'ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs',
+    'ListenerRuleTransformHostHeaderRewriteConfigRewriteArgsDict',
+    'ListenerRuleTransformUrlRewriteConfigArgs',
+    'ListenerRuleTransformUrlRewriteConfigArgsDict',
+    'ListenerRuleTransformUrlRewriteConfigRewriteArgs',
+    'ListenerRuleTransformUrlRewriteConfigRewriteArgsDict',
     'LoadBalancerAccessLogsArgs',
     'LoadBalancerAccessLogsArgsDict',
     'LoadBalancerConnectionLogsArgs',
@@ -2104,7 +2114,7 @@ if not MYPY:
     class ListenerRuleConditionArgsDict(TypedDict):
         host_header: NotRequired[pulumi.Input['ListenerRuleConditionHostHeaderArgsDict']]
         """
-        Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        Host header patterns to match. Host Header block fields documented below.
         """
         http_header: NotRequired[pulumi.Input['ListenerRuleConditionHttpHeaderArgsDict']]
         """
@@ -2116,7 +2126,7 @@ if not MYPY:
         """
         path_pattern: NotRequired[pulumi.Input['ListenerRuleConditionPathPatternArgsDict']]
         """
-        Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
+        Path patterns to match against the request URL. Path Pattern block fields documented below.
         """
         query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgsDict']]]]
         """
@@ -2141,10 +2151,10 @@ class ListenerRuleConditionArgs:
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]] = None,
                  source_ip: Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']] = None):
         """
-        :param pulumi.Input['ListenerRuleConditionHostHeaderArgs'] host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        :param pulumi.Input['ListenerRuleConditionHostHeaderArgs'] host_header: Host header patterns to match. Host Header block fields documented below.
         :param pulumi.Input['ListenerRuleConditionHttpHeaderArgs'] http_header: HTTP headers to match. HTTP Header block fields documented below.
         :param pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs'] http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-        :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
+        :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Path patterns to match against the request URL. Path Pattern block fields documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
         :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
                
@@ -2167,7 +2177,7 @@ class ListenerRuleConditionArgs:
     @pulumi.getter(name="hostHeader")
     def host_header(self) -> Optional[pulumi.Input['ListenerRuleConditionHostHeaderArgs']]:
         """
-        Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        Host header patterns to match. Host Header block fields documented below.
         """
         return pulumi.get(self, "host_header")
 
@@ -2203,7 +2213,7 @@ class ListenerRuleConditionArgs:
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']]:
         """
-        Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
+        Path patterns to match against the request URL. Path Pattern block fields documented below.
         """
         return pulumi.get(self, "path_pattern")
 
@@ -2240,23 +2250,53 @@ class ListenerRuleConditionArgs:
 
 if not MYPY:
     class ListenerRuleConditionHostHeaderArgsDict(TypedDict):
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+        """
 elif False:
     ListenerRuleConditionHostHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerRuleConditionHostHeaderArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(__self__, "values", values)
+                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+        """
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        return pulumi.get(self, "regex_values")
+
+    @regex_values.setter
+    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2264,11 +2304,15 @@ if not MYPY:
     class ListenerRuleConditionHttpHeaderArgsDict(TypedDict):
         http_header_name: pulumi.Input[_builtins.str]
         """
-        Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+        Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
         """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regex_values`.
         """
 elif False:
     ListenerRuleConditionHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
@@ -2277,19 +2321,24 @@ elif False:
 class ListenerRuleConditionHttpHeaderArgs:
     def __init__(__self__, *,
                  http_header_name: pulumi.Input[_builtins.str],
-                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] http_header_name: Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[_builtins.str] http_header_name: Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regex_values`.
         """
         pulumi.set(__self__, "http_header_name", http_header_name)
-        pulumi.set(__self__, "values", values)
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter(name="httpHeaderName")
     def http_header_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
+        Name of HTTP header to search. The maximum size is 40 characters. Comparison is case-insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
         """
         return pulumi.get(self, "http_header_name")
 
@@ -2298,15 +2347,27 @@ class ListenerRuleConditionHttpHeaderArgs:
         pulumi.set(self, "http_header_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        List of regular expression to compare against the HTTP header. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        return pulumi.get(self, "regex_values")
+
+    @regex_values.setter
+    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regex_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string. Conflicts with `regex_values`.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2334,23 +2395,53 @@ class ListenerRuleConditionHttpRequestMethodArgs:
 
 if not MYPY:
     class ListenerRuleConditionPathPatternArgsDict(TypedDict):
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition. Conflicts with `regex_values`.
+        """
 elif False:
     ListenerRuleConditionPathPatternArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerRuleConditionPathPatternArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(__self__, "values", values)
+                 regex_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition. Conflicts with `regex_values`.
+        """
+        if regex_values is not None:
+            pulumi.set(__self__, "regex_values", regex_values)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="regexValues")
+    def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of regular expressions to compare against the request URL. The maximum length of each string is 128 characters. Conflicts with `values`.
+        """
+        return pulumi.get(self, "regex_values")
+
+    @regex_values.setter
+    def regex_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "regex_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of path patterns to compare against the request URL. Maximum size of each pattern is 128 characters. Comparison is case-sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition. Conflicts with `regex_values`.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2425,6 +2516,241 @@ class ListenerRuleConditionSourceIpArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class ListenerRuleTransformArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+        """
+        host_header_rewrite_config: NotRequired[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigArgsDict']]
+        """
+        Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+        """
+        url_rewrite_config: NotRequired[pulumi.Input['ListenerRuleTransformUrlRewriteConfigArgsDict']]
+        """
+        Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+        """
+elif False:
+    ListenerRuleTransformArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListenerRuleTransformArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 host_header_rewrite_config: Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigArgs']] = None,
+                 url_rewrite_config: Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+        :param pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigArgs'] host_header_rewrite_config: Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+        :param pulumi.Input['ListenerRuleTransformUrlRewriteConfigArgs'] url_rewrite_config: Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+        """
+        pulumi.set(__self__, "type", type)
+        if host_header_rewrite_config is not None:
+            pulumi.set(__self__, "host_header_rewrite_config", host_header_rewrite_config)
+        if url_rewrite_config is not None:
+            pulumi.set(__self__, "url_rewrite_config", url_rewrite_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostHeaderRewriteConfig")
+    def host_header_rewrite_config(self) -> Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigArgs']]:
+        """
+        Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
+        """
+        return pulumi.get(self, "host_header_rewrite_config")
+
+    @host_header_rewrite_config.setter
+    def host_header_rewrite_config(self, value: Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigArgs']]):
+        pulumi.set(self, "host_header_rewrite_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlRewriteConfig")
+    def url_rewrite_config(self) -> Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigArgs']]:
+        """
+        Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
+        """
+        return pulumi.get(self, "url_rewrite_config")
+
+    @url_rewrite_config.setter
+    def url_rewrite_config(self, value: Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigArgs']]):
+        pulumi.set(self, "url_rewrite_config", value)
+
+
+if not MYPY:
+    class ListenerRuleTransformHostHeaderRewriteConfigArgsDict(TypedDict):
+        rewrite: NotRequired[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgsDict']]
+        """
+        Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+elif False:
+    ListenerRuleTransformHostHeaderRewriteConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListenerRuleTransformHostHeaderRewriteConfigArgs:
+    def __init__(__self__, *,
+                 rewrite: Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs']] = None):
+        """
+        :param pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs'] rewrite: Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+        if rewrite is not None:
+            pulumi.set(__self__, "rewrite", rewrite)
+
+    @_builtins.property
+    @pulumi.getter
+    def rewrite(self) -> Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs']]:
+        """
+        Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+        return pulumi.get(self, "rewrite")
+
+    @rewrite.setter
+    def rewrite(self, value: Optional[pulumi.Input['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs']]):
+        pulumi.set(self, "rewrite", value)
+
+
+if not MYPY:
+    class ListenerRuleTransformHostHeaderRewriteConfigRewriteArgsDict(TypedDict):
+        regex: pulumi.Input[_builtins.str]
+        """
+        Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        """
+        replace: pulumi.Input[_builtins.str]
+        """
+        Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+elif False:
+    ListenerRuleTransformHostHeaderRewriteConfigRewriteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs:
+    def __init__(__self__, *,
+                 regex: pulumi.Input[_builtins.str],
+                 replace: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] regex: Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        :param pulumi.Input[_builtins.str] replace: Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "replace", replace)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[_builtins.str]:
+        """
+        Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "regex", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def replace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "replace", value)
+
+
+if not MYPY:
+    class ListenerRuleTransformUrlRewriteConfigArgsDict(TypedDict):
+        rewrite: NotRequired[pulumi.Input['ListenerRuleTransformUrlRewriteConfigRewriteArgsDict']]
+        """
+        Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+elif False:
+    ListenerRuleTransformUrlRewriteConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListenerRuleTransformUrlRewriteConfigArgs:
+    def __init__(__self__, *,
+                 rewrite: Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigRewriteArgs']] = None):
+        """
+        :param pulumi.Input['ListenerRuleTransformUrlRewriteConfigRewriteArgs'] rewrite: Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+        if rewrite is not None:
+            pulumi.set(__self__, "rewrite", rewrite)
+
+    @_builtins.property
+    @pulumi.getter
+    def rewrite(self) -> Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigRewriteArgs']]:
+        """
+        Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
+        """
+        return pulumi.get(self, "rewrite")
+
+    @rewrite.setter
+    def rewrite(self, value: Optional[pulumi.Input['ListenerRuleTransformUrlRewriteConfigRewriteArgs']]):
+        pulumi.set(self, "rewrite", value)
+
+
+if not MYPY:
+    class ListenerRuleTransformUrlRewriteConfigRewriteArgsDict(TypedDict):
+        regex: pulumi.Input[_builtins.str]
+        """
+        Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        """
+        replace: pulumi.Input[_builtins.str]
+        """
+        Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+elif False:
+    ListenerRuleTransformUrlRewriteConfigRewriteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListenerRuleTransformUrlRewriteConfigRewriteArgs:
+    def __init__(__self__, *,
+                 regex: pulumi.Input[_builtins.str],
+                 replace: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] regex: Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        :param pulumi.Input[_builtins.str] replace: Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "replace", replace)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[_builtins.str]:
+        """
+        Regular expression to match in the input string. Length constraints: Between 1 and 1024 characters.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "regex", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def replace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Replacement string to use when rewriting the matched input. Capture groups in the regular expression (for example, `$1` and `$2`) can be specified. Length constraints: Between 0 and 1024 characters.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "replace", value)
 
 
 if not MYPY:

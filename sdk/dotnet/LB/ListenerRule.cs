@@ -268,6 +268,60 @@ namespace Pulumi.Aws.LB
     ///         },
     ///     });
     /// 
+    ///     // With transform
+    ///     var transform = new Aws.LB.ListenerRule("transform", new()
+    ///     {
+    ///         ListenerArn = frontEndListener.Arn,
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerRuleActionArgs
+    ///             {
+    ///                 Type = "forward",
+    ///                 TargetGroupArn = staticAwsLbTargetGroup.Arn,
+    ///             },
+    ///         },
+    ///         Conditions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerRuleConditionArgs
+    ///             {
+    ///                 PathPattern = new Aws.LB.Inputs.ListenerRuleConditionPathPatternArgs
+    ///                 {
+    ///                     Values = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Transforms = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerRuleTransformArgs
+    ///             {
+    ///                 Type = "host-header-rewrite",
+    ///                 HostHeaderRewriteConfig = new Aws.LB.Inputs.ListenerRuleTransformHostHeaderRewriteConfigArgs
+    ///                 {
+    ///                     Rewrite = new Aws.LB.Inputs.ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs
+    ///                     {
+    ///                         Regex = "^mywebsite-(.+).com$",
+    ///                         Replace = "internal.dev.$1.myweb.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.LB.Inputs.ListenerRuleTransformArgs
+    ///             {
+    ///                 Type = "url-rewrite",
+    ///                 UrlRewriteConfig = new Aws.LB.Inputs.ListenerRuleTransformUrlRewriteConfigArgs
+    ///                 {
+    ///                     Rewrite = new Aws.LB.Inputs.ListenerRuleTransformUrlRewriteConfigRewriteArgs
+    ///                     {
+    ///                         Regex = "^/dp/([A-Za-z0-9]+)/?$",
+    ///                         Replace = "/product.php?id=$1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -335,6 +389,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
+        /// </summary>
+        [Output("transforms")]
+        public Output<ImmutableArray<Outputs.ListenerRuleTransform>> Transforms { get; private set; } = null!;
 
 
         /// <summary>
@@ -440,6 +500,18 @@ namespace Pulumi.Aws.LB
             set => _tags = value;
         }
 
+        [Input("transforms")]
+        private InputList<Inputs.ListenerRuleTransformArgs>? _transforms;
+
+        /// <summary>
+        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
+        /// </summary>
+        public InputList<Inputs.ListenerRuleTransformArgs> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<Inputs.ListenerRuleTransformArgs>());
+            set => _transforms = value;
+        }
+
         public ListenerRuleArgs()
         {
         }
@@ -518,6 +590,18 @@ namespace Pulumi.Aws.LB
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("transforms")]
+        private InputList<Inputs.ListenerRuleTransformGetArgs>? _transforms;
+
+        /// <summary>
+        /// Configuration block that defines the transform to apply to requests matching this rule. See Transform Blocks below for more details. Once specified, to remove the transform from the rule, remove the `Transform` block from the configuration.
+        /// </summary>
+        public InputList<Inputs.ListenerRuleTransformGetArgs> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<Inputs.ListenerRuleTransformGetArgs>());
+            set => _transforms = value;
         }
 
         public ListenerRuleState()

@@ -1215,6 +1215,992 @@ func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationMonitoringConfiguration struct {
+	// The Amazon CloudWatch configuration for monitoring logs.
+	CloudwatchLoggingConfiguration *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration `pulumi:"cloudwatchLoggingConfiguration"`
+	// The managed log persistence configuration for monitoring logs.
+	ManagedPersistenceMonitoringConfiguration *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// The Prometheus configuration for monitoring metrics.
+	PrometheusMonitoringConfiguration *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration `pulumi:"prometheusMonitoringConfiguration"`
+	// The Amazon S3 configuration for monitoring log publishing.
+	S3MonitoringConfiguration *ApplicationMonitoringConfigurationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+}
+
+// ApplicationMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationArgs and ApplicationMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationArgs{...}
+type ApplicationMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput
+	ToApplicationMonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationOutput
+}
+
+type ApplicationMonitoringConfigurationArgs struct {
+	// The Amazon CloudWatch configuration for monitoring logs.
+	CloudwatchLoggingConfiguration ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput `pulumi:"cloudwatchLoggingConfiguration"`
+	// The managed log persistence configuration for monitoring logs.
+	ManagedPersistenceMonitoringConfiguration ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// The Prometheus configuration for monitoring metrics.
+	PrometheusMonitoringConfiguration ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput `pulumi:"prometheusMonitoringConfiguration"`
+	// The Amazon S3 configuration for monitoring log publishing.
+	S3MonitoringConfiguration ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+}
+
+func (ApplicationMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationOutput).ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationArgs, ApplicationMonitoringConfigurationPtr and ApplicationMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationPtrType ApplicationMonitoringConfigurationArgs
+
+func ApplicationMonitoringConfigurationPtr(v *ApplicationMonitoringConfigurationArgs) ApplicationMonitoringConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
+// The Amazon CloudWatch configuration for monitoring logs.
+func (o ApplicationMonitoringConfigurationOutput) CloudwatchLoggingConfiguration() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
+		return v.CloudwatchLoggingConfiguration
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
+}
+
+// The managed log persistence configuration for monitoring logs.
+func (o ApplicationMonitoringConfigurationOutput) ManagedPersistenceMonitoringConfiguration() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
+		return v.ManagedPersistenceMonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// The Prometheus configuration for monitoring metrics.
+func (o ApplicationMonitoringConfigurationOutput) PrometheusMonitoringConfiguration() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
+		return v.PrometheusMonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+// The Amazon S3 configuration for monitoring log publishing.
+func (o ApplicationMonitoringConfigurationOutput) S3MonitoringConfiguration() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationS3MonitoringConfiguration {
+		return v.S3MonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) ApplicationMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationOutput)
+}
+
+// The Amazon CloudWatch configuration for monitoring logs.
+func (o ApplicationMonitoringConfigurationPtrOutput) CloudwatchLoggingConfiguration() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingConfiguration
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
+}
+
+// The managed log persistence configuration for monitoring logs.
+func (o ApplicationMonitoringConfigurationPtrOutput) ManagedPersistenceMonitoringConfiguration() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedPersistenceMonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// The Prometheus configuration for monitoring metrics.
+func (o ApplicationMonitoringConfigurationPtrOutput) PrometheusMonitoringConfiguration() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrometheusMonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+// The Amazon S3 configuration for monitoring log publishing.
+func (o ApplicationMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationMonitoringConfigurationS3MonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3MonitoringConfiguration
+	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration struct {
+	// Enables CloudWatch logging.
+	Enabled bool `pulumi:"enabled"`
+	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// Prefix for the CloudWatch log stream name.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+	// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
+	LogTypes []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType `pulumi:"logTypes"`
+}
+
+// ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs and ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{...}
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs struct {
+	// Enables CloudWatch logging.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// Prefix for the CloudWatch log stream name.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+	// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
+	LogTypes ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput `pulumi:"logTypes"`
+}
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput).ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs, ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtr and ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrType ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs
+
+func ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtr(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrType) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrType) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput)
+}
+
+// Enables CloudWatch logging.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the CloudWatch log stream name.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) LogTypes() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
+		return v.LogTypes
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput)
+}
+
+// Enables CloudWatch logging.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the CloudWatch log stream name.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See logTypes for more details.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) LogTypes() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType struct {
+	// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
+	Name string `pulumi:"name"`
+	// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+	Values []string `pulumi:"values"`
+}
+
+// ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInput is an input type that accepts ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs and ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInput` via:
+//
+//	ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{...}
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutputWithContext(context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs struct {
+	// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput {
+	return i.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput)
+}
+
+// ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput is an input type that accepts ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray and ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput` via:
+//
+//	ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray{ ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{...} }
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput
+	ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutputWithContext(context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray []ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInput
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return i.ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput {
+	return o
+}
+
+// The worker type. Valid values are `SPARK_DRIVER`, `SPARK_EXECUTOR`, `HIVE_DRIVER`, and `TEZ_TASK`.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of log types to publish. Valid values are `STDOUT`, `STDERR`, `HIVE_LOG`, `TEZ_AM`, and `SYSTEM_LOGS`.
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput() ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput) ToApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput) Index(i pulumi.IntInput) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType {
+		return vs[0].([]ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType)[vs[1].(int)]
+	}).(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput)
+}
+
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration struct {
+	// Enables managed log persistence for monitoring logs.
+	Enabled *bool `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs stored in managed persistence.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+}
+
+// ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs and ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{...}
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput
+	ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput
+}
+
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs struct {
+	// Enables managed log persistence for monitoring logs.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs stored in managed persistence.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+}
+
+func (ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput).ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs, ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtr and ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrType ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs
+
+func ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtr(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// Enables managed log persistence for monitoring logs.
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs stored in managed persistence.
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *string {
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput)
+}
+
+// Enables managed log persistence for monitoring logs.
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs stored in managed persistence.
+func (o ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration struct {
+	// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+	RemoteWriteUrl *string `pulumi:"remoteWriteUrl"`
+}
+
+// ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs and ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{...}
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput
+	ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput
+}
+
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs struct {
+	// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+	RemoteWriteUrl pulumi.StringPtrInput `pulumi:"remoteWriteUrl"`
+}
+
+func (ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput).ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs, ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtr and ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrType ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs
+
+func ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtr(v *ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) *string {
+		return v.RemoteWriteUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput)
+}
+
+// The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
+func (o ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationPrometheusMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteWriteUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationS3MonitoringConfiguration struct {
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	// The Amazon S3 destination URI for log publishing.
+	LogUri *string `pulumi:"logUri"`
+}
+
+// ApplicationMonitoringConfigurationS3MonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs and ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationS3MonitoringConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs{...}
+type ApplicationMonitoringConfigurationS3MonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput
+	ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput
+}
+
+type ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs struct {
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	// The Amazon S3 destination URI for log publishing.
+	LogUri pulumi.StringPtrInput `pulumi:"logUri"`
+}
+
+func (ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput).ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs, ApplicationMonitoringConfigurationS3MonitoringConfigurationPtr and ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationS3MonitoringConfigurationPtrType ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs
+
+func ApplicationMonitoringConfigurationS3MonitoringConfigurationPtr(v *ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationS3MonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationS3MonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationS3MonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationS3MonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfigurationS3MonitoringConfiguration) *ApplicationMonitoringConfigurationS3MonitoringConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 destination URI for log publishing.
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationS3MonitoringConfiguration) ApplicationMonitoringConfigurationS3MonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfigurationS3MonitoringConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput)
+}
+
+// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 destination URI for log publishing.
+func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfigurationS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationNetworkConfiguration struct {
 	// The array of security group Ids for customer VPC connectivity.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -1369,6 +2355,112 @@ func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationRuntimeConfiguration struct {
+	// The classification within a configuration.
+	Classification string `pulumi:"classification"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
+}
+
+// ApplicationRuntimeConfigurationInput is an input type that accepts ApplicationRuntimeConfigurationArgs and ApplicationRuntimeConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationRuntimeConfigurationInput` via:
+//
+//	ApplicationRuntimeConfigurationArgs{...}
+type ApplicationRuntimeConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationRuntimeConfigurationOutput() ApplicationRuntimeConfigurationOutput
+	ToApplicationRuntimeConfigurationOutputWithContext(context.Context) ApplicationRuntimeConfigurationOutput
+}
+
+type ApplicationRuntimeConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (ApplicationRuntimeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuntimeConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationRuntimeConfigurationArgs) ToApplicationRuntimeConfigurationOutput() ApplicationRuntimeConfigurationOutput {
+	return i.ToApplicationRuntimeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationRuntimeConfigurationArgs) ToApplicationRuntimeConfigurationOutputWithContext(ctx context.Context) ApplicationRuntimeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRuntimeConfigurationOutput)
+}
+
+// ApplicationRuntimeConfigurationArrayInput is an input type that accepts ApplicationRuntimeConfigurationArray and ApplicationRuntimeConfigurationArrayOutput values.
+// You can construct a concrete instance of `ApplicationRuntimeConfigurationArrayInput` via:
+//
+//	ApplicationRuntimeConfigurationArray{ ApplicationRuntimeConfigurationArgs{...} }
+type ApplicationRuntimeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToApplicationRuntimeConfigurationArrayOutput() ApplicationRuntimeConfigurationArrayOutput
+	ToApplicationRuntimeConfigurationArrayOutputWithContext(context.Context) ApplicationRuntimeConfigurationArrayOutput
+}
+
+type ApplicationRuntimeConfigurationArray []ApplicationRuntimeConfigurationInput
+
+func (ApplicationRuntimeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationRuntimeConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationRuntimeConfigurationArray) ToApplicationRuntimeConfigurationArrayOutput() ApplicationRuntimeConfigurationArrayOutput {
+	return i.ToApplicationRuntimeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationRuntimeConfigurationArray) ToApplicationRuntimeConfigurationArrayOutputWithContext(ctx context.Context) ApplicationRuntimeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRuntimeConfigurationArrayOutput)
+}
+
+type ApplicationRuntimeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuntimeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuntimeConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRuntimeConfigurationOutput) ToApplicationRuntimeConfigurationOutput() ApplicationRuntimeConfigurationOutput {
+	return o
+}
+
+func (o ApplicationRuntimeConfigurationOutput) ToApplicationRuntimeConfigurationOutputWithContext(ctx context.Context) ApplicationRuntimeConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o ApplicationRuntimeConfigurationOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationRuntimeConfiguration) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+// A set of properties specified within a configuration classification.
+func (o ApplicationRuntimeConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationRuntimeConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type ApplicationRuntimeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuntimeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationRuntimeConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationRuntimeConfigurationArrayOutput) ToApplicationRuntimeConfigurationArrayOutput() ApplicationRuntimeConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationRuntimeConfigurationArrayOutput) ToApplicationRuntimeConfigurationArrayOutputWithContext(ctx context.Context) ApplicationRuntimeConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationRuntimeConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationRuntimeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationRuntimeConfiguration {
+		return vs[0].([]ApplicationRuntimeConfiguration)[vs[1].(int)]
+	}).(ApplicationRuntimeConfigurationOutput)
 }
 
 type ApplicationSchedulerConfiguration struct {
@@ -1544,8 +2636,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInteractiveConfigurationPtrInput)(nil)).Elem(), ApplicationInteractiveConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumCapacityPtrInput)(nil)).Elem(), ApplicationMaximumCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeInput)(nil)).Elem(), ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayInput)(nil)).Elem(), ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationS3MonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationPtrInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRuntimeConfigurationInput)(nil)).Elem(), ApplicationRuntimeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRuntimeConfigurationArrayInput)(nil)).Elem(), ApplicationRuntimeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSchedulerConfigurationInput)(nil)).Elem(), ApplicationSchedulerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSchedulerConfigurationPtrInput)(nil)).Elem(), ApplicationSchedulerConfigurationArgs{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationOutput{})
@@ -1564,8 +2670,22 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInteractiveConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumCapacityPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationS3MonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationRuntimeConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationRuntimeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSchedulerConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSchedulerConfigurationPtrOutput{})
 }

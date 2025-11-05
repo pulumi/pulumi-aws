@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly string AppBlockArn;
         /// <summary>
-        /// Arn of the image being searched for. Cannot be used with NameRegex or name.
+        /// ARN of the image being searched for. Cannot be used with `NameRegex` or `Name`.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// Name of the image being searched for. Cannot be used with NameRegex or arn.
+        /// Name of the image being searched for. Cannot be used with `NameRegex` or `Arn`.
         /// </summary>
         public readonly string Name;
         /// <summary>
