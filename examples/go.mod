@@ -13,8 +13,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/iam v1.49.0
 	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.30.9
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.89.0
-	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-aws/provider/v7 v7.0.0-00010101000000-000000000000
+	github.com/pulumi/providertest v0.3.1
+	github.com/pulumi/pulumi-aws/provider/v7 v7.11.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.116.0
 	github.com/pulumi/pulumi/pkg/v3 v3.190.0
 	github.com/pulumi/pulumi/sdk/v3 v3.190.0
@@ -25,7 +25,7 @@ require (
 //
 // We use this for gRPC based testing.
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250923233607-7f1981c8674a
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 717b4eff435b
 
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/pulumi/pulumi-aws/provider/v7 => ../provider
