@@ -113,6 +113,8 @@ jobs:
       with:
         tag_name: v${{ inputs.version }}
         prerelease: ${{ inputs.isPrerelease }}
+        # This is a backport branch. We don't want to set this release to latest.
+        make_latest: false
         # We keep pre-releases as drafts so they're not visible until we manually publish them.
         draft: ${{ inputs.isPrerelease }}
         body: ${{ steps.schema-summary.outputs.summary }}
@@ -176,47 +178,6 @@ jobs:
         pip install toml-cli==0.7.0
         version=$(toml get --toml-path pyproject.toml project.version)
         echo "version=${version}" >> "$GITHUB_OUTPUT"
-  create_docs_build:
-    name: create_docs_build
-    needs: publish_sdk
-    # Only run for non-prerelease, if the publish_go_sdk job was successful or skipped
-    if: inputs.isPrerelease == false
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dispatch Metadata build
-        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
-        with:
-          token: ${{ secrets.PULUMI_BOT_TOKEN }}
-          repository: pulumi/registry
-          event-type: resource-provider
-          client-payload: |-
-            {
-              "project": "${{ github.repository }}",
-              "project-shortname": "aws",
-              "ref": "${{ github.ref_name }}"
-            }
-
-  clean_up_release_labels:
-    name: Clean up release labels
-    # Only run for non-prerelease, if the publish_go_sdk job was successful or skipped
-    if: inputs.isPrerelease == false
-    needs: create_docs_build
-    
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        persist-credentials: false
-    - name: Clean up release labels
-      uses: pulumi/action-release-by-pr-label@main
-      with:
-        command: "clean-up-release-labels"
-        repo: ${{ github.repository }}
-        commit: ${{ github.sha }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   verify_release:
     name: verify_release
     needs: publish_sdk
