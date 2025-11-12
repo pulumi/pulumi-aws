@@ -11,6 +11,17 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.ContributorManagedInsightRule("example", {
+ *     resourceArn: test.arn,
+ *     templateName: "VpcEndpointService-BytesByEndpointId-v1",
+ *     ruleState: "DISABLED",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:

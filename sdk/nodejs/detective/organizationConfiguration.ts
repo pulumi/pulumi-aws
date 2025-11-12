@@ -7,6 +7,17 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.detective.Graph("example", {enable: true});
+ * const exampleOrganizationConfiguration = new aws.detective.OrganizationConfiguration("example", {
+ *     autoEnable: true,
+ *     graphArn: example.graphArn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:

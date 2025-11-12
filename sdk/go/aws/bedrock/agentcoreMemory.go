@@ -81,6 +81,42 @@ import (
 //
 // ### Memory with Custom Encryption and Role
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description: pulumi.String("KMS key for Bedrock AgentCore Memory"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentcoreMemory(ctx, "example", &bedrock.AgentcoreMemoryArgs{
+//				Name:                   pulumi.String("example-memory"),
+//				Description:            pulumi.String("Memory for customer service agent"),
+//				EventExpiryDuration:    pulumi.Int(60),
+//				EncryptionKeyArn:       example.Arn,
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				ClientToken:            "unique-client-token",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:

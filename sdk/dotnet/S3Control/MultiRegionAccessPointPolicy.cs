@@ -14,6 +14,85 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var fooBucket = new Aws.S3.Bucket("foo_bucket", new()
+    ///     {
+    ///         BucketName = "example-bucket-foo",
+    ///     });
+    /// 
+    ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
+    ///     {
+    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
+    ///         {
+    ///             Name = "example",
+    ///             Regions = new[]
+    ///             {
+    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
+    ///                 {
+    ///                     Bucket = fooBucket.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleMultiRegionAccessPointPolicy = new Aws.S3Control.MultiRegionAccessPointPolicy("example", new()
+    ///     {
+    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointPolicyDetailsArgs
+    ///         {
+    ///             Name = Std.Split.Invoke(new()
+    ///             {
+    ///                 Separator = ":",
+    ///                 Text = example.Id,
+    ///             }).Apply(invoke =&gt; invoke.Result)[1],
+    ///             Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Version"] = "2012-10-17",
+    ///                 ["Statement"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Sid"] = "Example",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["AWS"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "s3:GetObject",
+    ///                             "s3:PutObject",
+    ///                         },
+    ///                         ["Resource"] = Output.Tuple(currentGetPartition, current, example.Alias).Apply(values =&gt;
+    ///                         {
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             var @alias = values.Item3;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:accesspoint/{@alias}/object/*";
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///             })),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:

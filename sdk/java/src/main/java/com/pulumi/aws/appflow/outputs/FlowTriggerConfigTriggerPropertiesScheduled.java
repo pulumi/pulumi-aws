@@ -46,6 +46,40 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appflow.Flow;
+     * import com.pulumi.aws.appflow.FlowArgs;
+     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Flow("example", FlowArgs.builder()
+     *             .triggerConfig(FlowTriggerConfigArgs.builder()
+     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     private @Nullable String timezone;
 
@@ -94,6 +128,40 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     }
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appflow.Flow;
+     * import com.pulumi.aws.appflow.FlowArgs;
+     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Flow("example", FlowArgs.builder()
+     *             .triggerConfig(FlowTriggerConfigArgs.builder()
+     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public Optional<String> timezone() {

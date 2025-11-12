@@ -369,6 +369,87 @@ import javax.annotation.Nullable;
  * 
  * ### Associate Web ACL (v2)
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAclAssociation;
+ * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
+ *             .authenticationType("API_KEY")
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleWebAcl = new WebAcl("exampleWebAcl", WebAclArgs.builder()
+ *             .name("managed-rule-example")
+ *             .description("Example of a managed rule.")
+ *             .scope("REGIONAL")
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow(WebAclDefaultActionAllowArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .rules(WebAclRuleArgs.builder()
+ *                 .name("rule-1")
+ *                 .priority(1)
+ *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
+ *                     .block(List.of(Map.ofEntries(
+ *                     )))
+ *                     .build())
+ *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                     .name("AWSManagedRulesCommonRuleSet")
+ *                     .vendorName("AWS")
+ *                     .build()))
+ *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
+ *                     .cloudwatchMetricsEnabled(false)
+ *                     .metricName("friendly-rule-metric-name")
+ *                     .sampledRequestsEnabled(false)
+ *                     .build())
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName("friendly-metric-name")
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleWebAclAssociation = new WebAclAssociation("exampleWebAclAssociation", WebAclAssociationArgs.builder()
+ *             .resourceArn(example.arn())
+ *             .webAclArn(exampleWebAcl.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### GraphQL run complexity, query depth, and introspection
  * 
  * <pre>

@@ -49,6 +49,47 @@ import (
 //
 // ### Custom OAuth Provider with Discovery URL
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "auth0", &bedrock.AgentcoreOauth2CredentialProviderArgs{
+//				Name:                     pulumi.String("auth0-oauth-provider"),
+//				CredentialProviderVendor: pulumi.String("CustomOauth2"),
+//				CustomOauth2ProviderConfig: []map[string]interface{}{
+//					map[string]interface{}{
+//						"custom": []map[string]interface{}{
+//							map[string]interface{}{
+//								"clientIdWo":                 "auth0-client-id",
+//								"clientSecretWo":             "auth0-client-secret",
+//								"clientCredentialsWoVersion": 1,
+//								"oauthDiscovery": []map[string]interface{}{
+//									map[string]interface{}{
+//										"discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Custom OAuth Provider with Authorization Server Metadata
 //
 // ```go

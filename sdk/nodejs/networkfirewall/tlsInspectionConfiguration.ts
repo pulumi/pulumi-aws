@@ -142,6 +142,50 @@ import * as utilities from "../utilities";
  *
  * ### Outbound with encryption configuration
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleTlsInspectionConfiguration = new aws.networkfirewall.TlsInspectionConfiguration("example", {
+ *     name: "example",
+ *     description: "example",
+ *     encryptionConfigurations: [{
+ *         keyId: example.arn,
+ *         type: "CUSTOMER_KMS",
+ *     }],
+ *     tlsInspectionConfiguration: {
+ *         serverCertificateConfigurations: [{
+ *             certificateAuthorityArn: example1.arn,
+ *             checkCertificateRevocationStatus: [{
+ *                 revokedStatusAction: "REJECT",
+ *                 unknownStatusAction: "PASS",
+ *             }],
+ *             scope: [{
+ *                 protocols: [6],
+ *                 destinationPorts: [{
+ *                     fromPort: 443,
+ *                     toPort: 443,
+ *                 }],
+ *                 destination: [{
+ *                     addressDefinition: "0.0.0.0/0",
+ *                 }],
+ *                 sourcePorts: [{
+ *                     fromPort: 0,
+ *                     toPort: 65535,
+ *                 }],
+ *                 source: [{
+ *                     addressDefinition: "0.0.0.0/0",
+ *                 }],
+ *             }],
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ### Combined inbound and outbound
  *
  * ```typescript

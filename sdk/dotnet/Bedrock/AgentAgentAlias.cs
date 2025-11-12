@@ -16,6 +16,114 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var exampleAgentTrust = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "bedrock.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnLike",
+    ///                         Values = new[]
+    ///                         {
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                         },
+    ///                         Variable = "AWS:SourceArn",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAgentPermissions = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "bedrock:InvokeModel",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}::foundation-model/anthropic.claude-v2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAgentTrust.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         NamePrefix = "AmazonBedrockExecutionRoleForAgents_",
+    ///     });
+    /// 
+    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
+    ///     {
+    ///         Policy = exampleAgentPermissions.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Role = example.Id,
+    ///     });
+    /// 
+    ///     var exampleAgentAgent = new Aws.Bedrock.AgentAgent("example", new()
+    ///     {
+    ///         AgentName = "my-agent-name",
+    ///         AgentResourceRoleArn = example.Arn,
+    ///         IdleTtl = 500,
+    ///         FoundationModel = "anthropic.claude-v2",
+    ///     });
+    /// 
+    ///     var exampleAgentAgentAlias = new Aws.Bedrock.AgentAgentAlias("example", new()
+    ///     {
+    ///         AgentAliasName = "my-agent-alias",
+    ///         AgentId = exampleAgentAgent.AgentId,
+    ///         Description = "Test Alias",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:

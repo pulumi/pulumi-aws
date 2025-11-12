@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as github from "@pulumi/github";
  *
  * const example = new aws.codebuild.Webhook("example", {projectName: exampleAwsCodebuildProject.name});
- * const exampleRepositoryWebhook = new github.index.RepositoryWebhook("example", {
+ * const exampleRepositoryWebhook = new github.RepositoryWebhook("example", {
  *     active: true,
  *     events: ["push"],
  *     name: "example",

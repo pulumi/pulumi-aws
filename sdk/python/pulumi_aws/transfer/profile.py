@@ -253,6 +253,16 @@ class Profile(pulumi.CustomResource):
 
         ### Basic
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Profile("example",
+            as2_id="example",
+            certificate_ids=[example_aws_transfer_certificate["certificateId"]],
+            usage="LOCAL")
+        ```
+
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
@@ -281,6 +291,16 @@ class Profile(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.Profile("example",
+            as2_id="example",
+            certificate_ids=[example_aws_transfer_certificate["certificateId"]],
+            usage="LOCAL")
+        ```
 
         ## Import
 

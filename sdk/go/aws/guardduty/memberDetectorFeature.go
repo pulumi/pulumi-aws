@@ -54,6 +54,54 @@ import (
 // ## Extended Threat Detection for EKS
 //
 // To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewDetectorFeature(ctx, "eks_protection", &guardduty.DetectorFeatureArgs{
+//				DetectorId: example.ID(),
+//				AccountId:  "123456789012",
+//				Name:       pulumi.String("EKS_AUDIT_LOGS"),
+//				Status:     pulumi.String("ENABLED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewDetectorFeature(ctx, "eks_runtime_monitoring", &guardduty.DetectorFeatureArgs{
+//				DetectorId: example.ID(),
+//				AccountId:  "123456789012",
+//				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
+//				Status:     pulumi.String("ENABLED"),
+//				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{
+//					&guardduty.DetectorFeatureAdditionalConfigurationArgs{
+//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
+//						Status: pulumi.String("ENABLED"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type MemberDetectorFeature struct {
 	pulumi.CustomResourceState
 

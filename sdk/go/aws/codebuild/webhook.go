@@ -75,7 +75,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,13 +89,13 @@ import (
 //				return err
 //			}
 //			_, err = github.NewRepositoryWebhook(ctx, "example", &github.RepositoryWebhookArgs{
-//				Active: true,
-//				Events: []string{
-//					"push",
+//				Active: pulumi.Bool(true),
+//				Events: pulumi.StringArray{
+//					pulumi.String("push"),
 //				},
 //				Name:       "example",
-//				Repository: exampleGithubRepository.Name,
-//				Configuration: []map[string]interface{}{
+//				Repository: pulumi.Any(exampleGithubRepository.Name),
+//				Configuration: github.RepositoryWebhookConfigurationArgs{
 //					map[string]interface{}{
 //						"url":         example.PayloadUrl,
 //						"secret":      example.Secret,

@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var caPrivateKey = new Tls.Index.PrivateKey("ca", new()
+    ///     var caPrivateKey = new Tls.PrivateKey("ca", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var ca = new Tls.Index.SelfSignedCert("ca", new()
+    ///     var ca = new Tls.SelfSignedCert("ca", new()
     ///     {
     ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
     ///         Subject = new[]
@@ -49,14 +49,14 @@ namespace Pulumi.Aws.Iot
     ///         IsCaCertificate = true,
     ///     });
     /// 
-    ///     var verificationPrivateKey = new Tls.Index.PrivateKey("verification", new()
+    ///     var verificationPrivateKey = new Tls.PrivateKey("verification", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
     ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
     /// 
-    ///     var verification = new Tls.Index.CertRequest("verification", new()
+    ///     var verification = new Tls.CertRequest("verification", new()
     ///     {
     ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
     ///         Subject = new[]
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Iot
     ///         },
     ///     });
     /// 
-    ///     var verificationLocallySignedCert = new Tls.Index.LocallySignedCert("verification", new()
+    ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verification", new()
     ///     {
     ///         CertRequestPem = verification.CertRequestPem,
     ///         CaPrivateKeyPem = caPrivateKey.PrivateKeyPem,

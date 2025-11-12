@@ -14,6 +14,33 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LicenseManager.LicenseGrant("test", new()
+    ///     {
+    ///         Name = "share-license-with-account",
+    ///         AllowedOperations = new[]
+    ///         {
+    ///             "ListPurchasedLicenses",
+    ///             "CheckoutLicense",
+    ///             "CheckInLicense",
+    ///             "ExtendConsumptionLicense",
+    ///             "CreateToken",
+    ///         },
+    ///         LicenseArn = "arn:aws:license-manager::111111111111:license:l-exampleARN",
+    ///         Principal = "arn:aws:iam::111111111112:root",
+    ///         HomeRegion = "us-east-1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:

@@ -150,6 +150,50 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage - Logging to S3
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.ivschat.LoggingConfiguration;
+ * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
+ * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
+ * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationS3Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .bucketName("tf-ivschat-logging")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var exampleLoggingConfiguration = new LoggingConfiguration("exampleLoggingConfiguration", LoggingConfigurationArgs.builder()
+ *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
+ *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
+ *                     .bucketName(example.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema

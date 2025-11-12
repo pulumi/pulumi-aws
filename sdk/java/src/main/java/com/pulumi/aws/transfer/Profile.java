@@ -23,6 +23,39 @@ import javax.annotation.Nullable;
  * 
  * ### Basic
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.Profile;
+ * import com.pulumi.aws.transfer.ProfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Profile("example", ProfileArgs.builder()
+ *             .as2Id("example")
+ *             .certificateIds(exampleAwsTransferCertificate.certificateId())
+ *             .usage("LOCAL")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
