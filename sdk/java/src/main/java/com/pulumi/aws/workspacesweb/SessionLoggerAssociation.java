@@ -18,6 +18,97 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.workspacesweb.Portal;
+ * import com.pulumi.aws.workspacesweb.PortalArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.workspacesweb.SessionLogger;
+ * import com.pulumi.aws.workspacesweb.SessionLoggerArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationS3Args;
+ * import com.pulumi.aws.workspacesweb.SessionLoggerAssociation;
+ * import com.pulumi.aws.workspacesweb.SessionLoggerAssociationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplePortal = new Portal("examplePortal", PortalArgs.builder()
+ *             .displayName("example")
+ *             .build());
+ * 
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
+ *             .bucket("example-session-logs")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("workspaces-web.amazonaws.com")
+ *                     .build())
+ *                 .actions("s3:PutObject")
+ *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
+ *             .bucket(exampleBucket.id())
+ *             .policy(example.applyValue(_example -> _example.json()))
+ *             .build());
+ * 
+ *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
+ *             .displayName("example")
+ *             .eventFilter(SessionLoggerEventFilterArgs.builder()
+ *                 .all(SessionLoggerEventFilterAllArgs.builder()
+ *                     .build()[0])
+ *                 .build())
+ *             .logConfiguration(SessionLoggerLogConfigurationArgs.builder()
+ *                 .s3(SessionLoggerLogConfigurationS3Args.builder()
+ *                     .bucket(exampleBucket.id())
+ *                     .folderStructure("Flat")
+ *                     .logFileFormat("Json")
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketPolicy)
+ *                 .build());
+ * 
+ *         var exampleSessionLoggerAssociation = new SessionLoggerAssociation("exampleSessionLoggerAssociation", SessionLoggerAssociationArgs.builder()
+ *             .portalArn(examplePortal.portalArn())
+ *             .sessionLoggerArn(exampleSessionLogger.sessionLoggerArn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:

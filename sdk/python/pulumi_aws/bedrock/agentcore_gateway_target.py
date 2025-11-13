@@ -294,6 +294,111 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         ### Lambda Target with Gateway IAM Role
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gateway_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["bedrock-agentcore.amazonaws.com"],
+            }],
+        }])
+        gateway_role = aws.iam.Role("gateway_role",
+            name="bedrock-gateway-role",
+            assume_role_policy=gateway_assume.json)
+        lambda_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
+        lambda_role = aws.iam.Role("lambda_role",
+            name="example-lambda-role",
+            assume_role_policy=lambda_assume.json)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("example.zip"),
+            name="example-function",
+            role=lambda_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+        example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=gateway_role.arn,
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
+                },
+            })
+        example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests",
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "mcp": {
+                    "lambda_": {
+                        "lambda_arn": example.arn,
+                        "tool_schema": {
+                            "inline_payloads": [{
+                                "name": "process_request",
+                                "description": "Process incoming requests",
+                                "input_schema": {
+                                    "type": "object",
+                                    "description": "Request processing schema",
+                                    "properties": [
+                                        {
+                                            "name": "message",
+                                            "type": "string",
+                                            "description": "Message to process",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "options",
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "name": "priority",
+                                                    "type": "string",
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "type": "array",
+                                                    "items": [{
+                                                        "type": "string",
+                                                    }],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                "output_schema": {
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "name": "status",
+                                            "type": "string",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "result",
+                                            "type": "string",
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                },
+            })
+        ```
+
         ### Target with API Key Authentication
 
         ```python
@@ -475,6 +580,111 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         ## Example Usage
 
         ### Lambda Target with Gateway IAM Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gateway_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["bedrock-agentcore.amazonaws.com"],
+            }],
+        }])
+        gateway_role = aws.iam.Role("gateway_role",
+            name="bedrock-gateway-role",
+            assume_role_policy=gateway_assume.json)
+        lambda_assume = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
+        lambda_role = aws.iam.Role("lambda_role",
+            name="example-lambda-role",
+            assume_role_policy=lambda_assume.json)
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("example.zip"),
+            name="example-function",
+            role=lambda_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+        example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
+            name="example-gateway",
+            role_arn=gateway_role.arn,
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://accounts.google.com/.well-known/openid-configuration",
+                },
+            })
+        example_agentcore_gateway_target = aws.bedrock.AgentcoreGatewayTarget("example",
+            name="example-target",
+            gateway_identifier=example_agentcore_gateway.gateway_id,
+            description="Lambda function target for processing requests",
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "mcp": {
+                    "lambda_": {
+                        "lambda_arn": example.arn,
+                        "tool_schema": {
+                            "inline_payloads": [{
+                                "name": "process_request",
+                                "description": "Process incoming requests",
+                                "input_schema": {
+                                    "type": "object",
+                                    "description": "Request processing schema",
+                                    "properties": [
+                                        {
+                                            "name": "message",
+                                            "type": "string",
+                                            "description": "Message to process",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "options",
+                                            "type": "object",
+                                            "properties": [
+                                                {
+                                                    "name": "priority",
+                                                    "type": "string",
+                                                },
+                                                {
+                                                    "name": "tags",
+                                                    "type": "array",
+                                                    "items": [{
+                                                        "type": "string",
+                                                    }],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                "output_schema": {
+                                    "type": "object",
+                                    "properties": [
+                                        {
+                                            "name": "status",
+                                            "type": "string",
+                                            "required": True,
+                                        },
+                                        {
+                                            "name": "result",
+                                            "type": "string",
+                                        },
+                                    ],
+                                },
+                            }],
+                        },
+                    },
+                },
+            })
+        ```
 
         ### Target with API Key Authentication
 

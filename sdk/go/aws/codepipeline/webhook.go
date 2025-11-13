@@ -22,7 +22,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-github/sdk/go/github"
+//	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,9 +107,9 @@ import (
 //			}
 //			// Wire the CodePipeline webhook into a GitHub repository.
 //			_, err = github.NewRepositoryWebhook(ctx, "bar", &github.RepositoryWebhookArgs{
-//				Repository: repo.Name,
+//				Repository: pulumi.Any(repo.Name),
 //				Name:       "web",
-//				Configuration: []map[string]interface{}{
+//				Configuration: github.RepositoryWebhookConfigurationArgs{
 //					map[string]interface{}{
 //						"url":         barWebhook.Url,
 //						"contentType": "json",
@@ -117,8 +117,8 @@ import (
 //						"secret":      webhookSecret,
 //					},
 //				},
-//				Events: []string{
-//					"push",
+//				Events: pulumi.StringArray{
+//					pulumi.String("push"),
 //				},
 //			})
 //			if err != nil {

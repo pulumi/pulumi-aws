@@ -85,6 +85,48 @@ import javax.annotation.Nullable;
  * 
  * ### Memory with Custom Encryption and Role
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreMemory;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("KMS key for Bedrock AgentCore Memory")
+ *             .build());
+ * 
+ *         var exampleAgentcoreMemory = new AgentcoreMemory("exampleAgentcoreMemory", AgentcoreMemoryArgs.builder()
+ *             .name("example-memory")
+ *             .description("Memory for customer service agent")
+ *             .eventExpiryDuration(60)
+ *             .encryptionKeyArn(example.arn())
+ *             .memoryExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .clientToken("unique-client-token")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:

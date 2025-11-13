@@ -14,6 +14,120 @@ import * as utilities from "../utilities";
  *
  * ### Lambda Target with Gateway IAM Role
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const gatewayAssume = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["bedrock-agentcore.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const gatewayRole = new aws.iam.Role("gateway_role", {
+ *     name: "bedrock-gateway-role",
+ *     assumeRolePolicy: gatewayAssume.then(gatewayAssume => gatewayAssume.json),
+ * });
+ * const lambdaAssume = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const lambdaRole = new aws.iam.Role("lambda_role", {
+ *     name: "example-lambda-role",
+ *     assumeRolePolicy: lambdaAssume.then(lambdaAssume => lambdaAssume.json),
+ * });
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("example.zip"),
+ *     name: "example-function",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ * });
+ * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
+ *     name: "example-gateway",
+ *     roleArn: gatewayRole.arn,
+ *     authorizerConfiguration: {
+ *         customJwtAuthorizer: {
+ *             discoveryUrl: "https://accounts.google.com/.well-known/openid-configuration",
+ *         },
+ *     },
+ * });
+ * const exampleAgentcoreGatewayTarget = new aws.bedrock.AgentcoreGatewayTarget("example", {
+ *     name: "example-target",
+ *     gatewayIdentifier: exampleAgentcoreGateway.gatewayId,
+ *     description: "Lambda function target for processing requests",
+ *     credentialProviderConfiguration: {
+ *         gatewayIamRole: {},
+ *     },
+ *     targetConfiguration: {
+ *         mcp: {
+ *             lambda: {
+ *                 lambdaArn: example.arn,
+ *                 toolSchema: {
+ *                     inlinePayloads: [{
+ *                         name: "process_request",
+ *                         description: "Process incoming requests",
+ *                         inputSchema: {
+ *                             type: "object",
+ *                             description: "Request processing schema",
+ *                             properties: [
+ *                                 {
+ *                                     name: "message",
+ *                                     type: "string",
+ *                                     description: "Message to process",
+ *                                     required: true,
+ *                                 },
+ *                                 {
+ *                                     name: "options",
+ *                                     type: "object",
+ *                                     properties: [
+ *                                         {
+ *                                             name: "priority",
+ *                                             type: "string",
+ *                                         },
+ *                                         {
+ *                                             name: "tags",
+ *                                             type: "array",
+ *                                             items: [{
+ *                                                 type: "string",
+ *                                             }],
+ *                                         },
+ *                                     ],
+ *                                 },
+ *                             ],
+ *                         },
+ *                         outputSchema: {
+ *                             type: "object",
+ *                             properties: [
+ *                                 {
+ *                                     name: "status",
+ *                                     type: "string",
+ *                                     required: true,
+ *                                 },
+ *                                 {
+ *                                     name: "result",
+ *                                     type: "string",
+ *                                 },
+ *                             ],
+ *                         },
+ *                     }],
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Target with API Key Authentication
  *
  * ```typescript

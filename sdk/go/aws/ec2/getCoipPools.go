@@ -12,6 +12,33 @@ import (
 )
 
 // Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+//
+// ## Example Usage
+//
+// The following shows outputting all COIP Pool Ids.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := ec2.GetCoipPools(ctx, &ec2.GetCoipPoolsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("foo", foo.Ids)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolsResult

@@ -299,12 +299,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: ",",
+//				Input:     exampleAwsVpcEndpoint.SecurityGroupIds,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleResource, err := null.NewResource(ctx, "example", &null.ResourceArgs{
-//				Triggers: map[string]interface{}{
-//					"rerunUponChangeOf": std.Join(ctx, &std.JoinArgs{
-//						Separator: ",",
-//						Input:     exampleAwsVpcEndpoint.SecurityGroupIds,
-//					}, nil).Result,
+//				Triggers: pulumi.StringMap{
+//					"rerunUponChangeOf": pulumi.String(invokeJoin.Result),
 //				},
 //			})
 //			if err != nil {

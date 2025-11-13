@@ -16,6 +16,27 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ### Basic
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.Profile("example", new()
+    ///     {
+    ///         As2Id = "example",
+    ///         CertificateIds = new[]
+    ///         {
+    ///             exampleAwsTransferCertificate.CertificateId,
+    ///         },
+    ///         Usage = "LOCAL",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:

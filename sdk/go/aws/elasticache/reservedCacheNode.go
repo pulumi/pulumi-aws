@@ -20,6 +20,41 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := elasticache.GetReservedCacheNodeOffering(ctx, &elasticache.GetReservedCacheNodeOfferingArgs{
+//				CacheNodeType:      "cache.t4g.small",
+//				Duration:           "P1Y",
+//				OfferingType:       "No Upfront",
+//				ProductDescription: "redis",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticache.NewReservedCacheNode(ctx, "example", &elasticache.ReservedCacheNodeArgs{
+//				ReservedCacheNodesOfferingId: pulumi.String(example.OfferingId),
+//				Id:                           "optionalCustomReservationID",
+//				CacheNodeCount:               pulumi.Int(3),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:

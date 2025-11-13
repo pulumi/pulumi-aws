@@ -73,6 +73,32 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ### Memory with Custom Encryption and Role
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "KMS key for Bedrock AgentCore Memory",
+    ///     });
+    /// 
+    ///     var exampleAgentcoreMemory = new Aws.Bedrock.AgentcoreMemory("example", new()
+    ///     {
+    ///         Name = "example-memory",
+    ///         Description = "Memory for customer service agent",
+    ///         EventExpiryDuration = 60,
+    ///         EncryptionKeyArn = example.Arn,
+    ///         MemoryExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         ClientToken = "unique-client-token",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:

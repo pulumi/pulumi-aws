@@ -835,6 +835,48 @@ class GraphQLApi(pulumi.CustomResource):
 
         ### Associate Web ACL (v2)
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_web_acl = aws.wafv2.WebAcl("example",
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "block": [{}],
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesCommonRuleSet",
+                        "vendor_name": "AWS",
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
+            resource_arn=example.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+
         ### GraphQL run complexity, query depth, and introspection
 
         ```python
@@ -1024,6 +1066,48 @@ class GraphQLApi(pulumi.CustomResource):
         ```
 
         ### Associate Web ACL (v2)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="API_KEY",
+            name="example")
+        example_web_acl = aws.wafv2.WebAcl("example",
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            rules=[{
+                "name": "rule-1",
+                "priority": 1,
+                "override_action": {
+                    "block": [{}],
+                },
+                "statement": {
+                    "managed_rule_group_statement": {
+                        "name": "AWSManagedRulesCommonRuleSet",
+                        "vendor_name": "AWS",
+                    },
+                },
+                "visibility_config": {
+                    "cloudwatch_metrics_enabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampled_requests_enabled": False,
+                },
+            }],
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            })
+        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
+            resource_arn=example.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
 
         ### GraphQL run complexity, query depth, and introspection
 

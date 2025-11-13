@@ -16,11 +16,139 @@ namespace Pulumi.Aws.M2
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.M2.Environment("test", new()
+    ///     {
+    ///         Name = "test-env",
+    ///         EngineType = "bluage",
+    ///         InstanceType = "M2.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             "sg-01234567890abcdef",
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             "subnet-01234567890abcdef",
+    ///             "subnet-01234567890abcdea",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### High Availability
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.M2.Environment("test", new()
+    ///     {
+    ///         Name = "test-env",
+    ///         EngineType = "bluage",
+    ///         InstanceType = "M2.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             "sg-01234567890abcdef",
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             "subnet-01234567890abcdef",
+    ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         HighAvailabilityConfig = new Aws.M2.Inputs.EnvironmentHighAvailabilityConfigArgs
+    ///         {
+    ///             DesiredCapacity = 2,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ### EFS Filesystem
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.M2.Environment("test", new()
+    ///     {
+    ///         Name = "test-env",
+    ///         EngineType = "bluage",
+    ///         InstanceType = "M2.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             "sg-01234567890abcdef",
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             "subnet-01234567890abcdef",
+    ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
+    ///         {
+    ///             Efs = new Aws.M2.Inputs.EnvironmentStorageConfigurationEfsArgs
+    ///             {
+    ///                 FileSystemId = "fs-01234567890abcdef",
+    ///                 MountPoint = "/m2/mount/example",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### FSX Filesystem
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.M2.Environment("test", new()
+    ///     {
+    ///         Name = "test-env",
+    ///         EngineType = "bluage",
+    ///         InstanceType = "M2.m5.large",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             "sg-01234567890abcdef",
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             "subnet-01234567890abcdef",
+    ///             "subnet-01234567890abcdea",
+    ///         },
+    ///         StorageConfiguration = new Aws.M2.Inputs.EnvironmentStorageConfigurationArgs
+    ///         {
+    ///             Fsx = new Aws.M2.Inputs.EnvironmentStorageConfigurationFsxArgs
+    ///             {
+    ///                 FileSystemId = "fs-01234567890abcdef",
+    ///                 MountPoint = "/m2/mount/example",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
