@@ -12,7 +12,7 @@ The AWS provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/aws`](https://www.npmjs.com/package/@pulumi/aws)
 * Python: [`pulumi-aws`](https://pypi.org/project/pulumi-aws/)
-* Go: [`github.com/pulumi/pulumi-aws/sdk/v6`](https://github.com/pulumi/pulumi-aws#go)
+* Go: [`github.com/pulumi/pulumi-aws/sdk/v7`](https://github.com/pulumi/pulumi-aws#go)
 * .NET: [`Pulumi.Aws`](https://www.nuget.org/packages/Pulumi.Aws)
 * Java: [`com.pulumi.aws`](https://search.maven.org/search?q=com.pulumi.aws)
 
