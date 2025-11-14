@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleResource = new Null.Index.Resource("example", new()
+    ///     var exampleResource = new Null.Resource("example", new()
     ///     {
     ///         Triggers = 
     ///         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,
-    ///             }).Result },
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 

@@ -875,6 +875,52 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"])
         ```
 
+        ### Non-AWS Service
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ptfe_service = aws.ec2.VpcEndpoint("ptfe_service",
+            vpc_id=vpc_id,
+            service_name=ptfe_service_config,
+            vpc_endpoint_type="Interface",
+            security_group_ids=[ptfe_service_aws_security_group["id"]],
+            subnet_ids=[subnet_ids],
+            private_dns_enabled=False)
+        internal = aws.route53.get_zone(name="vpc.internal.",
+            private_zone=True,
+            vpc_id=vpc_id)
+        ptfe_service_record = aws.route53.Record("ptfe_service",
+            zone_id=internal.zone_id,
+            name=f"ptfe.{internal.name}",
+            type=aws.route53.RecordType.CNAME,
+            ttl=300,
+            records=[ptfe_service.dns_entries[0].dns_name])
+        ```
+
+        > **NOTE The `dns_entry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the VPC endpoint.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+
+        console
+
+        % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -1024,6 +1070,52 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type="ServiceNetwork",
             vpc_id=example_aws_vpc["id"])
         ```
+
+        ### Non-AWS Service
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ptfe_service = aws.ec2.VpcEndpoint("ptfe_service",
+            vpc_id=vpc_id,
+            service_name=ptfe_service_config,
+            vpc_endpoint_type="Interface",
+            security_group_ids=[ptfe_service_aws_security_group["id"]],
+            subnet_ids=[subnet_ids],
+            private_dns_enabled=False)
+        internal = aws.route53.get_zone(name="vpc.internal.",
+            private_zone=True,
+            vpc_id=vpc_id)
+        ptfe_service_record = aws.route53.Record("ptfe_service",
+            zone_id=internal.zone_id,
+            name=f"ptfe.{internal.name}",
+            type=aws.route53.RecordType.CNAME,
+            ttl=300,
+            records=[ptfe_service.dns_entries[0].dns_name])
+        ```
+
+        > **NOTE The `dns_entry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+
+        ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the VPC endpoint.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+
+        console
+
+        % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.

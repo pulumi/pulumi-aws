@@ -112,15 +112,15 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()
  *             .active(true)
- *             .events(List.of("push"))
+ *             .events("push")
  *             .name("example")
  *             .repository(exampleGithubRepository.name())
- *             .configuration(List.of(Map.ofEntries(
- *                 Map.entry("url", example.payloadUrl()),
- *                 Map.entry("secret", example.secret()),
- *                 Map.entry("contentType", "json"),
- *                 Map.entry("insecureSsl", false)
- *             )))
+ *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *                 .url(example.payloadUrl())
+ *                 .secret(example.secret())
+ *                 .contentType("json")
+ *                 .insecureSsl(false)
+ *                 .build())
  *             .build());
  * 
  *     }

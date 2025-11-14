@@ -51,7 +51,7 @@ import (
 // return err
 // }
 // loggingBucketPolicy := logging.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
@@ -79,11 +79,13 @@ import (
 // },
 // },
 // },
-// }, nil)), nil
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "logging", &s3.BucketPolicyArgs{
 // Bucket: logging.Bucket,
-// Policy: pulumi.String(loggingBucketPolicy.Json),
+// Policy: pulumi.String(loggingBucketPolicy.ApplyT(func(loggingBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &loggingBucketPolicy.Json, nil
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

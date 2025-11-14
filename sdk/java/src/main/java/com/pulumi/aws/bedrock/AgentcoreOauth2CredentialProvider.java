@@ -64,6 +64,44 @@ import javax.annotation.Nullable;
  * 
  * ### Custom OAuth Provider with Discovery URL
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProvider;
+ * import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProviderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var auth0 = new AgentcoreOauth2CredentialProvider("auth0", AgentcoreOauth2CredentialProviderArgs.builder()
+ *             .name("auth0-oauth-provider")
+ *             .credentialProviderVendor("CustomOauth2")
+ *             .customOauth2ProviderConfig(List.of(Map.of("custom", List.of(Map.ofEntries(
+ *                 Map.entry("clientIdWo", "auth0-client-id"),
+ *                 Map.entry("clientSecretWo", "auth0-client-secret"),
+ *                 Map.entry("clientCredentialsWoVersion", 1),
+ *                 Map.entry("oauthDiscovery", List.of(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration")))
+ *             )))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Custom OAuth Provider with Authorization Server Metadata
  * 
  * <pre>

@@ -236,6 +236,73 @@ import javax.annotation.Nullable;
  * 
  * ### Outbound with encryption configuration
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.networkfirewall.TlsInspectionConfiguration;
+ * import com.pulumi.aws.networkfirewall.TlsInspectionConfigurationArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("example")
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleTlsInspectionConfiguration = new TlsInspectionConfiguration("exampleTlsInspectionConfiguration", TlsInspectionConfigurationArgs.builder()
+ *             .name("example")
+ *             .description("example")
+ *             .encryptionConfigurations(TlsInspectionConfigurationEncryptionConfigurationArgs.builder()
+ *                 .keyId(example.arn())
+ *                 .type("CUSTOMER_KMS")
+ *                 .build())
+ *             .tlsInspectionConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationArgs.builder()
+ *                 .serverCertificateConfigurations(List.of(Map.ofEntries(
+ *                     Map.entry("certificateAuthorityArn", example1.arn()),
+ *                     Map.entry("checkCertificateRevocationStatus", List.of(Map.ofEntries(
+ *                         Map.entry("revokedStatusAction", "REJECT"),
+ *                         Map.entry("unknownStatusAction", "PASS")
+ *                     ))),
+ *                     Map.entry("scope", List.of(Map.ofEntries(
+ *                         Map.entry("protocols", List.of(6)),
+ *                         Map.entry("destinationPorts", List.of(Map.ofEntries(
+ *                             Map.entry("fromPort", 443),
+ *                             Map.entry("toPort", 443)
+ *                         ))),
+ *                         Map.entry("destination", List.of(Map.of("addressDefinition", "0.0.0.0/0"))),
+ *                         Map.entry("sourcePorts", List.of(Map.ofEntries(
+ *                             Map.entry("fromPort", 0),
+ *                             Map.entry("toPort", 65535)
+ *                         ))),
+ *                         Map.entry("source", List.of(Map.of("addressDefinition", "0.0.0.0/0")))
+ *                     )))
+ *                 )))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Combined inbound and outbound
  * 
  * <pre>

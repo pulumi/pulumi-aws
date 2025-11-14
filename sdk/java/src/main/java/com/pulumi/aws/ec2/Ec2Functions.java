@@ -1151,12 +1151,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools() {
         return getCoipPools(GetCoipPoolsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain() {
@@ -1165,12 +1235,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args) {
         return getCoipPools(args, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain(GetCoipPoolsPlainArgs args) {
@@ -1179,6 +1319,41 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPools:getCoipPools", TypeShape.of(GetCoipPoolsResult.class), args, Utilities.withVersion(options));
@@ -1186,12 +1361,82 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCoipPoolsResult> getCoipPools(GetCoipPoolsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPools:getCoipPools", TypeShape.of(GetCoipPoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all COIP Pool Ids.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = Ec2Functions.getCoipPools(GetCoipPoolsArgs.builder()
+     *             .build());
+     * 
+     *         ctx.export("foo", foo.ids());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCoipPoolsResult> getCoipPoolsPlain(GetCoipPoolsPlainArgs args, InvokeOptions options) {

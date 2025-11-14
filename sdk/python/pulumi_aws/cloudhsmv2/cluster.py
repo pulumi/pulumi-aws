@@ -345,6 +345,38 @@ class Cluster(pulumi.CustomResource):
         If you need to delete a cluster, you have to remove its HSM modules first.
         To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
 
+        ## Example Usage
+
+        The following example below creates a CloudHSM cluster.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones()
+        cloudhsm_v2_vpc = aws.ec2.Vpc("cloudhsm_v2_vpc",
+            cidr_block="10.0.0.0/16",
+            tags={
+                "Name": "example-aws_cloudhsm_v2_cluster",
+            })
+        cloudhsm_v2_subnets = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
+                vpc_id=cloudhsm_v2_vpc.id,
+                cidr_block=subnets[range["value"]],
+                map_public_ip_on_launch=False,
+                availability_zone=available.names[range["value"]],
+                tags={
+                    "Name": "example-aws_cloudhsm_v2_cluster",
+                }))
+        cloudhsm_v2_cluster = aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster",
+            hsm_type="hsm1.medium",
+            subnet_ids=[__item.id for __item in cloudhsm_v2_subnets],
+            tags={
+                "Name": "example-aws_cloudhsm_v2_cluster",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
@@ -379,6 +411,38 @@ class Cluster(pulumi.CustomResource):
         Practically no single attribute can be updated, except for `tags`.
         If you need to delete a cluster, you have to remove its HSM modules first.
         To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
+
+        ## Example Usage
+
+        The following example below creates a CloudHSM cluster.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        available = aws.get_availability_zones()
+        cloudhsm_v2_vpc = aws.ec2.Vpc("cloudhsm_v2_vpc",
+            cidr_block="10.0.0.0/16",
+            tags={
+                "Name": "example-aws_cloudhsm_v2_cluster",
+            })
+        cloudhsm_v2_subnets = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
+                vpc_id=cloudhsm_v2_vpc.id,
+                cidr_block=subnets[range["value"]],
+                map_public_ip_on_launch=False,
+                availability_zone=available.names[range["value"]],
+                tags={
+                    "Name": "example-aws_cloudhsm_v2_cluster",
+                }))
+        cloudhsm_v2_cluster = aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster",
+            hsm_type="hsm1.medium",
+            subnet_ids=[__item.id for __item in cloudhsm_v2_subnets],
+            tags={
+                "Name": "example-aws_cloudhsm_v2_cluster",
+            })
+        ```
 
         ## Import
 

@@ -39,13 +39,13 @@ namespace Pulumi.Aws.CloudTrail
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Put bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -63,13 +63,13 @@ namespace Pulumi.Aws.CloudTrail
         ///                     $"{bucket.Arn}/*",
         ///                 },
         ///             },
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Get bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.CloudTrail
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Put bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.CloudTrail
         ///                     $"{bucket.Arn}/*",
         ///                 },
         ///             },
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Get bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -221,13 +221,13 @@ namespace Pulumi.Aws.CloudTrail
         ///     {
         ///         Statements = new[]
         ///         {
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Put bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]
@@ -245,13 +245,13 @@ namespace Pulumi.Aws.CloudTrail
         ///                     $"{bucket.Arn}/*",
         ///                 },
         ///             },
-        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///             {
         ///                 Sid = "Get bucket policy needed for trails",
         ///                 Effect = "Allow",
         ///                 Principals = new[]
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                     {
         ///                         Type = "AWS",
         ///                         Identifiers = new[]

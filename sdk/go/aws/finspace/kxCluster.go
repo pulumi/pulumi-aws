@@ -18,6 +18,70 @@ import (
 //
 // ### Basic Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := finspace.NewKxCluster(ctx, "example", &finspace.KxClusterArgs{
+//				Name:               pulumi.String("my-tf-kx-cluster"),
+//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
+//				Type:               pulumi.String("HDB"),
+//				ReleaseLabel:       pulumi.String("1.0"),
+//				AzMode:             pulumi.String("SINGLE"),
+//				AvailabilityZoneId: pulumi.String("use1-az2"),
+//				CapacityConfiguration: &finspace.KxClusterCapacityConfigurationArgs{
+//					NodeType:  pulumi.String("kx.s.2xlarge"),
+//					NodeCount: pulumi.Int(2),
+//				},
+//				VpcConfiguration: &finspace.KxClusterVpcConfigurationArgs{
+//					VpcId: pulumi.Any(test.Id),
+//					SecurityGroupIds: pulumi.StringArray{
+//						exampleAwsSecurityGroup.Id,
+//					},
+//					SubnetIds: pulumi.StringArray{
+//						exampleAwsSubnet.Id,
+//					},
+//					IpAddressType: pulumi.String("IP_V4"),
+//				},
+//				CacheStorageConfigurations: finspace.KxClusterCacheStorageConfigurationArray{
+//					&finspace.KxClusterCacheStorageConfigurationArgs{
+//						Type: pulumi.String("CACHE_1000"),
+//						Size: pulumi.Int(1200),
+//					},
+//				},
+//				Databases: finspace.KxClusterDatabaseArray{
+//					&finspace.KxClusterDatabaseArgs{
+//						DatabaseName: pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
+//						CacheConfiguration: []map[string]interface{}{
+//							map[string]interface{}{
+//								"cacheType": "CACHE_1000",
+//								"dbPaths":   "/",
+//							},
+//						},
+//					},
+//				},
+//				Code: &finspace.KxClusterCodeArgs{
+//					S3Bucket: pulumi.Any(testAwsS3Bucket.Id),
+//					S3Key:    pulumi.Any(object.Key),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:

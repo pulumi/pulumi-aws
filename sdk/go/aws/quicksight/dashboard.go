@@ -57,6 +57,87 @@ import (
 //
 // ### With Definition
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
+//				DashboardId:        pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
+//				Definition: map[string]interface{}{
+//					"dataSetIdentifiersDeclarations": []map[string]interface{}{
+//						map[string]interface{}{
+//							"dataSetArn": dataset.Arn,
+//							"identifier": "1",
+//						},
+//					},
+//					"sheets": []map[string]interface{}{
+//						map[string]interface{}{
+//							"title":   "Example",
+//							"sheetId": "Example1",
+//							"visuals": []map[string]interface{}{
+//								map[string]interface{}{
+//									"lineChartVisual": map[string]interface{}{
+//										"visualId": "LineChart",
+//										"title": map[string]interface{}{
+//											"formatText": map[string]interface{}{
+//												"plainText": "Line Chart Example",
+//											},
+//										},
+//										"chartConfiguration": map[string]interface{}{
+//											"fieldWells": map[string]interface{}{
+//												"lineChartAggregatedFieldWells": map[string]interface{}{
+//													"categories": []map[string]interface{}{
+//														map[string]interface{}{
+//															"categoricalDimensionField": map[string]interface{}{
+//																"fieldId": "1",
+//																"column": map[string]interface{}{
+//																	"dataSetIdentifier": "1",
+//																	"columnName":        "Column1",
+//																},
+//															},
+//														},
+//													},
+//													"values": []map[string]interface{}{
+//														map[string]interface{}{
+//															"categoricalMeasureField": map[string]interface{}{
+//																"fieldId": "2",
+//																"column": map[string]interface{}{
+//																	"dataSetIdentifier": "1",
+//																	"columnName":        "Column1",
+//																},
+//																"aggregationFunction": "COUNT",
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:

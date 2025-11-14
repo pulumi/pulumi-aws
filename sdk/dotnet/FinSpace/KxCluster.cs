@@ -16,6 +16,73 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.FinSpace.KxCluster("example", new()
+    ///     {
+    ///         Name = "my-tf-kx-cluster",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         Type = "HDB",
+    ///         ReleaseLabel = "1.0",
+    ///         AzMode = "SINGLE",
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         CapacityConfiguration = new Aws.FinSpace.Inputs.KxClusterCapacityConfigurationArgs
+    ///         {
+    ///             NodeType = "kx.s.2xlarge",
+    ///             NodeCount = 2,
+    ///         },
+    ///         VpcConfiguration = new Aws.FinSpace.Inputs.KxClusterVpcConfigurationArgs
+    ///         {
+    ///             VpcId = test.Id,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleAwsSubnet.Id,
+    ///             },
+    ///             IpAddressType = "IP_V4",
+    ///         },
+    ///         CacheStorageConfigurations = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxClusterCacheStorageConfigurationArgs
+    ///             {
+    ///                 Type = "CACHE_1000",
+    ///                 Size = 1200,
+    ///             },
+    ///         },
+    ///         Databases = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxClusterDatabaseArgs
+    ///             {
+    ///                 DatabaseName = exampleAwsFinspaceKxDatabase.Name,
+    ///                 CacheConfiguration = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "cacheType", "CACHE_1000" },
+    ///                         { "dbPaths", "/" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Code = new Aws.FinSpace.Inputs.KxClusterCodeArgs
+    ///         {
+    ///             S3Bucket = testAwsS3Bucket.Id,
+    ///             S3Key = @object.Key,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:

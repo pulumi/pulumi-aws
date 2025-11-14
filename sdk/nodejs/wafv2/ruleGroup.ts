@@ -52,6 +52,229 @@ import * as utilities from "../utilities";
  *
  * ### Complex
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.wafv2.IpSet("test", {
+ *     name: "test",
+ *     scope: "REGIONAL",
+ *     ipAddressVersion: "IPV4",
+ *     addresses: [
+ *         "1.1.1.1/32",
+ *         "2.2.2.2/32",
+ *     ],
+ * });
+ * const testRegexPatternSet = new aws.wafv2.RegexPatternSet("test", {
+ *     name: "test",
+ *     scope: "REGIONAL",
+ *     regularExpressions: [{
+ *         regexString: "one",
+ *     }],
+ * });
+ * const example = new aws.wafv2.RuleGroup("example", {
+ *     name: "complex-example",
+ *     description: "An rule group containing all statements",
+ *     scope: "REGIONAL",
+ *     capacity: 500,
+ *     rules: [
+ *         {
+ *             name: "rule-1",
+ *             priority: 1,
+ *             action: {
+ *                 block: {},
+ *             },
+ *             statement: {
+ *                 notStatement: {
+ *                     statements: [{
+ *                         andStatement: {
+ *                             statements: [
+ *                                 {
+ *                                     geoMatchStatement: {
+ *                                         countryCodes: ["US"],
+ *                                     },
+ *                                 },
+ *                                 {
+ *                                     byteMatchStatement: {
+ *                                         positionalConstraint: "CONTAINS",
+ *                                         searchString: "word",
+ *                                         fieldToMatch: {
+ *                                             allQueryArguments: {},
+ *                                         },
+ *                                         textTransformations: [
+ *                                             {
+ *                                                 priority: 5,
+ *                                                 type: "CMD_LINE",
+ *                                             },
+ *                                             {
+ *                                                 priority: 2,
+ *                                                 type: "LOWERCASE",
+ *                                             },
+ *                                         ],
+ *                                     },
+ *                                 },
+ *                             ],
+ *                         },
+ *                     }],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "rule-1",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *         {
+ *             name: "rule-2",
+ *             priority: 2,
+ *             action: {
+ *                 count: {},
+ *             },
+ *             statement: {
+ *                 orStatement: {
+ *                     statements: [
+ *                         {
+ *                             regexMatchStatement: {
+ *                                 regexString: "a-z?",
+ *                                 fieldToMatch: {
+ *                                     singleHeader: {
+ *                                         name: "user-agent",
+ *                                     },
+ *                                 },
+ *                                 textTransformations: [{
+ *                                     priority: 6,
+ *                                     type: "NONE",
+ *                                 }],
+ *                             },
+ *                         },
+ *                         {
+ *                             sqliMatchStatement: {
+ *                                 fieldToMatch: {
+ *                                     body: {},
+ *                                 },
+ *                                 textTransformations: [
+ *                                     {
+ *                                         priority: 5,
+ *                                         type: "URL_DECODE",
+ *                                     },
+ *                                     {
+ *                                         priority: 4,
+ *                                         type: "HTML_ENTITY_DECODE",
+ *                                     },
+ *                                     {
+ *                                         priority: 3,
+ *                                         type: "COMPRESS_WHITE_SPACE",
+ *                                     },
+ *                                 ],
+ *                             },
+ *                         },
+ *                         {
+ *                             xssMatchStatement: {
+ *                                 fieldToMatch: {
+ *                                     method: {},
+ *                                 },
+ *                                 textTransformations: [{
+ *                                     priority: 2,
+ *                                     type: "NONE",
+ *                                 }],
+ *                             },
+ *                         },
+ *                     ],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "rule-2",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *             captchaConfig: {
+ *                 immunityTimeProperty: {
+ *                     immunityTime: 240,
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "rule-3",
+ *             priority: 3,
+ *             action: {
+ *                 block: {},
+ *             },
+ *             statement: {
+ *                 sizeConstraintStatement: {
+ *                     comparisonOperator: "GT",
+ *                     size: 100,
+ *                     fieldToMatch: {
+ *                         singleQueryArgument: {
+ *                             name: "username",
+ *                         },
+ *                     },
+ *                     textTransformations: [{
+ *                         priority: 5,
+ *                         type: "NONE",
+ *                     }],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "rule-3",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *         {
+ *             name: "rule-4",
+ *             priority: 4,
+ *             action: {
+ *                 block: {},
+ *             },
+ *             statement: {
+ *                 orStatement: {
+ *                     statements: [
+ *                         {
+ *                             ipSetReferenceStatement: {
+ *                                 arn: test.arn,
+ *                             },
+ *                         },
+ *                         {
+ *                             regexPatternSetReferenceStatement: {
+ *                                 arn: testRegexPatternSet.arn,
+ *                                 fieldToMatch: {
+ *                                     singleHeader: {
+ *                                         name: "referer",
+ *                                     },
+ *                                 },
+ *                                 textTransformations: [{
+ *                                     priority: 2,
+ *                                     type: "NONE",
+ *                                 }],
+ *                             },
+ *                         },
+ *                     ],
+ *                 },
+ *             },
+ *             visibilityConfig: {
+ *                 cloudwatchMetricsEnabled: false,
+ *                 metricName: "rule-4",
+ *                 sampledRequestsEnabled: false,
+ *             },
+ *         },
+ *     ],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ *     captchaConfig: [{
+ *         immunityTimeProperty: [{
+ *             immunityTime: 120,
+ *         }],
+ *     }],
+ *     tags: {
+ *         Name: "example-and-statement",
+ *         Code: "123456",
+ *     },
+ * });
+ * ```
+ *
  * ### Using rulesJson
  *
  * ```typescript

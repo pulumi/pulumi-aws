@@ -18,6 +18,48 @@ import (
 //
 // ### Basic Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := route53.NewProfilesProfile(ctx, "example", &route53.ProfilesProfileArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				Cidr: "10.0.0.0/16",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewProfilesAssociation(ctx, "example", &route53.ProfilesAssociationArgs{
+//				Name:       pulumi.String("example"),
+//				ProfileId:  example.ID(),
+//				ResourceId: exampleVpc.ID(),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("dev"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:

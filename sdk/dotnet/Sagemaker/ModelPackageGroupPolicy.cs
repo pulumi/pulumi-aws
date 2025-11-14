@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Sid = "AddPermModelPackageGroup",
     ///                 Actions = new[]
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                     {
     ///                         Identifiers = new[]
     ///                         {

@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .userName(exampleUser.userName())
  *             .body(StdFunctions.trimspace(TrimspaceArgs.builder()
  *                 .input(examplePrivateKey.publicKeyOpenssh())
- *                 .build()).result())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

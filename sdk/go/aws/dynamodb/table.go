@@ -211,74 +211,74 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			alternate, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			third, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				HashKey:        pulumi.String("TestTableHashKey"),
-//				Name:           pulumi.String("example-13281"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("TestTableHashKey"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//				Replicas: dynamodb.TableReplicaTypeArray{
-//					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: pulumi.String(alternate.Name),
-//					},
-//					&dynamodb.TableReplicaTypeArgs{
-//						RegionName:    pulumi.String(third.Name),
-//						PropagateTags: pulumi.Bool(true),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Architect": pulumi.String("Eleanor"),
-//					"Zone":      pulumi.String("SW"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-//				Text:    arn,
-//				Search:  current.Region,
-//				Replace: alternate.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTag(ctx, "example", &dynamodb.TagArgs{
-//				ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
-//					return std.ReplaceResult(invokeReplace), nil
-//				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Key:   pulumi.String("Architect"),
-//				Value: pulumi.String("Gigi"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// alternate, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// third, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+// BillingMode: pulumi.String("PAY_PER_REQUEST"),
+// HashKey: pulumi.String("TestTableHashKey"),
+// Name: pulumi.String("example-13281"),
+// StreamEnabled: pulumi.Bool(true),
+// StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+// Attributes: dynamodb.TableAttributeArray{
+// &dynamodb.TableAttributeArgs{
+// Name: pulumi.String("TestTableHashKey"),
+// Type: pulumi.String("S"),
+// },
+// },
+// Replicas: dynamodb.TableReplicaTypeArray{
+// &dynamodb.TableReplicaTypeArgs{
+// RegionName: pulumi.String(alternate.Name),
+// },
+// &dynamodb.TableReplicaTypeArgs{
+// RegionName: pulumi.String(third.Name),
+// PropagateTags: pulumi.Bool(true),
+// },
+// },
+// Tags: pulumi.StringMap{
+// "Architect": pulumi.String("Eleanor"),
+// "Zone": pulumi.String("SW"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+// Text: arn,
+// Search: current.Region,
+// Replace: alternate.Name,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// _, err = dynamodb.NewTag(ctx, "example", &dynamodb.TagArgs{
+// ResourceArn: pulumi.String(example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// Key: pulumi.String("Architect"),
+// Value: pulumi.String("Gigi"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

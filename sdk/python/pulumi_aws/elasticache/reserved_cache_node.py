@@ -398,6 +398,20 @@ class ReservedCacheNode(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
+            duration="P1Y",
+            offering_type="No Upfront",
+            product_description="redis")
+        example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
+            reserved_cache_nodes_offering_id=example.offering_id,
+            id="optionalCustomReservationID",
+            cache_node_count=3)
+        ```
+
         ## Import
 
         Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
@@ -431,6 +445,20 @@ class ReservedCacheNode(pulumi.CustomResource):
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.get_reserved_cache_node_offering(cache_node_type="cache.t4g.small",
+            duration="P1Y",
+            offering_type="No Upfront",
+            product_description="redis")
+        example_reserved_cache_node = aws.elasticache.ReservedCacheNode("example",
+            reserved_cache_nodes_offering_id=example.offering_id,
+            id="optionalCustomReservationID",
+            cache_node_count=3)
+        ```
 
         ## Import
 

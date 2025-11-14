@@ -95,7 +95,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"environment": environment,
-//				"timestamp":   std.Timestamp(ctx, map[string]interface{}{}, nil).Result,
+//				"timestamp":   std.Timestamp(ctx, &std.TimestampArgs{}, nil).Result,
 //			})
 //			if err != nil {
 //				return err

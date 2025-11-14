@@ -79,10 +79,10 @@ import (
 // example := pulumi.All(exampleBucket.Arn,exampleBucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // exampleBucketArn := _args[0].(string)
 // exampleBucketArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: "Allow",
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Actions: []string{
 // "logs:CreateLogGroup",
 // "logs:CreateLogStream",
@@ -92,8 +92,8 @@ import (
 // "*",
 // },
 // },
-// {
-// Effect: "Allow",
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Actions: []string{
 // "ec2:CreateNetworkInterface",
 // "ec2:DescribeDhcpOptions",
@@ -107,8 +107,8 @@ import (
 // "*",
 // },
 // },
-// {
-// Effect: "Allow",
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Actions: []string{
 // "ec2:CreateNetworkInterfacePermission",
 // },
@@ -133,8 +133,8 @@ import (
 // },
 // },
 // },
-// {
-// Effect: "Allow",
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Actions: []string{
 // "s3:*",
 // },
@@ -143,8 +143,8 @@ import (
 // fmt.Sprintf("%v/*", exampleBucketArn1),
 // },
 // },
-// {
-// Effect: "Allow",
+// iam.GetPolicyDocumentStatement{
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Actions: []string{
 // "codeconnections:GetConnectionToken",
 // "codeconnections:GetConnection",
@@ -153,7 +153,7 @@ import (
 // "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
 // },
 // },
-// },
+// }),
 // }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{

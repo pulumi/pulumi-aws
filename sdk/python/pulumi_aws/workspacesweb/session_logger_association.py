@@ -149,6 +149,46 @@ class SessionLoggerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_portal = aws.workspacesweb.Portal("example", display_name="example")
+        example_bucket = aws.s3.Bucket("example",
+            bucket="example-session-logs",
+            force_destroy=True)
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["workspaces-web.amazonaws.com"],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
+        }])
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example_bucket.id,
+            policy=example.json)
+        example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example",
+            event_filter={
+                "all": {}[0],
+            },
+            log_configuration={
+                "s3": {
+                    "bucket": example_bucket.id,
+                    "folder_structure": "Flat",
+                    "log_file_format": "Json",
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        example_session_logger_association = aws.workspacesweb.SessionLoggerAssociation("example",
+            portal_arn=example_portal.portal_arn,
+            session_logger_arn=example_session_logger.session_logger_arn)
+        ```
+
         ## Import
 
         Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:
@@ -175,6 +215,46 @@ class SessionLoggerAssociation(pulumi.CustomResource):
         Resource for managing an AWS WorkSpaces Web Session Logger Association.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_portal = aws.workspacesweb.Portal("example", display_name="example")
+        example_bucket = aws.s3.Bucket("example",
+            bucket="example-session-logs",
+            force_destroy=True)
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["workspaces-web.amazonaws.com"],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
+        }])
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example_bucket.id,
+            policy=example.json)
+        example_session_logger = aws.workspacesweb.SessionLogger("example",
+            display_name="example",
+            event_filter={
+                "all": {}[0],
+            },
+            log_configuration={
+                "s3": {
+                    "bucket": example_bucket.id,
+                    "folder_structure": "Flat",
+                    "log_file_format": "Json",
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        example_session_logger_association = aws.workspacesweb.SessionLoggerAssociation("example",
+            portal_arn=example_portal.portal_arn,
+            session_logger_arn=example_session_logger.session_logger_arn)
+        ```
 
         ## Import
 

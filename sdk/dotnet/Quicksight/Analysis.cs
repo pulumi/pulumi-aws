@@ -50,6 +50,99 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ### With Definition
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Analysis("example", new()
+    ///     {
+    ///         AnalysisId = "example-id",
+    ///         Name = "example-name",
+    ///         Definition = 
+    ///         {
+    ///             { "dataSetIdentifiersDeclarations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "dataSetArn", dataset.Arn },
+    ///                     { "identifier", "1" },
+    ///                 },
+    ///             } },
+    ///             { "sheets", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "title", "Example" },
+    ///                     { "sheetId", "Example1" },
+    ///                     { "visuals", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "lineChartVisual", 
+    ///                             {
+    ///                                 { "visualId", "LineChart" },
+    ///                                 { "title", 
+    ///                                 {
+    ///                                     { "formatText", 
+    ///                                     {
+    ///                                         { "plainText", "Line Chart Example" },
+    ///                                     } },
+    ///                                 } },
+    ///                                 { "chartConfiguration", 
+    ///                                 {
+    ///                                     { "fieldWells", 
+    ///                                     {
+    ///                                         { "lineChartAggregatedFieldWells", 
+    ///                                         {
+    ///                                             { "categories", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalDimensionField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "1" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                             { "values", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalMeasureField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "2" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                         { "aggregationFunction", "COUNT" },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:

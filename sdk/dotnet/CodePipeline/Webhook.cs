@@ -116,7 +116,7 @@ namespace Pulumi.Aws.CodePipeline
     ///     });
     /// 
     ///     // Wire the CodePipeline webhook into a GitHub repository.
-    ///     var barRepositoryWebhook = new Github.Index.RepositoryWebhook("bar", new()
+    ///     var barRepositoryWebhook = new Github.RepositoryWebhook("bar", new()
     ///     {
     ///         Repository = repo.Name,
     ///         Name = "web",

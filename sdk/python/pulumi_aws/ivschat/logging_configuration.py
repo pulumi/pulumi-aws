@@ -280,6 +280,20 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ### Basic Usage - Logging to S3
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example",
+            bucket_name="tf-ivschat-logging",
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "s3": {
+                "bucket_name": example.id,
+            },
+        })
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -365,6 +379,20 @@ class LoggingConfiguration(pulumi.CustomResource):
         ```
 
         ### Basic Usage - Logging to S3
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.s3.Bucket("example",
+            bucket_name="tf-ivschat-logging",
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "s3": {
+                "bucket_name": example.id,
+            },
+        })
+        ```
 
         ## Import
 

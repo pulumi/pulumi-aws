@@ -246,6 +246,75 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ### Associate Web ACL (v2)
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
+    ///     {
+    ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
+    ///     {
+    ///         Name = "managed-rule-example",
+    ///         Description = "Example of a managed rule.",
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Allow = null,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Block = new[]
+    ///                     {
+    ///                         null,
+    ///                     },
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     ManagedRuleGroupStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementArgs
+    ///                     {
+    ///                         Name = "AWSManagedRulesCommonRuleSet",
+    ///                         VendorName = "AWS",
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("example", new()
+    ///     {
+    ///         ResourceArn = example.Arn,
+    ///         WebAclArn = exampleWebAcl.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### GraphQL run complexity, query depth, and introspection
     /// 
     /// ```csharp

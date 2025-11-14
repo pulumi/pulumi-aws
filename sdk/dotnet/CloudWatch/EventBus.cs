@@ -138,12 +138,12 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                     {
     ///                         Type = "Service",
     ///                         Identifiers = new[]
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "s3:x-amz-acl",
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             "bucket-owner-full-control",
     ///                         },
     ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "aws:SourceAccount",
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "ArnLike",
     ///                         Variable = "aws:SourceArn",
@@ -251,12 +251,12 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                     {
     ///                         Type = "Service",
     ///                         Identifiers = new[]
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "aws:SourceAccount",
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "ArnLike",
     ///                         Variable = "aws:SourceArn",

@@ -51,6 +51,95 @@ import (
 //
 // ### With Definition
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
+//				Definition: map[string]interface{}{
+//					"dataSetConfigurations": []map[string]interface{}{
+//						map[string]interface{}{
+//							"dataSetSchema": map[string]interface{}{
+//								"columnSchemaLists": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name":     "Column1",
+//										"dataType": "STRING",
+//									},
+//									map[string]interface{}{
+//										"name":     "Column2",
+//										"dataType": "INTEGER",
+//									},
+//								},
+//							},
+//							"placeholder": "1",
+//						},
+//					},
+//					"sheets": []map[string]interface{}{
+//						map[string]interface{}{
+//							"title":   "Test",
+//							"sheetId": "Test1",
+//							"visuals": []map[string]interface{}{
+//								map[string]interface{}{
+//									"barChartVisual": map[string]interface{}{
+//										"visualId": "BarChart",
+//										"chartConfiguration": map[string]interface{}{
+//											"fieldWells": map[string]interface{}{
+//												"barChartAggregatedFieldWells": map[string]interface{}{
+//													"categories": []map[string]interface{}{
+//														map[string]interface{}{
+//															"categoricalDimensionField": map[string]interface{}{
+//																"fieldId": "1",
+//																"column": map[string]interface{}{
+//																	"columnName":        "Column1",
+//																	"dataSetIdentifier": "1",
+//																},
+//															},
+//														},
+//													},
+//													"values": []map[string]interface{}{
+//														map[string]interface{}{
+//															"numericalMeasureField": map[string]interface{}{
+//																"fieldId": "2",
+//																"column": map[string]interface{}{
+//																	"columnName":        "Column2",
+//																	"dataSetIdentifier": "1",
+//																},
+//																"aggregationFunction": map[string]interface{}{
+//																	"simpleNumericalAggregation": "SUM",
+//																},
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:

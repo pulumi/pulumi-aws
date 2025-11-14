@@ -37,9 +37,9 @@ import (
 // return err
 // }
 // snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "__default_policy_ID",
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
 // Actions: []string{
 // "SNS:Subscribe",
@@ -61,7 +61,7 @@ import (
 // },
 // },
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -73,9 +73,9 @@ import (
 // Resources: []string{
 // arn,
 // },
-// Sid: "__default_statement_ID",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
 // },
-// },
+// }),
 // }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{

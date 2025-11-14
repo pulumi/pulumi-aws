@@ -14,6 +14,45 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.finspace.KxCluster("example", {
+ *     name: "my-tf-kx-cluster",
+ *     environmentId: exampleAwsFinspaceKxEnvironment.id,
+ *     type: "HDB",
+ *     releaseLabel: "1.0",
+ *     azMode: "SINGLE",
+ *     availabilityZoneId: "use1-az2",
+ *     capacityConfiguration: {
+ *         nodeType: "kx.s.2xlarge",
+ *         nodeCount: 2,
+ *     },
+ *     vpcConfiguration: {
+ *         vpcId: test.id,
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *         subnetIds: [exampleAwsSubnet.id],
+ *         ipAddressType: "IP_V4",
+ *     },
+ *     cacheStorageConfigurations: [{
+ *         type: "CACHE_1000",
+ *         size: 1200,
+ *     }],
+ *     databases: [{
+ *         databaseName: exampleAwsFinspaceKxDatabase.name,
+ *         cacheConfiguration: [{
+ *             cacheType: "CACHE_1000",
+ *             dbPaths: "/",
+ *         }],
+ *     }],
+ *     code: {
+ *         s3Bucket: testAwsS3Bucket.id,
+ *         s3Key: object.key,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:

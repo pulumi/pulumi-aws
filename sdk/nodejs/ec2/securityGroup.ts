@@ -172,11 +172,11 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [example],
  * });
- * const exampleResource = new _null.index.Resource("example", {triggers: {
+ * const exampleResource = new _null.Resource("example", {triggers: {
  *     rerunUponChangeOf: std.join({
  *         separator: ",",
  *         input: exampleAwsVpcEndpoint.securityGroupIds,
- *     }).result,
+ *     }).then(invoke => invoke.result),
  * }});
  * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
  * `}, {

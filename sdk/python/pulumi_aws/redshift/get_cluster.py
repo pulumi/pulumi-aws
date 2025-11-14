@@ -545,6 +545,32 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
+    example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
+        name="kinesis-firehose-example-stream",
+        destination="redshift",
+        redshift_configuration={
+            "role_arn": firehose_role["arn"],
+            "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
+            "username": "exampleuser",
+            "password": "Exampl3Pass",
+            "data_table_name": "example-table",
+            "copy_options": "delimiter '|'",
+            "data_table_columns": "example-col",
+            "s3_configuration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffer_size": 10,
+                "buffer_interval": 400,
+                "compression_format": "GZIP",
+            },
+        })
+    ```
+
 
     :param _builtins.str cluster_identifier: Cluster identifier
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -608,6 +634,32 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]]
     Provides details about a specific redshift cluster.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
+    example_stream = aws.kinesis.FirehoseDeliveryStream("example_stream",
+        name="kinesis-firehose-example-stream",
+        destination="redshift",
+        redshift_configuration={
+            "role_arn": firehose_role["arn"],
+            "cluster_jdbcurl": f"jdbc:redshift://{example.endpoint}/{example.database_name}",
+            "username": "exampleuser",
+            "password": "Exampl3Pass",
+            "data_table_name": "example-table",
+            "copy_options": "delimiter '|'",
+            "data_table_columns": "example-col",
+            "s3_configuration": {
+                "role_arn": firehose_role["arn"],
+                "bucket_arn": bucket["arn"],
+                "buffer_size": 10,
+                "buffer_interval": 400,
+                "compression_format": "GZIP",
+            },
+        })
+    ```
 
 
     :param _builtins.str cluster_identifier: Cluster identifier

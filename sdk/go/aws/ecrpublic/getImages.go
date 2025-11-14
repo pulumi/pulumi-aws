@@ -12,6 +12,8 @@ import (
 )
 
 // The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+//
+// ## Example Usage
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagesResult

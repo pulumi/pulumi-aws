@@ -73,7 +73,7 @@ namespace Pulumi.Aws.CodeBuild
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                     "*",
     ///                 },
     ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                     "*",
     ///                 },
     ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "ec2:Subnet",
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                             example2.Arn,
     ///                         },
     ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "ec2:AuthorizedService",
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                     },
     ///                 },
     ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]

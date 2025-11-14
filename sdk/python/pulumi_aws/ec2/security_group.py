@@ -544,9 +544,9 @@ class SecurityGroup(pulumi.CustomResource):
                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
         ,
             opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_resource = null.index.Resource("example", triggers={
-            rerunUponChangeOf: std.join(separator=,,
-                input=example_aws_vpc_endpoint.security_group_ids).result,
+        example_resource = null.Resource("example", triggers={
+            "rerunUponChangeOf": std.join(separator=",",
+                input=example_aws_vpc_endpoint["securityGroupIds"]).result,
         })
         example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
         ,
@@ -745,9 +745,9 @@ class SecurityGroup(pulumi.CustomResource):
                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
         ,
             opts = pulumi.ResourceOptions(depends_on=[example]))
-        example_resource = null.index.Resource("example", triggers={
-            rerunUponChangeOf: std.join(separator=,,
-                input=example_aws_vpc_endpoint.security_group_ids).result,
+        example_resource = null.Resource("example", triggers={
+            "rerunUponChangeOf": std.join(separator=",",
+                input=example_aws_vpc_endpoint["securityGroupIds"]).result,
         })
         example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
         ,

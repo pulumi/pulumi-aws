@@ -97,6 +97,18 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 
+    ## Example Usage
+
+    The following shows outputting all COIP Pool Ids.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_coip_pools()
+    pulumi.export("foo", foo.ids)
+    ```
+
 
     :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.
            
@@ -125,6 +137,18 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+
+    ## Example Usage
+
+    The following shows outputting all COIP Pool Ids.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_coip_pools()
+    pulumi.export("foo", foo.ids)
+    ```
 
 
     :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.

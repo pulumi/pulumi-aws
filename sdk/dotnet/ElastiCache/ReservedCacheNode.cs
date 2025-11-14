@@ -18,6 +18,32 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.ElastiCache.GetReservedCacheNodeOffering.Invoke(new()
+    ///     {
+    ///         CacheNodeType = "cache.t4g.small",
+    ///         Duration = "P1Y",
+    ///         OfferingType = "No Upfront",
+    ///         ProductDescription = "redis",
+    ///     });
+    /// 
+    ///     var exampleReservedCacheNode = new Aws.ElastiCache.ReservedCacheNode("example", new()
+    ///     {
+    ///         ReservedCacheNodesOfferingId = example.Apply(getReservedCacheNodeOfferingResult =&gt; getReservedCacheNodeOfferingResult.OfferingId),
+    ///         Id = "optionalCustomReservationID",
+    ///         CacheNodeCount = 3,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:

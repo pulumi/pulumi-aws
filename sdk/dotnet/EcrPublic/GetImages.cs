@@ -13,18 +13,126 @@ namespace Pulumi.Aws.EcrPublic
     {
         /// <summary>
         /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
+        ///     {
+        ///         RepositoryName = "my-public-repository",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
+        ///         {
+        ///             return img.Digest;
+        ///         }).ToList(),
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
+        ///         {
+        ///             Input = .Select(img =&gt; 
+        ///             {
+        ///                 return img.Tags;
+        ///             }).ToList(),
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
+        ///         {
+        ///             Input = invoke.Result,
+        ///         })).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetImagesResult> InvokeAsync(GetImagesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
+        ///     {
+        ///         RepositoryName = "my-public-repository",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
+        ///         {
+        ///             return img.Digest;
+        ///         }).ToList(),
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
+        ///         {
+        ///             Input = .Select(img =&gt; 
+        ///             {
+        ///                 return img.Tags;
+        ///             }).ToList(),
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
+        ///         {
+        ///             Input = invoke.Result,
+        ///         })).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.EcrPublic.GetImages.Invoke(new()
+        ///     {
+        ///         RepositoryName = "my-public-repository",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["imageDigests"] = .Where(img =&gt; img.Digest != null).Select(img =&gt; 
+        ///         {
+        ///             return img.Digest;
+        ///         }).ToList(),
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
+        ///         {
+        ///             Input = .Select(img =&gt; 
+        ///             {
+        ///                 return img.Tags;
+        ///             }).ToList(),
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
+        ///         {
+        ///             Input = invoke.Result,
+        ///         })).Apply(invoke =&gt; invoke.Result),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImagesResult> Invoke(GetImagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagesResult>("aws:ecrpublic/getImages:getImages", args ?? new GetImagesInvokeArgs(), options.WithDefaults());

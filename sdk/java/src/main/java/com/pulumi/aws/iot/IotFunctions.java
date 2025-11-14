@@ -430,7 +430,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -483,7 +485,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -536,7 +540,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -589,7 +595,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -642,7 +650,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -695,7 +705,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -748,7 +760,9 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
+     *             .subject(CertRequestSubjectArgs.builder()
+     *                 .commonName(example.registrationCode())
+     *                 .build())
      *             .build());
      * 
      *     }

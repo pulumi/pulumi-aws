@@ -16,6 +16,40 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.NewLicenseGrant(ctx, "test", &licensemanager.LicenseGrantArgs{
+//				Name: pulumi.String("share-license-with-account"),
+//				AllowedOperations: pulumi.StringArray{
+//					pulumi.String("ListPurchasedLicenses"),
+//					pulumi.String("CheckoutLicense"),
+//					pulumi.String("CheckInLicense"),
+//					pulumi.String("ExtendConsumptionLicense"),
+//					pulumi.String("CreateToken"),
+//				},
+//				LicenseArn: pulumi.String("arn:aws:license-manager::111111111111:license:l-exampleARN"),
+//				Principal:  pulumi.String("arn:aws:iam::111111111112:root"),
+//				HomeRegion: "us-east-1",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:

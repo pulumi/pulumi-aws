@@ -12,6 +12,45 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const fooBucket = new aws.s3.Bucket("foo_bucket", {bucket: "example-bucket-foo"});
+ * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
+ *     name: "example",
+ *     regions: [{
+ *         bucket: fooBucket.id,
+ *     }],
+ * }});
+ * const exampleMultiRegionAccessPointPolicy = new aws.s3control.MultiRegionAccessPointPolicy("example", {details: {
+ *     name: std.splitOutput({
+ *         separator: ":",
+ *         text: example.id,
+ *     }).apply(invoke => invoke.result)[1],
+ *     policy: pulumi.jsonStringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Sid: "Example",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 AWS: current.then(current => current.accountId),
+ *             },
+ *             Action: [
+ *                 "s3:GetObject",
+ *                 "s3:PutObject",
+ *             ],
+ *             Resource: pulumi.all([currentGetPartition, current, example.alias]).apply(([currentGetPartition, current, alias]) => `arn:${currentGetPartition.partition}:s3::${current.accountId}:accesspoint/${alias}/object/*`),
+ *         }],
+ *     }),
+ * }});
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:

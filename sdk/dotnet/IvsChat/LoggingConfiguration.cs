@@ -124,6 +124,34 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// ### Basic Usage - Logging to S3
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.Bucket("example", new()
+    ///     {
+    ///         BucketName = "tf-ivschat-logging",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
+    ///     {
+    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
+    ///         {
+    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
+    ///             {
+    ///                 BucketName = example.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema

@@ -23,6 +23,52 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ProfilesProfile;
+ * import com.pulumi.aws.route53.ProfilesProfileArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.route53.ProfilesAssociation;
+ * import com.pulumi.aws.route53.ProfilesAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ProfilesProfile("example", ProfilesProfileArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
+ *             .cidr("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleProfilesAssociation = new ProfilesAssociation("exampleProfilesAssociation", ProfilesAssociationArgs.builder()
+ *             .name("example")
+ *             .profileId(example.id())
+ *             .resourceId(exampleVpc.id())
+ *             .tags(Map.of("Environment", "dev"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Route 53 Profiles Association using the `id`. For example:

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         ProjectName = exampleAwsCodebuildProject.Name,
     ///     });
     /// 
-    ///     var exampleRepositoryWebhook = new Github.Index.RepositoryWebhook("example", new()
+    ///     var exampleRepositoryWebhook = new Github.RepositoryWebhook("example", new()
     ///     {
     ///         Active = true,
     ///         Events = new[]

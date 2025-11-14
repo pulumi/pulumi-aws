@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all COIP Pool Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getCoipPools({});
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolsResult> {
     args = args || {};
@@ -60,6 +76,22 @@ export interface GetCoipPoolsResult {
 }
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all COIP Pool Ids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const foo = await aws.ec2.getCoipPools({});
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
+ * ```
  */
 export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoipPoolsResult> {
     args = args || {};

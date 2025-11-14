@@ -139,6 +139,16 @@ class OrganizationConfiguration(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.detective.Graph("example", enable=True)
+        example_organization_configuration = aws.detective.OrganizationConfiguration("example",
+            auto_enable=True,
+            graph_arn=example.graph_arn)
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:
@@ -161,6 +171,16 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.detective.Graph("example", enable=True)
+        example_organization_configuration = aws.detective.OrganizationConfiguration("example",
+            auto_enable=True,
+            graph_arn=example.graph_arn)
+        ```
 
         ## Import
 

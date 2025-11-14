@@ -16,6 +16,100 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePortal, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
+//				DisplayName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket:       pulumi.String("example-session-logs"),
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("workspaces-web.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucket.ID(),
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSessionLogger, err := workspacesweb.NewSessionLogger(ctx, "example", &workspacesweb.SessionLoggerArgs{
+//				DisplayName: pulumi.String("example"),
+//				EventFilter: &workspacesweb.SessionLoggerEventFilterArgs{
+//					All: map[string]interface{}{}[0],
+//				},
+//				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
+//					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
+//						Bucket:          exampleBucket.ID(),
+//						FolderStructure: pulumi.String("Flat"),
+//						LogFileFormat:   pulumi.String("Json"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = workspacesweb.NewSessionLoggerAssociation(ctx, "example", &workspacesweb.SessionLoggerAssociationArgs{
+//				PortalArn:        examplePortal.PortalArn,
+//				SessionLoggerArn: exampleSessionLogger.SessionLoggerArn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces Web Session Logger Association using the `session_logger_arn,portal_arn`. For example:

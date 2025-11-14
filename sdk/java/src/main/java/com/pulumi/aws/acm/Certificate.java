@@ -136,15 +136,15 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
  *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
- *             .subject(List.of(Map.ofEntries(
- *                 Map.entry("commonName", "example.com"),
- *                 Map.entry("organization", "ACME Examples, Inc")
- *             )))
+ *             .subject(SelfSignedCertSubjectArgs.builder()
+ *                 .commonName("example.com")
+ *                 .organization("ACME Examples, Inc")
+ *                 .build())
  *             .validityPeriodHours(12)
- *             .allowedUses(List.of(            
+ *             .allowedUses(            
  *                 "key_encipherment",
  *                 "digital_signature",
- *                 "server_auth"))
+ *                 "server_auth")
  *             .build());
  * 
  *         var cert = new Certificate("cert", CertificateArgs.builder()

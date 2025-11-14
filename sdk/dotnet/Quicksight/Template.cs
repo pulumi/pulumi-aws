@@ -43,6 +43,111 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ### With Definition
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Template("example", new()
+    ///     {
+    ///         TemplateId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
+    ///         Definition = 
+    ///         {
+    ///             { "dataSetConfigurations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "dataSetSchema", 
+    ///                     {
+    ///                         { "columnSchemaLists", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "name", "Column1" },
+    ///                                 { "dataType", "STRING" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "name", "Column2" },
+    ///                                 { "dataType", "INTEGER" },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "placeholder", "1" },
+    ///                 },
+    ///             } },
+    ///             { "sheets", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "title", "Test" },
+    ///                     { "sheetId", "Test1" },
+    ///                     { "visuals", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "barChartVisual", 
+    ///                             {
+    ///                                 { "visualId", "BarChart" },
+    ///                                 { "chartConfiguration", 
+    ///                                 {
+    ///                                     { "fieldWells", 
+    ///                                     {
+    ///                                         { "barChartAggregatedFieldWells", 
+    ///                                         {
+    ///                                             { "categories", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalDimensionField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "1" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "columnName", "Column1" },
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                         } },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                             { "values", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "numericalMeasureField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "2" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "columnName", "Column2" },
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                         } },
+    ///                                                         { "aggregationFunction", 
+    ///                                                         {
+    ///                                                             { "simpleNumericalAggregation", "SUM" },
+    ///                                                         } },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:

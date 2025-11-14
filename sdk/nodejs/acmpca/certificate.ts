@@ -34,8 +34,8 @@ import * as utilities from "../utilities";
  *     },
  *     permanentDeletionTimeInDays: 7,
  * });
- * const key = new tls.index.PrivateKey("key", {algorithm: "RSA"});
- * const csr = new tls.index.CertRequest("csr", {
+ * const key = new tls.PrivateKey("key", {algorithm: "RSA"});
+ * const csr = new tls.CertRequest("csr", {
  *     privateKeyPem: key.privateKeyPem,
  *     subject: [{
  *         commonName: "example",

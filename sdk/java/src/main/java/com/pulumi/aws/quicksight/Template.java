@@ -68,6 +68,77 @@ import javax.annotation.Nullable;
  * 
  * ### With Definition
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.Template;
+ * import com.pulumi.aws.quicksight.TemplateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Template("example", TemplateArgs.builder()
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
+ *             .definition(Map.ofEntries(
+ *                 Map.entry("dataSetConfigurations", List.of(Map.ofEntries(
+ *                     Map.entry("dataSetSchema", Map.of("columnSchemaLists", List.of(                    
+ *                         Map.ofEntries(
+ *                             Map.entry("name", "Column1"),
+ *                             Map.entry("dataType", "STRING")
+ *                         ),
+ *                         Map.ofEntries(
+ *                             Map.entry("name", "Column2"),
+ *                             Map.entry("dataType", "INTEGER")
+ *                         )))),
+ *                     Map.entry("placeholder", "1")
+ *                 ))),
+ *                 Map.entry("sheets", List.of(Map.ofEntries(
+ *                     Map.entry("title", "Test"),
+ *                     Map.entry("sheetId", "Test1"),
+ *                     Map.entry("visuals", List.of(Map.of("barChartVisual", Map.ofEntries(
+ *                         Map.entry("visualId", "BarChart"),
+ *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("barChartAggregatedFieldWells", Map.ofEntries(
+ *                             Map.entry("categories", List.of(Map.of("categoricalDimensionField", Map.ofEntries(
+ *                                 Map.entry("fieldId", "1"),
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("columnName", "Column1"),
+ *                                     Map.entry("dataSetIdentifier", "1")
+ *                                 ))
+ *                             )))),
+ *                             Map.entry("values", List.of(Map.of("numericalMeasureField", Map.ofEntries(
+ *                                 Map.entry("fieldId", "2"),
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("columnName", "Column2"),
+ *                                     Map.entry("dataSetIdentifier", "1")
+ *                                 )),
+ *                                 Map.entry("aggregationFunction", Map.of("simpleNumericalAggregation", "SUM"))
+ *                             ))))
+ *                         ))))
+ *                     ))))
+ *                 )))
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:

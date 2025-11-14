@@ -16,6 +16,43 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WorkSpacesWeb.Portal("example", new()
+    ///     {
+    ///         DisplayName = "example",
+    ///     });
+    /// 
+    ///     var exampleTrustStore = new Aws.WorkSpacesWeb.TrustStore("example", new()
+    ///     {
+    ///         CertificateList = new[]
+    ///         {
+    ///             Std.File.Invoke(new()
+    ///             {
+    ///                 Input = "certificate.pem",
+    ///             }).Apply(invoke =&gt; Std.Base64encode.Invoke(new()
+    ///             {
+    ///                 Input = invoke.Result,
+    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTrustStoreAssociation = new Aws.WorkSpacesWeb.TrustStoreAssociation("example", new()
+    ///     {
+    ///         TrustStoreArn = exampleTrustStore.TrustStoreArn,
+    ///         PortalArn = example.PortalArn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces Web Trust Store Association using the `trust_store_arn,portal_arn`. For example:

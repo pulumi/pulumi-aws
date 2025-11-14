@@ -44,6 +44,21 @@ import * as utilities from "../utilities";
  *
  * ### Memory with Custom Encryption and Role
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {description: "KMS key for Bedrock AgentCore Memory"});
+ * const exampleAgentcoreMemory = new aws.bedrock.AgentcoreMemory("example", {
+ *     name: "example-memory",
+ *     description: "Memory for customer service agent",
+ *     eventExpiryDuration: 60,
+ *     encryptionKeyArn: example.arn,
+ *     memoryExecutionRoleArn: exampleAwsIamRole.arn,
+ *     clientToken: "unique-client-token",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:

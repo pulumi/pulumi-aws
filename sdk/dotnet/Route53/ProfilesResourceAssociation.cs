@@ -16,6 +16,46 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ### Basic Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53.ProfilesProfile("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         Cidr = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleZone = new Aws.Route53.Zone("example", new()
+    ///     {
+    ///         Name = "example.com",
+    ///         Vpcs = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             {
+    ///                 VpcId = exampleVpc.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProfilesResourceAssociation = new Aws.Route53.ProfilesResourceAssociation("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ProfileId = example.Id,
+    ///         ResourceArn = exampleZone.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:

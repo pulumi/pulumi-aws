@@ -22,6 +22,46 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrant;
+ * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()
+ *             .snapshotCopyGrantName("my-grant")
+ *             .build());
+ * 
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
+ *             .snapshotCopy(List.of(Map.ofEntries(
+ *                 Map.entry("destinationRegion", "us-east-2"),
+ *                 Map.entry("grantName", test.snapshotCopyGrantName())
+ *             )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:

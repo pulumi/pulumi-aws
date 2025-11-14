@@ -416,16 +416,16 @@ class Webhook(pulumi.CustomResource):
                 "match_equals": "refs/heads/{Branch}",
             }])
         # Wire the CodePipeline webhook into a GitHub repository.
-        bar_repository_webhook = github.index.RepositoryWebhook("bar",
-            repository=repo.name,
-            name=web,
+        bar_repository_webhook = github.RepositoryWebhook("bar",
+            repository=repo["name"],
+            name="web",
             configuration=[{
-                url: bar_webhook.url,
-                contentType: json,
-                insecureSsl: True,
-                secret: webhook_secret,
+                "url": bar_webhook.url,
+                "contentType": "json",
+                "insecureSsl": True,
+                "secret": webhook_secret,
             }],
-            events=[push])
+            events=["push"])
         ```
 
         ## Import
@@ -526,16 +526,16 @@ class Webhook(pulumi.CustomResource):
                 "match_equals": "refs/heads/{Branch}",
             }])
         # Wire the CodePipeline webhook into a GitHub repository.
-        bar_repository_webhook = github.index.RepositoryWebhook("bar",
-            repository=repo.name,
-            name=web,
+        bar_repository_webhook = github.RepositoryWebhook("bar",
+            repository=repo["name"],
+            name="web",
             configuration=[{
-                url: bar_webhook.url,
-                contentType: json,
-                insecureSsl: True,
-                secret: webhook_secret,
+                "url": bar_webhook.url,
+                "contentType": "json",
+                "insecureSsl": True,
+                "secret": webhook_secret,
             }],
-            events=[push])
+            events=["push"])
         ```
 
         ## Import

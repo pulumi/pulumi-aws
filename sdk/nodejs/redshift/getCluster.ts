@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Provides details about a specific redshift cluster.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshift.getCluster({
+ *     clusterIdentifier: "example-cluster",
+ * });
+ * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
+ *     redshiftConfiguration: {
+ *         roleArn: firehoseRole.arn,
+ *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
+ *         s3Configuration: {
+ *             roleArn: firehoseRole.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferSize: 10,
+ *             bufferInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
+ *     },
+ * });
+ * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -210,6 +239,35 @@ export interface GetClusterResult {
  * Provides details about a specific redshift cluster.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.redshift.getCluster({
+ *     clusterIdentifier: "example-cluster",
+ * });
+ * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("example_stream", {
+ *     name: "kinesis-firehose-example-stream",
+ *     destination: "redshift",
+ *     redshiftConfiguration: {
+ *         roleArn: firehoseRole.arn,
+ *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         username: "exampleuser",
+ *         password: "Exampl3Pass",
+ *         dataTableName: "example-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "example-col",
+ *         s3Configuration: {
+ *             roleArn: firehoseRole.arn,
+ *             bucketArn: bucket.arn,
+ *             bufferSize: 10,
+ *             bufferInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
+ *     },
+ * });
+ * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

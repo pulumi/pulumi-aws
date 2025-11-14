@@ -172,6 +172,13 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
 
     ### Basic Usage
 
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssmincidents.ResponsePlan("example", arn="exampleARN")
+    ```
+
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -206,6 +213,13 @@ def get_response_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     ## Example Usage
 
     ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssmincidents.ResponsePlan("example", arn="exampleARN")
+    ```
 
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.

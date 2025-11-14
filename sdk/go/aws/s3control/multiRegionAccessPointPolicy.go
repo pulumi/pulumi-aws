@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Example
+//
 // ## Import
 //
 // Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:

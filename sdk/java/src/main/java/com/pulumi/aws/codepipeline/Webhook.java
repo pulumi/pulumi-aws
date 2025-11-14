@@ -116,13 +116,13 @@ import javax.annotation.Nullable;
  *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()
  *             .repository(repo.name())
  *             .name("web")
- *             .configuration(List.of(Map.ofEntries(
- *                 Map.entry("url", barWebhook.url()),
- *                 Map.entry("contentType", "json"),
- *                 Map.entry("insecureSsl", true),
- *                 Map.entry("secret", webhookSecret)
- *             )))
- *             .events(List.of("push"))
+ *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *                 .url(barWebhook.url())
+ *                 .contentType("json")
+ *                 .insecureSsl(true)
+ *                 .secret(webhookSecret)
+ *                 .build())
+ *             .events("push")
  *             .build());
  * 
  *     }

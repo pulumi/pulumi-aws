@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.ecrpublic.getImages({
+ *     repositoryName: "my-public-repository",
+ * });
+ * export const imageDigests = example.then(example => .filter(img => img.digest != null).map(img => (img.digest)));
+ * export const imageTags = example.then(example => std.flatten({
+ *     input: .map(img => (img.tags)),
+ * })).then(invoke => std.distinct({
+ *     input: invoke.result,
+ * })).then(invoke => invoke.result);
+ * ```
  */
 export function getImages(args: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,6 +85,24 @@ export interface GetImagesResult {
 }
 /**
  * The ECR Public Images data source allows the list of images in a specified public repository to be retrieved.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.ecrpublic.getImages({
+ *     repositoryName: "my-public-repository",
+ * });
+ * export const imageDigests = example.then(example => .filter(img => img.digest != null).map(img => (img.digest)));
+ * export const imageTags = example.then(example => std.flatten({
+ *     input: .map(img => (img.tags)),
+ * })).then(invoke => std.distinct({
+ *     input: invoke.result,
+ * })).then(invoke => invoke.result);
+ * ```
  */
 export function getImagesOutput(args: GetImagesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImagesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

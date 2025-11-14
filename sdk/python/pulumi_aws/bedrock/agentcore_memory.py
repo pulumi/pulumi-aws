@@ -368,6 +368,20 @@ class AgentcoreMemory(pulumi.CustomResource):
 
         ### Memory with Custom Encryption and Role
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
+        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
+            name="example-memory",
+            description="Memory for customer service agent",
+            event_expiry_duration=60,
+            encryption_key_arn=example.arn,
+            memory_execution_role_arn=example_aws_iam_role["arn"],
+            client_token="unique-client-token")
+        ```
+
         ## Import
 
         Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
@@ -425,6 +439,20 @@ class AgentcoreMemory(pulumi.CustomResource):
         ```
 
         ### Memory with Custom Encryption and Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
+        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
+            name="example-memory",
+            description="Memory for customer service agent",
+            event_expiry_duration=60,
+            encryption_key_arn=example.arn,
+            memory_execution_role_arn=example_aws_iam_role["arn"],
+            client_token="unique-client-token")
+        ```
 
         ## Import
 
