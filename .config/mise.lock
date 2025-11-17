@@ -38,6 +38,10 @@ checksum = "sha256:af451b40651d7fb36db1bbbd9c66ddbed28b96d7da48abea50a19f82c6e9d
 size = 76432048
 url = "https://dl.google.com/go/go1.24.9.darwin-arm64.tar.gz"
 
+[[tools."go:github.com/pulumi/provider-sdk-builder"]]
+version = "0.0.6"
+backend = "go:github.com/pulumi/provider-sdk-builder"
+
 [[tools.golangci-lint]]
 version = "1.64.8"
 backend = "aqua:golangci/golangci-lint"
