@@ -86,57 +86,6 @@ import (
 //
 // ### Existing Certificate Body Import
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
-//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: "RSA",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
-//					map[string]interface{}{
-//						"commonName":   "example.com",
-//						"organization": "ACME Examples, Inc",
-//					},
-//				},
-//				ValidityPeriodHours: 12,
-//				AllowedUses: []string{
-//					"key_encipherment",
-//					"digital_signature",
-//					"server_auth",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				PrivateKey:      example.PrivateKeyPem,
-//				CertificateBody: exampleSelfSignedCert.CertPem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Referencing domainValidationOptions With forEach Based Resources
 //
 // See the `acm.CertificateValidation` resource for a full example of performing DNS validation.

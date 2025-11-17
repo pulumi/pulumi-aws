@@ -69,50 +69,6 @@ import (
 //
 // More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/go/github"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(exampleAwsCodebuildProject.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "example", &github.RepositoryWebhookArgs{
-//				Active: true,
-//				Events: []string{
-//					"push",
-//				},
-//				Name:       "example",
-//				Repository: exampleGithubRepository.Name,
-//				Configuration: []map[string]interface{}{
-//					map[string]interface{}{
-//						"url":         example.PayloadUrl,
-//						"secret":      example.Secret,
-//						"contentType": "json",
-//						"insecureSsl": false,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### For CodeBuild Runner Project
 //
 // To create a CodeBuild project as a Runner Project, the following `codebuild.Webhook` resource is required for the project.

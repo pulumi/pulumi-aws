@@ -64,44 +64,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.Webhook("example", new()
-    ///     {
-    ///         ProjectName = exampleAwsCodebuildProject.Name,
-    ///     });
-    /// 
-    ///     var exampleRepositoryWebhook = new Github.Index.RepositoryWebhook("example", new()
-    ///     {
-    ///         Active = true,
-    ///         Events = new[]
-    ///         {
-    ///             "push",
-    ///         },
-    ///         Name = "example",
-    ///         Repository = exampleGithubRepository.Name,
-    ///         Configuration = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "url", example.PayloadUrl },
-    ///                 { "secret", example.Secret },
-    ///                 { "contentType", "json" },
-    ///                 { "insecureSsl", false },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### For CodeBuild Runner Project
     /// 
     /// To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.

@@ -82,52 +82,6 @@ import javax.annotation.Nullable;
  * 
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
  * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codebuild.Webhook;
- * import com.pulumi.aws.codebuild.WebhookArgs;
- * import com.pulumi.github.RepositoryWebhook;
- * import com.pulumi.github.RepositoryWebhookArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Webhook("example", WebhookArgs.builder()
- *             .projectName(exampleAwsCodebuildProject.name())
- *             .build());
- * 
- *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()
- *             .active(true)
- *             .events(List.of("push"))
- *             .name("example")
- *             .repository(exampleGithubRepository.name())
- *             .configuration(List.of(Map.ofEntries(
- *                 Map.entry("url", example.payloadUrl()),
- *                 Map.entry("secret", example.secret()),
- *                 Map.entry("contentType", "json"),
- *                 Map.entry("insecureSsl", false)
- *             )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ### For CodeBuild Runner Project
  * 
  * To create a CodeBuild project as a Runner Project, the following `aws.codebuild.Webhook` resource is required for the project.
