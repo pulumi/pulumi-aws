@@ -394,50 +394,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode() {
         return getRegistrationCode(GetRegistrationCodeArgs.Empty, InvokeOptions.Empty);
@@ -446,50 +402,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain() {
@@ -500,50 +412,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args) {
         return getRegistrationCode(args, InvokeOptions.Empty);
@@ -552,50 +420,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args) {
@@ -606,50 +430,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
@@ -659,50 +439,6 @@ public final class IotFunctions {
      * 
      * ## Example Usage
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(GetRegistrationCodeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
@@ -711,50 +447,6 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
-     * import com.pulumi.tls.PrivateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
-     * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
-     *             .build());
-     * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
-     *             .algorithm("RSA")
-     *             .build());
-     * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public static CompletableFuture<GetRegistrationCodeResult> getRegistrationCodePlain(GetRegistrationCodePlainArgs args, InvokeOptions options) {

@@ -21,61 +21,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ### Basic
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Tls = Pulumi.Tls;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
-    ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///             {
-    ///                 CommonName = "example.com",
-    ///             },
-    ///         },
-    ///         PermanentDeletionTimeInDays = 7,
-    ///     });
-    /// 
-    ///     var key = new Tls.Index.PrivateKey("key", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///     });
-    /// 
-    ///     var csr = new Tls.Index.CertRequest("csr", new()
-    ///     {
-    ///         PrivateKeyPem = key.PrivateKeyPem,
-    ///         Subject = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", "example" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Acmpca.Certificate("example", new()
-    ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         CertificateSigningRequest = csr.CertRequestPem,
-    ///         SigningAlgorithm = "SHA256WITHRSA",
-    ///         Validity = new Aws.Acmpca.Inputs.CertificateValidityArgs
-    ///         {
-    ///             Type = "YEARS",
-    ///             Value = "1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
