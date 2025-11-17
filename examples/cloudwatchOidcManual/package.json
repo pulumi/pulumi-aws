@@ -7,8 +7,8 @@
     },
     "dependencies": {
         "@actions/core": "^1.10.1",
-        "@pulumi/aws": "^6.0.0",
-        "@pulumi/pulumi": "^3.0.0"
+        "@pulumi/aws": "6.83.1",
+        "@pulumi/pulumi": "3.205.0"
     },
     "devDependencies": {
         "@types/node": "^18.0.0"
