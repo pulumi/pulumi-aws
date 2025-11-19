@@ -5,7 +5,7 @@ Subject: [PATCH] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 2a1a1c1de2a..3b7c8bb0558 100644
+index 649bcab76f0..64e6c808edb 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -10,6 +10,7 @@ import (
@@ -16,7 +16,7 @@ index 2a1a1c1de2a..3b7c8bb0558 100644
  	"time"
  
  	"github.com/YakDriver/regexache"
-@@ -263,6 +264,12 @@ func resourceTopic() *schema.Resource {
+@@ -231,6 +232,12 @@ func resourceTopic() *schema.Resource {
  	}
  }
  
@@ -29,7 +29,7 @@ index 2a1a1c1de2a..3b7c8bb0558 100644
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -291,6 +298,28 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -259,6 +266,28 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta any)
  		delete(attributes, topicAttributeNameFIFOThroughputScope)
  	}
  

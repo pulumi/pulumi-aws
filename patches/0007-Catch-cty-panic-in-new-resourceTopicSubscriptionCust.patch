@@ -7,10 +7,10 @@ Subject: [PATCH] Catch cty panic in new
 The root cause is not fully understood yet but this might unblock us.
 
 diff --git a/internal/service/sns/topic_subscription.go b/internal/service/sns/topic_subscription.go
-index 0414158410a..2e5c37efc56 100644
+index b8a4780601e..49496a1f61e 100644
 --- a/internal/service/sns/topic_subscription.go
 +++ b/internal/service/sns/topic_subscription.go
-@@ -610,9 +610,11 @@ func normalizeTopicSubscriptionDeliveryPolicy(policy string) ([]byte, error) {
+@@ -581,9 +581,11 @@ func normalizeTopicSubscriptionDeliveryPolicy(policy string) ([]byte, error) {
  
  func resourceTopicSubscriptionCustomizeDiff(_ context.Context, diff *schema.ResourceDiff, _ any) error {
  	hasPolicy := diff.Get("filter_policy").(string) != ""
