@@ -136,6 +136,56 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ *
+ * ### Non-AWS Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ptfeService = new aws.ec2.VpcEndpoint("ptfe_service", {
+ *     vpcId: vpcId,
+ *     serviceName: ptfeServiceConfig,
+ *     vpcEndpointType: "Interface",
+ *     securityGroupIds: [ptfeServiceAwsSecurityGroup.id],
+ *     subnetIds: [subnetIds],
+ *     privateDnsEnabled: false,
+ * });
+ * const internal = aws.route53.getZone({
+ *     name: "vpc.internal.",
+ *     privateZone: true,
+ *     vpcId: vpcId,
+ * });
+ * const ptfeServiceRecord = new aws.route53.Record("ptfe_service", {
+ *     zoneId: internal.then(internal => internal.zoneId),
+ *     name: internal.then(internal => `ptfe.${internal.name}`),
+ *     type: aws.route53.RecordType.CNAME,
+ *     ttl: 300,
+ *     records: [ptfeService.dnsEntries[0].dns_name],
+ * });
+ * ```
+ *
+ * > **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
+ *
+ * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` - (String) ID of the VPC endpoint.
+ *
+ * #### Optional
+ *
+ * * `account_id` (String) AWS Account where this resource is managed.
+ *
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+ *
+ * console
+ *
+ * % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

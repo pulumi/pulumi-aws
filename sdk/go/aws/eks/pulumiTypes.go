@@ -3728,8 +3728,18 @@ func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NodeGroupNodeRepairConfig struct {
-	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
+	// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+	MaxParallelNodesRepairedCount *int `pulumi:"maxParallelNodesRepairedCount"`
+	// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+	MaxParallelNodesRepairedPercentage *int `pulumi:"maxParallelNodesRepairedPercentage"`
+	// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+	MaxUnhealthyNodeThresholdCount *int `pulumi:"maxUnhealthyNodeThresholdCount"`
+	// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+	MaxUnhealthyNodeThresholdPercentage *int `pulumi:"maxUnhealthyNodeThresholdPercentage"`
+	// Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+	NodeRepairConfigOverrides []NodeGroupNodeRepairConfigNodeRepairConfigOverride `pulumi:"nodeRepairConfigOverrides"`
 }
 
 // NodeGroupNodeRepairConfigInput is an input type that accepts NodeGroupNodeRepairConfigArgs and NodeGroupNodeRepairConfigOutput values.
@@ -3744,8 +3754,18 @@ type NodeGroupNodeRepairConfigInput interface {
 }
 
 type NodeGroupNodeRepairConfigArgs struct {
-	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+	MaxParallelNodesRepairedCount pulumi.IntPtrInput `pulumi:"maxParallelNodesRepairedCount"`
+	// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+	MaxParallelNodesRepairedPercentage pulumi.IntPtrInput `pulumi:"maxParallelNodesRepairedPercentage"`
+	// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+	MaxUnhealthyNodeThresholdCount pulumi.IntPtrInput `pulumi:"maxUnhealthyNodeThresholdCount"`
+	// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+	MaxUnhealthyNodeThresholdPercentage pulumi.IntPtrInput `pulumi:"maxUnhealthyNodeThresholdPercentage"`
+	// Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+	NodeRepairConfigOverrides NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayInput `pulumi:"nodeRepairConfigOverrides"`
 }
 
 func (NodeGroupNodeRepairConfigArgs) ElementType() reflect.Type {
@@ -3825,9 +3845,36 @@ func (o NodeGroupNodeRepairConfigOutput) ToNodeGroupNodeRepairConfigPtrOutputWit
 	}).(NodeGroupNodeRepairConfigPtrOutput)
 }
 
-// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
 func (o NodeGroupNodeRepairConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+func (o NodeGroupNodeRepairConfigOutput) MaxParallelNodesRepairedCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *int { return v.MaxParallelNodesRepairedCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+func (o NodeGroupNodeRepairConfigOutput) MaxParallelNodesRepairedPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *int { return v.MaxParallelNodesRepairedPercentage }).(pulumi.IntPtrOutput)
+}
+
+// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+func (o NodeGroupNodeRepairConfigOutput) MaxUnhealthyNodeThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *int { return v.MaxUnhealthyNodeThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+func (o NodeGroupNodeRepairConfigOutput) MaxUnhealthyNodeThresholdPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *int { return v.MaxUnhealthyNodeThresholdPercentage }).(pulumi.IntPtrOutput)
+}
+
+// Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+func (o NodeGroupNodeRepairConfigOutput) NodeRepairConfigOverrides() NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) []NodeGroupNodeRepairConfigNodeRepairConfigOverride {
+		return v.NodeRepairConfigOverrides
+	}).(NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput)
 }
 
 type NodeGroupNodeRepairConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3854,7 +3901,7 @@ func (o NodeGroupNodeRepairConfigPtrOutput) Elem() NodeGroupNodeRepairConfigOutp
 	}).(NodeGroupNodeRepairConfigOutput)
 }
 
-// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `false`.
 func (o NodeGroupNodeRepairConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *bool {
 		if v == nil {
@@ -3862,6 +3909,180 @@ func (o NodeGroupNodeRepairConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `maxParallelNodesRepairedPercentage`.
+func (o NodeGroupNodeRepairConfigPtrOutput) MaxParallelNodesRepairedCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxParallelNodesRepairedCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `maxParallelNodesRepairedCount`.
+func (o NodeGroupNodeRepairConfigPtrOutput) MaxParallelNodesRepairedPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxParallelNodesRepairedPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdPercentage`.
+func (o NodeGroupNodeRepairConfigPtrOutput) MaxUnhealthyNodeThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnhealthyNodeThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `maxUnhealthyNodeThresholdCount`.
+func (o NodeGroupNodeRepairConfigPtrOutput) MaxUnhealthyNodeThresholdPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnhealthyNodeThresholdPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Granular overrides for specific repair actions. See `nodeRepairConfigOverrides` below for details.
+func (o NodeGroupNodeRepairConfigPtrOutput) NodeRepairConfigOverrides() NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) []NodeGroupNodeRepairConfigNodeRepairConfigOverride {
+		if v == nil {
+			return nil
+		}
+		return v.NodeRepairConfigOverrides
+	}).(NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput)
+}
+
+type NodeGroupNodeRepairConfigNodeRepairConfigOverride struct {
+	// Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
+	MinRepairWaitTimeMins int `pulumi:"minRepairWaitTimeMins"`
+	// Unhealthy condition reported by the node monitoring agent that this override applies to.
+	NodeMonitoringCondition string `pulumi:"nodeMonitoringCondition"`
+	// Reason reported by the node monitoring agent that this override applies to.
+	NodeUnhealthyReason string `pulumi:"nodeUnhealthyReason"`
+	// Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
+	RepairAction string `pulumi:"repairAction"`
+}
+
+// NodeGroupNodeRepairConfigNodeRepairConfigOverrideInput is an input type that accepts NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs and NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput values.
+// You can construct a concrete instance of `NodeGroupNodeRepairConfigNodeRepairConfigOverrideInput` via:
+//
+//	NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs{...}
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideInput interface {
+	pulumi.Input
+
+	ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput
+	ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutputWithContext(context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput
+}
+
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs struct {
+	// Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
+	MinRepairWaitTimeMins pulumi.IntInput `pulumi:"minRepairWaitTimeMins"`
+	// Unhealthy condition reported by the node monitoring agent that this override applies to.
+	NodeMonitoringCondition pulumi.StringInput `pulumi:"nodeMonitoringCondition"`
+	// Reason reported by the node monitoring agent that this override applies to.
+	NodeUnhealthyReason pulumi.StringInput `pulumi:"nodeUnhealthyReason"`
+	// Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
+	RepairAction pulumi.StringInput `pulumi:"repairAction"`
+}
+
+func (NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupNodeRepairConfigNodeRepairConfigOverride)(nil)).Elem()
+}
+
+func (i NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput {
+	return i.ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutputWithContext(context.Background())
+}
+
+func (i NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput)
+}
+
+// NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayInput is an input type that accepts NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray and NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput values.
+// You can construct a concrete instance of `NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayInput` via:
+//
+//	NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray{ NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs{...} }
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayInput interface {
+	pulumi.Input
+
+	ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput
+	ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutputWithContext(context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput
+}
+
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray []NodeGroupNodeRepairConfigNodeRepairConfigOverrideInput
+
+func (NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeGroupNodeRepairConfigNodeRepairConfigOverride)(nil)).Elem()
+}
+
+func (i NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return i.ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput)
+}
+
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupNodeRepairConfigNodeRepairConfigOverride)(nil)).Elem()
+}
+
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput {
+	return o
+}
+
+// Minimum time in minutes to wait before attempting to repair a node with the specified `nodeMonitoringCondition` and `nodeUnhealthyReason`.
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) MinRepairWaitTimeMins() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfigNodeRepairConfigOverride) int { return v.MinRepairWaitTimeMins }).(pulumi.IntOutput)
+}
+
+// Unhealthy condition reported by the node monitoring agent that this override applies to.
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) NodeMonitoringCondition() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfigNodeRepairConfigOverride) string { return v.NodeMonitoringCondition }).(pulumi.StringOutput)
+}
+
+// Reason reported by the node monitoring agent that this override applies to.
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) NodeUnhealthyReason() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfigNodeRepairConfigOverride) string { return v.NodeUnhealthyReason }).(pulumi.StringOutput)
+}
+
+// Repair action to take for nodes when all of the specified conditions are met. Valid values are defined by the EKS API.
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput) RepairAction() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfigNodeRepairConfigOverride) string { return v.RepairAction }).(pulumi.StringOutput)
+}
+
+type NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeGroupNodeRepairConfigNodeRepairConfigOverride)(nil)).Elem()
+}
+
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput() NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput) ToNodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput) Index(i pulumi.IntInput) NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeGroupNodeRepairConfigNodeRepairConfigOverride {
+		return vs[0].([]NodeGroupNodeRepairConfigNodeRepairConfigOverride)[vs[1].(int)]
+	}).(NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput)
 }
 
 type NodeGroupRemoteAccess struct {
@@ -7402,6 +7623,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupLaunchTemplatePtrInput)(nil)).Elem(), NodeGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigInput)(nil)).Elem(), NodeGroupNodeRepairConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigPtrInput)(nil)).Elem(), NodeGroupNodeRepairConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigNodeRepairConfigOverrideInput)(nil)).Elem(), NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayInput)(nil)).Elem(), NodeGroupNodeRepairConfigNodeRepairConfigOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessPtrInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceInput)(nil)).Elem(), NodeGroupResourceArgs{})
@@ -7513,6 +7736,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigPtrOutput{})
+	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigNodeRepairConfigOverrideOutput{})
+	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigNodeRepairConfigOverrideArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupResourceOutput{})

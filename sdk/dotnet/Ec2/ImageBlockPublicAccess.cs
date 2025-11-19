@@ -42,6 +42,12 @@ namespace Pulumi.Aws.Ec2
     public partial class ImageBlockPublicAccess : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>
         [Output("state")]
@@ -94,6 +100,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class ImageBlockPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>
         [Input("state", required: true)]
@@ -107,6 +119,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ImageBlockPublicAccessState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `Unblocked` and `block-new-sharing`.
         /// </summary>

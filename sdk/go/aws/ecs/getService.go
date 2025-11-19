@@ -64,26 +64,71 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
-	// ARN of the ECS Service
-	Arn                         string `pulumi:"arn"`
+	// ARN of the task set
+	Arn string `pulumi:"arn"`
+	// Whether Availability Zone rebalancing is enabled
 	AvailabilityZoneRebalancing string `pulumi:"availabilityZoneRebalancing"`
-	ClusterArn                  string `pulumi:"clusterArn"`
-	// Number of tasks for the ECS Service
+	// Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
+	CapacityProviderStrategies []GetServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
+	ClusterArn                 string                               `pulumi:"clusterArn"`
+	// Time when task set was created (RFC3339 format)
+	CreatedAt string `pulumi:"createdAt"`
+	// Principal that created the service
+	CreatedBy string `pulumi:"createdBy"`
+	// Deployment configuration for the service. See `deploymentConfiguration` Block for details.
+	DeploymentConfigurations []GetServiceDeploymentConfiguration `pulumi:"deploymentConfigurations"`
+	// Deployment controller configuration. See `deploymentController` Block for details.
+	DeploymentControllers []GetServiceDeploymentController `pulumi:"deploymentControllers"`
+	// Current deployments for the service. See `deployments` Block for details.
+	Deployments []GetServiceDeployment `pulumi:"deployments"`
+	// Desired number of tasks
 	DesiredCount int `pulumi:"desiredCount"`
+	// Whether ECS managed tags are enabled
+	EnableEcsManagedTags bool `pulumi:"enableEcsManagedTags"`
+	// Whether execute command functionality is enabled
+	EnableExecuteCommand bool `pulumi:"enableExecuteCommand"`
+	// Recent service events. See `events` Block for details.
+	Events []GetServiceEvent `pulumi:"events"`
+	// Grace period for health checks
+	HealthCheckGracePeriodSeconds int `pulumi:"healthCheckGracePeriodSeconds"`
+	// ARN of the IAM role associated with the service
+	IamRole string `pulumi:"iamRole"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Launch type for the ECS Service
 	LaunchType string `pulumi:"launchType"`
 	// Load balancers for the ECS Service. See `loadBalancer` Block for details.
 	LoadBalancers []GetServiceLoadBalancer `pulumi:"loadBalancers"`
-	Region        string                   `pulumi:"region"`
+	// Network configuration for the service. See `networkConfiguration` Block for details.
+	NetworkConfigurations []GetServiceNetworkConfiguration `pulumi:"networkConfigurations"`
+	// Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
+	OrderedPlacementStrategies []GetServiceOrderedPlacementStrategy `pulumi:"orderedPlacementStrategies"`
+	// Number of pending tasks
+	PendingCount int `pulumi:"pendingCount"`
+	// Placement constraints for tasks. See `placementConstraints` Block for details.
+	PlacementConstraints []GetServicePlacementConstraint `pulumi:"placementConstraints"`
+	// Platform family for Fargate tasks
+	PlatformFamily string `pulumi:"platformFamily"`
+	// Platform version for Fargate tasks
+	PlatformVersion string `pulumi:"platformVersion"`
+	// Whether tags are propagated from task definition or service
+	PropagateTags string `pulumi:"propagateTags"`
+	Region        string `pulumi:"region"`
+	// Number of running tasks
+	RunningCount int `pulumi:"runningCount"`
 	// Scheduling strategy for the ECS Service
 	SchedulingStrategy string `pulumi:"schedulingStrategy"`
 	ServiceName        string `pulumi:"serviceName"`
+	// Service discovery registries. See `serviceRegistries` Block for details.
+	ServiceRegistries []GetServiceServiceRegistry `pulumi:"serviceRegistries"`
+	// Task set status
+	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Family for the latest ACTIVE revision or full ARN of the task definition.
+	// Task definition ARN
 	TaskDefinition string `pulumi:"taskDefinition"`
+	// Task sets for the service. See `taskSets` Block for details.
+	TaskSets []GetServiceTaskSet `pulumi:"taskSets"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -126,22 +171,78 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
-// ARN of the ECS Service
+// ARN of the task set
 func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Whether Availability Zone rebalancing is enabled
 func (o LookupServiceResultOutput) AvailabilityZoneRebalancing() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.AvailabilityZoneRebalancing }).(pulumi.StringOutput)
+}
+
+// Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
+func (o LookupServiceResultOutput) CapacityProviderStrategies() GetServiceCapacityProviderStrategyArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceCapacityProviderStrategy { return v.CapacityProviderStrategies }).(GetServiceCapacityProviderStrategyArrayOutput)
 }
 
 func (o LookupServiceResultOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
-// Number of tasks for the ECS Service
+// Time when task set was created (RFC3339 format)
+func (o LookupServiceResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Principal that created the service
+func (o LookupServiceResultOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Deployment configuration for the service. See `deploymentConfiguration` Block for details.
+func (o LookupServiceResultOutput) DeploymentConfigurations() GetServiceDeploymentConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceDeploymentConfiguration { return v.DeploymentConfigurations }).(GetServiceDeploymentConfigurationArrayOutput)
+}
+
+// Deployment controller configuration. See `deploymentController` Block for details.
+func (o LookupServiceResultOutput) DeploymentControllers() GetServiceDeploymentControllerArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceDeploymentController { return v.DeploymentControllers }).(GetServiceDeploymentControllerArrayOutput)
+}
+
+// Current deployments for the service. See `deployments` Block for details.
+func (o LookupServiceResultOutput) Deployments() GetServiceDeploymentArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceDeployment { return v.Deployments }).(GetServiceDeploymentArrayOutput)
+}
+
+// Desired number of tasks
 func (o LookupServiceResultOutput) DesiredCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServiceResult) int { return v.DesiredCount }).(pulumi.IntOutput)
+}
+
+// Whether ECS managed tags are enabled
+func (o LookupServiceResultOutput) EnableEcsManagedTags() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.EnableEcsManagedTags }).(pulumi.BoolOutput)
+}
+
+// Whether execute command functionality is enabled
+func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.EnableExecuteCommand }).(pulumi.BoolOutput)
+}
+
+// Recent service events. See `events` Block for details.
+func (o LookupServiceResultOutput) Events() GetServiceEventArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceEvent { return v.Events }).(GetServiceEventArrayOutput)
+}
+
+// Grace period for health checks
+func (o LookupServiceResultOutput) HealthCheckGracePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.HealthCheckGracePeriodSeconds }).(pulumi.IntOutput)
+}
+
+// ARN of the IAM role associated with the service
+func (o LookupServiceResultOutput) IamRole() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.IamRole }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -159,8 +260,48 @@ func (o LookupServiceResultOutput) LoadBalancers() GetServiceLoadBalancerArrayOu
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceLoadBalancer { return v.LoadBalancers }).(GetServiceLoadBalancerArrayOutput)
 }
 
+// Network configuration for the service. See `networkConfiguration` Block for details.
+func (o LookupServiceResultOutput) NetworkConfigurations() GetServiceNetworkConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceNetworkConfiguration { return v.NetworkConfigurations }).(GetServiceNetworkConfigurationArrayOutput)
+}
+
+// Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
+func (o LookupServiceResultOutput) OrderedPlacementStrategies() GetServiceOrderedPlacementStrategyArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceOrderedPlacementStrategy { return v.OrderedPlacementStrategies }).(GetServiceOrderedPlacementStrategyArrayOutput)
+}
+
+// Number of pending tasks
+func (o LookupServiceResultOutput) PendingCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.PendingCount }).(pulumi.IntOutput)
+}
+
+// Placement constraints for tasks. See `placementConstraints` Block for details.
+func (o LookupServiceResultOutput) PlacementConstraints() GetServicePlacementConstraintArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServicePlacementConstraint { return v.PlacementConstraints }).(GetServicePlacementConstraintArrayOutput)
+}
+
+// Platform family for Fargate tasks
+func (o LookupServiceResultOutput) PlatformFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PlatformFamily }).(pulumi.StringOutput)
+}
+
+// Platform version for Fargate tasks
+func (o LookupServiceResultOutput) PlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
+// Whether tags are propagated from task definition or service
+func (o LookupServiceResultOutput) PropagateTags() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.PropagateTags }).(pulumi.StringOutput)
+}
+
 func (o LookupServiceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Number of running tasks
+func (o LookupServiceResultOutput) RunningCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.RunningCount }).(pulumi.IntOutput)
 }
 
 // Scheduling strategy for the ECS Service
@@ -172,14 +313,29 @@ func (o LookupServiceResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
+// Service discovery registries. See `serviceRegistries` Block for details.
+func (o LookupServiceResultOutput) ServiceRegistries() GetServiceServiceRegistryArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceServiceRegistry { return v.ServiceRegistries }).(GetServiceServiceRegistryArrayOutput)
+}
+
+// Task set status
+func (o LookupServiceResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
 // Resource tags.
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Family for the latest ACTIVE revision or full ARN of the task definition.
+// Task definition ARN
 func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
+}
+
+// Task sets for the service. See `taskSets` Block for details.
+func (o LookupServiceResultOutput) TaskSets() GetServiceTaskSetArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceTaskSet { return v.TaskSets }).(GetServiceTaskSetArrayOutput)
 }
 
 func init() {

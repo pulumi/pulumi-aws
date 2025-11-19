@@ -45,8 +45,8 @@ import (
 // return err
 // }
 // example := exampleWorkspace.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
 // Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
@@ -68,12 +68,14 @@ import (
 // arn,
 // },
 // },
-// },
-// }, nil)), nil
+// }),
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
 // WorkspaceId: exampleWorkspace.ID(),
-// PolicyDocument: pulumi.String(example.Json),
+// PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+// return &example.Json, nil
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

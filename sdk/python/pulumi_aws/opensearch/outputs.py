@@ -34,6 +34,7 @@ __all__ = [
     'DomainDomainEndpointOptions',
     'DomainEbsOptions',
     'DomainEncryptAtRest',
+    'DomainIdentityCenterOptions',
     'DomainLogPublishingOption',
     'DomainNodeToNodeEncryption',
     'DomainOffPeakWindowOptions',
@@ -65,6 +66,7 @@ __all__ = [
     'GetDomainCognitoOptionResult',
     'GetDomainEbsOptionResult',
     'GetDomainEncryptionAtRestResult',
+    'GetDomainIdentityCenterOptionResult',
     'GetDomainLogPublishingOptionResult',
     'GetDomainNodeToNodeEncryptionResult',
     'GetDomainOffPeakWindowOptionsResult',
@@ -285,6 +287,10 @@ class DomainAimlOptions(dict):
     def __init__(__self__, *,
                  natural_language_query_generation_options: Optional['outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions'] = None,
                  s3_vectors_engine: Optional['outputs.DomainAimlOptionsS3VectorsEngine'] = None):
+        """
+        :param 'DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs' natural_language_query_generation_options: Configuration block for parameters required for natural language query generation on the specified domain.
+        :param 'DomainAimlOptionsS3VectorsEngineArgs' s3_vectors_engine: Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        """
         if natural_language_query_generation_options is not None:
             pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
         if s3_vectors_engine is not None:
@@ -293,11 +299,17 @@ class DomainAimlOptions(dict):
     @_builtins.property
     @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
     def natural_language_query_generation_options(self) -> Optional['outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions']:
+        """
+        Configuration block for parameters required for natural language query generation on the specified domain.
+        """
         return pulumi.get(self, "natural_language_query_generation_options")
 
     @_builtins.property
     @pulumi.getter(name="s3VectorsEngine")
     def s3_vectors_engine(self) -> Optional['outputs.DomainAimlOptionsS3VectorsEngine']:
+        """
+        Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        """
         return pulumi.get(self, "s3_vectors_engine")
 
 
@@ -323,7 +335,7 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptions(dict):
     def __init__(__self__, *,
                  desired_state: Optional[_builtins.str] = None):
         """
-        :param _builtins.str desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        :param _builtins.str desired_state: The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         """
         if desired_state is not None:
             pulumi.set(__self__, "desired_state", desired_state)
@@ -332,7 +344,7 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptions(dict):
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> Optional[_builtins.str]:
         """
-        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "desired_state")
 
@@ -341,12 +353,18 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptions(dict):
 class DomainAimlOptionsS3VectorsEngine(dict):
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enabled: Enables S3 vectors engine features.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enables S3 vectors engine features.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -1168,6 +1186,66 @@ class DomainEncryptAtRest(dict):
         KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class DomainIdentityCenterOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledApiAccess":
+            suggest = "enabled_api_access"
+        elif key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+        elif key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdentityCenterOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdentityCenterOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdentityCenterOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_api_access: Optional[_builtins.bool] = None,
+                 identity_center_instance_arn: Optional[_builtins.str] = None,
+                 roles_key: Optional[_builtins.str] = None,
+                 subject_key: Optional[_builtins.str] = None):
+        if enabled_api_access is not None:
+            pulumi.set(__self__, "enabled_api_access", enabled_api_access)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledApiAccess")
+    def enabled_api_access(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled_api_access")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "roles_key")
+
+    @_builtins.property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type
@@ -2692,6 +2770,57 @@ class GetDomainEncryptionAtRestResult(dict):
         KMS key id used to encrypt data at rest.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class GetDomainIdentityCenterOptionResult(dict):
+    def __init__(__self__, *,
+                 enabled_api_access: _builtins.bool,
+                 identity_center_instance_arn: _builtins.str,
+                 roles_key: _builtins.str,
+                 subject_key: _builtins.str):
+        """
+        :param _builtins.bool enabled_api_access: Boolean whether IAM Identity Center is enabled for API access.
+        :param _builtins.str identity_center_instance_arn: ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
+        :param _builtins.str roles_key: Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+        :param _builtins.str subject_key: Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+        """
+        pulumi.set(__self__, "enabled_api_access", enabled_api_access)
+        pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        pulumi.set(__self__, "roles_key", roles_key)
+        pulumi.set(__self__, "subject_key", subject_key)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledApiAccess")
+    def enabled_api_access(self) -> _builtins.bool:
+        """
+        Boolean whether IAM Identity Center is enabled for API access.
+        """
+        return pulumi.get(self, "enabled_api_access")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> _builtins.str:
+        """
+        Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @_builtins.property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> _builtins.str:
+        """
+        Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+        """
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

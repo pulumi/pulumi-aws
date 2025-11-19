@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Instructions { get; set; }
 
         /// <summary>
-        /// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        /// Search type for MCP. Valid values: `SEMANTIC`.
         /// </summary>
         [Input("searchType")]
         public Input<string>? SearchType { get; set; }

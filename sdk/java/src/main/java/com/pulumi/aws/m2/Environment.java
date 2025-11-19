@@ -27,11 +27,179 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### High Availability
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentHighAvailabilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .highAvailabilityConfig(EnvironmentHighAvailabilityConfigArgs.builder()
+ *                 .desiredCapacity(2)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### EFS Filesystem
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationEfsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .efs(EnvironmentStorageConfigurationEfsArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### FSX Filesystem
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.m2.Environment;
+ * import com.pulumi.aws.m2.EnvironmentArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
+ * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationFsxArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Environment("test", EnvironmentArgs.builder()
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .subnetIds(            
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
+ *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
+ *                 .fsx(EnvironmentStorageConfigurationFsxArgs.builder()
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 

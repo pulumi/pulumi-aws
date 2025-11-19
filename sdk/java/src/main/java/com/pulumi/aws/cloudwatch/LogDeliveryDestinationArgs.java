@@ -18,18 +18,33 @@ public final class LogDeliveryDestinationArgs extends com.pulumi.resources.Resou
     public static final LogDeliveryDestinationArgs Empty = new LogDeliveryDestinationArgs();
 
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     @Import(name="deliveryDestinationConfiguration")
     private @Nullable Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs> deliveryDestinationConfiguration;
 
     /**
-     * @return The AWS resource that will receive the logs.
+     * @return The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     public Optional<Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs>> deliveryDestinationConfiguration() {
         return Optional.ofNullable(this.deliveryDestinationConfiguration);
+    }
+
+    /**
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+     * 
+     */
+    @Import(name="deliveryDestinationType")
+    private @Nullable Output<String> deliveryDestinationType;
+
+    /**
+     * @return The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+     * 
+     */
+    public Optional<Output<String>> deliveryDestinationType() {
+        return Optional.ofNullable(this.deliveryDestinationType);
     }
 
     /**
@@ -96,6 +111,7 @@ public final class LogDeliveryDestinationArgs extends com.pulumi.resources.Resou
 
     private LogDeliveryDestinationArgs(LogDeliveryDestinationArgs $) {
         this.deliveryDestinationConfiguration = $.deliveryDestinationConfiguration;
+        this.deliveryDestinationType = $.deliveryDestinationType;
         this.name = $.name;
         this.outputFormat = $.outputFormat;
         this.region = $.region;
@@ -121,7 +137,7 @@ public final class LogDeliveryDestinationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs.
+         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
          * 
          * @return builder
          * 
@@ -132,13 +148,34 @@ public final class LogDeliveryDestinationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs.
+         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
          * 
          * @return builder
          * 
          */
         public Builder deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs deliveryDestinationConfiguration) {
             return deliveryDestinationConfiguration(Output.of(deliveryDestinationConfiguration));
+        }
+
+        /**
+         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliveryDestinationType(@Nullable Output<String> deliveryDestinationType) {
+            $.deliveryDestinationType = deliveryDestinationType;
+            return this;
+        }
+
+        /**
+         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deliveryDestinationType(String deliveryDestinationType) {
+            return deliveryDestinationType(Output.of(deliveryDestinationType));
         }
 
         /**

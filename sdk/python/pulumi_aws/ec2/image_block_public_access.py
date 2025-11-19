@@ -19,12 +19,16 @@ __all__ = ['ImageBlockPublicAccessArgs', 'ImageBlockPublicAccess']
 @pulumi.input_type
 class ImageBlockPublicAccessArgs:
     def __init__(__self__, *,
-                 state: pulumi.Input[_builtins.str]):
+                 state: pulumi.Input[_builtins.str],
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageBlockPublicAccess resource.
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "state", state)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter
@@ -38,17 +42,45 @@ class ImageBlockPublicAccessArgs:
     def state(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "state", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ImageBlockPublicAccessState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ImageBlockPublicAccess resources.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
@@ -69,6 +101,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -93,6 +126,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
         ...
@@ -136,6 +170,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -146,6 +181,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageBlockPublicAccessArgs.__new__(ImageBlockPublicAccessArgs)
 
+            __props__.__dict__["region"] = region
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
@@ -159,6 +195,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[_builtins.str]] = None,
             state: Optional[pulumi.Input[_builtins.str]] = None) -> 'ImageBlockPublicAccess':
         """
         Get an existing ImageBlockPublicAccess resource's state with the given name, id, and optional extra
@@ -167,14 +204,24 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ImageBlockPublicAccessState.__new__(_ImageBlockPublicAccessState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         return ImageBlockPublicAccess(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[_builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @_builtins.property
     @pulumi.getter

@@ -25,6 +25,105 @@ import javax.annotation.Nullable;
  * 
  * ### Basic Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.bedrock.AgentAgent;
+ * import com.pulumi.aws.bedrock.AgentAgentArgs;
+ * import com.pulumi.aws.bedrock.AgentAgentAlias;
+ * import com.pulumi.aws.bedrock.AgentAgentAliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("sts:AssumeRole")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers("bedrock.amazonaws.com")
+ *                     .type("Service")
+ *                     .build())
+ *                 .conditions(                
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .values(current.accountId())
+ *                         .variable("aws:SourceAccount")
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("ArnLike")
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
+ *                         .variable("AWS:SourceArn")
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("bedrock:InvokeModel")
+ *                 .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetPartition.partition(),currentGetRegion.region()))
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new Role("example", RoleArgs.builder()
+ *             .assumeRolePolicy(exampleAgentTrust.json())
+ *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
+ *             .build());
+ * 
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
+ *             .policy(exampleAgentPermissions.json())
+ *             .role(example.id())
+ *             .build());
+ * 
+ *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()
+ *             .agentName("my-agent-name")
+ *             .agentResourceRoleArn(example.arn())
+ *             .idleTtl(500)
+ *             .foundationModel("anthropic.claude-v2")
+ *             .build());
+ * 
+ *         var exampleAgentAgentAlias = new AgentAgentAlias("exampleAgentAgentAlias", AgentAgentAliasArgs.builder()
+ *             .agentAliasName("my-agent-alias")
+ *             .agentId(exampleAgentAgent.agentId())
+ *             .description("Test Alias")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:

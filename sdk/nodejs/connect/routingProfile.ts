@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Amazon Connect Routing Profile resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
  *
  * ## Example Usage
  *
@@ -22,10 +22,22 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
  *     description: "example description",
- *     mediaConcurrencies: [{
- *         channel: "VOICE",
- *         concurrency: 1,
- *     }],
+ *     mediaConcurrencies: [
+ *         {
+ *             channel: "VOICE",
+ *             concurrency: 1,
+ *             crossChannelBehavior: {
+ *                 behaviorType: "ROUTE_ANY_CHANNEL",
+ *             },
+ *         },
+ *         {
+ *             channel: "CHAT",
+ *             concurrency: 3,
+ *             crossChannelBehavior: {
+ *                 behaviorType: "ROUTE_CURRENT_CHANNEL_ONLY",
+ *             },
+ *         },
+ *     ],
  *     queueConfigs: [{
  *         channel: "VOICE",
  *         delay: 2,
@@ -75,7 +87,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Routing Profile.
+     * Amazon Resource Name (ARN) of the Routing Profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -107,7 +119,7 @@ export class RoutingProfile extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The identifier for the Routing Profile.
+     * Identifier for the Routing Profile.
      */
     declare public /*out*/ readonly routingProfileId: pulumi.Output<string>;
     /**
@@ -180,7 +192,7 @@ export class RoutingProfile extends pulumi.CustomResource {
  */
 export interface RoutingProfileState {
     /**
-     * The Amazon Resource Name (ARN) of the Routing Profile.
+     * Amazon Resource Name (ARN) of the Routing Profile.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -212,7 +224,7 @@ export interface RoutingProfileState {
      */
     region?: pulumi.Input<string>;
     /**
-     * The identifier for the Routing Profile.
+     * Identifier for the Routing Profile.
      */
     routingProfileId?: pulumi.Input<string>;
     /**

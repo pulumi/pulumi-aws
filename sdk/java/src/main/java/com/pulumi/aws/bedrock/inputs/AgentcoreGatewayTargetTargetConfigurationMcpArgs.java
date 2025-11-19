@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs;
 import com.pulumi.core.Output;
@@ -30,6 +31,21 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs>> lambda() {
         return Optional.ofNullable(this.lambda);
+    }
+
+    /**
+     * MCP server target configuration. See `mcpServer` below.
+     * 
+     */
+    @Import(name="mcpServer")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs> mcpServer;
+
+    /**
+     * @return MCP server target configuration. See `mcpServer` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs>> mcpServer() {
+        return Optional.ofNullable(this.mcpServer);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
 
     private AgentcoreGatewayTargetTargetConfigurationMcpArgs(AgentcoreGatewayTargetTargetConfigurationMcpArgs $) {
         this.lambda = $.lambda;
+        this.mcpServer = $.mcpServer;
         this.openApiSchema = $.openApiSchema;
         this.smithyModel = $.smithyModel;
     }
@@ -107,6 +124,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
          */
         public Builder lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs lambda) {
             return lambda(Output.of(lambda));
+        }
+
+        /**
+         * @param mcpServer MCP server target configuration. See `mcpServer` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpServer(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs> mcpServer) {
+            $.mcpServer = mcpServer;
+            return this;
+        }
+
+        /**
+         * @param mcpServer MCP server target configuration. See `mcpServer` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs mcpServer) {
+            return mcpServer(Output.of(mcpServer));
         }
 
         /**

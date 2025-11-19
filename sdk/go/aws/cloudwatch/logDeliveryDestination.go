@@ -44,6 +44,33 @@ import (
 //
 // ```
 //
+// ### X-Ray Trace Delivery
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewLogDeliveryDestination(ctx, "xray", &cloudwatch.LogDeliveryDestinationArgs{
+//				Name:                    pulumi.String("xray-traces"),
+//				DeliveryDestinationType: pulumi.String("XRAY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -56,9 +83,9 @@ type LogDeliveryDestination struct {
 
 	// The Amazon Resource Name (ARN) of the delivery destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS resource that will receive the logs.
+	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput `pulumi:"deliveryDestinationConfiguration"`
-	// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
 	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
 	// The name for this delivery destination.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -104,9 +131,9 @@ func GetLogDeliveryDestination(ctx *pulumi.Context,
 type logDeliveryDestinationState struct {
 	// The Amazon Resource Name (ARN) of the delivery destination.
 	Arn *string `pulumi:"arn"`
-	// The AWS resource that will receive the logs.
+	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`
-	// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
 	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The name for this delivery destination.
 	Name *string `pulumi:"name"`
@@ -123,9 +150,9 @@ type logDeliveryDestinationState struct {
 type LogDeliveryDestinationState struct {
 	// The Amazon Resource Name (ARN) of the delivery destination.
 	Arn pulumi.StringPtrInput
-	// The AWS resource that will receive the logs.
+	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput
-	// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
 	DeliveryDestinationType pulumi.StringPtrInput
 	// The name for this delivery destination.
 	Name pulumi.StringPtrInput
@@ -144,8 +171,10 @@ func (LogDeliveryDestinationState) ElementType() reflect.Type {
 }
 
 type logDeliveryDestinationArgs struct {
-	// The AWS resource that will receive the logs.
+	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`
+	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The name for this delivery destination.
 	Name *string `pulumi:"name"`
 	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
@@ -158,8 +187,10 @@ type logDeliveryDestinationArgs struct {
 
 // The set of arguments for constructing a LogDeliveryDestination resource.
 type LogDeliveryDestinationArgs struct {
-	// The AWS resource that will receive the logs.
+	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput
+	// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
+	DeliveryDestinationType pulumi.StringPtrInput
 	// The name for this delivery destination.
 	Name pulumi.StringPtrInput
 	// The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
@@ -262,14 +293,14 @@ func (o LogDeliveryDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS resource that will receive the logs.
+// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 func (o LogDeliveryDestinationOutput) DeliveryDestinationConfiguration() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
 		return v.DeliveryDestinationConfiguration
 	}).(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput)
 }
 
-// Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+// The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
 func (o LogDeliveryDestinationOutput) DeliveryDestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.DeliveryDestinationType }).(pulumi.StringOutput)
 }

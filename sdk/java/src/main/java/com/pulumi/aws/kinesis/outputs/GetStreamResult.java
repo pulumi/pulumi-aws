@@ -45,6 +45,11 @@ public final class GetStreamResult {
      */
     private String kmsKeyId;
     /**
+     * @return The maximum size for a single data record in KiB.
+     * 
+     */
+    private Integer maxRecordSizeInKib;
+    /**
      * @return Name of the Kinesis Stream.
      * 
      */
@@ -125,6 +130,13 @@ public final class GetStreamResult {
         return this.kmsKeyId;
     }
     /**
+     * @return The maximum size for a single data record in KiB.
+     * 
+     */
+    public Integer maxRecordSizeInKib() {
+        return this.maxRecordSizeInKib;
+    }
+    /**
      * @return Name of the Kinesis Stream.
      * 
      */
@@ -192,6 +204,7 @@ public final class GetStreamResult {
         private String encryptionType;
         private String id;
         private String kmsKeyId;
+        private Integer maxRecordSizeInKib;
         private String name;
         private List<String> openShards;
         private String region;
@@ -209,6 +222,7 @@ public final class GetStreamResult {
     	      this.encryptionType = defaults.encryptionType;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.maxRecordSizeInKib = defaults.maxRecordSizeInKib;
     	      this.name = defaults.name;
     	      this.openShards = defaults.openShards;
     	      this.region = defaults.region;
@@ -268,6 +282,14 @@ public final class GetStreamResult {
               throw new MissingRequiredPropertyException("GetStreamResult", "kmsKeyId");
             }
             this.kmsKeyId = kmsKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxRecordSizeInKib(Integer maxRecordSizeInKib) {
+            if (maxRecordSizeInKib == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "maxRecordSizeInKib");
+            }
+            this.maxRecordSizeInKib = maxRecordSizeInKib;
             return this;
         }
         @CustomType.Setter
@@ -351,6 +373,7 @@ public final class GetStreamResult {
             _resultValue.encryptionType = encryptionType;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.maxRecordSizeInKib = maxRecordSizeInKib;
             _resultValue.name = name;
             _resultValue.openShards = openShards;
             _resultValue.region = region;

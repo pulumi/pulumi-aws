@@ -206,15 +206,15 @@ import (
 // snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // costAnomalyUpdatesArn := _args[0].(string)
 // costAnomalyUpdatesArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "__default_policy_ID",
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
-// Sid: "AWSAnomalyDetectionSNSPublishingPermissions",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AWSAnomalyDetectionSNSPublishingPermissions"))),
 // Actions: []string{
 // "SNS:Publish",
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "Service",
@@ -228,7 +228,7 @@ import (
 // },
 // },
 // {
-// Sid: "__default_statement_ID",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
 // Actions: []string{
 // "SNS:Subscribe",
 // "SNS:SetTopicAttributes",
@@ -249,7 +249,7 @@ import (
 // },
 // },
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -262,7 +262,7 @@ import (
 // costAnomalyUpdatesArn1,
 // },
 // },
-// },
+// }),
 // }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{

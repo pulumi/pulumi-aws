@@ -491,8 +491,10 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserPassw
 }
 
 type DomainAimlOptions struct {
+	// Configuration block for parameters required for natural language query generation on the specified domain.
 	NaturalLanguageQueryGenerationOptions *DomainAimlOptionsNaturalLanguageQueryGenerationOptions `pulumi:"naturalLanguageQueryGenerationOptions"`
-	S3VectorsEngine                       *DomainAimlOptionsS3VectorsEngine                       `pulumi:"s3VectorsEngine"`
+	// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+	S3VectorsEngine *DomainAimlOptionsS3VectorsEngine `pulumi:"s3VectorsEngine"`
 }
 
 // DomainAimlOptionsInput is an input type that accepts DomainAimlOptionsArgs and DomainAimlOptionsOutput values.
@@ -507,8 +509,10 @@ type DomainAimlOptionsInput interface {
 }
 
 type DomainAimlOptionsArgs struct {
+	// Configuration block for parameters required for natural language query generation on the specified domain.
 	NaturalLanguageQueryGenerationOptions DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput `pulumi:"naturalLanguageQueryGenerationOptions"`
-	S3VectorsEngine                       DomainAimlOptionsS3VectorsEnginePtrInput                       `pulumi:"s3VectorsEngine"`
+	// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+	S3VectorsEngine DomainAimlOptionsS3VectorsEnginePtrInput `pulumi:"s3VectorsEngine"`
 }
 
 func (DomainAimlOptionsArgs) ElementType() reflect.Type {
@@ -588,12 +592,14 @@ func (o DomainAimlOptionsOutput) ToDomainAimlOptionsPtrOutputWithContext(ctx con
 	}).(DomainAimlOptionsPtrOutput)
 }
 
+// Configuration block for parameters required for natural language query generation on the specified domain.
 func (o DomainAimlOptionsOutput) NaturalLanguageQueryGenerationOptions() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
 		return v.NaturalLanguageQueryGenerationOptions
 	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
 }
 
+// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
 func (o DomainAimlOptionsOutput) S3VectorsEngine() DomainAimlOptionsS3VectorsEnginePtrOutput {
 	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsS3VectorsEngine { return v.S3VectorsEngine }).(DomainAimlOptionsS3VectorsEnginePtrOutput)
 }
@@ -622,6 +628,7 @@ func (o DomainAimlOptionsPtrOutput) Elem() DomainAimlOptionsOutput {
 	}).(DomainAimlOptionsOutput)
 }
 
+// Configuration block for parameters required for natural language query generation on the specified domain.
 func (o DomainAimlOptionsPtrOutput) NaturalLanguageQueryGenerationOptions() DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAimlOptions) *DomainAimlOptionsNaturalLanguageQueryGenerationOptions {
 		if v == nil {
@@ -631,6 +638,7 @@ func (o DomainAimlOptionsPtrOutput) NaturalLanguageQueryGenerationOptions() Doma
 	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
 }
 
+// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
 func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainAimlOptionsS3VectorsEnginePtrOutput {
 	return o.ApplyT(func(v *DomainAimlOptions) *DomainAimlOptionsS3VectorsEngine {
 		if v == nil {
@@ -641,7 +649,7 @@ func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainAimlOptionsS3Vectors
 }
 
 type DomainAimlOptionsNaturalLanguageQueryGenerationOptions struct {
-	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
 	DesiredState *string `pulumi:"desiredState"`
 }
 
@@ -657,7 +665,7 @@ type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsInput interface {
 }
 
 type DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs struct {
-	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
 	DesiredState pulumi.StringPtrInput `pulumi:"desiredState"`
 }
 
@@ -738,7 +746,7 @@ func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) ToDomainAi
 	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput)
 }
 
-// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput) DesiredState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAimlOptionsNaturalLanguageQueryGenerationOptions) *string { return v.DesiredState }).(pulumi.StringPtrOutput)
 }
@@ -767,7 +775,7 @@ func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) Elem() 
 	}).(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsOutput)
 }
 
-// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+// The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) DesiredState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAimlOptionsNaturalLanguageQueryGenerationOptions) *string {
 		if v == nil {
@@ -778,6 +786,7 @@ func (o DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput) Desired
 }
 
 type DomainAimlOptionsS3VectorsEngine struct {
+	// Enables S3 vectors engine features.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -793,6 +802,7 @@ type DomainAimlOptionsS3VectorsEngineInput interface {
 }
 
 type DomainAimlOptionsS3VectorsEngineArgs struct {
+	// Enables S3 vectors engine features.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -873,6 +883,7 @@ func (o DomainAimlOptionsS3VectorsEngineOutput) ToDomainAimlOptionsS3VectorsEngi
 	}).(DomainAimlOptionsS3VectorsEnginePtrOutput)
 }
 
+// Enables S3 vectors engine features.
 func (o DomainAimlOptionsS3VectorsEngineOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAimlOptionsS3VectorsEngine) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -901,6 +912,7 @@ func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Elem() DomainAimlOptionsS3Vec
 	}).(DomainAimlOptionsS3VectorsEngineOutput)
 }
 
+// Enables S3 vectors engine features.
 func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAimlOptionsS3VectorsEngine) *bool {
 		if v == nil {
@@ -2985,6 +2997,184 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainIdentityCenterOptions struct {
+	EnabledApiAccess          *bool   `pulumi:"enabledApiAccess"`
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	RolesKey                  *string `pulumi:"rolesKey"`
+	SubjectKey                *string `pulumi:"subjectKey"`
+}
+
+// DomainIdentityCenterOptionsInput is an input type that accepts DomainIdentityCenterOptionsArgs and DomainIdentityCenterOptionsOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterOptionsInput` via:
+//
+//	DomainIdentityCenterOptionsArgs{...}
+type DomainIdentityCenterOptionsInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput
+	ToDomainIdentityCenterOptionsOutputWithContext(context.Context) DomainIdentityCenterOptionsOutput
+}
+
+type DomainIdentityCenterOptionsArgs struct {
+	EnabledApiAccess          pulumi.BoolPtrInput   `pulumi:"enabledApiAccess"`
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+	RolesKey                  pulumi.StringPtrInput `pulumi:"rolesKey"`
+	SubjectKey                pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainIdentityCenterOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput {
+	return i.ToDomainIdentityCenterOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsOutput)
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return i.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsOutput).ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainIdentityCenterOptionsPtrInput is an input type that accepts DomainIdentityCenterOptionsArgs, DomainIdentityCenterOptionsPtr and DomainIdentityCenterOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterOptionsPtrInput` via:
+//
+//	        DomainIdentityCenterOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdentityCenterOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput
+	ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Context) DomainIdentityCenterOptionsPtrOutput
+}
+
+type domainIdentityCenterOptionsPtrType DomainIdentityCenterOptionsArgs
+
+func DomainIdentityCenterOptionsPtr(v *DomainIdentityCenterOptionsArgs) DomainIdentityCenterOptionsPtrInput {
+	return (*domainIdentityCenterOptionsPtrType)(v)
+}
+
+func (*domainIdentityCenterOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i *domainIdentityCenterOptionsPtrType) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return i.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdentityCenterOptionsPtrType) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsPtrOutput)
+}
+
+type DomainIdentityCenterOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return o.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentityCenterOptions) *DomainIdentityCenterOptions {
+		return &v
+	}).(DomainIdentityCenterOptionsPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsOutput) EnabledApiAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *bool { return v.EnabledApiAccess }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainIdentityCenterOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) Elem() DomainIdentityCenterOptionsOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) DomainIdentityCenterOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentityCenterOptions
+		return ret
+	}).(DomainIdentityCenterOptionsOutput)
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) EnabledApiAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledApiAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7522,6 +7712,130 @@ func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomain
 	}).(GetDomainEncryptionAtRestOutput)
 }
 
+type GetDomainIdentityCenterOption struct {
+	// Boolean whether IAM Identity Center is enabled for API access.
+	EnabledApiAccess bool `pulumi:"enabledApiAccess"`
+	// ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
+	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
+	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+	RolesKey string `pulumi:"rolesKey"`
+	// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+	SubjectKey string `pulumi:"subjectKey"`
+}
+
+// GetDomainIdentityCenterOptionInput is an input type that accepts GetDomainIdentityCenterOptionArgs and GetDomainIdentityCenterOptionOutput values.
+// You can construct a concrete instance of `GetDomainIdentityCenterOptionInput` via:
+//
+//	GetDomainIdentityCenterOptionArgs{...}
+type GetDomainIdentityCenterOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainIdentityCenterOptionOutput() GetDomainIdentityCenterOptionOutput
+	ToGetDomainIdentityCenterOptionOutputWithContext(context.Context) GetDomainIdentityCenterOptionOutput
+}
+
+type GetDomainIdentityCenterOptionArgs struct {
+	// Boolean whether IAM Identity Center is enabled for API access.
+	EnabledApiAccess pulumi.BoolInput `pulumi:"enabledApiAccess"`
+	// ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
+	IdentityCenterInstanceArn pulumi.StringInput `pulumi:"identityCenterInstanceArn"`
+	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+	RolesKey pulumi.StringInput `pulumi:"rolesKey"`
+	// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+	SubjectKey pulumi.StringInput `pulumi:"subjectKey"`
+}
+
+func (GetDomainIdentityCenterOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainIdentityCenterOption)(nil)).Elem()
+}
+
+func (i GetDomainIdentityCenterOptionArgs) ToGetDomainIdentityCenterOptionOutput() GetDomainIdentityCenterOptionOutput {
+	return i.ToGetDomainIdentityCenterOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainIdentityCenterOptionArgs) ToGetDomainIdentityCenterOptionOutputWithContext(ctx context.Context) GetDomainIdentityCenterOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityCenterOptionOutput)
+}
+
+// GetDomainIdentityCenterOptionArrayInput is an input type that accepts GetDomainIdentityCenterOptionArray and GetDomainIdentityCenterOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainIdentityCenterOptionArrayInput` via:
+//
+//	GetDomainIdentityCenterOptionArray{ GetDomainIdentityCenterOptionArgs{...} }
+type GetDomainIdentityCenterOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainIdentityCenterOptionArrayOutput() GetDomainIdentityCenterOptionArrayOutput
+	ToGetDomainIdentityCenterOptionArrayOutputWithContext(context.Context) GetDomainIdentityCenterOptionArrayOutput
+}
+
+type GetDomainIdentityCenterOptionArray []GetDomainIdentityCenterOptionInput
+
+func (GetDomainIdentityCenterOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainIdentityCenterOption)(nil)).Elem()
+}
+
+func (i GetDomainIdentityCenterOptionArray) ToGetDomainIdentityCenterOptionArrayOutput() GetDomainIdentityCenterOptionArrayOutput {
+	return i.ToGetDomainIdentityCenterOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainIdentityCenterOptionArray) ToGetDomainIdentityCenterOptionArrayOutputWithContext(ctx context.Context) GetDomainIdentityCenterOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityCenterOptionArrayOutput)
+}
+
+type GetDomainIdentityCenterOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainIdentityCenterOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainIdentityCenterOption)(nil)).Elem()
+}
+
+func (o GetDomainIdentityCenterOptionOutput) ToGetDomainIdentityCenterOptionOutput() GetDomainIdentityCenterOptionOutput {
+	return o
+}
+
+func (o GetDomainIdentityCenterOptionOutput) ToGetDomainIdentityCenterOptionOutputWithContext(ctx context.Context) GetDomainIdentityCenterOptionOutput {
+	return o
+}
+
+// Boolean whether IAM Identity Center is enabled for API access.
+func (o GetDomainIdentityCenterOptionOutput) EnabledApiAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainIdentityCenterOption) bool { return v.EnabledApiAccess }).(pulumi.BoolOutput)
+}
+
+// ARN of the IAM Identity Center instance to create an OpenSearch UI application that uses IAM Identity Center for authentication.
+func (o GetDomainIdentityCenterOptionOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentityCenterOption) string { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
+}
+
+// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+func (o GetDomainIdentityCenterOptionOutput) RolesKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentityCenterOption) string { return v.RolesKey }).(pulumi.StringOutput)
+}
+
+// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+func (o GetDomainIdentityCenterOptionOutput) SubjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainIdentityCenterOption) string { return v.SubjectKey }).(pulumi.StringOutput)
+}
+
+type GetDomainIdentityCenterOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainIdentityCenterOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainIdentityCenterOption)(nil)).Elem()
+}
+
+func (o GetDomainIdentityCenterOptionArrayOutput) ToGetDomainIdentityCenterOptionArrayOutput() GetDomainIdentityCenterOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainIdentityCenterOptionArrayOutput) ToGetDomainIdentityCenterOptionArrayOutputWithContext(ctx context.Context) GetDomainIdentityCenterOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainIdentityCenterOptionArrayOutput) Index(i pulumi.IntInput) GetDomainIdentityCenterOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainIdentityCenterOption {
+		return vs[0].([]GetDomainIdentityCenterOption)[vs[1].(int)]
+	}).(GetDomainIdentityCenterOptionOutput)
+}
+
 type GetDomainLogPublishingOption struct {
 	// CloudWatch Log Group where the logs are published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
@@ -7769,47 +8083,6 @@ func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput)
 }
 
-func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
-	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput).ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
-}
-
-// GetDomainOffPeakWindowOptionsPtrInput is an input type that accepts GetDomainOffPeakWindowOptionsArgs, GetDomainOffPeakWindowOptionsPtr and GetDomainOffPeakWindowOptionsPtrOutput values.
-// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsPtrInput` via:
-//
-//	        GetDomainOffPeakWindowOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDomainOffPeakWindowOptionsPtrInput interface {
-	pulumi.Input
-
-	ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput
-	ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsPtrOutput
-}
-
-type getDomainOffPeakWindowOptionsPtrType GetDomainOffPeakWindowOptionsArgs
-
-func GetDomainOffPeakWindowOptionsPtr(v *GetDomainOffPeakWindowOptionsArgs) GetDomainOffPeakWindowOptionsPtrInput {
-	return (*getDomainOffPeakWindowOptionsPtrType)(v)
-}
-
-func (*getDomainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
-}
-
-func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
-	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsPtrOutput)
-}
-
 type GetDomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
 
 func (GetDomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
@@ -7824,16 +8097,6 @@ func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsOutp
 	return o
 }
 
-func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
-	return o.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDomainOffPeakWindowOptions) *GetDomainOffPeakWindowOptions {
-		return &v
-	}).(GetDomainOffPeakWindowOptionsPtrOutput)
-}
-
 // Enabled disabled toggle for off-peak update window
 func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -7841,49 +8104,6 @@ func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolOutput {
 
 func (o GetDomainOffPeakWindowOptionsOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
 	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
-		return v.OffPeakWindows
-	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
-}
-
-type GetDomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
-}
-
-func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
-	return o
-}
-
-func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
-	return o
-}
-
-func (o GetDomainOffPeakWindowOptionsPtrOutput) Elem() GetDomainOffPeakWindowOptionsOutput {
-	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) GetDomainOffPeakWindowOptions {
-		if v != nil {
-			return *v
-		}
-		var ret GetDomainOffPeakWindowOptions
-		return ret
-	}).(GetDomainOffPeakWindowOptionsOutput)
-}
-
-// Enabled disabled toggle for off-peak update window
-func (o GetDomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o GetDomainOffPeakWindowOptionsPtrOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
-	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
-		if v == nil {
-			return nil
-		}
 		return v.OffPeakWindows
 	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
 }
@@ -8571,6 +8791,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEbsOptionsPtrInput)(nil)).Elem(), DomainEbsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptAtRestInput)(nil)).Elem(), DomainEncryptAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptAtRestPtrInput)(nil)).Elem(), DomainEncryptAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsPtrInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionInput)(nil)).Elem(), DomainLogPublishingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionArrayInput)(nil)).Elem(), DomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionInput)(nil)).Elem(), DomainNodeToNodeEncryptionArgs{})
@@ -8633,12 +8855,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEbsOptionArrayInput)(nil)).Elem(), GetDomainEbsOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEncryptionAtRestInput)(nil)).Elem(), GetDomainEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEncryptionAtRestArrayInput)(nil)).Elem(), GetDomainEncryptionAtRestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainIdentityCenterOptionInput)(nil)).Elem(), GetDomainIdentityCenterOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainIdentityCenterOptionArrayInput)(nil)).Elem(), GetDomainIdentityCenterOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionInput)(nil)).Elem(), GetDomainLogPublishingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionArrayInput)(nil)).Elem(), GetDomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionArrayInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
@@ -8686,6 +8909,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEbsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptAtRestOutput{})
 	pulumi.RegisterOutputType(DomainEncryptAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterOptionsOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOutput{})
@@ -8748,12 +8973,13 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainEbsOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(GetDomainEncryptionAtRestArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainIdentityCenterOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainIdentityCenterOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainLogPublishingOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOutput{})
-	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowOutput{})
 	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput{})

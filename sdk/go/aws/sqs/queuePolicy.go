@@ -39,11 +39,11 @@ import (
 // return err
 // }
 // test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
-// Sid: "First",
-// Effect: "Allow",
+// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("First"))),
+// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "*",
@@ -68,7 +68,7 @@ import (
 // },
 // },
 // },
-// },
+// }),
 // }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{

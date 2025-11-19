@@ -331,6 +331,23 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
         ### Basic Usage
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datasync.LocationFsxOntapFileSystem("test",
+            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
+            security_group_arns=[test_aws_security_group["arn"]],
+            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
+            protocol={
+                "nfs": {
+                    "mount_options": {
+                        "version": "NFS3",
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
@@ -364,6 +381,23 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datasync.LocationFsxOntapFileSystem("test",
+            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
+            security_group_arns=[test_aws_security_group["arn"]],
+            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
+            protocol={
+                "nfs": {
+                    "mount_options": {
+                        "version": "NFS3",
+                    },
+                },
+            })
+        ```
 
         ## Import
 

@@ -28,7 +28,7 @@ class AuthorizationRuleArgs:
         """
         The set of arguments for constructing a AuthorizationRule resource.
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
-        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         :param pulumi.Input[_builtins.str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[_builtins.bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[_builtins.str] description: A brief description of the authorization rule.
@@ -61,7 +61,7 @@ class AuthorizationRuleArgs:
     @pulumi.getter(name="targetNetworkCidr")
     def target_network_cidr(self) -> pulumi.Input[_builtins.str]:
         """
-        The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         return pulumi.get(self, "target_network_cidr")
 
@@ -134,7 +134,7 @@ class _AuthorizationRuleState:
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] description: A brief description of the authorization rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         if access_group_id is not None:
             pulumi.set(__self__, "access_group_id", access_group_id)
@@ -213,7 +213,7 @@ class _AuthorizationRuleState:
     @pulumi.getter(name="targetNetworkCidr")
     def target_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         return pulumi.get(self, "target_network_cidr")
 
@@ -275,7 +275,7 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] description: A brief description of the authorization rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         ...
     @overload
@@ -384,7 +384,7 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[_builtins.str] description: A brief description of the authorization rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        :param pulumi.Input[_builtins.str] target_network_cidr: The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -442,7 +442,7 @@ class AuthorizationRule(pulumi.CustomResource):
     @pulumi.getter(name="targetNetworkCidr")
     def target_network_cidr(self) -> pulumi.Output[_builtins.str]:
         """
-        The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
         return pulumi.get(self, "target_network_cidr")
 

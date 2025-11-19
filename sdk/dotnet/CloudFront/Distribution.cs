@@ -655,6 +655,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.DistributionLoggingConfig?> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Whether V1 logging is enabled for the distribution.
+        /// </summary>
+        [Output("loggingV1Enabled")]
+        public Output<bool> LoggingV1Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         /// </summary>
         [Output("orderedCacheBehaviors")]
@@ -1085,6 +1091,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.DistributionLoggingConfigGetArgs>? LoggingConfig { get; set; }
+
+        /// <summary>
+        /// Whether V1 logging is enabled for the distribution.
+        /// </summary>
+        [Input("loggingV1Enabled")]
+        public Input<bool>? LoggingV1Enabled { get; set; }
 
         [Input("orderedCacheBehaviors")]
         private InputList<Inputs.DistributionOrderedCacheBehaviorGetArgs>? _orderedCacheBehaviors;

@@ -27,19 +27,52 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, load_balancers=None, region=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
+    def __init__(__self__, arn=None, availability_zone_rebalancing=None, capacity_provider_strategies=None, cluster_arn=None, created_at=None, created_by=None, deployment_configurations=None, deployment_controllers=None, deployments=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, events=None, health_check_grace_period_seconds=None, iam_role=None, id=None, launch_type=None, load_balancers=None, network_configurations=None, ordered_placement_strategies=None, pending_count=None, placement_constraints=None, platform_family=None, platform_version=None, propagate_tags=None, region=None, running_count=None, scheduling_strategy=None, service_name=None, service_registries=None, status=None, tags=None, task_definition=None, task_sets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if availability_zone_rebalancing and not isinstance(availability_zone_rebalancing, str):
             raise TypeError("Expected argument 'availability_zone_rebalancing' to be a str")
         pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
+        if capacity_provider_strategies and not isinstance(capacity_provider_strategies, list):
+            raise TypeError("Expected argument 'capacity_provider_strategies' to be a list")
+        pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
+        if deployment_configurations and not isinstance(deployment_configurations, list):
+            raise TypeError("Expected argument 'deployment_configurations' to be a list")
+        pulumi.set(__self__, "deployment_configurations", deployment_configurations)
+        if deployment_controllers and not isinstance(deployment_controllers, list):
+            raise TypeError("Expected argument 'deployment_controllers' to be a list")
+        pulumi.set(__self__, "deployment_controllers", deployment_controllers)
+        if deployments and not isinstance(deployments, list):
+            raise TypeError("Expected argument 'deployments' to be a list")
+        pulumi.set(__self__, "deployments", deployments)
         if desired_count and not isinstance(desired_count, int):
             raise TypeError("Expected argument 'desired_count' to be a int")
         pulumi.set(__self__, "desired_count", desired_count)
+        if enable_ecs_managed_tags and not isinstance(enable_ecs_managed_tags, bool):
+            raise TypeError("Expected argument 'enable_ecs_managed_tags' to be a bool")
+        pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+        if enable_execute_command and not isinstance(enable_execute_command, bool):
+            raise TypeError("Expected argument 'enable_execute_command' to be a bool")
+        pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+        if events and not isinstance(events, list):
+            raise TypeError("Expected argument 'events' to be a list")
+        pulumi.set(__self__, "events", events)
+        if health_check_grace_period_seconds and not isinstance(health_check_grace_period_seconds, int):
+            raise TypeError("Expected argument 'health_check_grace_period_seconds' to be a int")
+        pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
+        if iam_role and not isinstance(iam_role, str):
+            raise TypeError("Expected argument 'iam_role' to be a str")
+        pulumi.set(__self__, "iam_role", iam_role)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,34 +82,78 @@ class GetServiceResult:
         if load_balancers and not isinstance(load_balancers, list):
             raise TypeError("Expected argument 'load_balancers' to be a list")
         pulumi.set(__self__, "load_balancers", load_balancers)
+        if network_configurations and not isinstance(network_configurations, list):
+            raise TypeError("Expected argument 'network_configurations' to be a list")
+        pulumi.set(__self__, "network_configurations", network_configurations)
+        if ordered_placement_strategies and not isinstance(ordered_placement_strategies, list):
+            raise TypeError("Expected argument 'ordered_placement_strategies' to be a list")
+        pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
+        if pending_count and not isinstance(pending_count, int):
+            raise TypeError("Expected argument 'pending_count' to be a int")
+        pulumi.set(__self__, "pending_count", pending_count)
+        if placement_constraints and not isinstance(placement_constraints, list):
+            raise TypeError("Expected argument 'placement_constraints' to be a list")
+        pulumi.set(__self__, "placement_constraints", placement_constraints)
+        if platform_family and not isinstance(platform_family, str):
+            raise TypeError("Expected argument 'platform_family' to be a str")
+        pulumi.set(__self__, "platform_family", platform_family)
+        if platform_version and not isinstance(platform_version, str):
+            raise TypeError("Expected argument 'platform_version' to be a str")
+        pulumi.set(__self__, "platform_version", platform_version)
+        if propagate_tags and not isinstance(propagate_tags, str):
+            raise TypeError("Expected argument 'propagate_tags' to be a str")
+        pulumi.set(__self__, "propagate_tags", propagate_tags)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if running_count and not isinstance(running_count, int):
+            raise TypeError("Expected argument 'running_count' to be a int")
+        pulumi.set(__self__, "running_count", running_count)
         if scheduling_strategy and not isinstance(scheduling_strategy, str):
             raise TypeError("Expected argument 'scheduling_strategy' to be a str")
         pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if service_registries and not isinstance(service_registries, list):
+            raise TypeError("Expected argument 'service_registries' to be a list")
+        pulumi.set(__self__, "service_registries", service_registries)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
         pulumi.set(__self__, "task_definition", task_definition)
+        if task_sets and not isinstance(task_sets, list):
+            raise TypeError("Expected argument 'task_sets' to be a list")
+        pulumi.set(__self__, "task_sets", task_sets)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of the ECS Service
+        ARN of the task set
         """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> _builtins.str:
+        """
+        Whether Availability Zone rebalancing is enabled
+        """
         return pulumi.get(self, "availability_zone_rebalancing")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderStrategies")
+    def capacity_provider_strategies(self) -> Sequence['outputs.GetServiceCapacityProviderStrategyResult']:
+        """
+        Capacity provider strategy for the service. See `capacity_provider_strategy` Block for details.
+        """
+        return pulumi.get(self, "capacity_provider_strategies")
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
@@ -84,12 +161,92 @@ class GetServiceResult:
         return pulumi.get(self, "cluster_arn")
 
     @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Time when task set was created (RFC3339 format)
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> _builtins.str:
+        """
+        Principal that created the service
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentConfigurations")
+    def deployment_configurations(self) -> Sequence['outputs.GetServiceDeploymentConfigurationResult']:
+        """
+        Deployment configuration for the service. See `deployment_configuration` Block for details.
+        """
+        return pulumi.get(self, "deployment_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentControllers")
+    def deployment_controllers(self) -> Sequence['outputs.GetServiceDeploymentControllerResult']:
+        """
+        Deployment controller configuration. See `deployment_controller` Block for details.
+        """
+        return pulumi.get(self, "deployment_controllers")
+
+    @_builtins.property
+    @pulumi.getter
+    def deployments(self) -> Sequence['outputs.GetServiceDeploymentResult']:
+        """
+        Current deployments for the service. See `deployments` Block for details.
+        """
+        return pulumi.get(self, "deployments")
+
+    @_builtins.property
     @pulumi.getter(name="desiredCount")
     def desired_count(self) -> _builtins.int:
         """
-        Number of tasks for the ECS Service
+        Desired number of tasks
         """
         return pulumi.get(self, "desired_count")
+
+    @_builtins.property
+    @pulumi.getter(name="enableEcsManagedTags")
+    def enable_ecs_managed_tags(self) -> _builtins.bool:
+        """
+        Whether ECS managed tags are enabled
+        """
+        return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> _builtins.bool:
+        """
+        Whether execute command functionality is enabled
+        """
+        return pulumi.get(self, "enable_execute_command")
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Sequence['outputs.GetServiceEventResult']:
+        """
+        Recent service events. See `events` Block for details.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckGracePeriodSeconds")
+    def health_check_grace_period_seconds(self) -> _builtins.int:
+        """
+        Grace period for health checks
+        """
+        return pulumi.get(self, "health_check_grace_period_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> _builtins.str:
+        """
+        ARN of the IAM role associated with the service
+        """
+        return pulumi.get(self, "iam_role")
 
     @_builtins.property
     @pulumi.getter
@@ -116,9 +273,73 @@ class GetServiceResult:
         return pulumi.get(self, "load_balancers")
 
     @_builtins.property
+    @pulumi.getter(name="networkConfigurations")
+    def network_configurations(self) -> Sequence['outputs.GetServiceNetworkConfigurationResult']:
+        """
+        Network configuration for the service. See `network_configuration` Block for details.
+        """
+        return pulumi.get(self, "network_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="orderedPlacementStrategies")
+    def ordered_placement_strategies(self) -> Sequence['outputs.GetServiceOrderedPlacementStrategyResult']:
+        """
+        Placement strategy for tasks. See `ordered_placement_strategy` Block for details.
+        """
+        return pulumi.get(self, "ordered_placement_strategies")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingCount")
+    def pending_count(self) -> _builtins.int:
+        """
+        Number of pending tasks
+        """
+        return pulumi.get(self, "pending_count")
+
+    @_builtins.property
+    @pulumi.getter(name="placementConstraints")
+    def placement_constraints(self) -> Sequence['outputs.GetServicePlacementConstraintResult']:
+        """
+        Placement constraints for tasks. See `placement_constraints` Block for details.
+        """
+        return pulumi.get(self, "placement_constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="platformFamily")
+    def platform_family(self) -> _builtins.str:
+        """
+        Platform family for Fargate tasks
+        """
+        return pulumi.get(self, "platform_family")
+
+    @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> _builtins.str:
+        """
+        Platform version for Fargate tasks
+        """
+        return pulumi.get(self, "platform_version")
+
+    @_builtins.property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> _builtins.str:
+        """
+        Whether tags are propagated from task definition or service
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="runningCount")
+    def running_count(self) -> _builtins.int:
+        """
+        Number of running tasks
+        """
+        return pulumi.get(self, "running_count")
 
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
@@ -134,6 +355,22 @@ class GetServiceResult:
         return pulumi.get(self, "service_name")
 
     @_builtins.property
+    @pulumi.getter(name="serviceRegistries")
+    def service_registries(self) -> Sequence['outputs.GetServiceServiceRegistryResult']:
+        """
+        Service discovery registries. See `service_registries` Block for details.
+        """
+        return pulumi.get(self, "service_registries")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Task set status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -145,9 +382,17 @@ class GetServiceResult:
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> _builtins.str:
         """
-        Family for the latest ACTIVE revision or full ARN of the task definition.
+        Task definition ARN
         """
         return pulumi.get(self, "task_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="taskSets")
+    def task_sets(self) -> Sequence['outputs.GetServiceTaskSetResult']:
+        """
+        Task sets for the service. See `task_sets` Block for details.
+        """
+        return pulumi.get(self, "task_sets")
 
 
 class AwaitableGetServiceResult(GetServiceResult):
@@ -158,16 +403,38 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             arn=self.arn,
             availability_zone_rebalancing=self.availability_zone_rebalancing,
+            capacity_provider_strategies=self.capacity_provider_strategies,
             cluster_arn=self.cluster_arn,
+            created_at=self.created_at,
+            created_by=self.created_by,
+            deployment_configurations=self.deployment_configurations,
+            deployment_controllers=self.deployment_controllers,
+            deployments=self.deployments,
             desired_count=self.desired_count,
+            enable_ecs_managed_tags=self.enable_ecs_managed_tags,
+            enable_execute_command=self.enable_execute_command,
+            events=self.events,
+            health_check_grace_period_seconds=self.health_check_grace_period_seconds,
+            iam_role=self.iam_role,
             id=self.id,
             launch_type=self.launch_type,
             load_balancers=self.load_balancers,
+            network_configurations=self.network_configurations,
+            ordered_placement_strategies=self.ordered_placement_strategies,
+            pending_count=self.pending_count,
+            placement_constraints=self.placement_constraints,
+            platform_family=self.platform_family,
+            platform_version=self.platform_version,
+            propagate_tags=self.propagate_tags,
             region=self.region,
+            running_count=self.running_count,
             scheduling_strategy=self.scheduling_strategy,
             service_name=self.service_name,
+            service_registries=self.service_registries,
+            status=self.status,
             tags=self.tags,
-            task_definition=self.task_definition)
+            task_definition=self.task_definition,
+            task_sets=self.task_sets)
 
 
 def get_service(cluster_arn: Optional[_builtins.str] = None,
@@ -206,16 +473,38 @@ def get_service(cluster_arn: Optional[_builtins.str] = None,
     return AwaitableGetServiceResult(
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone_rebalancing=pulumi.get(__ret__, 'availability_zone_rebalancing'),
+        capacity_provider_strategies=pulumi.get(__ret__, 'capacity_provider_strategies'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        deployment_configurations=pulumi.get(__ret__, 'deployment_configurations'),
+        deployment_controllers=pulumi.get(__ret__, 'deployment_controllers'),
+        deployments=pulumi.get(__ret__, 'deployments'),
         desired_count=pulumi.get(__ret__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__ret__, 'enable_execute_command'),
+        events=pulumi.get(__ret__, 'events'),
+        health_check_grace_period_seconds=pulumi.get(__ret__, 'health_check_grace_period_seconds'),
+        iam_role=pulumi.get(__ret__, 'iam_role'),
         id=pulumi.get(__ret__, 'id'),
         launch_type=pulumi.get(__ret__, 'launch_type'),
         load_balancers=pulumi.get(__ret__, 'load_balancers'),
+        network_configurations=pulumi.get(__ret__, 'network_configurations'),
+        ordered_placement_strategies=pulumi.get(__ret__, 'ordered_placement_strategies'),
+        pending_count=pulumi.get(__ret__, 'pending_count'),
+        placement_constraints=pulumi.get(__ret__, 'placement_constraints'),
+        platform_family=pulumi.get(__ret__, 'platform_family'),
+        platform_version=pulumi.get(__ret__, 'platform_version'),
+        propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
         region=pulumi.get(__ret__, 'region'),
+        running_count=pulumi.get(__ret__, 'running_count'),
         scheduling_strategy=pulumi.get(__ret__, 'scheduling_strategy'),
         service_name=pulumi.get(__ret__, 'service_name'),
+        service_registries=pulumi.get(__ret__, 'service_registries'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
-        task_definition=pulumi.get(__ret__, 'task_definition'))
+        task_definition=pulumi.get(__ret__, 'task_definition'),
+        task_sets=pulumi.get(__ret__, 'task_sets'))
 def get_service_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                        service_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -251,13 +540,35 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None
     return __ret__.apply(lambda __response__: GetServiceResult(
         arn=pulumi.get(__response__, 'arn'),
         availability_zone_rebalancing=pulumi.get(__response__, 'availability_zone_rebalancing'),
+        capacity_provider_strategies=pulumi.get(__response__, 'capacity_provider_strategies'),
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        deployment_configurations=pulumi.get(__response__, 'deployment_configurations'),
+        deployment_controllers=pulumi.get(__response__, 'deployment_controllers'),
+        deployments=pulumi.get(__response__, 'deployments'),
         desired_count=pulumi.get(__response__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__response__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__response__, 'enable_execute_command'),
+        events=pulumi.get(__response__, 'events'),
+        health_check_grace_period_seconds=pulumi.get(__response__, 'health_check_grace_period_seconds'),
+        iam_role=pulumi.get(__response__, 'iam_role'),
         id=pulumi.get(__response__, 'id'),
         launch_type=pulumi.get(__response__, 'launch_type'),
         load_balancers=pulumi.get(__response__, 'load_balancers'),
+        network_configurations=pulumi.get(__response__, 'network_configurations'),
+        ordered_placement_strategies=pulumi.get(__response__, 'ordered_placement_strategies'),
+        pending_count=pulumi.get(__response__, 'pending_count'),
+        placement_constraints=pulumi.get(__response__, 'placement_constraints'),
+        platform_family=pulumi.get(__response__, 'platform_family'),
+        platform_version=pulumi.get(__response__, 'platform_version'),
+        propagate_tags=pulumi.get(__response__, 'propagate_tags'),
         region=pulumi.get(__response__, 'region'),
+        running_count=pulumi.get(__response__, 'running_count'),
         scheduling_strategy=pulumi.get(__response__, 'scheduling_strategy'),
         service_name=pulumi.get(__response__, 'service_name'),
+        service_registries=pulumi.get(__response__, 'service_registries'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
-        task_definition=pulumi.get(__response__, 'task_definition')))
+        task_definition=pulumi.get(__response__, 'task_definition'),
+        task_sets=pulumi.get(__response__, 'task_sets')))

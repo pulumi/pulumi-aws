@@ -80,6 +80,10 @@ export interface GetStreamResult {
      */
     readonly kmsKeyId: string;
     /**
+     * The maximum size for a single data record in KiB.
+     */
+    readonly maxRecordSizeInKib: number;
+    /**
      * Name of the Kinesis Stream.
      */
     readonly name: string;

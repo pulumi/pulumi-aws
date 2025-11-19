@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreMemory(ctx, "example", &bedrock.AgentcoreMemoryArgs{
-//				Name:                pulumi.String("example-memory"),
+//				Name:                pulumi.String("example_memory"),
 //				EventExpiryDuration: pulumi.Int(30),
 //			})
 //			if err != nil {
@@ -80,6 +80,42 @@ import (
 // ```
 //
 // ### Memory with Custom Encryption and Role
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description: pulumi.String("KMS key for Bedrock AgentCore Memory"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentcoreMemory(ctx, "example", &bedrock.AgentcoreMemoryArgs{
+//				Name:                   pulumi.String("example_memory"),
+//				Description:            pulumi.String("Memory for customer service agent"),
+//				EventExpiryDuration:    pulumi.Int(60),
+//				EncryptionKeyArn:       example.Arn,
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				ClientToken:            "unique-client-token",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -97,7 +133,7 @@ type AgentcoreMemory struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
-	// Number of minutes after which memory events expire. Must be a positive integer.
+	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	//
 	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntOutput `pulumi:"eventExpiryDuration"`
@@ -153,7 +189,7 @@ type agentcoreMemoryState struct {
 	Description *string `pulumi:"description"`
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Number of minutes after which memory events expire. Must be a positive integer.
+	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	//
 	// The following arguments are optional:
 	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
@@ -177,7 +213,7 @@ type AgentcoreMemoryState struct {
 	Description pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrInput
-	// Number of minutes after which memory events expire. Must be a positive integer.
+	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	//
 	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntPtrInput
@@ -203,7 +239,7 @@ type agentcoreMemoryArgs struct {
 	Description *string `pulumi:"description"`
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// Number of minutes after which memory events expire. Must be a positive integer.
+	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	//
 	// The following arguments are optional:
 	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
@@ -224,7 +260,7 @@ type AgentcoreMemoryArgs struct {
 	Description pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrInput
-	// Number of minutes after which memory events expire. Must be a positive integer.
+	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	//
 	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntInput
@@ -341,7 +377,7 @@ func (o AgentcoreMemoryOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes after which memory events expire. Must be a positive integer.
+// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 //
 // The following arguments are optional:
 func (o AgentcoreMemoryOutput) EventExpiryDuration() pulumi.IntOutput {

@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .allowed_images_settings import *
 from .ami import *
 from .ami_copy import *
 from .ami_from_instance import *

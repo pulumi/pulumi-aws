@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Connect
 {
     /// <summary>
     /// Provides an Amazon Connect Routing Profile resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
     /// 
     /// ## Example Usage
     /// 
@@ -35,6 +35,19 @@ namespace Pulumi.Aws.Connect
     ///             {
     ///                 Channel = "VOICE",
     ///                 Concurrency = 1,
+    ///                 CrossChannelBehavior = new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs
+    ///                 {
+    ///                     BehaviorType = "ROUTE_ANY_CHANNEL",
+    ///                 },
+    ///             },
+    ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
+    ///             {
+    ///                 Channel = "CHAT",
+    ///                 Concurrency = 3,
+    ///                 CrossChannelBehavior = new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs
+    ///                 {
+    ///                     BehaviorType = "ROUTE_CURRENT_CHANNEL_ONLY",
+    ///                 },
     ///             },
     ///         },
     ///         QueueConfigs = new[]
@@ -68,7 +81,7 @@ namespace Pulumi.Aws.Connect
     public partial class RoutingProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Routing Profile.
+        /// Amazon Resource Name (ARN) of the Routing Profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -116,7 +129,7 @@ namespace Pulumi.Aws.Connect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the Routing Profile.
+        /// Identifier for the Routing Profile.
         /// </summary>
         [Output("routingProfileId")]
         public Output<string> RoutingProfileId { get; private set; } = null!;
@@ -256,7 +269,7 @@ namespace Pulumi.Aws.Connect
     public sealed class RoutingProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Routing Profile.
+        /// Amazon Resource Name (ARN) of the Routing Profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -316,7 +329,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The identifier for the Routing Profile.
+        /// Identifier for the Routing Profile.
         /// </summary>
         [Input("routingProfileId")]
         public Input<string>? RoutingProfileId { get; set; }

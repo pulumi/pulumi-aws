@@ -27,6 +27,28 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Browser with VPC Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const vpcExample = new aws.bedrock.AgentcoreBrowser("vpc_example", {
+ *     name: "vpc-browser",
+ *     description: "Browser with VPC configuration",
+ *     networkConfiguration: {
+ *         networkMode: "VPC",
+ *         vpcConfig: {
+ *             securityGroups: ["sg-12345678"],
+ *             subnets: [
+ *                 "subnet-12345678",
+ *                 "subnet-87654321",
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Browser with Execution Role and Recording
  *
  * ```typescript

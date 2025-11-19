@@ -474,6 +474,9 @@ namespace Pulumi.Aws.OpenSearch
         [Output("advancedSecurityOptions")]
         public Output<Outputs.DomainAdvancedSecurityOptions> AdvancedSecurityOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for parameters required to enable all machine learning features. Detailed below.
+        /// </summary>
         [Output("aimlOptions")]
         public Output<Outputs.DomainAimlOptions> AimlOptions { get; private set; } = null!;
 
@@ -570,6 +573,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        /// </summary>
+        [Output("identityCenterOptions")]
+        public Output<Outputs.DomainIdentityCenterOptions?> IdentityCenterOptions { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `Ipv4` and `Dualstack`.
@@ -701,6 +710,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsArgs>? AdvancedSecurityOptions { get; set; }
 
+        /// <summary>
+        /// Configuration block for parameters required to enable all machine learning features. Detailed below.
+        /// </summary>
         [Input("aimlOptions")]
         public Input<Inputs.DomainAimlOptionsArgs>? AimlOptions { get; set; }
 
@@ -755,6 +767,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        /// </summary>
+        [Input("identityCenterOptions")]
+        public Input<Inputs.DomainIdentityCenterOptionsArgs>? IdentityCenterOptions { get; set; }
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `Ipv4` and `Dualstack`.
@@ -854,6 +872,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("advancedSecurityOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsGetArgs>? AdvancedSecurityOptions { get; set; }
 
+        /// <summary>
+        /// Configuration block for parameters required to enable all machine learning features. Detailed below.
+        /// </summary>
         [Input("aimlOptions")]
         public Input<Inputs.DomainAimlOptionsGetArgs>? AimlOptions { get; set; }
 
@@ -950,6 +971,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        /// </summary>
+        [Input("identityCenterOptions")]
+        public Input<Inputs.DomainIdentityCenterOptionsGetArgs>? IdentityCenterOptions { get; set; }
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `Ipv4` and `Dualstack`.

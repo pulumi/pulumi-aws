@@ -37,12 +37,27 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy",
  * });
  * const exampleAgentcoreMemory = new aws.bedrock.AgentcoreMemory("example", {
- *     name: "example-memory",
+ *     name: "example_memory",
  *     eventExpiryDuration: 30,
  * });
  * ```
  *
  * ### Memory with Custom Encryption and Role
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kms.Key("example", {description: "KMS key for Bedrock AgentCore Memory"});
+ * const exampleAgentcoreMemory = new aws.bedrock.AgentcoreMemory("example", {
+ *     name: "example_memory",
+ *     description: "Memory for customer service agent",
+ *     eventExpiryDuration: 60,
+ *     encryptionKeyArn: example.arn,
+ *     memoryExecutionRoleArn: exampleAwsIamRole.arn,
+ *     clientToken: "unique-client-token",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -93,7 +108,7 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      */
     declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
-     * Number of minutes after which memory events expire. Must be a positive integer.
+     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      *
      * The following arguments are optional:
      */
@@ -181,7 +196,7 @@ export interface AgentcoreMemoryState {
      */
     encryptionKeyArn?: pulumi.Input<string>;
     /**
-     * Number of minutes after which memory events expire. Must be a positive integer.
+     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      *
      * The following arguments are optional:
      */
@@ -222,7 +237,7 @@ export interface AgentcoreMemoryArgs {
      */
     encryptionKeyArn?: pulumi.Input<string>;
     /**
-     * Number of minutes after which memory events expire. Must be a positive integer.
+     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      *
      * The following arguments are optional:
      */

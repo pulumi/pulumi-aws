@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         /// </summary>
         [Output("targetNetworkCidr")]
         public Output<string> TargetNetworkCidr { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         /// </summary>
         [Input("targetNetworkCidr", required: true)]
         public Input<string> TargetNetworkCidr { get; set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
         /// </summary>
         [Input("targetNetworkCidr")]
         public Input<string>? TargetNetworkCidr { get; set; }

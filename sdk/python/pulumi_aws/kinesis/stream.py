@@ -25,6 +25,7 @@ class StreamArgs:
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  enforce_consumer_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_record_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -38,6 +39,7 @@ class StreamArgs:
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
@@ -55,6 +57,8 @@ class StreamArgs:
             pulumi.set(__self__, "enforce_consumer_deletion", enforce_consumer_deletion)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_record_size_in_kib is not None:
+            pulumi.set(__self__, "max_record_size_in_kib", max_record_size_in_kib)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -117,6 +121,18 @@ class StreamArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKib")
+    def max_record_size_in_kib(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        """
+        return pulumi.get(self, "max_record_size_in_kib")
+
+    @max_record_size_in_kib.setter
+    def max_record_size_in_kib(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_record_size_in_kib", value)
 
     @_builtins.property
     @pulumi.getter
@@ -211,6 +227,7 @@ class _StreamState:
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  enforce_consumer_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_record_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -225,6 +242,7 @@ class _StreamState:
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
@@ -243,6 +261,8 @@ class _StreamState:
             pulumi.set(__self__, "enforce_consumer_deletion", enforce_consumer_deletion)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_record_size_in_kib is not None:
+            pulumi.set(__self__, "max_record_size_in_kib", max_record_size_in_kib)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -307,6 +327,18 @@ class _StreamState:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKib")
+    def max_record_size_in_kib(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        """
+        return pulumi.get(self, "max_record_size_in_kib")
+
+    @max_record_size_in_kib.setter
+    def max_record_size_in_kib(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_record_size_in_kib", value)
 
     @_builtins.property
     @pulumi.getter
@@ -416,6 +448,7 @@ class Stream(pulumi.CustomResource):
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  enforce_consumer_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_record_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -466,6 +499,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
@@ -536,6 +570,7 @@ class Stream(pulumi.CustomResource):
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  enforce_consumer_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_record_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -556,6 +591,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["enforce_consumer_deletion"] = enforce_consumer_deletion
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["max_record_size_in_kib"] = max_record_size_in_kib
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["retention_period"] = retention_period
@@ -578,6 +614,7 @@ class Stream(pulumi.CustomResource):
             encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
             enforce_consumer_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
             kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+            max_record_size_in_kib: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             retention_period: Optional[pulumi.Input[_builtins.int]] = None,
@@ -597,6 +634,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        :param pulumi.Input[_builtins.int] max_record_size_in_kib: The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
@@ -615,6 +653,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["encryption_type"] = encryption_type
         __props__.__dict__["enforce_consumer_deletion"] = enforce_consumer_deletion
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["max_record_size_in_kib"] = max_record_size_in_kib
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["retention_period"] = retention_period
@@ -656,6 +695,14 @@ class Stream(pulumi.CustomResource):
         The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKib")
+    def max_record_size_in_kib(self) -> pulumi.Output[_builtins.int]:
+        """
+        The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        """
+        return pulumi.get(self, "max_record_size_in_kib")
 
     @_builtins.property
     @pulumi.getter

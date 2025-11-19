@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAimlOptionsS3VectorsEngine {
+    /**
+     * @return Enables S3 vectors engine features.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private DomainAimlOptionsS3VectorsEngine() {}
+    /**
+     * @return Enables S3 vectors engine features.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

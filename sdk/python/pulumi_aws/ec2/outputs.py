@@ -17,6 +17,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AllowedImagesSettingsImageCriterion',
+    'AllowedImagesSettingsImageCriterionCreationDateCondition',
+    'AllowedImagesSettingsImageCriterionDeprecationTimeCondition',
     'AmiCopyEbsBlockDevice',
     'AmiCopyEphemeralBlockDevice',
     'AmiEbsBlockDevice',
@@ -469,6 +472,170 @@ __all__ = [
     'GetVpnConnectionVgwTelemetryResult',
     'GetVpnGatewayFilterResult',
 ]
+
+@pulumi.output_type
+class AllowedImagesSettingsImageCriterion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDateCondition":
+            suggest = "creation_date_condition"
+        elif key == "deprecationTimeCondition":
+            suggest = "deprecation_time_condition"
+        elif key == "imageNames":
+            suggest = "image_names"
+        elif key == "imageProviders":
+            suggest = "image_providers"
+        elif key == "marketplaceProductCodes":
+            suggest = "marketplace_product_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowedImagesSettingsImageCriterion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowedImagesSettingsImageCriterion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowedImagesSettingsImageCriterion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date_condition: Optional['outputs.AllowedImagesSettingsImageCriterionCreationDateCondition'] = None,
+                 deprecation_time_condition: Optional['outputs.AllowedImagesSettingsImageCriterionDeprecationTimeCondition'] = None,
+                 image_names: Optional[Sequence[_builtins.str]] = None,
+                 image_providers: Optional[Sequence[_builtins.str]] = None,
+                 marketplace_product_codes: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param 'AllowedImagesSettingsImageCriterionCreationDateConditionArgs' creation_date_condition: Condition based on AMI creation date. See `creation_date_condition` below.
+        :param 'AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs' deprecation_time_condition: Condition based on AMI deprecation time. See `deprecation_time_condition` below.
+        :param Sequence[_builtins.str] image_names: Set of AMI name patterns to allow. Maximum of 50 names.
+        :param Sequence[_builtins.str] image_providers: Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
+        :param Sequence[_builtins.str] marketplace_product_codes: Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
+        """
+        if creation_date_condition is not None:
+            pulumi.set(__self__, "creation_date_condition", creation_date_condition)
+        if deprecation_time_condition is not None:
+            pulumi.set(__self__, "deprecation_time_condition", deprecation_time_condition)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if image_providers is not None:
+            pulumi.set(__self__, "image_providers", image_providers)
+        if marketplace_product_codes is not None:
+            pulumi.set(__self__, "marketplace_product_codes", marketplace_product_codes)
+
+    @_builtins.property
+    @pulumi.getter(name="creationDateCondition")
+    def creation_date_condition(self) -> Optional['outputs.AllowedImagesSettingsImageCriterionCreationDateCondition']:
+        """
+        Condition based on AMI creation date. See `creation_date_condition` below.
+        """
+        return pulumi.get(self, "creation_date_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="deprecationTimeCondition")
+    def deprecation_time_condition(self) -> Optional['outputs.AllowedImagesSettingsImageCriterionDeprecationTimeCondition']:
+        """
+        Condition based on AMI deprecation time. See `deprecation_time_condition` below.
+        """
+        return pulumi.get(self, "deprecation_time_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AMI name patterns to allow. Maximum of 50 names.
+        """
+        return pulumi.get(self, "image_names")
+
+    @_builtins.property
+    @pulumi.getter(name="imageProviders")
+    def image_providers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of image providers to allow. Maximum of 200 providers. Valid values include `amazon`, `aws-marketplace`, `aws-backup-vault`, `none`, or a 12-digit AWS account ID.
+        """
+        return pulumi.get(self, "image_providers")
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceProductCodes")
+    def marketplace_product_codes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of AWS Marketplace product codes to allow. Maximum of 50 product codes.
+        """
+        return pulumi.get(self, "marketplace_product_codes")
+
+
+@pulumi.output_type
+class AllowedImagesSettingsImageCriterionCreationDateCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumDaysSinceCreated":
+            suggest = "maximum_days_since_created"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowedImagesSettingsImageCriterionCreationDateCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowedImagesSettingsImageCriterionCreationDateCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowedImagesSettingsImageCriterionCreationDateCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_days_since_created: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int maximum_days_since_created: Maximum number of days since the AMI was created.
+        """
+        if maximum_days_since_created is not None:
+            pulumi.set(__self__, "maximum_days_since_created", maximum_days_since_created)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumDaysSinceCreated")
+    def maximum_days_since_created(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of days since the AMI was created.
+        """
+        return pulumi.get(self, "maximum_days_since_created")
+
+
+@pulumi.output_type
+class AllowedImagesSettingsImageCriterionDeprecationTimeCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumDaysSinceDeprecated":
+            suggest = "maximum_days_since_deprecated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowedImagesSettingsImageCriterionDeprecationTimeCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowedImagesSettingsImageCriterionDeprecationTimeCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowedImagesSettingsImageCriterionDeprecationTimeCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_days_since_deprecated: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int maximum_days_since_deprecated: Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+        """
+        if maximum_days_since_deprecated is not None:
+            pulumi.set(__self__, "maximum_days_since_deprecated", maximum_days_since_deprecated)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumDaysSinceDeprecated")
+    def maximum_days_since_deprecated(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of days since the AMI was deprecated. Setting this to `0` means no deprecated images are allowed.
+        """
+        return pulumi.get(self, "maximum_days_since_deprecated")
+
 
 @pulumi.output_type
 class AmiCopyEbsBlockDevice(dict):

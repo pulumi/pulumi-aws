@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Kinesis
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// </summary>
+        [Output("maxRecordSizeInKib")]
+        public Output<int> MaxRecordSizeInKib { get; private set; } = null!;
+
+        /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Output("name")]
@@ -203,6 +209,12 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// </summary>
+        [Input("maxRecordSizeInKib")]
+        public Input<int>? MaxRecordSizeInKib { get; set; }
+
+        /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Input("name")]
@@ -288,6 +300,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+        /// </summary>
+        [Input("maxRecordSizeInKib")]
+        public Input<int>? MaxRecordSizeInKib { get; set; }
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.

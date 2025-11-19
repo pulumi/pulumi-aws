@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreMemory = new AgentcoreMemory("exampleAgentcoreMemory", AgentcoreMemoryArgs.builder()
- *             .name("example-memory")
+ *             .name("example_memory")
  *             .eventExpiryDuration(30)
  *             .build());
  * 
@@ -84,6 +84,48 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ### Memory with Custom Encryption and Role
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreMemory;
+ * import com.pulumi.aws.bedrock.AgentcoreMemoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("KMS key for Bedrock AgentCore Memory")
+ *             .build());
+ * 
+ *         var exampleAgentcoreMemory = new AgentcoreMemory("exampleAgentcoreMemory", AgentcoreMemoryArgs.builder()
+ *             .name("example_memory")
+ *             .description("Memory for customer service agent")
+ *             .eventExpiryDuration(60)
+ *             .encryptionKeyArn(example.arn())
+ *             .memoryExecutionRoleArn(exampleAwsIamRole.arn())
+ *             .clientToken("unique-client-token")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 
@@ -139,7 +181,7 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionKeyArn);
     }
     /**
-     * Number of minutes after which memory events expire. Must be a positive integer.
+     * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
      * The following arguments are optional:
      * 
@@ -148,7 +190,7 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
     private Output<Integer> eventExpiryDuration;
 
     /**
-     * @return Number of minutes after which memory events expire. Must be a positive integer.
+     * @return Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
      * The following arguments are optional:
      * 

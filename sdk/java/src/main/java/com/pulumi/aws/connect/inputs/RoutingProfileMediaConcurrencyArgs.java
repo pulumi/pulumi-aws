@@ -3,12 +3,15 @@
 
 package com.pulumi.aws.connect.inputs;
 
+import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,18 +34,25 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+     * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
      * 
      */
     @Import(name="concurrency", required=true)
     private Output<Integer> concurrency;
 
     /**
-     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
      * 
      */
     public Output<Integer> concurrency() {
         return this.concurrency;
+    }
+
+    @Import(name="crossChannelBehavior")
+    private @Nullable Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs> crossChannelBehavior;
+
+    public Optional<Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs>> crossChannelBehavior() {
+        return Optional.ofNullable(this.crossChannelBehavior);
     }
 
     private RoutingProfileMediaConcurrencyArgs() {}
@@ -50,6 +60,7 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
     private RoutingProfileMediaConcurrencyArgs(RoutingProfileMediaConcurrencyArgs $) {
         this.channel = $.channel;
         this.concurrency = $.concurrency;
+        this.crossChannelBehavior = $.crossChannelBehavior;
     }
 
     public static Builder builder() {
@@ -92,7 +103,7 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
          * 
          * @return builder
          * 
@@ -103,13 +114,22 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+         * @param concurrency Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
          * 
          * @return builder
          * 
          */
         public Builder concurrency(Integer concurrency) {
             return concurrency(Output.of(concurrency));
+        }
+
+        public Builder crossChannelBehavior(@Nullable Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs> crossChannelBehavior) {
+            $.crossChannelBehavior = crossChannelBehavior;
+            return this;
+        }
+
+        public Builder crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs crossChannelBehavior) {
+            return crossChannelBehavior(Output.of(crossChannelBehavior));
         }
 
         public RoutingProfileMediaConcurrencyArgs build() {

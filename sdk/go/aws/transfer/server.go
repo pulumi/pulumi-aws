@@ -354,6 +354,7 @@ type Server struct {
 	// * `TransferSecurityPolicy-Restricted-2020-06`
 	// * `TransferSecurityPolicy-Restricted-2024-06`
 	// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+	// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 	//
 	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
@@ -478,6 +479,7 @@ type serverState struct {
 	// * `TransferSecurityPolicy-Restricted-2020-06`
 	// * `TransferSecurityPolicy-Restricted-2024-06`
 	// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+	// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 	//
 	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
@@ -558,6 +560,7 @@ type ServerState struct {
 	// * `TransferSecurityPolicy-Restricted-2020-06`
 	// * `TransferSecurityPolicy-Restricted-2024-06`
 	// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+	// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 	//
 	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrInput
@@ -636,6 +639,7 @@ type serverArgs struct {
 	// * `TransferSecurityPolicy-Restricted-2020-06`
 	// * `TransferSecurityPolicy-Restricted-2024-06`
 	// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+	// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 	//
 	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
@@ -709,6 +713,7 @@ type ServerArgs struct {
 	// * `TransferSecurityPolicy-Restricted-2020-06`
 	// * `TransferSecurityPolicy-Restricted-2024-06`
 	// * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+	// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 	//
 	// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 	SecurityPolicyName pulumi.StringPtrInput
@@ -933,6 +938,7 @@ func (o ServerOutput) S3StorageOptions() ServerS3StorageOptionsOutput {
 // * `TransferSecurityPolicy-Restricted-2020-06`
 // * `TransferSecurityPolicy-Restricted-2024-06`
 // * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+// * `TransferSecurityPolicy-AS2Restricted-2025-07`
 //
 // See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
 func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {

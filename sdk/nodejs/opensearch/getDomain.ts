@@ -25,7 +25,6 @@ export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getDomain:getDomain", {
         "domainName": args.domainName,
-        "offPeakWindowOptions": args.offPeakWindowOptions,
         "region": args.region,
         "tags": args.tags,
     }, opts);
@@ -39,10 +38,6 @@ export interface GetDomainArgs {
      * Name of the domain.
      */
     domainName: string;
-    /**
-     * Off Peak update options
-     */
-    offPeakWindowOptions?: inputs.opensearch.GetDomainOffPeakWindowOptions;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -135,6 +130,10 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
+     * Configuration for enabling and managing IAM Identity Center integration within a domain.
+     */
+    readonly identityCenterOptions: outputs.opensearch.GetDomainIdentityCenterOption[];
+    /**
      * Type of IP addresses supported by the endpoint for the domain.
      */
     readonly ipAddressType: string;
@@ -149,7 +148,7 @@ export interface GetDomainResult {
     /**
      * Off Peak update options
      */
-    readonly offPeakWindowOptions?: outputs.opensearch.GetDomainOffPeakWindowOptions;
+    readonly offPeakWindowOptions: outputs.opensearch.GetDomainOffPeakWindowOptions;
     /**
      * Status of a configuration change in the domain.
      */
@@ -190,7 +189,6 @@ export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getDomain:getDomain", {
         "domainName": args.domainName,
-        "offPeakWindowOptions": args.offPeakWindowOptions,
         "region": args.region,
         "tags": args.tags,
     }, opts);
@@ -204,10 +202,6 @@ export interface GetDomainOutputArgs {
      * Name of the domain.
      */
     domainName: pulumi.Input<string>;
-    /**
-     * Off Peak update options
-     */
-    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.GetDomainOffPeakWindowOptionsArgs>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

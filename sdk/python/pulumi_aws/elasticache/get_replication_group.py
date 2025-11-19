@@ -27,7 +27,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, cluster_mode=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, region=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, cluster_mode=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_group_configurations=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, region=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +58,9 @@ class GetReplicationGroupResult:
         if multi_az_enabled and not isinstance(multi_az_enabled, bool):
             raise TypeError("Expected argument 'multi_az_enabled' to be a bool")
         pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
+        if node_group_configurations and not isinstance(node_group_configurations, list):
+            raise TypeError("Expected argument 'node_group_configurations' to be a list")
+        pulumi.set(__self__, "node_group_configurations", node_group_configurations)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -112,7 +115,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> _builtins.bool:
         """
-        A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+        Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         """
         return pulumi.get(self, "automatic_failover_enabled")
 
@@ -128,7 +131,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="configurationEndpointAddress")
     def configuration_endpoint_address(self) -> _builtins.str:
         """
-        The configuration endpoint address to allow host discovery.
+        Configuration endpoint address to allow host discovery.
         """
         return pulumi.get(self, "configuration_endpoint_address")
 
@@ -173,10 +176,18 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "multi_az_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="nodeGroupConfigurations")
+    def node_group_configurations(self) -> Sequence['outputs.GetReplicationGroupNodeGroupConfigurationResult']:
+        """
+        Configuration of the node groups (shards). See below.
+        """
+        return pulumi.get(self, "node_group_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> _builtins.str:
         """
-        The cluster node type.
+        Cluster node type.
         """
         return pulumi.get(self, "node_type")
 
@@ -184,7 +195,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="numCacheClusters")
     def num_cache_clusters(self) -> _builtins.int:
         """
-        The number of cache clusters that the replication group has.
+        Number of cache clusters that the replication group has.
         """
         return pulumi.get(self, "num_cache_clusters")
 
@@ -200,7 +211,7 @@ class GetReplicationGroupResult:
     @pulumi.getter
     def port(self) -> _builtins.int:
         """
-        The port number on which the configuration endpoint will accept connections.
+        Port number on which the configuration endpoint will accept connections.
         """
         return pulumi.get(self, "port")
 
@@ -208,7 +219,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="primaryEndpointAddress")
     def primary_endpoint_address(self) -> _builtins.str:
         """
-        The endpoint of the primary node in this node group (shard).
+        Endpoint of the primary node in this node group (shard).
         """
         return pulumi.get(self, "primary_endpoint_address")
 
@@ -216,7 +227,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="readerEndpointAddress")
     def reader_endpoint_address(self) -> _builtins.str:
         """
-        The endpoint of the reader node in this node group (shard).
+        Endpoint of the reader node in this node group (shard).
         """
         return pulumi.get(self, "reader_endpoint_address")
 
@@ -242,7 +253,7 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> _builtins.int:
         """
-        The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+        Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -271,6 +282,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             log_delivery_configurations=self.log_delivery_configurations,
             member_clusters=self.member_clusters,
             multi_az_enabled=self.multi_az_enabled,
+            node_group_configurations=self.node_group_configurations,
             node_type=self.node_type,
             num_cache_clusters=self.num_cache_clusters,
             num_node_groups=self.num_node_groups,
@@ -320,6 +332,7 @@ def get_replication_group(region: Optional[_builtins.str] = None,
         log_delivery_configurations=pulumi.get(__ret__, 'log_delivery_configurations'),
         member_clusters=pulumi.get(__ret__, 'member_clusters'),
         multi_az_enabled=pulumi.get(__ret__, 'multi_az_enabled'),
+        node_group_configurations=pulumi.get(__ret__, 'node_group_configurations'),
         node_type=pulumi.get(__ret__, 'node_type'),
         num_cache_clusters=pulumi.get(__ret__, 'num_cache_clusters'),
         num_node_groups=pulumi.get(__ret__, 'num_node_groups'),
@@ -366,6 +379,7 @@ def get_replication_group_output(region: Optional[pulumi.Input[Optional[_builtin
         log_delivery_configurations=pulumi.get(__response__, 'log_delivery_configurations'),
         member_clusters=pulumi.get(__response__, 'member_clusters'),
         multi_az_enabled=pulumi.get(__response__, 'multi_az_enabled'),
+        node_group_configurations=pulumi.get(__response__, 'node_group_configurations'),
         node_type=pulumi.get(__response__, 'node_type'),
         num_cache_clusters=pulumi.get(__response__, 'num_cache_clusters'),
         num_node_groups=pulumi.get(__response__, 'num_node_groups'),

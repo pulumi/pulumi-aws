@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupLogDeliveryConfiguration;
+import com.pulumi.aws.elasticache.outputs.GetReplicationGroupNodeGroupConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -25,7 +26,7 @@ public final class GetReplicationGroupResult {
      */
     private Boolean authTokenEnabled;
     /**
-     * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+     * @return Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
      * 
      */
     private Boolean automaticFailoverEnabled;
@@ -35,7 +36,7 @@ public final class GetReplicationGroupResult {
      */
     private String clusterMode;
     /**
-     * @return The configuration endpoint address to allow host discovery.
+     * @return Configuration endpoint address to allow host discovery.
      * 
      */
     private String configurationEndpointAddress;
@@ -65,12 +66,17 @@ public final class GetReplicationGroupResult {
      */
     private Boolean multiAzEnabled;
     /**
-     * @return The cluster node type.
+     * @return Configuration of the node groups (shards). See below.
+     * 
+     */
+    private List<GetReplicationGroupNodeGroupConfiguration> nodeGroupConfigurations;
+    /**
+     * @return Cluster node type.
      * 
      */
     private String nodeType;
     /**
-     * @return The number of cache clusters that the replication group has.
+     * @return Number of cache clusters that the replication group has.
      * 
      */
     private Integer numCacheClusters;
@@ -80,17 +86,17 @@ public final class GetReplicationGroupResult {
      */
     private Integer numNodeGroups;
     /**
-     * @return The port number on which the configuration endpoint will accept connections.
+     * @return Port number on which the configuration endpoint will accept connections.
      * 
      */
     private Integer port;
     /**
-     * @return The endpoint of the primary node in this node group (shard).
+     * @return Endpoint of the primary node in this node group (shard).
      * 
      */
     private String primaryEndpointAddress;
     /**
-     * @return The endpoint of the reader node in this node group (shard).
+     * @return Endpoint of the reader node in this node group (shard).
      * 
      */
     private String readerEndpointAddress;
@@ -102,7 +108,7 @@ public final class GetReplicationGroupResult {
     private Integer replicasPerNodeGroup;
     private String replicationGroupId;
     /**
-     * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+     * @return Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      * 
      */
     private Integer snapshotRetentionLimit;
@@ -128,7 +134,7 @@ public final class GetReplicationGroupResult {
         return this.authTokenEnabled;
     }
     /**
-     * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+     * @return Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
      * 
      */
     public Boolean automaticFailoverEnabled() {
@@ -142,7 +148,7 @@ public final class GetReplicationGroupResult {
         return this.clusterMode;
     }
     /**
-     * @return The configuration endpoint address to allow host discovery.
+     * @return Configuration endpoint address to allow host discovery.
      * 
      */
     public String configurationEndpointAddress() {
@@ -184,14 +190,21 @@ public final class GetReplicationGroupResult {
         return this.multiAzEnabled;
     }
     /**
-     * @return The cluster node type.
+     * @return Configuration of the node groups (shards). See below.
+     * 
+     */
+    public List<GetReplicationGroupNodeGroupConfiguration> nodeGroupConfigurations() {
+        return this.nodeGroupConfigurations;
+    }
+    /**
+     * @return Cluster node type.
      * 
      */
     public String nodeType() {
         return this.nodeType;
     }
     /**
-     * @return The number of cache clusters that the replication group has.
+     * @return Number of cache clusters that the replication group has.
      * 
      */
     public Integer numCacheClusters() {
@@ -205,21 +218,21 @@ public final class GetReplicationGroupResult {
         return this.numNodeGroups;
     }
     /**
-     * @return The port number on which the configuration endpoint will accept connections.
+     * @return Port number on which the configuration endpoint will accept connections.
      * 
      */
     public Integer port() {
         return this.port;
     }
     /**
-     * @return The endpoint of the primary node in this node group (shard).
+     * @return Endpoint of the primary node in this node group (shard).
      * 
      */
     public String primaryEndpointAddress() {
         return this.primaryEndpointAddress;
     }
     /**
-     * @return The endpoint of the reader node in this node group (shard).
+     * @return Endpoint of the reader node in this node group (shard).
      * 
      */
     public String readerEndpointAddress() {
@@ -239,7 +252,7 @@ public final class GetReplicationGroupResult {
         return this.replicationGroupId;
     }
     /**
-     * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+     * @return Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
      * 
      */
     public Integer snapshotRetentionLimit() {
@@ -272,6 +285,7 @@ public final class GetReplicationGroupResult {
         private List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
         private List<String> memberClusters;
         private Boolean multiAzEnabled;
+        private List<GetReplicationGroupNodeGroupConfiguration> nodeGroupConfigurations;
         private String nodeType;
         private Integer numCacheClusters;
         private Integer numNodeGroups;
@@ -296,6 +310,7 @@ public final class GetReplicationGroupResult {
     	      this.logDeliveryConfigurations = defaults.logDeliveryConfigurations;
     	      this.memberClusters = defaults.memberClusters;
     	      this.multiAzEnabled = defaults.multiAzEnabled;
+    	      this.nodeGroupConfigurations = defaults.nodeGroupConfigurations;
     	      this.nodeType = defaults.nodeType;
     	      this.numCacheClusters = defaults.numCacheClusters;
     	      this.numNodeGroups = defaults.numNodeGroups;
@@ -394,6 +409,17 @@ public final class GetReplicationGroupResult {
             }
             this.multiAzEnabled = multiAzEnabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder nodeGroupConfigurations(List<GetReplicationGroupNodeGroupConfiguration> nodeGroupConfigurations) {
+            if (nodeGroupConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupResult", "nodeGroupConfigurations");
+            }
+            this.nodeGroupConfigurations = nodeGroupConfigurations;
+            return this;
+        }
+        public Builder nodeGroupConfigurations(GetReplicationGroupNodeGroupConfiguration... nodeGroupConfigurations) {
+            return nodeGroupConfigurations(List.of(nodeGroupConfigurations));
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
@@ -495,6 +521,7 @@ public final class GetReplicationGroupResult {
             _resultValue.logDeliveryConfigurations = logDeliveryConfigurations;
             _resultValue.memberClusters = memberClusters;
             _resultValue.multiAzEnabled = multiAzEnabled;
+            _resultValue.nodeGroupConfigurations = nodeGroupConfigurations;
             _resultValue.nodeType = nodeType;
             _resultValue.numCacheClusters = numCacheClusters;
             _resultValue.numNodeGroups = numNodeGroups;

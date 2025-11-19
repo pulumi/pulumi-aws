@@ -29,6 +29,48 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+ * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+ * import com.pulumi.aws.elasticache.ReservedCacheNode;
+ * import com.pulumi.aws.elasticache.ReservedCacheNodeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
+ *             .cacheNodeType("cache.t4g.small")
+ *             .duration("P1Y")
+ *             .offeringType("No Upfront")
+ *             .productDescription("redis")
+ *             .build());
+ * 
+ *         var exampleReservedCacheNode = new ReservedCacheNode("exampleReservedCacheNode", ReservedCacheNodeArgs.builder()
+ *             .reservedCacheNodesOfferingId(example.offeringId())
+ *             .id("optionalCustomReservationID")
+ *             .cacheNodeCount(3)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:

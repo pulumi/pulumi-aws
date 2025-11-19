@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     policy: ecrPermissions.then(ecrPermissions => ecrPermissions.json),
  * });
  * const exampleAgentcoreAgentRuntime = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example-agent-runtime",
+ *     agentRuntimeName: "example_agent_runtime",
  *     roleArn: example.arn,
  *     agentRuntimeArtifact: {
  *         containerConfiguration: {
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example-agent-runtime",
+ *     agentRuntimeName: "example_agent_runtime",
  *     description: "Agent runtime with JWT authorization",
  *     roleArn: exampleAwsIamRole.arn,
  *     agentRuntimeArtifact: {

@@ -818,6 +818,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loggingConfig);
     }
     /**
+     * Whether V1 logging is enabled for the distribution.
+     * 
+     */
+    @Export(name="loggingV1Enabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> loggingV1Enabled;
+
+    /**
+     * @return Whether V1 logging is enabled for the distribution.
+     * 
+     */
+    public Output<Boolean> loggingV1Enabled() {
+        return this.loggingV1Enabled;
+    }
+    /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      * 
      */

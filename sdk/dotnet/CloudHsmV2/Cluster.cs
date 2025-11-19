@@ -21,6 +21,58 @@ namespace Pulumi.Aws.CloudHsmV2
     /// If you need to delete a cluster, you have to remove its HSM modules first.
     /// To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
     /// 
+    /// ## Example Usage
+    /// 
+    /// The following example below creates a CloudHSM cluster.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
+    /// 
+    ///     var cloudhsmV2Vpc = new Aws.Ec2.Vpc("cloudhsm_v2_vpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///         },
+    ///     });
+    /// 
+    ///     var cloudhsmV2Subnets = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         cloudhsmV2Subnets.Add(new Aws.Ec2.Subnet($"cloudhsm_v2_subnets-{range.Value}", new()
+    ///         {
+    ///             VpcId = cloudhsmV2Vpc.Id,
+    ///             CidrBlock = subnets[range.Value],
+    ///             MapPublicIpOnLaunch = false,
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///             },
+    ///         }));
+    ///     }
+    ///     var cloudhsmV2Cluster = new Aws.CloudHsmV2.Cluster("cloudhsm_v2_cluster", new()
+    ///     {
+    ///         HsmType = "hsm1.medium",
+    ///         SubnetIds = cloudhsmV2Subnets.Select(__item =&gt; __item.Id).ToList(),
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-aws_cloudhsm_v2_cluster" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:

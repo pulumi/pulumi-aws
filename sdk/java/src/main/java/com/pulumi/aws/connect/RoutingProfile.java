@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Provides an Amazon Connect Routing Profile resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
+ * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html).
  * 
  * ## Example Usage
  * 
@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.connect.RoutingProfile;
  * import com.pulumi.aws.connect.RoutingProfileArgs;
  * import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyArgs;
+ * import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs;
  * import com.pulumi.aws.connect.inputs.RoutingProfileQueueConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,10 +54,21 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .defaultOutboundQueueId("12345678-1234-1234-1234-123456789012")
  *             .description("example description")
- *             .mediaConcurrencies(RoutingProfileMediaConcurrencyArgs.builder()
- *                 .channel("VOICE")
- *                 .concurrency(1)
- *                 .build())
+ *             .mediaConcurrencies(            
+ *                 RoutingProfileMediaConcurrencyArgs.builder()
+ *                     .channel("VOICE")
+ *                     .concurrency(1)
+ *                     .crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs.builder()
+ *                         .behaviorType("ROUTE_ANY_CHANNEL")
+ *                         .build())
+ *                     .build(),
+ *                 RoutingProfileMediaConcurrencyArgs.builder()
+ *                     .channel("CHAT")
+ *                     .concurrency(3)
+ *                     .crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs.builder()
+ *                         .behaviorType("ROUTE_CURRENT_CHANNEL_ONLY")
+ *                         .build())
+ *                     .build())
  *             .queueConfigs(RoutingProfileQueueConfigArgs.builder()
  *                 .channel("VOICE")
  *                 .delay(2)
@@ -83,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/routingProfile:RoutingProfile")
 public class RoutingProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Routing Profile.
+     * Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Routing Profile.
+     * @return Amazon Resource Name (ARN) of the Routing Profile.
      * 
      */
     public Output<String> arn() {
@@ -195,14 +207,14 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The identifier for the Routing Profile.
+     * Identifier for the Routing Profile.
      * 
      */
     @Export(name="routingProfileId", refs={String.class}, tree="[0]")
     private Output<String> routingProfileId;
 
     /**
-     * @return The identifier for the Routing Profile.
+     * @return Identifier for the Routing Profile.
      * 
      */
     public Output<String> routingProfileId() {

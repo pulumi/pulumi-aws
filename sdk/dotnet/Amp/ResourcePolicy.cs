@@ -37,12 +37,12 @@ namespace Pulumi.Aws.Amp
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                     {
     ///                         Type = "AWS",
     ///                         Identifiers = new[]

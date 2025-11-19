@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        /// SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
         /// </summary>
         [Input("errorTopic")]
         public Input<string>? ErrorTopic { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _includeInferenceResponseIns;
 
         /// <summary>
-        /// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        /// SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
         /// </summary>
         public InputList<string> IncludeInferenceResponseIns
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        /// SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         /// </summary>
         [Input("successTopic")]
         public Input<string>? SuccessTopic { get; set; }

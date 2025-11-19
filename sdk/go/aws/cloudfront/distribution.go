@@ -586,6 +586,8 @@ type Distribution struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
 	LoggingConfig DistributionLoggingConfigPtrOutput `pulumi:"loggingConfig"`
+	// Whether V1 logging is enabled for the distribution.
+	LoggingV1Enabled pulumi.BoolOutput `pulumi:"loggingV1Enabled"`
 	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors DistributionOrderedCacheBehaviorArrayOutput `pulumi:"orderedCacheBehaviors"`
 	// One or more originGroup for this distribution (multiples allowed).
@@ -699,6 +701,8 @@ type distributionState struct {
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
 	LoggingConfig *DistributionLoggingConfig `pulumi:"loggingConfig"`
+	// Whether V1 logging is enabled for the distribution.
+	LoggingV1Enabled *bool `pulumi:"loggingV1Enabled"`
 	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors []DistributionOrderedCacheBehavior `pulumi:"orderedCacheBehaviors"`
 	// One or more originGroup for this distribution (multiples allowed).
@@ -768,6 +772,8 @@ type DistributionState struct {
 	LastModifiedTime pulumi.StringPtrInput
 	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
 	LoggingConfig DistributionLoggingConfigPtrInput
+	// Whether V1 logging is enabled for the distribution.
+	LoggingV1Enabled pulumi.BoolPtrInput
 	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors DistributionOrderedCacheBehaviorArrayInput
 	// One or more originGroup for this distribution (multiples allowed).
@@ -1074,6 +1080,11 @@ func (o DistributionOutput) LastModifiedTime() pulumi.StringOutput {
 // The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
 func (o DistributionOutput) LoggingConfig() DistributionLoggingConfigPtrOutput {
 	return o.ApplyT(func(v *Distribution) DistributionLoggingConfigPtrOutput { return v.LoggingConfig }).(DistributionLoggingConfigPtrOutput)
+}
+
+// Whether V1 logging is enabled for the distribution.
+func (o DistributionOutput) LoggingV1Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.BoolOutput { return v.LoggingV1Enabled }).(pulumi.BoolOutput)
 }
 
 // Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainAimlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for parameters required for natural language query generation on the specified domain.
+        /// </summary>
         [Input("naturalLanguageQueryGenerationOptions")]
         public Input<Inputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs>? NaturalLanguageQueryGenerationOptions { get; set; }
 
+        /// <summary>
+        /// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        /// </summary>
         [Input("s3VectorsEngine")]
         public Input<Inputs.DomainAimlOptionsS3VectorsEngineArgs>? S3VectorsEngine { get; set; }
 

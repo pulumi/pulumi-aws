@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
      * 
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return Specifies the configuration for notifications of inference results for asynchronous inference.
+     * @return Configuration for notifications of inference results for asynchronous inference.
      * 
      */
     private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
     /**
-     * @return The Amazon S3 location to upload failure inference responses to.
+     * @return S3 location to upload failure inference responses to.
      * 
      */
     private @Nullable String s3FailurePath;
     /**
-     * @return The Amazon S3 location to upload inference responses to.
+     * @return S3 location to upload inference responses to.
      * 
      */
     private String s3OutputPath;
 
     private EndpointConfigurationAsyncInferenceConfigOutputConfig() {}
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
      * 
      */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return Specifies the configuration for notifications of inference results for asynchronous inference.
+     * @return Configuration for notifications of inference results for asynchronous inference.
      * 
      */
     public Optional<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig> notificationConfig() {
         return Optional.ofNullable(this.notificationConfig);
     }
     /**
-     * @return The Amazon S3 location to upload failure inference responses to.
+     * @return S3 location to upload failure inference responses to.
      * 
      */
     public Optional<String> s3FailurePath() {
         return Optional.ofNullable(this.s3FailurePath);
     }
     /**
-     * @return The Amazon S3 location to upload inference responses to.
+     * @return S3 location to upload inference responses to.
      * 
      */
     public String s3OutputPath() {

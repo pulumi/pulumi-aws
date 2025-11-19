@@ -15,14 +15,14 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
     public static final EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs Empty = new EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs();
 
     /**
-     * The Amazon S3 bucket to send the core dump to.
+     * S3 bucket to send the core dump to.
      * 
      */
     @Import(name="destinationS3Uri", required=true)
     private Output<String> destinationS3Uri;
 
     /**
-     * @return The Amazon S3 bucket to send the core dump to.
+     * @return S3 bucket to send the core dump to.
      * 
      */
     public Output<String> destinationS3Uri() {
@@ -30,14 +30,14 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
     }
 
     /**
-     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
      * 
      */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -70,7 +70,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
         }
 
         /**
-         * @param destinationS3Uri The Amazon S3 bucket to send the core dump to.
+         * @param destinationS3Uri S3 bucket to send the core dump to.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
         }
 
         /**
-         * @param destinationS3Uri The Amazon S3 bucket to send the core dump to.
+         * @param destinationS3Uri S3 bucket to send the core dump to.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId KMS key that SageMaker AI uses to encrypt the core dump data at rest using S3 server-side encryption.
          * 
          * @return builder
          * 

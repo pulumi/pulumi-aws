@@ -1721,7 +1721,7 @@ type EndpointPostgresSettings struct {
 	MapLongVarcharAs *string `pulumi:"mapLongVarcharAs"`
 	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize *int `pulumi:"maxFileSize"`
-	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 	PluginName *string `pulumi:"pluginName"`
 	// Specifies the IAM role to use to authenticate the connection.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
@@ -1771,7 +1771,7 @@ type EndpointPostgresSettingsArgs struct {
 	MapLongVarcharAs pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
 	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
-	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+	// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 	PluginName pulumi.StringPtrInput `pulumi:"pluginName"`
 	// Specifies the IAM role to use to authenticate the connection.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
@@ -1931,7 +1931,7 @@ func (o EndpointPostgresSettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 func (o EndpointPostgresSettingsOutput) PluginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.PluginName }).(pulumi.StringPtrOutput)
 }
@@ -2120,7 +2120,7 @@ func (o EndpointPostgresSettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `testDecoding`.
+// Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
 func (o EndpointPostgresSettingsPtrOutput) PluginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {

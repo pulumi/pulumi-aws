@@ -14,6 +14,24 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.datasync.LocationFsxOntapFileSystem("test", {
+ *     fsxFilesystemArn: testAwsFsxOntapFileSystem.arn,
+ *     securityGroupArns: [testAwsSecurityGroup.arn],
+ *     storageVirtualMachineArn: testAwsFsxOntapStorageVirtualMachine.arn,
+ *     protocol: {
+ *         nfs: {
+ *             mountOptions: {
+ *                 version: "NFS3",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:

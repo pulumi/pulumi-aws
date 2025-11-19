@@ -349,6 +349,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
      * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -375,6 +376,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-Restricted-2020-06`
      * * `TransferSecurityPolicy-Restricted-2024-06`
      * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -984,6 +986,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-Restricted-2020-06`
          * * `TransferSecurityPolicy-Restricted-2024-06`
          * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+         * * `TransferSecurityPolicy-AS2Restricted-2025-07`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
@@ -1014,6 +1017,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-Restricted-2020-06`
          * * `TransferSecurityPolicy-Restricted-2024-06`
          * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+         * * `TransferSecurityPolicy-AS2Restricted-2025-07`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 

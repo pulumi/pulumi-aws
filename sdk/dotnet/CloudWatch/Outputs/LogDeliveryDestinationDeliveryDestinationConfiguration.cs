@@ -14,12 +14,12 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class LogDeliveryDestinationDeliveryDestinationConfiguration
     {
         /// <summary>
-        /// The ARN of the AWS destination that this delivery destination represents.
+        /// The ARN of the AWS destination that this delivery destination represents. Required when `DeliveryDestinationConfiguration` is specified.
         /// </summary>
-        public readonly string DestinationResourceArn;
+        public readonly string? DestinationResourceArn;
 
         [OutputConstructor]
-        private LogDeliveryDestinationDeliveryDestinationConfiguration(string destinationResourceArn)
+        private LogDeliveryDestinationDeliveryDestinationConfiguration(string? destinationResourceArn)
         {
             DestinationResourceArn = destinationResourceArn;
         }

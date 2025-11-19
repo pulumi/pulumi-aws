@@ -33,14 +33,14 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     @Import(name="deliveryDestinationConfiguration")
     private @Nullable Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs> deliveryDestinationConfiguration;
 
     /**
-     * @return The AWS resource that will receive the logs.
+     * @return The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     public Optional<Output<LogDeliveryDestinationDeliveryDestinationConfigurationArgs>> deliveryDestinationConfiguration() {
@@ -48,14 +48,14 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      * 
      */
     @Import(name="deliveryDestinationType")
     private @Nullable Output<String> deliveryDestinationType;
 
     /**
-     * @return Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * @return The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      * 
      */
     public Optional<Output<String>> deliveryDestinationType() {
@@ -190,7 +190,7 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs.
+         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs.
+         * @param deliveryDestinationConfiguration The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deliveryDestinationType Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class LogDeliveryDestinationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deliveryDestinationType Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+         * @param deliveryDestinationType The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
          * 
          * @return builder
          * 

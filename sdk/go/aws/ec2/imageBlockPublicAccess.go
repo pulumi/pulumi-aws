@@ -50,6 +50,8 @@ import (
 type ImageBlockPublicAccess struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
 	State pulumi.StringOutput `pulumi:"state"`
 }
@@ -87,11 +89,15 @@ func GetImageBlockPublicAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImageBlockPublicAccess resources.
 type imageBlockPublicAccessState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
 	State *string `pulumi:"state"`
 }
 
 type ImageBlockPublicAccessState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
 	State pulumi.StringPtrInput
 }
@@ -101,12 +107,16 @@ func (ImageBlockPublicAccessState) ElementType() reflect.Type {
 }
 
 type imageBlockPublicAccessArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
 	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a ImageBlockPublicAccess resource.
 type ImageBlockPublicAccessArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
 	State pulumi.StringInput
 }
@@ -196,6 +206,11 @@ func (o ImageBlockPublicAccessOutput) ToImageBlockPublicAccessOutput() ImageBloc
 
 func (o ImageBlockPublicAccessOutput) ToImageBlockPublicAccessOutputWithContext(ctx context.Context) ImageBlockPublicAccessOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ImageBlockPublicAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageBlockPublicAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.

@@ -394,6 +394,7 @@ class _DistributionState:
                  is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
+                 logging_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
                  origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
@@ -429,6 +430,7 @@ class _DistributionState:
         :param pulumi.Input[_builtins.bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
         :param pulumi.Input['DistributionLoggingConfigArgs'] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+        :param pulumi.Input[_builtins.bool] logging_v1_enabled: Whether V1 logging is enabled for the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed).
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
@@ -481,6 +483,8 @@ class _DistributionState:
             pulumi.set(__self__, "last_modified_time", last_modified_time)
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
+        if logging_v1_enabled is not None:
+            pulumi.set(__self__, "logging_v1_enabled", logging_v1_enabled)
         if ordered_cache_behaviors is not None:
             pulumi.set(__self__, "ordered_cache_behaviors", ordered_cache_behaviors)
         if origin_groups is not None:
@@ -727,6 +731,18 @@ class _DistributionState:
     @logging_config.setter
     def logging_config(self, value: Optional[pulumi.Input['DistributionLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingV1Enabled")
+    def logging_v1_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether V1 logging is enabled for the distribution.
+        """
+        return pulumi.get(self, "logging_v1_enabled")
+
+    @logging_v1_enabled.setter
+    def logging_v1_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "logging_v1_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="orderedCacheBehaviors")
@@ -1766,6 +1782,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["in_progress_validation_batches"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["logging_v1_enabled"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["trusted_key_groups"] = None
@@ -1798,6 +1815,7 @@ class Distribution(pulumi.CustomResource):
             is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
             logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+            logging_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
             origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
@@ -1838,6 +1856,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[_builtins.str] last_modified_time: Date and time the distribution was last modified.
         :param pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+        :param pulumi.Input[_builtins.bool] logging_v1_enabled: Whether V1 logging is enabled for the distribution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]] ordered_cache_behaviors: Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]] origin_groups: One or more origin_group for this distribution (multiples allowed).
         :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]] origins: One or more origins for this distribution (multiples allowed).
@@ -1876,6 +1895,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["is_ipv6_enabled"] = is_ipv6_enabled
         __props__.__dict__["last_modified_time"] = last_modified_time
         __props__.__dict__["logging_config"] = logging_config
+        __props__.__dict__["logging_v1_enabled"] = logging_v1_enabled
         __props__.__dict__["ordered_cache_behaviors"] = ordered_cache_behaviors
         __props__.__dict__["origin_groups"] = origin_groups
         __props__.__dict__["origins"] = origins
@@ -2036,6 +2056,14 @@ class Distribution(pulumi.CustomResource):
         The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
         """
         return pulumi.get(self, "logging_config")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingV1Enabled")
+    def logging_v1_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether V1 logging is enabled for the distribution.
+        """
+        return pulumi.get(self, "logging_v1_enabled")
 
     @_builtins.property
     @pulumi.getter(name="orderedCacheBehaviors")

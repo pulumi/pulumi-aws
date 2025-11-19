@@ -45,6 +45,45 @@ import (
 //
 // ```
 //
+// ### Browser with VPC Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreBrowser(ctx, "vpc_example", &bedrock.AgentcoreBrowserArgs{
+//				Name:        pulumi.String("vpc-browser"),
+//				Description: pulumi.String("Browser with VPC configuration"),
+//				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
+//					NetworkMode: pulumi.String("VPC"),
+//					VpcConfig: &bedrock.AgentcoreBrowserNetworkConfigurationVpcConfigArgs{
+//						SecurityGroups: pulumi.StringArray{
+//							pulumi.String("sg-12345678"),
+//						},
+//						Subnets: pulumi.StringArray{
+//							pulumi.String("subnet-12345678"),
+//							pulumi.String("subnet-87654321"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Browser with Execution Role and Recording
 //
 // ```go

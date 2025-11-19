@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Organizations
         public readonly string Name;
         public readonly string PolicyId;
         /// <summary>
-        /// The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+        /// The type of policy values can be `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
         /// </summary>
         public readonly string Type;
 

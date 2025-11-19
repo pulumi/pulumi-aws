@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreAgentRuntime = new AgentcoreAgentRuntime("exampleAgentcoreAgentRuntime", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example-agent-runtime")
+ *             .agentRuntimeName("example_agent_runtime")
  *             .roleArn(example.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
  *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
- *             .agentRuntimeName("example-agent-runtime")
+ *             .agentRuntimeName("example_agent_runtime")
  *             .description("Agent runtime with JWT authorization")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()

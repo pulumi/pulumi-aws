@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterArgs
         ///             {
         ///                 Name = "vpc-id",
         ///                 Values = new[]
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterArgs
         ///             {
         ///                 Name = "vpc-id",
         ///                 Values = new[]
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         Filters = new[]
         ///         {
-        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+        ///             new Aws.Ec2.Inputs.GetSubnetsFilterArgs
         ///             {
         ///                 Name = "vpc-id",
         ///                 Values = new[]

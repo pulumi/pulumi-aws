@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         /// <summary>
         /// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-        /// 
-        /// &gt; **Version note:** Multiple `LoadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         /// </summary>
         [Input("advancedConfiguration")]
         public Input<Inputs.ServiceLoadBalancerAdvancedConfigurationGetArgs>? AdvancedConfiguration { get; set; }
@@ -40,6 +38,8 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         /// <summary>
         /// ARN of the Load Balancer target group to associate with the service.
+        /// 
+        /// &gt; **Version note:** Multiple `LoadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

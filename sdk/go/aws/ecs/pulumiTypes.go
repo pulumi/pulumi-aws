@@ -4636,11 +4636,15 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 }
 
 type ServiceDeploymentConfiguration struct {
-	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
 	BakeTimeInMinutes *string `pulumi:"bakeTimeInMinutes"`
+	// Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+	CanaryConfiguration *ServiceDeploymentConfigurationCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// Configuration block for lifecycle hooks that are invoked during deployments. See below.
 	LifecycleHooks []ServiceDeploymentConfigurationLifecycleHook `pulumi:"lifecycleHooks"`
-	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+	// Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+	LinearConfiguration *ServiceDeploymentConfigurationLinearConfiguration `pulumi:"linearConfiguration"`
+	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
 	Strategy *string `pulumi:"strategy"`
 }
 
@@ -4656,11 +4660,15 @@ type ServiceDeploymentConfigurationInput interface {
 }
 
 type ServiceDeploymentConfigurationArgs struct {
-	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+	// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
 	BakeTimeInMinutes pulumi.StringPtrInput `pulumi:"bakeTimeInMinutes"`
+	// Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+	CanaryConfiguration ServiceDeploymentConfigurationCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// Configuration block for lifecycle hooks that are invoked during deployments. See below.
 	LifecycleHooks ServiceDeploymentConfigurationLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
-	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+	// Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+	LinearConfiguration ServiceDeploymentConfigurationLinearConfigurationPtrInput `pulumi:"linearConfiguration"`
+	// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
 	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
 }
 
@@ -4741,9 +4749,16 @@ func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPt
 	}).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
 func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *string { return v.BakeTimeInMinutes }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationCanaryConfiguration {
+		return v.CanaryConfiguration
+	}).(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput)
 }
 
 // Configuration block for lifecycle hooks that are invoked during deployments. See below.
@@ -4753,7 +4768,14 @@ func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeployment
 	}).(ServiceDeploymentConfigurationLifecycleHookArrayOutput)
 }
 
-// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+// Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationLinearConfiguration {
+		return v.LinearConfiguration
+	}).(ServiceDeploymentConfigurationLinearConfigurationPtrOutput)
+}
+
+// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
 func (o ServiceDeploymentConfigurationOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *string { return v.Strategy }).(pulumi.StringPtrOutput)
 }
@@ -4782,7 +4804,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) Elem() ServiceDeploymentConfigu
 	}).(ServiceDeploymentConfigurationOutput)
 }
 
-// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+// Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
 func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *string {
 		if v == nil {
@@ -4790,6 +4812,16 @@ func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.Stri
 		}
 		return v.BakeTimeInMinutes
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationCanaryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryConfiguration
+	}).(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput)
 }
 
 // Configuration block for lifecycle hooks that are invoked during deployments. See below.
@@ -4802,7 +4834,17 @@ func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploym
 	}).(ServiceDeploymentConfigurationLifecycleHookArrayOutput)
 }
 
-// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+// Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentConfigurationLinearConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LinearConfiguration
+	}).(ServiceDeploymentConfigurationLinearConfigurationPtrOutput)
+}
+
+// Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
 func (o ServiceDeploymentConfigurationPtrOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *string {
 		if v == nil {
@@ -4810,6 +4852,162 @@ func (o ServiceDeploymentConfigurationPtrOutput) Strategy() pulumi.StringPtrOutp
 		}
 		return v.Strategy
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentConfigurationCanaryConfiguration struct {
+	// Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+	CanaryBakeTimeInMinutes *string `pulumi:"canaryBakeTimeInMinutes"`
+	// Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+	CanaryPercent *float64 `pulumi:"canaryPercent"`
+}
+
+// ServiceDeploymentConfigurationCanaryConfigurationInput is an input type that accepts ServiceDeploymentConfigurationCanaryConfigurationArgs and ServiceDeploymentConfigurationCanaryConfigurationOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationCanaryConfigurationInput` via:
+//
+//	ServiceDeploymentConfigurationCanaryConfigurationArgs{...}
+type ServiceDeploymentConfigurationCanaryConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationCanaryConfigurationOutput() ServiceDeploymentConfigurationCanaryConfigurationOutput
+	ToServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationCanaryConfigurationOutput
+}
+
+type ServiceDeploymentConfigurationCanaryConfigurationArgs struct {
+	// Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+	CanaryBakeTimeInMinutes pulumi.StringPtrInput `pulumi:"canaryBakeTimeInMinutes"`
+	// Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+	CanaryPercent pulumi.Float64PtrInput `pulumi:"canaryPercent"`
+}
+
+func (ServiceDeploymentConfigurationCanaryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationCanaryConfigurationArgs) ToServiceDeploymentConfigurationCanaryConfigurationOutput() ServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return i.ToServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationCanaryConfigurationArgs) ToServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationCanaryConfigurationOutput)
+}
+
+func (i ServiceDeploymentConfigurationCanaryConfigurationArgs) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutput() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationCanaryConfigurationArgs) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationCanaryConfigurationOutput).ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentConfigurationCanaryConfigurationPtrInput is an input type that accepts ServiceDeploymentConfigurationCanaryConfigurationArgs, ServiceDeploymentConfigurationCanaryConfigurationPtr and ServiceDeploymentConfigurationCanaryConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationCanaryConfigurationPtrInput` via:
+//
+//	        ServiceDeploymentConfigurationCanaryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentConfigurationCanaryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationCanaryConfigurationPtrOutput() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput
+	ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(context.Context) ServiceDeploymentConfigurationCanaryConfigurationPtrOutput
+}
+
+type serviceDeploymentConfigurationCanaryConfigurationPtrType ServiceDeploymentConfigurationCanaryConfigurationArgs
+
+func ServiceDeploymentConfigurationCanaryConfigurationPtr(v *ServiceDeploymentConfigurationCanaryConfigurationArgs) ServiceDeploymentConfigurationCanaryConfigurationPtrInput {
+	return (*serviceDeploymentConfigurationCanaryConfigurationPtrType)(v)
+}
+
+func (*serviceDeploymentConfigurationCanaryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (i *serviceDeploymentConfigurationCanaryConfigurationPtrType) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutput() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentConfigurationCanaryConfigurationPtrType) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput)
+}
+
+type ServiceDeploymentConfigurationCanaryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationCanaryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) ToServiceDeploymentConfigurationCanaryConfigurationOutput() ServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) ToServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutput() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o.ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentConfigurationCanaryConfiguration) *ServiceDeploymentConfigurationCanaryConfiguration {
+		return &v
+	}).(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput)
+}
+
+// Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) CanaryBakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationCanaryConfiguration) *string { return v.CanaryBakeTimeInMinutes }).(pulumi.StringPtrOutput)
+}
+
+// Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+func (o ServiceDeploymentConfigurationCanaryConfigurationOutput) CanaryPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationCanaryConfiguration) *float64 { return v.CanaryPercent }).(pulumi.Float64PtrOutput)
+}
+
+type ServiceDeploymentConfigurationCanaryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutput() ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) ToServiceDeploymentConfigurationCanaryConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationCanaryConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) Elem() ServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationCanaryConfiguration) ServiceDeploymentConfigurationCanaryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentConfigurationCanaryConfiguration
+		return ret
+	}).(ServiceDeploymentConfigurationCanaryConfigurationOutput)
+}
+
+// Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) CanaryBakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationCanaryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryBakeTimeInMinutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+func (o ServiceDeploymentConfigurationCanaryConfigurationPtrOutput) CanaryPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationCanaryConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.CanaryPercent
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ServiceDeploymentConfigurationLifecycleHook struct {
@@ -4934,6 +5132,162 @@ func (o ServiceDeploymentConfigurationLifecycleHookArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDeploymentConfigurationLifecycleHook {
 		return vs[0].([]ServiceDeploymentConfigurationLifecycleHook)[vs[1].(int)]
 	}).(ServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+type ServiceDeploymentConfigurationLinearConfiguration struct {
+	// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+	StepBakeTimeInMinutes *string `pulumi:"stepBakeTimeInMinutes"`
+	// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+	StepPercent *float64 `pulumi:"stepPercent"`
+}
+
+// ServiceDeploymentConfigurationLinearConfigurationInput is an input type that accepts ServiceDeploymentConfigurationLinearConfigurationArgs and ServiceDeploymentConfigurationLinearConfigurationOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLinearConfigurationInput` via:
+//
+//	ServiceDeploymentConfigurationLinearConfigurationArgs{...}
+type ServiceDeploymentConfigurationLinearConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLinearConfigurationOutput() ServiceDeploymentConfigurationLinearConfigurationOutput
+	ToServiceDeploymentConfigurationLinearConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationLinearConfigurationOutput
+}
+
+type ServiceDeploymentConfigurationLinearConfigurationArgs struct {
+	// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+	StepBakeTimeInMinutes pulumi.StringPtrInput `pulumi:"stepBakeTimeInMinutes"`
+	// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+	StepPercent pulumi.Float64PtrInput `pulumi:"stepPercent"`
+}
+
+func (ServiceDeploymentConfigurationLinearConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (i ServiceDeploymentConfigurationLinearConfigurationArgs) ToServiceDeploymentConfigurationLinearConfigurationOutput() ServiceDeploymentConfigurationLinearConfigurationOutput {
+	return i.ToServiceDeploymentConfigurationLinearConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLinearConfigurationArgs) ToServiceDeploymentConfigurationLinearConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLinearConfigurationOutput)
+}
+
+func (i ServiceDeploymentConfigurationLinearConfigurationArgs) ToServiceDeploymentConfigurationLinearConfigurationPtrOutput() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentConfigurationLinearConfigurationArgs) ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLinearConfigurationOutput).ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentConfigurationLinearConfigurationPtrInput is an input type that accepts ServiceDeploymentConfigurationLinearConfigurationArgs, ServiceDeploymentConfigurationLinearConfigurationPtr and ServiceDeploymentConfigurationLinearConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentConfigurationLinearConfigurationPtrInput` via:
+//
+//	        ServiceDeploymentConfigurationLinearConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentConfigurationLinearConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentConfigurationLinearConfigurationPtrOutput() ServiceDeploymentConfigurationLinearConfigurationPtrOutput
+	ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(context.Context) ServiceDeploymentConfigurationLinearConfigurationPtrOutput
+}
+
+type serviceDeploymentConfigurationLinearConfigurationPtrType ServiceDeploymentConfigurationLinearConfigurationArgs
+
+func ServiceDeploymentConfigurationLinearConfigurationPtr(v *ServiceDeploymentConfigurationLinearConfigurationArgs) ServiceDeploymentConfigurationLinearConfigurationPtrInput {
+	return (*serviceDeploymentConfigurationLinearConfigurationPtrType)(v)
+}
+
+func (*serviceDeploymentConfigurationLinearConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (i *serviceDeploymentConfigurationLinearConfigurationPtrType) ToServiceDeploymentConfigurationLinearConfigurationPtrOutput() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return i.ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentConfigurationLinearConfigurationPtrType) ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationLinearConfigurationPtrOutput)
+}
+
+type ServiceDeploymentConfigurationLinearConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLinearConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) ToServiceDeploymentConfigurationLinearConfigurationOutput() ServiceDeploymentConfigurationLinearConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) ToServiceDeploymentConfigurationLinearConfigurationOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) ToServiceDeploymentConfigurationLinearConfigurationPtrOutput() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o.ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentConfigurationLinearConfiguration) *ServiceDeploymentConfigurationLinearConfiguration {
+		return &v
+	}).(ServiceDeploymentConfigurationLinearConfigurationPtrOutput)
+}
+
+// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) StepBakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLinearConfiguration) *string { return v.StepBakeTimeInMinutes }).(pulumi.StringPtrOutput)
+}
+
+// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+func (o ServiceDeploymentConfigurationLinearConfigurationOutput) StepPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfigurationLinearConfiguration) *float64 { return v.StepPercent }).(pulumi.Float64PtrOutput)
+}
+
+type ServiceDeploymentConfigurationLinearConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentConfigurationLinearConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationPtrOutput) ToServiceDeploymentConfigurationLinearConfigurationPtrOutput() ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationPtrOutput) ToServiceDeploymentConfigurationLinearConfigurationPtrOutputWithContext(ctx context.Context) ServiceDeploymentConfigurationLinearConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentConfigurationLinearConfigurationPtrOutput) Elem() ServiceDeploymentConfigurationLinearConfigurationOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLinearConfiguration) ServiceDeploymentConfigurationLinearConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentConfigurationLinearConfiguration
+		return ret
+	}).(ServiceDeploymentConfigurationLinearConfigurationOutput)
+}
+
+// Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+func (o ServiceDeploymentConfigurationLinearConfigurationPtrOutput) StepBakeTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLinearConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StepBakeTimeInMinutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+func (o ServiceDeploymentConfigurationLinearConfigurationPtrOutput) StepPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfigurationLinearConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StepPercent
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ServiceDeploymentController struct {
@@ -5075,8 +5429,6 @@ func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 
 type ServiceLoadBalancer struct {
 	// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-	//
-	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	AdvancedConfiguration *ServiceLoadBalancerAdvancedConfiguration `pulumi:"advancedConfiguration"`
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
@@ -5085,6 +5437,8 @@ type ServiceLoadBalancer struct {
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName *string `pulumi:"elbName"`
 	// ARN of the Load Balancer target group to associate with the service.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
@@ -5101,8 +5455,6 @@ type ServiceLoadBalancerInput interface {
 
 type ServiceLoadBalancerArgs struct {
 	// Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-	//
-	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	AdvancedConfiguration ServiceLoadBalancerAdvancedConfigurationPtrInput `pulumi:"advancedConfiguration"`
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
@@ -5111,6 +5463,8 @@ type ServiceLoadBalancerArgs struct {
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
 	// ARN of the Load Balancer target group to associate with the service.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
@@ -5166,8 +5520,6 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 }
 
 // Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-//
-// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 func (o ServiceLoadBalancerOutput) AdvancedConfiguration() ServiceLoadBalancerAdvancedConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *ServiceLoadBalancerAdvancedConfiguration { return v.AdvancedConfiguration }).(ServiceLoadBalancerAdvancedConfigurationPtrOutput)
 }
@@ -5188,6 +5540,8 @@ func (o ServiceLoadBalancerOutput) ElbName() pulumi.StringPtrOutput {
 }
 
 // ARN of the Load Balancer target group to associate with the service.
+//
+// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -5408,12 +5762,12 @@ func (o ServiceLoadBalancerAdvancedConfigurationPtrOutput) TestListenerRule() pu
 
 type ServiceNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Subnets associated with the task or service.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -5430,12 +5784,12 @@ type ServiceNetworkConfigurationInput interface {
 
 type ServiceNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Subnets associated with the task or service.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -5517,8 +5871,6 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -5529,6 +5881,8 @@ func (o ServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOu
 }
 
 // Subnets associated with the task or service.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -5558,8 +5912,6 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *bool {
 		if v == nil {
@@ -5580,6 +5932,8 @@ func (o ServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArra
 }
 
 // Subnets associated with the task or service.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
 		if v == nil {
@@ -5590,14 +5944,11 @@ func (o ServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput
 }
 
 type ServiceOrderedPlacementStrategy struct {
-	// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
-	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-	//
-	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+	// For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field *string `pulumi:"field"`
 	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	//
+	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 	Type string `pulumi:"type"`
 }
 
@@ -5613,14 +5964,11 @@ type ServiceOrderedPlacementStrategyInput interface {
 }
 
 type ServiceOrderedPlacementStrategyArgs struct {
-	// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
-	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-	//
-	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+	// For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+	//
+	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5675,17 +6023,14 @@ func (o ServiceOrderedPlacementStrategyOutput) ToServiceOrderedPlacementStrategy
 	return o
 }
 
-// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-// which has the same effect), or any platform or custom attribute that is applied to a container instance.
-// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-//
-// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+// For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
 func (o ServiceOrderedPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
 // Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+//
+// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 func (o ServiceOrderedPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10961,6 +11306,1227 @@ func (o GetClusterSettingArrayOutput) Index(i pulumi.IntInput) GetClusterSetting
 	}).(GetClusterSettingOutput)
 }
 
+type GetServiceCapacityProviderStrategy struct {
+	// Number of tasks using the specified capacity provider
+	Base int `pulumi:"base"`
+	// Name of the capacity provider
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// Relative percentage of total tasks to launch
+	Weight int `pulumi:"weight"`
+}
+
+// GetServiceCapacityProviderStrategyInput is an input type that accepts GetServiceCapacityProviderStrategyArgs and GetServiceCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `GetServiceCapacityProviderStrategyInput` via:
+//
+//	GetServiceCapacityProviderStrategyArgs{...}
+type GetServiceCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToGetServiceCapacityProviderStrategyOutput() GetServiceCapacityProviderStrategyOutput
+	ToGetServiceCapacityProviderStrategyOutputWithContext(context.Context) GetServiceCapacityProviderStrategyOutput
+}
+
+type GetServiceCapacityProviderStrategyArgs struct {
+	// Number of tasks using the specified capacity provider
+	Base pulumi.IntInput `pulumi:"base"`
+	// Name of the capacity provider
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// Relative percentage of total tasks to launch
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (GetServiceCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i GetServiceCapacityProviderStrategyArgs) ToGetServiceCapacityProviderStrategyOutput() GetServiceCapacityProviderStrategyOutput {
+	return i.ToGetServiceCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i GetServiceCapacityProviderStrategyArgs) ToGetServiceCapacityProviderStrategyOutputWithContext(ctx context.Context) GetServiceCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCapacityProviderStrategyOutput)
+}
+
+// GetServiceCapacityProviderStrategyArrayInput is an input type that accepts GetServiceCapacityProviderStrategyArray and GetServiceCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `GetServiceCapacityProviderStrategyArrayInput` via:
+//
+//	GetServiceCapacityProviderStrategyArray{ GetServiceCapacityProviderStrategyArgs{...} }
+type GetServiceCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceCapacityProviderStrategyArrayOutput() GetServiceCapacityProviderStrategyArrayOutput
+	ToGetServiceCapacityProviderStrategyArrayOutputWithContext(context.Context) GetServiceCapacityProviderStrategyArrayOutput
+}
+
+type GetServiceCapacityProviderStrategyArray []GetServiceCapacityProviderStrategyInput
+
+func (GetServiceCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i GetServiceCapacityProviderStrategyArray) ToGetServiceCapacityProviderStrategyArrayOutput() GetServiceCapacityProviderStrategyArrayOutput {
+	return i.ToGetServiceCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceCapacityProviderStrategyArray) ToGetServiceCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) GetServiceCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCapacityProviderStrategyArrayOutput)
+}
+
+type GetServiceCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o GetServiceCapacityProviderStrategyOutput) ToGetServiceCapacityProviderStrategyOutput() GetServiceCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o GetServiceCapacityProviderStrategyOutput) ToGetServiceCapacityProviderStrategyOutputWithContext(ctx context.Context) GetServiceCapacityProviderStrategyOutput {
+	return o
+}
+
+// Number of tasks using the specified capacity provider
+func (o GetServiceCapacityProviderStrategyOutput) Base() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceCapacityProviderStrategy) int { return v.Base }).(pulumi.IntOutput)
+}
+
+// Name of the capacity provider
+func (o GetServiceCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// Relative percentage of total tasks to launch
+func (o GetServiceCapacityProviderStrategyOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceCapacityProviderStrategy) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetServiceCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o GetServiceCapacityProviderStrategyArrayOutput) ToGetServiceCapacityProviderStrategyArrayOutput() GetServiceCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o GetServiceCapacityProviderStrategyArrayOutput) ToGetServiceCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) GetServiceCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o GetServiceCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) GetServiceCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceCapacityProviderStrategy {
+		return vs[0].([]GetServiceCapacityProviderStrategy)[vs[1].(int)]
+	}).(GetServiceCapacityProviderStrategyOutput)
+}
+
+type GetServiceDeployment struct {
+	// Time when task set was created (RFC3339 format)
+	CreatedAt string `pulumi:"createdAt"`
+	// Desired number of tasks
+	DesiredCount int `pulumi:"desiredCount"`
+	// Task set ID
+	Id string `pulumi:"id"`
+	// Number of pending tasks
+	PendingCount int `pulumi:"pendingCount"`
+	// Number of running tasks
+	RunningCount int `pulumi:"runningCount"`
+	// Task set status
+	Status string `pulumi:"status"`
+	// Task definition ARN
+	TaskDefinition string `pulumi:"taskDefinition"`
+	// Time when task set was last updated (RFC3339 format)
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetServiceDeploymentInput is an input type that accepts GetServiceDeploymentArgs and GetServiceDeploymentOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentInput` via:
+//
+//	GetServiceDeploymentArgs{...}
+type GetServiceDeploymentInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentOutput() GetServiceDeploymentOutput
+	ToGetServiceDeploymentOutputWithContext(context.Context) GetServiceDeploymentOutput
+}
+
+type GetServiceDeploymentArgs struct {
+	// Time when task set was created (RFC3339 format)
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Desired number of tasks
+	DesiredCount pulumi.IntInput `pulumi:"desiredCount"`
+	// Task set ID
+	Id pulumi.StringInput `pulumi:"id"`
+	// Number of pending tasks
+	PendingCount pulumi.IntInput `pulumi:"pendingCount"`
+	// Number of running tasks
+	RunningCount pulumi.IntInput `pulumi:"runningCount"`
+	// Task set status
+	Status pulumi.StringInput `pulumi:"status"`
+	// Task definition ARN
+	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
+	// Time when task set was last updated (RFC3339 format)
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetServiceDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeployment)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentArgs) ToGetServiceDeploymentOutput() GetServiceDeploymentOutput {
+	return i.ToGetServiceDeploymentOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentArgs) ToGetServiceDeploymentOutputWithContext(ctx context.Context) GetServiceDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentOutput)
+}
+
+// GetServiceDeploymentArrayInput is an input type that accepts GetServiceDeploymentArray and GetServiceDeploymentArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentArrayInput` via:
+//
+//	GetServiceDeploymentArray{ GetServiceDeploymentArgs{...} }
+type GetServiceDeploymentArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentArrayOutput() GetServiceDeploymentArrayOutput
+	ToGetServiceDeploymentArrayOutputWithContext(context.Context) GetServiceDeploymentArrayOutput
+}
+
+type GetServiceDeploymentArray []GetServiceDeploymentInput
+
+func (GetServiceDeploymentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeployment)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentArray) ToGetServiceDeploymentArrayOutput() GetServiceDeploymentArrayOutput {
+	return i.ToGetServiceDeploymentArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentArray) ToGetServiceDeploymentArrayOutputWithContext(ctx context.Context) GetServiceDeploymentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentArrayOutput)
+}
+
+type GetServiceDeploymentOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeployment)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentOutput) ToGetServiceDeploymentOutput() GetServiceDeploymentOutput {
+	return o
+}
+
+func (o GetServiceDeploymentOutput) ToGetServiceDeploymentOutputWithContext(ctx context.Context) GetServiceDeploymentOutput {
+	return o
+}
+
+// Time when task set was created (RFC3339 format)
+func (o GetServiceDeploymentOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeployment) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Desired number of tasks
+func (o GetServiceDeploymentOutput) DesiredCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDeployment) int { return v.DesiredCount }).(pulumi.IntOutput)
+}
+
+// Task set ID
+func (o GetServiceDeploymentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeployment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Number of pending tasks
+func (o GetServiceDeploymentOutput) PendingCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDeployment) int { return v.PendingCount }).(pulumi.IntOutput)
+}
+
+// Number of running tasks
+func (o GetServiceDeploymentOutput) RunningCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDeployment) int { return v.RunningCount }).(pulumi.IntOutput)
+}
+
+// Task set status
+func (o GetServiceDeploymentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeployment) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Task definition ARN
+func (o GetServiceDeploymentOutput) TaskDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeployment) string { return v.TaskDefinition }).(pulumi.StringOutput)
+}
+
+// Time when task set was last updated (RFC3339 format)
+func (o GetServiceDeploymentOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeployment) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetServiceDeploymentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeployment)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentArrayOutput) ToGetServiceDeploymentArrayOutput() GetServiceDeploymentArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentArrayOutput) ToGetServiceDeploymentArrayOutputWithContext(ctx context.Context) GetServiceDeploymentArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeployment {
+		return vs[0].([]GetServiceDeployment)[vs[1].(int)]
+	}).(GetServiceDeploymentOutput)
+}
+
+type GetServiceDeploymentConfiguration struct {
+	// CloudWatch alarms configuration. See `alarms` Block for details.
+	Alarms []GetServiceDeploymentConfigurationAlarm `pulumi:"alarms"`
+	// Time to wait after deployment before terminating old tasks
+	BakeTimeInMinutes string `pulumi:"bakeTimeInMinutes"`
+	// Canary deployment configuration. See `canaryConfiguration` Block for details.
+	CanaryConfigurations []GetServiceDeploymentConfigurationCanaryConfiguration `pulumi:"canaryConfigurations"`
+	// Circuit breaker configuration. See `deploymentCircuitBreaker` Block for details.
+	DeploymentCircuitBreakers []GetServiceDeploymentConfigurationDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreakers"`
+	// Lifecycle hooks for deployments. See `lifecycleHook` Block for details.
+	LifecycleHooks []GetServiceDeploymentConfigurationLifecycleHook `pulumi:"lifecycleHooks"`
+	// Linear deployment configuration. See `linearConfiguration` Block for details.
+	LinearConfigurations []GetServiceDeploymentConfigurationLinearConfiguration `pulumi:"linearConfigurations"`
+	// Upper limit on tasks during deployment
+	MaximumPercent int `pulumi:"maximumPercent"`
+	// Lower limit on healthy tasks during deployment
+	MinimumHealthyPercent int `pulumi:"minimumHealthyPercent"`
+	// Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
+	Strategy string `pulumi:"strategy"`
+}
+
+// GetServiceDeploymentConfigurationInput is an input type that accepts GetServiceDeploymentConfigurationArgs and GetServiceDeploymentConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationInput` via:
+//
+//	GetServiceDeploymentConfigurationArgs{...}
+type GetServiceDeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationOutput() GetServiceDeploymentConfigurationOutput
+	ToGetServiceDeploymentConfigurationOutputWithContext(context.Context) GetServiceDeploymentConfigurationOutput
+}
+
+type GetServiceDeploymentConfigurationArgs struct {
+	// CloudWatch alarms configuration. See `alarms` Block for details.
+	Alarms GetServiceDeploymentConfigurationAlarmArrayInput `pulumi:"alarms"`
+	// Time to wait after deployment before terminating old tasks
+	BakeTimeInMinutes pulumi.StringInput `pulumi:"bakeTimeInMinutes"`
+	// Canary deployment configuration. See `canaryConfiguration` Block for details.
+	CanaryConfigurations GetServiceDeploymentConfigurationCanaryConfigurationArrayInput `pulumi:"canaryConfigurations"`
+	// Circuit breaker configuration. See `deploymentCircuitBreaker` Block for details.
+	DeploymentCircuitBreakers GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput `pulumi:"deploymentCircuitBreakers"`
+	// Lifecycle hooks for deployments. See `lifecycleHook` Block for details.
+	LifecycleHooks GetServiceDeploymentConfigurationLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
+	// Linear deployment configuration. See `linearConfiguration` Block for details.
+	LinearConfigurations GetServiceDeploymentConfigurationLinearConfigurationArrayInput `pulumi:"linearConfigurations"`
+	// Upper limit on tasks during deployment
+	MaximumPercent pulumi.IntInput `pulumi:"maximumPercent"`
+	// Lower limit on healthy tasks during deployment
+	MinimumHealthyPercent pulumi.IntInput `pulumi:"minimumHealthyPercent"`
+	// Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
+	Strategy pulumi.StringInput `pulumi:"strategy"`
+}
+
+func (GetServiceDeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationArgs) ToGetServiceDeploymentConfigurationOutput() GetServiceDeploymentConfigurationOutput {
+	return i.ToGetServiceDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationArgs) ToGetServiceDeploymentConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationOutput)
+}
+
+// GetServiceDeploymentConfigurationArrayInput is an input type that accepts GetServiceDeploymentConfigurationArray and GetServiceDeploymentConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationArray{ GetServiceDeploymentConfigurationArgs{...} }
+type GetServiceDeploymentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationArrayOutput() GetServiceDeploymentConfigurationArrayOutput
+	ToGetServiceDeploymentConfigurationArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationArrayOutput
+}
+
+type GetServiceDeploymentConfigurationArray []GetServiceDeploymentConfigurationInput
+
+func (GetServiceDeploymentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationArray) ToGetServiceDeploymentConfigurationArrayOutput() GetServiceDeploymentConfigurationArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationArray) ToGetServiceDeploymentConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationOutput) ToGetServiceDeploymentConfigurationOutput() GetServiceDeploymentConfigurationOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationOutput) ToGetServiceDeploymentConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationOutput {
+	return o
+}
+
+// CloudWatch alarms configuration. See `alarms` Block for details.
+func (o GetServiceDeploymentConfigurationOutput) Alarms() GetServiceDeploymentConfigurationAlarmArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) []GetServiceDeploymentConfigurationAlarm { return v.Alarms }).(GetServiceDeploymentConfigurationAlarmArrayOutput)
+}
+
+// Time to wait after deployment before terminating old tasks
+func (o GetServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) string { return v.BakeTimeInMinutes }).(pulumi.StringOutput)
+}
+
+// Canary deployment configuration. See `canaryConfiguration` Block for details.
+func (o GetServiceDeploymentConfigurationOutput) CanaryConfigurations() GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) []GetServiceDeploymentConfigurationCanaryConfiguration {
+		return v.CanaryConfigurations
+	}).(GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput)
+}
+
+// Circuit breaker configuration. See `deploymentCircuitBreaker` Block for details.
+func (o GetServiceDeploymentConfigurationOutput) DeploymentCircuitBreakers() GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) []GetServiceDeploymentConfigurationDeploymentCircuitBreaker {
+		return v.DeploymentCircuitBreakers
+	}).(GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput)
+}
+
+// Lifecycle hooks for deployments. See `lifecycleHook` Block for details.
+func (o GetServiceDeploymentConfigurationOutput) LifecycleHooks() GetServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) []GetServiceDeploymentConfigurationLifecycleHook {
+		return v.LifecycleHooks
+	}).(GetServiceDeploymentConfigurationLifecycleHookArrayOutput)
+}
+
+// Linear deployment configuration. See `linearConfiguration` Block for details.
+func (o GetServiceDeploymentConfigurationOutput) LinearConfigurations() GetServiceDeploymentConfigurationLinearConfigurationArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) []GetServiceDeploymentConfigurationLinearConfiguration {
+		return v.LinearConfigurations
+	}).(GetServiceDeploymentConfigurationLinearConfigurationArrayOutput)
+}
+
+// Upper limit on tasks during deployment
+func (o GetServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) int { return v.MaximumPercent }).(pulumi.IntOutput)
+}
+
+// Lower limit on healthy tasks during deployment
+func (o GetServiceDeploymentConfigurationOutput) MinimumHealthyPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) int { return v.MinimumHealthyPercent }).(pulumi.IntOutput)
+}
+
+// Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
+func (o GetServiceDeploymentConfigurationOutput) Strategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfiguration) string { return v.Strategy }).(pulumi.StringOutput)
+}
+
+type GetServiceDeploymentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationArrayOutput) ToGetServiceDeploymentConfigurationArrayOutput() GetServiceDeploymentConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationArrayOutput) ToGetServiceDeploymentConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfiguration {
+		return vs[0].([]GetServiceDeploymentConfiguration)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationOutput)
+}
+
+type GetServiceDeploymentConfigurationAlarm struct {
+	// List of CloudWatch alarm names
+	AlarmNames []string `pulumi:"alarmNames"`
+	// Whether circuit breaker is enabled
+	Enable bool `pulumi:"enable"`
+	// Whether to rollback on failure
+	Rollback bool `pulumi:"rollback"`
+}
+
+// GetServiceDeploymentConfigurationAlarmInput is an input type that accepts GetServiceDeploymentConfigurationAlarmArgs and GetServiceDeploymentConfigurationAlarmOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationAlarmInput` via:
+//
+//	GetServiceDeploymentConfigurationAlarmArgs{...}
+type GetServiceDeploymentConfigurationAlarmInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationAlarmOutput() GetServiceDeploymentConfigurationAlarmOutput
+	ToGetServiceDeploymentConfigurationAlarmOutputWithContext(context.Context) GetServiceDeploymentConfigurationAlarmOutput
+}
+
+type GetServiceDeploymentConfigurationAlarmArgs struct {
+	// List of CloudWatch alarm names
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+	// Whether circuit breaker is enabled
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Whether to rollback on failure
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
+}
+
+func (GetServiceDeploymentConfigurationAlarmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationAlarm)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationAlarmArgs) ToGetServiceDeploymentConfigurationAlarmOutput() GetServiceDeploymentConfigurationAlarmOutput {
+	return i.ToGetServiceDeploymentConfigurationAlarmOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationAlarmArgs) ToGetServiceDeploymentConfigurationAlarmOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationAlarmOutput)
+}
+
+// GetServiceDeploymentConfigurationAlarmArrayInput is an input type that accepts GetServiceDeploymentConfigurationAlarmArray and GetServiceDeploymentConfigurationAlarmArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationAlarmArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationAlarmArray{ GetServiceDeploymentConfigurationAlarmArgs{...} }
+type GetServiceDeploymentConfigurationAlarmArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationAlarmArrayOutput() GetServiceDeploymentConfigurationAlarmArrayOutput
+	ToGetServiceDeploymentConfigurationAlarmArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationAlarmArrayOutput
+}
+
+type GetServiceDeploymentConfigurationAlarmArray []GetServiceDeploymentConfigurationAlarmInput
+
+func (GetServiceDeploymentConfigurationAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationAlarm)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationAlarmArray) ToGetServiceDeploymentConfigurationAlarmArrayOutput() GetServiceDeploymentConfigurationAlarmArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationAlarmArray) ToGetServiceDeploymentConfigurationAlarmArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationAlarmArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationAlarmOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationAlarm)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationAlarmOutput) ToGetServiceDeploymentConfigurationAlarmOutput() GetServiceDeploymentConfigurationAlarmOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationAlarmOutput) ToGetServiceDeploymentConfigurationAlarmOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationAlarmOutput {
+	return o
+}
+
+// List of CloudWatch alarm names
+func (o GetServiceDeploymentConfigurationAlarmOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationAlarm) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+// Whether circuit breaker is enabled
+func (o GetServiceDeploymentConfigurationAlarmOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationAlarm) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Whether to rollback on failure
+func (o GetServiceDeploymentConfigurationAlarmOutput) Rollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationAlarm) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+type GetServiceDeploymentConfigurationAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationAlarm)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationAlarmArrayOutput) ToGetServiceDeploymentConfigurationAlarmArrayOutput() GetServiceDeploymentConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationAlarmArrayOutput) ToGetServiceDeploymentConfigurationAlarmArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationAlarmArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationAlarm {
+		return vs[0].([]GetServiceDeploymentConfigurationAlarm)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationAlarmOutput)
+}
+
+type GetServiceDeploymentConfigurationCanaryConfiguration struct {
+	// Time to wait before shifting remaining traffic
+	CanaryBakeTimeInMinutes string `pulumi:"canaryBakeTimeInMinutes"`
+	// Percentage of traffic to route to canary deployment
+	CanaryPercent float64 `pulumi:"canaryPercent"`
+}
+
+// GetServiceDeploymentConfigurationCanaryConfigurationInput is an input type that accepts GetServiceDeploymentConfigurationCanaryConfigurationArgs and GetServiceDeploymentConfigurationCanaryConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationCanaryConfigurationInput` via:
+//
+//	GetServiceDeploymentConfigurationCanaryConfigurationArgs{...}
+type GetServiceDeploymentConfigurationCanaryConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationCanaryConfigurationOutput() GetServiceDeploymentConfigurationCanaryConfigurationOutput
+	ToGetServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(context.Context) GetServiceDeploymentConfigurationCanaryConfigurationOutput
+}
+
+type GetServiceDeploymentConfigurationCanaryConfigurationArgs struct {
+	// Time to wait before shifting remaining traffic
+	CanaryBakeTimeInMinutes pulumi.StringInput `pulumi:"canaryBakeTimeInMinutes"`
+	// Percentage of traffic to route to canary deployment
+	CanaryPercent pulumi.Float64Input `pulumi:"canaryPercent"`
+}
+
+func (GetServiceDeploymentConfigurationCanaryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationCanaryConfigurationArgs) ToGetServiceDeploymentConfigurationCanaryConfigurationOutput() GetServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return i.ToGetServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationCanaryConfigurationArgs) ToGetServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationCanaryConfigurationOutput)
+}
+
+// GetServiceDeploymentConfigurationCanaryConfigurationArrayInput is an input type that accepts GetServiceDeploymentConfigurationCanaryConfigurationArray and GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationCanaryConfigurationArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationCanaryConfigurationArray{ GetServiceDeploymentConfigurationCanaryConfigurationArgs{...} }
+type GetServiceDeploymentConfigurationCanaryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutput() GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput
+	ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput
+}
+
+type GetServiceDeploymentConfigurationCanaryConfigurationArray []GetServiceDeploymentConfigurationCanaryConfigurationInput
+
+func (GetServiceDeploymentConfigurationCanaryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationCanaryConfigurationArray) ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutput() GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationCanaryConfigurationArray) ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationCanaryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationCanaryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationCanaryConfigurationOutput) ToGetServiceDeploymentConfigurationCanaryConfigurationOutput() GetServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationCanaryConfigurationOutput) ToGetServiceDeploymentConfigurationCanaryConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return o
+}
+
+// Time to wait before shifting remaining traffic
+func (o GetServiceDeploymentConfigurationCanaryConfigurationOutput) CanaryBakeTimeInMinutes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationCanaryConfiguration) string { return v.CanaryBakeTimeInMinutes }).(pulumi.StringOutput)
+}
+
+// Percentage of traffic to route to canary deployment
+func (o GetServiceDeploymentConfigurationCanaryConfigurationOutput) CanaryPercent() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationCanaryConfiguration) float64 { return v.CanaryPercent }).(pulumi.Float64Output)
+}
+
+type GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationCanaryConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput) ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutput() GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput) ToGetServiceDeploymentConfigurationCanaryConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationCanaryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationCanaryConfiguration {
+		return vs[0].([]GetServiceDeploymentConfigurationCanaryConfiguration)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationCanaryConfigurationOutput)
+}
+
+type GetServiceDeploymentConfigurationDeploymentCircuitBreaker struct {
+	// Whether circuit breaker is enabled
+	Enable bool `pulumi:"enable"`
+	// Whether to rollback on failure
+	Rollback bool `pulumi:"rollback"`
+}
+
+// GetServiceDeploymentConfigurationDeploymentCircuitBreakerInput is an input type that accepts GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs and GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationDeploymentCircuitBreakerInput` via:
+//
+//	GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs{...}
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput
+	ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutputWithContext(context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput
+}
+
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs struct {
+	// Whether circuit breaker is enabled
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Whether to rollback on failure
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
+}
+
+func (GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput {
+	return i.ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput)
+}
+
+// GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput is an input type that accepts GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray and GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray{ GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs{...} }
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput
+	ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput
+}
+
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray []GetServiceDeploymentConfigurationDeploymentCircuitBreakerInput
+
+func (GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput {
+	return o
+}
+
+// Whether circuit breaker is enabled
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+// Whether to rollback on failure
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+type GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationDeploymentCircuitBreaker)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput() GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput) ToGetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationDeploymentCircuitBreaker {
+		return vs[0].([]GetServiceDeploymentConfigurationDeploymentCircuitBreaker)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHook struct {
+	// Additional details for the hook
+	HookDetails string `pulumi:"hookDetails"`
+	// ARN of the Lambda function to invoke
+	HookTargetArn string `pulumi:"hookTargetArn"`
+	// Deployment stages when hook is invoked
+	LifecycleStages []string `pulumi:"lifecycleStages"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// GetServiceDeploymentConfigurationLifecycleHookInput is an input type that accepts GetServiceDeploymentConfigurationLifecycleHookArgs and GetServiceDeploymentConfigurationLifecycleHookOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLifecycleHookInput` via:
+//
+//	GetServiceDeploymentConfigurationLifecycleHookArgs{...}
+type GetServiceDeploymentConfigurationLifecycleHookInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLifecycleHookOutput() GetServiceDeploymentConfigurationLifecycleHookOutput
+	ToGetServiceDeploymentConfigurationLifecycleHookOutputWithContext(context.Context) GetServiceDeploymentConfigurationLifecycleHookOutput
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookArgs struct {
+	// Additional details for the hook
+	HookDetails pulumi.StringInput `pulumi:"hookDetails"`
+	// ARN of the Lambda function to invoke
+	HookTargetArn pulumi.StringInput `pulumi:"hookTargetArn"`
+	// Deployment stages when hook is invoked
+	LifecycleStages pulumi.StringArrayInput `pulumi:"lifecycleStages"`
+	// ARN of the IAM role that allows ECS to manage the target groups.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (GetServiceDeploymentConfigurationLifecycleHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookArgs) ToGetServiceDeploymentConfigurationLifecycleHookOutput() GetServiceDeploymentConfigurationLifecycleHookOutput {
+	return i.ToGetServiceDeploymentConfigurationLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookArgs) ToGetServiceDeploymentConfigurationLifecycleHookOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+// GetServiceDeploymentConfigurationLifecycleHookArrayInput is an input type that accepts GetServiceDeploymentConfigurationLifecycleHookArray and GetServiceDeploymentConfigurationLifecycleHookArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLifecycleHookArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationLifecycleHookArray{ GetServiceDeploymentConfigurationLifecycleHookArgs{...} }
+type GetServiceDeploymentConfigurationLifecycleHookArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLifecycleHookArrayOutput() GetServiceDeploymentConfigurationLifecycleHookArrayOutput
+	ToGetServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationLifecycleHookArrayOutput
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookArray []GetServiceDeploymentConfigurationLifecycleHookInput
+
+func (GetServiceDeploymentConfigurationLifecycleHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookArray) ToGetServiceDeploymentConfigurationLifecycleHookArrayOutput() GetServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLifecycleHookArray) ToGetServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLifecycleHookArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) ToGetServiceDeploymentConfigurationLifecycleHookOutput() GetServiceDeploymentConfigurationLifecycleHookOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) ToGetServiceDeploymentConfigurationLifecycleHookOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookOutput {
+	return o
+}
+
+// Additional details for the hook
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) HookDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.HookDetails }).(pulumi.StringOutput)
+}
+
+// ARN of the Lambda function to invoke
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) HookTargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.HookTargetArn }).(pulumi.StringOutput)
+}
+
+// Deployment stages when hook is invoked
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) LifecycleStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) []string { return v.LifecycleStages }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the IAM role that allows ECS to manage the target groups.
+func (o GetServiceDeploymentConfigurationLifecycleHookOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLifecycleHook) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type GetServiceDeploymentConfigurationLifecycleHookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLifecycleHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLifecycleHook)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookArrayOutput) ToGetServiceDeploymentConfigurationLifecycleHookArrayOutput() GetServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookArrayOutput) ToGetServiceDeploymentConfigurationLifecycleHookArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLifecycleHookArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLifecycleHookArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationLifecycleHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationLifecycleHook {
+		return vs[0].([]GetServiceDeploymentConfigurationLifecycleHook)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationLifecycleHookOutput)
+}
+
+type GetServiceDeploymentConfigurationLinearConfiguration struct {
+	// Time to wait between deployment steps
+	StepBakeTimeInMinutes string `pulumi:"stepBakeTimeInMinutes"`
+	// Percentage of traffic to shift in each step
+	StepPercent float64 `pulumi:"stepPercent"`
+}
+
+// GetServiceDeploymentConfigurationLinearConfigurationInput is an input type that accepts GetServiceDeploymentConfigurationLinearConfigurationArgs and GetServiceDeploymentConfigurationLinearConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLinearConfigurationInput` via:
+//
+//	GetServiceDeploymentConfigurationLinearConfigurationArgs{...}
+type GetServiceDeploymentConfigurationLinearConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLinearConfigurationOutput() GetServiceDeploymentConfigurationLinearConfigurationOutput
+	ToGetServiceDeploymentConfigurationLinearConfigurationOutputWithContext(context.Context) GetServiceDeploymentConfigurationLinearConfigurationOutput
+}
+
+type GetServiceDeploymentConfigurationLinearConfigurationArgs struct {
+	// Time to wait between deployment steps
+	StepBakeTimeInMinutes pulumi.StringInput `pulumi:"stepBakeTimeInMinutes"`
+	// Percentage of traffic to shift in each step
+	StepPercent pulumi.Float64Input `pulumi:"stepPercent"`
+}
+
+func (GetServiceDeploymentConfigurationLinearConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLinearConfigurationArgs) ToGetServiceDeploymentConfigurationLinearConfigurationOutput() GetServiceDeploymentConfigurationLinearConfigurationOutput {
+	return i.ToGetServiceDeploymentConfigurationLinearConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLinearConfigurationArgs) ToGetServiceDeploymentConfigurationLinearConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLinearConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLinearConfigurationOutput)
+}
+
+// GetServiceDeploymentConfigurationLinearConfigurationArrayInput is an input type that accepts GetServiceDeploymentConfigurationLinearConfigurationArray and GetServiceDeploymentConfigurationLinearConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentConfigurationLinearConfigurationArrayInput` via:
+//
+//	GetServiceDeploymentConfigurationLinearConfigurationArray{ GetServiceDeploymentConfigurationLinearConfigurationArgs{...} }
+type GetServiceDeploymentConfigurationLinearConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutput() GetServiceDeploymentConfigurationLinearConfigurationArrayOutput
+	ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutputWithContext(context.Context) GetServiceDeploymentConfigurationLinearConfigurationArrayOutput
+}
+
+type GetServiceDeploymentConfigurationLinearConfigurationArray []GetServiceDeploymentConfigurationLinearConfigurationInput
+
+func (GetServiceDeploymentConfigurationLinearConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentConfigurationLinearConfigurationArray) ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutput() GetServiceDeploymentConfigurationLinearConfigurationArrayOutput {
+	return i.ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentConfigurationLinearConfigurationArray) ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLinearConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentConfigurationLinearConfigurationArrayOutput)
+}
+
+type GetServiceDeploymentConfigurationLinearConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLinearConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLinearConfigurationOutput) ToGetServiceDeploymentConfigurationLinearConfigurationOutput() GetServiceDeploymentConfigurationLinearConfigurationOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLinearConfigurationOutput) ToGetServiceDeploymentConfigurationLinearConfigurationOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLinearConfigurationOutput {
+	return o
+}
+
+// Time to wait between deployment steps
+func (o GetServiceDeploymentConfigurationLinearConfigurationOutput) StepBakeTimeInMinutes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLinearConfiguration) string { return v.StepBakeTimeInMinutes }).(pulumi.StringOutput)
+}
+
+// Percentage of traffic to shift in each step
+func (o GetServiceDeploymentConfigurationLinearConfigurationOutput) StepPercent() pulumi.Float64Output {
+	return o.ApplyT(func(v GetServiceDeploymentConfigurationLinearConfiguration) float64 { return v.StepPercent }).(pulumi.Float64Output)
+}
+
+type GetServiceDeploymentConfigurationLinearConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentConfigurationLinearConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentConfigurationLinearConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentConfigurationLinearConfigurationArrayOutput) ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutput() GetServiceDeploymentConfigurationLinearConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLinearConfigurationArrayOutput) ToGetServiceDeploymentConfigurationLinearConfigurationArrayOutputWithContext(ctx context.Context) GetServiceDeploymentConfigurationLinearConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentConfigurationLinearConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentConfigurationLinearConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentConfigurationLinearConfiguration {
+		return vs[0].([]GetServiceDeploymentConfigurationLinearConfiguration)[vs[1].(int)]
+	}).(GetServiceDeploymentConfigurationLinearConfigurationOutput)
+}
+
+type GetServiceDeploymentController struct {
+	// Constraint type
+	Type string `pulumi:"type"`
+}
+
+// GetServiceDeploymentControllerInput is an input type that accepts GetServiceDeploymentControllerArgs and GetServiceDeploymentControllerOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentControllerInput` via:
+//
+//	GetServiceDeploymentControllerArgs{...}
+type GetServiceDeploymentControllerInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentControllerOutput() GetServiceDeploymentControllerOutput
+	ToGetServiceDeploymentControllerOutputWithContext(context.Context) GetServiceDeploymentControllerOutput
+}
+
+type GetServiceDeploymentControllerArgs struct {
+	// Constraint type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceDeploymentControllerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentController)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentControllerArgs) ToGetServiceDeploymentControllerOutput() GetServiceDeploymentControllerOutput {
+	return i.ToGetServiceDeploymentControllerOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentControllerArgs) ToGetServiceDeploymentControllerOutputWithContext(ctx context.Context) GetServiceDeploymentControllerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentControllerOutput)
+}
+
+// GetServiceDeploymentControllerArrayInput is an input type that accepts GetServiceDeploymentControllerArray and GetServiceDeploymentControllerArrayOutput values.
+// You can construct a concrete instance of `GetServiceDeploymentControllerArrayInput` via:
+//
+//	GetServiceDeploymentControllerArray{ GetServiceDeploymentControllerArgs{...} }
+type GetServiceDeploymentControllerArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDeploymentControllerArrayOutput() GetServiceDeploymentControllerArrayOutput
+	ToGetServiceDeploymentControllerArrayOutputWithContext(context.Context) GetServiceDeploymentControllerArrayOutput
+}
+
+type GetServiceDeploymentControllerArray []GetServiceDeploymentControllerInput
+
+func (GetServiceDeploymentControllerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentController)(nil)).Elem()
+}
+
+func (i GetServiceDeploymentControllerArray) ToGetServiceDeploymentControllerArrayOutput() GetServiceDeploymentControllerArrayOutput {
+	return i.ToGetServiceDeploymentControllerArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDeploymentControllerArray) ToGetServiceDeploymentControllerArrayOutputWithContext(ctx context.Context) GetServiceDeploymentControllerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDeploymentControllerArrayOutput)
+}
+
+type GetServiceDeploymentControllerOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentControllerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDeploymentController)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentControllerOutput) ToGetServiceDeploymentControllerOutput() GetServiceDeploymentControllerOutput {
+	return o
+}
+
+func (o GetServiceDeploymentControllerOutput) ToGetServiceDeploymentControllerOutputWithContext(ctx context.Context) GetServiceDeploymentControllerOutput {
+	return o
+}
+
+// Constraint type
+func (o GetServiceDeploymentControllerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDeploymentController) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceDeploymentControllerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDeploymentControllerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDeploymentController)(nil)).Elem()
+}
+
+func (o GetServiceDeploymentControllerArrayOutput) ToGetServiceDeploymentControllerArrayOutput() GetServiceDeploymentControllerArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentControllerArrayOutput) ToGetServiceDeploymentControllerArrayOutputWithContext(ctx context.Context) GetServiceDeploymentControllerArrayOutput {
+	return o
+}
+
+func (o GetServiceDeploymentControllerArrayOutput) Index(i pulumi.IntInput) GetServiceDeploymentControllerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDeploymentController {
+		return vs[0].([]GetServiceDeploymentController)[vs[1].(int)]
+	}).(GetServiceDeploymentControllerOutput)
+}
+
+type GetServiceEvent struct {
+	// Time when task set was created (RFC3339 format)
+	CreatedAt string `pulumi:"createdAt"`
+	// Task set ID
+	Id string `pulumi:"id"`
+	// Event message
+	Message string `pulumi:"message"`
+}
+
+// GetServiceEventInput is an input type that accepts GetServiceEventArgs and GetServiceEventOutput values.
+// You can construct a concrete instance of `GetServiceEventInput` via:
+//
+//	GetServiceEventArgs{...}
+type GetServiceEventInput interface {
+	pulumi.Input
+
+	ToGetServiceEventOutput() GetServiceEventOutput
+	ToGetServiceEventOutputWithContext(context.Context) GetServiceEventOutput
+}
+
+type GetServiceEventArgs struct {
+	// Time when task set was created (RFC3339 format)
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Task set ID
+	Id pulumi.StringInput `pulumi:"id"`
+	// Event message
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (GetServiceEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceEvent)(nil)).Elem()
+}
+
+func (i GetServiceEventArgs) ToGetServiceEventOutput() GetServiceEventOutput {
+	return i.ToGetServiceEventOutputWithContext(context.Background())
+}
+
+func (i GetServiceEventArgs) ToGetServiceEventOutputWithContext(ctx context.Context) GetServiceEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceEventOutput)
+}
+
+// GetServiceEventArrayInput is an input type that accepts GetServiceEventArray and GetServiceEventArrayOutput values.
+// You can construct a concrete instance of `GetServiceEventArrayInput` via:
+//
+//	GetServiceEventArray{ GetServiceEventArgs{...} }
+type GetServiceEventArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceEventArrayOutput() GetServiceEventArrayOutput
+	ToGetServiceEventArrayOutputWithContext(context.Context) GetServiceEventArrayOutput
+}
+
+type GetServiceEventArray []GetServiceEventInput
+
+func (GetServiceEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceEvent)(nil)).Elem()
+}
+
+func (i GetServiceEventArray) ToGetServiceEventArrayOutput() GetServiceEventArrayOutput {
+	return i.ToGetServiceEventArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceEventArray) ToGetServiceEventArrayOutputWithContext(ctx context.Context) GetServiceEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceEventArrayOutput)
+}
+
+type GetServiceEventOutput struct{ *pulumi.OutputState }
+
+func (GetServiceEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceEvent)(nil)).Elem()
+}
+
+func (o GetServiceEventOutput) ToGetServiceEventOutput() GetServiceEventOutput {
+	return o
+}
+
+func (o GetServiceEventOutput) ToGetServiceEventOutputWithContext(ctx context.Context) GetServiceEventOutput {
+	return o
+}
+
+// Time when task set was created (RFC3339 format)
+func (o GetServiceEventOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceEvent) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Task set ID
+func (o GetServiceEventOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceEvent) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Event message
+func (o GetServiceEventOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceEvent) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type GetServiceEventArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceEvent)(nil)).Elem()
+}
+
+func (o GetServiceEventArrayOutput) ToGetServiceEventArrayOutput() GetServiceEventArrayOutput {
+	return o
+}
+
+func (o GetServiceEventArrayOutput) ToGetServiceEventArrayOutputWithContext(ctx context.Context) GetServiceEventArrayOutput {
+	return o
+}
+
+func (o GetServiceEventArrayOutput) Index(i pulumi.IntInput) GetServiceEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceEvent {
+		return vs[0].([]GetServiceEvent)[vs[1].(int)]
+	}).(GetServiceEventOutput)
+}
+
 type GetServiceLoadBalancer struct {
 	// Settings for Blue/Green deployment. See `advancedConfiguration` Block for details.
 	AdvancedConfigurations []GetServiceLoadBalancerAdvancedConfiguration `pulumi:"advancedConfigurations"`
@@ -11218,6 +12784,626 @@ func (o GetServiceLoadBalancerAdvancedConfigurationArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLoadBalancerAdvancedConfiguration {
 		return vs[0].([]GetServiceLoadBalancerAdvancedConfiguration)[vs[1].(int)]
 	}).(GetServiceLoadBalancerAdvancedConfigurationOutput)
+}
+
+type GetServiceNetworkConfiguration struct {
+	// Whether tasks receive public IP addresses
+	AssignPublicIp bool `pulumi:"assignPublicIp"`
+	// Security groups associated with tasks
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// Subnets associated with tasks
+	Subnets []string `pulumi:"subnets"`
+}
+
+// GetServiceNetworkConfigurationInput is an input type that accepts GetServiceNetworkConfigurationArgs and GetServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `GetServiceNetworkConfigurationInput` via:
+//
+//	GetServiceNetworkConfigurationArgs{...}
+type GetServiceNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkConfigurationOutput() GetServiceNetworkConfigurationOutput
+	ToGetServiceNetworkConfigurationOutputWithContext(context.Context) GetServiceNetworkConfigurationOutput
+}
+
+type GetServiceNetworkConfigurationArgs struct {
+	// Whether tasks receive public IP addresses
+	AssignPublicIp pulumi.BoolInput `pulumi:"assignPublicIp"`
+	// Security groups associated with tasks
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// Subnets associated with tasks
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (GetServiceNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceNetworkConfigurationArgs) ToGetServiceNetworkConfigurationOutput() GetServiceNetworkConfigurationOutput {
+	return i.ToGetServiceNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkConfigurationArgs) ToGetServiceNetworkConfigurationOutputWithContext(ctx context.Context) GetServiceNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkConfigurationOutput)
+}
+
+// GetServiceNetworkConfigurationArrayInput is an input type that accepts GetServiceNetworkConfigurationArray and GetServiceNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetServiceNetworkConfigurationArrayInput` via:
+//
+//	GetServiceNetworkConfigurationArray{ GetServiceNetworkConfigurationArgs{...} }
+type GetServiceNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkConfigurationArrayOutput() GetServiceNetworkConfigurationArrayOutput
+	ToGetServiceNetworkConfigurationArrayOutputWithContext(context.Context) GetServiceNetworkConfigurationArrayOutput
+}
+
+type GetServiceNetworkConfigurationArray []GetServiceNetworkConfigurationInput
+
+func (GetServiceNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceNetworkConfigurationArray) ToGetServiceNetworkConfigurationArrayOutput() GetServiceNetworkConfigurationArrayOutput {
+	return i.ToGetServiceNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkConfigurationArray) ToGetServiceNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetServiceNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkConfigurationArrayOutput)
+}
+
+type GetServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceNetworkConfigurationOutput) ToGetServiceNetworkConfigurationOutput() GetServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o GetServiceNetworkConfigurationOutput) ToGetServiceNetworkConfigurationOutputWithContext(ctx context.Context) GetServiceNetworkConfigurationOutput {
+	return o
+}
+
+// Whether tasks receive public IP addresses
+func (o GetServiceNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceNetworkConfiguration) bool { return v.AssignPublicIp }).(pulumi.BoolOutput)
+}
+
+// Security groups associated with tasks
+func (o GetServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Subnets associated with tasks
+func (o GetServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceNetworkConfigurationArrayOutput) ToGetServiceNetworkConfigurationArrayOutput() GetServiceNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkConfigurationArrayOutput) ToGetServiceNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetServiceNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceNetworkConfiguration {
+		return vs[0].([]GetServiceNetworkConfiguration)[vs[1].(int)]
+	}).(GetServiceNetworkConfigurationOutput)
+}
+
+type GetServiceOrderedPlacementStrategy struct {
+	// Field to apply placement strategy against
+	Field string `pulumi:"field"`
+	// Constraint type
+	Type string `pulumi:"type"`
+}
+
+// GetServiceOrderedPlacementStrategyInput is an input type that accepts GetServiceOrderedPlacementStrategyArgs and GetServiceOrderedPlacementStrategyOutput values.
+// You can construct a concrete instance of `GetServiceOrderedPlacementStrategyInput` via:
+//
+//	GetServiceOrderedPlacementStrategyArgs{...}
+type GetServiceOrderedPlacementStrategyInput interface {
+	pulumi.Input
+
+	ToGetServiceOrderedPlacementStrategyOutput() GetServiceOrderedPlacementStrategyOutput
+	ToGetServiceOrderedPlacementStrategyOutputWithContext(context.Context) GetServiceOrderedPlacementStrategyOutput
+}
+
+type GetServiceOrderedPlacementStrategyArgs struct {
+	// Field to apply placement strategy against
+	Field pulumi.StringInput `pulumi:"field"`
+	// Constraint type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceOrderedPlacementStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (i GetServiceOrderedPlacementStrategyArgs) ToGetServiceOrderedPlacementStrategyOutput() GetServiceOrderedPlacementStrategyOutput {
+	return i.ToGetServiceOrderedPlacementStrategyOutputWithContext(context.Background())
+}
+
+func (i GetServiceOrderedPlacementStrategyArgs) ToGetServiceOrderedPlacementStrategyOutputWithContext(ctx context.Context) GetServiceOrderedPlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceOrderedPlacementStrategyOutput)
+}
+
+// GetServiceOrderedPlacementStrategyArrayInput is an input type that accepts GetServiceOrderedPlacementStrategyArray and GetServiceOrderedPlacementStrategyArrayOutput values.
+// You can construct a concrete instance of `GetServiceOrderedPlacementStrategyArrayInput` via:
+//
+//	GetServiceOrderedPlacementStrategyArray{ GetServiceOrderedPlacementStrategyArgs{...} }
+type GetServiceOrderedPlacementStrategyArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceOrderedPlacementStrategyArrayOutput() GetServiceOrderedPlacementStrategyArrayOutput
+	ToGetServiceOrderedPlacementStrategyArrayOutputWithContext(context.Context) GetServiceOrderedPlacementStrategyArrayOutput
+}
+
+type GetServiceOrderedPlacementStrategyArray []GetServiceOrderedPlacementStrategyInput
+
+func (GetServiceOrderedPlacementStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (i GetServiceOrderedPlacementStrategyArray) ToGetServiceOrderedPlacementStrategyArrayOutput() GetServiceOrderedPlacementStrategyArrayOutput {
+	return i.ToGetServiceOrderedPlacementStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceOrderedPlacementStrategyArray) ToGetServiceOrderedPlacementStrategyArrayOutputWithContext(ctx context.Context) GetServiceOrderedPlacementStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceOrderedPlacementStrategyArrayOutput)
+}
+
+type GetServiceOrderedPlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (GetServiceOrderedPlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (o GetServiceOrderedPlacementStrategyOutput) ToGetServiceOrderedPlacementStrategyOutput() GetServiceOrderedPlacementStrategyOutput {
+	return o
+}
+
+func (o GetServiceOrderedPlacementStrategyOutput) ToGetServiceOrderedPlacementStrategyOutputWithContext(ctx context.Context) GetServiceOrderedPlacementStrategyOutput {
+	return o
+}
+
+// Field to apply placement strategy against
+func (o GetServiceOrderedPlacementStrategyOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceOrderedPlacementStrategy) string { return v.Field }).(pulumi.StringOutput)
+}
+
+// Constraint type
+func (o GetServiceOrderedPlacementStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceOrderedPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceOrderedPlacementStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceOrderedPlacementStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceOrderedPlacementStrategy)(nil)).Elem()
+}
+
+func (o GetServiceOrderedPlacementStrategyArrayOutput) ToGetServiceOrderedPlacementStrategyArrayOutput() GetServiceOrderedPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o GetServiceOrderedPlacementStrategyArrayOutput) ToGetServiceOrderedPlacementStrategyArrayOutputWithContext(ctx context.Context) GetServiceOrderedPlacementStrategyArrayOutput {
+	return o
+}
+
+func (o GetServiceOrderedPlacementStrategyArrayOutput) Index(i pulumi.IntInput) GetServiceOrderedPlacementStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceOrderedPlacementStrategy {
+		return vs[0].([]GetServiceOrderedPlacementStrategy)[vs[1].(int)]
+	}).(GetServiceOrderedPlacementStrategyOutput)
+}
+
+type GetServicePlacementConstraint struct {
+	// Cluster query language expression
+	Expression string `pulumi:"expression"`
+	// Constraint type
+	Type string `pulumi:"type"`
+}
+
+// GetServicePlacementConstraintInput is an input type that accepts GetServicePlacementConstraintArgs and GetServicePlacementConstraintOutput values.
+// You can construct a concrete instance of `GetServicePlacementConstraintInput` via:
+//
+//	GetServicePlacementConstraintArgs{...}
+type GetServicePlacementConstraintInput interface {
+	pulumi.Input
+
+	ToGetServicePlacementConstraintOutput() GetServicePlacementConstraintOutput
+	ToGetServicePlacementConstraintOutputWithContext(context.Context) GetServicePlacementConstraintOutput
+}
+
+type GetServicePlacementConstraintArgs struct {
+	// Cluster query language expression
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Constraint type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServicePlacementConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServicePlacementConstraint)(nil)).Elem()
+}
+
+func (i GetServicePlacementConstraintArgs) ToGetServicePlacementConstraintOutput() GetServicePlacementConstraintOutput {
+	return i.ToGetServicePlacementConstraintOutputWithContext(context.Background())
+}
+
+func (i GetServicePlacementConstraintArgs) ToGetServicePlacementConstraintOutputWithContext(ctx context.Context) GetServicePlacementConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServicePlacementConstraintOutput)
+}
+
+// GetServicePlacementConstraintArrayInput is an input type that accepts GetServicePlacementConstraintArray and GetServicePlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `GetServicePlacementConstraintArrayInput` via:
+//
+//	GetServicePlacementConstraintArray{ GetServicePlacementConstraintArgs{...} }
+type GetServicePlacementConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetServicePlacementConstraintArrayOutput() GetServicePlacementConstraintArrayOutput
+	ToGetServicePlacementConstraintArrayOutputWithContext(context.Context) GetServicePlacementConstraintArrayOutput
+}
+
+type GetServicePlacementConstraintArray []GetServicePlacementConstraintInput
+
+func (GetServicePlacementConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServicePlacementConstraint)(nil)).Elem()
+}
+
+func (i GetServicePlacementConstraintArray) ToGetServicePlacementConstraintArrayOutput() GetServicePlacementConstraintArrayOutput {
+	return i.ToGetServicePlacementConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetServicePlacementConstraintArray) ToGetServicePlacementConstraintArrayOutputWithContext(ctx context.Context) GetServicePlacementConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServicePlacementConstraintArrayOutput)
+}
+
+type GetServicePlacementConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetServicePlacementConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServicePlacementConstraint)(nil)).Elem()
+}
+
+func (o GetServicePlacementConstraintOutput) ToGetServicePlacementConstraintOutput() GetServicePlacementConstraintOutput {
+	return o
+}
+
+func (o GetServicePlacementConstraintOutput) ToGetServicePlacementConstraintOutputWithContext(ctx context.Context) GetServicePlacementConstraintOutput {
+	return o
+}
+
+// Cluster query language expression
+func (o GetServicePlacementConstraintOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServicePlacementConstraint) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Constraint type
+func (o GetServicePlacementConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServicePlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServicePlacementConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServicePlacementConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServicePlacementConstraint)(nil)).Elem()
+}
+
+func (o GetServicePlacementConstraintArrayOutput) ToGetServicePlacementConstraintArrayOutput() GetServicePlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetServicePlacementConstraintArrayOutput) ToGetServicePlacementConstraintArrayOutputWithContext(ctx context.Context) GetServicePlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) GetServicePlacementConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServicePlacementConstraint {
+		return vs[0].([]GetServicePlacementConstraint)[vs[1].(int)]
+	}).(GetServicePlacementConstraintOutput)
+}
+
+type GetServiceServiceRegistry struct {
+	// Name of the container to associate with the load balancer.
+	ContainerName string `pulumi:"containerName"`
+	// Port on the container to associate with the load balancer.
+	ContainerPort int `pulumi:"containerPort"`
+	// Port value for service discovery
+	Port int `pulumi:"port"`
+	// ARN of the service registry
+	RegistryArn string `pulumi:"registryArn"`
+}
+
+// GetServiceServiceRegistryInput is an input type that accepts GetServiceServiceRegistryArgs and GetServiceServiceRegistryOutput values.
+// You can construct a concrete instance of `GetServiceServiceRegistryInput` via:
+//
+//	GetServiceServiceRegistryArgs{...}
+type GetServiceServiceRegistryInput interface {
+	pulumi.Input
+
+	ToGetServiceServiceRegistryOutput() GetServiceServiceRegistryOutput
+	ToGetServiceServiceRegistryOutputWithContext(context.Context) GetServiceServiceRegistryOutput
+}
+
+type GetServiceServiceRegistryArgs struct {
+	// Name of the container to associate with the load balancer.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Port on the container to associate with the load balancer.
+	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
+	// Port value for service discovery
+	Port pulumi.IntInput `pulumi:"port"`
+	// ARN of the service registry
+	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
+}
+
+func (GetServiceServiceRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceServiceRegistry)(nil)).Elem()
+}
+
+func (i GetServiceServiceRegistryArgs) ToGetServiceServiceRegistryOutput() GetServiceServiceRegistryOutput {
+	return i.ToGetServiceServiceRegistryOutputWithContext(context.Background())
+}
+
+func (i GetServiceServiceRegistryArgs) ToGetServiceServiceRegistryOutputWithContext(ctx context.Context) GetServiceServiceRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceServiceRegistryOutput)
+}
+
+// GetServiceServiceRegistryArrayInput is an input type that accepts GetServiceServiceRegistryArray and GetServiceServiceRegistryArrayOutput values.
+// You can construct a concrete instance of `GetServiceServiceRegistryArrayInput` via:
+//
+//	GetServiceServiceRegistryArray{ GetServiceServiceRegistryArgs{...} }
+type GetServiceServiceRegistryArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceServiceRegistryArrayOutput() GetServiceServiceRegistryArrayOutput
+	ToGetServiceServiceRegistryArrayOutputWithContext(context.Context) GetServiceServiceRegistryArrayOutput
+}
+
+type GetServiceServiceRegistryArray []GetServiceServiceRegistryInput
+
+func (GetServiceServiceRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceServiceRegistry)(nil)).Elem()
+}
+
+func (i GetServiceServiceRegistryArray) ToGetServiceServiceRegistryArrayOutput() GetServiceServiceRegistryArrayOutput {
+	return i.ToGetServiceServiceRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceServiceRegistryArray) ToGetServiceServiceRegistryArrayOutputWithContext(ctx context.Context) GetServiceServiceRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceServiceRegistryArrayOutput)
+}
+
+type GetServiceServiceRegistryOutput struct{ *pulumi.OutputState }
+
+func (GetServiceServiceRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceServiceRegistry)(nil)).Elem()
+}
+
+func (o GetServiceServiceRegistryOutput) ToGetServiceServiceRegistryOutput() GetServiceServiceRegistryOutput {
+	return o
+}
+
+func (o GetServiceServiceRegistryOutput) ToGetServiceServiceRegistryOutputWithContext(ctx context.Context) GetServiceServiceRegistryOutput {
+	return o
+}
+
+// Name of the container to associate with the load balancer.
+func (o GetServiceServiceRegistryOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceServiceRegistry) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Port on the container to associate with the load balancer.
+func (o GetServiceServiceRegistryOutput) ContainerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceServiceRegistry) int { return v.ContainerPort }).(pulumi.IntOutput)
+}
+
+// Port value for service discovery
+func (o GetServiceServiceRegistryOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceServiceRegistry) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// ARN of the service registry
+func (o GetServiceServiceRegistryOutput) RegistryArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceServiceRegistry) string { return v.RegistryArn }).(pulumi.StringOutput)
+}
+
+type GetServiceServiceRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceServiceRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceServiceRegistry)(nil)).Elem()
+}
+
+func (o GetServiceServiceRegistryArrayOutput) ToGetServiceServiceRegistryArrayOutput() GetServiceServiceRegistryArrayOutput {
+	return o
+}
+
+func (o GetServiceServiceRegistryArrayOutput) ToGetServiceServiceRegistryArrayOutputWithContext(ctx context.Context) GetServiceServiceRegistryArrayOutput {
+	return o
+}
+
+func (o GetServiceServiceRegistryArrayOutput) Index(i pulumi.IntInput) GetServiceServiceRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceServiceRegistry {
+		return vs[0].([]GetServiceServiceRegistry)[vs[1].(int)]
+	}).(GetServiceServiceRegistryOutput)
+}
+
+type GetServiceTaskSet struct {
+	// ARN of the task set
+	Arn string `pulumi:"arn"`
+	// Time when task set was created (RFC3339 format)
+	CreatedAt string `pulumi:"createdAt"`
+	// Task set ID
+	Id string `pulumi:"id"`
+	// Number of pending tasks
+	PendingCount int `pulumi:"pendingCount"`
+	// Number of running tasks
+	RunningCount int `pulumi:"runningCount"`
+	// Stability status of the task set
+	StabilityStatus string `pulumi:"stabilityStatus"`
+	// Task set status
+	Status string `pulumi:"status"`
+	// Task definition ARN
+	TaskDefinition string `pulumi:"taskDefinition"`
+	// Time when task set was last updated (RFC3339 format)
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetServiceTaskSetInput is an input type that accepts GetServiceTaskSetArgs and GetServiceTaskSetOutput values.
+// You can construct a concrete instance of `GetServiceTaskSetInput` via:
+//
+//	GetServiceTaskSetArgs{...}
+type GetServiceTaskSetInput interface {
+	pulumi.Input
+
+	ToGetServiceTaskSetOutput() GetServiceTaskSetOutput
+	ToGetServiceTaskSetOutputWithContext(context.Context) GetServiceTaskSetOutput
+}
+
+type GetServiceTaskSetArgs struct {
+	// ARN of the task set
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Time when task set was created (RFC3339 format)
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Task set ID
+	Id pulumi.StringInput `pulumi:"id"`
+	// Number of pending tasks
+	PendingCount pulumi.IntInput `pulumi:"pendingCount"`
+	// Number of running tasks
+	RunningCount pulumi.IntInput `pulumi:"runningCount"`
+	// Stability status of the task set
+	StabilityStatus pulumi.StringInput `pulumi:"stabilityStatus"`
+	// Task set status
+	Status pulumi.StringInput `pulumi:"status"`
+	// Task definition ARN
+	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
+	// Time when task set was last updated (RFC3339 format)
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetServiceTaskSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceTaskSet)(nil)).Elem()
+}
+
+func (i GetServiceTaskSetArgs) ToGetServiceTaskSetOutput() GetServiceTaskSetOutput {
+	return i.ToGetServiceTaskSetOutputWithContext(context.Background())
+}
+
+func (i GetServiceTaskSetArgs) ToGetServiceTaskSetOutputWithContext(ctx context.Context) GetServiceTaskSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTaskSetOutput)
+}
+
+// GetServiceTaskSetArrayInput is an input type that accepts GetServiceTaskSetArray and GetServiceTaskSetArrayOutput values.
+// You can construct a concrete instance of `GetServiceTaskSetArrayInput` via:
+//
+//	GetServiceTaskSetArray{ GetServiceTaskSetArgs{...} }
+type GetServiceTaskSetArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceTaskSetArrayOutput() GetServiceTaskSetArrayOutput
+	ToGetServiceTaskSetArrayOutputWithContext(context.Context) GetServiceTaskSetArrayOutput
+}
+
+type GetServiceTaskSetArray []GetServiceTaskSetInput
+
+func (GetServiceTaskSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceTaskSet)(nil)).Elem()
+}
+
+func (i GetServiceTaskSetArray) ToGetServiceTaskSetArrayOutput() GetServiceTaskSetArrayOutput {
+	return i.ToGetServiceTaskSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceTaskSetArray) ToGetServiceTaskSetArrayOutputWithContext(ctx context.Context) GetServiceTaskSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTaskSetArrayOutput)
+}
+
+type GetServiceTaskSetOutput struct{ *pulumi.OutputState }
+
+func (GetServiceTaskSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceTaskSet)(nil)).Elem()
+}
+
+func (o GetServiceTaskSetOutput) ToGetServiceTaskSetOutput() GetServiceTaskSetOutput {
+	return o
+}
+
+func (o GetServiceTaskSetOutput) ToGetServiceTaskSetOutputWithContext(ctx context.Context) GetServiceTaskSetOutput {
+	return o
+}
+
+// ARN of the task set
+func (o GetServiceTaskSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Time when task set was created (RFC3339 format)
+func (o GetServiceTaskSetOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Task set ID
+func (o GetServiceTaskSetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Number of pending tasks
+func (o GetServiceTaskSetOutput) PendingCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) int { return v.PendingCount }).(pulumi.IntOutput)
+}
+
+// Number of running tasks
+func (o GetServiceTaskSetOutput) RunningCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) int { return v.RunningCount }).(pulumi.IntOutput)
+}
+
+// Stability status of the task set
+func (o GetServiceTaskSetOutput) StabilityStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.StabilityStatus }).(pulumi.StringOutput)
+}
+
+// Task set status
+func (o GetServiceTaskSetOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Task definition ARN
+func (o GetServiceTaskSetOutput) TaskDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.TaskDefinition }).(pulumi.StringOutput)
+}
+
+// Time when task set was last updated (RFC3339 format)
+func (o GetServiceTaskSetOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTaskSet) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetServiceTaskSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceTaskSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceTaskSet)(nil)).Elem()
+}
+
+func (o GetServiceTaskSetArrayOutput) ToGetServiceTaskSetArrayOutput() GetServiceTaskSetArrayOutput {
+	return o
+}
+
+func (o GetServiceTaskSetArrayOutput) ToGetServiceTaskSetArrayOutputWithContext(ctx context.Context) GetServiceTaskSetArrayOutput {
+	return o
+}
+
+func (o GetServiceTaskSetArrayOutput) Index(i pulumi.IntInput) GetServiceTaskSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceTaskSet {
+		return vs[0].([]GetServiceTaskSet)[vs[1].(int)]
+	}).(GetServiceTaskSetOutput)
 }
 
 type GetTaskDefinitionEphemeralStorage struct {
@@ -13551,8 +15737,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerPtrInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationCanaryConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationCanaryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationCanaryConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationCanaryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentConfigurationLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationLinearConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationLinearConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationLinearConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
@@ -13631,10 +15821,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterServiceConnectDefaultArrayInput)(nil)).Elem(), GetClusterServiceConnectDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCapacityProviderStrategyInput)(nil)).Elem(), GetServiceCapacityProviderStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCapacityProviderStrategyArrayInput)(nil)).Elem(), GetServiceCapacityProviderStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentInput)(nil)).Elem(), GetServiceDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentArrayInput)(nil)).Elem(), GetServiceDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationInput)(nil)).Elem(), GetServiceDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationAlarmInput)(nil)).Elem(), GetServiceDeploymentConfigurationAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationAlarmArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationCanaryConfigurationInput)(nil)).Elem(), GetServiceDeploymentConfigurationCanaryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationCanaryConfigurationArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationCanaryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationDeploymentCircuitBreakerInput)(nil)).Elem(), GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationDeploymentCircuitBreakerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLifecycleHookArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfigurationInput)(nil)).Elem(), GetServiceDeploymentConfigurationLinearConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentConfigurationLinearConfigurationArrayInput)(nil)).Elem(), GetServiceDeploymentConfigurationLinearConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentControllerInput)(nil)).Elem(), GetServiceDeploymentControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDeploymentControllerArrayInput)(nil)).Elem(), GetServiceDeploymentControllerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceEventInput)(nil)).Elem(), GetServiceEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceEventArrayInput)(nil)).Elem(), GetServiceEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerInput)(nil)).Elem(), GetServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerArrayInput)(nil)).Elem(), GetServiceLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfigurationInput)(nil)).Elem(), GetServiceLoadBalancerAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLoadBalancerAdvancedConfigurationArrayInput)(nil)).Elem(), GetServiceLoadBalancerAdvancedConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkConfigurationInput)(nil)).Elem(), GetServiceNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkConfigurationArrayInput)(nil)).Elem(), GetServiceNetworkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceOrderedPlacementStrategyInput)(nil)).Elem(), GetServiceOrderedPlacementStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceOrderedPlacementStrategyArrayInput)(nil)).Elem(), GetServiceOrderedPlacementStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServicePlacementConstraintInput)(nil)).Elem(), GetServicePlacementConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServicePlacementConstraintArrayInput)(nil)).Elem(), GetServicePlacementConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceServiceRegistryInput)(nil)).Elem(), GetServiceServiceRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceServiceRegistryArrayInput)(nil)).Elem(), GetServiceServiceRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTaskSetInput)(nil)).Elem(), GetServiceTaskSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTaskSetArrayInput)(nil)).Elem(), GetServiceTaskSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageArrayInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArgs{})
@@ -13725,8 +15945,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationCanaryConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationCanaryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLinearConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentConfigurationLinearConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
@@ -13805,10 +16029,40 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterServiceConnectDefaultArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(GetServiceCapacityProviderStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationAlarmOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationAlarmArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationCanaryConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationCanaryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationDeploymentCircuitBreakerOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationDeploymentCircuitBreakerArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLinearConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentConfigurationLinearConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentControllerOutput{})
+	pulumi.RegisterOutputType(GetServiceDeploymentControllerArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceEventOutput{})
+	pulumi.RegisterOutputType(GetServiceEventArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(GetServiceLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLoadBalancerAdvancedConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceLoadBalancerAdvancedConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceOrderedPlacementStrategyOutput{})
+	pulumi.RegisterOutputType(GetServiceOrderedPlacementStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetServicePlacementConstraintOutput{})
+	pulumi.RegisterOutputType(GetServicePlacementConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceServiceRegistryOutput{})
+	pulumi.RegisterOutputType(GetServiceServiceRegistryArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceTaskSetOutput{})
+	pulumi.RegisterOutputType(GetServiceTaskSetArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintOutput{})

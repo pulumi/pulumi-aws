@@ -31,7 +31,7 @@ class AgentcoreMemoryArgs:
                  timeouts: Optional[pulumi.Input['AgentcoreMemoryTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemory resource.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of minutes after which memory events expire. Must be a positive integer.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the memory.
@@ -61,7 +61,7 @@ class AgentcoreMemoryArgs:
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> pulumi.Input[_builtins.int]:
         """
-        Number of minutes after which memory events expire. Must be a positive integer.
+        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 
         The following arguments are optional:
         """
@@ -171,7 +171,7 @@ class _AgentcoreMemoryState:
         :param pulumi.Input[_builtins.str] arn: ARN of the Memory.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of minutes after which memory events expire. Must be a positive integer.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
@@ -241,7 +241,7 @@ class _AgentcoreMemoryState:
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Number of minutes after which memory events expire. Must be a positive integer.
+        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 
         The following arguments are optional:
         """
@@ -362,11 +362,25 @@ class AgentcoreMemory(pulumi.CustomResource):
             role=example.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
         example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example-memory",
+            name="example_memory",
             event_expiry_duration=30)
         ```
 
         ### Memory with Custom Encryption and Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
+        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
+            name="example_memory",
+            description="Memory for customer service agent",
+            event_expiry_duration=60,
+            encryption_key_arn=example.arn,
+            memory_execution_role_arn=example_aws_iam_role["arn"],
+            client_token="unique-client-token")
+        ```
 
         ## Import
 
@@ -380,7 +394,7 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of minutes after which memory events expire. Must be a positive integer.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
@@ -420,11 +434,25 @@ class AgentcoreMemory(pulumi.CustomResource):
             role=example.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonBedrockAgentCoreMemoryBedrockModelInferenceExecutionRolePolicy")
         example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
-            name="example-memory",
+            name="example_memory",
             event_expiry_duration=30)
         ```
 
         ### Memory with Custom Encryption and Role
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kms.Key("example", description="KMS key for Bedrock AgentCore Memory")
+        example_agentcore_memory = aws.bedrock.AgentcoreMemory("example",
+            name="example_memory",
+            description="Memory for customer service agent",
+            event_expiry_duration=60,
+            encryption_key_arn=example.arn,
+            memory_execution_role_arn=example_aws_iam_role["arn"],
+            client_token="unique-client-token")
+        ```
 
         ## Import
 
@@ -508,7 +536,7 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Memory.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of minutes after which memory events expire. Must be a positive integer.
+        :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
@@ -561,7 +589,7 @@ class AgentcoreMemory(pulumi.CustomResource):
     @pulumi.getter(name="eventExpiryDuration")
     def event_expiry_duration(self) -> pulumi.Output[_builtins.int]:
         """
-        Number of minutes after which memory events expire. Must be a positive integer.
+        Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 
         The following arguments are optional:
         """

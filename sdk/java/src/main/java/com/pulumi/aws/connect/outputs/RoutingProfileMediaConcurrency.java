@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.connect.outputs;
 
+import com.pulumi.aws.connect.outputs.RoutingProfileMediaConcurrencyCrossChannelBehavior;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class RoutingProfileMediaConcurrency {
@@ -17,10 +20,11 @@ public final class RoutingProfileMediaConcurrency {
      */
     private String channel;
     /**
-     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
      * 
      */
     private Integer concurrency;
+    private @Nullable RoutingProfileMediaConcurrencyCrossChannelBehavior crossChannelBehavior;
 
     private RoutingProfileMediaConcurrency() {}
     /**
@@ -31,11 +35,14 @@ public final class RoutingProfileMediaConcurrency {
         return this.channel;
     }
     /**
-     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+     * @return Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
      * 
      */
     public Integer concurrency() {
         return this.concurrency;
+    }
+    public Optional<RoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehavior() {
+        return Optional.ofNullable(this.crossChannelBehavior);
     }
 
     public static Builder builder() {
@@ -49,11 +56,13 @@ public final class RoutingProfileMediaConcurrency {
     public static final class Builder {
         private String channel;
         private Integer concurrency;
+        private @Nullable RoutingProfileMediaConcurrencyCrossChannelBehavior crossChannelBehavior;
         public Builder() {}
         public Builder(RoutingProfileMediaConcurrency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.channel = defaults.channel;
     	      this.concurrency = defaults.concurrency;
+    	      this.crossChannelBehavior = defaults.crossChannelBehavior;
         }
 
         @CustomType.Setter
@@ -72,10 +81,17 @@ public final class RoutingProfileMediaConcurrency {
             this.concurrency = concurrency;
             return this;
         }
+        @CustomType.Setter
+        public Builder crossChannelBehavior(@Nullable RoutingProfileMediaConcurrencyCrossChannelBehavior crossChannelBehavior) {
+
+            this.crossChannelBehavior = crossChannelBehavior;
+            return this;
+        }
         public RoutingProfileMediaConcurrency build() {
             final var _resultValue = new RoutingProfileMediaConcurrency();
             _resultValue.channel = channel;
             _resultValue.concurrency = concurrency;
+            _resultValue.crossChannelBehavior = crossChannelBehavior;
             return _resultValue;
         }
     }

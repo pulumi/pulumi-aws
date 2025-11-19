@@ -17,14 +17,14 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
     public static final EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs Empty = new EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs();
 
     /**
-     * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+     * Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
      * 
      */
     @Import(name="maxInstanceCount")
     private @Nullable Output<Integer> maxInstanceCount;
 
     /**
-     * @return The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+     * @return Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
      * 
      */
     public Optional<Output<Integer>> maxInstanceCount() {
@@ -32,14 +32,14 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
     }
 
     /**
-     * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+     * Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
      * 
      */
     @Import(name="minInstanceCount")
     private @Nullable Output<Integer> minInstanceCount;
 
     /**
-     * @return The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+     * @return Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
      * 
      */
     public Optional<Output<Integer>> minInstanceCount() {
@@ -47,14 +47,14 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
     }
 
     /**
-     * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+     * Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+     * @return Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -88,7 +88,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param maxInstanceCount The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         * @param maxInstanceCount Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param maxInstanceCount The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         * @param maxInstanceCount Maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param minInstanceCount The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         * @param minInstanceCount Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param minInstanceCount The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         * @param minInstanceCount Minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param status Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         * @param status Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
         }
 
         /**
-         * @param status Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         * @param status Whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 

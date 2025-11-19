@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             resources: [Promise.all([exampleBucket.arn, current]).then(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",

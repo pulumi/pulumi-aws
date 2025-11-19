@@ -589,7 +589,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             role=example.id,
             policy=ecr_permissions.json)
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-agent-runtime",
+            agent_runtime_name="example_agent_runtime",
             role_arn=example.arn,
             agent_runtime_artifact={
                 "container_configuration": {
@@ -608,7 +608,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-agent-runtime",
+            agent_runtime_name="example_agent_runtime",
             description="Agent runtime with JWT authorization",
             role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={
@@ -713,7 +713,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             role=example.id,
             policy=ecr_permissions.json)
         example_agentcore_agent_runtime = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-agent-runtime",
+            agent_runtime_name="example_agent_runtime",
             role_arn=example.arn,
             agent_runtime_artifact={
                 "container_configuration": {
@@ -732,7 +732,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreAgentRuntime("example",
-            agent_runtime_name="example-agent-runtime",
+            agent_runtime_name="example_agent_runtime",
             description="Agent runtime with JWT authorization",
             role_arn=example_aws_iam_role["arn"],
             agent_runtime_artifact={

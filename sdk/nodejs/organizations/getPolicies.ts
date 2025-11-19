@@ -38,7 +38,7 @@ export function getPolicies(args: GetPoliciesArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetPoliciesArgs {
     /**
-     * The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+     * The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
      */
     filter: string;
 }
@@ -91,7 +91,7 @@ export function getPoliciesOutput(args: GetPoliciesOutputArgs, opts?: pulumi.Inv
  */
 export interface GetPoliciesOutputArgs {
     /**
-     * The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
+     * The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | CHATBOT_POLICY | DECLARATIVE_POLICY_EC2 | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
      */
     filter: pulumi.Input<string>;
 }

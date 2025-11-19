@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Instructions;
         /// <summary>
-        /// Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        /// Search type for MCP. Valid values: `SEMANTIC`.
         /// </summary>
         public readonly string? SearchType;
         /// <summary>

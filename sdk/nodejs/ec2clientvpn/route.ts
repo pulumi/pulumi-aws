@@ -82,7 +82,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The IPv4 address range, in CIDR notation, of the route destination.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      */
     declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface RouteState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The IPv4 address range, in CIDR notation, of the route destination.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      */
     destinationCidrBlock?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface RouteArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The IPv4 address range, in CIDR notation, of the route destination.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      */
     destinationCidrBlock: pulumi.Input<string>;
     /**

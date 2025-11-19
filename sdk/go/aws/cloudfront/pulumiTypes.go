@@ -3279,11 +3279,11 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) In
 }
 
 type DistributionLoggingConfig struct {
-	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-	Bucket string `pulumi:"bucket"`
-	// Whether to include cookies in access logs (default: `false`).
+	// Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+	Bucket *string `pulumi:"bucket"`
+	// Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
 	IncludeCookies *bool `pulumi:"includeCookies"`
-	// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+	// Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -3299,11 +3299,11 @@ type DistributionLoggingConfigInput interface {
 }
 
 type DistributionLoggingConfigArgs struct {
-	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Whether to include cookies in access logs (default: `false`).
+	// Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
 	IncludeCookies pulumi.BoolPtrInput `pulumi:"includeCookies"`
-	// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+	// Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -3384,17 +3384,17 @@ func (o DistributionLoggingConfigOutput) ToDistributionLoggingConfigPtrOutputWit
 	}).(DistributionLoggingConfigPtrOutput)
 }
 
-// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-func (o DistributionLoggingConfigOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
+// Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+func (o DistributionLoggingConfigOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionLoggingConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Whether to include cookies in access logs (default: `false`).
+// Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
 func (o DistributionLoggingConfigOutput) IncludeCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionLoggingConfig) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
 }
 
-// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+// Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
 func (o DistributionLoggingConfigOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLoggingConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3423,17 +3423,17 @@ func (o DistributionLoggingConfigPtrOutput) Elem() DistributionLoggingConfigOutp
 	}).(DistributionLoggingConfigOutput)
 }
 
-// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+// Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
 func (o DistributionLoggingConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLoggingConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Bucket
+		return v.Bucket
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to include cookies in access logs (default: `false`).
+// Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
 func (o DistributionLoggingConfigPtrOutput) IncludeCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionLoggingConfig) *bool {
 		if v == nil {
@@ -3443,7 +3443,7 @@ func (o DistributionLoggingConfigPtrOutput) IncludeCookies() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+// Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
 func (o DistributionLoggingConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLoggingConfig) *string {
 		if v == nil {

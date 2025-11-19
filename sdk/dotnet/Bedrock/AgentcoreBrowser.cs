@@ -37,6 +37,41 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Browser with VPC Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpcExample = new Aws.Bedrock.AgentcoreBrowser("vpc_example", new()
+    ///     {
+    ///         Name = "vpc-browser",
+    ///         Description = "Browser with VPC configuration",
+    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationArgs
+    ///         {
+    ///             NetworkMode = "VPC",
+    ///             VpcConfig = new Aws.Bedrock.Inputs.AgentcoreBrowserNetworkConfigurationVpcConfigArgs
+    ///             {
+    ///                 SecurityGroups = new[]
+    ///                 {
+    ///                     "sg-12345678",
+    ///                 },
+    ///                 Subnets = new[]
+    ///                 {
+    ///                     "subnet-12345678",
+    ///                     "subnet-87654321",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Browser with Execution Role and Recording
     /// 
     /// ```csharp

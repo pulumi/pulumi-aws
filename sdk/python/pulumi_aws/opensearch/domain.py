@@ -33,6 +33,7 @@ class DomainArgs:
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  encrypt_at_rest: Optional[pulumi.Input['DomainEncryptAtRestArgs']] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_center_options: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
@@ -47,6 +48,7 @@ class DomainArgs:
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input['DomainAimlOptionsArgs'] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
@@ -59,6 +61,7 @@ class DomainArgs:
         :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
+        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
@@ -93,6 +96,8 @@ class DomainArgs:
             pulumi.set(__self__, "encrypt_at_rest", encrypt_at_rest)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if identity_center_options is not None:
+            pulumi.set(__self__, "identity_center_options", identity_center_options)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if log_publishing_options is not None:
@@ -151,6 +156,9 @@ class DomainArgs:
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
+        """
+        Configuration block for parameters required to enable all machine learning features. Detailed below.
+        """
         return pulumi.get(self, "aiml_options")
 
     @aiml_options.setter
@@ -256,6 +264,18 @@ class DomainArgs:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
+        """
+        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        """
+        return pulumi.get(self, "identity_center_options")
+
+    @identity_center_options.setter
+    def identity_center_options(self, value: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]):
+        pulumi.set(self, "identity_center_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
@@ -388,6 +408,7 @@ class _DomainState:
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_v2: Optional[pulumi.Input[_builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_center_options: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
@@ -403,6 +424,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input['DomainAimlOptionsArgs'] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
@@ -422,6 +444,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
+        :param pulumi.Input['DomainIdentityCenterOptionsArgs'] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
@@ -471,6 +494,8 @@ class _DomainState:
             pulumi.set(__self__, "endpoint_v2", endpoint_v2)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if identity_center_options is not None:
+            pulumi.set(__self__, "identity_center_options", identity_center_options)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if log_publishing_options is not None:
@@ -531,6 +556,9 @@ class _DomainState:
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
+        """
+        Configuration block for parameters required to enable all machine learning features. Detailed below.
+        """
         return pulumi.get(self, "aiml_options")
 
     @aiml_options.setter
@@ -722,6 +750,18 @@ class _DomainState:
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
+        """
+        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        """
+        return pulumi.get(self, "identity_center_options")
+
+    @identity_center_options.setter
+    def identity_center_options(self, value: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]):
+        pulumi.set(self, "identity_center_options", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -860,6 +900,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_center_options: Optional[pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
@@ -1131,6 +1172,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
         :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
@@ -1143,6 +1185,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
+        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
@@ -1442,6 +1485,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_center_options: Optional[pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
@@ -1472,6 +1516,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["ebs_options"] = ebs_options
             __props__.__dict__["encrypt_at_rest"] = encrypt_at_rest
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["identity_center_options"] = identity_center_options
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
@@ -1518,6 +1563,7 @@ class Domain(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             endpoint_v2: Optional[pulumi.Input[_builtins.str]] = None,
             engine_version: Optional[pulumi.Input[_builtins.str]] = None,
+            identity_center_options: Optional[pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
             ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
             log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
             node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
@@ -1538,6 +1584,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Configuration block for parameters required to enable all machine learning features. Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain.
         :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
@@ -1557,6 +1604,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
+        :param pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']] identity_center_options: Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
@@ -1591,6 +1639,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["endpoint_v2"] = endpoint_v2
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["identity_center_options"] = identity_center_options
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["log_publishing_options"] = log_publishing_options
         __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
@@ -1630,6 +1679,9 @@ class Domain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aimlOptions")
     def aiml_options(self) -> pulumi.Output['outputs.DomainAimlOptions']:
+        """
+        Configuration block for parameters required to enable all machine learning features. Detailed below.
+        """
         return pulumi.get(self, "aiml_options")
 
     @_builtins.property
@@ -1755,6 +1807,14 @@ class Domain(pulumi.CustomResource):
         Defaults to the lastest version of OpenSearch.
         """
         return pulumi.get(self, "engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> pulumi.Output[Optional['outputs.DomainIdentityCenterOptions']]:
+        """
+        Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+        """
+        return pulumi.get(self, "identity_center_options")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")

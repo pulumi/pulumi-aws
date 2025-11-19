@@ -9,7 +9,6 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantRou
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -25,14 +24,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     public static final EndpointConfigurationProductionVariantArgs Empty = new EndpointConfigurationProductionVariantArgs();
 
     /**
-     * The size of the Elastic Inference (EI) instance to use for the production variant.
+     * Size of the Elastic Inference (EI) instance to use for the production variant.
      * 
      */
     @Import(name="acceleratorType")
     private @Nullable Output<String> acceleratorType;
 
     /**
-     * @return The size of the Elastic Inference (EI) instance to use for the production variant.
+     * @return Size of the Elastic Inference (EI) instance to use for the production variant.
      * 
      */
     public Optional<Output<String>> acceleratorType() {
@@ -40,14 +39,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+     * Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
      * 
      */
     @Import(name="containerStartupHealthCheckTimeoutInSeconds")
     private @Nullable Output<Integer> containerStartupHealthCheckTimeoutInSeconds;
 
     /**
-     * @return The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+     * @return Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
      * 
      */
     public Optional<Output<Integer>> containerStartupHealthCheckTimeoutInSeconds() {
@@ -55,14 +54,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+     * Core dump configuration from the model container when the process crashes. Fields are documented below.
      * 
      */
     @Import(name="coreDumpConfig")
     private @Nullable Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs> coreDumpConfig;
 
     /**
-     * @return Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+     * @return Core dump configuration from the model container when the process crashes. Fields are documented below.
      * 
      */
     public Optional<Output<EndpointConfigurationProductionVariantCoreDumpConfigArgs>> coreDumpConfig() {
@@ -70,14 +69,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
      * 
      */
     @Import(name="enableSsmAccess")
     private @Nullable Output<Boolean> enableSsmAccess;
 
     /**
-     * @return You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+     * @return Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
      * 
      */
     public Optional<Output<Boolean>> enableSsmAccess() {
@@ -85,14 +84,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
      * 
      */
     @Import(name="inferenceAmiVersion")
     private @Nullable Output<String> inferenceAmiVersion;
 
     /**
-     * @return Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * @return Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
      * 
      */
     public Optional<Output<String>> inferenceAmiVersion() {
@@ -115,14 +114,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+     * Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
      * 
      */
     @Import(name="initialVariantWeight")
     private @Nullable Output<Double> initialVariantWeight;
 
     /**
-     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+     * @return Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
      * 
      */
     public Optional<Output<Double>> initialVariantWeight() {
@@ -130,14 +129,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The type of instance to start.
+     * Type of instance to start.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The type of instance to start.
+     * @return Type of instance to start.
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -145,14 +144,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
      * 
      */
     @Import(name="managedInstanceScaling")
     private @Nullable Output<EndpointConfigurationProductionVariantManagedInstanceScalingArgs> managedInstanceScaling;
 
     /**
-     * @return Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * @return Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
      * 
      */
     public Optional<Output<EndpointConfigurationProductionVariantManagedInstanceScalingArgs>> managedInstanceScaling() {
@@ -160,14 +159,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+     * Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
      */
     @Import(name="modelDataDownloadTimeoutInSeconds")
     private @Nullable Output<Integer> modelDataDownloadTimeoutInSeconds;
 
     /**
-     * @return The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+     * @return Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
      */
     public Optional<Output<Integer>> modelDataDownloadTimeoutInSeconds() {
@@ -175,29 +174,29 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The name of the model to use.
+     * Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
      * 
      */
-    @Import(name="modelName", required=true)
-    private Output<String> modelName;
+    @Import(name="modelName")
+    private @Nullable Output<String> modelName;
 
     /**
-     * @return The name of the model to use.
+     * @return Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
      * 
      */
-    public Output<String> modelName() {
-        return this.modelName;
+    public Optional<Output<String>> modelName() {
+        return Optional.ofNullable(this.modelName);
     }
 
     /**
-     * Sets how the endpoint routes incoming traffic. See routingConfig below.
+     * How the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     @Import(name="routingConfigs")
     private @Nullable Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>> routingConfigs;
 
     /**
-     * @return Sets how the endpoint routes incoming traffic. See routingConfig below.
+     * @return How the endpoint routes incoming traffic. See routingConfig below.
      * 
      */
     public Optional<Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>>> routingConfigs() {
@@ -205,14 +204,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      * 
      */
     @Import(name="serverlessConfig")
     private @Nullable Output<EndpointConfigurationProductionVariantServerlessConfigArgs> serverlessConfig;
 
     /**
-     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * @return How an endpoint performs asynchronous inference.
      * 
      */
     public Optional<Output<EndpointConfigurationProductionVariantServerlessConfigArgs>> serverlessConfig() {
@@ -220,14 +219,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The name of the variant. If omitted, this provider will assign a random, unique name.
+     * Name of the variant. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="variantName")
     private @Nullable Output<String> variantName;
 
     /**
-     * @return The name of the variant. If omitted, this provider will assign a random, unique name.
+     * @return Name of the variant. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> variantName() {
@@ -235,14 +234,14 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
-     * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+     * Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
      * 
      */
     @Import(name="volumeSizeInGb")
     private @Nullable Output<Integer> volumeSizeInGb;
 
     /**
-     * @return The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+     * @return Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
      * 
      */
     public Optional<Output<Integer>> volumeSizeInGb() {
@@ -288,7 +287,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param acceleratorType The size of the Elastic Inference (EI) instance to use for the production variant.
+         * @param acceleratorType Size of the Elastic Inference (EI) instance to use for the production variant.
          * 
          * @return builder
          * 
@@ -299,7 +298,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param acceleratorType The size of the Elastic Inference (EI) instance to use for the production variant.
+         * @param acceleratorType Size of the Elastic Inference (EI) instance to use for the production variant.
          * 
          * @return builder
          * 
@@ -309,7 +308,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param containerStartupHealthCheckTimeoutInSeconds The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+         * @param containerStartupHealthCheckTimeoutInSeconds Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
          * 
          * @return builder
          * 
@@ -320,7 +319,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param containerStartupHealthCheckTimeoutInSeconds The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+         * @param containerStartupHealthCheckTimeoutInSeconds Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
          * 
          * @return builder
          * 
@@ -330,7 +329,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param coreDumpConfig Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+         * @param coreDumpConfig Core dump configuration from the model container when the process crashes. Fields are documented below.
          * 
          * @return builder
          * 
@@ -341,7 +340,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param coreDumpConfig Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+         * @param coreDumpConfig Core dump configuration from the model container when the process crashes. Fields are documented below.
          * 
          * @return builder
          * 
@@ -351,7 +350,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param enableSsmAccess You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+         * @param enableSsmAccess Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
          * 
          * @return builder
          * 
@@ -362,7 +361,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param enableSsmAccess You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+         * @param enableSsmAccess Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `modelName` is not set (Inference Components endpoint).
          * 
          * @return builder
          * 
@@ -372,7 +371,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param inferenceAmiVersion Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         * @param inferenceAmiVersion Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
          * 
          * @return builder
          * 
@@ -383,7 +382,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param inferenceAmiVersion Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         * @param inferenceAmiVersion Option from a collection of preconfigured AMI images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads.
          * 
          * @return builder
          * 
@@ -414,7 +413,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+         * @param initialVariantWeight Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
          * 
          * @return builder
          * 
@@ -425,7 +424,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+         * @param initialVariantWeight Initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, defaults to `1.0`. Ignored if `modelName` is not set (Inference Components endpoint).
          * 
          * @return builder
          * 
@@ -435,7 +434,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param instanceType The type of instance to start.
+         * @param instanceType Type of instance to start.
          * 
          * @return builder
          * 
@@ -446,7 +445,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param instanceType The type of instance to start.
+         * @param instanceType Type of instance to start.
          * 
          * @return builder
          * 
@@ -456,7 +455,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param managedInstanceScaling Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         * @param managedInstanceScaling Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
          * 
          * @return builder
          * 
@@ -467,7 +466,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param managedInstanceScaling Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         * @param managedInstanceScaling Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
          * 
          * @return builder
          * 
@@ -477,7 +476,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param modelDataDownloadTimeoutInSeconds The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+         * @param modelDataDownloadTimeoutInSeconds Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          * 
          * @return builder
          * 
@@ -488,7 +487,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param modelDataDownloadTimeoutInSeconds The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+         * @param modelDataDownloadTimeoutInSeconds Timeout value, in seconds, to download and extract the model that you want to host from S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          * 
          * @return builder
          * 
@@ -498,18 +497,18 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param modelName The name of the model to use.
+         * @param modelName Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
          * 
          * @return builder
          * 
          */
-        public Builder modelName(Output<String> modelName) {
+        public Builder modelName(@Nullable Output<String> modelName) {
             $.modelName = modelName;
             return this;
         }
 
         /**
-         * @param modelName The name of the model to use.
+         * @param modelName Name of the model to use. Required unless using Inference Components (in which case `executionRoleArn` must be specified at the endpoint configuration level).
          * 
          * @return builder
          * 
@@ -519,7 +518,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
+         * @param routingConfigs How the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 
@@ -530,7 +529,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
+         * @param routingConfigs How the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 
@@ -540,7 +539,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routingConfig below.
+         * @param routingConfigs How the endpoint routes incoming traffic. See routingConfig below.
          * 
          * @return builder
          * 
@@ -550,7 +549,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param serverlessConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * @param serverlessConfig How an endpoint performs asynchronous inference.
          * 
          * @return builder
          * 
@@ -561,7 +560,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param serverlessConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * @param serverlessConfig How an endpoint performs asynchronous inference.
          * 
          * @return builder
          * 
@@ -571,7 +570,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param variantName The name of the variant. If omitted, this provider will assign a random, unique name.
+         * @param variantName Name of the variant. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -582,7 +581,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param variantName The name of the variant. If omitted, this provider will assign a random, unique name.
+         * @param variantName Name of the variant. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -592,7 +591,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param volumeSizeInGb The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+         * @param volumeSizeInGb Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
          * 
          * @return builder
          * 
@@ -603,7 +602,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param volumeSizeInGb The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+         * @param volumeSizeInGb Size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
          * 
          * @return builder
          * 
@@ -613,9 +612,6 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         public EndpointConfigurationProductionVariantArgs build() {
-            if ($.modelName == null) {
-                throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantArgs", "modelName");
-            }
             return $;
         }
     }

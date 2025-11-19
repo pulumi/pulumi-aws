@@ -46,14 +46,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 address range, in CIDR notation, of the route destination.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      * 
      */
     @Import(name="destinationCidrBlock")
     private @Nullable Output<String> destinationCidrBlock;
 
     /**
-     * @return The IPv4 address range, in CIDR notation, of the route destination.
+     * @return The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      * 
      */
     public Optional<Output<String>> destinationCidrBlock() {
@@ -193,7 +193,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationCidrBlock The IPv4 address range, in CIDR notation, of the route destination.
+         * @param destinationCidrBlock The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationCidrBlock The IPv4 address range, in CIDR notation, of the route destination.
+         * @param destinationCidrBlock The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
          * 
          * @return builder
          * 

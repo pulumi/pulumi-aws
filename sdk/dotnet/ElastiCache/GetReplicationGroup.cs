@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly bool AuthTokenEnabled;
         /// <summary>
-        /// A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
+        /// Whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         /// </summary>
         public readonly bool AutomaticFailoverEnabled;
         /// <summary>
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string ClusterMode;
         /// <summary>
-        /// The configuration endpoint address to allow host discovery.
+        /// Configuration endpoint address to allow host discovery.
         /// </summary>
         public readonly string ConfigurationEndpointAddress;
         /// <summary>
@@ -170,11 +170,15 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly bool MultiAzEnabled;
         /// <summary>
-        /// The cluster node type.
+        /// Configuration of the node groups (shards). See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetReplicationGroupNodeGroupConfigurationResult> NodeGroupConfigurations;
+        /// <summary>
+        /// Cluster node type.
         /// </summary>
         public readonly string NodeType;
         /// <summary>
-        /// The number of cache clusters that the replication group has.
+        /// Number of cache clusters that the replication group has.
         /// </summary>
         public readonly int NumCacheClusters;
         /// <summary>
@@ -182,15 +186,15 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly int NumNodeGroups;
         /// <summary>
-        /// The port number on which the configuration endpoint will accept connections.
+        /// Port number on which the configuration endpoint will accept connections.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The endpoint of the primary node in this node group (shard).
+        /// Endpoint of the primary node in this node group (shard).
         /// </summary>
         public readonly string PrimaryEndpointAddress;
         /// <summary>
-        /// The endpoint of the reader node in this node group (shard).
+        /// Endpoint of the reader node in this node group (shard).
         /// </summary>
         public readonly string ReaderEndpointAddress;
         public readonly string Region;
@@ -200,7 +204,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly int ReplicasPerNodeGroup;
         public readonly string ReplicationGroupId;
         /// <summary>
-        /// The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
+        /// Number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         /// </summary>
         public readonly int SnapshotRetentionLimit;
         /// <summary>
@@ -229,6 +233,8 @@ namespace Pulumi.Aws.ElastiCache
             ImmutableArray<string> memberClusters,
 
             bool multiAzEnabled,
+
+            ImmutableArray<Outputs.GetReplicationGroupNodeGroupConfigurationResult> nodeGroupConfigurations,
 
             string nodeType,
 
@@ -262,6 +268,7 @@ namespace Pulumi.Aws.ElastiCache
             LogDeliveryConfigurations = logDeliveryConfigurations;
             MemberClusters = memberClusters;
             MultiAzEnabled = multiAzEnabled;
+            NodeGroupConfigurations = nodeGroupConfigurations;
             NodeType = nodeType;
             NumCacheClusters = numCacheClusters;
             NumNodeGroups = numNodeGroups;

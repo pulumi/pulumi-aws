@@ -41,6 +41,45 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ### Custom OAuth Provider with Discovery URL
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var auth0 = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("auth0", new()
+    ///     {
+    ///         Name = "auth0-oauth-provider",
+    ///         CredentialProviderVendor = "CustomOauth2",
+    ///         CustomOauth2ProviderConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "custom", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "clientIdWo", "auth0-client-id" },
+    ///                         { "clientSecretWo", "auth0-client-secret" },
+    ///                         { "clientCredentialsWoVersion", 1 },
+    ///                         { "oauthDiscovery", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration" },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Custom OAuth Provider with Authorization Server Metadata
     /// 
     /// ```csharp

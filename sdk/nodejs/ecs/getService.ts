@@ -60,15 +60,62 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * ARN of the ECS Service
+     * ARN of the task set
      */
     readonly arn: string;
+    /**
+     * Whether Availability Zone rebalancing is enabled
+     */
     readonly availabilityZoneRebalancing: string;
+    /**
+     * Capacity provider strategy for the service. See `capacityProviderStrategy` Block for details.
+     */
+    readonly capacityProviderStrategies: outputs.ecs.GetServiceCapacityProviderStrategy[];
     readonly clusterArn: string;
     /**
-     * Number of tasks for the ECS Service
+     * Time when task set was created (RFC3339 format)
+     */
+    readonly createdAt: string;
+    /**
+     * Principal that created the service
+     */
+    readonly createdBy: string;
+    /**
+     * Deployment configuration for the service. See `deploymentConfiguration` Block for details.
+     */
+    readonly deploymentConfigurations: outputs.ecs.GetServiceDeploymentConfiguration[];
+    /**
+     * Deployment controller configuration. See `deploymentController` Block for details.
+     */
+    readonly deploymentControllers: outputs.ecs.GetServiceDeploymentController[];
+    /**
+     * Current deployments for the service. See `deployments` Block for details.
+     */
+    readonly deployments: outputs.ecs.GetServiceDeployment[];
+    /**
+     * Desired number of tasks
      */
     readonly desiredCount: number;
+    /**
+     * Whether ECS managed tags are enabled
+     */
+    readonly enableEcsManagedTags: boolean;
+    /**
+     * Whether execute command functionality is enabled
+     */
+    readonly enableExecuteCommand: boolean;
+    /**
+     * Recent service events. See `events` Block for details.
+     */
+    readonly events: outputs.ecs.GetServiceEvent[];
+    /**
+     * Grace period for health checks
+     */
+    readonly healthCheckGracePeriodSeconds: number;
+    /**
+     * ARN of the IAM role associated with the service
+     */
+    readonly iamRole: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -81,20 +128,64 @@ export interface GetServiceResult {
      * Load balancers for the ECS Service. See `loadBalancer` Block for details.
      */
     readonly loadBalancers: outputs.ecs.GetServiceLoadBalancer[];
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block for details.
+     */
+    readonly networkConfigurations: outputs.ecs.GetServiceNetworkConfiguration[];
+    /**
+     * Placement strategy for tasks. See `orderedPlacementStrategy` Block for details.
+     */
+    readonly orderedPlacementStrategies: outputs.ecs.GetServiceOrderedPlacementStrategy[];
+    /**
+     * Number of pending tasks
+     */
+    readonly pendingCount: number;
+    /**
+     * Placement constraints for tasks. See `placementConstraints` Block for details.
+     */
+    readonly placementConstraints: outputs.ecs.GetServicePlacementConstraint[];
+    /**
+     * Platform family for Fargate tasks
+     */
+    readonly platformFamily: string;
+    /**
+     * Platform version for Fargate tasks
+     */
+    readonly platformVersion: string;
+    /**
+     * Whether tags are propagated from task definition or service
+     */
+    readonly propagateTags: string;
     readonly region: string;
+    /**
+     * Number of running tasks
+     */
+    readonly runningCount: number;
     /**
      * Scheduling strategy for the ECS Service
      */
     readonly schedulingStrategy: string;
     readonly serviceName: string;
     /**
+     * Service discovery registries. See `serviceRegistries` Block for details.
+     */
+    readonly serviceRegistries: outputs.ecs.GetServiceServiceRegistry[];
+    /**
+     * Task set status
+     */
+    readonly status: string;
+    /**
      * Resource tags.
      */
     readonly tags: {[key: string]: string};
     /**
-     * Family for the latest ACTIVE revision or full ARN of the task definition.
+     * Task definition ARN
      */
     readonly taskDefinition: string;
+    /**
+     * Task sets for the service. See `taskSets` Block for details.
+     */
+    readonly taskSets: outputs.ecs.GetServiceTaskSet[];
 }
 /**
  * The ECS Service data source allows access to details of a specific

@@ -46,8 +46,8 @@ import (
 // return err
 // }
 // example := exampleModelPackageGroup.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
 // Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AddPermModelPackageGroup"))),
 // Actions: []string{
@@ -66,14 +66,19 @@ import (
 // },
 // },
 // },
-// },
-// }, nil)), nil
+// }),
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
+// invokeJsondecode, err := std.Jsondecode(ctx, &std.JsondecodeArgs{
+// Input: example.Json,
+// }, nil)
+// if err != nil {
+// return err
+// }
 // _, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
 // ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
-// ResourcePolicy: std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
-// Input: example.Json,
-// }, nil).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
+// ResourcePolicy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (std.JsondecodeResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JsondecodeResultOutput).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
 // var _zero pulumi.String
 // tmpJSON0, err := json.Marshal(invoke.Result)
 // if err != nil {

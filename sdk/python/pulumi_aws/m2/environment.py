@@ -635,11 +635,86 @@ class Environment(pulumi.CustomResource):
 
         ### Basic Usage
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ])
+        ```
+
         ### High Availability
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            high_availability_config={
+                "desired_capacity": 2,
+            })
+        ```
 
         ### EFS Filesystem
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            storage_configuration={
+                "efs": {
+                    "file_system_id": "fs-01234567890abcdef",
+                    "mount_point": "/m2/mount/example",
+                },
+            })
+        ```
+
         ### FSX Filesystem
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            storage_configuration={
+                "fsx": {
+                    "file_system_id": "fs-01234567890abcdef",
+                    "mount_point": "/m2/mount/example",
+                },
+            })
+        ```
 
         ## Import
 
@@ -679,11 +754,86 @@ class Environment(pulumi.CustomResource):
 
         ### Basic Usage
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ])
+        ```
+
         ### High Availability
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            high_availability_config={
+                "desired_capacity": 2,
+            })
+        ```
 
         ### EFS Filesystem
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            storage_configuration={
+                "efs": {
+                    "file_system_id": "fs-01234567890abcdef",
+                    "mount_point": "/m2/mount/example",
+                },
+            })
+        ```
+
         ### FSX Filesystem
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.m2.Environment("test",
+            name="test-env",
+            engine_type="bluage",
+            instance_type="M2.m5.large",
+            security_groups=["sg-01234567890abcdef"],
+            subnet_ids=[
+                "subnet-01234567890abcdef",
+                "subnet-01234567890abcdea",
+            ],
+            storage_configuration={
+                "fsx": {
+                    "file_system_id": "fs-01234567890abcdef",
+                    "mount_point": "/m2/mount/example",
+                },
+            })
+        ```
 
         ## Import
 

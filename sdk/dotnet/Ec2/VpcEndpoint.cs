@@ -213,6 +213,76 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Non-AWS Service
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ptfeService = new Aws.Ec2.VpcEndpoint("ptfe_service", new()
+    ///     {
+    ///         VpcId = vpcId,
+    ///         ServiceName = ptfeServiceConfig,
+    ///         VpcEndpointType = "Interface",
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             ptfeServiceAwsSecurityGroup.Id,
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             subnetIds,
+    ///         },
+    ///         PrivateDnsEnabled = false,
+    ///     });
+    /// 
+    ///     var @internal = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "vpc.internal.",
+    ///         PrivateZone = true,
+    ///         VpcId = vpcId,
+    ///     });
+    /// 
+    ///     var ptfeServiceRecord = new Aws.Route53.Record("ptfe_service", new()
+    ///     {
+    ///         ZoneId = @internal.Apply(@internal =&gt; @internal.Apply(getZoneResult =&gt; getZoneResult.ZoneId)),
+    ///         Name = @internal.Apply(@internal =&gt; $"ptfe.{@internal.Apply(getZoneResult =&gt; getZoneResult.Name)}"),
+    ///         Type = Aws.Route53.RecordType.CNAME,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             ptfeService.DnsEntries.Apply(dnsEntries =&gt; dnsEntries[0].Dns_name),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE The `DnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `Lookup` and `[]` until full support of lists of maps is available
+    /// 
+    /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `id` - (String) ID of the VPC endpoint.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// 
+    /// * `region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
+    /// 
+    /// console
+    /// 
+    /// % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
     public partial class VpcEndpoint : global::Pulumi.CustomResource

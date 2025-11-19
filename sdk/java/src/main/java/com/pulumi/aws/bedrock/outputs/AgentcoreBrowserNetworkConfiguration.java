@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
-import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserNetworkConfigurationNetworkModeConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserNetworkConfigurationVpcConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,22 +14,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreBrowserNetworkConfiguration {
     /**
-     * @return Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+     * @return Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
      * 
      */
     private String networkMode;
-    private @Nullable AgentcoreBrowserNetworkConfigurationNetworkModeConfig networkModeConfig;
+    /**
+     * @return VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+     * 
+     */
+    private @Nullable AgentcoreBrowserNetworkConfigurationVpcConfig vpcConfig;
 
     private AgentcoreBrowserNetworkConfiguration() {}
     /**
-     * @return Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+     * @return Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
      * 
      */
     public String networkMode() {
         return this.networkMode;
     }
-    public Optional<AgentcoreBrowserNetworkConfigurationNetworkModeConfig> networkModeConfig() {
-        return Optional.ofNullable(this.networkModeConfig);
+    /**
+     * @return VPC configuration when `networkMode` is `VPC`. See `vpcConfig` below.
+     * 
+     */
+    public Optional<AgentcoreBrowserNetworkConfigurationVpcConfig> vpcConfig() {
+        return Optional.ofNullable(this.vpcConfig);
     }
 
     public static Builder builder() {
@@ -42,12 +50,12 @@ public final class AgentcoreBrowserNetworkConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String networkMode;
-        private @Nullable AgentcoreBrowserNetworkConfigurationNetworkModeConfig networkModeConfig;
+        private @Nullable AgentcoreBrowserNetworkConfigurationVpcConfig vpcConfig;
         public Builder() {}
         public Builder(AgentcoreBrowserNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkMode = defaults.networkMode;
-    	      this.networkModeConfig = defaults.networkModeConfig;
+    	      this.vpcConfig = defaults.vpcConfig;
         }
 
         @CustomType.Setter
@@ -59,15 +67,15 @@ public final class AgentcoreBrowserNetworkConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder networkModeConfig(@Nullable AgentcoreBrowserNetworkConfigurationNetworkModeConfig networkModeConfig) {
+        public Builder vpcConfig(@Nullable AgentcoreBrowserNetworkConfigurationVpcConfig vpcConfig) {
 
-            this.networkModeConfig = networkModeConfig;
+            this.vpcConfig = vpcConfig;
             return this;
         }
         public AgentcoreBrowserNetworkConfiguration build() {
             final var _resultValue = new AgentcoreBrowserNetworkConfiguration();
             _resultValue.networkMode = networkMode;
-            _resultValue.networkModeConfig = networkModeConfig;
+            _resultValue.vpcConfig = vpcConfig;
             return _resultValue;
         }
     }

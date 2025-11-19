@@ -21,16 +21,12 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     /**
      * Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
      * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-     * 
      */
     @Import(name="advancedConfiguration")
     private @Nullable Output<ServiceLoadBalancerAdvancedConfigurationArgs> advancedConfiguration;
 
     /**
      * @return Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-     * 
-     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Optional<Output<ServiceLoadBalancerAdvancedConfigurationArgs>> advancedConfiguration() {
@@ -85,12 +81,16 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     /**
      * ARN of the Load Balancer target group to associate with the service.
      * 
+     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+     * 
      */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
     /**
      * @return ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Optional<Output<String>> targetGroupArn() {
@@ -128,8 +128,6 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         /**
          * @param advancedConfiguration Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
          * 
-         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
-         * 
          * @return builder
          * 
          */
@@ -140,8 +138,6 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
 
         /**
          * @param advancedConfiguration Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-         * 
-         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          * 
          * @return builder
          * 
@@ -216,6 +212,8 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         /**
          * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
          * 
+         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+         * 
          * @return builder
          * 
          */
@@ -226,6 +224,8 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
 
         /**
          * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
+         * 
+         * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          * 
          * @return builder
          * 

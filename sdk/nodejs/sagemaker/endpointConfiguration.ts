@@ -69,31 +69,35 @@ export class EndpointConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+     * ARN assigned by AWS to this endpoint configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      */
     declare public readonly asyncInferenceConfig: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     declare public readonly dataCaptureConfig: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     */
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
+    /**
+     * ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      */
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * List each model that you want to host at this endpoint. See below.
      */
     declare public readonly productionVariants: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
     /**
@@ -101,15 +105,15 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      */
     declare public readonly shadowProductionVariants: pulumi.Output<outputs.sagemaker.EndpointConfigurationShadowProductionVariant[] | undefined>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -129,6 +133,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["asyncInferenceConfig"] = state?.asyncInferenceConfig;
             resourceInputs["dataCaptureConfig"] = state?.dataCaptureConfig;
+            resourceInputs["executionRoleArn"] = state?.executionRoleArn;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
@@ -144,6 +149,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["asyncInferenceConfig"] = args?.asyncInferenceConfig;
             resourceInputs["dataCaptureConfig"] = args?.dataCaptureConfig;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
@@ -164,31 +170,35 @@ export class EndpointConfiguration extends pulumi.CustomResource {
  */
 export interface EndpointConfigurationState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+     * ARN assigned by AWS to this endpoint configuration.
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     */
+    executionRoleArn?: pulumi.Input<string>;
+    /**
+     * ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * List each model that you want to host at this endpoint. See below.
      */
     productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
@@ -196,15 +206,15 @@ export interface EndpointConfigurationState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      */
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -214,27 +224,31 @@ export interface EndpointConfigurationState {
  */
 export interface EndpointConfigurationArgs {
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     */
+    executionRoleArn?: pulumi.Input<string>;
+    /**
+     * ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * List each model that you want to host at this endpoint. See below.
      */
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
@@ -242,11 +256,11 @@ export interface EndpointConfigurationArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      */
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

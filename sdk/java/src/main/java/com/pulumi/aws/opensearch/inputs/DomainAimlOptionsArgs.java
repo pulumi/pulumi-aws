@@ -16,16 +16,32 @@ public final class DomainAimlOptionsArgs extends com.pulumi.resources.ResourceAr
 
     public static final DomainAimlOptionsArgs Empty = new DomainAimlOptionsArgs();
 
+    /**
+     * Configuration block for parameters required for natural language query generation on the specified domain.
+     * 
+     */
     @Import(name="naturalLanguageQueryGenerationOptions")
     private @Nullable Output<DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs> naturalLanguageQueryGenerationOptions;
 
+    /**
+     * @return Configuration block for parameters required for natural language query generation on the specified domain.
+     * 
+     */
     public Optional<Output<DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs>> naturalLanguageQueryGenerationOptions() {
         return Optional.ofNullable(this.naturalLanguageQueryGenerationOptions);
     }
 
+    /**
+     * Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+     * 
+     */
     @Import(name="s3VectorsEngine")
     private @Nullable Output<DomainAimlOptionsS3VectorsEngineArgs> s3VectorsEngine;
 
+    /**
+     * @return Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+     * 
+     */
     public Optional<Output<DomainAimlOptionsS3VectorsEngineArgs>> s3VectorsEngine() {
         return Optional.ofNullable(this.s3VectorsEngine);
     }
@@ -55,20 +71,44 @@ public final class DomainAimlOptionsArgs extends com.pulumi.resources.ResourceAr
             $ = new DomainAimlOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param naturalLanguageQueryGenerationOptions Configuration block for parameters required for natural language query generation on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder naturalLanguageQueryGenerationOptions(@Nullable Output<DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs> naturalLanguageQueryGenerationOptions) {
             $.naturalLanguageQueryGenerationOptions = naturalLanguageQueryGenerationOptions;
             return this;
         }
 
+        /**
+         * @param naturalLanguageQueryGenerationOptions Configuration block for parameters required for natural language query generation on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder naturalLanguageQueryGenerationOptions(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs naturalLanguageQueryGenerationOptions) {
             return naturalLanguageQueryGenerationOptions(Output.of(naturalLanguageQueryGenerationOptions));
         }
 
+        /**
+         * @param s3VectorsEngine Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3VectorsEngine(@Nullable Output<DomainAimlOptionsS3VectorsEngineArgs> s3VectorsEngine) {
             $.s3VectorsEngine = s3VectorsEngine;
             return this;
         }
 
+        /**
+         * @param s3VectorsEngine Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3VectorsEngine(DomainAimlOptionsS3VectorsEngineArgs s3VectorsEngine) {
             return s3VectorsEngine(Output.of(s3VectorsEngine));
         }

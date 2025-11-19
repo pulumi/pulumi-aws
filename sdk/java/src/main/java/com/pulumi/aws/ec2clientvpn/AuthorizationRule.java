@@ -145,14 +145,14 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
     @Export(name="targetNetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkCidr;
 
     /**
-     * @return The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+     * @return The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
     public Output<String> targetNetworkCidr() {

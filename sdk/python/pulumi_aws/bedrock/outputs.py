@@ -192,7 +192,7 @@ __all__ = [
     'AgentcoreAgentRuntimeWorkloadIdentityDetail',
     'AgentcoreApiKeyCredentialProviderApiKeySecretArn',
     'AgentcoreBrowserNetworkConfiguration',
-    'AgentcoreBrowserNetworkConfigurationNetworkModeConfig',
+    'AgentcoreBrowserNetworkConfigurationVpcConfig',
     'AgentcoreBrowserRecording',
     'AgentcoreBrowserRecordingS3Location',
     'AgentcoreBrowserTimeouts',
@@ -231,6 +231,7 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServer',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3',
@@ -7774,8 +7775,8 @@ class AgentcoreBrowserNetworkConfiguration(dict):
         suggest = None
         if key == "networkMode":
             suggest = "network_mode"
-        elif key == "networkModeConfig":
-            suggest = "network_mode_config"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7790,30 +7791,34 @@ class AgentcoreBrowserNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  network_mode: _builtins.str,
-                 network_mode_config: Optional['outputs.AgentcoreBrowserNetworkConfigurationNetworkModeConfig'] = None):
+                 vpc_config: Optional['outputs.AgentcoreBrowserNetworkConfigurationVpcConfig'] = None):
         """
-        :param _builtins.str network_mode: Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        :param _builtins.str network_mode: Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
+        :param 'AgentcoreBrowserNetworkConfigurationVpcConfigArgs' vpc_config: VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
-        if network_mode_config is not None:
-            pulumi.set(__self__, "network_mode_config", network_mode_config)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> _builtins.str:
         """
-        Network mode for the browser. Valid values: `PUBLIC`, `SANDBOX`.
+        Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
         """
         return pulumi.get(self, "network_mode")
 
     @_builtins.property
-    @pulumi.getter(name="networkModeConfig")
-    def network_mode_config(self) -> Optional['outputs.AgentcoreBrowserNetworkConfigurationNetworkModeConfig']:
-        return pulumi.get(self, "network_mode_config")
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.AgentcoreBrowserNetworkConfigurationVpcConfig']:
+        """
+        VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
+        """
+        return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
-class AgentcoreBrowserNetworkConfigurationNetworkModeConfig(dict):
+class AgentcoreBrowserNetworkConfigurationVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7821,30 +7826,40 @@ class AgentcoreBrowserNetworkConfigurationNetworkModeConfig(dict):
             suggest = "security_groups"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserNetworkConfigurationNetworkModeConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserNetworkConfigurationVpcConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AgentcoreBrowserNetworkConfigurationNetworkModeConfig.__key_warning(key)
+        AgentcoreBrowserNetworkConfigurationVpcConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AgentcoreBrowserNetworkConfigurationNetworkModeConfig.__key_warning(key)
+        AgentcoreBrowserNetworkConfigurationVpcConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_groups: Set of security group IDs for the VPC configuration.
+        :param Sequence[_builtins.str] subnets: Set of subnet IDs for the VPC configuration.
+        """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        Set of security group IDs for the VPC configuration.
+        """
         return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Set of subnet IDs for the VPC configuration.
+        """
         return pulumi.get(self, "subnets")
 
 
@@ -8227,7 +8242,7 @@ class AgentcoreGatewayProtocolConfigurationMcp(dict):
                  supported_versions: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str instructions: Instructions for the MCP protocol configuration.
-        :param _builtins.str search_type: Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        :param _builtins.str search_type: Search type for MCP. Valid values: `SEMANTIC`.
         :param Sequence[_builtins.str] supported_versions: Set of supported MCP protocol versions.
         """
         if instructions is not None:
@@ -8249,7 +8264,7 @@ class AgentcoreGatewayProtocolConfigurationMcp(dict):
     @pulumi.getter(name="searchType")
     def search_type(self) -> Optional[_builtins.str]:
         """
-        Search type for MCP. Valid values: `SEMANTIC`, `HYBRID`.
+        Search type for MCP. Valid values: `SEMANTIC`.
         """
         return pulumi.get(self, "search_type")
 
@@ -8493,6 +8508,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
         suggest = None
         if key == "lambda":
             suggest = "lambda_"
+        elif key == "mcpServer":
+            suggest = "mcp_server"
         elif key == "openApiSchema":
             suggest = "open_api_schema"
         elif key == "smithyModel":
@@ -8511,15 +8528,19 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
 
     def __init__(__self__, *,
                  lambda_: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda'] = None,
+                 mcp_server: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer'] = None,
                  open_api_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema'] = None,
                  smithy_model: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel'] = None):
         """
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs' lambda_: Lambda function target configuration. See `lambda` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs' mcp_server: MCP server target configuration. See `mcp_server` below.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
         """
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
         if open_api_schema is not None:
             pulumi.set(__self__, "open_api_schema", open_api_schema)
         if smithy_model is not None:
@@ -8532,6 +8553,14 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
         Lambda function target configuration. See `lambda` below.
         """
         return pulumi.get(self, "lambda_")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer']:
+        """
+        MCP server target configuration. See `mcp_server` below.
+        """
+        return pulumi.get(self, "mcp_server")
 
     @_builtins.property
     @pulumi.getter(name="openApiSchema")
@@ -10087,6 +10116,24 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3(dict):
         S3 URI where the schema is stored.
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
+    def __init__(__self__, *,
+                 endpoint: _builtins.str):
+        """
+        :param _builtins.str endpoint: Endpoint for the MCP server target configuration.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        Endpoint for the MCP server target configuration.
+        """
+        return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type

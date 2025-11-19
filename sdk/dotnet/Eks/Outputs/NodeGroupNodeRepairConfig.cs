@@ -14,14 +14,50 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class NodeGroupNodeRepairConfig
     {
         /// <summary>
-        /// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        /// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. Conflicts with `MaxParallelNodesRepairedPercentage`.
+        /// </summary>
+        public readonly int? MaxParallelNodesRepairedCount;
+        /// <summary>
+        /// Maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. Conflicts with `MaxParallelNodesRepairedCount`.
+        /// </summary>
+        public readonly int? MaxParallelNodesRepairedPercentage;
+        /// <summary>
+        /// Count threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `MaxUnhealthyNodeThresholdPercentage`.
+        /// </summary>
+        public readonly int? MaxUnhealthyNodeThresholdCount;
+        /// <summary>
+        /// Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `MaxUnhealthyNodeThresholdCount`.
+        /// </summary>
+        public readonly int? MaxUnhealthyNodeThresholdPercentage;
+        /// <summary>
+        /// Granular overrides for specific repair actions. See `NodeRepairConfigOverrides` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NodeGroupNodeRepairConfigNodeRepairConfigOverride> NodeRepairConfigOverrides;
 
         [OutputConstructor]
-        private NodeGroupNodeRepairConfig(bool? enabled)
+        private NodeGroupNodeRepairConfig(
+            bool? enabled,
+
+            int? maxParallelNodesRepairedCount,
+
+            int? maxParallelNodesRepairedPercentage,
+
+            int? maxUnhealthyNodeThresholdCount,
+
+            int? maxUnhealthyNodeThresholdPercentage,
+
+            ImmutableArray<Outputs.NodeGroupNodeRepairConfigNodeRepairConfigOverride> nodeRepairConfigOverrides)
         {
             Enabled = enabled;
+            MaxParallelNodesRepairedCount = maxParallelNodesRepairedCount;
+            MaxParallelNodesRepairedPercentage = maxParallelNodesRepairedPercentage;
+            MaxUnhealthyNodeThresholdCount = maxUnhealthyNodeThresholdCount;
+            MaxUnhealthyNodeThresholdPercentage = maxUnhealthyNodeThresholdPercentage;
+            NodeRepairConfigOverrides = nodeRepairConfigOverrides;
         }
     }
 }

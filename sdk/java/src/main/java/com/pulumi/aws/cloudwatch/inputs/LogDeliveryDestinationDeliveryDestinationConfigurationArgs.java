@@ -5,9 +5,10 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +16,18 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs ex
     public static final LogDeliveryDestinationDeliveryDestinationConfigurationArgs Empty = new LogDeliveryDestinationDeliveryDestinationConfigurationArgs();
 
     /**
-     * The ARN of the AWS destination that this delivery destination represents.
+     * The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
      * 
      */
-    @Import(name="destinationResourceArn", required=true)
-    private Output<String> destinationResourceArn;
+    @Import(name="destinationResourceArn")
+    private @Nullable Output<String> destinationResourceArn;
 
     /**
-     * @return The ARN of the AWS destination that this delivery destination represents.
+     * @return The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
      * 
      */
-    public Output<String> destinationResourceArn() {
-        return this.destinationResourceArn;
+    public Optional<Output<String>> destinationResourceArn() {
+        return Optional.ofNullable(this.destinationResourceArn);
     }
 
     private LogDeliveryDestinationDeliveryDestinationConfigurationArgs() {}
@@ -54,18 +55,18 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs ex
         }
 
         /**
-         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents.
+         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
          * 
          * @return builder
          * 
          */
-        public Builder destinationResourceArn(Output<String> destinationResourceArn) {
+        public Builder destinationResourceArn(@Nullable Output<String> destinationResourceArn) {
             $.destinationResourceArn = destinationResourceArn;
             return this;
         }
 
         /**
-         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents.
+         * @param destinationResourceArn The ARN of the AWS destination that this delivery destination represents. Required when `deliveryDestinationConfiguration` is specified.
          * 
          * @return builder
          * 
@@ -75,9 +76,6 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs ex
         }
 
         public LogDeliveryDestinationDeliveryDestinationConfigurationArgs build() {
-            if ($.destinationResourceArn == null) {
-                throw new MissingRequiredPropertyException("LogDeliveryDestinationDeliveryDestinationConfigurationArgs", "destinationResourceArn");
-            }
             return $;
         }
     }

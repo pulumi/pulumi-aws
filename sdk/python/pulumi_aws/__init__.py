@@ -255,6 +255,8 @@ if typing.TYPE_CHECKING:
     inspector = __inspector
     import pulumi_aws.inspector2 as __inspector2
     inspector2 = __inspector2
+    import pulumi_aws.invoicing as __invoicing
+    invoicing = __invoicing
     import pulumi_aws.iot as __iot
     iot = __iot
     import pulumi_aws.ivs as __ivs
@@ -317,6 +319,8 @@ if typing.TYPE_CHECKING:
     neptunegraph = __neptunegraph
     import pulumi_aws.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
+    import pulumi_aws.networkflowmonitor as __networkflowmonitor
+    networkflowmonitor = __networkflowmonitor
     import pulumi_aws.networkmanager as __networkmanager
     networkmanager = __networkmanager
     import pulumi_aws.networkmonitor as __networkmonitor
@@ -325,6 +329,8 @@ if typing.TYPE_CHECKING:
     notifications = __notifications
     import pulumi_aws.oam as __oam
     oam = __oam
+    import pulumi_aws.observabilityadmin as __observabilityadmin
+    observabilityadmin = __observabilityadmin
     import pulumi_aws.odb as __odb
     odb = __odb
     import pulumi_aws.opensearch as __opensearch
@@ -589,6 +595,7 @@ else:
     imagebuilder = _utilities.lazy_import('pulumi_aws.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws.inspector')
     inspector2 = _utilities.lazy_import('pulumi_aws.inspector2')
+    invoicing = _utilities.lazy_import('pulumi_aws.invoicing')
     iot = _utilities.lazy_import('pulumi_aws.iot')
     ivs = _utilities.lazy_import('pulumi_aws.ivs')
     ivschat = _utilities.lazy_import('pulumi_aws.ivschat')
@@ -620,10 +627,12 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     neptunegraph = _utilities.lazy_import('pulumi_aws.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
+    networkflowmonitor = _utilities.lazy_import('pulumi_aws.networkflowmonitor')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
     notifications = _utilities.lazy_import('pulumi_aws.notifications')
     oam = _utilities.lazy_import('pulumi_aws.oam')
+    observabilityadmin = _utilities.lazy_import('pulumi_aws.observabilityadmin')
     odb = _utilities.lazy_import('pulumi_aws.odb')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
@@ -4536,6 +4545,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/allowedImagesSettings",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/allowedImagesSettings:AllowedImagesSettings": "AllowedImagesSettings"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/ami",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -6224,6 +6241,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "fis/targetAccountConfiguration",
+  "fqn": "pulumi_aws.fis",
+  "classes": {
+   "aws:fis/targetAccountConfiguration:TargetAccountConfiguration": "TargetAccountConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fms/adminAccount",
   "fqn": "pulumi_aws.fms",
   "classes": {
@@ -7212,6 +7237,14 @@ _utilities.register(
   "fqn": "pulumi_aws.inspector2",
   "classes": {
    "aws:inspector2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "invoicing/invoiceUnit",
+  "fqn": "pulumi_aws.invoicing",
+  "classes": {
+   "aws:invoicing/invoiceUnit:InvoiceUnit": "InvoiceUnit"
   }
  },
  {
@@ -8688,6 +8721,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkflowmonitor/monitor",
+  "fqn": "pulumi_aws.networkflowmonitor",
+  "classes": {
+   "aws:networkflowmonitor/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkflowmonitor/scope",
+  "fqn": "pulumi_aws.networkflowmonitor",
+  "classes": {
+   "aws:networkflowmonitor/scope:Scope": "Scope"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/attachmentAccepter",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -8916,6 +8965,14 @@ _utilities.register(
   "fqn": "pulumi_aws.oam",
   "classes": {
    "aws:oam/sinkPolicy:SinkPolicy": "SinkPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "observabilityadmin/centralizationRuleForOrganization",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization": "CentralizationRuleForOrganization"
   }
  },
  {

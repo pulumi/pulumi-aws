@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> FipsDnsName { get; private set; } = null!;
 
         /// <summary>
+        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("networkInterfaceIds")]
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class InstanceConnectEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// Indicates whether your client's IP address is preserved as the source. Default: `True`.
         /// </summary>
         [Input("preserveClientIp")]
@@ -244,6 +256,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("fipsDnsName")]
         public Input<string>? FipsDnsName { get; set; }
+
+        /// <summary>
+        /// IP address type of the endpoint. Valid values are `Ipv4`, `Ipv6`, and `Dualstack`. The default value is determined by the IP address type of the subnet. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceConnectEndpoint.html) for more details.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         [Input("networkInterfaceIds")]
         private InputList<string>? _networkInterfaceIds;

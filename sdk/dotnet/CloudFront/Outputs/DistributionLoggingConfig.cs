@@ -14,21 +14,21 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionLoggingConfig
     {
         /// <summary>
-        /// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+        /// Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         /// </summary>
-        public readonly string Bucket;
+        public readonly string? Bucket;
         /// <summary>
-        /// Whether to include cookies in access logs (default: `False`).
+        /// Whether to include cookies in access logs (default: `False`). This argument applies to both V1 and V2 logging.
         /// </summary>
         public readonly bool? IncludeCookies;
         /// <summary>
-        /// Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+        /// Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
         /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]
         private DistributionLoggingConfig(
-            string bucket,
+            string? bucket,
 
             bool? includeCookies,
 

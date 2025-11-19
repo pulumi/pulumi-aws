@@ -964,7 +964,7 @@ class EndpointPostgresSettings(dict):
         :param _builtins.bool map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
         :param _builtins.str map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
         :param _builtins.int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-        :param _builtins.str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        :param _builtins.str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         :param _builtins.str service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
         :param _builtins.str slot_name: Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         """
@@ -1129,7 +1129,7 @@ class EndpointPostgresSettings(dict):
     @pulumi.getter(name="pluginName")
     def plugin_name(self) -> Optional[_builtins.str]:
         """
-        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
+        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         """
         return pulumi.get(self, "plugin_name")
 

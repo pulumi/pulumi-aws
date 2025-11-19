@@ -259,6 +259,27 @@ class MemberDetectorFeature(pulumi.CustomResource):
 
         To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.guardduty.Detector("example", enable=True)
+        eks_protection = aws.guardduty.DetectorFeature("eks_protection",
+            detector_id=example.id,
+            account_id="123456789012",
+            name="EKS_AUDIT_LOGS",
+            status="ENABLED")
+        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eks_runtime_monitoring",
+            detector_id=example.id,
+            account_id="123456789012",
+            name="EKS_RUNTIME_MONITORING",
+            status="ENABLED",
+            additional_configurations=[{
+                "name": "EKS_ADDON_MANAGEMENT",
+                "status": "ENABLED",
+            }])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
@@ -296,6 +317,27 @@ class MemberDetectorFeature(pulumi.CustomResource):
         ## Extended Threat Detection for EKS
 
         To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.guardduty.Detector("example", enable=True)
+        eks_protection = aws.guardduty.DetectorFeature("eks_protection",
+            detector_id=example.id,
+            account_id="123456789012",
+            name="EKS_AUDIT_LOGS",
+            status="ENABLED")
+        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eks_runtime_monitoring",
+            detector_id=example.id,
+            account_id="123456789012",
+            name="EKS_RUNTIME_MONITORING",
+            status="ENABLED",
+            additional_configurations=[{
+                "name": "EKS_ADDON_MANAGEMENT",
+                "status": "ENABLED",
+            }])
+        ```
 
         :param str resource_name: The name of the resource.
         :param MemberDetectorFeatureArgs args: The arguments to use to populate this resource's properties.

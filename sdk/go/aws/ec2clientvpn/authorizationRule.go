@@ -72,7 +72,7 @@ type AuthorizationRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringOutput `pulumi:"targetNetworkCidr"`
 }
 
@@ -122,7 +122,7 @@ type authorizationRuleState struct {
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr *string `pulumi:"targetNetworkCidr"`
 }
 
@@ -137,7 +137,7 @@ type AuthorizationRuleState struct {
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringPtrInput
 }
 
@@ -156,7 +156,7 @@ type authorizationRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr string `pulumi:"targetNetworkCidr"`
 }
 
@@ -172,7 +172,7 @@ type AuthorizationRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+	// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 	TargetNetworkCidr pulumi.StringInput
 }
 
@@ -288,7 +288,7 @@ func (o AuthorizationRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+// The IPv4 or IPv6 address range, in CIDR notation, of the network to which the authorization rule applies.
 func (o AuthorizationRuleOutput) TargetNetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.StringOutput { return v.TargetNetworkCidr }).(pulumi.StringOutput)
 }

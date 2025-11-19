@@ -51,9 +51,9 @@ import (
 // allowBillingLogging := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
 // billingLogsArn := _args[0].(string)
 // billingLogsArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
+// iam.GetPolicyDocumentStatement{
 // Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
@@ -71,7 +71,7 @@ import (
 // billingLogsArn,
 // },
 // },
-// {
+// iam.GetPolicyDocumentStatement{
 // Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
@@ -88,12 +88,14 @@ import (
 // fmt.Sprintf("%v/*", billingLogsArn1),
 // },
 // },
-// },
-// }, nil)), nil
+// }),
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
 // Bucket: billingLogs.ID(),
-// Policy: pulumi.String(allowBillingLogging.Json),
+// Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowBillingLogging.Json, nil
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err

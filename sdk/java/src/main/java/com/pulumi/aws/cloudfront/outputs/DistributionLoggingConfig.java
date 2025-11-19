@@ -4,7 +4,6 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -14,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionLoggingConfig {
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
-    private String bucket;
+    private @Nullable String bucket;
     /**
-     * @return Whether to include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
      * 
      */
     private @Nullable Boolean includeCookies;
     /**
-     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
      * 
      */
     private @Nullable String prefix;
 
     private DistributionLoggingConfig() {}
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
+     * @return Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
-    public String bucket() {
-        return this.bucket;
+    public Optional<String> bucket() {
+        return Optional.ofNullable(this.bucket);
     }
     /**
-     * @return Whether to include cookies in access logs (default: `false`).
+     * @return Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
      * 
      */
     public Optional<Boolean> includeCookies() {
         return Optional.ofNullable(this.includeCookies);
     }
     /**
-     * @return Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+     * @return Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
      * 
      */
     public Optional<String> prefix() {
@@ -61,7 +60,7 @@ public final class DistributionLoggingConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String bucket;
+        private @Nullable String bucket;
         private @Nullable Boolean includeCookies;
         private @Nullable String prefix;
         public Builder() {}
@@ -73,10 +72,8 @@ public final class DistributionLoggingConfig {
         }
 
         @CustomType.Setter
-        public Builder bucket(String bucket) {
-            if (bucket == null) {
-              throw new MissingRequiredPropertyException("DistributionLoggingConfig", "bucket");
-            }
+        public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }

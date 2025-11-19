@@ -16,6 +16,30 @@ import (
 // ## Example Usage
 //
 // ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
+//				Arn: "exampleARN",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult

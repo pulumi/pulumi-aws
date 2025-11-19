@@ -51,6 +51,8 @@ __all__ = [
     'DomainEbsOptionsArgsDict',
     'DomainEncryptAtRestArgs',
     'DomainEncryptAtRestArgsDict',
+    'DomainIdentityCenterOptionsArgs',
+    'DomainIdentityCenterOptionsArgsDict',
     'DomainLogPublishingOptionArgs',
     'DomainLogPublishingOptionArgsDict',
     'DomainNodeToNodeEncryptionArgs',
@@ -89,12 +91,6 @@ __all__ = [
     'ServerlessVpcEndpointTimeoutsArgsDict',
     'VpcEndpointVpcOptionsArgs',
     'VpcEndpointVpcOptionsArgsDict',
-    'GetDomainOffPeakWindowOptionsArgs',
-    'GetDomainOffPeakWindowOptionsArgsDict',
-    'GetDomainOffPeakWindowOptionsOffPeakWindowArgs',
-    'GetDomainOffPeakWindowOptionsOffPeakWindowArgsDict',
-    'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs',
-    'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict',
     'GetServerlessSecurityConfigSamlOptionArgs',
     'GetServerlessSecurityConfigSamlOptionArgsDict',
 ]
@@ -317,7 +313,13 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
 if not MYPY:
     class DomainAimlOptionsArgsDict(TypedDict):
         natural_language_query_generation_options: NotRequired[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict']]
+        """
+        Configuration block for parameters required for natural language query generation on the specified domain.
+        """
         s3_vectors_engine: NotRequired[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgsDict']]
+        """
+        Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        """
 elif False:
     DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -326,6 +328,10 @@ class DomainAimlOptionsArgs:
     def __init__(__self__, *,
                  natural_language_query_generation_options: Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']] = None,
                  s3_vectors_engine: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']] = None):
+        """
+        :param pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs'] natural_language_query_generation_options: Configuration block for parameters required for natural language query generation on the specified domain.
+        :param pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs'] s3_vectors_engine: Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        """
         if natural_language_query_generation_options is not None:
             pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
         if s3_vectors_engine is not None:
@@ -334,6 +340,9 @@ class DomainAimlOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
     def natural_language_query_generation_options(self) -> Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']]:
+        """
+        Configuration block for parameters required for natural language query generation on the specified domain.
+        """
         return pulumi.get(self, "natural_language_query_generation_options")
 
     @natural_language_query_generation_options.setter
@@ -343,6 +352,9 @@ class DomainAimlOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="s3VectorsEngine")
     def s3_vectors_engine(self) -> Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']]:
+        """
+        Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        """
         return pulumi.get(self, "s3_vectors_engine")
 
     @s3_vectors_engine.setter
@@ -354,7 +366,7 @@ if not MYPY:
     class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict(TypedDict):
         desired_state: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         """
 elif False:
     DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -364,7 +376,7 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs:
     def __init__(__self__, *,
                  desired_state: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        :param pulumi.Input[_builtins.str] desired_state: The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         """
         if desired_state is not None:
             pulumi.set(__self__, "desired_state", desired_state)
@@ -373,7 +385,7 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs:
     @pulumi.getter(name="desiredState")
     def desired_state(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        The desired state of the natural language query generation feature. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "desired_state")
 
@@ -385,6 +397,9 @@ class DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs:
 if not MYPY:
     class DomainAimlOptionsS3VectorsEngineArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables S3 vectors engine features.
+        """
 elif False:
     DomainAimlOptionsS3VectorsEngineArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -392,12 +407,18 @@ elif False:
 class DomainAimlOptionsS3VectorsEngineArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Enables S3 vectors engine features.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables S3 vectors engine features.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1442,6 +1463,68 @@ class DomainEncryptAtRestArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+if not MYPY:
+    class DomainIdentityCenterOptionsArgsDict(TypedDict):
+        enabled_api_access: NotRequired[pulumi.Input[_builtins.bool]]
+        identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+        roles_key: NotRequired[pulumi.Input[_builtins.str]]
+        subject_key: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    DomainIdentityCenterOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainIdentityCenterOptionsArgs:
+    def __init__(__self__, *,
+                 enabled_api_access: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 roles_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 subject_key: Optional[pulumi.Input[_builtins.str]] = None):
+        if enabled_api_access is not None:
+            pulumi.set(__self__, "enabled_api_access", enabled_api_access)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledApiAccess")
+    def enabled_api_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled_api_access")
+
+    @enabled_api_access.setter
+    def enabled_api_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled_api_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @identity_center_instance_arn.setter
+    def identity_center_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_center_instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "roles_key")
+
+    @roles_key.setter
+    def roles_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "roles_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "subject_key")
+
+    @subject_key.setter
+    def subject_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subject_key", value)
 
 
 if not MYPY:
@@ -2593,130 +2676,6 @@ class VpcEndpointVpcOptionsArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
-
-
-if not MYPY:
-    class GetDomainOffPeakWindowOptionsArgsDict(TypedDict):
-        enabled: _builtins.bool
-        """
-        Enabled disabled toggle for off-peak update window
-        """
-        off_peak_windows: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgsDict']
-elif False:
-    GetDomainOffPeakWindowOptionsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetDomainOffPeakWindowOptionsArgs:
-    def __init__(__self__, *,
-                 enabled: _builtins.bool,
-                 off_peak_windows: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']):
-        """
-        :param _builtins.bool enabled: Enabled disabled toggle for off-peak update window
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> _builtins.bool:
-        """
-        Enabled disabled toggle for off-peak update window
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: _builtins.bool):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="offPeakWindows")
-    def off_peak_windows(self) -> Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']:
-        return pulumi.get(self, "off_peak_windows")
-
-    @off_peak_windows.setter
-    def off_peak_windows(self, value: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']):
-        pulumi.set(self, "off_peak_windows", value)
-
-
-if not MYPY:
-    class GetDomainOffPeakWindowOptionsOffPeakWindowArgsDict(TypedDict):
-        window_start_times: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict']
-        """
-        10h window for updates
-        """
-elif False:
-    GetDomainOffPeakWindowOptionsOffPeakWindowArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetDomainOffPeakWindowOptionsOffPeakWindowArgs:
-    def __init__(__self__, *,
-                 window_start_times: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']):
-        """
-        :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
-        """
-        pulumi.set(__self__, "window_start_times", window_start_times)
-
-    @_builtins.property
-    @pulumi.getter(name="windowStartTimes")
-    def window_start_times(self) -> Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']:
-        """
-        10h window for updates
-        """
-        return pulumi.get(self, "window_start_times")
-
-    @window_start_times.setter
-    def window_start_times(self, value: Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']):
-        pulumi.set(self, "window_start_times", value)
-
-
-if not MYPY:
-    class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict(TypedDict):
-        hours: _builtins.int
-        """
-        Starting hour of the 10-hour window for updates
-        """
-        minutes: _builtins.int
-        """
-        Starting minute of the 10-hour window for updates
-        """
-elif False:
-    GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
-    def __init__(__self__, *,
-                 hours: _builtins.int,
-                 minutes: _builtins.int):
-        """
-        :param _builtins.int hours: Starting hour of the 10-hour window for updates
-        :param _builtins.int minutes: Starting minute of the 10-hour window for updates
-        """
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
-
-    @_builtins.property
-    @pulumi.getter
-    def hours(self) -> _builtins.int:
-        """
-        Starting hour of the 10-hour window for updates
-        """
-        return pulumi.get(self, "hours")
-
-    @hours.setter
-    def hours(self, value: _builtins.int):
-        pulumi.set(self, "hours", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def minutes(self) -> _builtins.int:
-        """
-        Starting minute of the 10-hour window for updates
-        """
-        return pulumi.get(self, "minutes")
-
-    @minutes.setter
-    def minutes(self, value: _builtins.int):
-        pulumi.set(self, "minutes", value)
 
 
 if not MYPY:

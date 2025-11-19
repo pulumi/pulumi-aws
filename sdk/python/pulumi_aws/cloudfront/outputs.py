@@ -1279,15 +1279,16 @@ class DistributionLoggingConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bucket: _builtins.str,
+                 bucket: Optional[_builtins.str] = None,
                  include_cookies: Optional[_builtins.bool] = None,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.str bucket: Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
-        :param _builtins.bool include_cookies: Whether to include cookies in access logs (default: `false`).
-        :param _builtins.str prefix: Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+        :param _builtins.str bucket: Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+        :param _builtins.bool include_cookies: Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
+        :param _builtins.str prefix: Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
         if include_cookies is not None:
             pulumi.set(__self__, "include_cookies", include_cookies)
         if prefix is not None:
@@ -1295,9 +1296,9 @@ class DistributionLoggingConfig(dict):
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> _builtins.str:
+    def bucket(self) -> Optional[_builtins.str]:
         """
-        Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
+        Amazon S3 bucket for V1 logging where access logs are stored, for example, `myawslogbucket.s3.amazonaws.com`. V1 logging is enabled when this argument is specified. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         """
         return pulumi.get(self, "bucket")
 
@@ -1305,7 +1306,7 @@ class DistributionLoggingConfig(dict):
     @pulumi.getter(name="includeCookies")
     def include_cookies(self) -> Optional[_builtins.bool]:
         """
-        Whether to include cookies in access logs (default: `false`).
+        Whether to include cookies in access logs (default: `false`). This argument applies to both V1 and V2 logging.
         """
         return pulumi.get(self, "include_cookies")
 
@@ -1313,7 +1314,7 @@ class DistributionLoggingConfig(dict):
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
         """
-        Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+        Prefix added to the access log file names for V1 logging, for example, `myprefix/`. This argument is effective only when V1 logging is enabled.
         """
         return pulumi.get(self, "prefix")
 

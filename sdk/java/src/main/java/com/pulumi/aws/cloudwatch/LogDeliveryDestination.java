@@ -58,6 +58,40 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### X-Ray Trace Delivery
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var xray = new LogDeliveryDestination("xray", LogDeliveryDestinationArgs.builder()
+ *             .name("xray-traces")
+ *             .deliveryDestinationType("XRAY")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
@@ -84,28 +118,28 @@ public class LogDeliveryDestination extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * The AWS resource that will receive the logs.
+     * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     @Export(name="deliveryDestinationConfiguration", refs={LogDeliveryDestinationDeliveryDestinationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LogDeliveryDestinationDeliveryDestinationConfiguration> deliveryDestinationConfiguration;
 
     /**
-     * @return The AWS resource that will receive the logs.
+     * @return The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      * 
      */
     public Output<Optional<LogDeliveryDestinationDeliveryDestinationConfiguration>> deliveryDestinationConfiguration() {
         return Codegen.optional(this.deliveryDestinationConfiguration);
     }
     /**
-     * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      * 
      */
     @Export(name="deliveryDestinationType", refs={String.class}, tree="[0]")
     private Output<String> deliveryDestinationType;
 
     /**
-     * @return Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
+     * @return The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      * 
      */
     public Output<String> deliveryDestinationType() {

@@ -179,8 +179,8 @@ import (
 // infoLogsArn := _args[1].(string)
 // errorLogsArn := _args[2].(string)
 // traceLogsArn := _args[3].(string)
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
 // Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
@@ -223,12 +223,14 @@ import (
 // },
 // },
 // },
-// },
-// }, nil)), nil
+// }),
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 // Bucket: exampleBucket.Bucket,
-// Policy: pulumi.String(bucket.Json),
+// Policy: pulumi.String(bucket.ApplyT(func(bucket iam.GetPolicyDocumentResult) (*string, error) {
+// return &bucket.Json, nil
+// }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
 // return err
@@ -283,8 +285,8 @@ import (
 // infoLogsArn := _args[1].(string)
 // errorLogsArn := _args[2].(string)
 // traceLogsArn := _args[3].(string)
-// return iam.GetPolicyDocumentResult(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
+// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
 // {
 // Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
@@ -321,11 +323,13 @@ import (
 // },
 // },
 // },
-// },
-// }, nil)), nil
+// }),
+// }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
 // _, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
-// PolicyDocument: pulumi.String(cwlogs.Json),
+// PolicyDocument: pulumi.String(cwlogs.ApplyT(func(cwlogs iam.GetPolicyDocumentResult) (*string, error) {
+// return &cwlogs.Json, nil
+// }).(pulumi.StringPtrOutput)),
 // PolicyName: example.Name.ApplyT(func(name string) (string, error) {
 // return fmt.Sprintf("AWSLogDeliveryWrite-%v", name), nil
 // }).(pulumi.StringOutput),

@@ -43,7 +43,9 @@ __all__ = [
     'ServiceCapacityProviderStrategy',
     'ServiceDeploymentCircuitBreaker',
     'ServiceDeploymentConfiguration',
+    'ServiceDeploymentConfigurationCanaryConfiguration',
     'ServiceDeploymentConfigurationLifecycleHook',
+    'ServiceDeploymentConfigurationLinearConfiguration',
     'ServiceDeploymentController',
     'ServiceLoadBalancer',
     'ServiceLoadBalancerAdvancedConfiguration',
@@ -83,8 +85,23 @@ __all__ = [
     'TaskSetServiceRegistries',
     'GetClusterServiceConnectDefaultResult',
     'GetClusterSettingResult',
+    'GetServiceCapacityProviderStrategyResult',
+    'GetServiceDeploymentResult',
+    'GetServiceDeploymentConfigurationResult',
+    'GetServiceDeploymentConfigurationAlarmResult',
+    'GetServiceDeploymentConfigurationCanaryConfigurationResult',
+    'GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult',
+    'GetServiceDeploymentConfigurationLifecycleHookResult',
+    'GetServiceDeploymentConfigurationLinearConfigurationResult',
+    'GetServiceDeploymentControllerResult',
+    'GetServiceEventResult',
     'GetServiceLoadBalancerResult',
     'GetServiceLoadBalancerAdvancedConfigurationResult',
+    'GetServiceNetworkConfigurationResult',
+    'GetServiceOrderedPlacementStrategyResult',
+    'GetServicePlacementConstraintResult',
+    'GetServiceServiceRegistryResult',
+    'GetServiceTaskSetResult',
     'GetTaskDefinitionEphemeralStorageResult',
     'GetTaskDefinitionPlacementConstraintResult',
     'GetTaskDefinitionProxyConfigurationResult',
@@ -1563,8 +1580,12 @@ class ServiceDeploymentConfiguration(dict):
         suggest = None
         if key == "bakeTimeInMinutes":
             suggest = "bake_time_in_minutes"
+        elif key == "canaryConfiguration":
+            suggest = "canary_configuration"
         elif key == "lifecycleHooks":
             suggest = "lifecycle_hooks"
+        elif key == "linearConfiguration":
+            suggest = "linear_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1579,17 +1600,25 @@ class ServiceDeploymentConfiguration(dict):
 
     def __init__(__self__, *,
                  bake_time_in_minutes: Optional[_builtins.str] = None,
+                 canary_configuration: Optional['outputs.ServiceDeploymentConfigurationCanaryConfiguration'] = None,
                  lifecycle_hooks: Optional[Sequence['outputs.ServiceDeploymentConfigurationLifecycleHook']] = None,
+                 linear_configuration: Optional['outputs.ServiceDeploymentConfigurationLinearConfiguration'] = None,
                  strategy: Optional[_builtins.str] = None):
         """
-        :param _builtins.str bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        :param _builtins.str bake_time_in_minutes: Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
+        :param 'ServiceDeploymentConfigurationCanaryConfigurationArgs' canary_configuration: Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
         :param Sequence['ServiceDeploymentConfigurationLifecycleHookArgs'] lifecycle_hooks: Configuration block for lifecycle hooks that are invoked during deployments. See below.
-        :param _builtins.str strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        :param 'ServiceDeploymentConfigurationLinearConfigurationArgs' linear_configuration: Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+        :param _builtins.str strategy: Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
         """
         if bake_time_in_minutes is not None:
             pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if canary_configuration is not None:
+            pulumi.set(__self__, "canary_configuration", canary_configuration)
         if lifecycle_hooks is not None:
             pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        if linear_configuration is not None:
+            pulumi.set(__self__, "linear_configuration", linear_configuration)
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
 
@@ -1597,9 +1626,17 @@ class ServiceDeploymentConfiguration(dict):
     @pulumi.getter(name="bakeTimeInMinutes")
     def bake_time_in_minutes(self) -> Optional[_builtins.str]:
         """
-        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+        Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
         """
         return pulumi.get(self, "bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryConfiguration")
+    def canary_configuration(self) -> Optional['outputs.ServiceDeploymentConfigurationCanaryConfiguration']:
+        """
+        Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+        """
+        return pulumi.get(self, "canary_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleHooks")
@@ -1610,12 +1647,70 @@ class ServiceDeploymentConfiguration(dict):
         return pulumi.get(self, "lifecycle_hooks")
 
     @_builtins.property
+    @pulumi.getter(name="linearConfiguration")
+    def linear_configuration(self) -> Optional['outputs.ServiceDeploymentConfigurationLinearConfiguration']:
+        """
+        Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+        """
+        return pulumi.get(self, "linear_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def strategy(self) -> Optional[_builtins.str]:
         """
-        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+        Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
         """
         return pulumi.get(self, "strategy")
+
+
+@pulumi.output_type
+class ServiceDeploymentConfigurationCanaryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "canaryBakeTimeInMinutes":
+            suggest = "canary_bake_time_in_minutes"
+        elif key == "canaryPercent":
+            suggest = "canary_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfigurationCanaryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentConfigurationCanaryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentConfigurationCanaryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 canary_bake_time_in_minutes: Optional[_builtins.str] = None,
+                 canary_percent: Optional[_builtins.float] = None):
+        """
+        :param _builtins.str canary_bake_time_in_minutes: Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+        :param _builtins.float canary_percent: Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+        """
+        if canary_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "canary_bake_time_in_minutes", canary_bake_time_in_minutes)
+        if canary_percent is not None:
+            pulumi.set(__self__, "canary_percent", canary_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryBakeTimeInMinutes")
+    def canary_bake_time_in_minutes(self) -> Optional[_builtins.str]:
+        """
+        Number of minutes to wait before shifting all traffic to the new deployment. Valid range: 0-1440 minutes.
+        """
+        return pulumi.get(self, "canary_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryPercent")
+    def canary_percent(self) -> Optional[_builtins.float]:
+        """
+        Percentage of traffic to route to the canary deployment. Valid range: 0.1-100.0.
+        """
+        return pulumi.get(self, "canary_percent")
 
 
 @pulumi.output_type
@@ -1694,6 +1789,56 @@ class ServiceDeploymentConfigurationLifecycleHook(dict):
 
 
 @pulumi.output_type
+class ServiceDeploymentConfigurationLinearConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepBakeTimeInMinutes":
+            suggest = "step_bake_time_in_minutes"
+        elif key == "stepPercent":
+            suggest = "step_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentConfigurationLinearConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentConfigurationLinearConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentConfigurationLinearConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 step_bake_time_in_minutes: Optional[_builtins.str] = None,
+                 step_percent: Optional[_builtins.float] = None):
+        """
+        :param _builtins.str step_bake_time_in_minutes: Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+        :param _builtins.float step_percent: Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+        """
+        if step_bake_time_in_minutes is not None:
+            pulumi.set(__self__, "step_bake_time_in_minutes", step_bake_time_in_minutes)
+        if step_percent is not None:
+            pulumi.set(__self__, "step_percent", step_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="stepBakeTimeInMinutes")
+    def step_bake_time_in_minutes(self) -> Optional[_builtins.str]:
+        """
+        Number of minutes to wait between each step during a linear deployment. Valid range: 0-1440 minutes.
+        """
+        return pulumi.get(self, "step_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="stepPercent")
+    def step_percent(self) -> Optional[_builtins.float]:
+        """
+        Percentage of traffic to shift in each step during a linear deployment. Valid range: 3.0-100.0.
+        """
+        return pulumi.get(self, "step_percent")
+
+
+@pulumi.output_type
 class ServiceDeploymentController(dict):
     def __init__(__self__, *,
                  type: Optional[_builtins.str] = None):
@@ -1749,10 +1894,10 @@ class ServiceLoadBalancer(dict):
         :param _builtins.str container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param _builtins.int container_port: Port on the container to associate with the load balancer.
         :param 'ServiceLoadBalancerAdvancedConfigurationArgs' advanced_configuration: Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-               
-               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param _builtins.str elb_name: Name of the ELB (Classic) to associate with the service.
         :param _builtins.str target_group_arn: ARN of the Load Balancer target group to associate with the service.
+               
+               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
@@ -1784,8 +1929,6 @@ class ServiceLoadBalancer(dict):
     def advanced_configuration(self) -> Optional['outputs.ServiceLoadBalancerAdvancedConfiguration']:
         """
         Configuration block for Blue/Green deployment settings. Required when using `BLUE_GREEN` deployment strategy. See below.
-
-        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "advanced_configuration")
 
@@ -1802,6 +1945,8 @@ class ServiceLoadBalancer(dict):
     def target_group_arn(self) -> Optional[_builtins.str]:
         """
         ARN of the Load Balancer target group to associate with the service.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -1908,9 +2053,9 @@ class ServiceNetworkConfiguration(dict):
                  security_groups: Optional[Sequence[_builtins.str]] = None):
         """
         :param Sequence[_builtins.str] subnets: Subnets associated with the task or service.
-        :param _builtins.bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
                
                For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+        :param _builtins.bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
         :param Sequence[_builtins.str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -1924,6 +2069,8 @@ class ServiceNetworkConfiguration(dict):
     def subnets(self) -> Sequence[_builtins.str]:
         """
         Subnets associated with the task or service.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "subnets")
 
@@ -1932,8 +2079,6 @@ class ServiceNetworkConfiguration(dict):
     def assign_public_ip(self) -> Optional[_builtins.bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -1953,12 +2098,9 @@ class ServiceOrderedPlacementStrategy(dict):
                  field: Optional[_builtins.str] = None):
         """
         :param _builtins.str type: Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
-        :param _builtins.str field: For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-               which has the same effect), or any platform or custom attribute that is applied to a container instance.
-               For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-               needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
                
                > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        :param _builtins.str field: For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         """
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -1969,6 +2111,8 @@ class ServiceOrderedPlacementStrategy(dict):
     def type(self) -> _builtins.str:
         """
         Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
+
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         return pulumi.get(self, "type")
 
@@ -1976,12 +2120,7 @@ class ServiceOrderedPlacementStrategy(dict):
     @pulumi.getter
     def field(self) -> Optional[_builtins.str]:
         """
-        For the `spread` placement strategy, valid values are `instanceId` (or `host`,
-        which has the same effect), or any platform or custom attribute that is applied to a container instance.
-        For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
-        needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
-
-        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
+        For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance. For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
         """
         return pulumi.get(self, "field")
 
@@ -3933,6 +4072,483 @@ class GetClusterSettingResult(dict):
 
 
 @pulumi.output_type
+class GetServiceCapacityProviderStrategyResult(dict):
+    def __init__(__self__, *,
+                 base: _builtins.int,
+                 capacity_provider: _builtins.str,
+                 weight: _builtins.int):
+        """
+        :param _builtins.int base: Number of tasks using the specified capacity provider
+        :param _builtins.str capacity_provider: Name of the capacity provider
+        :param _builtins.int weight: Relative percentage of total tasks to launch
+        """
+        pulumi.set(__self__, "base", base)
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def base(self) -> _builtins.int:
+        """
+        Number of tasks using the specified capacity provider
+        """
+        return pulumi.get(self, "base")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> _builtins.str:
+        """
+        Name of the capacity provider
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        Relative percentage of total tasks to launch
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetServiceDeploymentResult(dict):
+    def __init__(__self__, *,
+                 created_at: _builtins.str,
+                 desired_count: _builtins.int,
+                 id: _builtins.str,
+                 pending_count: _builtins.int,
+                 running_count: _builtins.int,
+                 status: _builtins.str,
+                 task_definition: _builtins.str,
+                 updated_at: _builtins.str):
+        """
+        :param _builtins.str created_at: Time when task set was created (RFC3339 format)
+        :param _builtins.int desired_count: Desired number of tasks
+        :param _builtins.str id: Task set ID
+        :param _builtins.int pending_count: Number of pending tasks
+        :param _builtins.int running_count: Number of running tasks
+        :param _builtins.str status: Task set status
+        :param _builtins.str task_definition: Task definition ARN
+        :param _builtins.str updated_at: Time when task set was last updated (RFC3339 format)
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "desired_count", desired_count)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "pending_count", pending_count)
+        pulumi.set(__self__, "running_count", running_count)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "task_definition", task_definition)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Time when task set was created (RFC3339 format)
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="desiredCount")
+    def desired_count(self) -> _builtins.int:
+        """
+        Desired number of tasks
+        """
+        return pulumi.get(self, "desired_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Task set ID
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingCount")
+    def pending_count(self) -> _builtins.int:
+        """
+        Number of pending tasks
+        """
+        return pulumi.get(self, "pending_count")
+
+    @_builtins.property
+    @pulumi.getter(name="runningCount")
+    def running_count(self) -> _builtins.int:
+        """
+        Number of running tasks
+        """
+        return pulumi.get(self, "running_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Task set status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="taskDefinition")
+    def task_definition(self) -> _builtins.str:
+        """
+        Task definition ARN
+        """
+        return pulumi.get(self, "task_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> _builtins.str:
+        """
+        Time when task set was last updated (RFC3339 format)
+        """
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationResult(dict):
+    def __init__(__self__, *,
+                 alarms: Sequence['outputs.GetServiceDeploymentConfigurationAlarmResult'],
+                 bake_time_in_minutes: _builtins.str,
+                 canary_configurations: Sequence['outputs.GetServiceDeploymentConfigurationCanaryConfigurationResult'],
+                 deployment_circuit_breakers: Sequence['outputs.GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult'],
+                 lifecycle_hooks: Sequence['outputs.GetServiceDeploymentConfigurationLifecycleHookResult'],
+                 linear_configurations: Sequence['outputs.GetServiceDeploymentConfigurationLinearConfigurationResult'],
+                 maximum_percent: _builtins.int,
+                 minimum_healthy_percent: _builtins.int,
+                 strategy: _builtins.str):
+        """
+        :param Sequence['GetServiceDeploymentConfigurationAlarmArgs'] alarms: CloudWatch alarms configuration. See `alarms` Block for details.
+        :param _builtins.str bake_time_in_minutes: Time to wait after deployment before terminating old tasks
+        :param Sequence['GetServiceDeploymentConfigurationCanaryConfigurationArgs'] canary_configurations: Canary deployment configuration. See `canary_configuration` Block for details.
+        :param Sequence['GetServiceDeploymentConfigurationDeploymentCircuitBreakerArgs'] deployment_circuit_breakers: Circuit breaker configuration. See `deployment_circuit_breaker` Block for details.
+        :param Sequence['GetServiceDeploymentConfigurationLifecycleHookArgs'] lifecycle_hooks: Lifecycle hooks for deployments. See `lifecycle_hook` Block for details.
+        :param Sequence['GetServiceDeploymentConfigurationLinearConfigurationArgs'] linear_configurations: Linear deployment configuration. See `linear_configuration` Block for details.
+        :param _builtins.int maximum_percent: Upper limit on tasks during deployment
+        :param _builtins.int minimum_healthy_percent: Lower limit on healthy tasks during deployment
+        :param _builtins.str strategy: Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
+        """
+        pulumi.set(__self__, "alarms", alarms)
+        pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        pulumi.set(__self__, "canary_configurations", canary_configurations)
+        pulumi.set(__self__, "deployment_circuit_breakers", deployment_circuit_breakers)
+        pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
+        pulumi.set(__self__, "linear_configurations", linear_configurations)
+        pulumi.set(__self__, "maximum_percent", maximum_percent)
+        pulumi.set(__self__, "minimum_healthy_percent", minimum_healthy_percent)
+        pulumi.set(__self__, "strategy", strategy)
+
+    @_builtins.property
+    @pulumi.getter
+    def alarms(self) -> Sequence['outputs.GetServiceDeploymentConfigurationAlarmResult']:
+        """
+        CloudWatch alarms configuration. See `alarms` Block for details.
+        """
+        return pulumi.get(self, "alarms")
+
+    @_builtins.property
+    @pulumi.getter(name="bakeTimeInMinutes")
+    def bake_time_in_minutes(self) -> _builtins.str:
+        """
+        Time to wait after deployment before terminating old tasks
+        """
+        return pulumi.get(self, "bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryConfigurations")
+    def canary_configurations(self) -> Sequence['outputs.GetServiceDeploymentConfigurationCanaryConfigurationResult']:
+        """
+        Canary deployment configuration. See `canary_configuration` Block for details.
+        """
+        return pulumi.get(self, "canary_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentCircuitBreakers")
+    def deployment_circuit_breakers(self) -> Sequence['outputs.GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult']:
+        """
+        Circuit breaker configuration. See `deployment_circuit_breaker` Block for details.
+        """
+        return pulumi.get(self, "deployment_circuit_breakers")
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleHooks")
+    def lifecycle_hooks(self) -> Sequence['outputs.GetServiceDeploymentConfigurationLifecycleHookResult']:
+        """
+        Lifecycle hooks for deployments. See `lifecycle_hook` Block for details.
+        """
+        return pulumi.get(self, "lifecycle_hooks")
+
+    @_builtins.property
+    @pulumi.getter(name="linearConfigurations")
+    def linear_configurations(self) -> Sequence['outputs.GetServiceDeploymentConfigurationLinearConfigurationResult']:
+        """
+        Linear deployment configuration. See `linear_configuration` Block for details.
+        """
+        return pulumi.get(self, "linear_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumPercent")
+    def maximum_percent(self) -> _builtins.int:
+        """
+        Upper limit on tasks during deployment
+        """
+        return pulumi.get(self, "maximum_percent")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumHealthyPercent")
+    def minimum_healthy_percent(self) -> _builtins.int:
+        """
+        Lower limit on healthy tasks during deployment
+        """
+        return pulumi.get(self, "minimum_healthy_percent")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> _builtins.str:
+        """
+        Deployment strategy (ROLLING, BLUE_GREEN, LINEAR, or CANARY)
+        """
+        return pulumi.get(self, "strategy")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationAlarmResult(dict):
+    def __init__(__self__, *,
+                 alarm_names: Sequence[_builtins.str],
+                 enable: _builtins.bool,
+                 rollback: _builtins.bool):
+        """
+        :param Sequence[_builtins.str] alarm_names: List of CloudWatch alarm names
+        :param _builtins.bool enable: Whether circuit breaker is enabled
+        :param _builtins.bool rollback: Whether to rollback on failure
+        """
+        pulumi.set(__self__, "alarm_names", alarm_names)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> Sequence[_builtins.str]:
+        """
+        List of CloudWatch alarm names
+        """
+        return pulumi.get(self, "alarm_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Whether circuit breaker is enabled
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter
+    def rollback(self) -> _builtins.bool:
+        """
+        Whether to rollback on failure
+        """
+        return pulumi.get(self, "rollback")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationCanaryConfigurationResult(dict):
+    def __init__(__self__, *,
+                 canary_bake_time_in_minutes: _builtins.str,
+                 canary_percent: _builtins.float):
+        """
+        :param _builtins.str canary_bake_time_in_minutes: Time to wait before shifting remaining traffic
+        :param _builtins.float canary_percent: Percentage of traffic to route to canary deployment
+        """
+        pulumi.set(__self__, "canary_bake_time_in_minutes", canary_bake_time_in_minutes)
+        pulumi.set(__self__, "canary_percent", canary_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryBakeTimeInMinutes")
+    def canary_bake_time_in_minutes(self) -> _builtins.str:
+        """
+        Time to wait before shifting remaining traffic
+        """
+        return pulumi.get(self, "canary_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="canaryPercent")
+    def canary_percent(self) -> _builtins.float:
+        """
+        Percentage of traffic to route to canary deployment
+        """
+        return pulumi.get(self, "canary_percent")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationDeploymentCircuitBreakerResult(dict):
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 rollback: _builtins.bool):
+        """
+        :param _builtins.bool enable: Whether circuit breaker is enabled
+        :param _builtins.bool rollback: Whether to rollback on failure
+        """
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Whether circuit breaker is enabled
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter
+    def rollback(self) -> _builtins.bool:
+        """
+        Whether to rollback on failure
+        """
+        return pulumi.get(self, "rollback")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationLifecycleHookResult(dict):
+    def __init__(__self__, *,
+                 hook_details: _builtins.str,
+                 hook_target_arn: _builtins.str,
+                 lifecycle_stages: Sequence[_builtins.str],
+                 role_arn: _builtins.str):
+        """
+        :param _builtins.str hook_details: Additional details for the hook
+        :param _builtins.str hook_target_arn: ARN of the Lambda function to invoke
+        :param Sequence[_builtins.str] lifecycle_stages: Deployment stages when hook is invoked
+        :param _builtins.str role_arn: ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        pulumi.set(__self__, "hook_details", hook_details)
+        pulumi.set(__self__, "hook_target_arn", hook_target_arn)
+        pulumi.set(__self__, "lifecycle_stages", lifecycle_stages)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="hookDetails")
+    def hook_details(self) -> _builtins.str:
+        """
+        Additional details for the hook
+        """
+        return pulumi.get(self, "hook_details")
+
+    @_builtins.property
+    @pulumi.getter(name="hookTargetArn")
+    def hook_target_arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function to invoke
+        """
+        return pulumi.get(self, "hook_target_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleStages")
+    def lifecycle_stages(self) -> Sequence[_builtins.str]:
+        """
+        Deployment stages when hook is invoked
+        """
+        return pulumi.get(self, "lifecycle_stages")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that allows ECS to manage the target groups.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class GetServiceDeploymentConfigurationLinearConfigurationResult(dict):
+    def __init__(__self__, *,
+                 step_bake_time_in_minutes: _builtins.str,
+                 step_percent: _builtins.float):
+        """
+        :param _builtins.str step_bake_time_in_minutes: Time to wait between deployment steps
+        :param _builtins.float step_percent: Percentage of traffic to shift in each step
+        """
+        pulumi.set(__self__, "step_bake_time_in_minutes", step_bake_time_in_minutes)
+        pulumi.set(__self__, "step_percent", step_percent)
+
+    @_builtins.property
+    @pulumi.getter(name="stepBakeTimeInMinutes")
+    def step_bake_time_in_minutes(self) -> _builtins.str:
+        """
+        Time to wait between deployment steps
+        """
+        return pulumi.get(self, "step_bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="stepPercent")
+    def step_percent(self) -> _builtins.float:
+        """
+        Percentage of traffic to shift in each step
+        """
+        return pulumi.get(self, "step_percent")
+
+
+@pulumi.output_type
+class GetServiceDeploymentControllerResult(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str):
+        """
+        :param _builtins.str type: Constraint type
+        """
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Constraint type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceEventResult(dict):
+    def __init__(__self__, *,
+                 created_at: _builtins.str,
+                 id: _builtins.str,
+                 message: _builtins.str):
+        """
+        :param _builtins.str created_at: Time when task set was created (RFC3339 format)
+        :param _builtins.str id: Task set ID
+        :param _builtins.str message: Event message
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Time when task set was created (RFC3339 format)
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Task set ID
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Event message
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
 class GetServiceLoadBalancerResult(dict):
     def __init__(__self__, *,
                  advanced_configurations: Sequence['outputs.GetServiceLoadBalancerAdvancedConfigurationResult'],
@@ -4043,6 +4659,261 @@ class GetServiceLoadBalancerAdvancedConfigurationResult(dict):
         ARN of the listener rule that routes test traffic.
         """
         return pulumi.get(self, "test_listener_rule")
+
+
+@pulumi.output_type
+class GetServiceNetworkConfigurationResult(dict):
+    def __init__(__self__, *,
+                 assign_public_ip: _builtins.bool,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param _builtins.bool assign_public_ip: Whether tasks receive public IP addresses
+        :param Sequence[_builtins.str] security_groups: Security groups associated with tasks
+        :param Sequence[_builtins.str] subnets: Subnets associated with tasks
+        """
+        pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="assignPublicIp")
+    def assign_public_ip(self) -> _builtins.bool:
+        """
+        Whether tasks receive public IP addresses
+        """
+        return pulumi.get(self, "assign_public_ip")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        Security groups associated with tasks
+        """
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Subnets associated with tasks
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class GetServiceOrderedPlacementStrategyResult(dict):
+    def __init__(__self__, *,
+                 field: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str field: Field to apply placement strategy against
+        :param _builtins.str type: Constraint type
+        """
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> _builtins.str:
+        """
+        Field to apply placement strategy against
+        """
+        return pulumi.get(self, "field")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Constraint type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServicePlacementConstraintResult(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str expression: Cluster query language expression
+        :param _builtins.str type: Constraint type
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        Cluster query language expression
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Constraint type
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceServiceRegistryResult(dict):
+    def __init__(__self__, *,
+                 container_name: _builtins.str,
+                 container_port: _builtins.int,
+                 port: _builtins.int,
+                 registry_arn: _builtins.str):
+        """
+        :param _builtins.str container_name: Name of the container to associate with the load balancer.
+        :param _builtins.int container_port: Port on the container to associate with the load balancer.
+        :param _builtins.int port: Port value for service discovery
+        :param _builtins.str registry_arn: ARN of the service registry
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "container_port", container_port)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "registry_arn", registry_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> _builtins.str:
+        """
+        Name of the container to associate with the load balancer.
+        """
+        return pulumi.get(self, "container_name")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> _builtins.int:
+        """
+        Port on the container to associate with the load balancer.
+        """
+        return pulumi.get(self, "container_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port value for service discovery
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="registryArn")
+    def registry_arn(self) -> _builtins.str:
+        """
+        ARN of the service registry
+        """
+        return pulumi.get(self, "registry_arn")
+
+
+@pulumi.output_type
+class GetServiceTaskSetResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 created_at: _builtins.str,
+                 id: _builtins.str,
+                 pending_count: _builtins.int,
+                 running_count: _builtins.int,
+                 stability_status: _builtins.str,
+                 status: _builtins.str,
+                 task_definition: _builtins.str,
+                 updated_at: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the task set
+        :param _builtins.str created_at: Time when task set was created (RFC3339 format)
+        :param _builtins.str id: Task set ID
+        :param _builtins.int pending_count: Number of pending tasks
+        :param _builtins.int running_count: Number of running tasks
+        :param _builtins.str stability_status: Stability status of the task set
+        :param _builtins.str status: Task set status
+        :param _builtins.str task_definition: Task definition ARN
+        :param _builtins.str updated_at: Time when task set was last updated (RFC3339 format)
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "pending_count", pending_count)
+        pulumi.set(__self__, "running_count", running_count)
+        pulumi.set(__self__, "stability_status", stability_status)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "task_definition", task_definition)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the task set
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Time when task set was created (RFC3339 format)
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Task set ID
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingCount")
+    def pending_count(self) -> _builtins.int:
+        """
+        Number of pending tasks
+        """
+        return pulumi.get(self, "pending_count")
+
+    @_builtins.property
+    @pulumi.getter(name="runningCount")
+    def running_count(self) -> _builtins.int:
+        """
+        Number of running tasks
+        """
+        return pulumi.get(self, "running_count")
+
+    @_builtins.property
+    @pulumi.getter(name="stabilityStatus")
+    def stability_status(self) -> _builtins.str:
+        """
+        Stability status of the task set
+        """
+        return pulumi.get(self, "stability_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Task set status
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="taskDefinition")
+    def task_definition(self) -> _builtins.str:
+        """
+        Task definition ARN
+        """
+        return pulumi.get(self, "task_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> _builtins.str:
+        """
+        Time when task set was last updated (RFC3339 format)
+        """
+        return pulumi.get(self, "updated_at")
 
 
 @pulumi.output_type

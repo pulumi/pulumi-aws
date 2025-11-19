@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Wire the CodePipeline webhook into a GitHub repository.
- * const barRepositoryWebhook = new github.index.RepositoryWebhook("bar", {
+ * const barRepositoryWebhook = new github.RepositoryWebhook("bar", {
  *     repository: repo.name,
  *     name: "web",
  *     configuration: [{

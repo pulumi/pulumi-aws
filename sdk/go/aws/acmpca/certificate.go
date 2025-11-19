@@ -29,7 +29,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
+//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,14 +50,14 @@ import (
 //				return err
 //			}
 //			key, err := tls.NewPrivateKey(ctx, "key", &tls.PrivateKeyArgs{
-//				Algorithm: "RSA",
+//				Algorithm: pulumi.String("RSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
 //				PrivateKeyPem: key.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
+//				Subject: tls.CertRequestSubjectArgs{
 //					map[string]interface{}{
 //						"commonName": "example",
 //					},

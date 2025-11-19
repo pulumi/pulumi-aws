@@ -89,6 +89,10 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     */
+    declare public readonly maxRecordSizeInKib: pulumi.Output<number>;
+    /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -139,6 +143,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["encryptionType"] = state?.encryptionType;
             resourceInputs["enforceConsumerDeletion"] = state?.enforceConsumerDeletion;
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["maxRecordSizeInKib"] = state?.maxRecordSizeInKib;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["retentionPeriod"] = state?.retentionPeriod;
@@ -153,6 +158,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["encryptionType"] = args?.encryptionType;
             resourceInputs["enforceConsumerDeletion"] = args?.enforceConsumerDeletion;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["maxRecordSizeInKib"] = args?.maxRecordSizeInKib;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["retentionPeriod"] = args?.retentionPeriod;
@@ -187,6 +193,10 @@ export interface StreamState {
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     */
+    maxRecordSizeInKib?: pulumi.Input<number>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */
@@ -242,6 +252,10 @@ export interface StreamArgs {
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     */
+    maxRecordSizeInKib?: pulumi.Input<number>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      */

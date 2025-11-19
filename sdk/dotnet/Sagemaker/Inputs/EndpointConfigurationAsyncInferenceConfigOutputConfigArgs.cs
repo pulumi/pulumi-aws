@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
+        /// KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the configuration for notifications of inference results for asynchronous inference.
+        /// Configuration for notifications of inference results for asynchronous inference.
         /// </summary>
         [Input("notificationConfig")]
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs>? NotificationConfig { get; set; }
 
         /// <summary>
-        /// The Amazon S3 location to upload failure inference responses to.
+        /// S3 location to upload failure inference responses to.
         /// </summary>
         [Input("s3FailurePath")]
         public Input<string>? S3FailurePath { get; set; }
 
         /// <summary>
-        /// The Amazon S3 location to upload inference responses to.
+        /// S3 location to upload inference responses to.
         /// </summary>
         [Input("s3OutputPath", required: true)]
         public Input<string> S3OutputPath { get; set; } = null!;

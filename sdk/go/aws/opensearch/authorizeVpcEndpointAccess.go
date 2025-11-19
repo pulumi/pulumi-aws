@@ -50,10 +50,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name`. For example:
+// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
 //
 // ```sh
-// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678
+// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012
 // ```
 type AuthorizeVpcEndpointAccess struct {
 	pulumi.CustomResourceState

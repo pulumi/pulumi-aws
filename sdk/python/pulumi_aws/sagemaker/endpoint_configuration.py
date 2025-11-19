@@ -24,6 +24,7 @@ class EndpointConfigurationArgs:
                  production_variants: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]],
                  async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
                  data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
+                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,21 +33,24 @@ class EndpointConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EndpointConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: List each model that you want to host at this endpoint. See below.
+        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "production_variants", production_variants)
         if async_inference_config is not None:
             pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -64,7 +68,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="productionVariants")
     def production_variants(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]]:
         """
-        An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        List each model that you want to host at this endpoint. See below.
         """
         return pulumi.get(self, "production_variants")
 
@@ -76,7 +80,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="asyncInferenceConfig")
     def async_inference_config(self) -> Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]:
         """
-        Specifies configuration for how an endpoint performs asynchronous inference.
+        How an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "async_inference_config")
 
@@ -88,7 +92,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']]:
         """
-        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
 
@@ -97,10 +101,22 @@ class EndpointConfigurationArgs:
         pulumi.set(self, "data_capture_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -112,7 +128,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +140,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -148,7 +164,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
         """
         return pulumi.get(self, "shadow_production_variants")
 
@@ -160,7 +176,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -175,6 +191,7 @@ class _EndpointConfigurationState:
                  arn: Optional[pulumi.Input[_builtins.str]] = None,
                  async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
                  data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
+                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -185,17 +202,18 @@ class _EndpointConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointConfiguration resources.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this endpoint configuration.
+        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -203,6 +221,8 @@ class _EndpointConfigurationState:
             pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -224,7 +244,7 @@ class _EndpointConfigurationState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+        ARN assigned by AWS to this endpoint configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -236,7 +256,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="asyncInferenceConfig")
     def async_inference_config(self) -> Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]:
         """
-        Specifies configuration for how an endpoint performs asynchronous inference.
+        How an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "async_inference_config")
 
@@ -248,7 +268,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']]:
         """
-        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
 
@@ -257,10 +277,22 @@ class _EndpointConfigurationState:
         pulumi.set(self, "data_capture_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -272,7 +304,7 @@ class _EndpointConfigurationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -284,7 +316,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -296,7 +328,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="productionVariants")
     def production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]]]:
         """
-        An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        List each model that you want to host at this endpoint. See below.
         """
         return pulumi.get(self, "production_variants")
 
@@ -320,7 +352,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
         """
         return pulumi.get(self, "shadow_production_variants")
 
@@ -332,7 +364,7 @@ class _EndpointConfigurationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -344,7 +376,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -361,6 +393,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_inference_config: Optional[pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
                  data_capture_config: Optional[pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -403,15 +436,16 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -468,6 +502,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_inference_config: Optional[pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
                  data_capture_config: Optional[pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -486,6 +521,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
             __props__.__dict__["async_inference_config"] = async_inference_config
             __props__.__dict__["data_capture_config"] = data_capture_config
+            __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -510,6 +546,7 @@ class EndpointConfiguration(pulumi.CustomResource):
             arn: Optional[pulumi.Input[_builtins.str]] = None,
             async_inference_config: Optional[pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
             data_capture_config: Optional[pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+            execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
             kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
@@ -525,17 +562,18 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this endpoint configuration.
+        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -544,6 +582,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["async_inference_config"] = async_inference_config
         __props__.__dict__["data_capture_config"] = data_capture_config
+        __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -558,7 +597,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+        ARN assigned by AWS to this endpoint configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -566,7 +605,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="asyncInferenceConfig")
     def async_inference_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigurationAsyncInferenceConfig']]:
         """
-        Specifies configuration for how an endpoint performs asynchronous inference.
+        How an endpoint performs asynchronous inference.
         """
         return pulumi.get(self, "async_inference_config")
 
@@ -574,15 +613,23 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigurationDataCaptureConfig']]:
         """
-        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
+
+    @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
+        """
+        return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -590,7 +637,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -598,7 +645,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[_builtins.str]:
         """
-        Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
@@ -606,7 +653,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="productionVariants")
     def production_variants(self) -> pulumi.Output[Sequence['outputs.EndpointConfigurationProductionVariant']]:
         """
-        An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        List each model that you want to host at this endpoint. See below.
         """
         return pulumi.get(self, "production_variants")
 
@@ -622,7 +669,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="shadowProductionVariants")
     def shadow_production_variants(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariant']]]:
         """
-        Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroduction_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
         """
         return pulumi.get(self, "shadow_production_variants")
 
@@ -630,7 +677,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -638,7 +685,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

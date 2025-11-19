@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sns
     ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///             {
     ///                 Actions = new[]
     ///                 {
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sns
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "AWS:SourceOwner",
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sns
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                     {
     ///                         Type = "AWS",
     ///                         Identifiers = new[]

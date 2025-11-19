@@ -11,6 +11,7 @@ import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
+import com.pulumi.aws.opensearch.inputs.DomainIdentityCenterOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainOffPeakWindowOptionsArgs;
@@ -76,9 +77,17 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.advancedSecurityOptions);
     }
 
+    /**
+     * Configuration block for parameters required to enable all machine learning features. Detailed below.
+     * 
+     */
     @Import(name="aimlOptions")
     private @Nullable Output<DomainAimlOptionsArgs> aimlOptions;
 
+    /**
+     * @return Configuration block for parameters required to enable all machine learning features. Detailed below.
+     * 
+     */
     public Optional<Output<DomainAimlOptionsArgs>> aimlOptions() {
         return Optional.ofNullable(this.aimlOptions);
     }
@@ -209,6 +218,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
+    }
+
+    /**
+     * Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     * 
+     */
+    @Import(name="identityCenterOptions")
+    private @Nullable Output<DomainIdentityCenterOptionsArgs> identityCenterOptions;
+
+    /**
+     * @return Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainIdentityCenterOptionsArgs>> identityCenterOptions() {
+        return Optional.ofNullable(this.identityCenterOptions);
     }
 
     /**
@@ -361,6 +385,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.ebsOptions = $.ebsOptions;
         this.encryptAtRest = $.encryptAtRest;
         this.engineVersion = $.engineVersion;
+        this.identityCenterOptions = $.identityCenterOptions;
         this.ipAddressType = $.ipAddressType;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
@@ -453,11 +478,23 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             return advancedSecurityOptions(Output.of(advancedSecurityOptions));
         }
 
+        /**
+         * @param aimlOptions Configuration block for parameters required to enable all machine learning features. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aimlOptions(@Nullable Output<DomainAimlOptionsArgs> aimlOptions) {
             $.aimlOptions = aimlOptions;
             return this;
         }
 
+        /**
+         * @param aimlOptions Configuration block for parameters required to enable all machine learning features. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aimlOptions(DomainAimlOptionsArgs aimlOptions) {
             return aimlOptions(Output.of(aimlOptions));
         }
@@ -636,6 +673,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        /**
+         * @param identityCenterOptions Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityCenterOptions(@Nullable Output<DomainIdentityCenterOptionsArgs> identityCenterOptions) {
+            $.identityCenterOptions = identityCenterOptions;
+            return this;
+        }
+
+        /**
+         * @param identityCenterOptions Configuration block for enabling and managing IAM Identity Center integration within a domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityCenterOptions(DomainIdentityCenterOptionsArgs identityCenterOptions) {
+            return identityCenterOptions(Output.of(identityCenterOptions));
         }
 
         /**

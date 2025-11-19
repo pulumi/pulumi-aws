@@ -221,6 +221,76 @@ import (
 //
 // ```
 //
+// ### Linear Deployment Strategy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
+//				DeploymentConfiguration: &ecs.ServiceDeploymentConfigurationArgs{
+//					Strategy:          pulumi.String("LINEAR"),
+//					BakeTimeInMinutes: pulumi.String("10"),
+//					LinearConfiguration: &ecs.ServiceDeploymentConfigurationLinearConfigurationArgs{
+//						StepPercent:           pulumi.Float64(25),
+//						StepBakeTimeInMinutes: pulumi.String("5"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Canary Deployment Strategy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
+//				DeploymentConfiguration: &ecs.ServiceDeploymentConfigurationArgs{
+//					Strategy:          pulumi.String("CANARY"),
+//					BakeTimeInMinutes: pulumi.String("15"),
+//					CanaryConfiguration: &ecs.ServiceDeploymentConfigurationCanaryConfigurationArgs{
+//						CanaryPercent:           pulumi.Float64(10),
+//						CanaryBakeTimeInMinutes: pulumi.String("5"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Redeploy Service On Every Apply
 //
 // The key used with `triggers` is arbitrary.

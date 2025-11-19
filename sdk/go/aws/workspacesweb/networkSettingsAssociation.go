@@ -32,104 +32,109 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// State: pulumi.StringRef("available"),
+// Filters: []aws.GetAvailabilityZonesFilter{
+// {
+// Name: "opt-in-status",
+// Values: []string{
+// "opt-in-not-required",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+// CidrBlock: pulumi.String("10.0.0.0/16"),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("example"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// var exampleSubnet []*ec2.Subnet
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var exampleSubnet []*ec2.Subnet
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					VpcId: example.ID(),
-//					CidrBlock: pulumi.String(example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-//						return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-//							Input:   cidrBlock,
-//							Newbits: 8,
-//							Netnum:  val0,
-//						}, nil))), nil
-//					}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput)),
-//					AvailabilityZone: pulumi.String(available.Names[val0]),
-//					Tags: pulumi.StringMap{
-//						"Name": pulumi.String("example"),
-//					},
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleSubnet = append(exampleSubnet, __res)
-//			}
-//			var exampleSecurityGroup []*ec2.SecurityGroup
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewSecurityGroup(ctx, fmt.Sprintf("example-%v", key0), &ec2.SecurityGroupArgs{
-//					VpcId: example.ID(),
-//					Name:  pulumi.Sprintf("example-%v", val0),
-//					Tags: pulumi.StringMap{
-//						"Name": pulumi.String("example"),
-//					},
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleSecurityGroup = append(exampleSecurityGroup, __res)
-//			}
-//			examplePortal, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
-//				DisplayName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkSettings, err := workspacesweb.NewNetworkSettings(ctx, "example", &workspacesweb.NetworkSettingsArgs{
-//				VpcId: example.ID(),
-//				SubnetIds: pulumi.StringArray{
-//					exampleSubnet[0].ID(),
-//					exampleSubnet[1].ID(),
-//				},
-//				SecurityGroupIds: pulumi.StringArray{
-//					exampleSecurityGroup[0].ID(),
-//					exampleSecurityGroup[1].ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspacesweb.NewNetworkSettingsAssociation(ctx, "example", &workspacesweb.NetworkSettingsAssociationArgs{
-//				NetworkSettingsArn: exampleNetworkSettings.NetworkSettingsArn,
-//				PortalArn:          examplePortal.PortalArn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
 //
+// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+// VpcId: example.ID(),
+// CidrBlock: pulumi.String(example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// AvailabilityZone: pulumi.String(available.Names[val0]),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("example"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet = append(exampleSubnet, __res)
+// }
+// var exampleSecurityGroup []*ec2.SecurityGroup
+//
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := ec2.NewSecurityGroup(ctx, fmt.Sprintf("example-%v", key0), &ec2.SecurityGroupArgs{
+// VpcId: example.ID(),
+// Name: pulumi.Sprintf("example-%v", val0),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("example"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleSecurityGroup = append(exampleSecurityGroup, __res)
+// }
+// examplePortal, err := workspacesweb.NewPortal(ctx, "example", &workspacesweb.PortalArgs{
+// DisplayName: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkSettings, err := workspacesweb.NewNetworkSettings(ctx, "example", &workspacesweb.NetworkSettingsArgs{
+// VpcId: example.ID(),
+// SubnetIds: pulumi.StringArray{
+// exampleSubnet[0].ID(),
+// exampleSubnet[1].ID(),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// exampleSecurityGroup[0].ID(),
+// exampleSecurityGroup[1].ID(),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = workspacesweb.NewNetworkSettingsAssociation(ctx, "example", &workspacesweb.NetworkSettingsAssociationArgs{
+// NetworkSettingsArn: exampleNetworkSettings.NetworkSettingsArn,
+// PortalArn: examplePortal.PortalArn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type NetworkSettingsAssociation struct {
 	pulumi.CustomResourceState

@@ -190,6 +190,7 @@ import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspector2 from "./inspector2";
+import * as invoicing from "./invoicing";
 import * as iot from "./iot";
 import * as ivs from "./ivs";
 import * as ivschat from "./ivschat";
@@ -221,10 +222,12 @@ import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
+import * as networkflowmonitor from "./networkflowmonitor";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
 import * as notifications from "./notifications";
 import * as oam from "./oam";
+import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
@@ -417,6 +420,7 @@ export {
     imagebuilder,
     inspector,
     inspector2,
+    invoicing,
     iot,
     ivs,
     ivschat,
@@ -448,10 +452,12 @@ export {
     neptune,
     neptunegraph,
     networkfirewall,
+    networkflowmonitor,
     networkmanager,
     networkmonitor,
     notifications,
     oam,
+    observabilityadmin,
     odb,
     opensearch,
     opensearchingest,

@@ -78,98 +78,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/endpointConfiguration:EndpointConfiguration")
 public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+     * ARN assigned by AWS to this endpoint configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+     * @return ARN assigned by AWS to this endpoint configuration.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * How an endpoint performs asynchronous inference.
      * 
      */
     @Export(name="asyncInferenceConfig", refs={EndpointConfigurationAsyncInferenceConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationAsyncInferenceConfig> asyncInferenceConfig;
 
     /**
-     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * @return How an endpoint performs asynchronous inference.
      * 
      */
     public Output<Optional<EndpointConfigurationAsyncInferenceConfig>> asyncInferenceConfig() {
         return Codegen.optional(this.asyncInferenceConfig);
     }
     /**
-     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     @Export(name="dataCaptureConfig", refs={EndpointConfigurationDataCaptureConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+     * @return Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     public Output<Optional<EndpointConfigurationDataCaptureConfig>> dataCaptureConfig() {
         return Codegen.optional(this.dataCaptureConfig);
     }
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     * 
+     */
+    @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> executionRoleArn;
+
+    /**
+     * @return ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `modelName` is not specified in `productionVariants` to support Inference Components.
+     * 
+     */
+    public Output<Optional<String>> executionRoleArn() {
+        return Codegen.optional(this.executionRoleArn);
+    }
+    /**
+     * ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * @return ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+     * @return Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
     /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * List each model that you want to host at this endpoint. See below.
      * 
      */
     @Export(name="productionVariants", refs={List.class,EndpointConfigurationProductionVariant.class}, tree="[0,1]")
     private Output<List<EndpointConfigurationProductionVariant>> productionVariants;
 
     /**
-     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+     * @return List each model that you want to host at this endpoint. See below.
      * 
      */
     public Output<List<EndpointConfigurationProductionVariant>> productionVariants() {
@@ -190,42 +204,42 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     @Export(name="shadowProductionVariants", refs={List.class,EndpointConfigurationShadowProductionVariant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointConfigurationShadowProductionVariant>> shadowProductionVariants;
 
     /**
-     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+     * @return Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     public Output<Optional<List<EndpointConfigurationShadowProductionVariant>>> shadowProductionVariants() {
         return Codegen.optional(this.shadowProductionVariants);
     }
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

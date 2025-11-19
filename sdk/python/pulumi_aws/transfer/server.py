@@ -85,6 +85,7 @@ class ServerArgs:
                * `TransferSecurityPolicy-Restricted-2020-06`
                * `TransferSecurityPolicy-Restricted-2024-06`
                * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+               * `TransferSecurityPolicy-AS2Restricted-2025-07`
                
                See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
@@ -370,6 +371,7 @@ class ServerArgs:
         * `TransferSecurityPolicy-Restricted-2020-06`
         * `TransferSecurityPolicy-Restricted-2024-06`
         * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+        * `TransferSecurityPolicy-AS2Restricted-2025-07`
 
         See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         """
@@ -514,6 +516,7 @@ class _ServerState:
                * `TransferSecurityPolicy-Restricted-2020-06`
                * `TransferSecurityPolicy-Restricted-2024-06`
                * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+               * `TransferSecurityPolicy-AS2Restricted-2025-07`
                
                See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
@@ -844,6 +847,7 @@ class _ServerState:
         * `TransferSecurityPolicy-Restricted-2020-06`
         * `TransferSecurityPolicy-Restricted-2024-06`
         * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+        * `TransferSecurityPolicy-AS2Restricted-2025-07`
 
         See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         """
@@ -1121,6 +1125,7 @@ class Server(pulumi.CustomResource):
                * `TransferSecurityPolicy-Restricted-2020-06`
                * `TransferSecurityPolicy-Restricted-2024-06`
                * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+               * `TransferSecurityPolicy-AS2Restricted-2025-07`
                
                See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
@@ -1421,6 +1426,7 @@ class Server(pulumi.CustomResource):
                * `TransferSecurityPolicy-Restricted-2020-06`
                * `TransferSecurityPolicy-Restricted-2024-06`
                * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+               * `TransferSecurityPolicy-AS2Restricted-2025-07`
                
                See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         :param pulumi.Input[_builtins.str] sftp_authentication_methods: For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
@@ -1649,6 +1655,7 @@ class Server(pulumi.CustomResource):
         * `TransferSecurityPolicy-Restricted-2020-06`
         * `TransferSecurityPolicy-Restricted-2024-06`
         * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
+        * `TransferSecurityPolicy-AS2Restricted-2025-07`
 
         See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         """

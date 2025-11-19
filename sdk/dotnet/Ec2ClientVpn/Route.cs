@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the route destination.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
         /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the route destination.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
         /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the route destination.
+        /// The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
         /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }

@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreAgentRuntime = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example-agent-runtime",
+    ///         AgentRuntimeName = "example_agent_runtime",
     ///         RoleArn = example.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example-agent-runtime",
+    ///         AgentRuntimeName = "example_agent_runtime",
     ///         Description = "Agent runtime with JWT authorization",
     ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs

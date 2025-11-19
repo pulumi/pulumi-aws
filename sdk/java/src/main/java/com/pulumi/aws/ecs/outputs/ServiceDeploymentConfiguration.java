@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceDeploymentConfigurationCanaryConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceDeploymentConfigurationLifecycleHook;
+import com.pulumi.aws.ecs.outputs.ServiceDeploymentConfigurationLinearConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -14,28 +16,45 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceDeploymentConfiguration {
     /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
      * 
      */
     private @Nullable String bakeTimeInMinutes;
+    /**
+     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+     * 
+     */
+    private @Nullable ServiceDeploymentConfigurationCanaryConfiguration canaryConfiguration;
     /**
      * @return Configuration block for lifecycle hooks that are invoked during deployments. See below.
      * 
      */
     private @Nullable List<ServiceDeploymentConfigurationLifecycleHook> lifecycleHooks;
     /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+     * 
+     */
+    private @Nullable ServiceDeploymentConfigurationLinearConfiguration linearConfiguration;
+    /**
+     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
      * 
      */
     private @Nullable String strategy;
 
     private ServiceDeploymentConfiguration() {}
     /**
-     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Only used when `strategy` is set to `BLUE_GREEN`.
+     * @return Number of minutes to wait after a new deployment is fully provisioned before terminating the old deployment. Valid range: 0-1440 minutes. Used with `BLUE_GREEN`, `LINEAR`, and `CANARY` strategies.
      * 
      */
     public Optional<String> bakeTimeInMinutes() {
         return Optional.ofNullable(this.bakeTimeInMinutes);
+    }
+    /**
+     * @return Configuration block for canary deployment strategy. Required when `strategy` is set to `CANARY`. See below.
+     * 
+     */
+    public Optional<ServiceDeploymentConfigurationCanaryConfiguration> canaryConfiguration() {
+        return Optional.ofNullable(this.canaryConfiguration);
     }
     /**
      * @return Configuration block for lifecycle hooks that are invoked during deployments. See below.
@@ -45,7 +64,14 @@ public final class ServiceDeploymentConfiguration {
         return this.lifecycleHooks == null ? List.of() : this.lifecycleHooks;
     }
     /**
-     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`. Default: `ROLLING`.
+     * @return Configuration block for linear deployment strategy. Required when `strategy` is set to `LINEAR`. See below.
+     * 
+     */
+    public Optional<ServiceDeploymentConfigurationLinearConfiguration> linearConfiguration() {
+        return Optional.ofNullable(this.linearConfiguration);
+    }
+    /**
+     * @return Type of deployment strategy. Valid values: `ROLLING`, `BLUE_GREEN`, `LINEAR`, `CANARY`. Default: `ROLLING`.
      * 
      */
     public Optional<String> strategy() {
@@ -62,13 +88,17 @@ public final class ServiceDeploymentConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String bakeTimeInMinutes;
+        private @Nullable ServiceDeploymentConfigurationCanaryConfiguration canaryConfiguration;
         private @Nullable List<ServiceDeploymentConfigurationLifecycleHook> lifecycleHooks;
+        private @Nullable ServiceDeploymentConfigurationLinearConfiguration linearConfiguration;
         private @Nullable String strategy;
         public Builder() {}
         public Builder(ServiceDeploymentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bakeTimeInMinutes = defaults.bakeTimeInMinutes;
+    	      this.canaryConfiguration = defaults.canaryConfiguration;
     	      this.lifecycleHooks = defaults.lifecycleHooks;
+    	      this.linearConfiguration = defaults.linearConfiguration;
     	      this.strategy = defaults.strategy;
         }
 
@@ -76,6 +106,12 @@ public final class ServiceDeploymentConfiguration {
         public Builder bakeTimeInMinutes(@Nullable String bakeTimeInMinutes) {
 
             this.bakeTimeInMinutes = bakeTimeInMinutes;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder canaryConfiguration(@Nullable ServiceDeploymentConfigurationCanaryConfiguration canaryConfiguration) {
+
+            this.canaryConfiguration = canaryConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -88,6 +124,12 @@ public final class ServiceDeploymentConfiguration {
             return lifecycleHooks(List.of(lifecycleHooks));
         }
         @CustomType.Setter
+        public Builder linearConfiguration(@Nullable ServiceDeploymentConfigurationLinearConfiguration linearConfiguration) {
+
+            this.linearConfiguration = linearConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder strategy(@Nullable String strategy) {
 
             this.strategy = strategy;
@@ -96,7 +138,9 @@ public final class ServiceDeploymentConfiguration {
         public ServiceDeploymentConfiguration build() {
             final var _resultValue = new ServiceDeploymentConfiguration();
             _resultValue.bakeTimeInMinutes = bakeTimeInMinutes;
+            _resultValue.canaryConfiguration = canaryConfiguration;
             _resultValue.lifecycleHooks = lifecycleHooks;
+            _resultValue.linearConfiguration = linearConfiguration;
             _resultValue.strategy = strategy;
             return _resultValue;
         }
