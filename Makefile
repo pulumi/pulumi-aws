@@ -13,6 +13,7 @@ WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
 PULUMI_CONVERT := 1
 PULUMI_MISSING_DOCS_ERROR := true
+SDK_LANG ?= all
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
@@ -54,21 +55,18 @@ mise_env:
 	@touch $@
 
 # Build the provider and all SDKs and install ready for testing
-build: .make/mise_install provider build_sdks install_sdks
+build: .make/mise_install provider build_sdks
 build: | mise_env
 # Keep aliases for old targets to ensure backwards compatibility
 development: build
 only_build: build
 # Prepare the workspace for building the provider and SDKs
-# Importantly this is run by CI ahead of restoring the bin directory and resuming SDK builds
+# Importantly this is run by CI ahead of restoring the bin directory
 prepare_local_workspace: .make/mise_install upstream
 prepare_local_workspace: | mise_env
-# Creates all generated files which need to be committed
-generate: generate_sdks schema
-generate_sdks: generate_nodejs generate_python generate_dotnet generate_go generate_java
-build_sdks: build_nodejs build_python build_dotnet build_go build_java
-install_sdks: install_nodejs_sdk install_python_sdk install_dotnet_sdk install_go_sdk install_java_sdk
-.PHONY: development only_build build generate generate_sdks build_sdks install_sdks mise_install mise_env
+# Creates all generated files of which the schema is committed
+generate: build_sdks schema
+.PHONY: development only_build build generate build_sdks mise_install mise_env
 
 help:
 	@echo "Usage: make [target]"
@@ -84,9 +82,7 @@ help:
 	@echo ""
 	@echo "More Precise Targets"
 	@echo "  schema        Generate the schema"
-	@echo "  generate_sdks Generate all SDKs"
 	@echo "  build_sdks    Build all SDKs"
-	@echo "  install_sdks  Install all SDKs"
 	@echo "  provider_dist Build and package the provider for all platforms"
 	@echo ""
 	@echo "Tool Targets"
@@ -98,12 +94,7 @@ help:
 	@echo "  mise_install             Install tools with mise"
 	@echo "  upstream                 Initialize the upstream submodule, if present"
 	@echo ""
-	@echo "Language-Specific Targets"
-	@echo "  generate_[language]    Generate the SDK files ready for committing"
-	@echo "  build_[language]       Build the SDK to check correctness"
-	@echo "  install_[language]_sdk Install the SDK ready for testing"
-	@echo ""
-	@echo "  [language] = nodejs python dotnet go java"
+	@echo "  [SDK_LANG] = nodejs python dotnet go java"
 	@echo ""
 .PHONY: help
 
@@ -111,83 +102,21 @@ GEN_PULUMI_HOME := $(WORKING_DIR)/.pulumi
 GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(GEN_PULUMI_HOME)/examples-cache
 GEN_ENVS := PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR) PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT)
 
-generate_dotnet: .make/generate_dotnet
-build_dotnet: .make/build_dotnet
-.make/generate_dotnet: .make/mise_install bin/$(CODEGEN)
-.make/generate_dotnet: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) dotnet --out sdk/dotnet/
-	cd sdk/dotnet/ && \
-		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
-		echo "$(PROVIDER_VERSION)" >version.txt
+build_sdks: .make/build_sdks
+.make/build_sdks: .make/schema
+	provider-sdk-builder build-sdks --providerName $(PACK) --language $(SDK_LANG) --version $(PROVIDER_VERSION)
 	@touch $@
-.make/build_dotnet: .make/generate_dotnet
-	cd sdk/dotnet/ && dotnet build
-	@touch $@
-.PHONY: generate_dotnet build_dotnet
-
-generate_go: .make/generate_go
-build_go: .make/build_go
-.make/generate_go: .make/mise_install bin/$(CODEGEN)
-.make/generate_go: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) go --out sdk/go/
-	@touch $@
-.make/build_go: .make/generate_go
-	cd sdk && go list "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..." | xargs -I {} bash -c 'go build {} && go clean -i {}'
-	@touch $@
-.PHONY: generate_go build_go
-
-generate_java: .make/generate_java
-build_java: .make/build_java
-.make/generate_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
-.make/generate_java: .make/mise_install bin/$(CODEGEN)
-.make/generate_java: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) java --out sdk/java/
-	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
-	@touch $@
-.make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
-.make/build_java: .make/generate_java
-	cd sdk/java/ && \
-		gradle --console=plain build && \
-		gradle --console=plain javadoc
-	@touch $@
-.PHONY: generate_java build_java
-
-generate_nodejs: .make/generate_nodejs
-build_nodejs: .make/build_nodejs
-.make/generate_nodejs: .make/mise_install bin/$(CODEGEN)
-.make/generate_nodejs: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) nodejs --out sdk/nodejs/
-	printf "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/nodejs/go.mod
-	@touch $@
-.make/build_nodejs: .make/generate_nodejs
-	cd sdk/nodejs/ && \
-		yarn install && \
-		yarn run tsc && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
-	@touch $@
-.PHONY: generate_nodejs build_nodejs
-
-generate_python: .make/generate_python
-build_python: .make/build_python
-.make/generate_python: .make/mise_install bin/$(CODEGEN)
-.make/generate_python: | mise_env
-	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) python --out sdk/python/
-	printf "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/python/go.mod
-	cp README.md sdk/python/
-	@touch $@
-.make/build_python: .make/generate_python
-	cd sdk/python/ && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		rm ./bin/go.mod && \
-		python3 -m venv venv && \
-		./venv/bin/python -m pip install build==1.2.1 && \
-		cd ./bin && \
-		../venv/bin/python -m build .
-	@touch $@
-.PHONY: generate_python build_python
+.PHONY: build_sdks
 
 clean:
-	rm -rf sdk/{dotnet,nodejs,go,python}
+	
+	rm -rf sdk/dotnet 
+	rm -rf sdk/go
+	rm -rf sdk/java
+	rm -rf sdk/nodejs
+	rm -rf sdk/python
+	rm -rf sdk/language-schemas
+
 	rm -rf bin/*
 	rm -rf .make/*
 	rm -rf "$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR)"
@@ -195,23 +124,6 @@ clean:
 		dotnet nuget remove source "$(WORKING_DIR)/nuget" \
 	; fi
 .PHONY: clean
-
-install_dotnet_sdk: .make/install_dotnet_sdk
-.make/install_dotnet_sdk: .make/build_dotnet
-	mkdir -p nuget
-	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p "{}" ${WORKING_DIR}/nuget \;
-	if ! dotnet nuget list source | grep "${WORKING_DIR}/nuget"; then \
-		dotnet nuget add source "${WORKING_DIR}/nuget" --name "${WORKING_DIR}/nuget" \
-	; fi
-	@touch $@
-install_go_sdk:
-install_java_sdk:
-install_nodejs_sdk: .make/install_nodejs_sdk
-.make/install_nodejs_sdk: .make/build_nodejs
-	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
-	@touch $@
-install_python_sdk:
-.PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
 lint_provider: upstream
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
