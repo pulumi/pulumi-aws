@@ -14,6 +14,13 @@ runs:
       with:
         name: ${{ inputs.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
+    - name: Uncompress SDK folder (Unix)
+      if: runner.os != 'Windows'
       shell: bash
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ inputs.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ inputs.language }}
+      run: mkdir -p ${{ github.workspace }}/sdk/${{ inputs.language }} && tar -zxf ${{ github.workspace }}/sdk/${{ inputs.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ inputs.language }}
+    - name: Uncompress SDK folder (Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        New-Item -ItemType Directory -Force -Path "${{ github.workspace }}/sdk/${{ inputs.language }}" | Out-Null
+        tar -zxf "${{ github.workspace }}/sdk/${{ inputs.language }}.tar.gz" -C "${{ github.workspace }}/sdk/${{ inputs.language }}"
