@@ -28,6 +28,15 @@ url_api = ""
 version = "1.24.10"
 backend = "core:go"
 
+[tools.go.platforms.linux-x64]
+checksum = "sha256:dd52b974e3d9c5a7bbfb222c685806def6be5d6f7efd10f9caa9ca1fa2f47955"
+size = 78693970
+url = "https://dl.google.com/go/go1.24.10.linux-amd64.tar.gz"
+
+[[tools."go:github.com/pulumi/provider-sdk-builder"]]
+version = "0.0.6"
+backend = "go:github.com/pulumi/provider-sdk-builder"
+
 [[tools.golangci-lint]]
 version = "1.64.8"
 backend = "aqua:golangci/golangci-lint"
@@ -71,6 +80,11 @@ backend = "npm:yarn"
 [[tools.pulumi]]
 version = "3.207.0"
 backend = "aqua:pulumi/pulumi"
+
+[tools.pulumi.platforms.linux-x64]
+checksum = "sha256:6ebc94fdf98833f4573b6a086f636f53c59245a490f516e03b875dabc41514a6"
+size = 94603881
+url = "https://github.com/pulumi/pulumi/releases/download/v3.207.0/pulumi-v3.207.0-linux-x64.tar.gz"
 
 [[tools.python]]
 version = "3.11.8"
